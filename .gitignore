@@ -1,0 +1,17 @@
+# Do not upload the offline mirror
+mirror/
+
+# Do not upload generated Excel outputs
+*.xlsx
+
+# Python junk
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+footbag_venv/
+
+# OS junk
+.DS_Store
