@@ -30,18 +30,27 @@ python3 02_canonicalize_results.py --save-baseline
 
 ---
 
-## Current Pipeline Stats (2026-02-04)
+## Current Pipeline Stats (2026-02-05)
 
-| Metric | Value |
-|--------|-------|
-| Total events | 777 |
-| Total placements | 22,962 |
-| QC errors | 0 |
-| QC warnings | 0 |
-| Parse confidence (high) | 96.1% |
-| Unknown divisions | 279 (1.2%) |
-| Year coverage | 99.2% (771/777) |
-| Location coverage | 100% |
+| Metric | Value | Change |
+|--------|-------|--------|
+| Total events | 777 | - |
+| Total placements | 22,962 | - |
+| **Stage 1 QC** | | |
+| - Errors | 0 | - |
+| - Warnings | 30 | - |
+| - Info | 17 | - |
+| **Stage 2 QC** | | |
+| - Errors | 0 | ✓ |
+| - Warnings | 81 | ↓ 45% |
+| Parse confidence (high) | 96.1% | - |
+| Unknown divisions | 279 (1.2%) | - |
+| Year coverage | 99.2% (771/777) | - |
+| Location coverage | 100% | - |
+| **Cross-Validation** | | |
+| - Events with all unknown divs | 47 | ↓ 43% |
+| - Net events missing net divs | 2 | ↓ 93% |
+| - Freestyle events missing freestyle | 1 | ↓ 83% |
 
 ---
 
@@ -167,8 +176,45 @@ Valid event types: `freestyle`, `net`, `worlds`, `mixed`, `social`, `golf`
 
 ## QC System
 
+### QC Philosophy
+
+#### Don't Assume Stage 1 is Correct
+Stage 1 extraction can fail silently. We validate at every stage:
+- Did HTML parsing capture the expected elements?
+- Did results extraction work when results are present?
+- Does Stage 2 data make logical sense given the event type?
+
+#### Three-Tier Validation Model
+
+| Tier | Stage | Question | Output |
+|------|-------|----------|--------|
+| 1 | Stage 1 | Did we extract correctly? | stage1_qc_*.json |
+| 2 | Stage 2 | Does data make sense? | stage2_qc_*.json |
+| 3 | Cross | Was info preserved? | Comparison checks |
+
+#### Severity Definitions
+
+| Severity | Gate Rule | Action |
+|----------|-----------|--------|
+| ERROR | Must not increase vs baseline | Fix before release |
+| WARN | Review if increases | Document if accepted |
+| INFO | Logged for trends | No action required |
+
+#### Expected Divisions by Event Type
+
+| Type | Required (ERROR) | Expected (WARN) |
+|------|------------------|-----------------|
+| worlds | net | freestyle |
+| net | net | - |
+| freestyle | freestyle | - |
+| mixed | - | net OR freestyle |
+| golf | golf | - |
+| social | - | - |
+
 ### QC Artifacts (generated every run)
 
+- `out/stage1_qc_summary.json`: Stage 1 extraction validation
+- `out/stage1_qc_issues.jsonl`: Stage 1 issues (one per line)
 - `out/stage2_qc_summary.json`: Aggregated counts, field coverage, parse stats
 - `out/stage2_qc_issues.jsonl`: One issue per line with check_id, severity, event_id
 
@@ -180,7 +226,21 @@ Gate rules:
 - ERROR counts must never increase vs baseline
 - WARN counts should not increase unless justified
 
-### Field-Level Checks
+### Stage 1 QC Checks (Extraction Validation)
+
+| check_id | Severity | Description |
+|----------|----------|-------------|
+| `s1_results_empty` | WARN | Event has location/date but no results_block_raw |
+| `s1_results_short` | INFO | results_block_raw < 50 chars (may be incomplete) |
+| `s1_results_has_patterns_but_empty` | ERROR | HTML has numbered entries but extraction failed |
+| `s1_html_no_events_results_div` | WARN | Could not find div.eventsResults |
+| `s1_html_no_pre_block` | INFO | No pre.eventsPre found |
+| `s1_location_missing` | ERROR | location_raw empty (not a known broken source) |
+| `s1_date_missing` | WARN | date_raw empty |
+| `s1_year_not_found` | WARN | No year in date or title |
+| `s1_event_name_missing` | ERROR | No event name extracted |
+
+### Stage 2 Field-Level Checks
 
 | Field | Checks |
 |-------|--------|
@@ -191,6 +251,18 @@ Gate rules:
 | `location` | Required; no URLs/emails; reasonable length |
 | `event_type` | Valid enum value |
 | `placements_json` | Valid JSON; schema validation |
+
+### Stage 2 Cross-Validation Checks
+
+| check_id | Severity | Description |
+|----------|----------|-------------|
+| `cv_worlds_missing_net` | ERROR | Worlds event has no net divisions |
+| `cv_worlds_missing_freestyle` | WARN | Worlds event has no freestyle divisions |
+| `cv_net_event_no_net_divs` | WARN | event_type=net but no net divisions |
+| `cv_freestyle_event_no_freestyle_divs` | WARN | event_type=freestyle but no freestyle |
+| `cv_all_unknown_divisions` | WARN | All placements have division_category=unknown |
+| `cv_doubles_unsplit_team` | WARN | Doubles with single player (missed separator) |
+| `cv_year_date_mismatch` | ERROR | Year field differs from year in date |
 
 ---
 

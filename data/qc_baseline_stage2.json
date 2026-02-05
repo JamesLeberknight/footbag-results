@@ -1,8 +1,29 @@
 {
   "total_records": 777,
   "total_errors": 0,
-  "total_warnings": 0,
-  "counts_by_check": {},
+  "total_warnings": 81,
+  "counts_by_check": {
+    "cv_all_unknown_divisions": {
+      "ERROR": 0,
+      "WARN": 47
+    },
+    "cv_net_event_no_net_divs": {
+      "ERROR": 0,
+      "WARN": 2
+    },
+    "cv_doubles_unsplit_team": {
+      "ERROR": 0,
+      "WARN": 26
+    },
+    "cv_freestyle_event_no_freestyle_divs": {
+      "ERROR": 0,
+      "WARN": 1
+    },
+    "cv_worlds_missing_freestyle": {
+      "ERROR": 0,
+      "WARN": 5
+    }
+  },
   "field_coverage": {
     "event_id": {
       "present": 777,

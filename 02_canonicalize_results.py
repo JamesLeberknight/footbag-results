@@ -30,6 +30,34 @@ VALID_EVENT_TYPES = {"freestyle", "net", "worlds", "mixed", "social", "golf", ""
 YEAR_MIN = 1970
 YEAR_MAX = 2030
 
+# Expected divisions by event type for cross-validation
+EXPECTED_DIVISIONS = {
+    "worlds": {
+        "required": ["net"],        # ERROR if missing
+        "expected": ["freestyle"],  # WARN if missing
+    },
+    "net": {
+        "required": ["net"],
+        "expected": [],
+    },
+    "freestyle": {
+        "required": ["freestyle"],
+        "expected": [],
+    },
+    "golf": {
+        "required": ["golf"],
+        "expected": [],
+    },
+    "mixed": {
+        "required": [],
+        "expected": [],  # Can have net, freestyle, or both
+    },
+    "social": {
+        "required": [],
+        "expected": [],
+    },
+}
+
 # Known broken source events (SQL errors in original HTML mirror)
 # Decision: 2026-02 - These 9 events exist in the mirror but have SQL errors.
 # The original footbag.org site had unescaped apostrophes that broke queries.
@@ -293,7 +321,7 @@ ABBREVIATED_DIVISIONS = {
 }
 
 
-def categorize_division(division_name: str) -> str:
+def categorize_division(division_name: str, event_type: str = None) -> str:
     """
     Categorize a division name into: net, freestyle, golf, or unknown.
 
@@ -301,10 +329,11 @@ def categorize_division(division_name: str) -> str:
     1. If contains NET keyword (e.g., "net") → "net"
     2. If contains FREESTYLE keyword (e.g., "shred", "routine") → "freestyle"
     3. If contains GOLF keyword → "golf"
-    4. Otherwise → "unknown"
+    4. If ambiguous but event_type is known → use event_type
+    5. Otherwise → "unknown"
 
     Note: "Singles", "Doubles", "Mixed", "Open", "Intermediate" alone are AMBIGUOUS
-    and will return "unknown" unless combined with a category-specific keyword.
+    but can be inferred from event_type context.
     """
     if not division_name:
         return "unknown"
@@ -331,8 +360,22 @@ def categorize_division(division_name: str) -> str:
         if keyword in low:
             return "sideline"
 
-    # Ambiguous - could be net or freestyle
-    # e.g., "Open Singles", "Doubles", "Intermediate"
+    # Ambiguous division name - use event context if available
+    # e.g., "Open Singles", "Doubles", "Intermediate" could be net or freestyle
+    if event_type:
+        event_type_lower = event_type.lower()
+        # If event is clearly net or freestyle, use that
+        if event_type_lower == "net":
+            return "net"
+        elif event_type_lower == "freestyle":
+            return "freestyle"
+        elif event_type_lower == "golf":
+            return "golf"
+        elif event_type_lower == "worlds":
+            # For worlds, we can't infer - divisions must be explicit
+            return "unknown"
+        # For "mixed" or "social", stay unknown
+
     return "unknown"
 
 
@@ -658,10 +701,15 @@ def infer_division_from_event_name(event_name: str, placements: list = None, eve
     return None
 
 
-def parse_results_text(results_text: str, event_id: str) -> list[dict]:
+def parse_results_text(results_text: str, event_id: str, event_type: str = None) -> list[dict]:
     """
     Parse results text into structured placements.
     Returns list of placement dicts with confidence scoring.
+
+    Args:
+        results_text: Raw results text to parse
+        event_id: Event identifier
+        event_type: Event type for context (net, freestyle, etc.) - used to disambiguate divisions
     """
     placements = []
     division_raw = "Unknown"
@@ -813,7 +861,7 @@ def parse_results_text(results_text: str, event_id: str) -> list[dict]:
             notes.append("suspicious characters in entry")
 
         division_canon = canonicalize_division(division_raw)
-        division_category = categorize_division(division_canon)
+        division_category = categorize_division(division_canon, event_type)
 
         placements.append({
             "division_raw": division_raw,
@@ -973,15 +1021,35 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
     for rec in records:
         event_id = rec.get("event_id", "")
 
-        # Parse placements from raw results
+        # Get basic event info
         results_raw = rec.get("results_block_raw", "")
         event_name = rec.get("event_name_raw", "")
-        placements = parse_results_text(results_raw, event_id)
 
-        # Infer event_type early so we can use it for division inference
-        event_type_for_div = rec.get("event_type_raw", "")
-        if not event_type_for_div:
-            event_type_for_div = infer_event_type(event_name, results_raw, placements)
+        # Try to get event_type hint before parsing (from raw field or event name)
+        event_type_hint = rec.get("event_type_raw", "")
+        if not event_type_hint:
+            # Quick check of event name for obvious net/freestyle/golf keywords
+            name_lower = (event_name or "").lower()
+            if "world footbag championship" in name_lower:
+                event_type_hint = "worlds"
+            elif " net" in name_lower or "footbag net" in name_lower:
+                event_type_hint = "net"
+            elif "freestyle" in name_lower or "shred" in name_lower or "routine" in name_lower:
+                event_type_hint = "freestyle"
+            elif "golf" in name_lower:
+                event_type_hint = "golf"
+
+        # Parse placements WITH event_type context for better division categorization
+        placements = parse_results_text(results_raw, event_id, event_type_hint)
+
+        # Infer final event_type (now that we have placements)
+        event_type_for_div = event_type_hint or infer_event_type(event_name, results_raw, placements)
+
+        # Re-categorize divisions if event_type changed after inference
+        if event_type_hint != event_type_for_div and event_type_for_div:
+            for p in placements:
+                # Re-categorize using the final event_type
+                p["division_category"] = categorize_division(p["division_canon"], event_type_for_div)
 
         # If all placements have Unknown division, try to infer from event name, placements, and event type
         if placements and all(p.get("division_canon") == "Unknown" for p in placements):
@@ -990,7 +1058,7 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
                 for p in placements:
                     p["division_raw"] = f"[Inferred from event name: {event_name[:30]}]"
                     p["division_canon"] = inferred_div
-                    p["division_category"] = categorize_division(inferred_div)
+                    p["division_category"] = categorize_division(inferred_div, event_type_for_div)
                     if p["parse_confidence"] == "medium":
                         # Keep medium if it was already medium for other reasons
                         pass
@@ -1585,6 +1653,151 @@ def check_results_extraction(rec: dict) -> list[QCIssue]:
 
 
 # ------------------------------------------------------------
+# QC Cross-Validation Checks (Stage 2 Specific)
+# ------------------------------------------------------------
+def check_expected_divisions(rec: dict) -> list[QCIssue]:
+    """Check if event has expected divisions based on event type."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    event_type = (rec.get("event_type") or "").lower()
+    placements = json.loads(rec.get("placements_json", "[]"))
+
+    if not placements or event_type not in EXPECTED_DIVISIONS:
+        return issues
+
+    # Get division categories present in placements
+    categories_present = set()
+    for p in placements:
+        cat = p.get("division_category", "unknown")
+        if cat and cat != "unknown":
+            categories_present.add(cat)
+
+    # Check required divisions
+    expected = EXPECTED_DIVISIONS[event_type]
+    for required_cat in expected.get("required", []):
+        if required_cat not in categories_present:
+            if event_type == "worlds" and required_cat == "net":
+                issues.append(QCIssue(
+                    check_id="cv_worlds_missing_net",
+                    severity="ERROR",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message="Worlds event has no net divisions",
+                    context={"categories_present": list(categories_present)}
+                ))
+            elif event_type == "net" and required_cat == "net":
+                issues.append(QCIssue(
+                    check_id="cv_net_event_no_net_divs",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message="event_type=net but no net divisions found",
+                    context={"categories_present": list(categories_present)}
+                ))
+            elif event_type == "freestyle" and required_cat == "freestyle":
+                issues.append(QCIssue(
+                    check_id="cv_freestyle_event_no_freestyle_divs",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message="event_type=freestyle but no freestyle divisions found",
+                    context={"categories_present": list(categories_present)}
+                ))
+
+    # Check expected (warn if missing)
+    for expected_cat in expected.get("expected", []):
+        if expected_cat not in categories_present:
+            if event_type == "worlds" and expected_cat == "freestyle":
+                issues.append(QCIssue(
+                    check_id="cv_worlds_missing_freestyle",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message="Worlds event has no freestyle divisions",
+                    context={"categories_present": list(categories_present)}
+                ))
+
+    # cv_all_unknown_divisions: All placements have division_category=unknown
+    if placements:
+        all_unknown = all(p.get("division_category") == "unknown" for p in placements)
+        if all_unknown:
+            issues.append(QCIssue(
+                check_id="cv_all_unknown_divisions",
+                severity="WARN",
+                event_id=str(event_id),
+                field="placements_json",
+                message="All placements have division_category=unknown",
+                context={"placement_count": len(placements)}
+            ))
+
+    return issues
+
+
+def check_division_quality(rec: dict) -> list[QCIssue]:
+    """Check for division name quality issues."""
+    issues = []
+    # Note: cv_division_looks_like_player check was removed as it had too many false positives
+    # (e.g., "Single Homme" = French for "Men's Singles")
+    return issues
+
+
+def check_team_splitting(rec: dict) -> list[QCIssue]:
+    """Check for doubles teams that weren't properly split."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    placements = json.loads(rec.get("placements_json", "[]"))
+
+    for i, p in enumerate(placements):
+        competitor_type = p.get("competitor_type", "")
+        player1 = p.get("player1_name", "")
+        player2 = p.get("player2_name", "")
+        div_canon = p.get("division_canon", "")
+
+        # cv_doubles_unsplit_team: Doubles division with single player (missed separator)
+        is_doubles_div = "doubles" in div_canon.lower() or "double" in div_canon.lower()
+        if is_doubles_div and competitor_type == "player" and player1 and not player2:
+            # Check if player1 looks like it might contain two names
+            if " & " in player1 or " and " in player1.lower():
+                issues.append(QCIssue(
+                    check_id="cv_doubles_unsplit_team",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Doubles division with unsplit team: {player1[:60]}",
+                    example_value=player1[:60],
+                    context={"placement_index": i, "division": div_canon}
+                ))
+
+    return issues
+
+
+def check_year_date_consistency(rec: dict) -> list[QCIssue]:
+    """Check if year field matches year in date field."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    year = rec.get("year")
+    date_str = rec.get("date", "")
+
+    if year and date_str:
+        # Extract year from date
+        year_match = re.search(r'\b(19|20)\d{2}\b', date_str)
+        if year_match:
+            date_year = int(year_match.group(0))
+            if date_year != year:
+                issues.append(QCIssue(
+                    check_id="cv_year_date_mismatch",
+                    severity="ERROR",
+                    event_id=str(event_id),
+                    field="year",
+                    message=f"Year field ({year}) doesn't match year in date ({date_year})",
+                    example_value=date_str,
+                    context={"year_field": year, "date_year": date_year}
+                ))
+
+    return issues
+
+
+# ------------------------------------------------------------
 # QC Cross-Record Checks
 # ------------------------------------------------------------
 def check_event_id_uniqueness(records: list[dict]) -> list[QCIssue]:
@@ -1681,6 +1894,11 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
         all_issues.extend(check_host_club(rec))
         all_issues.extend(check_placements_json(rec))
         all_issues.extend(check_results_extraction(rec))
+        # Cross-validation checks (Stage 2 specific)
+        all_issues.extend(check_expected_divisions(rec))
+        all_issues.extend(check_division_quality(rec))
+        all_issues.extend(check_team_splitting(rec))
+        all_issues.extend(check_year_date_consistency(rec))
 
     # Cross-record checks
     all_issues.extend(check_event_id_uniqueness(records))

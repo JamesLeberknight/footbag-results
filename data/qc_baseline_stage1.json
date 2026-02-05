@@ -1,0 +1,70 @@
+{
+  "total_records": 777,
+  "total_errors": 0,
+  "total_warnings": 30,
+  "total_info": 17,
+  "counts_by_check": {
+    "s1_results_short": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 7
+    },
+    "s1_html_no_events_results_div": {
+      "ERROR": 0,
+      "WARN": 14,
+      "INFO": 0
+    },
+    "s1_html_no_pre_block": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 10
+    },
+    "s1_date_missing": {
+      "ERROR": 0,
+      "WARN": 9,
+      "INFO": 0
+    },
+    "s1_year_not_found": {
+      "ERROR": 0,
+      "WARN": 6,
+      "INFO": 0
+    },
+    "s1_results_empty": {
+      "ERROR": 0,
+      "WARN": 1,
+      "INFO": 0
+    }
+  },
+  "field_coverage": {
+    "event_id": {
+      "present": 777,
+      "total": 777,
+      "percent": 100.0
+    },
+    "event_name_raw": {
+      "present": 777,
+      "total": 777,
+      "percent": 100.0
+    },
+    "date_raw": {
+      "present": 768,
+      "total": 777,
+      "percent": 98.8
+    },
+    "location_raw": {
+      "present": 768,
+      "total": 777,
+      "percent": 98.8
+    },
+    "year": {
+      "present": 771,
+      "total": 777,
+      "percent": 99.2
+    },
+    "results_block_raw": {
+      "present": 767,
+      "total": 777,
+      "percent": 98.7
+    }
+  }
+}

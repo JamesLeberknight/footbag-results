@@ -14,6 +14,7 @@ Output: out/stage1_raw_events.csv
 from __future__ import annotations
 
 import csv
+import json
 import re
 from pathlib import Path
 from typing import Iterable, Optional
@@ -100,12 +101,13 @@ def extract_by_bold_label(soup: BeautifulSoup, label: str) -> Optional[str]:
     return None
 
 
-def extract_event_record(html: str, source_path: str, source_url: str) -> dict:
+def extract_event_record(html: str, source_path: str, source_url: str, soup: BeautifulSoup = None) -> dict:
     """
     Extract raw event data from HTML.
     Returns dict with raw fields and parse notes/warnings.
     """
-    soup = BeautifulSoup(html, "html.parser")
+    if soup is None:
+        soup = BeautifulSoup(html, "html.parser")
 
     parse_notes = []
     warnings = []
@@ -257,6 +259,8 @@ def extract_event_record(html: str, source_path: str, source_url: str) -> dict:
         "results_block_raw": sanitize_csv_string(results_block_raw) if results_block_raw else None,
         "html_parse_notes": "; ".join(parse_notes),
         "html_warnings": "; ".join(warnings),
+        "_html": html,  # Store for QC checks
+        "_soup": soup,  # Store parsed soup for QC checks
     }
 
 
@@ -301,6 +305,237 @@ def write_stage1_csv(records: list[dict], out_path: Path) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(records)
+
+
+# ------------------------------------------------------------
+# Stage 1 QC System
+# ------------------------------------------------------------
+def check_results_extraction(rec: dict) -> list[dict]:
+    """Check if results were properly extracted."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    location = rec.get("location_raw", "")
+    date = rec.get("date_raw", "")
+    results = rec.get("results_block_raw", "")
+    html = rec.get("_html", "")
+
+    # s1_results_empty: Event has location/date but no results
+    if (location or date) and not results:
+        issues.append({
+            "check_id": "s1_results_empty",
+            "severity": "WARN",
+            "event_id": event_id,
+            "field": "results_block_raw",
+            "message": "Event has location/date but no results_block_raw"
+        })
+
+    # s1_results_short: results_block_raw < 50 chars (may be incomplete)
+    if results and len(results) < 50:
+        issues.append({
+            "check_id": "s1_results_short",
+            "severity": "INFO",
+            "event_id": event_id,
+            "field": "results_block_raw",
+            "message": f"results_block_raw is short ({len(results)} chars, may be incomplete)",
+            "example_value": results[:50]
+        })
+
+    # s1_results_has_patterns_but_empty: HTML has numbered entries but extraction failed
+    if not results and html:
+        # Look for placement patterns in HTML
+        has_placement_pattern = bool(re.search(r'^\s*[1-9]\d?\s*[.):\-]\s+[A-Z]', html, re.MULTILINE))
+        if has_placement_pattern:
+            issues.append({
+                "check_id": "s1_results_has_patterns_but_empty",
+                "severity": "ERROR",
+                "event_id": event_id,
+                "field": "results_block_raw",
+                "message": "HTML contains numbered entries but extraction failed"
+            })
+
+    return issues
+
+
+def check_html_structure(rec: dict) -> list[dict]:
+    """Check if expected HTML structure elements were found."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    soup = rec.get("_soup")
+
+    if not soup:
+        return issues
+
+    # s1_html_no_events_results_div: Could not find div.eventsResults
+    results_div = soup.select_one("div.eventsResults")
+    if not results_div:
+        issues.append({
+            "check_id": "s1_html_no_events_results_div",
+            "severity": "WARN",
+            "event_id": event_id,
+            "field": "html_structure",
+            "message": "Could not find div.eventsResults in HTML"
+        })
+
+    # s1_html_no_pre_block: No pre.eventsPre found
+    pre_block = soup.select_one("pre.eventsPre")
+    if not pre_block:
+        issues.append({
+            "check_id": "s1_html_no_pre_block",
+            "severity": "INFO",
+            "event_id": event_id,
+            "field": "html_structure",
+            "message": "No pre.eventsPre found in HTML"
+        })
+
+    return issues
+
+
+def check_field_extraction(rec: dict) -> list[dict]:
+    """Check if core fields were extracted."""
+    issues = []
+    event_id = rec.get("event_id", "")
+
+    # Known broken source events (SQL errors) - don't error on these
+    KNOWN_BROKEN = {
+        "1023993464", "1030642331", "1099545007", "1151949245",
+        "1278991986", "1299244521", "860082052", "941066992", "959094047"
+    }
+    is_known_broken = str(event_id) in KNOWN_BROKEN
+
+    # s1_location_missing: location_raw empty (not a known broken source)
+    if not rec.get("location_raw") and not is_known_broken:
+        issues.append({
+            "check_id": "s1_location_missing",
+            "severity": "ERROR",
+            "event_id": event_id,
+            "field": "location_raw",
+            "message": "location_raw is empty"
+        })
+
+    # s1_date_missing: date_raw empty
+    if not rec.get("date_raw"):
+        issues.append({
+            "check_id": "s1_date_missing",
+            "severity": "WARN",
+            "event_id": event_id,
+            "field": "date_raw",
+            "message": "date_raw is empty"
+        })
+
+    # s1_year_not_found: No year in date or title
+    if not rec.get("year"):
+        issues.append({
+            "check_id": "s1_year_not_found",
+            "severity": "WARN",
+            "event_id": event_id,
+            "field": "year",
+            "message": "No year found in date or title"
+        })
+
+    # s1_event_name_missing: No event name extracted
+    if not rec.get("event_name_raw"):
+        issues.append({
+            "check_id": "s1_event_name_missing",
+            "severity": "ERROR",
+            "event_id": event_id,
+            "field": "event_name_raw",
+            "message": "No event name extracted"
+        })
+
+    return issues
+
+
+def run_stage1_qc(records: list[dict]) -> tuple[dict, list[dict]]:
+    """
+    Run all Stage 1 QC checks.
+    Returns (summary_dict, issues_list).
+    """
+    all_issues = []
+
+    # Run checks on each record
+    for rec in records:
+        all_issues.extend(check_results_extraction(rec))
+        all_issues.extend(check_html_structure(rec))
+        all_issues.extend(check_field_extraction(rec))
+
+    # Build summary
+    from collections import defaultdict
+    counts_by_check = defaultdict(lambda: {"ERROR": 0, "WARN": 0, "INFO": 0})
+    for issue in all_issues:
+        counts_by_check[issue["check_id"]][issue["severity"]] += 1
+
+    total_errors = sum(1 for i in all_issues if i["severity"] == "ERROR")
+    total_warnings = sum(1 for i in all_issues if i["severity"] == "WARN")
+    total_info = sum(1 for i in all_issues if i["severity"] == "INFO")
+
+    # Field coverage stats
+    field_coverage = {}
+    for field in ["event_id", "event_name_raw", "date_raw", "location_raw", "year", "results_block_raw"]:
+        non_empty = sum(1 for r in records if r.get(field) not in [None, ""])
+        field_coverage[field] = {
+            "present": non_empty,
+            "total": len(records),
+            "percent": round(100 * non_empty / len(records), 1) if records else 0,
+        }
+
+    summary = {
+        "total_records": len(records),
+        "total_errors": total_errors,
+        "total_warnings": total_warnings,
+        "total_info": total_info,
+        "counts_by_check": dict(counts_by_check),
+        "field_coverage": field_coverage,
+    }
+
+    return summary, all_issues
+
+
+def write_stage1_qc_outputs(summary: dict, issues: list[dict], out_dir: Path) -> None:
+    """Write Stage 1 QC summary and issues to output files."""
+    # Write summary JSON
+    summary_path = out_dir / "stage1_qc_summary.json"
+    with open(summary_path, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+    print(f"Wrote: {summary_path}")
+
+    # Write issues JSONL
+    issues_path = out_dir / "stage1_qc_issues.jsonl"
+    with open(issues_path, "w", encoding="utf-8") as f:
+        for issue in issues:
+            f.write(json.dumps(issue, ensure_ascii=False) + "\n")
+    print(f"Wrote: {issues_path} ({len(issues)} issues)")
+
+
+def print_stage1_qc_summary(summary: dict) -> None:
+    """Print Stage 1 QC summary to console."""
+    print(f"\n{'='*60}")
+    print("STAGE 1 QC SUMMARY")
+    print(f"{'='*60}")
+    print(f"Total records: {summary['total_records']}")
+    print(f"Total errors:  {summary['total_errors']}")
+    print(f"Total warnings: {summary['total_warnings']}")
+    print(f"Total info:    {summary['total_info']}")
+
+    print("\nField coverage:")
+    for field, stats in summary.get("field_coverage", {}).items():
+        print(f"  {field:20s}: {stats['present']:4d}/{stats['total']:4d} ({stats['percent']:5.1f}%)")
+
+    print("\nIssues by check:")
+    for check_id, counts in sorted(summary.get("counts_by_check", {}).items()):
+        err = counts.get("ERROR", 0)
+        warn = counts.get("WARN", 0)
+        info = counts.get("INFO", 0)
+        parts = []
+        if err > 0:
+            parts.append(f"{err} ERROR")
+        if warn > 0:
+            parts.append(f"{warn} WARN")
+        if info > 0:
+            parts.append(f"{info} INFO")
+        if parts:
+            print(f"  {check_id}: {', '.join(parts)}")
+
+    print(f"{'='*60}\n")
 
 
 def print_verification_stats(records: list[dict]) -> None:
@@ -367,6 +602,12 @@ def main():
 
     print_verification_stats(records)
     print(f"Wrote: {out_csv}")
+
+    # Run Stage 1 QC checks
+    print("\nRunning Stage 1 QC checks...")
+    qc_summary, qc_issues = run_stage1_qc(records)
+    write_stage1_qc_outputs(qc_summary, qc_issues, out_dir)
+    print_stage1_qc_summary(qc_summary)
 
 
 if __name__ == "__main__":
