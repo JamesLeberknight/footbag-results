@@ -15,3 +15,18 @@ footbag_venv/
 
 # OS junk
 .DS_Store
+
+# Windows Zone.Identifier files
+*:Zone.Identifier
+
+# Zip archives
+*.zip
+
+# IDE settings
+.vscode/
+
+# Generated output (can be regenerated from pipeline)
+out/
+
+# Workspace files
+*.code-workspace
