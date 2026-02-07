@@ -1,346 +1,199 @@
-CLAUDE.md — Footbag Events Data Pipeline
-
-## Purpose
-
-This repo converts an offline HTML mirror of footbag event pages into clean, canonical CSV and Excel output suitable for analysis.
-
-## Project Map
-
-- `01_parse_mirror.py` (Stage 1): HTML mirror → `out/stage1_raw_events.csv`
-- `02_canonicalize_results.py` (Stage 2): Stage 1 CSV → `out/stage2_canonical_events.csv`
-- `03_build_excel.py` (Stage 3): Stage 2 CSV → `Footbag_Results_Canonical.xlsx`
-- `out/`: Generated artifacts (CSV + QC reports)
-- `data/`: QC baseline files
-- Mirror location: `./mirror/www.footbag.org/events/show/*/index.html`
+1. Mission (North Star)
 
-## Quickstart Commands
+Transform an offline HTML mirror of footbag.org event pages into a deterministic, archive-quality canonical dataset and Excel workbook.
 
-```bash
-# Run full pipeline
-python3 01_parse_mirror.py
-python3 02_canonicalize_results.py
-python3 03_build_excel.py
+Primary rule:
+Preserve truth, provenance, and uncertainty.
+Never invent, assume, or optimize for completeness.
 
-# Fast loop (only Stage 2 after edits)
-python3 02_canonicalize_results.py
+2. Core Operating Principles
 
-# Save new QC baseline after improvements
-python3 02_canonicalize_results.py --save-baseline
-```
+These rules override all others.
 
----
+Correctness > Coverage
+Unknown or missing data is acceptable. Incorrect data is not.
 
-## Current Pipeline Stats (2026-02-05)
+No invention
+Never fabricate:
 
-| Metric | Value | Change |
-|--------|-------|--------|
-| Total events | 777 | - |
-| Total placements | 22,962 | - |
-| **Stage 1 QC** | | |
-| - Errors | 0 | - |
-| - Warnings | 30 | - |
-| - Info | 17 | - |
-| **Stage 2 QC** | | |
-| - Errors | 0 | ✓ |
-| - Warnings | 81 | ↓ 45% |
-| Parse confidence (high) | 96.1% | - |
-| Unknown divisions | 279 (1.2%) | - |
-| Year coverage | 99.2% (771/777) | - |
-| Location coverage | 100% | - |
-| **Cross-Validation** | | |
-| - Events with all unknown divs | 47 | ↓ 43% |
-| - Net events missing net divs | 2 | ↓ 93% |
-| - Freestyle events missing freestyle | 1 | ↓ 83% |
+divisions
 
----
+player names
 
-## Stage 2 Output Contract
+locations
 
-### Required Fields in `out/stage2_canonical_events.csv`
+dates
 
-| Field | Requirements |
-|-------|-------------|
-| `event_id` | Required; stable; unique |
-| `year` | Integer or empty; plausible range; consistent with date/name |
-| `event_name` | Required; no HTML remnants; not a URL |
-| `date` | Prefer parseable; no garbage; no extra commentary |
-| `location` | Required; place name only |
-| `host_club` | Optional but preferred; club-like text only |
-| `event_type` | Required enum; canonicalized |
-| `results_raw` | Raw text; may be empty |
-| `placements_json` | Valid JSON list conforming to placement schema |
+event types
 
-### Placement Object Schema
+Explicit provenance
+Every value must be one of:
 
-Each entry in `placements_json` must have:
-- `division_raw`, `division_canon`, `division_category`
-- `place` (integer)
-- `competitor_type` ∈ {player, team}
-- `player1_name`, `player2_name` (team requires both unless flagged)
-- `entry_raw`, `parse_confidence`, `notes`
+extracted
 
----
+inferred (clearly flagged)
 
-## Known Data Quality Issues
+explicitly overridden
 
-### Broken Source Events (9 total)
+Determinism
+Same input must always produce the same output.
 
-These events have SQL errors in the original HTML mirror (unescaped apostrophes broke database queries). We keep them with inferred location from event names:
+3. What This System Is Not
 
-| event_id | Event Name | Inferred Location |
-|----------|------------|-------------------|
-| 1023993464 | Funtastik Summer Classic | Hershey, Pennsylvania, USA |
-| 1030642331 | Seattle Juggling and Footbag Festival | Seattle, Washington, USA |
-| 1099545007 | Seapa NZ Footbag Nationals 2005 | New Zealand |
-| 1151949245 | ShrEdmonton 2006 | Edmonton, Alberta, Canada |
-| 1278991986 | 23rd Annual Vancouver Open | Vancouver, British Columbia, Canada |
-| 1299244521 | Warsaw Footbag Open 2011 | Warsaw, Poland |
-| 860082052 | Texas State Footbag Championships | Texas, USA |
-| 941066992 | WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS | California, USA |
-| 959094047 | Battle of the Year Switzerland | Switzerland |
+Not a data-completion engine
 
-### Events Missing Year (6 total)
+Not a best-guess predictor
 
-Broken source events without year in their names. Years could be researched from external sources.
+Not a metric-optimization pipeline
 
-### Remaining Unknown Divisions (279 placements, 1.2%)
+Not a historical correction tool
 
-42 events with complex HTML structures or truly ambiguous data. Largest contributor: East Coast Championships 2003 (81 placements with nested table structure and `<b>` tag divisions).
+This system records what can be justified — nothing more.
 
----
+4. Pipeline Model (Conceptual)
+Stage 1 — Extraction
 
-## Division Categorization
+Extract raw facts from HTML only
 
-### Category Keywords
+No semantic interpretation
 
-| Category | Keywords |
-|----------|----------|
-| **net** | net, volley |
-| **freestyle** | freestyle, routine, shred, circle, sick, request, battle, ironman, combo, trick |
-| **golf** | golf, golfer |
-| **sideline** | 2-square, 4-square, consecutive, distance |
+No normalization beyond safety cleaning
 
-### Abbreviated Division Headers
+Stage 2 — Canonicalization
 
-The parser recognizes these abbreviations:
-- OSN/ODN/ISN/IDN/WSN/WDN/MDN/MSN (Net divisions)
-- OSF/ODF/OSR/ODR/WSR (Freestyle divisions)
-- OS/OD/IS/ID/WS/WD/MD (Generic)
+All interpretation, normalization, inference, and QC
 
-### Division Inference
+Cross-validation happens here
 
-When no division header is found and all placements are Unknown:
-1. Check event name for keywords (singles, doubles, net, shred, etc.)
-2. Check competitor types (teams → doubles, players → singles)
-3. Check event type (net/freestyle)
-4. Apply known tournament patterns (King of the Hill → Singles Net, Bembel Cup → Doubles Net)
+Ambiguity is surfaced, not hidden
 
----
+Stage 3 — Presentation
 
-## Parsing Rules
+Formatting only (Excel, CSV)
 
-### Seeding Section Detection
+No semantic changes allowed
 
-The parser skips seeding data using these patterns:
-- "Initial Seeding" or "Seeding" headers
-- "Division Name - Initial Seeding" format (skips entries, keeps division)
-- Resumes parsing at "Results", "Final Results", "Complete Results"
+5. Definition of “Done”
 
-### Results Extraction Priority (Stage 1)
+A run is acceptable only if:
 
-1. **Structured results** from `<h2>` division headers (preferred)
-2. **`<pre>` blocks** with numbered placements (fallback)
-3. **`pre.eventsPre`** (final fallback)
+No new ERROR-severity QC issues are introduced
 
-### Team Detection
+All inferred values are clearly labeled
 
-Teams are detected by separators:
-- `/` outside parentheses (most common)
-- ` & ` between names
-- ` and ` between names
+Ambiguous data remains ambiguous
 
----
+Output is reproducible and explainable
 
-## Event Type Inference
+Changes are minimal, localized, and documented
 
-Priority order:
-1. "World Footbag Championships" in name → `worlds`
-2. Division categories present in placements
-3. Text analysis (net keywords, freestyle keywords, scoring patterns)
-4. "Jam" in name → `freestyle`
-5. Net scoring patterns (21-16, 21-11) → `net`
+“Done” does not mean “every field filled”.
 
-Valid event types: `freestyle`, `net`, `worlds`, `mixed`, `social`, `golf`
+6. Trust Hierarchy (Conflict Resolution)
 
----
+When signals conflict, prefer higher trust:
 
-## QC System
+Structured HTML headers (e.g., division <h2> blocks)
 
-### QC Philosophy
+Numbered result entries under headers
 
-#### Don't Assume Stage 1 is Correct
-Stage 1 extraction can fail silently. We validate at every stage:
-- Did HTML parsing capture the expected elements?
-- Did results extraction work when results are present?
-- Does Stage 2 data make logical sense given the event type?
+Preformatted results blocks
 
-#### Three-Tier Validation Model
+Event name patterns or known tournament formats
 
-| Tier | Stage | Question | Output |
-|------|-------|----------|--------|
-| 1 | Stage 1 | Did we extract correctly? | stage1_qc_*.json |
-| 2 | Stage 2 | Does data make sense? | stage2_qc_*.json |
-| 3 | Cross | Was info preserved? | Comparison checks |
+Manual overrides (explicit and event-specific)
 
-#### Severity Definitions
+Lower-trust evidence must never override higher-trust evidence.
 
-| Severity | Gate Rule | Action |
-|----------|-----------|--------|
-| ERROR | Must not increase vs baseline | Fix before release |
-| WARN | Review if increases | Document if accepted |
-| INFO | Logged for trends | No action required |
+7. Ambiguity & Inference Rules
+Always stop and ask (or quarantine) if:
 
-#### Expected Divisions by Event Type
+Multiple interpretations are plausible
 
-| Type | Required (ERROR) | Expected (WARN) |
-|------|------------------|-----------------|
-| worlds | net | freestyle |
-| net | net | - |
-| freestyle | freestyle | - |
-| mixed | - | net OR freestyle |
-| golf | golf | - |
-| social | - | - |
+A change affects many events
 
-### QC Artifacts (generated every run)
+Domain judgment is required
 
-- `out/stage1_qc_summary.json`: Stage 1 extraction validation
-- `out/stage1_qc_issues.jsonl`: Stage 1 issues (one per line)
-- `out/stage2_qc_summary.json`: Aggregated counts, field coverage, parse stats
-- `out/stage2_qc_issues.jsonl`: One issue per line with check_id, severity, event_id
+A new category or rule would be introduced
 
-### Baseline and Gating
+May proceed autonomously if:
 
-Baseline stored in: `data/qc_baseline_stage2.json`
+The correction is mechanically obvious
 
-Gate rules:
-- ERROR counts must never increase vs baseline
-- WARN counts should not increase unless justified
+Only a few events are affected
 
-### Stage 1 QC Checks (Extraction Validation)
+No alternative interpretation exists
 
-| check_id | Severity | Description |
-|----------|----------|-------------|
-| `s1_results_empty` | WARN | Event has location/date but no results_block_raw |
-| `s1_results_short` | INFO | results_block_raw < 50 chars (may be incomplete) |
-| `s1_results_has_patterns_but_empty` | ERROR | HTML has numbered entries but extraction failed |
-| `s1_html_no_events_results_div` | WARN | Could not find div.eventsResults |
-| `s1_html_no_pre_block` | INFO | No pre.eventsPre found |
-| `s1_location_missing` | ERROR | location_raw empty (not a known broken source) |
-| `s1_date_missing` | WARN | date_raw empty |
-| `s1_year_not_found` | WARN | No year in date or title |
-| `s1_event_name_missing` | ERROR | No event name extracted |
+Meaning is preserved exactly
 
-### Stage 2 Field-Level Checks
+8. Inference Policy
 
-| Field | Checks |
-|-------|--------|
-| `event_id` | Required; unique; digits only |
-| `year` | Plausible range (1970-2030); required for worlds |
-| `event_name` | Required; no HTML/URLs; no placeholders |
-| `date` | No iCal remnants; consistent with year |
-| `location` | Required; no URLs/emails; reasonable length |
-| `event_type` | Valid enum value |
-| `placements_json` | Valid JSON; schema validation |
+Inference is allowed only when:
 
-### Stage 2 Cross-Validation Checks
+Direct evidence is absent
 
-| check_id | Severity | Description |
-|----------|----------|-------------|
-| `cv_worlds_missing_net` | ERROR | Worlds event has no net divisions |
-| `cv_worlds_missing_freestyle` | WARN | Worlds event has no freestyle divisions |
-| `cv_net_event_no_net_divs` | WARN | event_type=net but no net divisions |
-| `cv_freestyle_event_no_freestyle_divs` | WARN | event_type=freestyle but no freestyle |
-| `cv_all_unknown_divisions` | WARN | All placements have division_category=unknown |
-| `cv_doubles_unsplit_team` | WARN | Doubles with single player (missed separator) |
-| `cv_year_date_mismatch` | ERROR | Year field differs from year in date |
+Strong domain conventions exist
 
----
+The result is explicitly flagged as inferred
 
-## Override Dictionaries
+Inferred values must never be indistinguishable from extracted ones.
 
-### Location Overrides (`LOCATION_OVERRIDES`)
+9. Overrides Policy
 
-Event-specific location fixes for broken source events and verbose locations.
+Overrides are permitted only when:
 
-### Event Type Overrides (`EVENT_TYPE_OVERRIDES`)
+Source data is irreparably broken
 
-Manual classification for edge cases (golf events, social events, unusual formats).
+The correction is historically certain
 
-### Event Name Overrides (`EVENT_NAME_OVERRIDES`)
+The scope is strictly event-specific
 
-Fixes for placeholder/template names.
+Overrides must be:
 
-### Event Parsing Rules (`EVENT_PARSING_RULES`)
+minimal
 
-Per-event parsing configuration (e.g., merged team splitting for specific events).
+auditable
 
----
+non-generalizing
 
-## Iteration Protocol
+10. Metrics Policy
 
-### Loop (Follow Exactly)
+Metrics are observational, not targets
 
-1. **Run Stage 2** to produce CSV + QC artifacts
-2. **Identify one highest-impact issue** (single check_id)
-3. **Show evidence**: Counts + 3-10 concrete examples with event_id
-4. **Investigate source HTML** if issue concentrated in few events
-5. **Ask exactly one human question** (if needed for rule/mapping/threshold)
-6. **Implement smallest safe change**
-7. **Re-run Stage 2 and compute delta**
-8. **Persist decision in overrides** (if any)
-9. **Write iteration report** (proof of improvement + no regressions)
-10. **Only after passing gate**, move to next issue
+Never change logic solely to improve a metric
 
-### When to Ask vs. Proceed Independently
+Metric improvements must be a side effect of correctness
 
-**Always ask**:
-- New division category unclear (net vs. freestyle vs. sideline)
-- Event-specific override needed
-- Ambiguous data with multiple interpretations
-- Change affects >10 events
+QC gates apply to severity, not counts
 
-**Can proceed independently**:
-- Adding obvious division keyword
-- Fixing clear parsing bug
-- Noise cleanup that doesn't change legitimate data
-- Change affects ≤3 events with clear correct answer
+11. Iteration Protocol (Mandatory)
 
----
+Follow this loop exactly:
 
-## Recent Improvements (2026-02-04)
+Run canonicalization and QC
 
-1. **Broken source events** - Reduced from 20 to 9 (11 don't exist in mirror)
-2. **Stage 1 extraction** - Prefer structured `<h2>` results over `<pre>` blocks
-3. **Seeding detection** - Handle "Division - Initial Seeding" format
-4. **Abbreviated divisions** - Recognize OSN, ODN, ODF, etc.
-5. **Division inference** - Infer from event name, competitor type, and event type
-6. **Known patterns** - King of the Hill → Singles Net, Bembel Cup → Doubles Net
-7. **Unknown reduction** - 832 → 279 placements (66% improvement)
+Select one highest-impact issue
 
----
+Collect concrete examples (event_id based)
 
-## Files to Track in Git
+Inspect source HTML if needed
 
-Essential files:
-- `01_parse_mirror.py`
-- `02_canonicalize_results.py`
-- `03_build_excel.py`
-- `claude.md`
-- `requirements.txt`
-- `data/qc_baseline_stage2.json`
+Ask at most one human question (if required)
 
-Generated (can exclude):
-- `out/` directory
-- `Footbag_Results_Canonical.xlsx`
-- `*.zip` files
-- `*:Zone.Identifier` files (Windows artifacts)
+Implement the smallest safe change
+
+Re-run and compare QC deltas
+
+Persist decisions in overrides if needed
+
+Document reasoning
+
+Proceed only after gates pass
+
+12. Final Guiding Rule
+
+When uncertain:
+
+Preserve uncertainty.
+Surface it clearly.
+Move on.

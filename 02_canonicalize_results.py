@@ -82,6 +82,8 @@ BROKEN_SOURCE_MESSAGE = "[SOURCE ERROR: Database error in original HTML]"
 # Note: 1146524016 and 879559482 were removed - they don't exist in the mirror
 JUNK_EVENTS_TO_EXCLUDE = {
     "1118129163",  # "Event Listing" placeholder - June TBA 2005, Site TBA, no results
+    "1031232420",  # FootJam03 - stats not results: "91 players registered...1000+spectators"
+    "1043428338",  # Spring Footbag Jam - description not results: "31 players said SFJ was their first"
 }
 
 # Event name overrides for placeholder/template names
@@ -89,6 +91,18 @@ JUNK_EVENTS_TO_EXCLUDE = {
 EVENT_NAME_OVERRIDES = {
     "1068164371": "Portland Footbag Jam 2003 (Oct 23)",  # Was: "Footbag WorldWide Event Listing: Event Listing"
     "1068164424": "Portland Footbag Jam 2003 (Oct 31)",  # Was: "Footbag WorldWide Event Listing: Event Listing"
+}
+
+# Year overrides for broken source events
+# Decision: 2026-02-06 - Years extracted from results_year_YYYY directory references in mirror
+# The source mirror ALWAYS has year data (events are sorted by year on the website)
+YEAR_OVERRIDES = {
+    "1023993464": 2002,  # Funtastik Summer Classic Footbag Tournament
+    "1030642331": 2002,  # Seattle Juggling and Footbag Festival
+    "1278991986": 2010,  # 23rd Annual Vancouver Open Footbag Championships
+    "860082052": 1997,   # Texas State Footbag Championships
+    "941066992": 2000,   # WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS
+    "959094047": 2000,   # Battle of the Year Switzerland
 }
 
 # Location overrides for broken source events (inferred from event names)
@@ -141,6 +155,8 @@ EVENT_TYPE_OVERRIDES = {
     "1079664495": "social",   # May Day '04 - "4 Square money games" noise
     "1093115479": "social",   # 2nd Annual SoCal Labor Day Jam - address parsed as place
     "1200725314": "social",   # SoCali Jam 08 - activity description
+    # Sideline-only events misclassified as freestyle
+    "1250478677": "mixed",    # Montreal End-of-Summer Jam 1 - only 2-Square (sideline) results
     "955642039": "social",    # Zion Footbag Tour - "5 WEEKS OF FUN" noise
     "961029998": "social",    # Club Hackedout T.V Appearance - media event
     # Decision: 2026-02 - Events with unusual formats that can't be auto-classified
@@ -156,6 +172,7 @@ EVENT_TYPE_OVERRIDES = {
 # Each event_id maps to a dict of rule names and their config.
 # Available rules:
 #   - "split_merged_teams": Split "Player1 [seed] COUNTRY Player2 COUNTRY" format
+#   - "division_ranges": List of (start_idx, end_idx, division_name, category) tuples
 #
 # Decision: 2026-02 - This structure allows adding event-specific parsing
 # without polluting the general parsing logic.
@@ -164,6 +181,21 @@ EVENT_PARSING_RULES = {
     # Format: "Emmanuel Bouchard [1] CAN Florian Goetze GER"
     "1293877677": {
         "split_merged_teams": True,
+    },
+    # 2003 East Coast Championships - complex HTML structure with multiple divisions
+    # parsed as single block. Map placement indices to divisions.
+    "1049457912": {
+        "division_ranges": [
+            (0, 17, "Intermediate Freestyle", "freestyle"),
+            (18, 24, "Open Routines", "freestyle"),
+            (25, 26, "Open Sick 3", "freestyle"),
+            (27, 31, "Novice Freestyle", "freestyle"),
+            (32, 43, "Intermediate Singles Net", "net"),
+            (44, 59, "Open Singles Net", "net"),
+            (60, 65, "Master's Division Singles Net", "net"),
+            (66, 71, "Intermediate Doubles Net", "net"),
+            (72, 80, "Open Doubles Net", "net"),
+        ],
     },
 }
 
@@ -229,6 +261,9 @@ CATEGORY_KEYWORDS = {
     "net": {
         "net",           # "Open Singles Net", "Doubles Net"
         "volley",        # "Kick Volley"
+        "side-out",      # Net scoring format: "Open Doubles (Side-Out)"
+        "side out",      # Variant spacing
+        "rallye",        # Net scoring format: "Open Singles (Rallye)"
     },
     # FREESTYLE-specific keywords (if present, division is definitely freestyle)
     "freestyle": {
@@ -243,6 +278,10 @@ CATEGORY_KEYWORDS = {
         "ironman",       # Freestyle endurance event
         "combo",         # "Big Combo", "Huge Combo"
         "trick",         # "Big Trick", "Sick 3-Trick"
+        # French keywords
+        "homme",         # French men's freestyle
+        "femme",         # French women's freestyle
+        "feminin",       # French feminine
         # NOTE: "consecutive" is NOT freestyle - it's OTHER (sideline)
     },
     # GOLF keywords
@@ -291,6 +330,9 @@ DIVISION_KEYWORDS = {
     "simple",  # French for singles
     "doble",   # Spanish for doubles
     "sencillo", # Spanish for singles
+    "homme",   # French for men's
+    "femme",   # French for women's
+    "feminin", # French for feminine
 }
 
 # Common abbreviated division headers and their expansions
@@ -374,7 +416,14 @@ def categorize_division(division_name: str, event_type: str = None) -> str:
         elif event_type_lower == "worlds":
             # For worlds, we can't infer - divisions must be explicit
             return "unknown"
-        # For "mixed" or "social", stay unknown
+        elif event_type_lower == "mixed":
+            # In footbag, freestyle divisions always self-identify via keywords
+            # (routines, shred, circle, sick, battle, etc.).  If we reached here,
+            # no freestyle keyword matched, so a named division is net by elimination.
+            # Only truly unidentified divisions ("Unknown") stay unknown.
+            if division_name and division_name != "Unknown":
+                return "net"
+        # For "social", stay unknown
 
     return "unknown"
 
@@ -522,40 +571,86 @@ def looks_like_division_header(line: str) -> bool:
     return starts_valid or is_caps_header or is_colon_header or is_short_with_keyword
 
 
+def smart_title(s: str) -> str:
+    """
+    Title case that handles apostrophes correctly.
+    Fixes: "women's" -> "Women's" (not "Women'S")
+    """
+    words = s.split()
+    result = []
+    for word in words:
+        titled = word.title()
+        # Fix 'S after apostrophe -> 's
+        titled = re.sub(r"'S\b", "'s", titled)
+        result.append(titled)
+    return " ".join(result)
+
+
 def canonicalize_division(division_raw: str) -> str:
     """
     Produce canonical division name.
-    For now, just normalize whitespace and case.
+    Normalize whitespace and apply smart title casing.
     """
     if not division_raw:
         return "Unknown"
-    return " ".join(division_raw.split()).title()
+    return smart_title(" ".join(division_raw.split()))
 
 
 # ------------------------------------------------------------
 # Results parsing
 # ------------------------------------------------------------
+def strip_trailing_score(name: str) -> str:
+    """
+    Remove trailing numeric scores from player names.
+    Examples: "Matt Strong 526" -> "Matt Strong"
+              "John Doe 1234" -> "John Doe"
+    """
+    # Remove trailing 2-4 digit numbers
+    cleaned = re.sub(r'\s+\d{2,4}\s*$', '', name).strip()
+    # Remove trailing score patterns like "123 -" or "456 ="
+    cleaned = re.sub(r'\s+\d+\s*[-=].*$', '', cleaned).strip()
+    return cleaned
+
+
 def split_entry(entry: str) -> tuple[str, Optional[str], str]:
     """
-    Detect doubles teams separated by '/', ' and ', or ' & '.
+    Detect doubles teams separated by '/', ' and ', ' & ', etc.
     Returns (player1, player2, competitor_type).
     Canonical output format uses '/' separator (handled in _build_name_line).
 
     Priority:
     1. " & " between names (alternative separator, checked first to handle city notation)
     2. "/" outside parentheses (most common team separator)
-    3. " and " between names (word separator)
+    3. " and " between names (word separator, includes "und" German, "plus")
+    4. " et " between names (French separator)
     """
     entry = " ".join(entry.split()).strip()
 
     # Strip common prefixes that shouldn't affect team detection
     # e.g., "tie : Name1 & Name2", "(tie) Name1 / Name2", "3rd place - Name1 / Name2"
     entry_clean = re.sub(
-        r'^(tie\s*:|\(\s*tie\s*\)|\d+\s*[.)\-:]?\s*(st|nd|rd|th)?\s*place\s*[-:]?)\s*',
+        r'^(\(\s*tie\s*\)[.\-:\s]*|tie\s*[.:\-]?\s*|\d+\s*[.)\-:]?\s*(st|nd|rd|th)?\s*place\s*[-:]?)\s*',
         '', entry, flags=re.IGNORECASE
     ).strip()
+
+    # Strip "d " or "d\t" prefix from ordinal parsing corruption
+    entry_clean = re.sub(r'^[dD]\s+', '', entry_clean).strip()
+
     if not entry_clean:
         entry_clean = entry
+
+    # Helper to strip surrounding quotes from a name
+    def strip_quotes(s: str) -> str:
+        """Strip surrounding single or double quotes from a string."""
+        s = s.strip()
+        if len(s) >= 2 and s[0] in ('"', "'") and s[-1] in ('"', "'"):
+            return s[1:-1].strip()
+        # Also strip just leading quotes (e.g., "Elliott")
+        if s.startswith('"') or s.startswith("'"):
+            s = s[1:].strip()
+        if s.endswith('"') or s.endswith("'"):
+            s = s[:-1].strip()
+        return s
 
     # Helper to check if a "/" is inside parentheses
     def slash_outside_parens(s):
@@ -570,15 +665,22 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
                 return i
         return -1
 
+    # Helper to validate team member name
+    def looks_like_name(s: str) -> bool:
+        """Check if a string looks like a valid player name."""
+        s = strip_quotes(s)
+        if len(s) < 2:
+            return False
+        # Accept if it has at least one uppercase letter (for nicknames like "his Watercarrier")
+        return bool(re.search(r'[A-Z]', s))
+
     # Try " & " first - it's often used when "/" appears in city/country notation
     if " & " in entry_clean:
         a, b = entry_clean.split(" & ", 1)
-        # Validate: both parts should start with capital letter (name-like)
-        a_first = a.strip()[:1] if a.strip() else ''
-        b_first = b.strip()[:1] if b.strip() else ''
-        if (len(a.strip()) >= 2 and len(b.strip()) >= 2 and
-            a_first.isupper() and b_first.isupper()):
-            return a.strip(), b.strip(), "team"
+        a = a.strip()
+        b = b.strip()
+        if looks_like_name(a) and looks_like_name(b):
+            return strip_trailing_score(strip_quotes(a)), strip_trailing_score(strip_quotes(b)), "team"
 
     # Try "/" outside parentheses
     slash_idx = slash_outside_parens(entry_clean)
@@ -586,22 +688,25 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
         a = entry_clean[:slash_idx].strip()
         b = entry_clean[slash_idx + 1:].strip()
         if len(a) >= 2 and len(b) >= 2:
-            return a, b, "team"
+            return strip_trailing_score(a), strip_trailing_score(b), "team"
 
-    # " and " between two names (case insensitive)
-    # Be careful not to match "and" within names like "Alexandra"
-    and_match = re.search(r'\s+and\s+', entry_clean, re.IGNORECASE)
+    # " and ", "und" (German), or "plus" between two names (case insensitive)
+    and_match = re.search(r'\s+(and|und|plus)\s+', entry_clean, re.IGNORECASE)
     if and_match:
         a = entry_clean[:and_match.start()].strip()
         b = entry_clean[and_match.end():].strip()
-        a_first = a[:1] if a else ''
-        b_first = b[:1] if b else ''
-        # Validate both parts look like names (at least 2 chars each, start with capital)
-        if (len(a) >= 2 and len(b) >= 2 and
-            a_first.isupper() and b_first.isupper()):
-            return a, b, "team"
+        if looks_like_name(a) and looks_like_name(b):
+            return strip_trailing_score(strip_quotes(a)), strip_trailing_score(strip_quotes(b)), "team"
 
-    return entry, None, "player"
+    # French "et" separator (case insensitive)
+    et_match = re.search(r'\s+et\s+', entry_clean, re.IGNORECASE)
+    if et_match:
+        a = entry_clean[:et_match.start()].strip()
+        b = entry_clean[et_match.end():].strip()
+        if looks_like_name(a) and looks_like_name(b):
+            return strip_trailing_score(strip_quotes(a)), strip_trailing_score(strip_quotes(b)), "team"
+
+    return strip_trailing_score(entry), None, "player"
 
 
 def split_merged_team(entry: str) -> tuple[str, Optional[str], str]:
@@ -697,6 +802,21 @@ def infer_division_from_event_name(event_name: str, placements: list = None, eve
         return "Open Singles Net"  # Always singles knockout format
     if "bembel cup" in name_lower:
         return "Open Doubles Net"  # Always doubles tournament
+
+    # For mixed events with placements but no clear keywords, infer from competitor type
+    # This handles events like "IFPA Turku Open", "Bedford Championships", etc.
+    if event_type == "mixed" and placements:
+        # Check if all placements are teams or all are players
+        team_count = sum(1 for p in placements if p.get("competitor_type") == "team")
+        player_count = sum(1 for p in placements if p.get("competitor_type") == "player")
+
+        # If predominantly one type, infer division
+        if team_count > 0 and player_count == 0:
+            # All teams - likely doubles net (default for mixed events)
+            return "Open Doubles Net"
+        elif player_count > 0 and team_count == 0:
+            # All players - likely singles net (default for mixed events)
+            return "Open Singles Net"
 
     return None
 
@@ -795,7 +915,22 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             entry_raw = m.group(2).strip()
 
             # Strip ordinal suffix if entry starts with it (from "1ST" parsed as "1" + "ST Name")
-            entry_raw = re.sub(r'^(ST|ND|RD|TH)\s+', '', entry_raw, flags=re.IGNORECASE)
+            # Handle both "ST Name" (space) and "st. Name" (dot) formats
+            # Also handle Spanish ordinals: 1er, 2do, 3er, 4to, 5to
+            entry_raw = re.sub(r'^(ST|ND|RD|TH|ER|DO|TO|TA)[.\s]+', '', entry_raw, flags=re.IGNORECASE)
+
+        # Strip "place"/"puesto"/"lugar" prefix (from "1st place - Name", "1er PUESTO Name", "1er LUGAR")
+        entry_raw = re.sub(r'^(place|puesto|lugar)\s*[-:]?\s*', '', entry_raw, flags=re.IGNORECASE).strip()
+
+        # Strip bare dash prefix (from "1st - Name" parsed as "- Name")
+        entry_raw = re.sub(r'^-\s+', '', entry_raw).strip()
+
+        # Handle tied placements like "23/24 Name" -> entry starts with "/24 Name"
+        # Convert to just "Name" and keep place as 23 (the first/lower number)
+        # Must happen before noise filters so "1/2 Finals..." resolves to "Finals..."
+        tied_match = tied_place_re.match(entry_raw)
+        if tied_match:
+            entry_raw = tied_match.group(1).strip()
 
         # Skip lines that look like years (e.g., "2007 US Open..." parsed as place=200)
         if place >= 100:
@@ -825,12 +960,23 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         # Pattern 7: entry is a rule/instruction sentence (contains "is allowed", "contact", "reservations")
         if re.search(r'\b(is allowed|contact is|by phone|make reservations)\b', entry_raw, re.IGNORECASE):
             continue  # Skip - rule or instruction text
-
-        # Handle tied placements like "23/24 Name" -> entry starts with "/24 Name"
-        # Convert to just "Name" and keep place as 23 (the first/lower number)
-        tied_match = tied_place_re.match(entry_raw)
-        if tied_match:
-            entry_raw = tied_match.group(1).strip()
+        # Pattern 8: entry starts with degree sign (Spanish ordinal remnant, e.g., "º and 4º position match")
+        if entry_raw.startswith('º'):
+            continue  # Skip - degree-sign ordinal noise
+        # Pattern 9: narrative/commentary text (section headers or match descriptions)
+        if re.match(r'^(Finals|Finas|points|position)', entry_raw, re.IGNORECASE):
+            continue  # Skip - narrative text, not a placement
+        # Pattern 10: hotel/hostel names (French and English)
+        if re.search(r'\b(hostel|auberge|hotel|hôtel|gîte|manoir)\b', entry_raw, re.IGNORECASE):
+            continue  # Skip - accommodation information
+        # Pattern 11: schedule/meeting keywords
+        if re.search(r'\b(registration|check-in|check in|meet at)\b', entry_raw, re.IGNORECASE):
+            continue  # Skip - schedule information
+        # Pattern 12: narrative text about tournament format/pools
+        if re.search(r'\b(competed|players competed|games played|pools)\b', entry_raw, re.IGNORECASE):
+            # Only skip if it's clearly narrative (contains "and" or long text)
+            if ' and ' in entry_raw.lower() or len(entry_raw) > 50:
+                continue  # Skip - narrative text
 
         # Apply event-specific parsing rules
         if use_merged_team_split:
@@ -1051,6 +1197,27 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
                 # Re-categorize using the final event_type
                 p["division_category"] = categorize_division(p["division_canon"], event_type_for_div)
 
+        # Apply event-specific division range mapping if configured
+        event_rules = EVENT_PARSING_RULES.get(str(event_id), {})
+        division_ranges = event_rules.get("division_ranges")
+        if division_ranges:
+            for idx, p in enumerate(placements):
+                for start_idx, end_idx, div_name, div_cat in division_ranges:
+                    if start_idx <= idx <= end_idx:
+                        p["division_raw"] = f"[Event-specific mapping]"
+                        p["division_canon"] = canonicalize_division(div_name)
+                        p["division_category"] = div_cat
+                        if p["parse_confidence"] == "high":
+                            # Keep high confidence for entry parsing
+                            pass
+                        else:
+                            p["parse_confidence"] = "medium"
+                        if p["notes"]:
+                            p["notes"] += f"; division mapped via event-specific rule to {div_name}"
+                        else:
+                            p["notes"] = f"division mapped via event-specific rule to {div_name}"
+                        break
+
         # If all placements have Unknown division, try to infer from event name, placements, and event type
         if placements and all(p.get("division_canon") == "Unknown" for p in placements):
             inferred_div = infer_division_from_event_name(event_name, placements, event_type_for_div)
@@ -1096,9 +1263,14 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
         if str(event_id) in EVENT_TYPE_OVERRIDES:
             event_type = EVENT_TYPE_OVERRIDES[str(event_id)]
 
+        # Apply year override if available (for broken source events)
+        year = rec.get("year")
+        if str(event_id) in YEAR_OVERRIDES:
+            year = YEAR_OVERRIDES[str(event_id)]
+
         canonical.append({
             "event_id": event_id,
-            "year": rec.get("year"),
+            "year": year,
             "event_name": event_name,
             "date": date,
             "location": location,
@@ -1611,6 +1783,28 @@ def check_placements_json(rec: dict) -> list[QCIssue]:
                     message=f"Placement {i}: division contains instructions/links",
                     example_value=div_canon[:60],
                     context={"placement_index": i},
+                ))
+
+        # Check for unknown division category when division_raw has keywords
+        div_category = p.get("division_category", "")
+        div_raw = p.get("division_raw", "")
+        if div_category == "unknown" and div_raw:
+            div_raw_lower = div_raw.lower()
+            # Check if division_raw contains any known keywords
+            found_keywords = []
+            for kw in ["singles", "doubles", "net", "shred", "freestyle", "routine",
+                      "homme", "femme", "feminin", "simple", "doble", "circle"]:
+                if kw in div_raw_lower:
+                    found_keywords.append(kw)
+            if found_keywords:
+                issues.append(QCIssue(
+                    check_id="placements_unknown_with_keywords",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="division_category",
+                    message=f"Placement {i}: division '{div_raw}' has keywords {found_keywords} but category=unknown",
+                    example_value=div_raw[:60],
+                    context={"placement_index": i, "keywords_found": found_keywords},
                 ))
 
     return issues

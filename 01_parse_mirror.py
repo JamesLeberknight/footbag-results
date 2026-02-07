@@ -33,6 +33,34 @@ def sanitize_csv_string(s: str) -> str:
     return _ILLEGAL_CSV_RE.sub("", s)
 
 
+def fix_encoding_corruption(s: str) -> str:
+    """
+    Fix systematic encoding corruption in the HTML mirror.
+
+    The mirror has UTF-8 corruption where certain characters are systematically wrong:
+    - © (copyright symbol) should be Š (Czech S with caron)
+    - £ (pound sign) should be Ł (Polish L with stroke)
+
+    Note: ? characters represent unknown/unrecoverable characters from the original mirror
+    and cannot be fixed without manual context.
+    """
+    if not isinstance(s, str):
+        return s
+
+    # Map of corrupted character -> correct character
+    # Based on analysis of Polish and Czech player names
+    fixes = {
+        '©': 'Š',  # Czech S with caron (U+0160)
+        '£': 'Ł',  # Polish L with stroke (U+0141)
+    }
+
+    result = s
+    for wrong, right in fixes.items():
+        result = result.replace(wrong, right)
+
+    return result
+
+
 # ------------------------------------------------------------
 # Mirror discovery
 # ------------------------------------------------------------
@@ -183,14 +211,28 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
     results_block_raw = None
     results_div = soup.select_one("div.eventsResults")
     if results_div:
-        # PREFERRED: Try extracting structured results from <h2> division headers first
-        # These have proper division names like "Open Singles Net:" with <br>-separated entries
-        # Note: Mixed <br> and <br/> in HTML causes BeautifulSoup issues, so we extract
-        # the full text and parse it line by line instead of walking the DOM
+        # Check for <h2> division headers first
         h2_tags = results_div.find_all("h2")
         division_headers = [h2.get_text(strip=True) for h2 in h2_tags
                            if h2.get_text(strip=True) and "manually" not in h2.get_text(strip=True).lower()]
 
+        # Check for comprehensive <pre> block
+        comprehensive_pre = None
+        all_pres = results_div.find_all("pre")
+        for pre in all_pres:
+            pre_text = pre.get_text("\n", strip=False)
+            # Check if this pre is comprehensive (long and contains placements)
+            # Match formats: "1. Name", "1) Name", "1 - Name", "1st Name", "1ST - Name"
+            has_placements = (re.search(r'^\s*[1-9]\d?\s*[.)\-:]\s*\S', pre_text, re.MULTILINE) or
+                            re.search(r'^\s*\d{1,2}(st|nd|rd|th)\s*[-\s]', pre_text, re.MULTILINE | re.IGNORECASE))
+            if len(pre_text) > 500 and has_placements:
+                comprehensive_pre = pre_text
+                break
+
+        # PREFERRED: Use structured extraction from <h2> division headers if available
+        # These have proper division names like "Open Singles Net:" with <br>-separated entries
+        # Note: Mixed <br> and <br/> in HTML causes BeautifulSoup issues, so we extract
+        # the full text and parse it line by line instead of walking the DOM
         if division_headers:
             # Get full text of results div and parse it
             full_text = results_div.get_text("\n", strip=False)
@@ -206,8 +248,12 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
                     in_structured_section = True
                     structured_results.append(line)
                     continue
-                # Stop at "Manually Entered Results" or other non-result sections
-                if "manually entered" in line.lower() or line.startswith("Related Photos"):
+                # Skip "Manually Entered Results" header but don't stop parsing
+                # (results often continue after this label)
+                if "manually entered" in line.lower():
+                    continue
+                # Stop at other non-result sections
+                if line.startswith("Related Photos"):
                     in_structured_section = False
                     continue
                 # Collect numbered entries
@@ -215,10 +261,31 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
                     structured_results.append(line)
 
             if structured_results and len(structured_results) > len(division_headers):
-                results_block_raw = "\n".join(structured_results)
-                parse_notes.append("results: div.eventsResults > h2 + structured")
+                structured_text = "\n".join(structured_results)
+                # Check if <pre> has content that structured extraction misses
+                should_prefer_pre = False
+                if comprehensive_pre:
+                    # If <pre> is significantly larger (2x), prefer it
+                    if len(comprehensive_pre) > len(structured_text) * 2:
+                        should_prefer_pre = True
+                    # If <pre> has freestyle content but structured doesn't, prefer <pre>
+                    elif (re.search(r'\b(freestyle|routines|shred|circle|sick)\b', comprehensive_pre, re.IGNORECASE) and
+                          not re.search(r'\b(freestyle|routines|shred|circle|sick)\b', structured_text, re.IGNORECASE)):
+                        should_prefer_pre = True
 
-        # FALLBACK: If no structured results, look for <pre> tags with placements
+                if should_prefer_pre:
+                    results_block_raw = comprehensive_pre
+                    parse_notes.append("results: div.eventsResults > pre (more comprehensive than h2)")
+                else:
+                    results_block_raw = structured_text
+                    parse_notes.append("results: div.eventsResults > h2 + structured")
+
+        # FALLBACK 1: If no structured results but have comprehensive pre, use it
+        if not results_block_raw and comprehensive_pre:
+            results_block_raw = comprehensive_pre
+            parse_notes.append("results: div.eventsResults > pre (comprehensive)")
+
+        # FALLBACK 2: If no structured results, look for any <pre> tags with placements
         if not results_block_raw:
             all_pres = results_div.find_all("pre")
             for pre in all_pres:
@@ -229,7 +296,7 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
                     parse_notes.append("results: div.eventsResults > pre (with placements)")
                     break
 
-        # Final fallback: any pre.eventsPre in eventsResults
+        # FALLBACK 3: any pre.eventsPre in eventsResults
         if not results_block_raw:
             results_pre = results_div.select_one("pre.eventsPre")
             if results_pre:
@@ -246,17 +313,23 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
     if not results_block_raw:
         warnings.append("results: no results found in HTML")
 
+    # Helper to apply both sanitization and encoding fix
+    def clean_field(s):
+        if not s:
+            return None
+        return fix_encoding_corruption(sanitize_csv_string(s))
+
     return {
         "event_id": event_id,
         "year": year,
         "source_path": source_path,
         "source_url": source_url,
-        "event_name_raw": sanitize_csv_string(event_name_raw) if event_name_raw else None,
-        "date_raw": sanitize_csv_string(date_raw) if date_raw else None,
-        "location_raw": sanitize_csv_string(location_raw) if location_raw else None,
-        "host_club_raw": sanitize_csv_string(host_club_raw) if host_club_raw else None,
-        "event_type_raw": sanitize_csv_string(event_type_raw) if event_type_raw else None,
-        "results_block_raw": sanitize_csv_string(results_block_raw) if results_block_raw else None,
+        "event_name_raw": clean_field(event_name_raw),
+        "date_raw": clean_field(date_raw),
+        "location_raw": clean_field(location_raw),
+        "host_club_raw": clean_field(host_club_raw),
+        "event_type_raw": clean_field(event_type_raw),
+        "results_block_raw": clean_field(results_block_raw),
         "html_parse_notes": "; ".join(parse_notes),
         "html_warnings": "; ".join(warnings),
         "_html": html,  # Store for QC checks

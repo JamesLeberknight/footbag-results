@@ -106,7 +106,7 @@ def format_results_from_placements(placements: list[dict]) -> Optional[str]:
 
         # Add category header
         label = CATEGORY_LABELS.get(cat, cat.upper())
-        out_lines.append(f"=== {label} ===")
+        out_lines.append(f"<<< {label} >>>")
         out_lines.append("")
 
         # Sort divisions alphabetically within category
@@ -165,6 +165,10 @@ def _build_name_line(placement: dict) -> str:
 # ------------------------------------------------------------
 def read_stage2_csv(csv_path: Path) -> list[dict]:
     """Read stage2 CSV and return list of event records."""
+    import sys
+    # Increase CSV field size limit for large placement_json fields
+    csv.field_size_limit(sys.maxsize)
+
     records = []
     with open(csv_path, "r", newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
