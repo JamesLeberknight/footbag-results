@@ -25,6 +25,49 @@ from bs4 import BeautifulSoup
 # CSV safety: remove control chars that could cause issues
 _ILLEGAL_CSV_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 
+# Detect placement-like lines in a text block.
+# Matches numbered formats: "1. Name", "1) Name", "1- Name", "1: Name"
+# Also English ordinals: "1st -", "2nd -", "3rd -"
+# Also Spanish/Portuguese ordinals: "1° LUGAR", "2°", "1º"
+_PLACEMENT_LINE_RE = re.compile(
+    r'^\s*[1-9]\d?\s*'        # leading number (1-99)
+    r'(?:'
+    r'[.)\-:]\s*\S'            # numbered: 1. Name, 1) Name, 1- Name, 1: Name
+    r'|'
+    r'(?:st|nd|rd|th)\b'       # English ordinal: 1st, 2nd, 3rd, 4th
+    r'|'
+    r'[°º]'                    # degree/ordinal sign: 1°, 1º
+    r')',
+    re.MULTILINE
+)
+
+# Year overrides for events where year cannot be extracted from HTML
+# These event IDs are missing structured date/year info in the mirror HTML
+# Years were found by checking which results_year_YYYY directory lists each event
+YEAR_OVERRIDES = {
+    860082052: 1997,      # Texas State Footbag Championships
+    941066992: 2000,      # WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS
+    959094047: 2000,      # Battle of the Year Switzerland
+    1023993464: 2002,     # Funtastik Summer Classic Footbag Tournament
+    1030642331: 2002,     # Seattle Juggling and Footbag Festival
+    1278991986: 2010,     # 23rd Annual Vancouver Open Footbag Championships
+}
+
+# Date overrides for events where date cannot be extracted from HTML
+# These event IDs have broken HTML with missing structured date fields
+# Dates were manually looked up from footbag.org
+DATE_OVERRIDES = {
+    1099545007: "January 21 - 23",               # Seapa NZ Footbag Nationals 2005
+    1151949245: "July 21 - 23",                  # ShrEdmonton 2006
+    1299244521: "April 30 - May 1",              # Warsaw Footbag Open 2011
+    1023993464: "August 31 - September 2",       # Funtastik Summer Classic 2002
+    1030642331: "November 15 - 17",              # Seattle Juggling and Footbag Festival 2002
+    1278991986: "August 14 - 15",                # 23rd Annual Vancouver Open 2010
+    860082052: "October 11 - 12",                # Texas State Footbag Championships 1997
+    941066992: "May 29",                         # WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS 2000
+    959094047: "May 27",                         # Battle of the Year Switzerland 2000
+}
+
 
 def sanitize_csv_string(s: str) -> str:
     """Remove control characters for CSV safety."""
@@ -37,9 +80,21 @@ def fix_encoding_corruption(s: str) -> str:
     """
     Fix systematic encoding corruption in the HTML mirror.
 
-    The mirror has UTF-8 corruption where certain characters are systematically wrong:
-    - © (copyright symbol) should be Š (Czech S with caron)
-    - £ (pound sign) should be Ł (Polish L with stroke)
+    The mirror has three types of corruption:
+
+    1. Visible character corruption (UTF-8 misinterpretation):
+       - © (copyright symbol) should be Š (Czech S with caron)
+       - £ (pound sign) should be Ł (Polish L with stroke)
+
+    2. C1 control characters (CP1252 misinterpretation):
+       - U+0092 (chr 146) should be ' (apostrophe) - appears in "Women's"
+       - U+0093 (chr 147) should be " (left double quote)
+       - U+0094 (chr 148) should be " (right double quote)
+       - U+009A (chr 154) should be š (small s with caron)
+
+    3. Unicode replacement character (�) from pre-existing corruption in HTML:
+       - � before 's (possessive) should be ' (apostrophe)
+       - Pattern: "Women�s" → "Women's", "Men�s" → "Men's"
 
     Note: ? characters represent unknown/unrecoverable characters from the original mirror
     and cannot be fixed without manual context.
@@ -48,15 +103,30 @@ def fix_encoding_corruption(s: str) -> str:
         return s
 
     # Map of corrupted character -> correct character
-    # Based on analysis of Polish and Czech player names
     fixes = {
+        # Visible character corruption
         '©': 'Š',  # Czech S with caron (U+0160)
         '£': 'Ł',  # Polish L with stroke (U+0141)
+
+        # C1 control characters (CP1252 corruption)
+        '\x92': "'",  # U+0092 → apostrophe (most common: "Women's")
+        '\x93': '"',  # U+0093 → left double quote
+        '\x94': '"',  # U+0094 → right double quote
+        '\x9a': 'š',  # U+009A → s with caron
     }
 
     result = s
     for wrong, right in fixes.items():
         result = result.replace(wrong, right)
+
+    # Fix Unicode replacement character (�) in possessive context
+    # Pattern: word�s → word's (e.g., "Women�s" → "Women's")
+    import re
+    result = re.sub(r'(\w)\ufffd' + r's\b', r"\1's", result)
+
+    # Fix replacement character used as nickname quotes
+    # Pattern: Name �Nickname� Surname → Name "Nickname" Surname
+    result = re.sub(r'\ufffd(\w+)\ufffd', r'"\1"', result)
 
     return result
 
@@ -154,7 +224,7 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
     else:
         warnings.append("event_name: <title> tag missing")
 
-    # Date from DOM block
+    # Date from DOM block or overrides
     date_raw = None
     date_node = soup.select_one("div.eventsDateHeader")
     if date_node:
@@ -162,8 +232,13 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
         if date_raw:
             date_raw = re.sub(r"\(\s*concluded\s*\)$", "", date_raw, flags=re.I).strip()
             parse_notes.append("date: div.eventsDateHeader")
+    # Check date overrides if HTML parsing didn't find it
     if not date_raw:
-        warnings.append("date: div.eventsDateHeader missing")
+        date_raw = DATE_OVERRIDES.get(int(event_id)) if event_id else None
+        if date_raw:
+            parse_notes.append("date: override")
+        else:
+            warnings.append("date: div.eventsDateHeader missing")
 
     # Location from DOM block
     location_raw = None
@@ -194,13 +269,14 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
     else:
         warnings.append("event_type: not found")
 
-    # Year detection from date or title
-    year = None
-    for source in (date_raw or "", event_name_raw or ""):
-        m = re.search(r"\b(19\d{2}|20\d{2})\b", source)
-        if m:
-            year = int(m.group(1))
-            break
+    # Year detection: check overrides first, then parse from date or title
+    year = YEAR_OVERRIDES.get(int(event_id)) if event_id else None
+    if not year:
+        for source in (date_raw or "", event_name_raw or ""):
+            m = re.search(r"\b(19\d{2}|20\d{2})\b", source)
+            if m:
+                year = int(m.group(1))
+                break
     if not year:
         warnings.append("year: not found in date or title")
 
@@ -211,28 +287,14 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
     results_block_raw = None
     results_div = soup.select_one("div.eventsResults")
     if results_div:
-        # Check for <h2> division headers first
+        # PREFERRED: Try extracting structured results from <h2> division headers first
+        # These have proper division names like "Open Singles Net:" with <br>-separated entries
+        # Note: Mixed <br> and <br/> in HTML causes BeautifulSoup issues, so we extract
+        # the full text and parse it line by line instead of walking the DOM
         h2_tags = results_div.find_all("h2")
         division_headers = [h2.get_text(strip=True) for h2 in h2_tags
                            if h2.get_text(strip=True) and "manually" not in h2.get_text(strip=True).lower()]
 
-        # Check for comprehensive <pre> block
-        comprehensive_pre = None
-        all_pres = results_div.find_all("pre")
-        for pre in all_pres:
-            pre_text = pre.get_text("\n", strip=False)
-            # Check if this pre is comprehensive (long and contains placements)
-            # Match formats: "1. Name", "1) Name", "1 - Name", "1st Name", "1ST - Name"
-            has_placements = (re.search(r'^\s*[1-9]\d?\s*[.)\-:]\s*\S', pre_text, re.MULTILINE) or
-                            re.search(r'^\s*\d{1,2}(st|nd|rd|th)\s*[-\s]', pre_text, re.MULTILINE | re.IGNORECASE))
-            if len(pre_text) > 500 and has_placements:
-                comprehensive_pre = pre_text
-                break
-
-        # PREFERRED: Use structured extraction from <h2> division headers if available
-        # These have proper division names like "Open Singles Net:" with <br>-separated entries
-        # Note: Mixed <br> and <br/> in HTML causes BeautifulSoup issues, so we extract
-        # the full text and parse it line by line instead of walking the DOM
         if division_headers:
             # Get full text of results div and parse it
             full_text = results_div.get_text("\n", strip=False)
@@ -248,55 +310,49 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
                     in_structured_section = True
                     structured_results.append(line)
                     continue
-                # Skip "Manually Entered Results" header but don't stop parsing
-                # (results often continue after this label)
-                if "manually entered" in line.lower():
-                    continue
-                # Stop at other non-result sections
-                if line.startswith("Related Photos"):
-                    in_structured_section = False
-                    continue
+                # Stop completely at "Manually Entered Results" — the pre block after this
+                # often contains the SAME results, and continuing would re-extract them
+                if "manually entered" in line.lower() or line.startswith("Related Photos"):
+                    break
                 # Collect numbered entries
                 if in_structured_section and re.match(r'^\d+\.?\s+\S', line):
                     structured_results.append(line)
 
             if structured_results and len(structured_results) > len(division_headers):
-                structured_text = "\n".join(structured_results)
-                # Check if <pre> has content that structured extraction misses
-                should_prefer_pre = False
-                if comprehensive_pre:
-                    # If <pre> is significantly larger (2x), prefer it
-                    if len(comprehensive_pre) > len(structured_text) * 2:
-                        should_prefer_pre = True
-                    # If <pre> has freestyle content but structured doesn't, prefer <pre>
-                    elif (re.search(r'\b(freestyle|routines|shred|circle|sick)\b', comprehensive_pre, re.IGNORECASE) and
-                          not re.search(r'\b(freestyle|routines|shred|circle|sick)\b', structured_text, re.IGNORECASE)):
-                        should_prefer_pre = True
+                results_block_raw = "\n".join(structured_results)
+                parse_notes.append("results: div.eventsResults > h2 + structured")
 
-                if should_prefer_pre:
-                    results_block_raw = comprehensive_pre
-                    parse_notes.append("results: div.eventsResults > pre (more comprehensive than h2)")
-                else:
-                    results_block_raw = structured_text
-                    parse_notes.append("results: div.eventsResults > h2 + structured")
-
-        # FALLBACK 1: If no structured results but have comprehensive pre, use it
-        if not results_block_raw and comprehensive_pre:
-            results_block_raw = comprehensive_pre
-            parse_notes.append("results: div.eventsResults > pre (comprehensive)")
-
-        # FALLBACK 2: If no structured results, look for any <pre> tags with placements
+        # FALLBACK: If no structured results, look for <pre> tags with placements
         if not results_block_raw:
             all_pres = results_div.find_all("pre")
             for pre in all_pres:
                 pre_text = pre.get_text("\n", strip=False)
                 # Check if this pre contains actual results (numbered placements)
-                if re.search(r'^\s*[1-9]\d?\s*[.)\-:]\s*\S', pre_text, re.MULTILINE):
+                if _PLACEMENT_LINE_RE.search(pre_text):
                     results_block_raw = pre_text
                     parse_notes.append("results: div.eventsResults > pre (with placements)")
                     break
 
-        # FALLBACK 3: any pre.eventsPre in eventsResults
+        # HYBRID: If we have structured results, also check if <pre> has additional content
+        # This handles cases where h2 has only NET but <pre> has NET + FREESTYLE
+        if results_block_raw:
+            results_pre = results_div.select_one("pre.eventsPre")
+            if results_pre:
+                pre_text = results_pre.get_text("\n", strip=False)
+                has_placements = _PLACEMENT_LINE_RE.search(pre_text)
+
+                if has_placements:
+                    # Strategy 1: If <pre> is significantly larger (2x+), prefer it entirely
+                    if len(pre_text) > len(results_block_raw) * 2:
+                        results_block_raw = pre_text
+                        parse_notes.append("results: div.eventsResults > pre.eventsPre (much larger than structured)")
+                    # Strategy 2: If <pre> contains "freestyle" but structured doesn't, prefer <pre>
+                    elif (re.search(r'\bfreestyle\b', pre_text, re.I) and
+                          not re.search(r'\bfreestyle\b', results_block_raw, re.I)):
+                        results_block_raw = pre_text
+                        parse_notes.append("results: div.eventsResults > pre.eventsPre (has freestyle, structured doesn't)")
+
+        # Final fallback: any pre.eventsPre in eventsResults
         if not results_block_raw:
             results_pre = results_div.select_one("pre.eventsPre")
             if results_pre:
@@ -304,11 +360,19 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
                 parse_notes.append("results: div.eventsResults > pre.eventsPre")
 
     # Fallback to first pre.eventsPre if no eventsResults div
+    # BUT: Avoid extracting from div.eventsEvents (Events Offered section)
+    # which contains division names, not actual results
     if not results_block_raw:
         pre = soup.select_one("pre.eventsPre")
         if pre:
-            results_block_raw = pre.get_text("\n", strip=False)
-            parse_notes.append("results: pre.eventsPre (fallback)")
+            # Check if this pre is inside div.eventsEvents (Events Offered)
+            # If so, skip it - it's division names, not results
+            events_offered_div = soup.select_one("div.eventsEvents")
+            if events_offered_div and pre in events_offered_div.find_all("pre"):
+                parse_notes.append("results: skipped pre.eventsPre (inside Events Offered, not results)")
+            else:
+                results_block_raw = pre.get_text("\n", strip=False)
+                parse_notes.append("results: pre.eventsPre (fallback)")
 
     if not results_block_raw:
         warnings.append("results: no results found in HTML")
@@ -343,7 +407,9 @@ def parse_mirror(mirror_dir: Path) -> list[dict]:
     records = []
 
     for html_file in iter_event_html_files(events_show):
-        html = html_file.read_text(encoding="utf-8", errors="replace")
+        # Use surrogateescape to preserve bytes for fix_encoding_corruption()
+        # Don't use errors="replace" as it converts invalid bytes to � before we can fix them
+        html = html_file.read_text(encoding="utf-8", errors="surrogateescape")
         source_path = str(html_file)
         source_url = "file://" + source_path.replace("\\", "/")
 
@@ -637,8 +703,28 @@ def print_verification_stats(records: list[dict]) -> None:
     # Year distribution
     years = [r["year"] for r in records if r.get("year")]
     if years:
-        print(f"\nYear range: {min(years)} - {max(years)}")
+        min_year, max_year = min(years), max(years)
+        print(f"\nYear range: {min_year} - {max_year}")
         print(f"Events with year: {len(years)}/{total}")
+
+        # QC: Check for year gaps (CRITICAL - detects data loss)
+        year_set = set(years)
+        expected_years = set(range(min_year, max_year + 1))
+        missing_years = expected_years - year_set
+
+        if missing_years:
+            print(f"\n⚠️  WARNING: Missing years detected!")
+            print(f"   Expected continuous range: {min_year}-{max_year}")
+            print(f"   Missing years: {sorted(missing_years)}")
+            print(f"   This may indicate incomplete mirror data or parsing issues.")
+
+        # Expected: Full footbag history should span ~1970s-present
+        # If we only have recent years, flag it
+        if min_year > 2010:
+            print(f"\n⚠️  WARNING: Suspiciously recent data!")
+            print(f"   Oldest event is from {min_year}")
+            print(f"   Expected footbag history data from 1990s or earlier")
+            print(f"   Check if mirror contains full historical dataset")
 
     # Sample output (first 3 events)
     print("\nSample events (first 3):")
@@ -659,7 +745,7 @@ def main():
     Parse HTML mirror and output stage1_raw_events.csv
     """
     repo_dir = Path(__file__).resolve().parent
-    # Mirror is in the repo directory
+    # Mirror is inside this repo: FOOTBAG_DATA/mirror/
     mirror_dir = repo_dir / "mirror"
     out_dir = repo_dir / "out"
     out_csv = out_dir / "stage1_raw_events.csv"

@@ -1,0 +1,14 @@
+{
+  "stage": "stage3",
+  "total_records": 775,
+  "total_errors": 0,
+  "total_warnings": 11,
+  "total_info": 41,
+  "counts_by_check": {
+    "any_field_contains_placeholder_or_instructional_text": {
+      "ERROR": 0,
+      "WARN": 11,
+      "INFO": 41
+    }
+  }
+}
