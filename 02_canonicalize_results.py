@@ -22,6 +22,22 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
+# Import master QC orchestrator
+# Note: qc_master will import slop detection checks automatically
+try:
+    from qc_master import (
+        run_qc_for_stage,
+        load_baseline as load_baseline_master,
+        save_baseline as save_baseline_master,
+        print_qc_delta as print_qc_delta_master,
+        print_qc_summary as print_qc_summary_master,
+    )
+    USE_MASTER_QC = True
+except ImportError:
+    # Fallback: keep old QC if master not available
+    print("Warning: Could not import qc_master, using embedded QC")
+    USE_MASTER_QC = False
+
 
 # ------------------------------------------------------------
 # QC Constants
@@ -155,8 +171,6 @@ EVENT_TYPE_OVERRIDES = {
     "1079664495": "social",   # May Day '04 - "4 Square money games" noise
     "1093115479": "social",   # 2nd Annual SoCal Labor Day Jam - address parsed as place
     "1200725314": "social",   # SoCali Jam 08 - activity description
-    # Sideline-only events misclassified as freestyle
-    "1250478677": "mixed",    # Montreal End-of-Summer Jam 1 - only 2-Square (sideline) results
     "955642039": "social",    # Zion Footbag Tour - "5 WEEKS OF FUN" noise
     "961029998": "social",    # Club Hackedout T.V Appearance - media event
     # Decision: 2026-02 - Events with unusual formats that can't be auto-classified
@@ -172,7 +186,6 @@ EVENT_TYPE_OVERRIDES = {
 # Each event_id maps to a dict of rule names and their config.
 # Available rules:
 #   - "split_merged_teams": Split "Player1 [seed] COUNTRY Player2 COUNTRY" format
-#   - "division_ranges": List of (start_idx, end_idx, division_name, category) tuples
 #
 # Decision: 2026-02 - This structure allows adding event-specific parsing
 # without polluting the general parsing logic.
@@ -181,21 +194,6 @@ EVENT_PARSING_RULES = {
     # Format: "Emmanuel Bouchard [1] CAN Florian Goetze GER"
     "1293877677": {
         "split_merged_teams": True,
-    },
-    # 2003 East Coast Championships - complex HTML structure with multiple divisions
-    # parsed as single block. Map placement indices to divisions.
-    "1049457912": {
-        "division_ranges": [
-            (0, 17, "Intermediate Freestyle", "freestyle"),
-            (18, 24, "Open Routines", "freestyle"),
-            (25, 26, "Open Sick 3", "freestyle"),
-            (27, 31, "Novice Freestyle", "freestyle"),
-            (32, 43, "Intermediate Singles Net", "net"),
-            (44, 59, "Open Singles Net", "net"),
-            (60, 65, "Master's Division Singles Net", "net"),
-            (66, 71, "Intermediate Doubles Net", "net"),
-            (72, 80, "Open Doubles Net", "net"),
-        ],
     },
 }
 
@@ -362,6 +360,36 @@ ABBREVIATED_DIVISIONS = {
     "md": "Mixed Doubles",
 }
 
+# Spanish division name normalization
+# Maps Spanish division headers to English equivalents
+SPANISH_DIVISION_MAP = {
+    # Pattern: normalize by removing RESULTADO/RESULTADOS prefix, PUESTOS suffix
+    # INDIVIDUAL = Singles, DOBLES = Doubles
+    "resultados open individual": "Open Singles",
+    "resultado open individual": "Open Singles",
+    "resultados open individual puestos": "Open Singles",
+    "resultado open individual puestos": "Open Singles",
+    "resultados open singles": "Open Singles",
+    "resultado open singles": "Open Singles",
+    "resultados open dobles": "Open Doubles",
+    "resultado open dobles": "Open Doubles",
+    "resultado open dobles puestos": "Open Doubles",
+    "resultados open dobles puestos": "Open Doubles",
+    "resultado footbag net open dobles": "Open Doubles Net",
+    "open net dobles": "Open Doubles Net",
+    "open dobles": "Open Doubles",
+    "resultados sick three": "Sick 3",
+    "sick 3 resultados": "Sick 3",
+}
+
+
+def normalize_spanish_division(division_raw: str) -> str:
+    """Normalize Spanish division names to English equivalents."""
+    if not division_raw:
+        return division_raw
+    key = division_raw.lower().strip().rstrip('.:')
+    return SPANISH_DIVISION_MAP.get(key, division_raw)
+
 
 def categorize_division(division_name: str, event_type: str = None) -> str:
     """
@@ -428,6 +456,16 @@ def categorize_division(division_name: str, event_type: str = None) -> str:
     return "unknown"
 
 
+def _has_division_keyword(text: str) -> bool:
+    """Check if text contains any division keyword as a whole word (not substring)."""
+    text_lower = text.lower()
+    for kw in DIVISION_KEYWORDS:
+        # Use word boundary matching to avoid "pro" matching "Prokoph"
+        if re.search(r'\b' + re.escape(kw) + r'\b', text_lower):
+            return True
+    return False
+
+
 def looks_like_division_header(line: str) -> bool:
     """
     Check if line looks like a division header.
@@ -453,18 +491,28 @@ def looks_like_division_header(line: str) -> bool:
     if abbrev in ABBREVIATED_DIVISIONS:
         return True
 
-    # Length check - real division headers are short
-    if len(line) > 50:
+    # Strip explanatory text in parentheses for length check
+    # E.g., "Intermediate Shred 30 (total adds only.. uniques etc. not counted)"
+    #    -> "Intermediate Shred 30"
+    line_without_parens = re.sub(r'\s*\([^)]+\)\s*', ' ', line).strip()
+
+    # Length check - real division headers are short (after removing explanations)
+    if len(line_without_parens) > 50:
         return False
 
     # Reject empty or very short lines
     if len(line) < 3:
         return False
 
-    # Reject lines that look like results (start with number + separator + name)
-    # e.g., "1. John Smith", "2) Jane Doe"
-    if re.match(r"^\d+\s*[.):\-]\s+[A-Z]", line):
-        return False
+    # Reject lines that look like results (start with number + name)
+    # BUT: Don't reject if it contains division keywords (e.g., "30 Second Shred", "1 Minute Freestyle")
+    # Covers both:
+    #   - Separator format: "1. John Smith", "2) Jane Doe", "3: Player"
+    #   - Tab-separated format: "1\tJohn Smith" (common in tabular results)
+    if re.match(r"^\d+\s*[.):\-]?\s+[A-Z]", line):
+        # Check if it has division keywords - if so, might be a time-based division
+        if not _has_division_keyword(low):
+            return False
 
     # Reject lines that contain embedded results (colon followed by number)
     # e.g., "Singles Net: 1. The Enforcer Kenny Schultz"
@@ -528,8 +576,8 @@ def looks_like_division_header(line: str) -> bool:
     if '!' in line and not line.rstrip().endswith(':'):
         return False
 
-    # Must contain at least one division keyword
-    if not any(k in low for k in DIVISION_KEYWORDS):
+    # Must contain at least one division keyword (word-boundary match)
+    if not _has_division_keyword(low):
         return False
 
     # Accept if line is reasonably structured:
@@ -557,16 +605,17 @@ def looks_like_division_header(line: str) -> bool:
     # e.g., "30 Sec. Shred", "5 Minute Timed Consecutives"
     if first_word.isdigit():
         rest = ' '.join(low.split()[1:])
-        starts_valid = any(k in rest for k in DIVISION_KEYWORDS)
+        starts_valid = _has_division_keyword(rest)
 
     # Check if it's a short all-caps header (e.g., "DOUBLE:", "SINGLE:")
-    is_caps_header = line.isupper() and len(line) <= 30
+    is_caps_header = line.isupper() and len(line_without_parens) <= 30
 
     # Check if it ends with colon and is short (likely a header)
-    is_colon_header = line.rstrip().endswith(':') and len(line) <= 40
+    # Use line_without_parens for length: "Open Circle (3 rounds: variety, etc.):" is a valid header
+    is_colon_header = line.rstrip().endswith(':') and len(line_without_parens) <= 40
 
     # Short lines with keywords are likely headers
-    is_short_with_keyword = len(line) <= 35
+    is_short_with_keyword = len(line_without_parens) <= 35
 
     return starts_valid or is_caps_header or is_colon_header or is_short_with_keyword
 
@@ -601,28 +650,263 @@ def canonicalize_division(division_raw: str) -> str:
 # ------------------------------------------------------------
 def strip_trailing_score(name: str) -> str:
     """
-    Remove trailing numeric scores from player names.
-    Examples: "Matt Strong 526" -> "Matt Strong"
-              "John Doe 1234" -> "John Doe"
+    Remove ONLY trailing scores and obvious non-name data from player names.
+    Conservative approach to avoid creating duplicates.
+
+    Examples:
+      "Matt Strong 526" -> "Matt Strong"
+      "Ricky Moran: Bothell, WA - 121.35" -> "Ricky Moran: Bothell, WA"
+
+    NOTE: Parenthesized data is kept (may be club names OR tricks - can't reliably distinguish)
     """
-    # Remove trailing 2-4 digit numbers
+    # Remove trailing 2-4 digit numbers (scores)
     cleaned = re.sub(r'\s+\d{2,4}\s*$', '', name).strip()
+
+    # Remove trailing decimal scores like "- 121.35" or "= 95.2"
+    cleaned = re.sub(r'\s+[-=]\s*\d+(\.\d+)?\s*$', '', cleaned).strip()
+
     # Remove trailing score patterns like "123 -" or "456 ="
-    cleaned = re.sub(r'\s+\d+\s*[-=].*$', '', cleaned).strip()
+    cleaned = re.sub(r'\s+\d+\s*[-=]\s*$', '', cleaned).strip()
+
     return cleaned
+
+
+def clean_player_name(name: str) -> str:
+    """
+    Remove scores, trick lists, and narrative commentary from player names.
+    Applied after split_entry() to clean individual player names.
+
+    Preserves: country/club codes in parentheses like (CZE), (Paris Zion)
+    Removes: scores, stats breakdowns, trick lists, narrative text
+    """
+    if not name:
+        return name
+
+    original = name
+
+    # Rule 1: Strip "Name (CZE) - 242.79 (127 adds, 31 uniques, ...)"
+    # Score + stats after dash/equals following a parenthetical
+    name = re.sub(r'(\))\s*[-=]\s*\d+\.?\d*\s*\([\d\s,a-zA-Z]+\).*$', r'\1', name).strip()
+
+    # Rule 2: Strip "Name 146,66 (36 contacts, 12 uniques, 110 adds...)"
+    # European comma-decimal score followed by stats parenthetical
+    name = re.sub(r'\s+\d+[,.]\d+\s*\([\d\s,a-zA-Z]+\).*$', '', name).strip()
+
+    # Rule 3: Strip "Name ---------(<score>)" or "Name --------- (<score>)"
+    # Dashed-out scores (player didn't make finals)
+    name = re.sub(r'\s+-{3,}\s*\(\d+\.?\d*\)\s*$', '', name).strip()
+
+    # Rule 4: Strip "Name <score> (<score>)" — double score pattern
+    # e.g. "Vasek Klouda 259.35 (281.53)"
+    name = re.sub(r'\s+\d+\.?\d+\s*\(\d+\.?\d+\)\s*$', '', name).strip()
+
+    # Rule 5: Strip parenthetical scores: "Name (194.47)"
+    # Only numeric content with decimal point, 2+ digits before decimal
+    name = re.sub(r'\s*\(\d{2,}\.?\d*\)\s*$', '', name).strip()
+
+    # Rule 6: Strip "Name (Country) - score (stats...)" where stats has non-paren format
+    # e.g. "David Clavens (USA) - whirlwalk > blurriest > ..."
+    name = re.sub(r'(\([A-Z]{2,}(?:\s+\w+)*\))\s*[-=]\s+\S.{15,}$', r'\1', name).strip()
+
+    # Rule 7: Strip score + trick parenthetical: "Name 42.6 (Alpine Food Processor > ...)"
+    # Score followed by tricks in parentheses (contains > or uppercase trick names)
+    name = re.sub(r'\s+\d+\.?\d*\s*\([A-Z][\w\s>.,]+\).*$', '', name).strip()
+
+    # Rule 8: Strip colon-separated trick lists: "Name: trick, trick, trick"
+    # Colon followed by 10+ chars containing trick indicators (, > ; ( ")
+    m = re.search(r':\s+.{10,}$', name)
+    if m and re.search(r'[,>;("]', m.group()):
+        name = name[:m.start()].strip()
+
+    # Rule 9: Strip trick lists with "--" separator: "Name--trick, trick"
+    name = re.sub(r'\s*--\s*.{10,}$', '', name).strip()
+
+    # Rule 10: Strip trick lists with ">" after country/club parenthetical
+    # e.g. "Felix Zenger (FIN) Double Blender > Superfly > ..."
+    m = re.match(r'^(.+?\([^)]+\))\s+\S.*>.*$', name)
+    if m:
+        candidate = m.group(1)
+        # Make sure what follows the paren looks like tricks (has >)
+        rest = name[len(candidate):]
+        if '>' in rest:
+            name = candidate.strip()
+
+    # Rule 11: Strip trick lists with ">" after bare name (no parenthetical)
+    # e.g. "Damian Gielnicki Spinning Eggbeater > Paradon Swirl > ..."
+    # Only if the name doesn't already contain parentheses
+    if '(' not in name and '>' in name:
+        # Find the first > and look for a name before the trick
+        idx = name.index('>')
+        before = name[:idx].strip()
+        # Try to find where the name ends and tricks begin
+        # Look for a transition from capitalized name words to trick content
+        words = before.split()
+        # Find the last word that looks like a name start (before trick words)
+        # Trick words tend to come after 2+ name words
+        if len(words) >= 3:
+            # Check if word 3+ look like trick content (Spinning, Ducking, etc.)
+            # Heuristic: first 2 words are the name, rest is tricks
+            candidate_name = ' '.join(words[:2])
+            # Verify the candidate looks like a name (both words start uppercase)
+            if all(w[0].isupper() for w in words[:2] if w):
+                name = candidate_name.strip()
+
+    # Rule 12: Strip narrative text after club parenthetical
+    # e.g. "Claire Beltran (Paris Zion) Elle reste championne..."
+    # Match: close paren, then 10+ chars of non-paren text
+    m = re.match(r'^(.+?\([^)]+\))\s+(.{10,})$', name)
+    if m:
+        after_paren = m.group(2)
+        # Only strip if text after paren looks like narrative (starts with lowercase
+        # or contains sentence-like content), NOT like a name suffix
+        if (after_paren[0].islower() or
+            re.search(r'[.!,;].*\s', after_paren) or
+            len(after_paren) > 30):
+            # But preserve if it looks like it could be team members
+            # e.g. "Name (Club), Name2, Name3"
+            if not re.match(r'^[A-Z][a-z]+\s+[A-Z]', after_paren):
+                name = m.group(1).strip()
+
+    # Rule 13: Strip "? " trick lists (? used as separator in some events)
+    # e.g. "Serge Kaldany ? Quantum Ducking Mirage > Pixie..."
+    if ' ? ' in name and '>' in name:
+        idx = name.index(' ? ')
+        candidate = name[:idx].strip()
+        if candidate and candidate[0].isupper():
+            name = candidate
+
+    # Rule 14: Strip "Name (Country)(tricks...)" — double parenthetical
+    # e.g. "Filip Wojciuk (Poland)(fairy ducking butterfly-bedwetter-...)"
+    # Must run before general parenthetical stripping to preserve country code
+    m = re.match(r'^(.+?\([^)]{2,15}\))\((.{10,})\)(.*)$', name)
+    if m:
+        paren2 = m.group(2)
+        # Only strip if second paren content looks like tricks (lowercase, has separators)
+        if paren2[0].islower() or '>' in paren2 or paren2.count('-') >= 2:
+            name = m.group(1).strip()
+
+    # Rule 15: Strip parenthetical trick lists (contains > or | or many commas or = separator)
+    # e.g. "Vasek Klouda (Janiwalker>Blurriest, Bedwetter>...)"
+    # e.g. "Jakub Mo¶ciszewski (phoenix>bedwetter>pixie paradon | phasing>...)"
+    # e.g. "Ale? Zelinka (Backside Symposium Atomic Eggbeater = Symposium...)"
+    # e.g. "Jon Schneider (Hopover-Swirl-dragon-rake, Infinity-swirl-...)"
+    # But preserve country codes like (CZE) and club names like (Paris Zion)
+    m = re.match(r'^([^(]+)\((.+)\)(.*)$', name)
+    if m:
+        before_paren = m.group(1).strip()
+        paren_content = m.group(2)
+        after_paren = m.group(3).strip()
+        # Strip if paren content contains trick indicators and is long
+        has_trick_indicators = ('>' in paren_content or '|' in paren_content or
+                                '=' in paren_content or paren_content.count(',') >= 2 or
+                                paren_content.count('-') >= 2)
+        # Also strip if it's long narrative text (contains ... or starts with common words)
+        is_narrative = ('...' in paren_content or
+                        re.match(r'^(I |the |a |an |we |he |she |it |this )', paren_content, re.IGNORECASE))
+        if len(paren_content) > 15 and (has_trick_indicators or is_narrative):
+            # But not if it's clearly a country/club code (short, all letters)
+            if not re.match(r'^[A-Za-z\s]{2,10}$', paren_content):
+                name = before_paren
+                # If there was text after the paren that looks like a country code, keep it
+                if after_paren and re.match(r'^\([A-Z]{2,5}\)', after_paren):
+                    name = name + ' ' + after_paren
+
+    # Rule 16: Strip "Name (Country) - narrative" where narrative isn't a score
+    # e.g. "Dan Greer (USA)- 3 way tie; did not advance past semi-final"
+    m = re.match(r'^(.+?\([^)]{2,15}\))\s*-\s*(.{10,})$', name)
+    if m:
+        after = m.group(2)
+        # Only strip if it doesn't start with a digit (which would be a score, handled above)
+        if not re.match(r'^\d', after):
+            name = m.group(1).strip()
+
+    # Rule 17: Strip square bracket annotations
+    # e.g. "Florian Goetze [Final: Emmanuel withdrew due to injury]..."
+    m_bracket = re.search(r'\s*\[.{10,}$', name)
+    if m_bracket and len(name[:m_bracket.start()].strip()) >= 3:
+        name = name[:m_bracket.start()].strip()
+
+    # Rule 18: Strip narrative after club parenthetical with comma separator
+    # e.g. "Christopher Reyer (Paris Rien n'est Hacky), désolé pour l'oubli..."
+    m = re.match(r'^(.+?\([^)]+\)),\s+(.{10,})$', name)
+    if m:
+        after = m.group(2)
+        # Strip if the text after comma is narrative (starts lowercase)
+        if after[0].islower():
+            name = m.group(1).strip()
+
+    # Rule 19: Strip colon trick lists where content has parenthetical explanation
+    # e.g. "Jeremy Benton: Stepping P.S. Blender ("S" means 'simple' = 7...)"
+    m = re.search(r':\s+\S.{10,}$', name)
+    if m and ('(' in m.group() or '"' in m.group()):
+        name = name[:m.start()].strip()
+
+    # Rule 20: Strip bare name + all-lowercase trick content with >
+    # e.g. "DamianPiechocki stepping ps whirl >spinning pdxwhirl >..."
+    # e.g. "Maciek Niczyporuk janiwalk>bedwetter>pixie whirling swirl (5,2)"
+    if '>' in name:
+        # Find where lowercase trick text starts after an uppercase-starting name
+        m = re.match(r'^([A-Z]\S+(?:\s+[A-Z]\S+)*)\s+([a-z].+)$', name)
+        if m and '>' in m.group(2):
+            name = m.group(1).strip()
+
+    # Rule 21: Strip unclosed second parenthetical after country code
+    # e.g. "Alex Trener (Austria)(matador-blury whirl-ps whirl, janiwalker-..."
+    # Must run before unclosed-paren rule to preserve the country code
+    m = re.match(r'^(.+?\([^)]{2,15}\))\((.{10,})$', name)
+    if m:
+        paren2 = m.group(2)
+        if paren2[0].islower() or '>' in paren2 or paren2.count('-') >= 2:
+            name = m.group(1).strip()
+
+    # Rule 23: Strip leading slash (parsing artifact from some events)
+    # e.g. "/ Serge Kaldany" → "Serge Kaldany"
+    name = re.sub(r'^/\s*', '', name).strip()
+
+    # Rule 24: Strip trailing slash
+    # e.g. "Forest Schrodt /" → "Forest Schrodt", "scratch/" → "scratch"
+    name = re.sub(r'\s*/\s*$', '', name).strip()
+
+    # Rule 25: Strip "- n/a" suffix (player didn't compete)
+    # e.g. "Sergio Garcia (Spain) - n/a" → "Sergio Garcia (Spain)"
+    name = re.sub(r'\s*-\s*n/a\s*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 22: Strip unclosed parenthetical trick/narrative content
+    # e.g. "Vasek Klouda (Janiwalker>Blurriest, Bedwetter>Frantic Butterfly, Pixie"
+    # e.g. "Nick Landes 42.2 (Nuclear Osis > Spinning Ducking Butterfly > ..."
+    # These are truncated trick lists with ( but no closing )
+    if name.count('(') > name.count(')'):
+        idx = name.index('(')
+        before = name[:idx].strip()
+        after_open = name[idx+1:]
+        # Strip if content after ( is long and has trick/narrative indicators
+        if len(after_open) > 15 and (
+            '>' in after_open or '|' in after_open or '=' in after_open or
+            '...' in after_open or
+            after_open.count(',') >= 2 or after_open.count('-') >= 2 or
+            re.match(r'^[a-z]', after_open) or
+            re.match(r'^(I |the |a |an |we |he |she |it |this )', after_open, re.IGNORECASE)
+        ):
+            # Strip the trailing score before ( if present
+            before = re.sub(r'\s+\d+\.?\d*\s*$', '', before).strip()
+            if len(before) >= 3:
+                name = before
+
+    return name.strip()
 
 
 def split_entry(entry: str) -> tuple[str, Optional[str], str]:
     """
-    Detect doubles teams separated by '/', ' and ', ' & ', etc.
+    Detect doubles teams separated by '/', ' and ', ' & ', or dash separators.
     Returns (player1, player2, competitor_type).
     Canonical output format uses '/' separator (handled in _build_name_line).
 
     Priority:
     1. " & " between names (alternative separator, checked first to handle city notation)
     2. "/" outside parentheses (most common team separator)
-    3. " and " between names (word separator, includes "und" German, "plus")
-    4. " et " between names (French separator)
+    3. " and " between names (word separator)
+    4. "et" between names (French "and")
+    5. " - ", " – ", " — " between names (dash separators: hyphen, en-dash, em-dash)
     """
     entry = " ".join(entry.split()).strip()
 
@@ -639,19 +923,6 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
     if not entry_clean:
         entry_clean = entry
 
-    # Helper to strip surrounding quotes from a name
-    def strip_quotes(s: str) -> str:
-        """Strip surrounding single or double quotes from a string."""
-        s = s.strip()
-        if len(s) >= 2 and s[0] in ('"', "'") and s[-1] in ('"', "'"):
-            return s[1:-1].strip()
-        # Also strip just leading quotes (e.g., "Elliott")
-        if s.startswith('"') or s.startswith("'"):
-            s = s[1:].strip()
-        if s.endswith('"') or s.endswith("'"):
-            s = s[:-1].strip()
-        return s
-
     # Helper to check if a "/" is inside parentheses
     def slash_outside_parens(s):
         """Find first "/" that is NOT inside parentheses."""
@@ -665,22 +936,15 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
                 return i
         return -1
 
-    # Helper to validate team member name
-    def looks_like_name(s: str) -> bool:
-        """Check if a string looks like a valid player name."""
-        s = strip_quotes(s)
-        if len(s) < 2:
-            return False
-        # Accept if it has at least one uppercase letter (for nicknames like "his Watercarrier")
-        return bool(re.search(r'[A-Z]', s))
-
     # Try " & " first - it's often used when "/" appears in city/country notation
     if " & " in entry_clean:
         a, b = entry_clean.split(" & ", 1)
-        a = a.strip()
-        b = b.strip()
-        if looks_like_name(a) and looks_like_name(b):
-            return strip_trailing_score(strip_quotes(a)), strip_trailing_score(strip_quotes(b)), "team"
+        # Validate: both parts should start with capital letter (name-like)
+        a_first = a.strip()[:1] if a.strip() else ''
+        b_first = b.strip()[:1] if b.strip() else ''
+        if (len(a.strip()) >= 2 and len(b.strip()) >= 2 and
+            a_first.isupper() and b_first.isupper()):
+            return strip_trailing_score(a.strip()), strip_trailing_score(b.strip()), "team"
 
     # Try "/" outside parentheses
     slash_idx = slash_outside_parens(entry_clean)
@@ -690,21 +954,50 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
         if len(a) >= 2 and len(b) >= 2:
             return strip_trailing_score(a), strip_trailing_score(b), "team"
 
-    # " and ", "und" (German), or "plus" between two names (case insensitive)
-    and_match = re.search(r'\s+(and|und|plus)\s+', entry_clean, re.IGNORECASE)
+    # " and " between two names (case insensitive)
+    # Be careful not to match "and" within names like "Alexandra"
+    and_match = re.search(r'\s+and\s+', entry_clean, re.IGNORECASE)
     if and_match:
         a = entry_clean[:and_match.start()].strip()
         b = entry_clean[and_match.end():].strip()
-        if looks_like_name(a) and looks_like_name(b):
-            return strip_trailing_score(strip_quotes(a)), strip_trailing_score(strip_quotes(b)), "team"
+        a_first = a[:1] if a else ''
+        b_first = b[:1] if b else ''
+        # Validate both parts look like names (at least 2 chars each, start with capital)
+        if (len(a) >= 2 and len(b) >= 2 and
+            a_first.isupper() and b_first.isupper()):
+            return strip_trailing_score(a), strip_trailing_score(b), "team"
 
     # French "et" separator (case insensitive)
+    # Check for " et " between two names
     et_match = re.search(r'\s+et\s+', entry_clean, re.IGNORECASE)
     if et_match:
         a = entry_clean[:et_match.start()].strip()
         b = entry_clean[et_match.end():].strip()
-        if looks_like_name(a) and looks_like_name(b):
-            return strip_trailing_score(strip_quotes(a)), strip_trailing_score(strip_quotes(b)), "team"
+        a_first = a[:1] if a else ''
+        b_first = b[:1] if b else ''
+        # Validate both parts look like names (at least 2 chars each, start with capital)
+        if (len(a) >= 2 and len(b) >= 2 and
+            a_first.isupper() and b_first.isupper()):
+            return strip_trailing_score(a), strip_trailing_score(b), "team"
+
+    # Dash separator (common in Spanish/Portuguese events)
+    # Check for " - ", " – " (en-dash), or " — " (em-dash) between two names
+    # Be careful not to match dashes in prefixes like "3rd place - Name"
+    # or in hyphenated names like "Jean-Pierre"
+    # Matches: hyphen-minus (U+002D), en-dash (U+2013), em-dash (U+2014)
+    dash_match = re.search(r'\s+[-–—]\s+', entry_clean)
+    if dash_match:
+        a = entry_clean[:dash_match.start()].strip()
+        b = entry_clean[dash_match.end():].strip()
+        a_first = a[:1] if a else ''
+        b_first = b[:1] if b else ''
+        # Validate both parts look like names (at least 2 chars each, start with capital)
+        # Also ensure 'a' doesn't look like an ordinal (e.g., "1st", "2nd", "3rd")
+        ordinal_pattern = r'^\d+(st|nd|rd|th)?$'
+        if (len(a) >= 2 and len(b) >= 2 and
+            a_first.isupper() and b_first.isupper() and
+            not re.match(ordinal_pattern, a, re.IGNORECASE)):
+            return strip_trailing_score(a), strip_trailing_score(b), "team"
 
     return strip_trailing_score(entry), None, "player"
 
@@ -834,6 +1127,11 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
     placements = []
     division_raw = "Unknown"
 
+    # Normalize results_text: replace non-breaking spaces with regular spaces
+    # Non-breaking spaces (\xa0, \u00a0) can break pattern matching
+    if results_text:
+        results_text = results_text.replace('\xa0', ' ').replace('\u00a0', ' ')
+
     # Get event-specific parsing rules
     event_rules = EVENT_PARSING_RULES.get(str(event_id), {})
     use_merged_team_split = event_rules.get("split_merged_teams", False)
@@ -842,15 +1140,36 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
     in_seeding_section = False
 
     place_re = re.compile(r"^\s*(\d{1,3})\s*[.)\-:]?\s*(.+)$")
-    # Pattern for ordinal placements like "1ST Name", "2ND Name", "3RD Name", "4TH Name"
-    ordinal_re = re.compile(r"^\s*(\d{1,2})(ST|ND|RD|TH)\s+(.+)$", re.IGNORECASE)
+    # Pattern for ordinal placements like "1ST Name", "2ND Name", "1st: Name", "2nd: Name"
+    ordinal_re = re.compile(r"^\s*(\d{1,2})(ST|ND|RD|TH):?\s+(.+)$", re.IGNORECASE)
     # Pattern for tied placements like "23/24 Name" - captures the tie suffix
     tied_place_re = re.compile(r"^/\d+\s+(.+)$")
+    # Pattern for multi-line ordinal: place indicator on its own line, name on next line
+    # English: "1st Place", "2nd Place"
+    # Spanish: "1° LUGAR", "2°", "1º", "1er LUGAR", "2do LUGAR"
+    multiline_ordinal_re = re.compile(
+        r"^\s*(\d{1,2})\s*"
+        r"(?:"
+        r"(?:st|nd|rd|th)\s+place"                          # English: "1st Place"
+        r"|"
+        r"[°º]\s*(?:lugar|puesto|place)?"                   # Spanish: "1° LUGAR", "1°", "1º"
+        r"|"
+        r"(?:er|do|ro|to|ta)\s*(?:lugar|puesto|place)?"     # Spanish text: "1er LUGAR", "2do"
+        r")\s*$", re.IGNORECASE)
+
+    # Pending place from multi-line ordinal format ("1st Place\nName")
+    pending_place = None
 
     for raw_line in (results_text or "").splitlines():
         line = raw_line.strip()
         if not line:
             continue
+
+        # Normalize range-style placements (e.g., "9.-12. Player" -> "9. Player")
+        # Handles tied placements shown as ranges where each player gets the same line
+        # Examples: "9.-12. Wiktor Debski", "13.-16. Jindrich Smola", "17.-20. Alexander Trenner"
+        # Pattern: <start>.-<end>. <player> where start is the lower place number
+        line = re.sub(r'^(\s*\d{1,3})\.-\d{1,3}\.', r'\1.', line)
 
         # Detect seeding vs results sections (skip seeding data)
         line_lower = line.lower()
@@ -869,7 +1188,9 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
                 continue
 
         # Standalone seeding section markers
-        if line_lower == "initial seeding" or line_lower == "seeding":
+        # Includes common misspellings: "seddings" (seen in Colombian events)
+        if line_lower.rstrip(':') in ("initial seeding", "seeding", "seedings",
+                                       "seddings", "seeds"):
             in_seeding_section = True
             continue
 
@@ -888,42 +1209,95 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         if in_seeding_section:
             continue
 
-        # Check for bold-style division headers (common in manually entered results)
-        # e.g., "**Intermediate Singles**" or text that was in <b> tags
-        if looks_like_division_header(line):
-            div_text = line.rstrip(":")
-            # Expand abbreviated divisions (e.g., "OSN" -> "Open Singles Net")
-            abbrev = div_text.lower()
-            if abbrev in ABBREVIATED_DIVISIONS:
-                division_raw = ABBREVIATED_DIVISIONS[abbrev]
-            else:
-                division_raw = div_text
-            # Reset seeding flag when we hit a new division
-            in_seeding_section = False
+        # Multi-line ordinal: "1st Place" on its own line, name on next line
+        multiline_match = multiline_ordinal_re.match(line)
+        if multiline_match:
+            pending_place = int(multiline_match.group(1))
             continue
 
-        # Try ordinal format first (1ST, 2ND, 3RD, 4TH, etc.)
-        ordinal_match = ordinal_re.match(line)
-        if ordinal_match:
-            place = int(ordinal_match.group(1))
-            entry_raw = ordinal_match.group(3).strip()
-        else:
-            m = place_re.match(line)
-            if not m:
+        # If we have a pending place from "Xth Place" line, this line is the name
+        if pending_place is not None:
+            # This line should be the player/team name
+            entry_raw = line
+            place = pending_place
+            pending_place = None
+            # Skip if it looks like a division header (not a player name)
+            if looks_like_division_header(line):
+                div_text = line.rstrip(":")
+                abbrev = div_text.lower()
+                if abbrev in ABBREVIATED_DIVISIONS:
+                    division_raw = ABBREVIATED_DIVISIONS[abbrev]
+                else:
+                    division_raw = div_text
+                in_seeding_section = False
                 continue
-            place = int(m.group(1))
-            entry_raw = m.group(2).strip()
+            # Fall through to player name processing below
+            # (skip the normal place/ordinal parsing)
+        else:
+            # Check for bold-style division headers (common in manually entered results)
+            # e.g., "**Intermediate Singles**" or text that was in <b> tags
+            if looks_like_division_header(line):
+                pending_place = None  # Reset pending place on division change
+
+                # Handle "Division: Name" inline format
+                # e.g., "4-Square: Lee Van Sickle", "Open Doubles Net: Matthew Johns & Emily Johns"
+                # But NOT "Open Singles:" (trailing colon with no name after)
+                inline_name = None
+                if ':' in line:
+                    div_part, _, name_part = line.partition(':')
+                    name_part = name_part.strip()
+                    # Only treat as inline if name_part looks like a person name
+                    # (has Firstname Lastname pattern) and isn't a sub-header
+                    if (name_part and re.search(r'[A-Z][a-z]+\s+[A-Z]', name_part)
+                            and not looks_like_division_header(name_part)):
+                        inline_name = name_part
+                        line_for_div = div_part.strip()
+                    else:
+                        line_for_div = line.rstrip(":")
+                else:
+                    line_for_div = line.rstrip(":")
+
+                # Expand abbreviated divisions (e.g., "OSN" -> "Open Singles Net")
+                abbrev = line_for_div.lower()
+                if abbrev in ABBREVIATED_DIVISIONS:
+                    division_raw = ABBREVIATED_DIVISIONS[abbrev]
+                else:
+                    division_raw = line_for_div
+                # Reset seeding flag when we hit a new division
+                in_seeding_section = False
+
+                if inline_name:
+                    # Treat inline name as implied 1st place
+                    place = 1
+                    entry_raw = inline_name
+                    # Fall through to player name processing below
+                else:
+                    continue
+
+            else:
+                # Try ordinal format first (1ST, 2ND, 3RD, 4TH, etc.)
+                ordinal_match = ordinal_re.match(line)
+                if ordinal_match:
+                    place = int(ordinal_match.group(1))
+                    entry_raw = ordinal_match.group(3).strip()
+                else:
+                    m = place_re.match(line)
+                    if not m:
+                        continue
+                    place = int(m.group(1))
+                    entry_raw = m.group(2).strip()
 
             # Strip ordinal suffix if entry starts with it (from "1ST" parsed as "1" + "ST Name")
-            # Handle both "ST Name" (space) and "st. Name" (dot) formats
+            # Handle: "ST Name" (space), "st. Name" (dot), "st) Name" (paren)
             # Also handle Spanish ordinals: 1er, 2do, 3er, 4to, 5to
-            entry_raw = re.sub(r'^(ST|ND|RD|TH|ER|DO|TO|TA)[.\s]+', '', entry_raw, flags=re.IGNORECASE)
+            # Also handle degree/ordinal signs: °, º (from "1º Name" parsed as "1" + "º Name")
+            entry_raw = re.sub(r'^(ST|ND|RD|TH|ER|DO|TO|TA|[°º])[.\s)\t]+', '', entry_raw, flags=re.IGNORECASE)
 
         # Strip "place"/"puesto"/"lugar" prefix (from "1st place - Name", "1er PUESTO Name", "1er LUGAR")
         entry_raw = re.sub(r'^(place|puesto|lugar)\s*[-:]?\s*', '', entry_raw, flags=re.IGNORECASE).strip()
 
-        # Strip bare dash prefix (from "1st - Name" parsed as "- Name")
-        entry_raw = re.sub(r'^-\s+', '', entry_raw).strip()
+        # Strip bare dash prefix (from "1st - Name" or "1.-Name" parsed as "- Name" or "-Name")
+        entry_raw = re.sub(r'^-\s*', '', entry_raw).strip()
 
         # Handle tied placements like "23/24 Name" -> entry starts with "/24 Name"
         # Convert to just "Name" and keep place as 23 (the first/lower number)
@@ -960,9 +1334,10 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         # Pattern 7: entry is a rule/instruction sentence (contains "is allowed", "contact", "reservations")
         if re.search(r'\b(is allowed|contact is|by phone|make reservations)\b', entry_raw, re.IGNORECASE):
             continue  # Skip - rule or instruction text
-        # Pattern 8: entry starts with degree sign (Spanish ordinal remnant, e.g., "º and 4º position match")
-        if entry_raw.startswith('º'):
-            continue  # Skip - degree-sign ordinal noise
+        # Pattern 8: entry starts with degree/ordinal sign noise (after stripping, only noise remains)
+        # e.g., "º and 4º position match" — but NOT valid names (which had º stripped above)
+        if entry_raw.startswith(('°', 'º')):
+            continue  # Skip - degree-sign ordinal noise that wasn't stripped
         # Pattern 9: narrative/commentary text (section headers or match descriptions)
         if re.match(r'^(Finals|Finas|points|position)', entry_raw, re.IGNORECASE):
             continue  # Skip - narrative text, not a placement
@@ -972,11 +1347,11 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         # Pattern 11: schedule/meeting keywords
         if re.search(r'\b(registration|check-in|check in|meet at)\b', entry_raw, re.IGNORECASE):
             continue  # Skip - schedule information
-        # Pattern 12: narrative text about tournament format/pools
-        if re.search(r'\b(competed|players competed|games played|pools)\b', entry_raw, re.IGNORECASE):
-            # Only skip if it's clearly narrative (contains "and" or long text)
-            if ' and ' in entry_raw.lower() or len(entry_raw) > 50:
-                continue  # Skip - narrative text
+        # Pattern 12: narrative/descriptive text with exclamation marks
+        # e.g., "golfers, great weather, crazy course!" from "10 golfers, great..."
+        # But NOT legitimate entries with locations like "Name, City, Country"
+        if '!' in entry_raw and not entry_raw.rstrip().endswith(':'):
+            continue  # Skip - exclamatory text is not a placement
 
         # Apply event-specific parsing rules
         if use_merged_team_split:
@@ -988,6 +1363,14 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         # A valid player name should have at least 2 alphanumeric characters
         if not player1 or len(player1) < 2 or not re.search(r"[a-zA-Z]{2,}", player1):
             continue  # Skip this as parsing noise
+
+        # Skip entries that are narrative prose (not player names)
+        # E.g., "square in my very first game" (from "4-square in my...")
+        player1_lower = player1.lower()
+        prose_indicators = [' in my ', ' i ', ' the ', ' was ', ' were ', ' said ', ' say ',
+                           ' overall ', ' about ', ' would ', ' could ', ' should ']
+        if any(indicator in player1_lower for indicator in prose_indicators):
+            continue  # Skip as narrative text
 
         # Confidence scoring
         confidence = "high"
@@ -1002,27 +1385,58 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             notes.append("empty player name")
 
         # Check for suspicious patterns in entry
-        if re.search(r"[<>{}|\\]", entry_raw):
-            confidence = "low"
-            notes.append("suspicious characters in entry")
+        # Note: '>' and tabs are allowed in trick competitions (Sick 3, Request, Battles)
+        # Format: "Player\tTrick1>Trick2>Trick3" or "Player\tScore"
+        # Heuristic: If entry has tabs AND '>', it's likely a trick combo (not suspicious)
+        is_trick_combo_format = '\t' in entry_raw and '>' in entry_raw
 
+        if is_trick_combo_format:
+            # Trick combo format - tabs and '>' are expected, only flag other chars
+            if re.search(r"[<{}|\\]", entry_raw):
+                confidence = "low"
+                notes.append("suspicious characters in entry")
+        else:
+            # Standard format - flag unusual characters including '>'
+            if re.search(r"[<>{}|\\]", entry_raw):
+                confidence = "low"
+                notes.append("suspicious characters in entry")
+
+        # Normalize Spanish division names to English
+        division_raw = normalize_spanish_division(division_raw)
         division_canon = canonicalize_division(division_raw)
         division_category = categorize_division(division_canon, event_type)
 
         placements.append({
-            "division_raw": division_raw,
+            "division_raw": normalize_whitespace(division_raw),
             "division_canon": division_canon,
             "division_category": division_category,  # net, freestyle, golf, or unknown
             "place": place,
             "competitor_type": competitor_type,
-            "player1_name": player1,
-            "player2_name": player2,
-            "entry_raw": entry_raw,
+            "player1_name": normalize_whitespace(clean_player_name(player1)),
+            "player2_name": normalize_whitespace(clean_player_name(player2)) if player2 else "",
+            "entry_raw": normalize_whitespace(entry_raw),
             "parse_confidence": confidence,
-            "notes": "; ".join(notes) if notes else "",
+            "notes": normalize_whitespace("; ".join(notes)) if notes else "",
         })
 
-    return placements
+    # Deduplicate: same (division, place, type, player1, player2) is always an
+    # extraction artifact (e.g., h2-structured + pre block both parsed, or
+    # pool/overall standings repeating final results).  Keep first occurrence.
+    seen_keys = set()
+    deduped = []
+    for p in placements:
+        key = (
+            p["division_canon"].lower(),
+            str(p["place"]),
+            p["competitor_type"],
+            p["player1_name"].strip().lower(),
+            (p["player2_name"] or "").strip().lower(),
+        )
+        if key not in seen_keys:
+            seen_keys.add(key)
+            deduped.append(p)
+
+    return deduped
 
 
 # ------------------------------------------------------------
@@ -1046,13 +1460,292 @@ def read_stage1_csv(csv_path: Path) -> list[dict]:
     return records
 
 
+def normalize_whitespace(text: str) -> str:
+    """
+    Normalize all whitespace in text.
+
+    - Replaces tabs with spaces
+    - Collapses multiple consecutive spaces into single space
+    - Strips leading/trailing whitespace
+
+    This is a mechanically deterministic operation that preserves
+    actual content while cleaning presentation.
+    """
+    if not text:
+        return ""
+    # Replace tabs with spaces
+    cleaned = text.replace('\t', ' ')
+    # Collapse multiple spaces into single space
+    cleaned = re.sub(r' {2,}', ' ', cleaned)
+    # Strip leading/trailing whitespace
+    return cleaned.strip()
+
+
 def clean_date(date_raw: str) -> str:
     """Clean date field by removing iCal remnant text."""
     if not date_raw:
         return ""
     # Remove iCal UI text suffix
     cleaned = re.sub(r"\s*add this event to iCal.*$", "", date_raw, flags=re.IGNORECASE)
-    return cleaned.strip()
+    return normalize_whitespace(cleaned)
+
+
+def canonicalize_location(location_raw: str) -> str:
+    """
+    Canonicalize location by removing noise and keeping only place names.
+
+    Removes:
+    - "Site(s) TBA" prefix (very common - appears in 22% of events)
+    - "TBD" prefix
+    - Narrative text ("see below", "click here", etc.)
+    - Venue names before location (e.g., "Golden Gate Park - San Francisco" → "San Francisco")
+
+    Preserves:
+    - City, State/Province, Country format
+    - Special characters in place names (e.g., Czech: Nový Jičín)
+    """
+    if not location_raw:
+        return ""
+
+    cleaned = location_raw.strip()
+
+    # Remove "Site(s) TBA" - multiple patterns
+    # Prefix: "Site(s) TBA Sofia, Bulgaria" → "Sofia, Bulgaria"
+    cleaned = re.sub(r'^Site\s*\(?\s*s?\s*\)?\s*TBA\s*', '', cleaned, flags=re.IGNORECASE)
+    # Parenthetical: "University of Oregon (site TBA) Eugene..." → "Eugene..."
+    cleaned = re.sub(r'\([^)]*\bsite\s+tba[^)]*\)\s*', '', cleaned, flags=re.IGNORECASE)
+    # General TBA in parentheses
+    cleaned = re.sub(r'\(\s*tba\s*\)\s*', '', cleaned, flags=re.IGNORECASE)
+
+    # Remove "TBD" and "Location TBD" - multiple patterns
+    # Prefix: "TBD Chandler, Arizona" → "Chandler, Arizona"
+    cleaned = re.sub(r'^(Location\s+)?TBD\s+', '', cleaned, flags=re.IGNORECASE)
+    # Inline: "Sat: TBD; Sun: Levy Pavilion..." → "Sun: Levy Pavilion..." (keep useful part)
+    # Complex pattern - remove time-specific TBD parts
+    cleaned = re.sub(r'\b(sat|sun|mon|tue|wed|thu|fri):\s*tbd\s*;?\s*', '', cleaned, flags=re.IGNORECASE)
+    # General TBD in parentheses
+    cleaned = re.sub(r'\(\s*tbd\s*\)\s*', '', cleaned, flags=re.IGNORECASE)
+
+    # Remove narrative text - multiple patterns
+    # Prefix: "See details. Salem..." → "Salem..."
+    cleaned = re.sub(r'^See\s+details\.?\s*', '', cleaned, flags=re.IGNORECASE)
+    # Prefix: "Check the home page for details..." → rest
+    cleaned = re.sub(r'^Check\s+the\s+home\s+page\s+for\s+details\.?\s*', '', cleaned, flags=re.IGNORECASE)
+    # Parenthetical: "(See details for locations) Oakland..." → "Oakland..."
+    cleaned = re.sub(r'\([^)]*\bsee\s+details[^)]*\)\s*', '', cleaned, flags=re.IGNORECASE)
+    # Suffix with dash: "Dallas - see below" → "Dallas"
+    cleaned = re.sub(r'\s*[-–]\s*see\s+below.*$', '', cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'\s*[-–]\s*click\s+here.*$', '', cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'\s*[-–]\s*details?.*$', '', cleaned, flags=re.IGNORECASE)
+
+    # Remove "to be announced" variations
+    cleaned = re.sub(r'\s*\(?\s*to\s+be\s+announced\s*\)?', '', cleaned, flags=re.IGNORECASE)
+
+    # Normalize all whitespace (tabs, multiple spaces, leading/trailing)
+    return normalize_whitespace(cleaned)
+
+
+def clean_results_raw(results_raw: str) -> str:
+    """
+    Remove ALL noise from results_raw field.
+
+    Removes:
+    - URLs (http://, https://, www., mailto:, domain references)
+    - Email addresses
+    - Narrative/promotional paragraphs
+    - Commentary and descriptive text
+    - Instructional text (click here, see below, etc.)
+    - Acknowledgments and thank-you messages
+    - Event descriptions and announcements
+
+    Preserves:
+    - Division headers
+    - Placement entries (number + player/team names)
+    - Actual results data
+
+    Philosophy: If it's not a division header or a placement entry, it's noise.
+    """
+    if not results_raw:
+        return ""
+
+    lines = results_raw.split('\n')
+    cleaned_lines = []
+
+    # URL patterns to detect and remove
+    url_patterns = [
+        r'https?://',           # http:// or https://
+        r'www\.',               # www.
+        r'mailto:',             # mailto:
+        r'\w+@\w+\.\w+',        # email addresses
+        r'footbag\.org',        # footbag.org references
+        r'\.(com|org|net|de|ch|fr|ca|uk|au|ru)\b',  # domain extensions
+    ]
+
+    # Noise phrase patterns (case-insensitive)
+    noise_patterns = [
+        # Promotional/descriptive
+        r'check out',
+        r'visit',
+        r'see.*website',
+        r'for more info',
+        r'click here',
+        r'see below',
+        r'see.*full results',
+        r'see.*highlights',
+        r'full results.*here',
+
+        # Acknowledgments
+        r'thanks to',
+        r'thank you',
+        r'cheers to',
+        r'congrats',
+        r'congratulations',
+        r'special thanks',
+        r'shout.*out',
+
+        # Sponsor/donation text
+        r'sponsor',
+        r'donate',
+        r'prize',
+        r'without.*help',
+        r'would not have',
+
+        # Event descriptions/announcements
+        r'people from far and wide',
+        r'great success',
+        r'biggest event',
+        r'biggest party',
+        r'hot news',
+        r'you don.*t want to miss',
+        r'inaugural',
+        r'for the.*time we organise',
+        r'this year.*s.*will be',
+
+        # Instructional
+        r'see.*details',
+        r'check.*details',
+        r'more information',
+        r'contact',
+        r'register',
+    ]
+
+    for line in lines:
+        line_stripped = line.strip()
+
+        # Skip empty lines
+        if not line_stripped:
+            continue
+
+        # Remove lines containing URLs
+        has_url = any(re.search(pattern, line_stripped, re.IGNORECASE) for pattern in url_patterns)
+        if has_url:
+            continue
+
+        # Remove lines that are purely narrative/noise
+        # A line is noise if it:
+        # 1. Contains noise phrases AND
+        # 2. Doesn't look like a result entry (no leading number)
+        has_noise_phrase = any(re.search(pattern, line_stripped, re.IGNORECASE) for pattern in noise_patterns)
+        looks_like_result = re.match(r'^\s*\d{1,3}[.)\-:\s]', line_stripped) or re.match(r'^\s*\d{1,2}(ST|ND|RD|TH)\s', line_stripped, re.IGNORECASE)
+
+        if has_noise_phrase and not looks_like_result:
+            continue
+
+        # Remove standalone HTML/markdown artifacts
+        if line_stripped in ['---', '***', '===', '___', '...']:
+            continue
+
+        # Remove common section headers that are noise (not division headers)
+        noise_headers = [
+            'results',
+            'tournament results',
+            'final results',
+            'event results',
+            'competition results',
+            'notes',
+            'comments',
+            'summary',
+        ]
+        if line_stripped.lower().strip(':').strip() in noise_headers and len(line_stripped) < 30:
+            # Keep it - these might be legitimate section markers
+            # But remove overly long narrative-style headers
+            pass
+
+        # Remove lines that are complete sentences (narrative paragraphs)
+        # Heuristic: If a line is long (>80 chars) and contains multiple sentences, it's likely narrative
+        sentence_count = line_stripped.count('. ') + line_stripped.count('! ') + line_stripped.count('? ')
+        if len(line_stripped) > 80 and sentence_count >= 2:
+            continue
+
+        # Remove lines with lots of prose
+        # Multiple heuristics to detect narrative text vs. results data
+        words = line_stripped.split()
+        if len(words) > 5:  # Only check lines with enough words
+            common_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from',
+                          'is', 'was', 'are', 'were', 'be', 'been', 'being', 'will', 'would', 'should', 'could', 'may',
+                          'this', 'that', 'these', 'those', 'it', 'we', 'you', 'they', 'who', 'what', 'when', 'where',
+                          'why', 'how', 'all', 'some', 'any', 'each', 'every', 'both', 'more', 'most', 'such', 'so', 'than',
+                          'about', 'information', 'detailed', 'videos', 'results', 'event', 'please', 'here', 'out',
+                          'came', 'make', 'great', 'people', 'like', 'would', 'have', 'had', 'not', 'his', 'her'}
+
+            # Count common words
+            common_count = sum(1 for w in words if w.lower().strip('.,!?;:') in common_words)
+
+            # Also count words with multiple capital letters (likely place names: "NY", "PA", "MI")
+            # These are often in event descriptions listing locations
+            # Strip punctuation before checking length and case
+            multi_cap_count = sum(1 for w in words if len(w.strip('.,!?;:')) == 2 and w.strip('.,!?;:').isupper())
+
+            # If high common word density OR multiple state abbreviations, it's likely prose
+            common_ratio = common_count / len(words)
+            has_many_states = multi_cap_count >= 3  # 3+ state abbreviations = location list
+
+            if (common_ratio > 0.35 or has_many_states) and not looks_like_result:
+                continue
+
+        # Remove sentence fragments that look like incomplete prose
+        # E.g., "For detailed information about the" or "and some videos"
+        fragment_starters = ['for', 'and', 'or', 'but', 'with', 'about', 'regarding', 'concerning', 'to', 'who', 'which']
+        if len(words) > 2 and len(words) < 15 and words[0].lower() in fragment_starters:
+            # This is likely a sentence fragment left over from URL removal
+            continue
+
+        # Remove lines that start with lowercase (likely continuation of previous sentence)
+        # Exception: don't remove if it looks like a player name or result entry
+        if words and words[0][0].islower() and not looks_like_result:
+            # This is a sentence continuation fragment
+            continue
+
+        # Remove lines ending with comma (incomplete list/sentence)
+        if line_stripped.endswith(',') and not looks_like_result:
+            continue
+
+        # Remove venue/sponsor description lines
+        venue_words = {'provided', 'chairs', 'tables', 'carpet', 'site', 'venue', 'location',
+                      'authority', 'exhibition', 'direct', 'communications', 'elements'}
+        if len(words) > 4 and sum(1 for w in words if w.lower().strip('.,!?;:') in venue_words) >= 2:
+            # Has 2+ venue-related words - likely venue/sponsor description
+            if not looks_like_result:
+                continue
+
+        # Remove lines that are just punctuation
+        if re.match(r'^[.,!?;:\-\s]+$', line_stripped):
+            continue
+
+        # Remove very short lines that are just common words (noise fragments)
+        # E.g., "results", "videos", "and some", etc.
+        if len(words) <= 3:
+            # Check if all words are very common (not player names)
+            noise_words = {'results', 'videos', 'video', 'photos', 'photo', 'images', 'image',
+                          'information', 'info', 'details', 'detail', 'event', 'tournament',
+                          'and', 'or', 'the', 'a', 'an', 'some', 'more', '.', '...'}
+            if all(w.lower().strip('.,!?;:') in noise_words for w in words):
+                continue
+
+        # If we got here, keep the line
+        cleaned_lines.append(line_stripped)
+
+    return '\n'.join(cleaned_lines)
 
 
 def infer_event_type(event_name: str, results_raw: str, placements: list = None) -> str:
@@ -1197,33 +1890,12 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
                 # Re-categorize using the final event_type
                 p["division_category"] = categorize_division(p["division_canon"], event_type_for_div)
 
-        # Apply event-specific division range mapping if configured
-        event_rules = EVENT_PARSING_RULES.get(str(event_id), {})
-        division_ranges = event_rules.get("division_ranges")
-        if division_ranges:
-            for idx, p in enumerate(placements):
-                for start_idx, end_idx, div_name, div_cat in division_ranges:
-                    if start_idx <= idx <= end_idx:
-                        p["division_raw"] = f"[Event-specific mapping]"
-                        p["division_canon"] = canonicalize_division(div_name)
-                        p["division_category"] = div_cat
-                        if p["parse_confidence"] == "high":
-                            # Keep high confidence for entry parsing
-                            pass
-                        else:
-                            p["parse_confidence"] = "medium"
-                        if p["notes"]:
-                            p["notes"] += f"; division mapped via event-specific rule to {div_name}"
-                        else:
-                            p["notes"] = f"division mapped via event-specific rule to {div_name}"
-                        break
-
         # If all placements have Unknown division, try to infer from event name, placements, and event type
         if placements and all(p.get("division_canon") == "Unknown" for p in placements):
             inferred_div = infer_division_from_event_name(event_name, placements, event_type_for_div)
             if inferred_div:
                 for p in placements:
-                    p["division_raw"] = f"[Inferred from event name: {event_name[:30]}]"
+                    p["division_raw"] = normalize_whitespace(f"[Inferred from event name: {event_name[:30]}]")
                     p["division_canon"] = inferred_div
                     p["division_category"] = categorize_division(inferred_div, event_type_for_div)
                     if p["parse_confidence"] == "medium":
@@ -1232,12 +1904,12 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
                     else:
                         p["parse_confidence"] = "medium"
                     if p["notes"]:
-                        p["notes"] += "; division inferred from event name"
+                        p["notes"] = normalize_whitespace(p["notes"] + "; division inferred from event name")
                     else:
                         p["notes"] = "division inferred from event name"
 
         # Handle known broken source events
-        location = rec.get("location_raw", "")
+        location = canonicalize_location(rec.get("location_raw", ""))
         date = clean_date(rec.get("date_raw", ""))
         if str(event_id) in KNOWN_BROKEN_SOURCE_EVENTS:
             if not location:
@@ -1245,7 +1917,7 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
             if not date:
                 date = BROKEN_SOURCE_MESSAGE
 
-        # Apply location override if available
+        # Apply location override if available (overrides take precedence over canonicalization)
         if str(event_id) in LOCATION_OVERRIDES:
             location = LOCATION_OVERRIDES[str(event_id)]
 
@@ -1271,12 +1943,12 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
         canonical.append({
             "event_id": event_id,
             "year": year,
-            "event_name": event_name,
+            "event_name": normalize_whitespace(event_name),
             "date": date,
             "location": location,
-            "host_club": rec.get("host_club_raw", ""),
+            "host_club": normalize_whitespace(rec.get("host_club_raw", "")),
             "event_type": event_type,
-            "results_raw": results_raw,
+            "results_raw": clean_results_raw(results_raw),
             "placements_json": json.dumps(placements, ensure_ascii=False),
         })
 
@@ -1526,6 +2198,42 @@ def check_location(rec: dict) -> list[QCIssue]:
                 message=f"location too long ({len(location)} chars), should be simplified",
                 example_value=location[:100] + "...",
             ))
+
+        # Check for "Site(s) TBA" noise (should be cleaned by canonicalization)
+        if re.search(r'\bsite\s*\(?\s*s?\s*\)?\s*tba\b', location, re.IGNORECASE):
+            issues.append(QCIssue(
+                check_id="location_has_tba",
+                severity="WARN",
+                event_id=str(event_id),
+                field="location",
+                message="location contains 'Site(s) TBA' noise (canonicalization bug)",
+                example_value=location[:100],
+            ))
+
+        # Check for "TBD" noise
+        if re.search(r'\btbd\b', location, re.IGNORECASE):
+            issues.append(QCIssue(
+                check_id="location_has_tbd",
+                severity="WARN",
+                event_id=str(event_id),
+                field="location",
+                message="location contains 'TBD' noise (canonicalization bug)",
+                example_value=location[:100],
+            ))
+
+        # Check for narrative text ("see below", "click here", etc.)
+        if re.search(r'\b(see\s+below|click\s+here|details?)\b', location, re.IGNORECASE):
+            # Exception: "Neusiedlersee" is a German lake name, not narrative
+            if 'neusiedlersee' not in location.lower():
+                issues.append(QCIssue(
+                    check_id="location_has_narrative",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="location",
+                    message="location contains narrative text (should be cleaned)",
+                    example_value=location[:100],
+                ))
+
     return issues
 
 
@@ -1785,6 +2493,21 @@ def check_placements_json(rec: dict) -> list[QCIssue]:
                     context={"placement_index": i},
                 ))
 
+        # Check for player names with leading dashes or other corrupt prefixes
+        player1 = p.get("player1_name", "")
+        player2 = p.get("player2_name", "")
+        for player_name in [player1, player2]:
+            if player_name and player_name.startswith(('-', '–', '—')):
+                issues.append(QCIssue(
+                    check_id="cv_player_name_leading_dash",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Player name starts with dash (parsing error): {player_name[:60]}",
+                    example_value=player_name[:60],
+                    context={"placement_index": i}
+                ))
+
         # Check for unknown division category when division_raw has keywords
         div_category = p.get("division_category", "")
         div_raw = p.get("division_raw", "")
@@ -1932,6 +2655,63 @@ def check_division_quality(rec: dict) -> list[QCIssue]:
     issues = []
     # Note: cv_division_looks_like_player check was removed as it had too many false positives
     # (e.g., "Single Homme" = French for "Men's Singles")
+
+    event_id = rec.get("event_id", "")
+    placements = json.loads(rec.get("placements_json", "[]"))
+
+    # Check for non-English division headers (Spanish, Portuguese, etc.)
+    spanish_keywords = {
+        'resultados', 'dobles', 'individuales', 'mixto', 'mixta',
+        'abierto', 'abierta', 'masculino', 'femenino', 'simples'
+    }
+    portuguese_keywords = {
+        'resultados', 'duplas', 'individuais', 'misto', 'mista',
+        'aberto', 'aberta', 'masculino', 'feminino'
+    }
+    french_keywords = {
+        'résultats', 'doubles', 'simples', 'mixte', 'ouvert', 'ouverte',
+        'homme', 'femme', 'masculin', 'féminin'
+    }
+
+    for i, p in enumerate(placements):
+        div_raw = p.get("division_raw", "").lower()
+        if not div_raw:
+            continue
+
+        # Check for Spanish keywords
+        if any(keyword in div_raw for keyword in spanish_keywords):
+            issues.append(QCIssue(
+                check_id="cv_division_spanish",
+                severity="WARN",
+                event_id=str(event_id),
+                field="placements_json",
+                message=f"Division header contains Spanish text: {p.get('division_raw', '')[:60]}",
+                example_value=p.get('division_raw', '')[:60],
+                context={"placement_index": i, "division_raw": p.get('division_raw', '')}
+            ))
+        # Check for Portuguese keywords (excluding overlap with Spanish)
+        elif any(keyword in div_raw for keyword in portuguese_keywords - spanish_keywords):
+            issues.append(QCIssue(
+                check_id="cv_division_portuguese",
+                severity="WARN",
+                event_id=str(event_id),
+                field="placements_json",
+                message=f"Division header contains Portuguese text: {p.get('division_raw', '')[:60]}",
+                example_value=p.get('division_raw', '')[:60],
+                context={"placement_index": i, "division_raw": p.get('division_raw', '')}
+            ))
+        # Check for French keywords (excluding overlap with English)
+        elif any(keyword in div_raw for keyword in french_keywords - {'doubles', 'simples', 'mixte'}):
+            issues.append(QCIssue(
+                check_id="cv_division_french",
+                severity="WARN",
+                event_id=str(event_id),
+                field="placements_json",
+                message=f"Division header contains French text: {p.get('division_raw', '')[:60]}",
+                example_value=p.get('division_raw', '')[:60],
+                context={"placement_index": i, "division_raw": p.get('division_raw', '')}
+            ))
+
     return issues
 
 
@@ -1950,7 +2730,27 @@ def check_team_splitting(rec: dict) -> list[QCIssue]:
         # cv_doubles_unsplit_team: Doubles division with single player (missed separator)
         is_doubles_div = "doubles" in div_canon.lower() or "double" in div_canon.lower()
         if is_doubles_div and competitor_type == "player" and player1 and not player2:
-            # Check if player1 looks like it might contain two names
+            # Check if player1 looks like it might contain two names with dash separator
+            # Pattern: "Name1 - Name2" where both parts look like names
+            # Matches: hyphen-minus (U+002D), en-dash (U+2013), em-dash (U+2014)
+            dash_pattern = re.match(r'^(.+?)\s+[-–—]\s+(.+)$', player1)
+            if dash_pattern:
+                part1, part2 = dash_pattern.groups()
+                # Validate both parts look like names (at least 2 chars, start with capital)
+                if (len(part1.strip()) >= 2 and len(part2.strip()) >= 2 and
+                    part1.strip()[0].isupper() and part2.strip()[0].isupper()):
+                    issues.append(QCIssue(
+                        check_id="cv_doubles_dash_separator",
+                        severity="WARN",
+                        event_id=str(event_id),
+                        field="placements_json",
+                        message=f"Doubles team using dash separator instead of '/': {player1[:60]}",
+                        example_value=player1[:60],
+                        context={"placement_index": i, "division": div_canon}
+                    ))
+                    continue
+
+            # Check if player1 looks like it might contain two names with other separators
             if " & " in player1 or " and " in player1.lower():
                 issues.append(QCIssue(
                     check_id="cv_doubles_unsplit_team",
@@ -2068,6 +2868,765 @@ def check_duplicates(records: list[dict]) -> list[QCIssue]:
 
 
 # ------------------------------------------------------------
+# Universal String Hygiene Checks
+# ------------------------------------------------------------
+def check_string_hygiene(rec: dict) -> list[QCIssue]:
+    """Check for string hygiene issues across all text fields."""
+    issues = []
+    event_id = rec.get("event_id", "")
+
+    # Fields to check
+    fields_to_check = {
+        'event_name': rec.get('event_name', ''),
+        'date': rec.get('date', ''),
+        'location': rec.get('location', ''),
+        'host_club': rec.get('host_club', '')
+    }
+
+    for field_name, value in fields_to_check.items():
+        if not value:
+            continue
+
+        # Leading/trailing whitespace
+        if value != value.strip():
+            issues.append(QCIssue(
+                check_id="string_whitespace",
+                severity="WARN",
+                event_id=str(event_id),
+                field=field_name,
+                message=f"{field_name} has leading/trailing whitespace",
+                example_value=repr(value[:60]),
+                context={"field": field_name}
+            ))
+
+        # Multiple consecutive spaces
+        if '  ' in value:
+            issues.append(QCIssue(
+                check_id="string_double_space",
+                severity="INFO",
+                event_id=str(event_id),
+                field=field_name,
+                message=f"{field_name} has multiple consecutive spaces",
+                example_value=value[:60],
+                context={"field": field_name}
+            ))
+
+        # Control characters
+        if re.search(r'[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]', value):
+            issues.append(QCIssue(
+                check_id="string_control_chars",
+                severity="ERROR",
+                event_id=str(event_id),
+                field=field_name,
+                message=f"{field_name} contains control characters",
+                example_value=repr(value[:60]),
+                context={"field": field_name}
+            ))
+
+        # Unicode replacement character or mojibake patterns
+        if '\ufffd' in value or re.search(r'â€|Ã[^\s]{1,2}\s', value):
+            issues.append(QCIssue(
+                check_id="string_mojibake",
+                severity="WARN",
+                event_id=str(event_id),
+                field=field_name,
+                message=f"{field_name} may contain mojibake/encoding issues",
+                example_value=value[:60],
+                context={"field": field_name}
+            ))
+
+        # HTML remnants
+        if re.search(r'<[^>]+>|&nbsp;|&amp;|&lt;|&gt;|&quot;', value):
+            issues.append(QCIssue(
+                check_id="string_html_remnants",
+                severity="WARN",
+                event_id=str(event_id),
+                field=field_name,
+                message=f"{field_name} contains HTML tags or entities",
+                example_value=value[:60],
+                context={"field": field_name}
+            ))
+
+        # URL or email leakage
+        if re.search(r'https?://|www\.|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', value):
+            issues.append(QCIssue(
+                check_id="string_url_email",
+                severity="WARN",
+                event_id=str(event_id),
+                field=field_name,
+                message=f"{field_name} contains URL or email address",
+                example_value=value[:60],
+                context={"field": field_name}
+            ))
+
+    return issues
+
+
+def check_location_semantics(rec: dict) -> list[QCIssue]:
+    """Check location field for semantic issues."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    location = rec.get("location", "")
+
+    if not location:
+        return issues
+
+    # Street addresses (3+ consecutive digits)
+    if re.search(r'\d{3,}', location):
+        issues.append(QCIssue(
+            check_id="location_has_street_address",
+            severity="WARN",
+            event_id=str(event_id),
+            field="location",
+            message="Location appears to contain street address/ZIP code",
+            example_value=location[:80],
+            context={"pattern": "digits"}
+        ))
+
+    # Multiple venues (semicolons)
+    if ';' in location:
+        issues.append(QCIssue(
+            check_id="location_multiple_venues",
+            severity="WARN",
+            event_id=str(event_id),
+            field="location",
+            message="Location contains semicolon (multiple venues?)",
+            example_value=location[:80],
+            context={"semicolon_count": location.count(';')}
+        ))
+
+    # Parenthetical notes (often venue details that should be elsewhere)
+    if '(' in location or ')' in location:
+        issues.append(QCIssue(
+            check_id="location_parenthetical",
+            severity="INFO",
+            event_id=str(event_id),
+            field="location",
+            message="Location contains parenthetical note",
+            example_value=location[:80],
+            context={}
+        ))
+
+    # TBA/TBD placeholders
+    if re.search(r'\bTBA\b|\bTBD\b', location, re.IGNORECASE):
+        issues.append(QCIssue(
+            check_id="location_tba",
+            severity="WARN",
+            event_id=str(event_id),
+            field="location",
+            message="Location contains TBA/TBD placeholder",
+            example_value=location[:80],
+            context={}
+        ))
+
+    # Narrative/instruction tokens
+    if re.search(r'\b(contact|details|see below|hosted by|venue|site|registration)\b', location, re.IGNORECASE):
+        issues.append(QCIssue(
+            check_id="location_narrative",
+            severity="WARN",
+            event_id=str(event_id),
+            field="location",
+            message="Location contains narrative/instruction text",
+            example_value=location[:80],
+            context={}
+        ))
+
+    # Very long location (likely narrative)
+    if len(location) > 100:
+        issues.append(QCIssue(
+            check_id="location_too_long",
+            severity="WARN",
+            event_id=str(event_id),
+            field="location",
+            message=f"Location is very long ({len(location)} chars), may contain narrative",
+            example_value=location[:80],
+            context={"length": len(location)}
+        ))
+
+    return issues
+
+
+def check_date_semantics(rec: dict) -> list[QCIssue]:
+    """Check date field for semantic issues beyond basic parsing."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    date_str = rec.get("date", "")
+
+    if not date_str:
+        return issues
+
+    # iCal leakage
+    if re.search(r'\bical\b|\bsubscribe\b', date_str, re.IGNORECASE):
+        issues.append(QCIssue(
+            check_id="date_ical_leakage",
+            severity="WARN",
+            event_id=str(event_id),
+            field="date",
+            message="Date field contains iCal UI text",
+            example_value=date_str[:80],
+            context={}
+        ))
+
+    # Very long date (narrative schedule)
+    if len(date_str) > 100:
+        issues.append(QCIssue(
+            check_id="date_too_long",
+            severity="WARN",
+            event_id=str(event_id),
+            field="date",
+            message=f"Date is very long ({len(date_str)} chars), may contain schedule narrative",
+            example_value=date_str[:80],
+            context={"length": len(date_str)}
+        ))
+
+    # Multiple semicolons (complex multi-date narrative)
+    if date_str.count(';') > 2:
+        issues.append(QCIssue(
+            check_id="date_many_semicolons",
+            severity="INFO",
+            event_id=str(event_id),
+            field="date",
+            message="Date contains many semicolons (complex schedule?)",
+            example_value=date_str[:80],
+            context={"semicolon_count": date_str.count(';')}
+        ))
+
+    return issues
+
+
+def check_host_club_semantics(rec: dict) -> list[QCIssue]:
+    """Check host_club field for semantic issues."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    host_club = rec.get("host_club", "")
+
+    if not host_club:
+        return issues
+
+    # Numbered list prefix (parsing artifact)
+    if re.match(r'^\d+\.', host_club):
+        issues.append(QCIssue(
+            check_id="host_club_numbered_prefix",
+            severity="WARN",
+            event_id=str(event_id),
+            field="host_club",
+            message="Host club starts with number prefix (parsing artifact)",
+            example_value=host_club[:80],
+            context={}
+        ))
+
+    # Very long (narrative or location leakage)
+    if len(host_club) > 80:
+        issues.append(QCIssue(
+            check_id="host_club_too_long",
+            severity="INFO",
+            event_id=str(event_id),
+            field="host_club",
+            message=f"Host club is very long ({len(host_club)} chars)",
+            example_value=host_club[:80],
+            context={"length": len(host_club)}
+        ))
+
+    return issues
+
+
+def check_player_name_quality(rec: dict) -> list[QCIssue]:
+    """Check player names within placements for quality issues."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    placements = json.loads(rec.get("placements_json", "[]"))
+
+    for i, p in enumerate(placements):
+        player1 = p.get("player1_name", "")
+        player2 = p.get("player2_name", "")
+
+        # Check for duplicate same player in team
+        if player1 and player2 and player1 == player2:
+            issues.append(QCIssue(
+                check_id="player_duplicate_in_team",
+                severity="WARN",
+                event_id=str(event_id),
+                field="placements_json",
+                message=f"Team has same player twice: {player1}",
+                example_value=f"{player1} / {player2}",
+                context={"placement_index": i}
+            ))
+
+        for player_name in [player1, player2]:
+            if not player_name:
+                continue
+
+            # Slash in player name (should be split into team)
+            # Skip if all slashes are inside parentheses (country/club info)
+            if '/' in player_name:
+                name_no_parens = re.sub(r'\([^)]*\)', '', player_name)
+                if '/' in name_no_parens:
+                    issues.append(QCIssue(
+                        check_id="player_has_slash",
+                        severity="WARN",
+                        event_id=str(event_id),
+                        field="placements_json",
+                        message=f"Player name contains slash: {player_name[:60]}",
+                        example_value=player_name[:60],
+                        context={"placement_index": i}
+                    ))
+
+            # Score/numeric patterns in name (scores should be in notes)
+            if re.search(r'\(\d{2,}\.\d{2}\)|\(\d{3,}\s+add', player_name, re.IGNORECASE):
+                issues.append(QCIssue(
+                    check_id="player_has_score",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Player name contains score: {player_name[:60]}",
+                    example_value=player_name[:60],
+                    context={"placement_index": i}
+                ))
+
+            # Admin commentary tokens
+            if re.search(r'\b(tie|pool|seed|record|commentary|disqualif|dnf|dns)\b', player_name, re.IGNORECASE):
+                # But "tie" at the start might be legitimate for ties
+                if not player_name.lower().startswith('tie '):
+                    issues.append(QCIssue(
+                        check_id="player_has_admin_text",
+                        severity="INFO",
+                        event_id=str(event_id),
+                        field="placements_json",
+                        message=f"Player name contains admin text: {player_name[:60]}",
+                        example_value=player_name[:60],
+                        context={"placement_index": i}
+                    ))
+
+            # Semicolons (multiple entries or move descriptions)
+            if ';' in player_name:
+                issues.append(QCIssue(
+                    check_id="player_has_semicolon",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Player name contains semicolon: {player_name[:60]}",
+                    example_value=player_name[:60],
+                    context={"placement_index": i}
+                ))
+
+            # Very long name (narrative commentary)
+            if len(player_name) > 60:
+                issues.append(QCIssue(
+                    check_id="player_name_too_long",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Player name is very long ({len(player_name)} chars): {player_name[:60]}",
+                    example_value=player_name[:60],
+                    context={"placement_index": i, "length": len(player_name)}
+                ))
+
+            # Leading/trailing whitespace
+            if player_name != player_name.strip():
+                issues.append(QCIssue(
+                    check_id="player_name_whitespace",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Player name has whitespace issues: {repr(player_name[:60])}",
+                    example_value=repr(player_name[:60]),
+                    context={"placement_index": i}
+                ))
+
+    return issues
+
+
+def check_division_name_quality(rec: dict) -> list[QCIssue]:
+    """Check division names for quality issues beyond language detection."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    placements = json.loads(rec.get("placements_json", "[]"))
+
+    seen_divisions = set()
+    for i, p in enumerate(placements):
+        div_canon = p.get("division_canon", "")
+
+        if not div_canon:
+            continue
+
+        seen_divisions.add(div_canon)
+
+        # Very long division name (narrative)
+        if len(div_canon) > 60:
+            issues.append(QCIssue(
+                check_id="division_too_long",
+                severity="WARN",
+                event_id=str(event_id),
+                field="placements_json",
+                message=f"Division name is very long ({len(div_canon)} chars): {div_canon[:60]}",
+                example_value=div_canon[:60],
+                context={"placement_index": i, "length": len(div_canon)}
+            ))
+
+        # Schedule time in division name (already checked elsewhere, but be comprehensive)
+        if re.search(r'\d{1,2}:\d{2}\s*(am|pm)?', div_canon, re.IGNORECASE):
+            # Already handled in check_placements_json, skip to avoid duplicate
+            pass
+
+        # Registration/admin text in division name
+        if re.search(r'\b(registration|contact|email|click here|register|sign.?up)\b', div_canon, re.IGNORECASE):
+            # Already handled in check_placements_json, skip
+            pass
+
+    return issues
+
+
+def check_event_name_quality(rec: dict) -> list[QCIssue]:
+    """Check event name for quality issues."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    event_name = rec.get("event_name", "")
+
+    if not event_name:
+        return issues
+
+    # Very long event name
+    if len(event_name) > 100:
+        issues.append(QCIssue(
+            check_id="event_name_too_long",
+            severity="INFO",
+            event_id=str(event_id),
+            field="event_name",
+            message=f"Event name is very long ({len(event_name)} chars)",
+            example_value=event_name[:80],
+            context={"length": len(event_name)}
+        ))
+
+    return issues
+
+
+def check_year_range(rec: dict) -> list[QCIssue]:
+    """Check if year is in reasonable range."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    year = rec.get("year")
+
+    if not year:
+        return issues
+
+    # Year should be between 1980 and 2030 (footbag sport started in late 1970s)
+    if year < 1980 or year > 2030:
+        issues.append(QCIssue(
+            check_id="year_out_of_range",
+            severity="ERROR",
+            event_id=str(event_id),
+            field="year",
+            message=f"Year {year} is outside reasonable range (1980-2030)",
+            example_value=str(year),
+            context={"year": year}
+        ))
+
+    return issues
+
+
+def check_field_leakage(rec: dict) -> list[QCIssue]:
+    """Check for field content leaking into wrong fields."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    event_name = rec.get("event_name", "")
+    location = rec.get("location", "")
+    host_club = rec.get("host_club", "")
+
+    # Check if location contains event name fragments (significant overlap)
+    if event_name and location:
+        # Check for significant word overlap
+        event_words = set(event_name.lower().split())
+        location_words = set(location.lower().split())
+        # Ignore common words
+        common_words = {'the', 'of', 'and', 'in', 'at', 'to', 'a', 'for', 'on', 'with'}
+        event_words -= common_words
+        location_words -= common_words
+
+        overlap = event_words & location_words
+        # If >50% of event name words appear in location, flag it
+        if event_words and len(overlap) / len(event_words) > 0.5 and len(overlap) >= 3:
+            issues.append(QCIssue(
+                check_id="location_contains_event_name",
+                severity="INFO",
+                event_id=str(event_id),
+                field="location",
+                message="Location may contain event name fragments",
+                example_value=f"Event: {event_name[:40]} | Location: {location[:40]}",
+                context={"overlap_words": list(overlap)[:5]}
+            ))
+
+    # Check if host_club contains location fragments
+    if host_club and location:
+        # Simple check: if location city appears in host_club
+        if ',' in location:
+            city = location.split(',')[0].strip()
+            if len(city) > 3 and city.lower() in host_club.lower():
+                issues.append(QCIssue(
+                    check_id="host_club_contains_location",
+                    severity="INFO",
+                    event_id=str(event_id),
+                    field="host_club",
+                    message=f"Host club may contain location: '{city}' found in club name",
+                    example_value=host_club[:60],
+                    context={"city": city}
+                ))
+
+    return issues
+
+
+def check_place_values(rec: dict) -> list[QCIssue]:
+    """Check place values for semantic issues."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    placements = json.loads(rec.get("placements_json", "[]"))
+
+    # Group by division to check place sequences
+    by_division = defaultdict(list)
+    for i, p in enumerate(placements):
+        div_canon = p.get("division_canon", "Unknown")
+        place = p.get("place", "")
+        by_division[div_canon].append((i, place))
+
+    for div_canon, place_list in by_division.items():
+        for i, place in place_list:
+            if not place:
+                continue
+
+            try:
+                # Try to parse place as integer
+                if isinstance(place, str):
+                    # Handle "1st", "2nd", etc.
+                    place_num = int(re.match(r'(\d+)', place).group(1))
+                else:
+                    place_num = int(place)
+
+                # Zero or negative
+                if place_num <= 0:
+                    issues.append(QCIssue(
+                        check_id="place_zero_or_negative",
+                        severity="ERROR",
+                        event_id=str(event_id),
+                        field="placements_json",
+                        message=f"Place is zero or negative: {place}",
+                        example_value=str(place),
+                        context={"placement_index": i, "division": div_canon}
+                    ))
+
+                # Huge outlier (>200 is suspicious)
+                if place_num > 200:
+                    issues.append(QCIssue(
+                        check_id="place_huge_outlier",
+                        severity="WARN",
+                        event_id=str(event_id),
+                        field="placements_json",
+                        message=f"Place is unusually large: {place}",
+                        example_value=str(place),
+                        context={"placement_index": i, "division": div_canon, "place": place_num}
+                    ))
+
+            except (ValueError, AttributeError):
+                # Non-numeric place
+                issues.append(QCIssue(
+                    check_id="place_non_numeric",
+                    severity="ERROR",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Place is not numeric: {place}",
+                    example_value=str(place),
+                    context={"placement_index": i, "division": div_canon}
+                ))
+
+    return issues
+
+
+def check_place_sequences(rec: dict) -> list[QCIssue]:
+    """Check for issues in place sequences within divisions."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    placements = json.loads(rec.get("placements_json", "[]"))
+
+    # Group by division
+    by_division = defaultdict(list)
+    for i, p in enumerate(placements):
+        div_canon = p.get("division_canon", "Unknown")
+        place = p.get("place", "")
+        by_division[div_canon].append((i, place, p))
+
+    for div_canon, place_list in by_division.items():
+        if len(place_list) < 2:
+            continue
+
+        # Extract numeric places
+        places_numeric = []
+        for i, place, p in place_list:
+            try:
+                if isinstance(place, str):
+                    place_num = int(re.match(r'(\d+)', place).group(1))
+                else:
+                    place_num = int(place)
+                places_numeric.append((i, place_num, p))
+            except (ValueError, AttributeError):
+                pass
+
+        if not places_numeric:
+            continue
+
+        # Sort by place
+        places_numeric.sort(key=lambda x: x[1])
+
+        # Check if first place is not 1
+        if places_numeric[0][1] != 1:
+            issues.append(QCIssue(
+                check_id="place_does_not_start_at_1",
+                severity="INFO",
+                event_id=str(event_id),
+                field="placements_json",
+                message=f"Division '{div_canon}' places start at {places_numeric[0][1]}, not 1",
+                example_value=f"{div_canon}: first place = {places_numeric[0][1]}",
+                context={"division": div_canon, "first_place": places_numeric[0][1]}
+            ))
+
+        # Check for large gaps (>5) in sequence
+        for j in range(1, len(places_numeric)):
+            prev_place = places_numeric[j-1][1]
+            curr_place = places_numeric[j][1]
+            gap = curr_place - prev_place
+
+            if gap > 5:
+                issues.append(QCIssue(
+                    check_id="place_large_gap",
+                    severity="INFO",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Large gap in places: {prev_place} -> {curr_place} (gap={gap})",
+                    example_value=f"{div_canon}: {prev_place} -> {curr_place}",
+                    context={"division": div_canon, "gap": gap, "from": prev_place, "to": curr_place}
+                ))
+
+    return issues
+
+
+def check_missing_required_fields(rec: dict) -> list[QCIssue]:
+    """Check for missing values in required fields that weren't caught elsewhere."""
+    issues = []
+    event_id = rec.get("event_id", "")
+
+    # Date is missing (not already checked by check_date)
+    if not rec.get("date"):
+        issues.append(QCIssue(
+            check_id="date_missing",
+            severity="WARN",
+            event_id=str(event_id),
+            field="date",
+            message="Date is missing",
+            example_value="",
+            context={}
+        ))
+
+    # Year is missing
+    if not rec.get("year"):
+        issues.append(QCIssue(
+            check_id="year_missing",
+            severity="WARN",
+            event_id=str(event_id),
+            field="year",
+            message="Year is missing",
+            example_value="",
+            context={}
+        ))
+
+    return issues
+
+
+def check_country_names(rec: dict) -> list[QCIssue]:
+    """Check for non-English country names or inconsistent variants."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    location = rec.get("location", "")
+
+    if not location:
+        return issues
+
+    # Extract last comma-separated segment (likely country)
+    if ',' in location:
+        country = location.split(',')[-1].strip()
+
+        # Check for non-English country names (common ones)
+        non_english_countries = {
+            'Deutschland': 'Germany',
+            'Österreich': 'Austria',
+            'Schweiz': 'Switzerland',
+            'España': 'Spain',
+            'México': 'Mexico',
+            'Brasil': 'Brazil',
+            'Česká republika': 'Czech Republic',
+            'Česko': 'Czech Republic',
+            'Polska': 'Poland',
+            'Italia': 'Italy'
+        }
+
+        for non_eng, eng in non_english_countries.items():
+            if non_eng.lower() in country.lower():
+                issues.append(QCIssue(
+                    check_id="location_non_english_country",
+                    severity="INFO",
+                    event_id=str(event_id),
+                    field="location",
+                    message=f"Country name may be non-English: '{country}' (expected '{eng}'?)",
+                    example_value=location[:80],
+                    context={"country_segment": country, "expected": eng}
+                ))
+
+    return issues
+
+
+# ------------------------------------------------------------
+# Cross-Record Consistency Checks
+# ------------------------------------------------------------
+def check_host_club_location_consistency(records: list[dict]) -> list[QCIssue]:
+    """Check if same host club appears with different locations."""
+    issues = []
+
+    # Map host_club -> set of locations
+    club_to_locations = defaultdict(set)
+    club_to_event_ids = defaultdict(list)
+
+    for rec in records:
+        host_club = rec.get("host_club", "")
+        location = rec.get("location", "")
+        event_id = rec.get("event_id", "")
+
+        if host_club and location:
+            # Normalize host club for comparison
+            club_normalized = host_club.strip().lower()
+            club_to_locations[club_normalized].add(location)
+            club_to_event_ids[club_normalized].append((event_id, location))
+
+    # Check for clubs with multiple different locations
+    for club_norm, locations in club_to_locations.items():
+        if len(locations) > 3:  # More than 3 different locations is suspicious
+            # Get original club name from first event
+            first_event_id, _ = club_to_event_ids[club_norm][0]
+            first_rec = next((r for r in records if r.get("event_id") == first_event_id), None)
+            if first_rec:
+                club_name = first_rec.get("host_club", "")
+                issues.append(QCIssue(
+                    check_id="host_club_multiple_locations",
+                    severity="INFO",
+                    event_id=str(first_event_id),
+                    field="host_club",
+                    message=f"Host club '{club_name}' appears with {len(locations)} different locations",
+                    example_value=club_name[:60],
+                    context={
+                        "location_count": len(locations),
+                        "locations": list(locations)[:5]
+                    }
+                ))
+
+    return issues
+
+
+# ------------------------------------------------------------
 # QC Orchestration
 # ------------------------------------------------------------
 def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
@@ -2079,6 +3638,7 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
 
     # Field-level checks
     for rec in records:
+        # Basic field validation
         all_issues.extend(check_event_id(rec))
         all_issues.extend(check_event_name(rec))
         all_issues.extend(check_event_type(rec))
@@ -2088,6 +3648,30 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
         all_issues.extend(check_host_club(rec))
         all_issues.extend(check_placements_json(rec))
         all_issues.extend(check_results_extraction(rec))
+
+        # Universal string hygiene
+        all_issues.extend(check_string_hygiene(rec))
+
+        # Enhanced field quality checks
+        all_issues.extend(check_event_name_quality(rec))
+        all_issues.extend(check_year_range(rec))
+        all_issues.extend(check_missing_required_fields(rec))
+
+        # Semantic field checks
+        all_issues.extend(check_location_semantics(rec))
+        all_issues.extend(check_date_semantics(rec))
+        all_issues.extend(check_host_club_semantics(rec))
+        all_issues.extend(check_country_names(rec))
+
+        # Field leakage checks
+        all_issues.extend(check_field_leakage(rec))
+
+        # Placements quality checks
+        all_issues.extend(check_player_name_quality(rec))
+        all_issues.extend(check_division_name_quality(rec))
+        all_issues.extend(check_place_values(rec))
+        all_issues.extend(check_place_sequences(rec))
+
         # Cross-validation checks (Stage 2 specific)
         all_issues.extend(check_expected_divisions(rec))
         all_issues.extend(check_division_quality(rec))
@@ -2098,14 +3682,20 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
     all_issues.extend(check_event_id_uniqueness(records))
     all_issues.extend(check_worlds_per_year(records))
     all_issues.extend(check_duplicates(records))
+    all_issues.extend(check_host_club_location_consistency(records))
+
+    # Slop detection checks (comprehensive field scanning + targeted checks)
+    slop_issues = run_slop_detection_checks_stage2(records)
+    all_issues.extend(slop_issues)
 
     # Build summary
-    counts_by_check = defaultdict(lambda: {"ERROR": 0, "WARN": 0})
+    counts_by_check = defaultdict(lambda: {"ERROR": 0, "WARN": 0, "INFO": 0})
     for issue in all_issues:
         counts_by_check[issue.check_id][issue.severity] += 1
 
     total_errors = sum(1 for i in all_issues if i.severity == "ERROR")
     total_warnings = sum(1 for i in all_issues if i.severity == "WARN")
+    total_info = sum(1 for i in all_issues if i.severity == "INFO")
 
     # Field coverage stats
     field_coverage = {}
@@ -2121,6 +3711,7 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
         "total_records": len(records),
         "total_errors": total_errors,
         "total_warnings": total_warnings,
+        "total_info": total_info,
         "counts_by_check": dict(counts_by_check),
         "field_coverage": field_coverage,
     }
@@ -2178,23 +3769,27 @@ def print_qc_delta(current: dict, baseline: dict) -> bool:
     regressions = []
 
     for check_id in sorted(all_checks):
-        b = baseline_checks.get(check_id, {"ERROR": 0, "WARN": 0})
-        c = current_checks.get(check_id, {"ERROR": 0, "WARN": 0})
+        b = baseline_checks.get(check_id, {"ERROR": 0, "WARN": 0, "INFO": 0})
+        c = current_checks.get(check_id, {"ERROR": 0, "WARN": 0, "INFO": 0})
 
-        b_err, b_warn = b.get("ERROR", 0), b.get("WARN", 0)
-        c_err, c_warn = c.get("ERROR", 0), c.get("WARN", 0)
+        b_err, b_warn, b_info = b.get("ERROR", 0), b.get("WARN", 0), b.get("INFO", 0)
+        c_err, c_warn, c_info = c.get("ERROR", 0), c.get("WARN", 0), c.get("INFO", 0)
 
         err_delta = c_err - b_err
         warn_delta = c_warn - b_warn
+        info_delta = c_info - b_info
 
-        if err_delta != 0 or warn_delta != 0:
+        if err_delta != 0 or warn_delta != 0 or info_delta != 0:
             err_sign = "+" if err_delta > 0 else ""
             warn_sign = "+" if warn_delta > 0 else ""
+            info_sign = "+" if info_delta > 0 else ""
             print(f"  {check_id}:")
             if err_delta != 0:
                 print(f"    ERROR: {b_err} -> {c_err} ({err_sign}{err_delta})")
             if warn_delta != 0:
                 print(f"    WARN:  {b_warn} -> {c_warn} ({warn_sign}{warn_delta})")
+            if info_delta != 0:
+                print(f"    INFO:  {b_info} -> {c_info} ({info_sign}{info_delta})")
 
             if err_delta > 0:
                 regressions.append(check_id)
@@ -2228,6 +3823,7 @@ def print_qc_summary(summary: dict) -> None:
     print(f"Total records: {summary['total_records']}")
     print(f"Total errors:  {summary['total_errors']}")
     print(f"Total warnings: {summary['total_warnings']}")
+    print(f"Total info:     {summary.get('total_info', 0)}")
 
     print("\nField coverage:")
     for field, stats in summary.get("field_coverage", {}).items():
@@ -2237,10 +3833,13 @@ def print_qc_summary(summary: dict) -> None:
     for check_id, counts in sorted(summary.get("counts_by_check", {}).items()):
         err = counts.get("ERROR", 0)
         warn = counts.get("WARN", 0)
+        info = counts.get("INFO", 0)
         if err > 0:
             print(f"  {check_id}: {err} ERROR, {warn} WARN")
         elif warn > 0:
             print(f"  {check_id}: {warn} WARN")
+        elif info > 0:
+            print(f"  {check_id}: {info} INFO")
 
     print(f"{'='*60}\n")
 
@@ -2362,26 +3961,40 @@ def main():
 
     # Run QC checks
     print("\nRunning QC checks...")
-    qc_summary, qc_issues = run_qc(canonical)
 
-    # Write QC outputs
-    write_qc_outputs(qc_summary, qc_issues, out_dir)
+    if USE_MASTER_QC:
+        # Use consolidated master QC orchestrator
+        qc_summary, qc_issues = run_qc_for_stage("stage2", canonical, out_dir=out_dir)
+        print_qc_summary_master(qc_summary, "stage2")
 
-    # Print QC summary
-    print_qc_summary(qc_summary)
+        # Delta reporting against baseline
+        baseline = load_baseline_master(data_dir, "stage2")
+        if baseline:
+            no_regressions = print_qc_delta_master(qc_summary, baseline, "stage2")
+            if not no_regressions:
+                print("WARNING: QC regressions detected!")
+        else:
+            print("No baseline found. Run with --save-baseline to create one.")
 
-    # Delta reporting against baseline
-    baseline = load_baseline(data_dir)
-    if baseline:
-        no_regressions = print_qc_delta(qc_summary, baseline)
-        if not no_regressions:
-            print("WARNING: QC regressions detected!")
+        # Save baseline if requested
+        if args.save_baseline:
+            save_baseline_master(qc_summary, data_dir, "stage2")
     else:
-        print("No baseline found. Run with --save-baseline to create one.")
+        # Fallback to embedded QC (old behavior)
+        qc_summary, qc_issues = run_qc(canonical)
+        write_qc_outputs(qc_summary, qc_issues, out_dir)
+        print_qc_summary(qc_summary)
 
-    # Save baseline if requested
-    if args.save_baseline:
-        save_baseline(qc_summary, data_dir)
+        baseline = load_baseline(data_dir)
+        if baseline:
+            no_regressions = print_qc_delta(qc_summary, baseline)
+            if not no_regressions:
+                print("WARNING: QC regressions detected!")
+        else:
+            print("No baseline found. Run with --save-baseline to create one.")
+
+        if args.save_baseline:
+            save_baseline(qc_summary, data_dir)
 
 
 if __name__ == "__main__":
