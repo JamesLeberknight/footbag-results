@@ -2,7 +2,7 @@
   "stage": "stage2",
   "total_records": 775,
   "total_errors": 0,
-  "total_warnings": 312,
+  "total_warnings": 302,
   "total_info": 556,
   "counts_by_check": {
     "host_club_multiple_locations": {
@@ -14,11 +14,6 @@
       "ERROR": 0,
       "WARN": 0,
       "INFO": 43
-    },
-    "cv_division_french": {
-      "ERROR": 0,
-      "WARN": 10,
-      "INFO": 0
     },
     "location_parenthetical": {
       "ERROR": 0,

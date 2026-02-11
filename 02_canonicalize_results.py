@@ -360,9 +360,10 @@ ABBREVIATED_DIVISIONS = {
     "md": "Mixed Doubles",
 }
 
-# Spanish division name normalization
-# Maps Spanish division headers to English equivalents
-SPANISH_DIVISION_MAP = {
+# Division name normalization for non-English languages
+# Maps division headers to English equivalents
+DIVISION_LANGUAGE_MAP = {
+    # Spanish divisions
     # Pattern: normalize by removing RESULTADO/RESULTADOS prefix, PUESTOS suffix
     # INDIVIDUAL = Singles, DOBLES = Doubles
     "resultados open individual": "Open Singles",
@@ -380,15 +381,21 @@ SPANISH_DIVISION_MAP = {
     "open dobles": "Open Doubles",
     "resultados sick three": "Sick 3",
     "sick 3 resultados": "Sick 3",
+
+    # French divisions
+    # SIMPLE/SINGLE = Singles, Homme = Men's, Féminine/Féminin = Women's
+    "single homme": "Men's Singles",
+    "single féminine": "Women's Singles",
+    "simple net féminin": "Women's Singles Net",
 }
 
 
-def normalize_spanish_division(division_raw: str) -> str:
-    """Normalize Spanish division names to English equivalents."""
+def normalize_language_division(division_raw: str) -> str:
+    """Normalize non-English division names to English equivalents."""
     if not division_raw:
         return division_raw
     key = division_raw.lower().strip().rstrip('.:')
-    return SPANISH_DIVISION_MAP.get(key, division_raw)
+    return DIVISION_LANGUAGE_MAP.get(key, division_raw)
 
 
 def categorize_division(division_name: str, event_type: str = None) -> str:
@@ -1401,8 +1408,8 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
                 confidence = "low"
                 notes.append("suspicious characters in entry")
 
-        # Normalize Spanish division names to English
-        division_raw = normalize_spanish_division(division_raw)
+        # Normalize non-English division names (Spanish, French, etc.) to English
+        division_raw = normalize_language_division(division_raw)
         division_canon = canonicalize_division(division_raw)
         division_category = categorize_division(division_canon, event_type)
 
