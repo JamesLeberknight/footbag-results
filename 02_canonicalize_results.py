@@ -398,6 +398,24 @@ def normalize_language_division(division_raw: str) -> str:
     return DIVISION_LANGUAGE_MAP.get(key, division_raw)
 
 
+def truncate_long_division(division_raw: str, max_length: int = 80) -> str:
+    """
+    Truncate excessively long division names.
+
+    Long divisions are usually misidentified placements or event descriptions.
+    Keeps meaningful part and truncates at word boundary.
+    """
+    if not division_raw or len(division_raw) <= max_length:
+        return division_raw
+
+    # Truncate at max_length and try to break at word boundary
+    truncated = division_raw[:max_length]
+    last_space = truncated.rfind(' ')
+    if last_space > max_length // 2:  # Only break at word if we still have meaningful content
+        truncated = truncated[:last_space].strip()
+    return truncated
+
+
 def categorize_division(division_name: str, event_type: str = None) -> str:
     """
     Categorize a division name into: net, freestyle, golf, or unknown.
@@ -1410,6 +1428,9 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
 
         # Normalize non-English division names (Spanish, French, etc.) to English
         division_raw = normalize_language_division(division_raw)
+        # Truncate excessively long divisions (usually misidentified placements)
+        # Use 55 chars to ensure canonicalized version stays under 60 char QC threshold
+        division_raw = truncate_long_division(division_raw, max_length=55)
         division_canon = canonicalize_division(division_raw)
         division_category = categorize_division(division_canon, event_type)
 
