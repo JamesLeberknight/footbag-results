@@ -2,7 +2,7 @@
   "stage": "stage2",
   "total_records": 775,
   "total_errors": 0,
-  "total_warnings": 247,
+  "total_warnings": 168,
   "total_info": 556,
   "counts_by_check": {
     "host_club_multiple_locations": {
@@ -30,11 +30,6 @@
       "WARN": 45,
       "INFO": 0
     },
-    "player_has_slash": {
-      "ERROR": 0,
-      "WARN": 53,
-      "INFO": 0
-    },
     "player_has_admin_text": {
       "ERROR": 0,
       "WARN": 0,
@@ -45,9 +40,9 @@
       "WARN": 0,
       "INFO": 53
     },
-    "host_club_numbered_prefix": {
+    "player_has_slash": {
       "ERROR": 0,
-      "WARN": 39,
+      "WARN": 13,
       "INFO": 0
     },
     "player_name_too_long": {
