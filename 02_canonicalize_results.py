@@ -926,6 +926,13 @@ def clean_player_name(name: str) -> str:
     # e.g. "Sergio Garcia (Spain) - n/a" → "Sergio Garcia (Spain)"
     name = re.sub(r'\s*-\s*n/a\s*$', '', name, flags=re.IGNORECASE).strip()
 
+    # Rule 26: Strip N/A placeholders in parentheses or with dash prefix
+    # e.g. "Jeff Mudd (N/A)" → "Jeff Mudd", "SERVICE POACHING-n/a" → "SERVICE POACHING"
+    # Strip trailing "(n/a)" or "(N/A)" or similar placeholders
+    name = re.sub(r'\s*\(n/a\)\s*$', '', name, flags=re.IGNORECASE).strip()
+    # Also handle "TRICK-n/a" pattern (missing trick data)
+    name = re.sub(r'(-n/a)\s*$', '', name, flags=re.IGNORECASE).strip()
+
     # Rule 22: Strip unclosed parenthetical trick/narrative content
     # e.g. "Vasek Klouda (Janiwalker>Blurriest, Bedwetter>Frantic Butterfly, Pixie"
     # e.g. "Nick Landes 42.2 (Nuclear Osis > Spinning Ducking Butterfly > ..."
