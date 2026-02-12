@@ -954,6 +954,44 @@ def clean_player_name(name: str) -> str:
             if len(before) >= 3:
                 name = before
 
+    # Rule 27: Strip trick name in middle parenthetical for "Big One" division
+    # e.g., "Paweł Ścierski (Symp. Whirling SS. Rev. Symp. Whirl) (Poland)"
+    # Format: Name (TrickDescription) (Country)
+    # Detect: two parenthetical groups at the end, middle one is longer
+    paren_pairs = []
+    i = 0
+    while i < len(name):
+        if name[i] == '(':
+            close = name.find(')', i)
+            if close > i:
+                paren_pairs.append((i, close, name[i+1:close]))
+                i = close + 1
+            else:
+                break
+        else:
+            i += 1
+
+    # If we have 2 parenthetical groups at the end, check if it's Name (Trick) (Country)
+    if len(paren_pairs) >= 2:
+        second_last = paren_pairs[-2]
+        last = paren_pairs[-1]
+        trick_content = second_last[2]
+        country_content = last[2]
+
+        # Check if this looks like trick + country pattern
+        # Trick: 3+ words, contains trick keywords
+        # Country: short (2-15 chars), typically all uppercase or normal country name
+        if (trick_content.count(' ') >= 2 and  # 3+ words
+            2 <= len(country_content) <= 15 and
+            any(word in trick_content for word in ['Symp', 'Whirl', 'Rev', 'Bedwetter', 'Fusion',
+                                                    'Paradox', 'Eggbeater', 'Legbeater', 'Swirl',
+                                                    'Mirage', 'Osis', 'Marius', 'Nemesis', 'Gauntlet',
+                                                    'Atomic', 'Merlin', 'Mulet', 'Drifter', 'Clown'])):
+            # Strip the trick parenthetical, keep name + country
+            # Extract everything before the trick paren + the country paren
+            before_trick = name[:second_last[0]].strip()
+            name = (before_trick + ' (' + country_content + ')').strip()
+
     return name.strip()
 
 
