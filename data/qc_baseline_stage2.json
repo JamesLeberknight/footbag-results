@@ -2,8 +2,8 @@
   "stage": "stage2",
   "total_records": 775,
   "total_errors": 0,
-  "total_warnings": 168,
-  "total_info": 556,
+  "total_warnings": 148,
+  "total_info": 560,
   "counts_by_check": {
     "host_club_multiple_locations": {
       "ERROR": 0,
@@ -13,7 +13,7 @@
     "place_does_not_start_at_1": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 43
+      "INFO": 44
     },
     "location_parenthetical": {
       "ERROR": 0,
@@ -33,7 +33,7 @@
     "player_has_admin_text": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 64
+      "INFO": 59
     },
     "place_large_gap": {
       "ERROR": 0,
@@ -42,18 +42,18 @@
     },
     "player_has_slash": {
       "ERROR": 0,
-      "WARN": 13,
-      "INFO": 0
-    },
-    "player_name_too_long": {
-      "ERROR": 0,
-      "WARN": 18,
+      "WARN": 11,
       "INFO": 0
     },
     "host_club_contains_location": {
       "ERROR": 0,
       "WARN": 0,
       "INFO": 45
+    },
+    "player_name_too_long": {
+      "ERROR": 0,
+      "WARN": 1,
+      "INFO": 0
     },
     "player_duplicate_in_team": {
       "ERROR": 0,
@@ -93,11 +93,11 @@
     "any_field_contains_placeholder_or_instructional_text": {
       "ERROR": 0,
       "WARN": 62,
-      "INFO": 270
+      "INFO": 278
     },
     "results_raw_has_strong_signals_but_output_empty": {
       "ERROR": 0,
-      "WARN": 5,
+      "WARN": 4,
       "INFO": 0
     },
     "host_club_suspicious_prefix_or_markup": {
