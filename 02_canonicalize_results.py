@@ -1000,6 +1000,11 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
                 return i
         return -1
 
+    # Check for comma-separated names FIRST (before "and" split)
+    # This handles cases like "Name1, Name2 and Name3" where commas are primary separator
+    # We check early but not before " & " which handles different cases
+    comma_count = entry_clean.count(',')
+
     # Try " & " first - it's often used when "/" appears in city/country notation
     if " & " in entry_clean:
         a, b = entry_clean.split(" & ", 1)
@@ -1020,6 +1025,8 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
 
     # " and " between two names (case insensitive)
     # Be careful not to match "and" within names like "Alexandra"
+    # Special handling: if entry has commas AND "and", check if left side of "and" has commas
+    # This handles "Name1, Name2 and Name3" format
     and_match = re.search(r'\s+and\s+', entry_clean, re.IGNORECASE)
     if and_match:
         a = entry_clean[:and_match.start()].strip()
@@ -1029,6 +1036,17 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
         # Validate both parts look like names (at least 2 chars each, start with capital)
         if (len(a) >= 2 and len(b) >= 2 and
             a_first.isupper() and b_first.isupper()):
+            # If 'a' has commas (multiple names), try to split on comma first
+            if ',' in a and a.count(',') >= 1:
+                a_parts = [p.strip() for p in a.split(',')]
+                # Use first comma-separated part as player1, rest + b as player2
+                if len(a_parts) >= 2 and len(a_parts[0]) >= 2:
+                    p1 = strip_trailing_score(a_parts[0])
+                    # Reconstruct player2: remaining commas + "and" part
+                    remaining = ', '.join(a_parts[1:]) + ' and ' + b
+                    p2_clean = strip_trailing_score(remaining)
+                    if len(p2_clean) >= 2:
+                        return p1, p2_clean, "team"
             return strip_trailing_score(a), strip_trailing_score(b), "team"
 
     # French "et" separator (case insensitive)
