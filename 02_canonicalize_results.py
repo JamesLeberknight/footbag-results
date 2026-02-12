@@ -316,7 +316,7 @@ DIVISION_KEYWORDS = {
     "net", "volley",
     # Freestyle-specific
     "freestyle", "circle", "shred", "routine", "routines",
-    "battle", "sick3", "sick 3", "sick", "request", "last standing",
+    "battle", "sick3", "sick 3", "sick", "request", "last standing", "last",
     "ironman", "combo", "trick",
     # Sideline/other
     "consecutive", "consec", "one pass", "distance",
@@ -567,7 +567,8 @@ def looks_like_division_header(line: str) -> bool:
         return False
 
     # Reject lines starting with "&" or containing contact info
-    if line.startswith("&") or "contact" in low:
+    # Use word boundary for "contact" to avoid matching "Consecutive"
+    if line.startswith("&") or re.search(r'\bcontact\b', low):
         return False
 
     # Reject narrative sentences - these contain common narrative markers
@@ -1205,10 +1206,21 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
     # Pending place from multi-line ordinal format ("1st Place\nName")
     pending_place = None
 
+    # Pending division: when we see "Division Header" with no inline name,
+    # we expect the next line might be a bare player name (e.g., "Lee Van Sickle")
+    pending_division = None
+
+    # Flag to indicate that place/entry_raw have been set by bare name or inline detection
+    # (skip ordinal/place regex parsing in this case)
+    placement_already_parsed = False
+
     for raw_line in (results_text or "").splitlines():
         line = raw_line.strip()
         if not line:
             continue
+
+        # Reset placement parsing flag at start of loop
+        placement_already_parsed = False
 
         # Normalize range-style placements (e.g., "9.-12. Player" -> "9. Player")
         # Handles tied placements shown as ranges where each player gets the same line
@@ -1279,6 +1291,58 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             # Fall through to player name processing below
             # (skip the normal place/ordinal parsing)
         else:
+            # Check if we're waiting for a bare player name after a division header
+            if pending_division is not None and not looks_like_division_header(line):
+                # Line doesn't look like a division header
+                # Check if it looks like a bare player name
+                # Conservative criteria to minimize false positives:
+                # 1. Starts with uppercase letter (after stripping leading dash/whitespace)
+                # 2. Doesn't start with digit (not a score/time)
+                # 3. Reasonable length (not a long URL or narrative)
+                # 4. Must have at least one space (First Last format, not single acronym)
+                # 5. Must have balanced parentheses (names can have (CZE) but not unmatched parens)
+                # 6. No URL-like patterns (://, www., @)
+                # 7. No problematic punctuation at line level (;, or multiple commas)
+
+                is_potential_name = False
+                # Strip leading dash and whitespace for name validation
+                # (e.g., "-Scott Bevier" -> "Scott Bevier")
+                line_stripped = re.sub(r'^-\s*', '', line).strip()
+
+                if (line_stripped and line_stripped[0].isupper() and
+                    not re.match(r'^\d', line_stripped) and
+                    3 <= len(line_stripped) < 70 and  # Tighter length: 3-70 chars (was 100)
+                    ' ' in line_stripped and  # Must have space (First Last pattern)
+                    not re.search(r'://|www\.|@', line_stripped) and  # No URL patterns
+                    line_stripped.count('(') == line_stripped.count(')') and  # Balanced parentheses
+                    ';' not in line_stripped and  # No semicolons
+                    line_stripped.count(',') <= 1):  # At most one comma (e.g., "Name, Country")
+
+                    # Additional check: must have at least 2 words starting with uppercase
+                    words = line_stripped.split()
+                    uppercase_words = [w for w in words if w and w[0].isupper()]
+                    if len(uppercase_words) >= 2:
+                        # Verify it looks like a name, not narrative
+                        # Real names: mostly letters, maybe punctuation in parens
+                        # Narrative: will have articles, verbs, lowercase-starting words
+                        lower_words = [w for w in words if w and w[0].islower()]
+                        # Allow up to 1 lowercase word (like "van", "de", "von" in names)
+                        if len(lower_words) <= 1:
+                            is_potential_name = True
+
+                if is_potential_name:
+                    # This looks like a bare player name
+                    place = 1  # Implied first place
+                    entry_raw = line_stripped  # Use stripped version to remove leading dash
+                    division_raw = pending_division
+                    pending_division = None
+                    placement_already_parsed = True
+                    # Fall through to player name processing below
+                else:
+                    # Not a bare name - reset pending_division and continue with normal parsing
+                    pending_division = None
+                    # Continue below with normal division header and placement checks
+
             # Check for bold-style division headers (common in manually entered results)
             # e.g., "**Intermediate Singles**" or text that was in <b> tags
             if looks_like_division_header(line):
@@ -1315,22 +1379,28 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
                     # Treat inline name as implied 1st place
                     place = 1
                     entry_raw = inline_name
+                    placement_already_parsed = True
                     # Fall through to player name processing below
                 else:
+                    # No inline name - next line might be a bare player name
+                    # Set pending_division flag so next line is checked for bare name
+                    pending_division = division_raw
                     continue
 
             else:
                 # Try ordinal format first (1ST, 2ND, 3RD, 4TH, etc.)
-                ordinal_match = ordinal_re.match(line)
-                if ordinal_match:
-                    place = int(ordinal_match.group(1))
-                    entry_raw = ordinal_match.group(3).strip()
-                else:
-                    m = place_re.match(line)
-                    if not m:
-                        continue
-                    place = int(m.group(1))
-                    entry_raw = m.group(2).strip()
+                # Skip this if we already parsed place/entry_raw from bare name or inline format
+                if not placement_already_parsed:
+                    ordinal_match = ordinal_re.match(line)
+                    if ordinal_match:
+                        place = int(ordinal_match.group(1))
+                        entry_raw = ordinal_match.group(3).strip()
+                    else:
+                        m = place_re.match(line)
+                        if not m:
+                            continue
+                        place = int(m.group(1))
+                        entry_raw = m.group(2).strip()
 
             # Strip ordinal suffix if entry starts with it (from "1ST" parsed as "1" + "ST Name")
             # Handle: "ST Name" (space), "st. Name" (dot), "st) Name" (paren)
@@ -1630,6 +1700,8 @@ def clean_results_raw(results_raw: str) -> str:
     ]
 
     # Noise phrase patterns (case-insensitive)
+    # NOTE: Single-word patterns MUST use word boundaries (\b) to avoid false positives
+    # e.g., r'\bcontact\b' not r'contact' (to avoid matching "Consecutive")
     noise_patterns = [
         # Promotional/descriptive
         r'check out',
@@ -1652,9 +1724,9 @@ def clean_results_raw(results_raw: str) -> str:
         r'shout.*out',
 
         # Sponsor/donation text
-        r'sponsor',
-        r'donate',
-        r'prize',
+        r'\bsponsor\b',  # Word boundary to avoid matching "sponsorship", etc.
+        r'\bdonate\b',   # Word boundary to avoid false matches
+        r'\bprize\b',    # Word boundary to match only prize, not "prize money"
         r'without.*help',
         r'would not have',
 
@@ -1673,8 +1745,8 @@ def clean_results_raw(results_raw: str) -> str:
         r'see.*details',
         r'check.*details',
         r'more information',
-        r'contact',
-        r'register',
+        r'\bcontact\b',   # Word boundary: avoid matching "Consecutive" which contains "contact"
+        r'\bregister\b',  # Word boundary: avoid matching "Registered Competitors"
     ]
 
     for line in lines:
