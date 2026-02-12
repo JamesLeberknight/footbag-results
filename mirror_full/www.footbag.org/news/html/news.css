@@ -1,0 +1,102 @@
+#NewsNavigation, #NewsVisible
+{
+  background-color: #ccc;
+  color: #2f2f4f;
+  float: right;
+  font-size: 9pt;
+  border: 1px solid #2f2f4f;
+  margin: 0.25em;
+  padding: 0.25em;
+  overflow: hidden;
+}
+
+.newsStatusWrapper
+{
+  float: right;
+  margin: 1em;
+  zoom: 1;
+  font-weight: bold;
+  padding: 2px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 8pt;
+}
+
+.newsStatus
+{
+  -moz-border-radius: 12px;
+}
+
+.newsStatus
+{
+  background-color: #ccc;
+  color: red;
+  padding: 2px;
+}
+
+.newsItem
+{
+  border: 1px solid black;
+  padding: 0.25em;
+  margin: 0.25em;
+  font-size: 9pt;
+  overflow: hidden;
+}
+
+.newsMonth h3
+{
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+.newsHot
+{
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.newsHomepage
+{
+  color: #0000ff;
+  font-weight: bold;
+}
+
+form.newsTranslationForm
+{
+  margin: 0.5em;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.newsTableWrapper
+{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.newsTranslation
+{
+  margin: 4px;
+  padding: 4px;
+  overflow: hidden;
+  font-family: monospace;
+  zoom: 1;
+}
+
+.newsEditLink
+{
+  -moz-border-radius: 12px;
+}
+
+.newsEditLink
+{
+  float: right;
+  font-size: 8pt;
+  background-color: #eee;
+  border: 1px solid red;
+  padding: 2px;
+  margin: 2px;
+}

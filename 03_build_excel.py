@@ -18,8 +18,17 @@ import json
 import re
 from pathlib import Path
 from typing import Optional
+from collections import defaultdict
 
 import pandas as pd
+
+# Import master QC orchestrator
+try:
+    from qc_master import run_qc_for_stage, print_qc_summary
+    USE_MASTER_QC = True
+except ImportError:
+    print("Warning: Could not import qc_master, Stage 3 QC will not run")
+    USE_MASTER_QC = False
 
 
 # Excel/openpyxl rejects control chars: 0x00-0x08, 0x0B-0x0C, 0x0E-0x1F
@@ -165,10 +174,6 @@ def _build_name_line(placement: dict) -> str:
 # ------------------------------------------------------------
 def read_stage2_csv(csv_path: Path) -> list[dict]:
     """Read stage2 CSV and return list of event records."""
-    import sys
-    # Increase CSV field size limit for large placement_json fields
-    csv.field_size_limit(sys.maxsize)
-
     records = []
     with open(csv_path, "r", newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -271,6 +276,12 @@ def write_excel(out_xlsx: Path, records: list[dict]) -> None:
             df_year = sanitize_excel_strings(df_year)
             df_year.to_excel(xw, sheet_name=sheet_name)
 
+            # Apply wrap_text formatting to Results row (row 7)
+            worksheet = xw.sheets[sheet_name]
+            for col_idx in range(2, len(eids) + 2):  # Start from column B (2)
+                cell = worksheet.cell(row=7, column=col_idx)
+                cell.alignment = cell.alignment.copy(wrap_text=True)
+
         # Unknown-year sheet
         if unknown_year:
             eids = sorted([str(r.get("event_id", "")) for r in unknown_year], key=_eid_sort_key)
@@ -295,6 +306,72 @@ def write_excel(out_xlsx: Path, records: list[dict]) -> None:
             df_unk.index.name = "event_id"
             df_unk = sanitize_excel_strings(df_unk)
             df_unk.to_excel(xw, sheet_name="unknown_year")
+
+            # Apply wrap_text formatting to Results row
+            worksheet = xw.sheets["unknown_year"]
+            for col_idx in range(2, len(eids) + 2):
+                cell = worksheet.cell(row=7, column=col_idx)
+                cell.alignment = cell.alignment.copy(wrap_text=True)
+
+
+def run_stage3_qc(records: list[dict], results_map: dict, out_dir: Path) -> None:
+    """Run Stage 3 QC checks on Excel workbook data and write outputs."""
+    print("\n" + "="*60)
+    print("Running Stage 3 QC: Excel Cell Scanning")
+    print("="*60)
+
+    # Run Stage 3 slop detection checks
+    issues = run_slop_detection_checks_stage3_excel(records, results_map)
+
+    # Build summary
+    counts_by_check = defaultdict(lambda: {"ERROR": 0, "WARN": 0, "INFO": 0})
+    for issue in issues:
+        issue_dict = issue.to_dict() if hasattr(issue, 'to_dict') else issue
+        counts_by_check[issue_dict["check_id"]][issue_dict["severity"]] += 1
+
+    total_errors = sum(1 for i in issues if (i.to_dict() if hasattr(i, 'to_dict') else i)["severity"] == "ERROR")
+    total_warnings = sum(1 for i in issues if (i.to_dict() if hasattr(i, 'to_dict') else i)["severity"] == "WARN")
+    total_info = sum(1 for i in issues if (i.to_dict() if hasattr(i, 'to_dict') else i)["severity"] == "INFO")
+
+    summary = {
+        "stage": "stage3",
+        "total_events": len(records),
+        "total_errors": total_errors,
+        "total_warnings": total_warnings,
+        "total_info": total_info,
+        "counts_by_check": dict(counts_by_check),
+    }
+
+    # Write Stage 3 QC outputs
+    summary_path = out_dir / "stage3_qc_summary.json"
+    with open(summary_path, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+    print(f"Wrote: {summary_path}")
+
+    issues_path = out_dir / "stage3_qc_issues.jsonl"
+    with open(issues_path, "w", encoding="utf-8") as f:
+        for issue in issues:
+            issue_dict = issue.to_dict() if hasattr(issue, 'to_dict') else issue
+            f.write(json.dumps(issue_dict, ensure_ascii=False) + "\n")
+    print(f"Wrote: {issues_path} ({len(issues)} issues)")
+
+    # Print summary
+    print(f"\nStage 3 QC Results:")
+    print(f"  Total issues: {len(issues)}")
+    print(f"  Errors: {total_errors}")
+    print(f"  Warnings: {total_warnings}")
+    print(f"  Info: {total_info}")
+
+    if counts_by_check:
+        print(f"\nIssues by check:")
+        for check_id in sorted(counts_by_check.keys()):
+            counts = counts_by_check[check_id]
+            err = counts.get("ERROR", 0)
+            warn = counts.get("WARN", 0)
+            info = counts.get("INFO", 0)
+            print(f"  {check_id}: {err} errors, {warn} warnings, {info} info")
+
+    print("="*60)
 
 
 def print_verification_stats(records: list[dict], out_xlsx: Path) -> None:
@@ -366,6 +443,21 @@ def main():
 
     print(f"Writing Excel with {len(records)} events...")
     write_excel(out_xlsx, records)
+
+    # Build results_map for Stage 3 QC
+    results_map = {}
+    for rec in records:
+        eid = rec.get("event_id")
+        if eid:
+            placements = rec.get("placements", [])
+            results_map[str(eid)] = format_results_from_placements(placements)
+
+    # Run Stage 3 QC on Excel workbook data
+    if USE_MASTER_QC:
+        qc_summary, qc_issues = run_qc_for_stage("stage3", records, results_map=results_map, out_dir=out_dir)
+        print_qc_summary(qc_summary, "stage3")
+    else:
+        print("Skipping Stage 3 QC (qc_master not available)")
 
     print_verification_stats(records, out_xlsx)
     print(f"Wrote: {out_xlsx}")

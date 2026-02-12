@@ -1,0 +1,451 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<meta content="../text/html/index.html" http-equiv="content-type"/>
+<meta content="../World Footbag Championships 2008 in Prague/index.html" name="keywords"/>
+<meta content="../World Footbag Championships 2008 in Prague - 10th - 17th August 2008/index.html" name="description"/>
+<meta content="All: sveeks@gmail.com" name="author"/>
+<meta content="../index,follow/index.html" name="robots"/>
+<link href="img/favicon.ico" rel="Shortcut Icon" type="image/x-icon"/>
+<script src="scripts/count.js" type="text/javascript"></script>
+<script src="scripts/reflection.js" type="text/javascript"></script>
+<script type="text/javascript"> var GB_ROOT_DIR = "http://footbag.org/worlds2008/greybox/";</script>
+<script src="greybox/AJS.js" type="text/javascript"></script>
+<script src="greybox/AJS_fx.js" type="text/javascript"></script>
+<script src="greybox/gb_scripts.js" type="text/javascript"></script>
+<script src="scripts/prototype.js" type="text/javascript"></script>
+<script src="scripts/validation.js" type="text/javascript"></script>
+<script src="http://yui.yahooapis.com/2.5.0/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script src="http://yui.yahooapis.com/2.5.0/build/utilities/utilities.js" type="text/javascript"></script>
+<script src="http://yui.yahooapis.com/2.5.0/build/dragdrop/dragdrop-min.js" type="text/javascript"></script>
+<script src="http://yui.yahooapis.com/2.5.0/build/container/container_core-min.js" type="text/javascript"></script>
+<script src="scripts/carousel.js" type="text/javascript"></script>
+<link href="http://yui.yahooapis.com/2.5.0/build/reset-fonts-grids/reset-fonts-grids.css" rel="stylesheet" type="text/css"/>
+<link href="carousel.css" rel="stylesheet" type="text/css"/>
+<link href="yui.css" rel="stylesheet" type="text/css"/>
+<script src="hover.htc" type="text/x-component"></script>
+<link href="greybox/gb_styles.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+function mopen(id)
+{	
+	mcancelclosetime();
+
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+document.onclick = mclose; 
+
+</script>
+<script language="JavaScript">
+<!--
+doba=10000
+pocet = 4
+rotator=0
+obrsrc = new Array(pocet)
+cesta =new Array(pocet)
+obrsrc[0]="http://www.footbag.org/worlds2008/img/lista1.jpg"; cesta[0]="http://www.footbag.org/worlds2008/sponsors.php";
+obrsrc[1]="http://www.footbag.org/worlds2008/img/lista2.jpg"; cesta[1]="http://www.footbag.org/worlds2008/sponsors.php";
+obrsrc[2]="http://www.footbag.org/worlds2008/img/lista3.jpg"; cesta[2]="http://www.footbag.org/worlds2008/sponsors.php";
+obrsrc[3]="http://www.footbag.org/worlds2008/img/lista1.jpg"; cesta[3]="http://www.footbag.org/worlds2008/sponsors.php";
+obr = new Array(pocet);
+for (i=0; i < pocet; i++){
+obr[i]= new Image();
+obr[i].src= obrsrc[i]
+}
+function rotate() {
+if (rotator==pocet) {rotator=0;}
+document.images["obraz"].src = obrsrc[rotator];
+rotator = rotator + 1
+window.setTimeout('rotate();',doba);
+}
+function poslat() {
+window.location=cesta[rotator-1];
+return false;
+}
+//--></script>
+<title>IFPA World Footbag Championships 2008 in Prague</title>
+<style type="text/css">
+.carousel-component { 
+    padding:0px 16px 0px 16px;
+    margin:0px;
+}
+
+.carousel-component .carousel-list li { 
+    margin:4px;
+    width:79px; /* img width is 75 px from flickr + a.border-left (1) + a.border-right(1) + 
+                   img.border-left (1) + img.border-right (1)*/
+    height:93px; /* image + row of text (87) + border-top (1) + border-bottom(1) + margin-bottom(4) */
+    /*    margin-left: auto;*/ /* for testing IE auto issue */
+}
+
+.carousel-component .carousel-list li a { 
+    display:block;
+    border:1px solid #e2edfa;
+    outline:none;
+}
+
+.carousel-component .carousel-list li a:hover { 
+    border: 1px solid #aaaaaa; 
+}
+
+.carousel-component .carousel-list li img { 
+    border:1px solid #999;
+    display:block; 
+}
+                                
+.carousel-component .carousel-prev { 
+    position:absolute;
+    top:40px;
+    z-index:3;
+    cursor:pointer; 
+    left:5px; 
+}
+
+.carousel-component .carousel-next { 
+    position:absolute;
+    top:40px;
+    z-index:3;
+    cursor:pointer; 
+    right:5px; 
+}
+</style>
+<script type="text/javascript">
+
+/**
+ * Custom button state handler for enabling/disabling button state. 
+ * Called when the carousel has determined that the previous button
+ * state should be changed.
+ * Specified to the carousel as the configuration
+ * parameter: prevButtonStateHandler
+ **/
+var handlePrevButtonState = function(type, args) {
+
+    var enabling = args[0];
+    var leftImage = args[1];
+    if(enabling) {
+        leftImage.src = "/worlds2008/images/left-enabled.gif";    
+    } else {
+        leftImage.src = "/worlds2008/images/left-disabled.gif";    
+    }
+    
+};
+
+/**
+ * Custom button state handler for enabling/disabling button state. 
+ * Called when the carousel has determined that the next button
+ * state should be changed.
+ * Specified to the carousel as the configuration
+ * parameter: nextButtonStateHandler
+ **/
+var handleNextButtonState = function(type, args) {
+
+    var enabling = args[0];
+    var rightImage = args[1];
+    
+    if(enabling) {
+        rightImage.src = "/worlds2008/images/right-enabled.gif";
+    } else {
+        rightImage.src = "/worlds2008/images/right-disabled.gif";
+    }
+    
+};
+
+
+/**
+ * You must create the carousel after the page is loaded since it is
+ * dependent on an HTML element (in this case 'mycarousel'.) See the
+ * HTML code below.
+ **/
+var carousel; // for ease of debugging; globals generally not a good idea
+var pageLoad = function() 
+{
+    carousel = new YAHOO.extension.Carousel("mycarousel", 
+        {
+            numVisible:        1,
+            animationSpeed:    0.15,
+            scrollInc:         3,
+            navMargin:         20,
+            prevElement:     "prev-arrow",
+            nextElement:     "next-arrow",
+            size:              19,
+            prevButtonStateHandler:   handlePrevButtonState,
+            nextButtonStateHandler:   handleNextButtonState
+        }
+    );
+
+};
+
+YAHOO.util.Event.addListener(window, 'load', pageLoad);
+
+</script>
+</head>
+<body onload="rotate();">
+<object data="../alive.swf" height="90" type="application/x-shockwave-flash" width="728">
+<param name="loop" value="false"/>
+<param name="movie" value="alive.swf"/>
+  ...
+  <p>Alive.cz supports our championship</p>
+</object>
+<div id="main1">
+<div id="header">
+<a href="cz/index.html"><img alt="footbag" id="cz" src="img/czech.jpg"/></a>
+<a href="index.html"><img alt="footbag" id="en" src="img/en.jpg"/></a>
+<a href="index.html"><img alt="World Footbag Championships 2008 in Prague" id="logo" src="img/logo.jpg"/></a>
+<div id="count">
+<div id="countdowncontainer">
+<script type="text/javascript">
+var futuredate=new cdtime("countdowncontainer", "August 10, 2008 15:00:00")
+futuredate.displaycountdown("days", formatresults)
+</script>
+</div>
+</div>
+</div>
+<div id="partner_list">
+<a href="sponsors.php" onclick="return poslat();">
+<img name="obraz" src="img/lista1.jpg" style="margin-top: 5px"/></a><div class="clear_both"></div>
+</div>
+<div id="menu">
+<div class="menu">
+<ul id="sddm">
+<li><a href="index.php">home</a></li>
+<li><a href="history.php" onmouseout="mclosetime()" onmouseover="mopen('m1')">tournament</a>
+<div id="m1" onmouseout="mclosetime()" onmouseover="mcancelclosetime()">
+<a href="history.php">history</a>
+<a href="schedule.php">schedule</a>
+<a href="location.php">location</a>
+<a href="freestyle.php">freestyle</a>
+<a href="inter.php">interviews</a>
+<a href="footbagnet.php">footbag net</a>
+<a href="sponsors.php">sponsors</a>
+<a href="organization.php">organization</a>
+</div>
+</li>
+<li><a href="prague.php" onmouseout="mclosetime()" onmouseover="mopen('m2')">for players</a>
+<div id="m2" onmouseout="mclosetime()" onmouseover="mcancelclosetime()">
+<a href="prague.php">prague</a>
+<a href="accommodation.php">accommodation</a>
+<a href="registration.php">registration</a>
+<a href="places-of-interest.php">places of interest</a>
+<a href="important-notes.php">important notes</a>
+<a href="party.php">party</a>
+</div>
+</li>
+<li><a href="footbag.php" onmouseout="mclosetime()" onmouseover="mopen('m3')">for visitors</a>
+<div id="m3" onmouseout="mclosetime()" onmouseover="mcancelclosetime()">
+<a href="footbag.php">footbag?</a>
+<a href="audience.php">audience schedule</a>
+</div>
+</li>
+<li><a href="press.php" onmouseout="mclosetime()" onmouseover="mopen('m5')">press</a>
+<div id="m5" onmouseout="mclosetime()" onmouseover="mcancelclosetime()">
+<a href="press.php">press room</a>
+<a href="downloads.php">downloads</a>
+<a href="acreditation.php">accreditation</a>
+</div>
+</li>
+<li><a href="contact.php">contact</a></li>
+<li class="last"><a href="frisbee.php" onmouseout="mclosetime()" onmouseover="mopen('m6')"> Freestyle Frisbee</a>
+<div id="m6" onmouseout="mclosetime()" onmouseover="mcancelclosetime()">
+<a href="frisbee.php">introduction</a>
+<a href="schedule_frisbee.php">schedule</a>
+<a href="registration_frisbee.php">registration</a>
+<a href="players_frisbee.php">registered players</a>
+<a href="sponsors_frisbee.php">links</a>
+</div>
+</li>
+</ul>
+<div style="clear:both"></div>
+</div>
+</div>
+<div id="middle">
+<div id="left">
+<h3>News</h3>
+<img alt="footbag" src="img/vasek.jpg"/>
+<p><h4>IFPA World Footbag Championships</h4>
+<p>29th <a href="../index.html">IFPA</a> World Footbag Championships takes once again place in the wonderful heart of Europe in the city of thousand towers � Prague.  This annual gathering brings together our big footbag family from all around the globe for a week of fun, sport and unforgettable memories that last forever. </p>
+<p>More than 220 competitors were caught away by Prague�s first Worlds in 2003 on the Slavia Stadium. After 5 years we are proud to host at least as many of you as on that historical year when Europe got stroked by a wave of footbag fever. We will do your best to make this event another historical moment in our beloved sport.</p>
+<p>Once again we have chosen a venue that will host Net and Freestyle events together on one field. Additionally we will have European Freestyle Frisbee Championships joining our finals day show on Saturday.</p>
+<p>Net players will have the best possible grass field in the whole Prague and Freestylers will compete in an arena like structure on tartan surface. Catering and chill-out zone is ready for everyone directly on the playground. We believe we chose wisely and that all participants will have a great time. Lets Rock and Roll!</p>
+</p></div>
+<div id="center">
+<h3>Updates</h3>
+<strong>Late check-in and registration info</strong>
+<p>Late registration and check-in will run on Sunday, August 10th, at Slavia Athletic Stadium (the event site) from 11am (11.00) to 10pm (22.00).
+</p>
+<p>This is the time when you can arrive, pay your fees if necessary, and get your player's pack. This is the ONLY chance for you to check in if you did not pre-pay by August 7th!!  Only "guests" (not competing) or pre-paid players will be able to pick up player's packs after this time.</p>
+<p>for more info about <a href="check.php">check-in and registration check this page</a></p>
+<strong>Net schedule updated</strong>
+<p>Check the latest <a href="schedule.php">footbag net schedule</a></p>
+<strong>Important update</strong>
+<p>Hostel capacity of 120 beds have been used so you dont need to mail them anymore. We recomend that you contact other hostels in Prague for cheap accomodation. Please visit the <a href="accommodation.php">accomodation page</a> to see which we recomend.</p>
+<strong>Registration now opened</strong>
+<p>Official registration just launched! See more on <strong><a href="../registration/register/1194517448/index.html">registration page on footbag.org</a></strong>!</p>
+<p><a href="http://sveek.cz" target="_blank" title="SEO, optimalizace, mobiln� web, development, gadgety">take a look at Sveek�v blog</a></p>
+<div class="clear_both"> </div>
+</div>
+<div id="right">
+<h3>Video</h3>
+<script type="text/javascript">
+var page_set = [{'caption': 'video', 'url': '/worlds2008/video/video1.html'},
+    {'caption': 'video', 'url': '/worlds2008/video/video2.html'},
+    {'caption': 'video', 'url': '/worlds2008/video/video3.html'},
+    {'caption': 'video', 'url': '/worlds2008/video/video4.html'},
+    {'caption': 'video', 'url': '/worlds2008/video/video5.html'},
+    {'caption': 'video', 'url': '/worlds2008/video/video6.html'},
+    {'caption': 'video', 'url': '/worlds2008/video/video7.html'},];
+</script>
+<a href="#" onclick="return GB_showFullScreenSet(page_set, 1)" title="gallery"><img alt="video" src="img/video.jpg"/></a>
+<br/>
+<br/>
+<h3>Photo</h3>
+<script type="text/javascript">
+var image_set_free = [{'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_1.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_2.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_3.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_4.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_5.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_6.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_7.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_8.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_9.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_10.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_11.jpg'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/2003_12.jpg'},];
+</script>
+<span class="date">worlds 2003 finals</span>
+<table>
+<tr>
+<td><a href="#" onclick="return GB_showImageSet(image_set_free, 1)" title="gallery"><img alt="footbag" src="img/2003_1_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_free, 2)" title="gallery"><img alt="footbag" src="img/2003_2_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_free, 3)" title="gallery"><img alt="footbag" src="img/2003_3_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_free, 4)" title="gallery"><img alt="footbag" src="img/2003_4_small.jpg"/></a></td>
+</tr>
+</table>
+<br/>
+<script type="text/javascript">
+var image_set_doub = [{'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_1.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_2.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_3.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_4.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_5.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_6.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_7.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_8.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/doubles_9.JPG'},];
+</script>
+<span class="date">worlds 2003 doubles finals</span>
+<table>
+<tr>
+<td><a href="#" onclick="return GB_showImageSet(image_set_doub, 1)" title="gallery"><img alt="footbag" src="img/doubles_1_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_doub, 4)" title="gallery"><img alt="footbag" src="img/doubles_4_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_doub, 6)" title="gallery"><img alt="footbag" src="img/doubles_6_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_doub, 9)" title="gallery"><img alt="footbag" src="img/doubles_9_small.jpg"/></a></td>
+</tr>
+</table>
+<br/>
+<script type="text/javascript">
+var image_set_net = [{'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_1.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_2.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_3.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_4.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_5.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_6.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_7.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_8.JPG'},
+    {'caption': 'gallery footbag worlds championships 2003', 'url': '/worlds2008/img/net_9.JPG'},];
+</script>
+<span class="date">worlds 2003 net finals</span>
+<table>
+<tr>
+<td><a href="#" onclick="return GB_showImageSet(image_set_net, 1)" title="gallery"><img alt="footbag" src="img/net_1_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_net, 2)" title="gallery"><img alt="footbag" src="img/net_2_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_net, 3)" title="gallery"><img alt="footbag" src="img/net_3_small.jpg"/></a></td>
+<td><a href="#" onclick="return GB_showImageSet(image_set_net, 4)" title="gallery"><img alt="footbag" src="img/net_4_small.jpg"/></a></td>
+</tr>
+</table>
+<br/>
+<script type="text/javascript">
+var image_set_models = [{'caption': 'gallery footbag worlds championships 2008 models', 'url': '/worlds2008/img/model1.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/model2.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/model3.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/model4.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/model5.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel7.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/model7.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_10.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_11.JPG'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_12.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_13.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_14.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_142.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_15.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_16.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_17.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_18.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_19.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_20.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_21.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_22.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_23.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_24.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_25.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_252.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_26.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_27.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_28.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_29.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_30.JPG'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_31.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/worldsmodel_32.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/model6.jpg'},
+    {'caption': 'gallery footbag worlds championships 2008', 'url': '/worlds2008/img/model7.jpg'},];
+</script>
+<span class="date">worlds 2008 models!</span>
+<table>
+<tr>
+<td><a href="#" onclick="return GB_showImageSet(image_set_models, 1)" title="gallery"><img alt="footbag" src="img/model0.jpg"/></a></td>
+</tr>
+</table>
+<div class="clear_both"> </div>
+</div>
+<div class="clear_both"> </div>
+<div class="clear_both"> </div>
+<div id="footer"><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3042479-42";
+urchinTracker();
+</script>
+<div class="clear_both"> </div>
+developed by <a href="http://sveek.cz" target="_blank">SEO Sveek</a></div>
+</div>
+</div>
+</body>
+</html>

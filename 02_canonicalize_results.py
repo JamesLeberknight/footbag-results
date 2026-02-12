@@ -1484,6 +1484,20 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         if '!' in entry_raw and not entry_raw.rstrip().endswith(':'):
             continue  # Skip - exclamatory text is not a placement
 
+        # Pattern 13: event narrative keywords
+        # e.g., "annual Summer Classic next year", "net players from 5 countries", "different states"
+        # These are tournament descriptions, not placement entries
+        narrative_patterns = [
+            r'\b(annual|classic|championship|tournament)\b.*\b(next year|this year|coming soon|was|hosted|held)\b',  # Event narrative
+            r'\bnet players\b.*\b(countries|states)\b',  # Attendee description
+            r'\bdifferent states\b',  # Location description
+            r'\breceived.*tournament',  # Event recap
+            r'\bhighest.*ratio.*games\b',  # Tournament rules/tiebreaker
+            r'\bin.*finals.*seed\b.*\bbeat\b',  # Tournament scoring description
+        ]
+        if any(re.search(pattern, entry_raw, re.IGNORECASE) for pattern in narrative_patterns):
+            continue  # Skip - this is tournament narrative, not a placement
+
         # Apply event-specific parsing rules
         if use_merged_team_split:
             player1, player2, competitor_type = split_merged_team(entry_raw)
@@ -1786,6 +1800,32 @@ def clean_results_raw(results_raw: str) -> str:
 
         if has_noise_phrase and not looks_like_result:
             continue
+
+        # Filter fake result entries: lines that START with a number (look like "1. Name")
+        # but are actually narrative text (contain narrative keywords after the number)
+        # Examples: "20th annual Summer Classic", "23 net players from 5 countries", "4 different states"
+        if looks_like_result:
+            # Extract the part after the leading number+punctuation
+            text_after_number = re.sub(r'^\s*\d+(?:st|nd|rd|th|[.)\-:\s])*\s*', '', line_stripped, flags=re.IGNORECASE)
+
+            # Check if the rest contains narrative keywords
+            narrative_keywords = {
+                'annual', 'classic', 'annual', 'summer', 'celebration',  # Event names
+                'ratio', 'ratio of', 'games won', 'games lost',  # Stats descriptions
+                'straight', 'games in',  # Tournament play descriptions
+                'net players', 'freestyle players', 'countries',  # Attendee descriptions
+                'different states', 'received', 'tournament t', 'sandbag',  # Event recap
+                'great success', 'wonderful weather', 'great food',  # Event narrative
+            }
+
+            has_narrative_keyword = any(
+                keyword in text_after_number.lower()
+                for keyword in narrative_keywords
+            )
+
+            if has_narrative_keyword:
+                # This is a fake result entry - skip it
+                continue
 
         # Remove standalone HTML/markdown artifacts
         if line_stripped in ['---', '***', '===', '___', '...']:

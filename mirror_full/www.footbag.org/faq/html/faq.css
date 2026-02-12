@@ -1,0 +1,198 @@
+div.faq
+{
+  margin: 0.75em;
+}
+
+li.faqSection
+  {
+    margin-top: 1em;
+    font-weight: bold;
+    overflow: hidden;
+  }
+
+li.faqSection dt
+  {
+    text-indent: 0;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+  }
+
+li.faqSection dt a
+  {
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 14px;
+  }
+
+li.faqSection dt a:hover
+  {
+    background-color: #fc0;
+    /*border: 2px solid black;*/ text-decoration: underline;
+    color: black;
+  }
+
+li.faqSection dt a:visited
+  {
+    background: url("/css/check.gif") center left;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: blue;
+  }
+
+#MainBody ol a.edit, #MainBody ol a.edit:visited
+  {
+    -moz-border-radius: 12px;
+  }
+
+#MainBody ol a.edit, #MainBody ol a.edit:visited
+  {
+    padding: 2px;
+    margin-right: 6px;
+    float: right;
+    right: 1em;
+    font-size: 7pt;
+    color: green;
+    background-color: #e0e0e0;
+    background-image: none;
+  }
+
+#MainBody ol a.edit:hover
+  {
+    border: 2px solid black;
+    color: black;
+  }
+
+li.faqSection dd
+  {
+    text-indent: 0em;
+    margin-top: 0.25em;
+    margin-left: 1em;
+    margin-right: 3em;
+    padding: 0.2em;
+    border: 1px dotted black;
+    /*background-color: #f0f0f0;*/
+    /*font-family: monospace;*/
+    color: #404040;
+    width: auto;
+    font-weight: normal;
+  }
+
+li.faqSection em.faqMore
+  {
+    margin: 1em;
+    padding: 2px;
+    background-color: #909090;
+    font-size: 8pt;
+    font-style: normal;
+    color: #ffffff;
+  }
+
+li.faqSection em.faqMore a
+  {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+li.faqSection em.faqMore a:hover
+  {
+    background-color: #fc0;
+    border: 2px solid black;
+    color: black;
+  }
+
+li.faqSection em.faqMore a:visited
+  {
+    color: white;
+  }
+
+li.faqSection dd p
+  {
+    margin: 0.25em;
+  }
+
+li.faqSection dd p a
+  {
+    font-weight: normal;
+    font-size: 9pt;
+    text-decoration: none;
+    padding-left: 18px;
+    color: black;
+  }
+
+li.faqSection dd p a:hover
+  {
+    background-color: #fc0;
+    /*border: 2px solid black;*/
+    color: black;
+    text-decoration: underline;
+  }
+
+li.faqSection dd p a:visited
+  {
+    background: url("/css/check.gif") center left;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: #909090;
+  }
+
+.faqSourceLanguage
+{
+  background-color: #e0e0e0;
+  color: #202020;
+  font-size: 9pt;
+  font-family: monospace;
+  overflow: auto;
+  border: 1px solid black;
+  margin: 1em;
+  padding: 4px;
+  max-height: 12em;
+  width: 50em;
+}
+
+.faqSourceLanguage pre
+{
+  margin: 0; padding: 0;
+  overflow: auto;
+}
+
+.faqDestLanguage
+{
+  margin: 1em;
+  font-size: 9pt;
+  padding: 4px;
+  font-family: monospace;
+}
+
+.faqLocalizeSectionTitle
+{
+  -moz-border-radius: 12px;
+}
+
+.faqLocalizeSectionTitle
+{
+  position: relative;
+  border: 1px solid black;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.faqLocalizeSectionTitle input
+{
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.faqReference
+{
+  margin: 1em 0 0.25em 0;
+  font-size: 9pt;
+}
+
+.faqQuestion
+{
+  display: inline;
+  margin-top: 0;
+  padding-top: 0;
+  color: #2f2f4f;
+}

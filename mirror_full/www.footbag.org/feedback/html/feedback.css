@@ -1,0 +1,87 @@
+#ProblemBody
+{
+  padding: 1.25em;
+}
+
+#MainForm div.feedbackFormBody
+{
+  padding: 1.5em 1.25em 1.5em 1.25em;
+  font-size: 9pt;
+  margin: 0;
+}
+
+#MainForm .feedbackFormBody form
+{
+  font-size: 9pt;
+  display: inline;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+#MainForm .feedbackFormBody h1
+{
+  font-size: 16pt;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  margin: 0 0 0.75em 0;
+  padding: 0;
+  border: 0;
+}
+
+#MainForm .feedbackFormBody .instructions
+{
+  -moz-border-radius: 12px;
+}
+
+#MainForm .feedbackFormBody .instructions
+{
+  font-size: 8pt;
+  background-color: #eee;
+  color: black;
+  padding: 2px;
+  margin: 2px;
+float: right;
+width: 400px;
+  border: 2px solid white;
+}
+
+.problemQuestionWrapper
+{
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+  overflow: auto;
+  border-top: 3px dotted #ece;
+  padding: 12px;
+  width: auto;
+}
+
+.problemQuestion
+{
+  font-weight: bold;
+}
+
+.problemQuestion > div
+{
+  font-weight: normal;
+}
+
+.problemAnswer
+{
+  padding-top: 1em;
+}
+
+#ProblemSubmitWrapper
+{
+  margin: 12px;
+}
+
+#ProblemSubmitButton
+{
+  float: left;
+  padding-right: 4em;
+  padding-bottom: 4em;
+}

@@ -10,21 +10,11 @@ Never invent, assume, or optimize for completeness.
 
 These rules override all others.
 
-Correctness > Coverage
+Correctness is more important than Coverage
 Unknown or missing data is acceptable. Incorrect data is not.
 
 No invention
-Never fabricate:
-
-divisions
-
-player names
-
-locations
-
-dates
-
-event types
+Never fabricate.
 
 Explicit provenance
 Every value must be one of:
@@ -33,7 +23,7 @@ extracted
 
 inferred (clearly flagged)
 
-explicitly overridden
+explicitly overridden (after asking a human)
 
 Determinism
 Same input must always produce the same output.
@@ -59,6 +49,10 @@ No semantic interpretation
 
 No normalization beyond safety cleaning
 
+Maximum flexibility and generalization of parser, because every event has a different format.
+THis is the core problem we are solving, wildly inconsistent input data.
+It is OK for the code to have different parsing rules per event id.
+
 Stage 2 — Canonicalization
 
 All interpretation, normalization, inference, and QC
@@ -77,17 +71,19 @@ No semantic changes allowed
 
 A run is acceptable only if:
 
-No new ERROR-severity QC issues are introduced
+No new QC issues are introduced
 
 All inferred values are clearly labeled
 
-Ambiguous data remains ambiguous
+Ambiguous data questions are resolved by a human
 
 Output is reproducible and explainable
 
 Changes are minimal, localized, and documented
 
 “Done” does not mean “every field filled”.
+
+All possible QC checks have been performed to find new data quality problems.
 
 6. Trust Hierarchy (Conflict Resolution)
 
@@ -106,7 +102,7 @@ Manual overrides (explicit and event-specific)
 Lower-trust evidence must never override higher-trust evidence.
 
 7. Ambiguity & Inference Rules
-Always stop and ask (or quarantine) if:
+Always stop and ask human (or quarantine) if:
 
 Multiple interpretations are plausible
 
@@ -119,8 +115,6 @@ A new category or rule would be introduced
 May proceed autonomously if:
 
 The correction is mechanically obvious
-
-Only a few events are affected
 
 No alternative interpretation exists
 
@@ -182,6 +176,8 @@ Ask at most one human question (if required)
 
 Implement the smallest safe change
 
+Add new qc checks that would catch the given problem, and generalize it to catch all such data quality problems.
+
 Re-run and compare QC deltas
 
 Persist decisions in overrides if needed
@@ -196,4 +192,5 @@ When uncertain:
 
 Preserve uncertainty.
 Surface it clearly.
+Ask human (maybe).
 Move on.
