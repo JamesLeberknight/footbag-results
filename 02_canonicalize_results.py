@@ -959,8 +959,9 @@ def clean_player_name(name: str) -> str:
 
 def split_entry(entry: str) -> tuple[str, Optional[str], str]:
     """
-    Detect doubles teams separated by '/', ' and ', ' & ', or dash separators.
+    Detect teams/multiple players separated by '/', ' and ', ' & ', commas, or dash separators.
     Returns (player1, player2, competitor_type).
+    For multi-player entries (3+ comma-separated names), returns first 2 as team.
     Canonical output format uses '/' separator (handled in _build_name_line).
 
     Priority:
@@ -969,6 +970,7 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
     3. " and " between names (word separator)
     4. "et" between names (French "and")
     5. " - ", " – ", " — " between names (dash separators: hyphen, en-dash, em-dash)
+    6. ", " between multiple names (comma separator for groups - returns first 2)
     """
     entry = " ".join(entry.split()).strip()
 
@@ -1060,6 +1062,42 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
             a_first.isupper() and b_first.isupper() and
             not re.match(ordinal_pattern, a, re.IGNORECASE)):
             return strip_trailing_score(a), strip_trailing_score(b), "team"
+
+    # Comma-separated names (for multi-player entries like Circle Contest)
+    # e.g., "Paweł Nowak, Paweł Ścierski, Krzysztof Sobótka, Sylwia Kocyk (Poland)"
+    # Split on comma, but exclude commas that look like location info (e.g., "City, Country")
+    # Heuristic: If entry has 3+ comma-separated parts and most look like names, split them
+    if ',' in entry_clean:
+        # First remove trailing location info like "(Poland)" before splitting
+        entry_no_location = re.sub(r'\s*\([^)]*\)\s*$', '', entry_clean).strip()
+
+        if ',' in entry_no_location:
+            parts = [p.strip() for p in entry_no_location.split(',')]
+
+            # Check if this looks like a multi-player entry vs "City, Country" format
+            # Multi-player: most parts start with capital letter (names)
+            # City,Country: 2 parts, second is usually short (country code or country name)
+            capital_count = sum(1 for p in parts if p and p[0].isupper())
+
+            # If we have 3+ parts that look like names (start with capital), treat as multi-player
+            if len(parts) >= 3 and capital_count >= 3:
+                # Multi-player entry: return first two as "team"
+                p1 = strip_trailing_score(parts[0])
+                p2 = strip_trailing_score(parts[1])
+                if len(p1) >= 2 and len(p2) >= 2:
+                    return p1, p2, "team"
+            elif len(parts) == 2 and capital_count >= 2:
+                # Two-part comma entry (less common, might be "Name, Country" or "Name, Name")
+                # Only treat as team if both parts are reasonable name lengths (3+ chars)
+                p1 = strip_trailing_score(parts[0])
+                p2 = strip_trailing_score(parts[1])
+                # Check if both parts look like names (not location info)
+                # Location format: short country code (2-3 chars) or country names
+                # Names are typically 3+ chars, contain letters, may have accents
+                if (len(p1) >= 3 and len(p2) >= 3 and
+                    p1[0].isupper() and p2[0].isupper() and
+                    not re.match(r'^[A-Z]{2,3}$', p2)):  # Not a country code like "POL"
+                    return p1, p2, "team"
 
     return strip_trailing_score(entry), None, "player"
 
