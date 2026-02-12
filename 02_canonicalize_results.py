@@ -404,12 +404,21 @@ def truncate_long_division(division_raw: str, max_length: int = 80) -> str:
 
     Long divisions are usually misidentified placements or event descriptions.
     Keeps meaningful part and truncates at word boundary.
+    Also strips explanatory parenthetical content (e.g., "Shred 30 (Total Adds...)").
     """
-    if not division_raw or len(division_raw) <= max_length:
+    if not division_raw:
         return division_raw
 
+    # First, strip explanatory parenthetical content from end
+    # E.g., "Shred 30 (Total Adds Compared To Total Contacts)" -> "Shred 30"
+    cleaned = re.sub(r'\s*\([^)]*\)\s*$', '', division_raw).strip()
+
+    # If already short after cleaning parentheses, return it
+    if len(cleaned) <= max_length:
+        return cleaned
+
     # Truncate at max_length and try to break at word boundary
-    truncated = division_raw[:max_length]
+    truncated = cleaned[:max_length]
     last_space = truncated.rfind(' ')
     if last_space > max_length // 2:  # Only break at word if we still have meaningful content
         truncated = truncated[:last_space].strip()
