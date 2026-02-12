@@ -2,7 +2,7 @@
   "stage": "stage2",
   "total_records": 775,
   "total_errors": 0,
-  "total_warnings": 148,
+  "total_warnings": 110,
   "total_info": 560,
   "counts_by_check": {
     "host_club_multiple_locations": {
@@ -23,11 +23,6 @@
     "cv_doubles_unsplit_team": {
       "ERROR": 0,
       "WARN": 4,
-      "INFO": 0
-    },
-    "location_has_street_address": {
-      "ERROR": 0,
-      "WARN": 45,
       "INFO": 0
     },
     "player_has_admin_text": {
@@ -68,6 +63,11 @@
     "cv_freestyle_event_no_freestyle_divs": {
       "ERROR": 0,
       "WARN": 1,
+      "INFO": 0
+    },
+    "location_has_street_address": {
+      "ERROR": 0,
+      "WARN": 7,
       "INFO": 0
     },
     "cv_all_unknown_divisions": {
