@@ -3287,26 +3287,29 @@ def check_player_name_quality(rec: dict) -> list[QCIssue]:
 
             # Slash in player name (should be split into team)
             # Skip if all slashes are inside parentheses (country/club info)
-            # Skip if it's country codes (e.g., "Name GER/USA" or "Name DE/CH")
+            # Skip if it's country codes (e.g., "Name GER/USA" or "Name DE/CH" or "Name (SUI)/(GER)")
             if '/' in player_name:
-                name_no_parens = re.sub(r'\([^)]*\)', '', player_name)
-                if '/' in name_no_parens:
-                    # Check if it's country codes: word/word where both are 2-3 uppercase letters
-                    # e.g., "Tuan Vu GER/USA", "Nick Zbinden DE/CH", "Petr Brocka CZ/SK"
-                    is_country_code = bool(re.search(r'\b[A-Z]{2,3}/[A-Z]{2,3}\b', name_no_parens))
-                    # Check if it's a team separator with clear structure "Name / Name" or "Name and Name / Name"
-                    is_team_separator = ' / ' in name_no_parens or ' and ' in name_no_parens
+                # Check for country code pattern: 2-3 uppercase letters separated by slash
+                # Matches: "GER/USA", "USA/(GER)", "(SUI)/(GER)", etc.
+                is_country_code = bool(re.search(r'[A-Z]{2,3}\s*/\s*[A-Z]{2,3}|\([A-Z]{2,3}\)\s*/\s*\([A-Z]{2,3}\)', player_name))
 
-                    if not is_country_code and not is_team_separator:
-                        issues.append(QCIssue(
-                            check_id="player_has_slash",
-                            severity="WARN",
-                            event_id=str(event_id),
-                            field="placements_json",
-                            message=f"Player name contains slash: {player_name[:60]}",
-                            example_value=player_name[:60],
-                            context={"placement_index": i}
-                        ))
+                # Check for clear team separator with spaces: "Name / Name" or "Name and Name"
+                name_no_parens = re.sub(r'\([^)]*\)', '', player_name)
+                is_team_separator = ' / ' in name_no_parens or ' and ' in name_no_parens
+
+                # Check if slash only appears inside parentheses
+                is_parens_only = '/' not in name_no_parens
+
+                if not is_country_code and not is_team_separator and not is_parens_only:
+                    issues.append(QCIssue(
+                        check_id="player_has_slash",
+                        severity="WARN",
+                        event_id=str(event_id),
+                        field="placements_json",
+                        message=f"Player name contains slash: {player_name[:60]}",
+                        example_value=player_name[:60],
+                        context={"placement_index": i}
+                    ))
 
             # Score/numeric patterns in name (scores should be in notes)
             if re.search(r'\(\d{2,}\.\d{2}\)|\(\d{3,}\s+add', player_name, re.IGNORECASE):
