@@ -170,6 +170,252 @@ def _build_name_line(placement: dict) -> str:
 
 
 # ------------------------------------------------------------
+# OLD_RESULTS (secondary) ingestion
+# ------------------------------------------------------------
+def read_old_results_events_csv(path: Path) -> dict:
+    """
+    Returns {sec_event_key: row_dict} for OLD_RESULTS events.
+    Expected columns include: sec_event_key, year, org, title_raw (or similar).
+    We keep this flexible and tolerate missing fields.
+    """
+    if not path.exists():
+        return {}
+    out = {}
+    with open(path, "r", newline="", encoding="utf-8") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            key = (row.get("sec_event_key") or "").strip()
+            if not key:
+                continue
+            out[key] = row
+    return out
+
+
+def read_old_results_placements_csv(path: Path) -> list[dict]:
+    """
+    Reads OLD_RESULTS placements raw CSV.
+    Expected columns typically include: sec_event_key, year, org, division_raw, place_raw, competitor_raw.
+    """
+    if not path.exists():
+        return []
+    rows = []
+    with open(path, "r", newline="", encoding="utf-8") as f:
+        r = csv.DictReader(f)
+        for row in r:
+            rows.append(row)
+    return rows
+
+
+def _secondary_event_id(year: int, org: str) -> str:
+    """
+    Deterministic synthetic event_id for OLD_RESULTS so it can coexist with footbag.org IDs.
+    User asked for YYYYDDMM-style; OLD_RESULTS usually lacks precise dates.
+    We encode ORG as a stable 'MMDD' surrogate:
+      NHSA -> 0101
+      WFA  -> 0102
+      else -> 0199
+    """
+    org_u = (org or "").strip().upper()
+    mmdd = "0101" if org_u == "NHSA" else ("0102" if org_u == "WFA" else "0199")
+    return f"{int(year)}{mmdd}"
+
+
+def _secondary_event_name(year: int, org: str, title_hint: str | None) -> str:
+    org_u = (org or "").strip().upper() or "OLD"
+    if title_hint and title_hint.strip():
+        return title_hint.strip()
+    return f"{org_u} World Championships (secondary)"
+
+
+def _split_competitors(raw: str) -> tuple[str, str]:
+    """
+    OLD_RESULTS uses 'A/B' for doubles/teams sometimes.
+    We only support two-name display for the Excel Results blob.
+    For larger teams, we keep the whole thing in player1_name.
+    """
+    s = (raw or "").strip()
+    if "/" not in s:
+        return (s, "")
+    parts = [p.strip() for p in s.split("/") if p.strip()]
+    if len(parts) == 2:
+        return (parts[0], parts[1])
+    # team >2: keep as one line
+    return (s, "")
+
+
+def _guess_division_category(div: str) -> str:
+    d = (div or "").lower()
+    if "net" in d:
+        return "net"
+    if "golf" in d:
+        return "golf"
+    # early-era stuff is often freestyle-ish but don't guess; keep unknown
+    return "unknown"
+
+
+def build_secondary_records(
+    old_events_rows: dict,
+    old_placements_rows: list[dict],
+) -> list[dict]:
+    """
+    Build Stage-3-compatible 'records' entries for OLD_RESULTS.
+    Each synthetic record contains:
+      event_id, year, event_name, date, location, host_club, event_type, placements(list[dict])
+    """
+    # Group placements by sec_event_key
+    by_key: dict[str, list[dict]] = defaultdict(list)
+    for row in old_placements_rows:
+        key = (row.get("sec_event_key") or "").strip()
+        if key:
+            by_key[key].append(row)
+
+    records: list[dict] = []
+    for key, placements_rows in by_key.items():
+        # Derive metadata
+        meta = old_events_rows.get(key, {})
+        year_str = (meta.get("year") or placements_rows[0].get("year") or "").strip()
+        try:
+            year = int(year_str)
+        except Exception:
+            year = None
+        if year is None:
+            continue
+
+        org = (meta.get("org") or placements_rows[0].get("org") or "").strip()
+        title_hint = meta.get("title_raw") or meta.get("event_name_raw") or meta.get("event_name") or ""
+
+        eid = _secondary_event_id(year, org)
+        event_name = _secondary_event_name(year, org, title_hint)
+
+        # Convert placements rows -> placement dicts expected by format_results_from_placements()
+        placements: list[dict] = []
+        for pr in placements_rows:
+            div = (pr.get("division_raw") or pr.get("division") or "Unknown").strip() or "Unknown"
+            place_raw = pr.get("place_raw") or pr.get("place") or ""
+            try:
+                place = int(str(place_raw).strip())
+            except Exception:
+                place = place_raw  # keep raw if non-int
+            p1, p2 = _split_competitors(pr.get("competitor_raw") or pr.get("competitor") or "")
+            placements.append({
+                "place": place,
+                "division_raw": div,
+                "division_canon": div,  # don't invent canonicalization for OLD
+                "division_category": _guess_division_category(div),
+                "player1_name": p1,
+                "player2_name": p2,
+                "parse_confidence": "secondary",
+                "source": "OLD_RESULTS",
+            })
+
+        records.append({
+            "event_id": eid,
+            "year": year,
+            "event_name": event_name,
+            "date": f"{year}",          # OLD usually lacks exact dates
+            "location": "",             # unknown
+            "event_type": "secondary",
+            "host_club": "",
+            "placements": placements,
+            "_source": "OLD_RESULTS",
+        })
+
+    return records
+
+
+# ------------------------------------------------------------
+# Summary + Player stats sheets
+# ------------------------------------------------------------
+def build_summary_df(records: list[dict]) -> pd.DataFrame:
+    total_events = len(records)
+    primary_events = sum(1 for r in records if r.get("_source") != "OLD_RESULTS")
+    secondary_events = sum(1 for r in records if r.get("_source") == "OLD_RESULTS")
+
+    primary_placements = 0
+    secondary_placements = 0
+    for r in records:
+        n = len(r.get("placements", []) or [])
+        if r.get("_source") == "OLD_RESULTS":
+            secondary_placements += n
+        else:
+            primary_placements += n
+
+    df = pd.DataFrame([
+        ["events_total", total_events],
+        ["events_primary", primary_events],
+        ["events_secondary_old_results", secondary_events],
+        ["placements_primary", primary_placements],
+        ["placements_secondary_old_results", secondary_placements],
+        ["placements_total", primary_placements + secondary_placements],
+    ], columns=["metric", "value"])
+    return df
+
+
+def build_player_stats_df(records: list[dict]) -> pd.DataFrame:
+    """
+    Very conservative stats:
+    - Count placements + podiums (1/2/3) per player name string.
+    - For 'A / B' we credit both A and B equally.
+    - For team strings with >2 names (kept as one line), we credit the whole string as-is.
+    """
+    agg = defaultdict(lambda: {
+        "placements_primary": 0,
+        "podiums_primary": 0,
+        "wins_primary": 0,
+        "placements_secondary": 0,
+        "podiums_secondary": 0,
+        "wins_secondary": 0,
+    })
+
+    for r in records:
+        is_secondary = (r.get("_source") == "OLD_RESULTS")
+        for p in (r.get("placements", []) or []):
+            place = p.get("place")
+            try:
+                place_i = int(place)
+            except Exception:
+                place_i = None
+
+            # collect names
+            n1 = (p.get("player1_name") or "").strip()
+            n2 = (p.get("player2_name") or "").strip()
+            names = [n for n in [n1, n2] if n]
+            if not names:
+                continue
+
+            for name in names:
+                a = agg[name]
+                if is_secondary:
+                    a["placements_secondary"] += 1
+                    if place_i in (1, 2, 3):
+                        a["podiums_secondary"] += 1
+                    if place_i == 1:
+                        a["wins_secondary"] += 1
+                else:
+                    a["placements_primary"] += 1
+                    if place_i in (1, 2, 3):
+                        a["podiums_primary"] += 1
+                    if place_i == 1:
+                        a["wins_primary"] += 1
+
+    rows = []
+    for name, a in agg.items():
+        rows.append({
+            "player_name": name,
+            **a,
+            "placements_total": a["placements_primary"] + a["placements_secondary"],
+            "podiums_total": a["podiums_primary"] + a["podiums_secondary"],
+            "wins_total": a["wins_primary"] + a["wins_secondary"],
+        })
+
+    df = pd.DataFrame(rows)
+    if df.empty:
+        return df
+    df = df.sort_values(by=["wins_total", "podiums_total", "placements_total", "player_name"], ascending=[False, False, False, True])
+    return df
+
+
+# ------------------------------------------------------------
 # CSV reading
 # ------------------------------------------------------------
 def read_stage2_csv(csv_path: Path) -> list[dict]:
@@ -247,6 +493,21 @@ def write_excel(out_xlsx: Path, records: list[dict]) -> None:
             unknown_year.append(rec)
 
     with pd.ExcelWriter(out_xlsx, engine="openpyxl") as xw:
+        # Summary + player stats (v2 additions)
+        try:
+            df_summary = build_summary_df(records)
+            df_summary = sanitize_excel_strings(df_summary)
+            df_summary.to_excel(xw, sheet_name="Summary", index=False)
+        except Exception as e:
+            print(f"WARNING: could not write Summary sheet: {e}")
+
+        try:
+            df_players = build_player_stats_df(records)
+            df_players = sanitize_excel_strings(df_players)
+            df_players.to_excel(xw, sheet_name="Player_Stats", index=False)
+        except Exception as e:
+            print(f"WARNING: could not write Player_Stats sheet: {e}")
+
         # Build one sheet per year
         for y in sorted(by_year.keys()):
             year_records = by_year[y]
@@ -431,7 +692,13 @@ def main():
     repo_dir = Path(__file__).resolve().parent
     out_dir = repo_dir / "out"
     in_csv = out_dir / "stage2_canonical_events.csv"
-    out_xlsx = repo_dir / "Footbag_Results_Canonical.xlsx"
+    # v2 output to avoid clobbering the old workbook
+    out_xlsx = repo_dir / "Footbag_Results_Canonical_v2.xlsx"
+
+    # Optional OLD_RESULTS inputs (secondary evidence)
+    old_dir = out_dir / "secondary_evidence"
+    old_events_csv = old_dir / "old_results__events_raw.csv"
+    old_placements_csv = old_dir / "old_results__placements_raw.csv"
 
     if not in_csv.exists():
         print(f"ERROR: Input file not found: {in_csv}")
@@ -440,6 +707,19 @@ def main():
 
     print(f"Reading: {in_csv}")
     records = read_stage2_csv(in_csv)
+
+    # If OLD_RESULTS exists, append synthetic records so pre-1985 sheets appear
+    if old_events_csv.exists() and old_placements_csv.exists():
+        print(f"Loading OLD_RESULTS secondary evidence:")
+        print(f"  events:    {old_events_csv}")
+        print(f"  placements:{old_placements_csv}")
+        old_events = read_old_results_events_csv(old_events_csv)
+        old_pl = read_old_results_placements_csv(old_placements_csv)
+        secondary_records = build_secondary_records(old_events, old_pl)
+        print(f"  secondary events appended: {len(secondary_records)}")
+        records.extend(secondary_records)
+    else:
+        print("OLD_RESULTS CSVs not found; skipping secondary-era year sheets.")
 
     print(f"Writing Excel with {len(records)} events...")
     write_excel(out_xlsx, records)
