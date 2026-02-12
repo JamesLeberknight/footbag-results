@@ -1560,6 +1560,17 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         else:
             player1, player2, competitor_type = split_entry(entry_raw)
 
+        # Skip trick sequences (identified by " > " separator)
+        # e.g., "Diving Clipper > Spinning Clipper > Spinning Paradox Dragonfly"
+        # These appear in freestyle routines but should not be treated as player names
+        if player1 and ' > ' in player1:
+            # This looks like a trick sequence, not a name
+            continue  # Skip - this is a trick list, not a placement
+        if player2 and ' > ' in player2:
+            # If player2 is a trick list, just treat entry as single player
+            player2 = None
+            competitor_type = "player"
+
         # Skip placements with invalid player names (noise)
         # A valid player name should have at least 2 alphanumeric characters
         if not player1 or len(player1) < 2 or not re.search(r"[a-zA-Z]{2,}", player1):
