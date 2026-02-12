@@ -1794,6 +1794,50 @@ def canonicalize_location(location_raw: str) -> str:
     # Remove "to be announced" variations
     cleaned = re.sub(r'\s*\(?\s*to\s+be\s+announced\s*\)?', '', cleaned, flags=re.IGNORECASE)
 
+    # Remove street addresses while preserving venue/location names
+    street_terms = r'(?:Street|Rd\.?|Road|Avenue|Ave\.?|Boulevard|Blvd\.?|Rue|Straße|Strasse|Straat|Str\.?|Drive|Way|Lane|Court|Place|Plaza|Square|Alley|Circle|Trail|Path|Pike|Parkway|Terrace|Close|Crescent|Heights|Bay|Point|Harbor|Loop|Shore|View|Ridge|Summit|Valley|Hills|Forest|Park|Green|Gardens|Grove|Field|Meadow|Wood|Lake|River|Spring|Hill|Mount|Tower|Gate|Bridge|Station|Plaza|Centre|Center|Complex|Hall|Building|House|Home|Campus|Quarter|Section)'
+
+    # Pattern 1: "Number Street_Term" (e.g., "123 Main", "82 Avenue", "106 Str.")
+    # Removes: ", 123 Main St." or " - 82 Avenue" or ", 106 Str."
+    cleaned = re.sub(r'(?:,?\s*-?\s*)\d+\s+(?:[\w\s]+?\s+)*' + street_terms + r'(?:\.|\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
+
+    # Pattern 2: Just street numbers without street term (e.g., "1200 Bleury" where Bleury is part of next word)
+    # But be careful not to strip years or other numbers
+    # Remove: ", 1200 " when followed by capitalized word (likely street name)
+    cleaned = re.sub(r',\s+\d{4}\s+(?=[A-Z][a-z]+)', ', ', cleaned)
+    cleaned = re.sub(r',\s+\d{3,5}\s+(?=[A-Z][a-z]{3,})', ', ', cleaned)
+
+    # Pattern 3: International street abbreviations
+    # German: "Feldgerichtsstrasse 29" or "Roelckestr. 106"
+    cleaned = re.sub(r',?\s+\w+strasse\s+\d+(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r',?\s+\w+str\.?\s+\d+(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
+    # Polish: "ul. Street 12" or "Ulica Street 12"
+    cleaned = re.sub(r',?\s+u[lł]\.\s+[\w\s]+\s+\d+(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
+    # Czech/Slovak: "U stadionu" style
+    cleaned = re.sub(r',?\s+[Uu]\s+[\w\s]+\s+\d{3,5}(?:\s|,|$)', ', ', cleaned)
+
+    # Pattern 4: Postal codes in various formats
+    # Remove: "75013 Paris" or "20707, USA" patterns
+    # Format: 4-5 digits optionally followed by space/hyphen and city name
+    cleaned = re.sub(r'\s+\d{5}\s+(?=[A-Z][a-z])', ', ', cleaned)  # "75013 Paris" -> ", Paris"
+    cleaned = re.sub(r'\s*,?\s*\d{4,5}(?:,?\s*-\s*\d{1,5})?,?\s*', ', ', cleaned)  # "20707, USA" or "57-100 Strzelin"
+
+    # Pattern 5: UK/international postcode format like "M?6" or "EC2A"
+    cleaned = re.sub(r'\s+[A-Z]{1,2}\d{1,2}\s+', ', ', cleaned)
+
+    # Clean up any resulting double commas, triple cities, or malformed spacing
+    cleaned = re.sub(r',\s*,+', ',', cleaned)
+    cleaned = re.sub(r'(,\s*){2,}', ', ', cleaned)
+
+    # Remove duplicate city names (e.g., "Paris Paris" or "Frankfurt Frankfurt")
+    # Match: City, State, City format and remove the duplicate
+    cleaned = re.sub(r'(\b\w+(?:\s+\w+)?),\s+\w+,?\s+\1\b', r'\1', cleaned, flags=re.IGNORECASE)
+
+    # Remove parenthetical zip codes/postal codes (usually at end)
+    # Matches patterns like "(20707)" or "(75013)" or "(M?6)"
+    cleaned = re.sub(r'\s*\([A-Z]?\d{4,5}\)\s*$', '', cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'\s*\([A-Z]{1,2}\s*\d+\)\s*$', '', cleaned, flags=re.IGNORECASE)
+
     # Normalize all whitespace (tabs, multiple spaces, leading/trailing)
     return normalize_whitespace(cleaned)
 
