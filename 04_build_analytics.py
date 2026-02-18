@@ -299,12 +299,13 @@ def reorder_sheets(wb) -> None:
     preferred = [
         "Index",
         "Summary",
+        "Divisions",
+        "Divisions_Normalized",
+        "Division_Stats",
         "Person_Stats",
         "PersonStats_ByDivCat",
         "Placements_ByPerson",
         "Persons_Truth",
-        "Division_Stats",
-        "Divisions",
         "Players_Clean",
         "Placements_Flat",
     ]
@@ -1522,7 +1523,7 @@ def main() -> int:
     wb = openpyxl.load_workbook(xlsx)
     sheets_to_remove = [
         "Players", "Players_Junk", "Players_Alias_Candidates",
-        "Persons_Truth_Source", "Divisions_Normalized",
+        "Persons_Truth_Source",
         "Teams", "Teams_Alias_Candidates", "QC_TopIssues",
     ]
     for name in sheets_to_remove:

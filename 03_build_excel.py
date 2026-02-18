@@ -1366,39 +1366,39 @@ def write_excel(
                 ),
             },
             {
-                "Section": "Canonical Sheets",
+                "Section": "SAFE — Presentation-ready",
                 "Description": (
-                    "These sheets represent the canonical truth tables produced by the pipeline. "
-                    "They preserve provenance and should not be edited manually:\n"
-                    "- Events / Placements / Players / Teams\n"
-                    "- Year-specific result sheets"
+                    "These sheets are structurally sound and can be trusted for pivot tables:\n"
+                    "- Year sheets (1980-2026): Event archive, one column per event\n"
+                    "- Index: Event index with hyperlinks to year sheets\n"
+                    "- Summary: Aggregate counts (events, placements, year range)\n"
+                    "- Divisions: Canonical division labels and counts\n"
+                    "- Divisions_Normalized: Near-identical divisions grouped\n"
+                    "- Division_Stats: Division-level aggregates"
                 ),
             },
             {
-                "Section": "Normalized Sheets",
+                "Section": "DIAGNOSTIC — Not yet pivot-ready",
                 "Description": (
-                    "These sheets group near-identical labels for readability and analysis, "
-                    "without changing canonical truth:\n"
-                    "- Divisions_Normalized"
+                    "These sheets still contain structural errors from placement parsing.\n"
+                    "Use for investigation but do NOT treat counts as authoritative:\n"
+                    "- Placements_ByPerson: Contains quarantinable rows; some Singles "
+                    "misclassified as teams with embedded multi-person data\n"
+                    "- Person_Stats: Derived from contaminated placements; counts unreliable\n"
+                    "- PersonStats_ByDivCat: Singles vs doubles breakdowns are wrong\n"
+                    "- Persons_Truth: Correct intent but unresolved alias collisions remain\n"
+                    "- Players_Clean: Raw player tokens, inherits parse contamination\n"
+                    "- Placements_Flat: Complete truth-preserving fact table (includes all rows)"
                 ),
             },
             {
-                "Section": "Alias Candidate Sheets",
+                "Section": "Known Issues",
                 "Description": (
-                    "These sheets identify potential duplicates caused by spelling variants, "
-                    "encoding differences, or historical inconsistencies. "
-                    "No merges are applied automatically:\n"
-                    "- Players_Alias_Candidates\n"
-                    "- Teams_Alias_Candidates\n\n"
-                    "Use the confidence and usage columns to prioritize review."
-                ),
-            },
-            {
-                "Section": "Important Notes",
-                "Description": (
-                    "- No identity merges are performed automatically.\n"
-                    "- Internal IDs may be present but hidden for traceability.\n"
-                    "- Presentation sheets may change over time; canonical sheets should remain stable."
+                    "- ~114 Singles placements have player2 filled (should be blank)\n"
+                    "- ~349 additional rows quarantined to separate CSV (not in this workbook)\n"
+                    "- competitor_type cannot be fully trusted (partial fix applied)\n"
+                    "- Some person_canon values have unresolved alias collisions\n"
+                    "- See Persons_Truth_Review.xlsx for full diagnostic workbook"
                 ),
             },
         ]
