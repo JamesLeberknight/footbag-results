@@ -1,9 +1,9 @@
 {
   "stage": "stage2",
-  "total_records": 775,
+  "total_records": 786,
   "total_errors": 0,
-  "total_warnings": 110,
-  "total_info": 560,
+  "total_warnings": 63,
+  "total_info": 917,
   "counts_by_check": {
     "host_club_multiple_locations": {
       "ERROR": 0,
@@ -13,32 +13,22 @@
     "place_does_not_start_at_1": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 44
+      "INFO": 41
     },
     "location_parenthetical": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 39
-    },
-    "cv_doubles_unsplit_team": {
-      "ERROR": 0,
-      "WARN": 4,
-      "INFO": 0
+      "INFO": 38
     },
     "player_has_admin_text": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 59
+      "INFO": 46
     },
     "place_large_gap": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 53
-    },
-    "player_has_slash": {
-      "ERROR": 0,
-      "WARN": 11,
-      "INFO": 0
+      "INFO": 52
     },
     "host_club_contains_location": {
       "ERROR": 0,
@@ -47,12 +37,7 @@
     },
     "player_name_too_long": {
       "ERROR": 0,
-      "WARN": 1,
-      "INFO": 0
-    },
-    "player_duplicate_in_team": {
-      "ERROR": 0,
-      "WARN": 1,
+      "WARN": 2,
       "INFO": 0
     },
     "location_tba": {
@@ -65,14 +50,24 @@
       "WARN": 1,
       "INFO": 0
     },
-    "location_has_street_address": {
-      "ERROR": 0,
-      "WARN": 7,
-      "INFO": 0
-    },
     "cv_all_unknown_divisions": {
       "ERROR": 0,
       "WARN": 1,
+      "INFO": 0
+    },
+    "location_has_street_address": {
+      "ERROR": 0,
+      "WARN": 1,
+      "INFO": 0
+    },
+    "location_missing": {
+      "ERROR": 0,
+      "WARN": 13,
+      "INFO": 0
+    },
+    "date_missing": {
+      "ERROR": 0,
+      "WARN": 13,
       "INFO": 0
     },
     "cv_worlds_missing_freestyle": {
@@ -92,8 +87,8 @@
     },
     "any_field_contains_placeholder_or_instructional_text": {
       "ERROR": 0,
-      "WARN": 62,
-      "INFO": 278
+      "WARN": 10,
+      "INFO": 653
     },
     "results_raw_has_strong_signals_but_output_empty": {
       "ERROR": 0,
