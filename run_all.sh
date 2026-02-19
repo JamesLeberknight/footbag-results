@@ -6,3 +6,4 @@ python 02_canonicalize_results.py
 python 02p5_player_token_cleanup.py
 python 03_build_excel.py
 python 04_build_analytics.py
+python 04b_recover_placements.py
