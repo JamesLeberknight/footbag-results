@@ -96,22 +96,6 @@ def clean_person_canon_for_output(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
-# Safe trailing annotation stripping (for A-name fallback only: nicknames, " - metadata")
-_RE_TRAIL_PARENS = re.compile(r"\s*\([^)]*\)\s*")       # remove (...) tokens
-_RE_TRAIL_DASH_META = re.compile(r"\s-\s[^-]+$")        # strip one trailing " - metadata" chunk
-
-
-def strip_safe_trailing_annotations(s: str) -> str:
-    s = "" if s is None else str(s).strip()
-    if not s:
-        return s
-    # remove nicknames like (Tree), (PT)
-    s2 = _RE_TRAIL_PARENS.sub(" ", s)
-    s2 = re.sub(r"\s+", " ", s2).strip()
-    # strip trailing dash metadata like " - Team84" / " - FC Footstar Berlin"
-    s2 = _RE_TRAIL_DASH_META.sub("", s2).strip()
-    return re.sub(r"\s+", " ", s2).strip()
-
 
 def strip_invisible(s: str) -> str:
     s = (s or "")
@@ -766,22 +750,6 @@ def _repair_name_cols_for_person_resolution(df: pd.DataFrame) -> None:
             df[col] = df[col].astype(str).str.replace(r"\s+", " ", regex=True).str.strip()
 
 
-def is_junk_name(name: str) -> bool:
-    n = (name or "").strip().lower()
-    if not n:
-        return True
-    # Common non-person placeholders / ordinals that show up as "names"
-    # Keep this list tiny + explicit to avoid false positives.
-    if n in {"na", "n/a", "nd", "rd", "st", "st.", "th", "dnf", "()"}:
-        return True
-    if any(x in n for x in [
-        "canada", "usa", "poland", "california", "arizona",
-        "club", "footbag", "position", "match"
-    ]):
-        return True
-    return False
-
-
 def load_verified_person_aliases(csv_path: Path) -> dict[str, dict]:
     """Load verified alias → person_id mappings. Raises if file missing or invalid."""
     if not csv_path.exists():
@@ -817,20 +785,6 @@ def load_verified_person_aliases_optional(csv_path: Path) -> dict[str, dict]:
         return load_verified_person_aliases(csv_path)
     except Exception:
         return {}
-
-
-def apply_person_alias(raw_name, alias_map: dict[str, dict]) -> tuple[Optional[str], Optional[str]]:
-    """Look up raw_name in alias_map; returns (person_id, person_canon) or (None, None)."""
-    if raw_name is None or (isinstance(raw_name, float) and pd.isna(raw_name)):
-        return None, None
-    key = str(raw_name).strip()
-    if not key:
-        return None, None
-    norm_key = _norm_alias(key)
-    if norm_key in alias_map:
-        rec = alias_map[norm_key]
-        return rec["person_id"], rec["person_canon"]
-    return None, None
 
 
 _UUID_RE = re.compile(

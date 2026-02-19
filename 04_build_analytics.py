@@ -169,59 +169,6 @@ def is_qc_sheet(name: str) -> bool:
 # ----------------------------
 # Presentability is a stronger constraint than correctness for any value that is displayed.
 # Correctness is evaluated only on presentable values.
-_RE_OK_NAME_CHARS = re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ'’\-\.\s]+$")
-_RE_HAS_DIGIT = re.compile(r"\d")
-_RE_MULTI_SPACE = re.compile(r"\s{2,}")
-_RE_TWO_PEOPLE_SEP = re.compile(r"(\s\+\s|\s/\s|\\|\s&\s|\s+and\s+|\s+or\s+|\s*=\s*)", re.IGNORECASE)
-
-
-def is_presentable_person_name(name: str) -> bool:
-    t = (name or "").strip()
-    t = re.sub(r"\s+", " ", t)
-    if not t:
-        return False
-    if _RE_MULTI_SPACE.search(t):
-        return False
-    if _RE_HAS_DIGIT.search(t):
-        return False
-    if "(" in t or ")" in t:
-        return False
-    if "," in t:
-        return False
-    if _RE_TWO_PEOPLE_SEP.search(t):
-        return False
-    if not _RE_OK_NAME_CHARS.match(t):
-        return False
-    toks = [x for x in t.split(" ") if x]
-    if len(toks) > 5:
-        return False
-    return True
-
-
-def aliases_presentable_from_field(aliases_field: str, person_canon: str, max_aliases: int = 12) -> str:
-    base = (person_canon or "").strip().lower()
-    raw = (aliases_field or "").strip()
-    if not raw:
-        return ""
-    parts = [p.strip() for p in raw.split("|")]
-    out = []
-    seen = {base} if base else set()
-    for p in parts:
-        pn = re.sub(r"\s+", " ", p).strip()
-        if not pn:
-            continue
-        if not is_presentable_person_name(pn):
-            continue
-        key = pn.lower()
-        if key in seen:
-            continue
-        seen.add(key)
-        out.append(pn)
-        if len(out) >= max_aliases:
-            break
-    return " | ".join(out)
-
-
 def add_or_replace_readme_sheet(wb, readme_df: pd.DataFrame | None = None, title: str = "README") -> None:
     """
     Insert README sheet at index 0.
@@ -258,21 +205,6 @@ def add_or_replace_readme_sheet(wb, readme_df: pd.DataFrame | None = None, title
     for i, line in enumerate(lines, start=1):
         ws.cell(row=i, column=1, value=line)
     ws.column_dimensions["A"].width = 110
-
-
-def hide_id_columns(wb) -> None:
-    id_header_re = re.compile(r"(^id$|.*(_id|_ids)$|.*(person_id|player_id)$|.*(uuid|guid|hash)$)", re.IGNORECASE)
-    for sheet_name in wb.sheetnames:
-        ws = wb[sheet_name]
-        if ws.max_row < 1:
-            continue
-        for col in range(1, ws.max_column + 1):
-            v = ws.cell(row=1, column=col).value
-            if not isinstance(v, str):
-                continue
-            h = v.strip()
-            if id_header_re.match(h) or h in {"effective_person_id", "player_ids_seen"}:
-                ws.column_dimensions[get_column_letter(col)].hidden = True
 
 
 def reorder_sheets(wb) -> None:
@@ -856,17 +788,6 @@ def build_person_stats_by_div_category(per: pd.DataFrame) -> pd.DataFrame:
     return stats
 
 
-def _name_key_loose(name: str) -> str:
-    """
-    QC-only loose key for grouping similar names.
-    HARD RULE: This is NOT used to assign person IDs. It's only for candidates.
-    """
-    s = _norm(name).lower()
-    # Keep letters/numbers only
-    s = re.sub(r"[^a-z0-9]+", "", s)
-    return s
-
-
 def build_persons_truth(per: pd.DataFrame, aliases_df: pd.DataFrame) -> pd.DataFrame:
     """
     Build Persons_Truth: one row per effective_person_id from placements + overrides.
@@ -1071,117 +992,6 @@ def qc_persons_truth(pt: pd.DataFrame) -> None:
                 f"Allowed={sorted(allowed)}.\n"
                 f"Sample:\n{sample.to_string(index=False)}"
             )
-
-
-def build_persons_merge_candidates(per: pd.DataFrame, max_list: int = 12) -> pd.DataFrame:
-    """
-    QC-only candidate groupings. NO guessing:
-      - groups by a loose name key
-      - shows where multiple distinct effective_person_id exist for the same key
-      - adds evidence columns (year_range, divisions_top, compact examples)
-      - does NOT assign/modify IDs
-    """
-    per = per.copy()
-    if "name_status" in per.columns:
-        per = per[per["name_status"].fillna("") != "junk"].copy()
-    per["name_key"] = per["player_name"].fillna("").map(_name_key_loose)
-
-    TOP_N_DIVS = 6
-    TOP_N_EXAMPLES = 6
-
-    def _year_range(years):
-        ys = [int(y) for y in years if str(y).isdigit()]
-        if not ys:
-            return ""
-        return f"{min(ys)}–{max(ys)}" if min(ys) != max(ys) else f"{min(ys)}"
-
-    def _fmt_top_counts(counter_items, top_n=6):
-        # counter_items: list of (label, count) already sorted desc
-        top = counter_items[:top_n]
-        s = " | ".join([f"{k} ({v})" for k, v in top])
-        extra = max(0, len(counter_items) - len(top))
-        if extra:
-            s += f" | (+{extra} more)"
-        return s
-
-    def _topn(values, n=max_list):
-        vals = [str(v) for v in values if _norm(str(v))]
-        if not vals:
-            return ""
-        uniq = sorted(set(vals))
-        return " | ".join(uniq[:n])
-
-    # Group
-    rows = []
-    for name_key, gdf in per.groupby("name_key", dropna=False):
-        if not _norm(str(name_key)):
-            continue
-
-        eff_ids = sorted({str(x) for x in gdf["person_id"] if _norm(str(x))})
-        ply_ids = sorted({str(x) for x in gdf["player_id"] if _norm(str(x))})
-        n_eff = len(eff_ids)
-        n_players = len(ply_ids)
-
-        representative_name = next((x for x in gdf["player_name"] if _norm(str(x))), "")
-        player_names_joined = _topn(gdf["player_name"], max_list)
-
-        # year_range + years_count
-        years = sorted(set(gdf["year"].dropna().astype(int).tolist())) if "year" in gdf.columns else []
-        year_range = _year_range(years)
-        years_count = len(years)
-
-        # divisions_top (top N by count)
-        div_col = "division_canon" if "division_canon" in gdf.columns else "division_raw"
-        if div_col in gdf.columns:
-            div_counts = (
-                gdf[div_col].fillna("")
-                .map(lambda x: str(x).strip())
-            )
-            div_counts = div_counts[div_counts != ""].value_counts()
-            div_items = list(div_counts.items())
-            divisions_top = _fmt_top_counts(div_items, top_n=TOP_N_DIVS)
-        else:
-            divisions_top = ""
-
-        # Compact examples: year:division:raw_name (NO event_id, NO ids)
-        ex_df = gdf[["year", "player_name"]].copy()
-        if div_col in gdf.columns:
-            ex_df["div"] = gdf[div_col].fillna("").map(lambda x: str(x).strip())
-        else:
-            ex_df["div"] = ""
-        ex_rows = ex_df.dropna(subset=["year"]).head(TOP_N_EXAMPLES)
-        examples_compact = " || ".join(
-            [f"{int(r.year)}:{r.div}:{str(r.player_name).strip()}" for r in ex_rows.itertuples(index=False)]
-        )
-
-        rows.append({
-            "name_key": name_key,
-            "representative_name": representative_name,
-            "count_rows": int(len(gdf)),
-            "distinct_effective_person_ids": int(n_eff),
-            "distinct_player_ids": int(n_players),
-            "player_names": player_names_joined,
-            "year_range": year_range,
-            "years_count": years_count,
-            "divisions_top": divisions_top,
-            "examples": examples_compact,
-        })
-
-    g = pd.DataFrame(rows)
-
-    # Keep only interesting groups (multiple person or player ids)
-    if len(g) == 0:
-        return g
-
-    g = g[(g["distinct_effective_person_ids"] > 1) | (g["distinct_player_ids"] > 1)].copy()
-
-    # Prefer most suspicious first (split into HighSignal/Mononyms/JunkLike is done in main())
-    g.sort_values(
-        ["distinct_effective_person_ids", "distinct_player_ids", "count_rows", "representative_name"],
-        ascending=[False, False, False, True],
-        inplace=True
-    )
-    return g
 
 
 def _looks_like_person(name: str) -> bool:

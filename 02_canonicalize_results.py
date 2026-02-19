@@ -183,18 +183,6 @@ EVENT_NAME_OVERRIDES = {
     "1068164424": "Portland Footbag Jam 2003 (Oct 31)",  # Was: "Footbag WorldWide Event Listing: Event Listing"
 }
 
-# Year overrides for broken source events
-# Decision: 2026-02-06 - Years extracted from results_year_YYYY directory references in mirror
-# The source mirror ALWAYS has year data (events are sorted by year on the website)
-YEAR_OVERRIDES = {
-    "1023993464": 2002,  # Funtastik Summer Classic Footbag Tournament
-    "1030642331": 2002,  # Seattle Juggling and Footbag Festival
-    "1278991986": 2010,  # 23rd Annual Vancouver Open Footbag Championships
-    "860082052": 1997,   # Texas State Footbag Championships
-    "941066992": 2000,   # WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS
-    "959094047": 2000,   # Battle of the Year Switzerland
-}
-
 # Location overrides for broken source events (inferred from event names)
 # Decision: 2026-02 - These locations were inferred from event names for events
 # where the original HTML had SQL errors and no location data was available.
@@ -3107,10 +3095,7 @@ def canonicalize_records(records: list[dict]) -> tuple[list[dict], dict]:
         if str(event_id) in EVENT_TYPE_OVERRIDES:
             event_type = EVENT_TYPE_OVERRIDES[str(event_id)]
 
-        # Apply year override if available (for broken source events)
         year = rec.get("year")
-        if str(event_id) in YEAR_OVERRIDES:
-            year = YEAR_OVERRIDES[str(event_id)]
 
         # Repair misparsed teams (Stage 2.5 post-pass)
         repair_misparsed_team_with_ampersand(placements)

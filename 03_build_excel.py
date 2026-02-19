@@ -32,10 +32,8 @@ from openpyxl.styles import Font
 # Import master QC orchestrator
 try:
     from qc_master import run_qc_for_stage, print_qc_summary
-    from qc_slop_detection import run_slop_detection_checks_stage3_excel
     USE_MASTER_QC = True
 except ImportError:
-    run_slop_detection_checks_stage3_excel = None
     print("Warning: Could not import qc_master, Stage 3 QC will not run")
     USE_MASTER_QC = False
 
@@ -475,99 +473,6 @@ def _one_line(s: str) -> str:
     s = str(s)
     # collapse any \r \n \t etc into single spaces
     return _WS.sub(" ", s).strip()
-
-
-def build_placements_flat_df(records: list[dict], players_by_id: dict) -> pd.DataFrame:
-    """
-    Flatten placements into a single truth-preserving table for analysis/QC.
-
-    Output columns (stable):
-      event_id, year,
-      division_canon, division_raw, division_category,
-      competitor_type,
-      place,
-      player1_id, player1_name, player2_id, player2_name,
-      team_display_name
-    """
-    rows = []
-    for rec in records:
-        eid = str(rec.get("event_id") or "").strip()
-        year = rec.get("year")
-        placements = rec.get("placements", []) or []
-        for p in placements:
-            div_canon = (p.get("division_canon") or "").strip()
-            div_raw = (p.get("division_raw") or "").strip()
-            div_cat = (p.get("division_category") or "unknown") or "unknown"
-            competitor_type = (p.get("competitor_type") or "").strip()
-
-            # Place (keep original if non-numeric)
-            place = p.get("place", "")
-
-            # Prefer cleaned player display if we can
-            def _display(pid_key: str, name_key: str) -> str:
-                pid = str(p.get(pid_key) or "").strip()
-                raw = str(p.get(name_key) or "").strip()
-                if pid and pid in players_by_id:
-                    clean = str(players_by_id[pid].get("player_name_clean") or "").strip()
-                    return clean or raw
-                return raw
-
-            player1_id = str(p.get("player1_id") or p.get("player_id") or p.get("player1_player_id") or "").strip()
-            player2_id = str(p.get("player2_id") or p.get("player2_player_id") or "").strip()
-
-            player1_name = _display("player1_id", "player1_name") if p.get("player1_name") is not None else _display("player_id", "player1_name")
-            # If original data uses player_name instead of player1_name, fall back:
-            if not player1_name:
-                player1_name = str(p.get("player_name") or "").strip()
-                if player1_id and player1_id in players_by_id:
-                    player1_name = (players_by_id[player1_id].get("player_name_clean") or "").strip() or player1_name
-
-            player2_name = _display("player2_id", "player2_name")
-
-            team_disp = team_display_name(player1_name, player2_name) if player2_name else player1_name
-
-            # Sanitize: collapse any embedded newlines/tabs to single spaces (one line per field)
-            player1_name = _one_line(player1_name)
-            player2_name = _one_line(player2_name)
-            team_disp = _one_line(team_disp)
-            div_canon = _one_line(div_canon)
-            div_raw = _one_line(div_raw)
-            player1_id = _one_line(player1_id)
-            player2_id = _one_line(player2_id)
-
-            rows.append({
-                "event_id": eid,
-                "year": year if year is not None else "",
-                "division_canon": div_canon,
-                "division_raw": div_raw,
-                "division_category": div_cat,
-                "competitor_type": competitor_type,
-                "place": place,
-                "player1_id": player1_id,
-                "player1_name": player1_name,
-                "player2_id": player2_id,
-                "player2_name": player2_name,
-                "team_display_name": team_disp,
-            })
-
-    df = pd.DataFrame(rows)
-    # Stable ordering: by year, event_id, division, place
-    if not df.empty:
-        def _place_sort(x):
-            try:
-                return int(x)
-            except Exception:
-                return 999999
-
-        df["_place_sort"] = df["place"].apply(_place_sort)
-        df.sort_values(
-            by=["year", "event_id", "division_canon", "division_raw", "_place_sort", "team_display_name"],
-            ascending=[True, True, True, True, True, True],
-            inplace=True,
-        )
-        df.drop(columns=["_place_sort"], inplace=True)
-
-    return df
 
 
 def build_persons_truth(df_pf: pd.DataFrame) -> pd.DataFrame:
@@ -1418,71 +1323,6 @@ def write_excel(
     locator_path.parent.mkdir(exist_ok=True)
     with open(locator_path, "w", encoding="utf-8") as f:
         json.dump(event_locator, f)
-
-
-def run_stage3_qc(
-    records: list[dict], results_map: dict, out_dir: Path, players_by_id: dict = None
-) -> None:
-    """Run Stage 3 QC checks on Excel workbook data and write outputs (fallback when qc_master unavailable)."""
-    if run_slop_detection_checks_stage3_excel is None:
-        return
-    print("\n" + "="*60)
-    print("Running Stage 3 QC: Excel Cell Scanning")
-    print("="*60)
-
-    issues = run_slop_detection_checks_stage3_excel(
-        records, results_map, players_by_id=players_by_id
-    )
-
-    # Build summary
-    counts_by_check = defaultdict(lambda: {"ERROR": 0, "WARN": 0, "INFO": 0})
-    for issue in issues:
-        issue_dict = issue.to_dict() if hasattr(issue, 'to_dict') else issue
-        counts_by_check[issue_dict["check_id"]][issue_dict["severity"]] += 1
-
-    total_errors = sum(1 for i in issues if (i.to_dict() if hasattr(i, 'to_dict') else i)["severity"] == "ERROR")
-    total_warnings = sum(1 for i in issues if (i.to_dict() if hasattr(i, 'to_dict') else i)["severity"] == "WARN")
-    total_info = sum(1 for i in issues if (i.to_dict() if hasattr(i, 'to_dict') else i)["severity"] == "INFO")
-
-    summary = {
-        "stage": "stage3",
-        "total_events": len(records),
-        "total_errors": total_errors,
-        "total_warnings": total_warnings,
-        "total_info": total_info,
-        "counts_by_check": dict(counts_by_check),
-    }
-
-    # Write Stage 3 QC outputs
-    summary_path = out_dir / "stage3_qc_summary.json"
-    with open(summary_path, "w", encoding="utf-8") as f:
-        json.dump(summary, f, indent=2, ensure_ascii=False)
-    print(f"Wrote: {summary_path}")
-
-    issues_path = out_dir / "stage3_qc_issues.jsonl"
-    with open(issues_path, "w", encoding="utf-8") as f:
-        for issue in issues:
-            issue_dict = issue.to_dict() if hasattr(issue, 'to_dict') else issue
-            f.write(json.dumps(issue_dict, ensure_ascii=False) + "\n")
-    print(f"Wrote: {issues_path} ({len(issues)} issues)")
-
-    # Print summary
-    print(f"\nStage 3 QC Results:")
-    print(f"  Total issues: {len(issues)}")
-    print(f"  Errors: {total_errors}")
-    print(f"  Warnings: {total_warnings}")
-    print(f"  Info: {total_info}")
-
-    if counts_by_check:
-        print(f"\nIssues by check:")
-        for check_id in sorted(counts_by_check.keys()):
-            counts = counts_by_check[check_id]
-            err = counts.get("ERROR", 0)
-            warn = counts.get("WARN", 0)
-            info = counts.get("INFO", 0)
-            print(f"  {check_id}: {err} errors, {warn} warnings, {info} info")
-
-    print("="*60)
 
 
 def print_verification_stats(records: list[dict], out_xlsx: Path) -> None:

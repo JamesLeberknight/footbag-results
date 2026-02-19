@@ -1,9 +1,9 @@
 {
   "stage": "stage2",
-  "total_records": 786,
+  "total_records": 773,
   "total_errors": 0,
-  "total_warnings": 63,
-  "total_info": 917,
+  "total_warnings": 37,
+  "total_info": 907,
   "counts_by_check": {
     "host_club_multiple_locations": {
       "ERROR": 0,
@@ -60,16 +60,6 @@
       "WARN": 1,
       "INFO": 0
     },
-    "location_missing": {
-      "ERROR": 0,
-      "WARN": 13,
-      "INFO": 0
-    },
-    "date_missing": {
-      "ERROR": 0,
-      "WARN": 13,
-      "INFO": 0
-    },
     "cv_worlds_missing_freestyle": {
       "ERROR": 0,
       "WARN": 1,
@@ -88,7 +78,7 @@
     "any_field_contains_placeholder_or_instructional_text": {
       "ERROR": 0,
       "WARN": 10,
-      "INFO": 653
+      "INFO": 643
     },
     "results_raw_has_strong_signals_but_output_empty": {
       "ERROR": 0,
