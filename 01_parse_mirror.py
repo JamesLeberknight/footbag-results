@@ -269,16 +269,43 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
     else:
         warnings.append("event_type: not found")
 
-    # Year detection: check overrides first, then parse from date or title
+    # Year detection: comprehensive multi-source extraction
+    def extract_year_from_sources(*sources):
+        """Extract year from multiple text sources. Returns first valid year found."""
+        for source in sources:
+            if not source:
+                continue
+            m = re.search(r"\b(19\d{2}|20\d{2})\b", str(source))
+            if m:
+                year_val = int(m.group(1))
+                # Validate reasonable year range
+                if 1970 <= year_val <= 2030:
+                    return year_val
+        return None
+
+    # First pass: check overrides and early-extracted fields
     year = YEAR_OVERRIDES.get(int(event_id)) if event_id else None
     if not year:
-        for source in (date_raw or "", event_name_raw or ""):
-            m = re.search(r"\b(19\d{2}|20\d{2})\b", source)
-            if m:
-                year = int(m.group(1))
-                break
-    if not year:
-        warnings.append("year: not found in date or title")
+        # Check URL path for year (sometimes in path like /events/show/123/2003)
+        if source_url:
+            url_year = extract_year_from_sources(source_url)
+            if url_year:
+                year = url_year
+                parse_notes.append("year: URL path")
+        
+        # Check date, title, location, host_club (in order of reliability)
+        if not year:
+            year = extract_year_from_sources(date_raw, event_name_raw, location_raw, host_club_raw)
+            if year:
+                # Determine which source had the year for parse notes
+                if date_raw and re.search(r"\b(19\d{2}|20\d{2})\b", date_raw):
+                    parse_notes.append("year: date_raw")
+                elif event_name_raw and re.search(r"\b(19\d{2}|20\d{2})\b", event_name_raw):
+                    parse_notes.append("year: event_name_raw")
+                elif location_raw and re.search(r"\b(19\d{2}|20\d{2})\b", location_raw):
+                    parse_notes.append("year: location_raw")
+                elif host_club_raw and re.search(r"\b(19\d{2}|20\d{2})\b", host_club_raw):
+                    parse_notes.append("year: host_club_raw")
 
     # Raw results blob - look specifically in eventsResults div for actual results
     # This div may contain:
@@ -376,6 +403,29 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
 
     if not results_block_raw:
         warnings.append("results: no results found in HTML")
+
+    # Second pass: if year still not found, check results_block_raw and full page body
+    if not year:
+        # Check results block (sometimes contains year in headers or text)
+        if results_block_raw:
+            year = extract_year_from_sources(results_block_raw)
+            if year:
+                parse_notes.append("year: results_block_raw")
+        
+        # Last resort: check full page body text (but prefer first 2000 chars to avoid noise)
+        if not year:
+            body_text = soup.get_text(" ", strip=True)
+            if body_text:
+                # Check first part of body (header area) and last part (footer area)
+                # Skip middle which is usually results and can have false positives
+                header_sample = body_text[:2000]
+                footer_sample = body_text[-1000:] if len(body_text) > 1000 else ""
+                year = extract_year_from_sources(header_sample, footer_sample)
+                if year:
+                    parse_notes.append("year: page body text")
+    
+    if not year:
+        warnings.append("year: not found in any source")
 
     # Helper to apply both sanitization and encoding fix
     def clean_field(s):

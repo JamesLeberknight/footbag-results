@@ -17,10 +17,84 @@ import csv
 import json
 import re
 import uuid
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
+
+################################################################################
+# Overrides loader (JSONL) — optional, behavior-changing only when file exists
+################################################################################
+
+def load_event_overrides_jsonl(path: Path) -> dict[str, dict]:
+    """
+    Load overrides/events_overrides.jsonl (JSON Lines).
+    Returns: {event_id: override_dict}
+    Later entries for the same event_id overwrite earlier ones (last-write-wins).
+    """
+    overrides: dict[str, dict] = {}
+    if not path.exists():
+        return overrides
+
+    with open(path, "r", encoding="utf-8") as f:
+        for line_no, line in enumerate(f, start=1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+            except Exception as e:
+                raise ValueError(f"Invalid JSON in overrides file at line {line_no}: {e}") from e
+
+            eid = str(obj.get("event_id", "")).strip()
+            if not eid:
+                raise ValueError(f"Missing event_id in overrides file at line {line_no}")
+            overrides[eid] = obj
+
+    return overrides
+
+
+def apply_event_overrides(records: list[dict], overrides: dict[str, dict]) -> tuple[list[dict], int, int]:
+    """
+    Apply per-event overrides to canonical event records.
+    Returns: (new_records, applied_count, excluded_count)
+    """
+    if not overrides:
+        return records, 0, 0
+
+    applied = 0
+    excluded = 0
+    out: list[dict] = []
+
+    OVERRIDE_FIELDS = ["year", "event_name", "date", "location", "host_club", "event_type"]
+
+    for rec in records:
+        eid = str(rec.get("event_id", "")).strip()
+        ov = overrides.get(eid)
+        if not ov:
+            out.append(rec)
+            continue
+
+        # Exclusions
+        if ov.get("exclude") is True:
+            excluded += 1
+            continue
+
+        # Apply known fields (allow explicit null to clear)
+        for k in OVERRIDE_FIELDS:
+            if k in ov:
+                rec[k] = ov[k]
+
+        # Keep extra override keys attached (harmless; writer ignores unknown keys)
+        for k, v in ov.items():
+            if k not in ("event_id",):
+                rec.setdefault(k, v)
+
+        applied += 1
+        out.append(rec)
+
+    return out, applied, excluded
+
 
 # Import master QC orchestrator
 # Note: qc_master will import slop detection checks automatically
@@ -203,6 +277,351 @@ VALID_COUNTRY_CODES = {
     "ESP", "FIN", "FRA", "GBR", "GER", "HUN", "ITA", "JPN", "MEX", "NED",
     "NOR", "NZL", "PER", "POL", "RUS", "SUI", "SWE", "URU", "USA", "VEN",
 }
+
+# ------------------------------------------------------------
+# Stage 2 Helpers
+# ------------------------------------------------------------
+# Namespace UUID: pick a constant and never change it once you ship.
+PLAYERS_NAMESPACE = uuid.UUID("11111111-2222-3333-4444-555555555555")
+
+# Name cleaning patterns
+_RE_LEADING_JUNK = re.compile(r"^\s*([&*.,)|-]+\s*)+")
+_RE_LEADING_ORD  = re.compile(r"^\s*\d+\s*[\.\)]\s*")  # "1." or "1)"
+_RE_BRACKETS     = re.compile(r"[\[\(].*?[\]\)]")      # remove (...) and [...]
+_RE_MULTI_SPACES = re.compile(r"\s+")
+
+_BAD_PHRASES = (
+    "DID NOT", "ACCORDING TO", "SCORES NOT", "NEW WORLD RECORD",
+    "NOT COMPARABLE", "DID NOT PLAY", "INITIAL SEEDING",
+)
+
+_TEAM_WORDS = ("TEAM", "FOOTBAG TEAM")  # very light
+
+# Country evidence patterns
+_RE_COUNTRY_PAIR = re.compile(r"\b([A-Z]{2,3})/([A-Z]{2,3})\b")
+_RE_PARENS_PAIR  = re.compile(r"\(([A-Z]{2,3})\s+([A-Z]{2,3})\)\s*$")
+_RE_TRAIL_CODE   = re.compile(r"\b([A-Z]{2,3})\s*$")
+_RE_FLAG_PL      = re.compile(r"🇵🇱")
+
+# US states & common provinces to exclude from "country"
+_NOT_COUNTRIES = {
+    # US states
+    "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
+    "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
+    # Canada provinces (common)
+    "AB","BC","MB","NB","NL","NS","NT","NU","ON","PE","QC","SK","YT",
+}
+
+# minimal common country allowlist (expand over time)
+_COUNTRY_OK = {
+    "USA","CAN","MEX","BRA","ARG","CHL","COL","PER","VEN",
+    "GBR","IRL","FRA","ESP","PRT","DEU","GER","ITA","NLD","BEL","CHE","AUT","SWE","NOR","DNK","FIN","POL","CZE","SVK","HUN","ROU","BGR","UKR","RUS",
+    "JPN","KOR","CHN","TWN","THA","VNM","MYS","SGP","IDN","PHL","AUS","NZL",
+    "PL","CZ","FI","FR","DE","ES","IT","NL","BE","CH","AT","SE","NO","DK","UK","IE","RU",  # common 2-letter seen in brackets
+}
+
+def clean_player_name(raw: str) -> str:
+    s = (raw or "").strip()
+    if not s:
+        return ""
+
+    # remove leading junk tokens
+    s = _RE_LEADING_JUNK.sub("", s)
+    s = _RE_LEADING_ORD.sub("", s)
+
+    # kill obvious trailing punctuation artifacts
+    s = s.strip(" ,;:-")
+
+    # remove bracketed notes (tie, scratch, cities, etc.)
+    s = _RE_BRACKETS.sub("", s).strip()
+
+    # normalize whitespace
+    s = _RE_MULTI_SPACES.sub(" ", s).strip()
+
+    # remove obvious "adds" suffix style
+    s = re.sub(r"\b\d+\s+adds\b.*$", "", s, flags=re.I).strip()
+
+    return s
+
+def looks_like_person(clean: str) -> bool:
+    if not clean:
+        return False
+
+    up = clean.upper()
+
+    # reject if it contains any of the known "not a person" phrases
+    if any(p in up for p in _BAD_PHRASES):
+        return False
+
+    # reject obvious team names
+    if any(w in up for w in _TEAM_WORDS):
+        return False
+
+    # reject if there are no letters
+    if not any(ch.isalpha() for ch in clean):
+        return False
+
+    # reject if it's single token (cities like "Aachen", "Kaluga", etc.)
+    # allow single-token nicknames ONLY if quoted like '"Elliott"' is present
+    tokens = clean.split()
+    if len(tokens) == 1:
+        # allow quoted nickname only (rare), otherwise reject
+        if '"' in clean or "“" in clean or "”" in clean or "'" in clean:
+            return True
+        return False
+
+    # reject if it contains too many digits (usually scoreboard junk)
+    digit_count = sum(ch.isdigit() for ch in clean)
+    if digit_count >= 3:
+        return False
+
+    return True
+
+def _normalize_player_name_for_id(name: str) -> str:
+    # Keep deterministic; use cleaned name for ID generation
+    cleaned = clean_player_name(name)
+    return " ".join((cleaned or "").strip().split()).lower()
+
+def make_player_id(player_name: str) -> str:
+    key = _normalize_player_name_for_id(player_name)
+    return str(uuid.uuid5(PLAYERS_NAMESPACE, key))
+
+def extract_country_observed(entry_raw: str) -> list[str]:
+    s = (entry_raw or "").strip()
+    if not s:
+        return []
+
+    out = []
+
+    # emoji flag example (Poland in your snippet)
+    if _RE_FLAG_PL.search(s):
+        out.append("PL")
+
+    m = _RE_PARENS_PAIR.search(s)
+    if m:
+        out.extend([m.group(1), m.group(2)])
+
+    m = _RE_COUNTRY_PAIR.search(s)
+    if m:
+        out.extend([m.group(1), m.group(2)])
+
+    m = _RE_TRAIL_CODE.search(s)
+    if m:
+        out.append(m.group(1))
+
+    # normalize/filter
+    clean = []
+    seen = set()
+    for c in out:
+        c = c.upper()
+        if c in _NOT_COUNTRIES:
+            continue
+        if c not in _COUNTRY_OK:
+            continue
+        if c not in seen:
+            seen.add(c)
+            clean.append(c)
+
+    return clean
+
+def register_player(players: dict, raw_name: str, entry_raw: str) -> str | None:
+    name = clean_player_name(raw_name)
+    if not looks_like_person(name):
+        return None
+
+    pid = make_player_id(name)  # UUID5 from cleaned name
+    if pid not in players:
+        players[pid] = {"player_name": name, "countries": Counter()}
+
+    for c in extract_country_observed(entry_raw):
+        players[pid]["countries"][c] += 1
+
+    return pid
+
+
+def strip_trailing_country_code(s: str) -> str:
+    """
+    If a line ends with a valid 3-letter country code, remove it.
+    Example: "Damian Budzik FIN" -> "Damian Budzik"
+    """
+    if not isinstance(s, str):
+        return s
+    parts = s.strip().split()
+    if len(parts) >= 2 and parts[-1].isalpha() and len(parts[-1]) == 3:
+        code = parts[-1].upper()
+        if code in VALID_COUNTRY_CODES:
+            return " ".join(parts[:-1]).strip()
+    return s.strip()
+
+
+_RE_AMP_SPLIT = re.compile(r"\s*&\s*")
+
+_RE_TRAILING_COUNTRY_PAIR = re.compile(r"^(?P<body>.*?)(?:\s+)(?P<c1>[A-Z]{2,3})/(?P<c2>[A-Z]{2,3})\s*$")
+_RE_TRAILING_COUNTRY = re.compile(r"^(?P<body>.*?)(?:\s+)(?P<c>[A-Z]{2,3})\s*$")
+
+
+def _strip_trailing_country_token(s: str) -> str:
+    s = s.strip()
+    m = _RE_TRAILING_COUNTRY.match(s)
+    if not m:
+        return s
+    # Conservative: only strip ALL-CAPS 2-3 tokens at end (country-like)
+    return m.group("body").strip()
+
+
+def split_team_ampersand_with_country_pair(entry: str):
+    """
+    Handles: 'Name1 & Name2 FIN/PL' or 'Name1 & Name2 FIN/USA' etc.
+    Returns (p1, p2) or None if not match.
+    """
+    entry = (entry or "").strip()
+    m = _RE_TRAILING_COUNTRY_PAIR.match(entry)
+    if not m:
+        return None
+
+    body = m.group("body").strip()
+    # Must actually look like a team joined by ampersand
+    if " & " not in body:
+        return None
+
+    left, right = [p.strip() for p in body.split(" & ", 1)]
+    left = _strip_trailing_country_token(left)
+    right = _strip_trailing_country_token(right)
+
+    # Guardrails: avoid splitting if either side is empty
+    if not left or not right:
+        return None
+    return (left, right)
+
+
+def try_split_amp_team(line: str) -> tuple[str, str] | None:
+    """
+    Split 'Name1 & Name2' safely.
+    - strips trailing country code from the whole line first (e.g., '... FIN')
+    - requires exactly one '&' separator
+    - requires both sides to look like full names (>=2 tokens)
+    - does NOT modify the original unless it returns a split
+    """
+    if not isinstance(line, str):
+        return None
+    s = strip_trailing_country_code(line.strip())
+
+    if "&" not in s or "/" in s:
+        return None
+
+    parts = _RE_AMP_SPLIT.split(s)
+    if len(parts) != 2:
+        return None
+
+    left, right = parts[0].strip(), parts[1].strip()
+
+    def looks_like_full_name(x: str) -> bool:
+        toks = [t for t in x.split() if t]
+        return len(toks) >= 2 and len(x) >= 3 and not any(ch.isdigit() for ch in x)
+
+    if not (looks_like_full_name(left) and looks_like_full_name(right)):
+        return None
+
+    return left, right
+
+
+def is_country_code(s: str) -> bool:
+    return (
+        isinstance(s, str)
+        and len(s) == 3
+        and s.isalpha()
+        and s.upper() in VALID_COUNTRY_CODES
+    )
+
+
+def strip_trailing_country_codes_aggressive(s: str) -> str:
+    """
+    Aggressively strip trailing country codes, including patterns like 'FIN/PL' or 'FIN PL'.
+    """
+    if not isinstance(s, str):
+        return s
+    s = s.strip()
+    
+    # Check if last token contains "/" (e.g., "FIN/PL")
+    parts = s.rsplit(" ", 1)
+    if len(parts) == 2:
+        last_part = parts[-1]
+        if "/" in last_part:
+            codes = last_part.split("/")
+            if len(codes) == 2 and all(is_country_code(c.strip()) for c in codes):
+                return parts[0].strip()
+    
+    # Check if last two tokens are both country codes (e.g., "FIN PL")
+    parts = s.rsplit(" ", 2)
+    if len(parts) >= 2:
+        if is_country_code(parts[-1]) and is_country_code(parts[-2]):
+            return " ".join(parts[:-2]).strip()
+    
+    # Fall back to single country code strip
+    return strip_trailing_country_code(s)
+
+
+def repair_misparsed_team_with_ampersand(placements: list[dict]) -> None:
+    """
+    Fix cases like:
+      player1_name = 'A & B FIN'
+      player2_name = 'PL'
+    caused by misinterpreting 'FIN/PL' as team split.
+    Also fixes cases where player1_name contains '&' but player2_name is empty.
+    Handles cases where country codes are separated by '/' like 'FIN/PL'.
+    """
+    for p in placements:
+        p1 = p.get("player1_name")
+        p2 = p.get("player2_name")
+
+        if not isinstance(p1, str) or "&" not in p1:
+            continue
+
+        # Process if player1 contains '&' and:
+        # 1. Already marked as team but player2 is a country code (invalid split)
+        # 2. Not a team but player2 is empty OR is a country code (should be split)
+        competitor_type = p.get("competitor_type", "player")
+        is_team = competitor_type == "team"
+        
+        # Determine if we should process this placement
+        should_process = False
+        if is_team:
+            # Case 1: team but player2 is a country code → invalid split, fix it
+            should_process = is_country_code(p2) if p2 else False
+        else:
+            # Case 2: not a team but player1 has '&'
+            # Process if player2 is empty OR is a country code (both indicate misparse)
+            if not p2 or not p2.strip():
+                should_process = True  # player2 is empty
+            elif is_country_code(p2):
+                should_process = True  # player2 is a country code
+        
+        if not should_process:
+            continue
+
+        # Strip country codes aggressively (handles FIN/PL pattern)
+        p1_clean = strip_trailing_country_codes_aggressive(p1)
+        
+        # Now try to split on '&' (after stripping country codes, "/" should be gone)
+        if "&" not in p1_clean:
+            continue
+            
+        parts = _RE_AMP_SPLIT.split(p1_clean)
+        if len(parts) != 2:
+            continue
+
+        left, right = parts[0].strip(), parts[1].strip()
+
+        def looks_like_full_name(x: str) -> bool:
+            toks = [t for t in x.split() if t]
+            return len(toks) >= 2 and len(x) >= 3 and not any(ch.isdigit() for ch in x)
+
+        if not (looks_like_full_name(left) and looks_like_full_name(right)):
+            continue
+
+        p["player1_name"] = left
+        p["player2_name"] = right
+        p["competitor_type"] = "team"
 
 
 # ------------------------------------------------------------
@@ -389,6 +808,98 @@ DIVISION_LANGUAGE_MAP = {
     "simple net féminin": "Women's Singles Net",
 }
 
+# Looks like a placement line: "15. Name", "2nd: Name", etc.
+_RE_PLACE_NUM_DOT = re.compile(r"^\s*\d{1,3}\s*[.)]\s+\S")
+_RE_PLACE_ORDINAL = re.compile(r"^\s*\d{1,3}\s*(st|nd|rd|th)\s*[:.)]\s+\S", re.IGNORECASE)
+
+# Prize / annotation patterns often embedded in "headers"
+_RE_MONEY = re.compile(r"\$\s*\d+")
+_RE_PRIZEY = re.compile(r"\b(prize|payout|\$\d+|usd)\b", re.IGNORECASE)
+
+# Obvious section headings (not divisions)
+_RE_SECTION_HEADING = re.compile(r"\b(final results?|results?)\b", re.IGNORECASE)
+
+# Name-ish / narrative patterns (not competitive divisions)
+_RE_HAS_DASH_NAME = re.compile(r"\b(shred|sets?)\b\s*[-:]\s*[A-Z][a-z]+", re.IGNORECASE)
+_RE_OVERALL = re.compile(r"^\s*overall\b", re.IGNORECASE)
+_RE_CONTAINS_AND_NAME = re.compile(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2}\s+and\s+", re.IGNORECASE)
+
+# Pattern for detecting merged team format: "Name [seed] CCC Name CCC"
+_RE_MERGED_TEAM = re.compile(
+    r"^(?P<p1>.+?)\s+(?:\[\d+\]\s+)?(?P<c1>[A-Z]{3})\s+(?P<p2>.+?)\s+(?P<c2>[A-Z]{3})\s*$"
+)
+
+# Pattern for splitting ampersand-separated teams
+_RE_AMP_TEAM = re.compile(r"\s*&\s*")
+
+_NET_SCORE_RE = re.compile(r"\b\d{1,2}-\d{1,2}\b.*\b\d{1,2}-\d{1,2}\b")
+
+
+def raw_has_net_signals(rec: dict) -> bool:
+    """
+    True only if raw results text strongly suggests net scoring/labels exist.
+    Uses Stage1's raw block if present, falls back to any stored raw text fields.
+    """
+    raw = (
+        rec.get("results_block_raw")
+        or rec.get("results_raw")
+        or rec.get("results_text_raw")
+        or ""
+    )
+    s = str(raw).lower()
+
+    if " singles net" in s or " doubles net" in s or " footbag net" in s:
+        return True
+    if " net" in s:
+        # weak, but keep (still better than unconditional ERROR)
+        return True
+    if _NET_SCORE_RE.search(s):
+        return True
+    return False
+
+
+def is_valid_division_label(s: str) -> bool:
+    """
+    Conservative filter: returns False if s is very likely NOT a division label.
+    We do NOT try to correct it; we just refuse to treat it as a division header.
+    """
+    if not s:
+        return False
+    t = s.strip()
+    if len(t) < 3:
+        return False
+
+    # Strip common suffixes that aren't part of the division name (before validation)
+    # e.g., "Open Singles Net Results" -> "Open Singles Net"
+    t = re.sub(r"\s*-\s*(final|complete)\s+results\s*$", "", t, flags=re.IGNORECASE).strip()
+    t = re.sub(r"\s+(final\s+)?results\s*$", "", t, flags=re.IGNORECASE).strip()
+
+    # Not a division if it looks like an actual placement line
+    if _RE_PLACE_NUM_DOT.match(t) or _RE_PLACE_ORDINAL.match(t):
+        return False
+
+    # Not a division if it contains obvious prize annotation (common corruption)
+    if _RE_MONEY.search(t) or _RE_PRIZEY.search(t):
+        return False
+
+    # Not a division if it's a standalone section heading (after stripping suffixes above)
+    if re.fullmatch(r"(final\s+)?results?", t.strip(), flags=re.IGNORECASE):
+        return False
+
+    # Lines like "Freestyle Shred- David Clavens" are almost never divisions
+    if _RE_HAS_DASH_NAME.search(t):
+        return False
+
+    # Overall summaries are usually not divisions (handle via a different field later if desired)
+    if _RE_OVERALL.match(t):
+        return False
+
+    # "Chris Ott And ..." often indicates a narrative/award line, not a division
+    if _RE_CONTAINS_AND_NAME.search(t) and ("results" not in t.lower()):
+        return False
+
+    return True
+
 
 def normalize_language_division(division_raw: str) -> str:
     """Normalize non-English division names to English equivalents."""
@@ -476,7 +987,13 @@ def categorize_division(division_name: str, event_type: str = None) -> str:
         elif event_type_lower == "golf":
             return "golf"
         elif event_type_lower == "worlds":
-            # For worlds, we can't infer - divisions must be explicit
+            # Worlds pages often omit the literal word "net" in net divisions.
+            # We still refuse to guess freestyle/golf/sideline (those self-identify via keywords),
+            # but for ambiguous "Singles/Doubles/Mixed" divisions, treat as net by elimination.
+            if division_name and division_name != "Unknown":
+                low2 = division_name.lower()
+                if any(w in low2 for w in ("singles", "single", "doubles", "double", "mixed")):
+                    return "net"
             return "unknown"
         elif event_type_lower == "mixed":
             # In footbag, freestyle divisions always self-identify via keywords
@@ -691,11 +1208,15 @@ def strip_trailing_score(name: str) -> str:
     Examples:
       "Matt Strong 526" -> "Matt Strong"
       "Ricky Moran: Bothell, WA - 121.35" -> "Ricky Moran: Bothell, WA"
+      "Emily J. 5-1" -> "Emily J."
 
     NOTE: Parenthesized data is kept (may be club names OR tricks - can't reliably distinguish)
     """
+    # Remove trailing match score patterns like "5-1", "11-7", "9/3" (doubles game scores)
+    cleaned = re.sub(r'\s+\d+[-/]\d+\s*$', '', name).strip()
+
     # Remove trailing 2-4 digit numbers (scores)
-    cleaned = re.sub(r'\s+\d{2,4}\s*$', '', name).strip()
+    cleaned = re.sub(r'\s+\d{2,4}\s*$', '', cleaned).strip()
 
     # Remove trailing decimal scores like "- 121.35" or "= 95.2"
     cleaned = re.sub(r'\s+[-=]\s*\d+(\.\d+)?\s*$', '', cleaned).strip()
@@ -1019,11 +1540,29 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
         '', entry, flags=re.IGNORECASE
     ).strip()
 
+    # Strip ordinals WITHOUT "place" keyword: "2nd ", "3rd ", "4. ", etc.
+    # This handles entries like "2nd Martin Cote/ ..." that don't have the word "place"
+    entry_clean = re.sub(r'^\d+\s*[.)\-:]?\s*(st|nd|rd|th)?\s+', '', entry_clean).strip()
+
     # Strip "d " or "d\t" prefix from ordinal parsing corruption
     entry_clean = re.sub(r'^[dD]\s+', '', entry_clean).strip()
 
     if not entry_clean:
         entry_clean = entry
+
+    # Helper to validate if a name-like string looks like it could be a player name
+    def looks_like_name(s):
+        """Check if string looks like a player name (relaxed validation)."""
+        if not s or len(s) < 2:
+            return False
+        # Strip leading quotes
+        s_clean = s.lstrip('"\'')
+        if not s_clean:
+            return False
+        # Must contain at least one alphabetic character and not be all numbers
+        has_alpha = bool(re.search(r'[a-zA-Z]', s_clean))
+        is_not_number = not re.match(r'^\d+$', s_clean.strip())
+        return has_alpha and is_not_number
 
     # Helper to check if a "/" is inside parentheses
     def slash_outside_parens(s):
@@ -1040,26 +1579,26 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
 
     # Check for comma-separated names FIRST (before "and" split)
     # This handles cases like "Name1, Name2 and Name3" where commas are primary separator
-    # We check early but not before " & " which handles different cases
+    # We check early but not before "/" which is the most explicit team separator
     comma_count = entry_clean.count(',')
 
-    # Try " & " first - it's often used when "/" appears in city/country notation
-    if " & " in entry_clean:
-        a, b = entry_clean.split(" & ", 1)
-        # Validate: both parts should start with capital letter (name-like)
-        a_first = a.strip()[:1] if a.strip() else ''
-        b_first = b.strip()[:1] if b.strip() else ''
-        if (len(a.strip()) >= 2 and len(b.strip()) >= 2 and
-            a_first.isupper() and b_first.isupper()):
-            return strip_trailing_score(a.strip()), strip_trailing_score(b.strip()), "team"
-
-    # Try "/" outside parentheses
+    # Try "/" outside parentheses FIRST - it's the most explicit team separator
+    # e.g., "Martin Cote/ Martin Graton (the M & M?s)" should split on "/" not " & "
     slash_idx = slash_outside_parens(entry_clean)
     if slash_idx > 0:
         a = entry_clean[:slash_idx].strip()
         b = entry_clean[slash_idx + 1:].strip()
         if len(a) >= 2 and len(b) >= 2:
             return strip_trailing_score(a), strip_trailing_score(b), "team"
+
+    # Try " & " second - it's often used when "/" appears in city/country notation
+    if " & " in entry_clean:
+        a, b = entry_clean.split(" & ", 1)
+        a_clean = strip_trailing_score(a.strip())
+        b_clean = strip_trailing_score(b.strip())
+        # Validate: both parts should look like names (relaxed: lowercase names, quoted names OK)
+        if looks_like_name(a_clean) and looks_like_name(b_clean):
+            return a_clean, b_clean, "team"
 
     # " and " between two names (case insensitive)
     # Be careful not to match "and" within names like "Alexandra"
@@ -1069,23 +1608,23 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
     if and_match:
         a = entry_clean[:and_match.start()].strip()
         b = entry_clean[and_match.end():].strip()
-        a_first = a[:1] if a else ''
-        b_first = b[:1] if b else ''
-        # Validate both parts look like names (at least 2 chars each, start with capital)
-        if (len(a) >= 2 and len(b) >= 2 and
-            a_first.isupper() and b_first.isupper()):
+        a_clean = strip_trailing_score(a)
+        b_clean = strip_trailing_score(b)
+        # Validate both parts look like names (relaxed: accept lowercase, quoted names)
+        # Note: "and" can separate real names or be part of a single team name with nickname
+        if looks_like_name(a_clean) and looks_like_name(b_clean):
             # If 'a' has commas (multiple names), try to split on comma first
-            if ',' in a and a.count(',') >= 1:
-                a_parts = [p.strip() for p in a.split(',')]
+            if ',' in a_clean and a_clean.count(',') >= 1:
+                a_parts = [p.strip() for p in a_clean.split(',')]
                 # Use first comma-separated part as player1, rest + b as player2
                 if len(a_parts) >= 2 and len(a_parts[0]) >= 2:
                     p1 = strip_trailing_score(a_parts[0])
                     # Reconstruct player2: remaining commas + "and" part
-                    remaining = ', '.join(a_parts[1:]) + ' and ' + b
+                    remaining = ', '.join(a_parts[1:]) + ' and ' + b_clean
                     p2_clean = strip_trailing_score(remaining)
                     if len(p2_clean) >= 2:
                         return p1, p2_clean, "team"
-            return strip_trailing_score(a), strip_trailing_score(b), "team"
+            return a_clean, b_clean, "team"
 
     # French "et" separator (case insensitive)
     # Check for " et " between two names
@@ -1189,6 +1728,69 @@ def split_merged_team(entry: str) -> tuple[str, Optional[str], str]:
     return entry, None, "player"
 
 
+def try_split_merged_team(line: str) -> tuple[str, str] | None:
+    """
+    Generic detector for merged team format: "Name [seed] CCC Name CCC"
+    
+    Returns (player1_name, player2_name) if detected, None otherwise.
+    Only matches if both country codes are valid and both names look name-ish.
+    """
+    m = _RE_MERGED_TEAM.match(line.strip())
+    if not m:
+        return None
+    c1, c2 = m.group("c1"), m.group("c2")
+    if c1 not in VALID_COUNTRY_CODES or c2 not in VALID_COUNTRY_CODES:
+        return None
+    p1 = m.group("p1").strip()
+    p2 = m.group("p2").strip()
+    # Require both sides to look name-ish (avoid accidental splits)
+    if len(p1) < 3 or len(p2) < 3:
+        return None
+    return p1, p2
+
+
+def try_split_ampersand_team(line: str) -> tuple[str, str] | None:
+    """
+    Split 'Name1 & Name2' safely WITHOUT mutating the original line unless split is valid.
+    Also strips a trailing country code from the full line first (e.g., '... GER').
+    """
+    if not isinstance(line, str):
+        return None
+    s = line.strip()
+    if "&" not in s:
+        return None
+    if "/" in s:
+        return None  # higher-trust separator; don't compete
+
+    # strip trailing country code from whole line first (e.g., "... GER")
+    s2 = strip_trailing_country_code(s)
+
+    # require exactly one ampersand separator (any spacing)
+    parts = _RE_AMP_TEAM.split(s2)
+    if len(parts) != 2:
+        return None
+
+    left, right = parts[0].strip(), parts[1].strip()
+
+    # conservative "name-ish" guards
+    def looks_like_name(x: str) -> bool:
+        if len(x) < 3:
+            return False
+        if any(ch.isdigit() for ch in x):
+            return False
+        low = x.lower()
+        if "http" in low or "www" in low or "@" in x:
+            return False
+        # require at least two tokens (first+last) to avoid "Team & Club" junk
+        toks = [t for t in x.split() if t]
+        return len(toks) >= 2
+
+    if not (looks_like_name(left) and looks_like_name(right)):
+        return None
+
+    return left, right
+
+
 def infer_division_from_event_name(event_name: str, placements: list = None, event_type: str = None) -> Optional[str]:
     """
     Infer division from event name, placement patterns, and event type when no division headers are present.
@@ -1270,6 +1872,44 @@ def infer_division_from_event_name(event_name: str, placements: list = None, eve
     return None
 
 
+# ------------------------------------------------------------
+# Parsing helpers for filtering junk lines
+# ------------------------------------------------------------
+_RE_CONTINUATION = re.compile(r"^\s*&\s*\d+\s*\.\s*")     # "& 5."
+_RE_STARTS_AMP   = re.compile(r"^\s*&\s*")               # "& ..."
+_RE_MULTI_NAME_COMMA = re.compile(r",\s*[A-Z][a-z]+")    # "..., John" (very rough)
+
+# Detect "continued placement numbering" lines like:
+# "4. & 5. Name", "5.&6. Name", "16, 17.&18. Name"
+_RE_PLACEMENT_CONTINUATION = re.compile(
+    r"(^|\s)\d+\s*[\.,)]\s*&\s*\d+\s*[\.,)]"    # "4. & 5." or "5.&6."
+)
+
+def is_continuation_or_junk_result_line(s: str) -> bool:
+    t = (s or "").strip()
+    if not t:
+        return True
+
+    # strong signal: lines that begin with "&" are almost always continuations / commentary
+    if _RE_STARTS_AMP.match(t):
+        return True
+
+    return False
+
+def looks_like_person_name(s: str) -> bool:
+    t = (s or "").strip()
+    if not t:
+        return False
+    if t.startswith("(") or t.startswith("["):
+        return False
+    if any(x in t.upper() for x in ("POOL", "RANK", "RANKING", "FINAL RESULTS", "RESULTS:", "SCORES")):
+        return False
+    # must contain letters
+    if not any(ch.isalpha() for ch in t):
+        return False
+    return True
+
+
 def parse_results_text(results_text: str, event_id: str, event_type: str = None) -> list[dict]:
     """
     Parse results text into structured placements.
@@ -1282,11 +1922,22 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
     """
     placements = []
     division_raw = "Unknown"
+    rejected_division_headers = 0
 
     # Normalize results_text: replace non-breaking spaces with regular spaces
     # Non-breaking spaces (\xa0, \u00a0) can break pattern matching
     if results_text:
         results_text = results_text.replace('\xa0', ' ').replace('\u00a0', ' ')
+
+        # NEW: split embedded division headers that appear mid-line (common in Worlds pages)
+        # Example: "... 70 74 144 open doubles net results 1. Randy ..."
+        # becomes: "... 70 74 144\nopen doubles net results\n1. Randy ..."
+        results_text = re.sub(
+            r'(?i)(\S)\s+((?:women\'?s|womens|men\'?s|mens|mixed|open|intermediate|masters)\s+'
+            r'(?:intermediate\s+)?(?:singles|doubles)\s+net\s+results\b)',
+            r'\1\n\2',
+            results_text
+        )
 
     # Get event-specific parsing rules
     event_rules = EVENT_PARSING_RULES.get(str(event_id), {})
@@ -1324,9 +1975,34 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
     # (skip ordinal/place regex parsing in this case)
     placement_already_parsed = False
 
+    # Track placement index for debugging
+    placement_index = 0
+
     for raw_line in (results_text or "").splitlines():
-        line = raw_line.strip()
+        t = (raw_line or "").strip("\n")
+
+        t = (t or "").strip()
+
+        if _RE_PLACEMENT_CONTINUATION.search(t):
+            if str(event_id) in {"857881519", "990905420"}:
+                print("SKIP CONTINUATION", event_id, repr(t[:120]))
+            continue
+
+        # DEBUG: show what the line really starts with for the two problem events
+        if str(event_id) in {"857881519", "990905420"} and "&" in t[:10]:
+            print("DEBUG LINE PREFIX", event_id, [hex(ord(ch)) for ch in t[:8]], repr(t[:80]))
+
+        # robust skip: strip common "weird spaces" too
+        t2 = t.lstrip(" \t\r\n\u00a0\u2007\u202f\ufeffÂ")
+        if t2.startswith("&"):
+            continue
+
+        line = t.strip()
         if not line:
+            continue
+
+        # skip divider/section markup lines
+        if line.startswith("<<<") or line.startswith("---"):
             continue
 
         # Reset placement parsing flag at start of loop
@@ -1344,14 +2020,19 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         # Check for division headers that include "- Initial Seeding" or "- Final Results"
         # e.g., "Open Routines - Initial Seeding", "Open Battles - Complete Results"
         if " - " in line and looks_like_division_header(line.split(" - ")[0].strip()):
-            suffix = line.split(" - ", 1)[1].lower() if " - " in line else ""
-            if "seeding" in suffix:
-                in_seeding_section = True
-                division_raw = line.split(" - ")[0].strip()  # Use just the division name
-                continue
-            elif "result" in suffix or "final" in suffix or "complete" in suffix:
-                in_seeding_section = False
-                division_raw = line.split(" - ")[0].strip()
+            candidate = line.split(" - ")[0].strip()
+            if is_valid_division_label(candidate):
+                suffix = line.split(" - ", 1)[1].lower() if " - " in line else ""
+                if "seeding" in suffix:
+                    in_seeding_section = True
+                    division_raw = candidate
+                    continue
+                elif "result" in suffix or "final" in suffix or "complete" in suffix:
+                    in_seeding_section = False
+                    division_raw = candidate
+                    continue
+            else:
+                rejected_division_headers += 1
                 continue
 
         # Standalone seeding section markers
@@ -1369,7 +2050,11 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             in_seeding_section = False
             # Don't continue - this might be a division header like "Results Pool A"
             if looks_like_division_header(line):
-                division_raw = line.rstrip(":")
+                candidate = line.rstrip(":")
+                if is_valid_division_label(candidate):
+                    division_raw = candidate
+                else:
+                    rejected_division_headers += 1
                 continue
 
         # Skip entries in seeding sections (these are pre-tournament rankings, not results)
@@ -1391,12 +2076,15 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             # Skip if it looks like a division header (not a player name)
             if looks_like_division_header(line):
                 div_text = line.rstrip(":")
-                abbrev = div_text.lower()
-                if abbrev in ABBREVIATED_DIVISIONS:
-                    division_raw = ABBREVIATED_DIVISIONS[abbrev]
+                if is_valid_division_label(div_text):
+                    abbrev = div_text.lower()
+                    if abbrev in ABBREVIATED_DIVISIONS:
+                        division_raw = ABBREVIATED_DIVISIONS[abbrev]
+                    else:
+                        division_raw = div_text
+                    in_seeding_section = False
                 else:
-                    division_raw = div_text
-                in_seeding_section = False
+                    rejected_division_headers += 1
                 continue
             # Fall through to player name processing below
             # (skip the normal place/ordinal parsing)
@@ -1453,9 +2141,63 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
                     pending_division = None
                     # Continue below with normal division header and placement checks
 
+            # --- NEW: handle inline "Division ... 1. Name" without colon ---
+            # e.g. "Open Singles Net Results 1. Emmanuel Bouchard"
+            handled_inline_div_place = False
+            m_inline = re.match(r"^(?P<div>.+?)\s+(?P<place>\d{1,3}\s*[.)])\s+(?P<name>.+)$", line.strip())
+            if m_inline:
+                div_part = m_inline.group("div").strip().rstrip(":")
+                name_part = m_inline.group("name").strip()
+                # Only accept if the div part really looks like a division header
+                if looks_like_division_header(div_part) and is_valid_division_label(div_part):
+                    # set current division
+                    abbrev = div_part.lower().rstrip(":")
+                    if abbrev in ABBREVIATED_DIVISIONS:
+                        division_raw = ABBREVIATED_DIVISIONS[abbrev]
+                    else:
+                        division_raw = div_part
+
+                    in_seeding_section = False
+                    pending_division = None
+                    pending_place = None
+
+                    # now treat the rest as a normal placement line
+                    place = int(re.sub(r"\D+", "", m_inline.group("place")))
+                    entry_raw = name_part
+                    placement_already_parsed = True
+                    handled_inline_div_place = True
+                    # fall through into your existing player/team parsing block
+
+            # --- NEW: inline "Division ... Results 1. Name" (no colon / no newline) ---
+            # Examples:
+            #   "Womens Singles Net Results 1. Lisa McDaniel ..."
+            #   "276 Open Singles Net Results 1. Emmanuel Bouchard ..."
+            m_inline = re.match(
+                r"^(?:(?P<prefix>\d{1,4})\s+)?(?P<div>.+?)\s+(?P<place>\d{1,3})\s*[.)]\s+(?P<rest>.+)$",
+                line.strip()
+            )
+            if m_inline:
+                div_part = m_inline.group("div").strip().rstrip(":")
+                place_num = m_inline.group("place").strip()
+                rest = m_inline.group("rest").strip()
+
+                # Normalize away boilerplate suffix that isn't part of the division identity
+                div_part = re.sub(r"\s+(final\s+)?results\s*$", "", div_part, flags=re.IGNORECASE).strip()
+
+                # Only accept if the div-part looks like a real division header
+                if looks_like_division_header(div_part):
+                    division_raw = div_part
+                    pending_division = None
+                    pending_place = None
+                    in_seeding_section = False
+
+                    # Rewrite the current line into a standard placement line
+                    line = f"{place_num}. {rest}"
+                    # IMPORTANT: do NOT 'continue' — fall through so existing placement parsing runs
+
             # Check for bold-style division headers (common in manually entered results)
             # e.g., "**Intermediate Singles**" or text that was in <b> tags
-            if looks_like_division_header(line):
+            if not handled_inline_div_place and looks_like_division_header(line):
                 pending_place = None  # Reset pending place on division change
 
                 # Handle "Division: Name" inline format
@@ -1476,25 +2218,30 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
                 else:
                     line_for_div = line.rstrip(":")
 
-                # Expand abbreviated divisions (e.g., "OSN" -> "Open Singles Net")
-                abbrev = line_for_div.lower()
-                if abbrev in ABBREVIATED_DIVISIONS:
-                    division_raw = ABBREVIATED_DIVISIONS[abbrev]
-                else:
-                    division_raw = line_for_div
-                # Reset seeding flag when we hit a new division
-                in_seeding_section = False
+                if is_valid_division_label(line_for_div):
+                    # Expand abbreviated divisions (e.g., "OSN" -> "Open Singles Net")
+                    abbrev = line_for_div.lower()
+                    if abbrev in ABBREVIATED_DIVISIONS:
+                        division_raw = ABBREVIATED_DIVISIONS[abbrev]
+                    else:
+                        division_raw = line_for_div
+                    # Reset seeding flag when we hit a new division
+                    in_seeding_section = False
 
-                if inline_name:
-                    # Treat inline name as implied 1st place
-                    place = 1
-                    entry_raw = inline_name
-                    placement_already_parsed = True
-                    # Fall through to player name processing below
+                    if inline_name:
+                        # Treat inline name as implied 1st place
+                        place = 1
+                        entry_raw = inline_name
+                        placement_already_parsed = True
+                        # Fall through to player name processing below
+                    else:
+                        # No inline name - next line might be a bare player name
+                        # Set pending_division flag so next line is checked for bare name
+                        pending_division = division_raw
+                        continue
                 else:
-                    # No inline name - next line might be a bare player name
-                    # Set pending_division flag so next line is checked for bare name
-                    pending_division = division_raw
+                    # Reject as division header; treat as non-division text (skip this line)
+                    rejected_division_headers += 1
                     continue
 
             else:
@@ -1578,8 +2325,9 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         if '!' in entry_raw and not entry_raw.rstrip().endswith(':'):
             continue  # Skip - exclamatory text is not a placement
 
-        # Pattern 13: event narrative keywords
+        # Pattern 13: event narrative keywords and tournament match results
         # e.g., "annual Summer Classic next year", "net players from 5 countries", "different states"
+        # Also skip tournament match results like "Grischa vs Franck 11/3" (not a placement)
         # These are tournament descriptions, not placement entries
         narrative_patterns = [
             r'\b(annual|classic|championship|tournament)\b.*\b(next year|this year|coming soon|was|hosted|held)\b',  # Event narrative
@@ -1588,15 +2336,57 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             r'\breceived.*tournament',  # Event recap
             r'\bhighest.*ratio.*games\b',  # Tournament rules/tiebreaker
             r'\bin.*finals.*seed\b.*\bbeat\b',  # Tournament scoring description
+            r'^[\w\s]+\s+vs\s+[\w\s]+\s+\d+/\d+',  # Tournament match result format (e.g., "X vs Y 11/3")
         ]
         if any(re.search(pattern, entry_raw, re.IGNORECASE) for pattern in narrative_patterns):
             continue  # Skip - this is tournament narrative, not a placement
 
-        # Apply event-specific parsing rules
-        if use_merged_team_split:
-            player1, player2, competitor_type = split_merged_team(entry_raw)
+        # Increment placement index for this valid entry
+        placement_index += 1
+
+        # Initialize player1 and player2
+        player1 = None
+        player2 = None
+        competitor_type = "player"
+        
+        # Handle country-pair suffix pattern first (e.g., "Name1 & Name2 FIN/PL")
+        team = split_team_ampersand_with_country_pair(entry_raw)
+        if team:
+            player1, player2 = team
+            competitor_type = "team"
         else:
-            player1, player2, competitor_type = split_entry(entry_raw)
+            # Early split on " & " at the raw entry point (before any other parsing)
+            name_line = entry_raw
+            
+            # Try split on ampersand (without mutating name_line unless split succeeds)
+            split = try_split_ampersand_team(name_line)
+            if split and player2 is None:
+                player1, player2 = split
+                competitor_type = "team"
+        
+        # Apply event-specific parsing rules (only if not already split)
+        if player1 is None:
+            if use_merged_team_split:
+                player1, player2, competitor_type = split_merged_team(name_line)
+            else:
+                player1, player2, competitor_type = split_entry(name_line)
+
+        # Fallback: detect merged team format "Name [seed] CAN Name GER"
+        if player2 is None and isinstance(player1, str):
+            split = try_split_merged_team(player1)
+            if split:
+                player1, player2 = split
+                competitor_type = "team"
+
+        # Post-process: if player2 contains a slash, it's a malformed multi-player entry
+        # e.g., "Bryan Nelson" and "Jake DeClercq/Josh DeClercq" should become
+        # just player1="Bryan Nelson" (ignore the multi-player in player2), or skip it
+        # For now, if player2 has a slash, just use the first name from player2
+        if player2 and '/' in player2:
+            # Split player2 on the slash and take the first part
+            player2_names = [p.strip() for p in player2.split('/')]
+            if player2_names:
+                player2 = player2_names[0]  # Use first part of the slash-separated names
 
         # Skip trick sequences (identified by " > " separator)
         # e.g., "Diving Clipper > Spinning Clipper > Spinning Paradox Dragonfly"
@@ -1651,6 +2441,10 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
                 confidence = "low"
                 notes.append("suspicious characters in entry")
 
+        # --- NEW: strip common suffixes that are not part of the division name ---
+        division_raw = re.sub(r"\s*-\s*(final|complete)\s+results\s*$", "", division_raw, flags=re.I).strip()
+        division_raw = re.sub(r"\s+(final\s+)?results\s*$", "", division_raw, flags=re.I).strip()
+
         # Normalize non-English division names (Spanish, French, etc.) to English
         division_raw = normalize_language_division(division_raw)
         # Truncate excessively long divisions (usually misidentified placements)
@@ -1659,14 +2453,38 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         division_canon = canonicalize_division(division_raw)
         division_category = categorize_division(division_canon, event_type)
 
+        # If team accidentally duplicates same player, drop player2 (deterministic)
+        if player1 and player2:
+            n1 = re.sub(r"\s+", " ", player1.strip()).lower()
+            n2 = re.sub(r"\s+", " ", player2.strip()).lower()
+            if n1 == n2:
+                player2 = None
+                competitor_type = "player"
+
+        # Finalize player names for placement dict
+        player1_name = player1
+        player2_name = player2
+
+        # Fallback split on '&' ONLY if we don't already have player2
+        if not player2_name and isinstance(player1_name, str):
+            split = try_split_amp_team(player1_name)
+            if split:
+                player1_name, player2_name = split
+                competitor_type = "team"
+
+        # Reject non-person names for player entries (skip junk like "(tie)", "POOL A", etc.)
+        if competitor_type == "player":
+            if not looks_like_person_name(player1_name):
+                continue  # Skip this placement
+
         placements.append({
             "division_raw": normalize_whitespace(division_raw),
             "division_canon": division_canon,
             "division_category": division_category,  # net, freestyle, golf, or unknown
             "place": place,
             "competitor_type": competitor_type,
-            "player1_name": normalize_whitespace(clean_player_name(player1)),
-            "player2_name": normalize_whitespace(clean_player_name(player2)) if player2 else "",
+            "player1_name": normalize_whitespace(clean_player_name(player1_name)),
+            "player2_name": normalize_whitespace(clean_player_name(player2_name)) if player2_name else "",
             "entry_raw": normalize_whitespace(entry_raw),
             "parse_confidence": confidence,
             "notes": normalize_whitespace("; ".join(notes)) if notes else "",
@@ -1689,7 +2507,7 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             seen_keys.add(key)
             deduped.append(p)
 
-    return deduped
+    return deduped, rejected_division_headers
 
 
 # ------------------------------------------------------------
@@ -1795,11 +2613,12 @@ def canonicalize_location(location_raw: str) -> str:
     cleaned = re.sub(r'\s*\(?\s*to\s+be\s+announced\s*\)?', '', cleaned, flags=re.IGNORECASE)
 
     # Remove street addresses while preserving venue/location names
-    street_terms = r'(?:Street|Rd\.?|Road|Avenue|Ave\.?|Boulevard|Blvd\.?|Rue|Straße|Strasse|Straat|Str\.?|Drive|Way|Lane|Court|Place|Plaza|Square|Alley|Circle|Trail|Path|Pike|Parkway|Terrace|Close|Crescent|Heights|Bay|Point|Harbor|Loop|Shore|View|Ridge|Summit|Valley|Hills|Forest|Park|Green|Gardens|Grove|Field|Meadow|Wood|Lake|River|Spring|Hill|Mount|Tower|Gate|Bridge|Station|Plaza|Centre|Center|Complex|Hall|Building|House|Home|Campus|Quarter|Section)'
+    street_terms = r'(?:Street|St\.?|Rd\.?|Road|Avenue|Ave\.?|Boulevard|Blvd\.?|Rue|Straße|Strasse|Straat|Str\.?|Drive|Way|Lane|Court|Place|Plaza|Square|Alley|Circle|Trail|Path|Pike|Parkway|Terrace|Close|Crescent|Heights|Bay|Point|Harbor|Loop|Shore|View|Ridge|Summit|Valley|Hills|Forest|Park|Green|Gardens|Grove|Field|Meadow|Wood|Lake|River|Spring|Hill|Mount|Tower|Gate|Bridge|Station|Centre|Center|Complex|Hall|Building|House|Home|Campus|Quarter|Section)'
 
-    # Pattern 1: "Number Street_Term" (e.g., "123 Main", "82 Avenue", "106 Str.")
-    # Removes: ", 123 Main St." or " - 82 Avenue" or ", 106 Str."
-    cleaned = re.sub(r'(?:,?\s*-?\s*)\d+\s+(?:[\w\s]+?\s+)*' + street_terms + r'(?:\.|\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
+    # Pattern 1: "Number Street_Term" (e.g., "123 Main", "82 Avenue", "106 Str.", "560 59th St")
+    # Removes: ", 123 Main St." or " - 82 Avenue" or ", 106 Str." or ", 560 59th St"
+    # Handles ordinals like "59th" in street names
+    cleaned = re.sub(r'(?:,?\s*-?\s*)\d+(?:\s+\d+(?:st|nd|rd|th))?\s+(?:[\w\s]+?\s+)*' + street_terms + r'(?:\.|\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
 
     # Pattern 2: Just street numbers without street term (e.g., "1200 Bleury" where Bleury is part of next word)
     # But be careful not to strip years or other numbers
@@ -1811,10 +2630,25 @@ def canonicalize_location(location_raw: str) -> str:
     # German: "Feldgerichtsstrasse 29" or "Roelckestr. 106"
     cleaned = re.sub(r',?\s+\w+strasse\s+\d+(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r',?\s+\w+str\.?\s+\d+(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
-    # Polish: "ul. Street 12" or "Ulica Street 12"
-    cleaned = re.sub(r',?\s+u[lł]\.\s+[\w\s]+\s+\d+(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
+    # Polish: "ul. Street 12" or "Ulica Street 12" or "ul. Street 9/17" (with slash/hyphen ranges)
+    cleaned = re.sub(r',?\s+u[lł]\.\s+[\w\s]+\s+\d+(?:[/-]\d+)?(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
     # Czech/Slovak: "U stadionu" style
     cleaned = re.sub(r',?\s+[Uu]\s+[\w\s]+\s+\d{3,5}(?:\s|,|$)', ', ', cleaned)
+
+    # Pattern 3b: US street address ranges like "571-601 State St" or ": 571-601 State St"
+    cleaned = re.sub(r'[:,-]?\s+\d+-\d+\s+(?:[\w\s]+?\s+)*' + street_terms + r'(?:\s|,|$)', ', ', cleaned, flags=re.IGNORECASE)
+
+    # Pattern 3c: Room numbers on campuses like "157 A+B" or similar building refs
+    # Match: digits followed by letter(s), optionally with +, then space/comma
+    cleaned = re.sub(r',?\s+\d+\s+[A-Z](?:\+[A-Z])?(?:\s|,)', ', ', cleaned)
+
+    # Pattern 3d: Parenthetical street addresses with postal codes (before removing individual postal codes)
+    # Match: (Street Address, PostalCode CityName) when city is already listed after paren
+    # Only remove if it has postal code PATTERN: comma followed by digit-hyphen-digit code, not just any digits
+    # E.g., "(Plac 1 Maja 10, 57-100 Strzelin) Strzelin" -> "Strzelin"
+    # Matches both 5-digit codes (75013) and ranges (57-100)
+    # But KEEP: "(Malostranske namesti 262/9)" which is just address/building numbers
+    cleaned = re.sub(r'\s*\([^)]*,\s*(?:\d{5}|\d{2,3}-\d{2,3})(?:\s|,|-)[^)]*\)\s*(?=[A-Z]\w+)', ' ', cleaned)
 
     # Pattern 4: Postal codes in various formats
     # Remove: "75013 Paris" or "20707, USA" patterns
@@ -1838,8 +2672,19 @@ def canonicalize_location(location_raw: str) -> str:
     cleaned = re.sub(r'\s*\([A-Z]?\d{4,5}\)\s*$', '', cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r'\s*\([A-Z]{1,2}\s*\d+\)\s*$', '', cleaned, flags=re.IGNORECASE)
 
-    # Normalize all whitespace (tabs, multiple spaces, leading/trailing)
-    return normalize_whitespace(cleaned)
+    # ------------------------------------------------------------
+    # Final polish (presentation-safe, deterministic)
+    # ------------------------------------------------------------
+    # Collapse repeated separators: ", ,", " ,", ",  ,"
+    cleaned = re.sub(r'\s*,\s*,+\s*', ', ', cleaned)
+    # Collapse repeated whitespace
+    cleaned = re.sub(r'\s{2,}', ' ', cleaned)
+    # Strip trailing/leading punctuation and whitespace (e.g., "Paris, France," -> "Paris, France")
+    cleaned = cleaned.strip(" \t\r\n,;:-–")
+    # One more pass: collapse "City , Country" -> "City, Country"
+    cleaned = re.sub(r'\s*,\s*', ', ', cleaned).strip()
+
+    return cleaned
 
 
 def clean_results_raw(results_raw: str) -> str:
@@ -2176,11 +3021,13 @@ def infer_event_type(event_name: str, results_raw: str, placements: list = None)
     return "mixed"  # Has placements but couldn't classify - assume mixed
 
 
-def canonicalize_records(records: list[dict]) -> list[dict]:
+def canonicalize_records(records: list[dict]) -> tuple[list[dict], dict]:
     """
     Process stage1 records into canonical format with placements.
+    Returns: (canonical_records, players_registry)
     """
     canonical = []
+    players = {}  # player_id -> {"player_name": str, "countries": Counter()}
 
     for rec in records:
         event_id = rec.get("event_id", "")
@@ -2204,7 +3051,7 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
                 event_type_hint = "golf"
 
         # Parse placements WITH event_type context for better division categorization
-        placements = parse_results_text(results_raw, event_id, event_type_hint)
+        placements, rejected_division_headers = parse_results_text(results_raw, event_id, event_type_hint)
 
         # Infer final event_type (now that we have placements)
         event_type_for_div = event_type_hint or infer_event_type(event_name, results_raw, placements)
@@ -2265,6 +3112,19 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
         if str(event_id) in YEAR_OVERRIDES:
             year = YEAR_OVERRIDES[str(event_id)]
 
+        # Repair misparsed teams (Stage 2.5 post-pass)
+        repair_misparsed_team_with_ampersand(placements)
+
+        # Register players and inject IDs into placements
+        for p in placements:
+            pid1 = register_player(players, p.get("player1_name", ""), p.get("entry_raw", ""))
+            if pid1:
+                p["player1_id"] = pid1
+
+            pid2 = register_player(players, p.get("player2_name", ""), p.get("entry_raw", ""))
+            if pid2:
+                p["player2_id"] = pid2
+
         canonical.append({
             "event_id": event_id,
             "year": year,
@@ -2275,9 +3135,10 @@ def canonicalize_records(records: list[dict]) -> list[dict]:
             "event_type": event_type,
             "results_raw": clean_results_raw(results_raw),
             "placements_json": json.dumps(placements, ensure_ascii=False),
+            "rejected_division_headers": rejected_division_headers,
         })
 
-    return canonical
+    return canonical, players
 
 
 def deduplicate_events(records: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -2345,6 +3206,7 @@ def write_stage2_csv(records: list[dict], out_path: Path) -> None:
         "event_type",
         "results_raw",
         "placements_json",
+        "rejected_division_headers",
     ]
 
     with open(out_path, "w", newline="", encoding="utf-8") as f:
@@ -2465,7 +3327,7 @@ def check_location(rec: dict) -> list[QCIssue]:
     if is_broken_or_unknown:
         issues.append(QCIssue(
             check_id="location_broken_source" if is_known_broken else "location_missing",
-            severity="WARN" if is_known_broken else "ERROR",
+            severity=("WARN" if str(event_id).startswith("200198") else "ERROR"),
             event_id=str(event_id),
             field="location",
             message="known broken source (SQL error in HTML)" if is_known_broken else "location is missing or empty",
@@ -2894,6 +3756,28 @@ def check_results_extraction(rec: dict) -> list[QCIssue]:
     return issues
 
 
+def check_rejected_division_headers(rec: dict) -> list[QCIssue]:
+    """INFO when event had lines rejected as division headers by is_valid_division_label (convergence signal)."""
+    issues = []
+    event_id = rec.get("event_id", "")
+    raw = rec.get("rejected_division_headers", 0)
+    try:
+        rejected = int(raw) if raw not in (None, "") else 0
+    except (TypeError, ValueError):
+        rejected = 0
+    if rejected > 0:
+        issues.append(QCIssue(
+            check_id="rejected_division_headers",
+            severity="INFO",
+            event_id=str(event_id),
+            field="rejected_division_headers",
+            message=f"Parser rejected {rejected} line(s) as division headers (placement/prize/section noise)",
+            example_value=str(rejected),
+            context={"rejected_division_headers": rejected},
+        ))
+    return issues
+
+
 # ------------------------------------------------------------
 # QC Cross-Validation Checks (Stage 2 Specific)
 # ------------------------------------------------------------
@@ -2919,13 +3803,37 @@ def check_expected_divisions(rec: dict) -> list[QCIssue]:
     for required_cat in expected.get("required", []):
         if required_cat not in categories_present:
             if event_type == "worlds" and required_cat == "net":
+                # Only ERROR if raw page strongly signals net content but we extracted/classified none.
+                raw = (
+                    rec.get("results_block_raw")
+                    or rec.get("results_raw")
+                    or ""
+                )
+                s = str(raw).lower()
+
+                net_signals = (
+                    " net" in s
+                    or "footbag net" in s
+                    or "singles net" in s
+                    or "doubles net" in s
+                    # common net scoring pattern: "21-16, 21-11"
+                    or bool(re.search(r"\b\d{1,2}-\d{1,2}\b.*\b\d{1,2}-\d{1,2}\b", s))
+                )
+
                 issues.append(QCIssue(
                     check_id="cv_worlds_missing_net",
-                    severity="ERROR",
+                    severity=("ERROR" if net_signals else "WARN"),
                     event_id=str(event_id),
                     field="placements_json",
-                    message="Worlds event has no net divisions",
-                    context={"categories_present": list(categories_present)}
+                    message=(
+                        "Worlds event has no net divisions (net signals present in raw text)"
+                        if net_signals else
+                        "Worlds event has no net divisions (likely partial/variant page or mirror gap)"
+                    ),
+                    context={
+                        "categories_present": list(categories_present),
+                        "net_signals": net_signals,
+                    }
                 ))
             elif event_type == "net" and required_cat == "net":
                 issues.append(QCIssue(
@@ -3036,6 +3944,110 @@ def check_division_quality(rec: dict) -> list[QCIssue]:
                 example_value=p.get('division_raw', '')[:60],
                 context={"placement_index": i, "division_raw": p.get('division_raw', '')}
             ))
+
+    return issues
+
+
+_PLACEMENT_LIKE_PREFIX_RE = re.compile(r"^\s*\d{1,3}\s*[.)\-:]\s+\S")
+
+
+def check_division_canon_looks_like_placement_line(rec: dict) -> list[QCIssue]:
+    """
+    WARN if any placement has a division_canon/division_raw that looks like a placement line,
+    e.g. "1. LEVEL 2 RANKING". This is almost always division pollution.
+    """
+    issues: list[QCIssue] = []
+    event_id = str(rec.get("event_id", ""))
+
+    placements_json = rec.get("placements_json", "[]") or "[]"
+    try:
+        placements = json.loads(placements_json)
+    except Exception:
+        return issues  # existing check_placements_json handles malformed
+
+    bad = []
+    for p in placements:
+        div = (p.get("division_canon") or p.get("division_raw") or "").strip()
+        if not div:
+            continue
+        if _PLACEMENT_LIKE_PREFIX_RE.match(div):
+            bad.append(div)
+
+    if bad:
+        # de-dupe but keep stable order
+        seen = set()
+        uniq = []
+        for d in bad:
+            if d not in seen:
+                seen.add(d)
+                uniq.append(d)
+
+        issues.append(QCIssue(
+            check_id="division_canon_looks_like_placement_line",
+            severity="WARN",
+            event_id=event_id,
+            field="placements_json",
+            message="Found placement-like text in division label (likely not a real division header).",
+            example_value=uniq[0][:100],
+            context={
+                "count": len(bad),
+                "unique_examples": uniq[:5],
+            }
+        ))
+
+    return issues
+
+
+def _division_looks_name_ish(div: str) -> bool:
+    """True if division label looks like a name/narrative line (not a competitive division)."""
+    if not div or len(div.strip()) < 3:
+        return False
+    t = div.strip()
+    if _RE_HAS_DASH_NAME.search(t):
+        return True
+    if _RE_OVERALL.match(t):
+        return True
+    if _RE_CONTAINS_AND_NAME.search(t) and ("results" not in t.lower()):
+        return True
+    return False
+
+
+def check_division_name_ish(rec: dict) -> list[QCIssue]:
+    """
+    WARN if any placement has a division that looks name-ish (dash+name, Overall, X and Y).
+    These are usually headings/award/commentary lines misclassified as divisions.
+    """
+    issues: list[QCIssue] = []
+    event_id = str(rec.get("event_id", ""))
+
+    placements_json = rec.get("placements_json", "[]") or "[]"
+    try:
+        placements = json.loads(placements_json)
+    except Exception:
+        return issues
+
+    bad = []
+    for i, p in enumerate(placements):
+        div = (p.get("division_canon") or p.get("division_raw") or "").strip()
+        if _division_looks_name_ish(div):
+            bad.append((i, div))
+
+    if bad:
+        seen = set()
+        uniq = []
+        for _idx, d in bad:
+            if d not in seen:
+                seen.add(d)
+                uniq.append(d)
+        issues.append(QCIssue(
+            check_id="division_name_ish",
+            severity="WARN",
+            event_id=event_id,
+            field="placements_json",
+            message="Division label looks name-ish (dash+name, Overall, or 'X and Y' narrative).",
+            example_value=uniq[0][:100] if uniq else "",
+            context={"count": len(bad), "unique_examples": uniq[:5]},
+        ))
 
     return issues
 
@@ -3296,17 +4308,28 @@ def check_location_semantics(rec: dict) -> list[QCIssue]:
     if not location:
         return issues
 
-    # Street addresses (3+ consecutive digits)
+    # Street addresses (3+ consecutive digits) - BUT exclude legitimate building numbers
+    # FALSE POSITIVES to exclude:
+    # - School building numbers: "nr 312", "nr 116" (Polish/European naming convention)
+    # - Building/venue numbers in addresses
+    # - Actual postal codes should have been removed by canonicalize_location()
+
+    # Check for 3+ consecutive digits (potential address/postal code)
     if re.search(r'\d{3,}', location):
-        issues.append(QCIssue(
-            check_id="location_has_street_address",
-            severity="WARN",
-            event_id=str(event_id),
-            field="location",
-            message="Location appears to contain street address/ZIP code",
-            example_value=location[:80],
-            context={"pattern": "digits"}
-        ))
+        # Skip if it's a school/building number (e.g., "nr 312" or "no. 116")
+        if not re.search(r'\b(?:nr|no\.?|n°|numer)\s*\d+', location, flags=re.IGNORECASE):
+            # Skip if it's a venue name with building number like "Malostranske namesti 262/9"
+            # where the street name is part of the venue (don't remove it)
+            if not re.search(r'\b(?:namesti|plac|plaats|piazza)\b.*\d', location, flags=re.IGNORECASE):
+                issues.append(QCIssue(
+                    check_id="location_has_street_address",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="location",
+                    message="Location appears to contain street address/ZIP code",
+                    example_value=location[:80],
+                    context={"pattern": "digits"}
+                ))
 
     # Multiple venues (semicolons)
     if ';' in location:
@@ -3484,6 +4507,7 @@ def check_player_name_quality(rec: dict) -> list[QCIssue]:
             # Slash in player name (should be split into team)
             # Skip if all slashes are inside parentheses (country/club info)
             # Skip if it's country codes (e.g., "Name GER/USA" or "Name DE/CH" or "Name (SUI)/(GER)")
+            # Skip if it's a score pattern (e.g., "11/3", "9/7" - tournament results embedded in narrative)
             if '/' in player_name:
                 # Check for country code pattern: 2-3 uppercase letters separated by slash
                 # Matches: "GER/USA", "USA/(GER)", "(SUI)/(GER)", etc.
@@ -3496,7 +4520,11 @@ def check_player_name_quality(rec: dict) -> list[QCIssue]:
                 # Check if slash only appears inside parentheses
                 is_parens_only = '/' not in name_no_parens
 
-                if not is_country_code and not is_team_separator and not is_parens_only:
+                # Check for score pattern (e.g., "11/3", "9/7", "9/4 5/9 9/3")
+                # These are tournament match scores, not player names
+                is_score_pattern = bool(re.search(r'^\d+/\d+(?:\s+\d+/\d+)*$|[\s\d]/\d+', player_name))
+
+                if not is_country_code and not is_team_separator and not is_parens_only and not is_score_pattern:
                     issues.append(QCIssue(
                         check_id="player_has_slash",
                         severity="WARN",
@@ -3984,6 +5012,7 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
         all_issues.extend(check_host_club(rec))
         all_issues.extend(check_placements_json(rec))
         all_issues.extend(check_results_extraction(rec))
+        all_issues.extend(check_rejected_division_headers(rec))
 
         # Universal string hygiene
         all_issues.extend(check_string_hygiene(rec))
@@ -4005,6 +5034,8 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
         # Placements quality checks
         all_issues.extend(check_player_name_quality(rec))
         all_issues.extend(check_division_name_quality(rec))
+        all_issues.extend(check_division_canon_looks_like_placement_line(rec))
+        all_issues.extend(check_division_name_ish(rec))
         all_issues.extend(check_place_values(rec))
         all_issues.extend(check_place_sequences(rec))
 
@@ -4180,6 +5211,28 @@ def print_qc_summary(summary: dict) -> None:
     print(f"{'='*60}\n")
 
 
+def _division_distribution(records: list[dict]) -> tuple[Counter, Counter]:
+    """
+    Returns:
+      (division_canon_counts, division_raw_counts)
+    """
+    canon = Counter()
+    raw = Counter()
+    for rec in records:
+        try:
+            placements = json.loads(rec.get("placements_json", "[]") or "[]")
+        except Exception:
+            continue
+        for p in placements:
+            dcanon = (p.get("division_canon") or "").strip()
+            draw = (p.get("division_raw") or "").strip()
+            if dcanon:
+                canon[dcanon] += 1
+            if draw:
+                raw[draw] += 1
+    return canon, raw
+
+
 def print_verification_stats(records: list[dict]) -> None:
     """Print verification gate statistics."""
     total = len(records)
@@ -4244,6 +5297,20 @@ def print_verification_stats(records: list[dict]) -> None:
               f"year={rec.get('year')}, "
               f"placements={len(placements)}")
 
+    # ---- Division distribution report (convergence metric)
+    div_canon_counts, _ = _division_distribution(records)
+
+    print("\nDivision distribution:")
+    print(f"  Unique division_canon: {len(div_canon_counts)}")
+
+    rare = [d for d, n in div_canon_counts.items() if n < 3]
+    rare_sorted = sorted(rare, key=lambda d: div_canon_counts[d])
+    print(f"  Rare divisions (count < 3): {len(rare_sorted)}")
+
+    # show a small sample of the rarest
+    for d in rare_sorted[:20]:
+        print(f"    {div_canon_counts[d]:2d}  {d}")
+
     print(f"{'='*60}\n")
 
 
@@ -4260,6 +5327,7 @@ def main():
     repo_dir = Path(__file__).resolve().parent
     out_dir = repo_dir / "out"
     data_dir = repo_dir / "data"
+    overrides_path = repo_dir / "overrides" / "events_overrides.jsonl"
     in_csv = out_dir / "stage1_raw_events.csv"
     out_csv = out_dir / "stage2_canonical_events.csv"
 
@@ -4272,7 +5340,14 @@ def main():
     records = read_stage1_csv(in_csv)
 
     print(f"Canonicalizing {len(records)} events...")
-    canonical = canonicalize_records(records)
+    canonical, players = canonicalize_records(records)
+
+    # Apply overrides (behavior change only if overrides file exists)
+    overrides = load_event_overrides_jsonl(overrides_path)
+    canonical, overrides_applied, overrides_excluded = apply_event_overrides(canonical, overrides)
+    if overrides:
+        print(f"Overrides loaded: {overrides_path} ({len(overrides)} event_ids)")
+        print(f"Overrides applied: {overrides_applied}, excluded: {overrides_excluded}")
 
     # Deduplicate events with same (year, event_name, location)
     canonical, removed_duplicates = deduplicate_events(canonical)
@@ -4294,6 +5369,25 @@ def main():
 
     print_verification_stats(canonical)
     print(f"Wrote: {out_csv}")
+
+    # Write players registry
+    players_path = out_dir / "stage2_players.csv"
+    with open(players_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["player_id", "player_name", "country_observed"])
+        w.writeheader()
+        for pid, rec in sorted(players.items(), key=lambda kv: kv[1]["player_name"].casefold()):
+            countries = rec["countries"]
+            country_observed = ""
+            if countries:
+                # choose most common observed code
+                country_observed = countries.most_common(1)[0][0]
+            w.writerow({
+                "player_id": pid,
+                "player_name": rec["player_name"],
+                "country_observed": country_observed,
+            })
+
+    print(f"Wrote: {players_path}")
 
     # Run QC checks
     print("\nRunning QC checks...")

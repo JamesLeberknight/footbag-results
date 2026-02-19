@@ -57,6 +57,7 @@ def run_qc_for_stage(
     stage: str,
     records: list[dict],
     results_map: dict = None,
+    players_by_id: dict = None,
     out_dir: Path = None,
 ) -> tuple[dict, list]:
     """
@@ -66,6 +67,7 @@ def run_qc_for_stage(
         stage: "stage1", "stage2", or "stage3"
         records: List of event records (format varies by stage)
         results_map: Dict[event_id -> results_text] (Stage 3 only)
+        players_by_id: Dict[player_id -> {player_name_clean, ...}] (Stage 3 only, optional)
         out_dir: Output directory for QC artifacts (default: ./out)
 
     Returns:
@@ -87,7 +89,7 @@ def run_qc_for_stage(
     elif stage == "stage3":
         if results_map is None:
             raise ValueError("Stage 3 QC requires results_map parameter")
-        return run_stage3_qc(records, results_map, out_dir)
+        return run_stage3_qc(records, results_map, out_dir, players_by_id=players_by_id)
     else:
         raise ValueError(f"Unknown stage: {stage}. Must be stage1, stage2, or stage3")
 
@@ -126,26 +128,28 @@ def run_stage1_qc(records: list[dict], out_dir: Path) -> tuple[dict, list]:
                 example_value=str(rec)[:100],
             ))
 
-        # Check event_name exists
-        event_name = rec.get("event_name", "")
-        if not event_name or not event_name.strip():
+        # Check event_name exists (accept Stage 1 or Stage 2 naming)
+        event_name = (rec.get("event_name_raw") or rec.get("event_name") or "").strip()
+        if not event_name:
             all_issues.append(QCIssue(
                 check_id="stage1_missing_event_name",
                 severity="WARN",
                 event_id=str(event_id),
-                field="event_name",
+                field="event_name_raw",
                 message="Extracted record missing event_name",
             ))
 
-        # Check if source HTML was readable
-        results_raw = rec.get("results_raw", "")
-        if not results_raw and rec.get("has_results_page"):
+        # Check if source HTML was readable (accept Stage 1 or Stage 2 naming)
+        results_raw = (rec.get("results_block_raw") or rec.get("results_raw") or "").strip()
+        # Stage 1 doesn't have has_results_page; infer from core fields if available
+        has_core = bool((rec.get("location_raw") or rec.get("location")) or (rec.get("date_raw") or rec.get("date")))
+        if not results_raw and has_core:
             all_issues.append(QCIssue(
                 check_id="stage1_empty_results",
                 severity="INFO",
                 event_id=str(event_id),
                 field="results_raw",
-                message="Event marked as having results page but results_raw is empty",
+                message="Event has core fields but results block is empty",
             ))
 
     # Build summary
@@ -176,19 +180,20 @@ def run_stage2_qc(records: list[dict], out_dir: Path) -> tuple[dict, list]:
     """
     all_issues = []
 
-    # Import Stage 2 checks from the main canonicalization module
-    # These are currently embedded in 02_canonicalize_results.py
-    # We import the run_qc function which orchestrates all existing checks
+    # Import Stage 2 checks from the main canonicalization module by file path
+    # (module name "02_canonicalize_results" is invalid for import_module)
+    from importlib.util import spec_from_file_location, module_from_spec
+
+    stage2_path = Path(__file__).parent / "02_canonicalize_results.py"
+    if stage2_path.exists():
+        spec = spec_from_file_location("stage2_canonicalize_results", stage2_path)
+        canon_module = module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(canon_module)
+    else:
+        raise FileNotFoundError(f"Missing Stage 2 module at {stage2_path}")
+
     try:
-        # Dynamic import to avoid circular dependency
-        import sys
-        from pathlib import Path
-        sys.path.insert(0, str(Path(__file__).parent))
-
-        # Import the existing check functions
-        from importlib import import_module
-        canon_module = import_module('02_canonicalize_results')
-
         # Get existing Stage 2 checks
         # These include: field validation, semantic checks, cross-validation
         existing_checks = [
@@ -216,6 +221,7 @@ def run_stage2_qc(records: list[dict], out_dir: Path) -> tuple[dict, list]:
             'check_place_sequences',
             'check_expected_divisions',
             'check_division_quality',
+            'check_division_canon_looks_like_placement_line',
             'check_team_splitting',
             'check_year_date_consistency',
             'check_event_id_uniqueness',
@@ -263,7 +269,8 @@ def run_stage2_qc(records: list[dict], out_dir: Path) -> tuple[dict, list]:
 def run_stage3_qc(
     records: list[dict],
     results_map: dict,
-    out_dir: Path
+    out_dir: Path,
+    players_by_id: dict = None,
 ) -> tuple[dict, list]:
     """
     Stage 3 QC: Validate final Excel output.
@@ -278,11 +285,14 @@ def run_stage3_qc(
     Args:
         records: List of canonical event records
         results_map: Dict mapping event_id -> formatted results text
+        players_by_id: Dict mapping player_id -> {player_name_clean} (optional, improves roundtrip check)
     """
     all_issues = []
 
     # Run slop detection on Excel cells
-    slop_issues = run_slop_detection_checks_stage3_excel(records, results_map)
+    slop_issues = run_slop_detection_checks_stage3_excel(
+        records, results_map, players_by_id=players_by_id
+    )
     all_issues.extend(slop_issues)
 
     # Build summary

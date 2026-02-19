@@ -1,196 +1,336 @@
-1. Mission (North Star)
+# claude.md v5 — Archive‑Quality Footbag Results Pipeline
 
-Transform an offline HTML mirror of footbag.org event pages into a deterministic, archive-quality canonical dataset and Excel workbook.
+## Mission
 
-Primary rule:
-Preserve truth, provenance, and uncertainty.
-Never invent, assume, or optimize for completeness.
+Build an **archive‑quality, deterministic, auditable dataset** of historical footbag competition results.
 
-2. Core Operating Principles
+The goal is **not maximal recall**, but **maximal trust**:
 
-These rules override all others.
+* No guessing
+* No silent repairs
+* No heuristic identity merges
+* Clear separation between *raw*, *cleaned*, *canonical*, and *human‑verified truth*
 
-Correctness is more important than Coverage
-Unknown or missing data is acceptable. Incorrect data is not.
+The final Excel workbook must be suitable for:
 
-No invention
-Never fabricate.
+* Human review
+* Statistical analysis
+* Long‑term archival use
 
-Explicit provenance
-Every value must be one of:
+---
 
-extracted
+## Core Principles (Non‑Negotiable)
 
-inferred (clearly flagged)
+1. **Presentability > Correctness**
 
-explicitly overridden (after asking a human)
+   * Correctness is evaluated *only* on presentable values.
+   * Non‑presentable values are excluded, not repaired.
 
-Determinism
-Same input must always produce the same output.
+2. **Omission is safer than misrepresentation**
 
-3. What This System Is Not
+   * It is acceptable to drop data.
+   * It is not acceptable to fabricate clarity.
 
-Not a data-completion engine
+3. **Human truth beats heuristics**
 
-Not a best-guess predictor
+   * Identity merges occur **only** via explicit human‑maintained files.
 
-Not a metric-optimization pipeline
+4. **Determinism**
 
-Not a historical correction tool
+   * Same inputs → same outputs, byte‑for‑byte.
 
-This system records what can be justified — nothing more.
+5. **Auditability**
 
-4. Pipeline Model (Conceptual)
-Stage 1 — Extraction
+   * Every transformation must be explainable and reversible.
 
-Extract raw facts from HTML only
+---
 
-No semantic interpretation
+## Key Definitions
 
-No normalization beyond safety cleaning
+### Presentable Value
 
-Maximum flexibility and generalization of parser, because every event has a different format.
-THis is the core problem we are solving, wildly inconsistent input data.
-It is OK for the code to have different parsing rules per event id.
+A string that:
 
-Stage 2 — Canonicalization
+* Represents **exactly one real‑world concept**
+* Contains **no embedded metadata** (locations, rankings, tricks, notes, emojis)
+* Contains **no conjunctions** (and/or/+/\/=)
+* Is suitable for direct display in a publication
 
-All interpretation, normalization, inference, and QC
+Examples:
 
-Cross-validation happens here
+* ✅ `Rick Reese`
+* ❌ `CO, USA) and Rick Reese`
+* ❌ `Andreas Wolff 🇩🇪 Germany`
 
-Ambiguity is surfaced, not hidden
+Only presentable values may be evaluated for correctness.
 
-Stage 3 — Presentation
+### Division Categorization
 
-Formatting only (Excel, CSV)
+Division categories (freestyle, net, golf, sideline, unknown) are derived **programmatically** from division name keywords — there is no human-maintained division override file. Divisions that cannot be safely mapped are explicitly labeled `unknown`.
 
-No semantic changes allowed
+---
 
-5. Definition of “Done”
+### player_id
 
-A run is acceptable only if:
+* A **raw identity token** derived from source text
+* Preserved aggressively
+* Never merged automatically
+* Many player_ids may refer to the same human
 
-No new QC issues are introduced
+player_id answers: *“What did the source say?”*
 
-All inferred values are clearly labeled
+---
 
-Ambiguous data questions are resolved by a human
+### person_id
 
-Output is reproducible and explainable
+* A **stable, canonical identity** representing a real human
+* Assigned only via human verification
+* One person_id ⇔ one real person
 
-Changes are minimal, localized, and documented
+person_id answers: *“Who is this actually?”*
 
-“Done” does not mean “every field filled”.
+---
 
-All possible QC checks have been performed to find new data quality problems.
+## Pipeline Overview
 
-6. Trust Hierarchy (Conflict Resolution)
+```
+01  → HTML mirror ingestion (raw)
+02  → Structural parsing & normalization
+02p5→ Player token cleanup (NO identity merges)
+03  → Canonical tables & QC datasets
+04  → Excel presentation & human QC surface
+04b → Recovery layer (confidence-labeled, optional)
+```
 
-When signals conflict, prefer higher trust:
+Each stage has a **strict responsibility boundary**.
 
-Structured HTML headers (e.g., division <h2> blocks)
+---
 
-Numbered result entries under headers
+## Stage 01 — Raw Ingestion
 
-Preformatted results blocks
+**Purpose:**
 
-Event name patterns or known tournament formats
+* Mirror historical HTML
+* Preserve original content faithfully
 
-Manual overrides (explicit and event-specific)
+**Rules:**
 
-Lower-trust evidence must never override higher-trust evidence.
+* No cleaning
+* No interpretation
+* No normalization
 
-7. Ambiguity & Inference Rules
-Always stop and ask human (or quarantine) if:
+**Outputs:**
 
-Multiple interpretations are plausible
+* Raw mirrored text
 
-A change affects many events
+---
 
-Domain judgment is required
+## Stage 02 — Structural Parsing
 
-A new category or rule would be introduced
+**Purpose:**
 
-May proceed autonomously if:
+* Extract events, divisions, placements, players, teams
+* Normalize structure, *not meaning*
 
-The correction is mechanically obvious
+**Rules:**
 
-No alternative interpretation exists
+* Preserve all tokens
+* Do not modify names beyond whitespace normalization
 
-Meaning is preserved exactly
+**Outputs:**
 
-8. Inference Policy
+* `events_df`
+* `placements_df`
+* `players_df`
+* `teams_df`
 
-Inference is allowed only when:
+---
 
-Direct evidence is absent
+## Stage 02.5 — Player Token Cleanup (NO IDENTITY MERGES)
 
-Strong domain conventions exist
+**Purpose:**
+Clean *name strings only* while preserving identity multiplicity.
 
-The result is explicitly flagged as inferred
+**Allowed:**
 
-Inferred values must never be indistinguishable from extracted ones.
+* Remove rankings, ages, IFPA numbers
+* Remove locations and parenthetical metadata
+* Normalize diacritics for comparison (not display)
 
-9. Overrides Policy
+**Forbidden:**
 
-Overrides are permitted only when:
+* Merging player_ids
+* Guessing identities
+* Collapsing similar names
 
-Source data is irreparably broken
+**Outputs:**
 
-The correction is historically certain
+* `player_name_clean`
+* `name_status`: `ok | suspicious | needs_review | junk`
+* Alias *suggestions* only
 
-The scope is strictly event-specific
+---
 
-Overrides must be:
+## Stage 03 — Canonical & QC Tables
 
-minimal
+**Purpose:**
 
-auditable
+* Produce normalized datasets
+* Surface ambiguity explicitly
 
-non-generalizing
+**Key Outputs:**
 
-10. Metrics Policy
+* `Placements_Flat`
+* `Persons_Raw`
+* `Players_Alias_Candidates`
+* `Teams_Alias_Candidates`
 
-Metrics are observational, not targets
+**Rules:**
 
-Never change logic solely to improve a metric
+* No human truth is created here
+* QC is additive, never destructive
 
-Metric improvements must be a side effect of correctness
+---
 
-QC gates apply to severity, not counts
+## Human Truth Layer (Out‑of‑Band)
 
-11. Iteration Protocol (Mandatory)
+**Files:**
 
-Follow this loop exactly:
+* `person_aliases.csv`
+* `events_overrides.jsonl`
 
-Run canonicalization and QC
+**Rules:**
 
-Select one highest-impact issue
+* Human‑maintained only
+* Version‑controlled
+* Explicit decisions only
 
-Collect concrete examples (event_id based)
+This is the *only* place identity merges occur.
 
-Inspect source HTML if needed
+---
 
-Ask at most one human question (if required)
+## Stage 04 — Excel Presentation & QC Surface
 
-Implement the smallest safe change
+**Purpose:**
+Produce the **final Excel workbook** used for:
 
-Add new qc checks that would catch the given problem, and generalize it to catch all such data quality problems.
+* Human inspection
+* Manual verification
+* Long‑term archival reference
 
-Re-run and compare QC deltas
+Stage 04 is a **presentation layer**, not a cleaning layer.
 
-Persist decisions in overrides if needed
+### Responsibilities
 
-Document reasoning
+* Apply human truth (person_id mappings)
+* Enforce presentability constraints
+* Exclude junk and non‑presentable values
+* Produce clearly labeled QC sheets
 
-Proceed only after gates pass
+### Key Rule
 
-12. Final Guiding Rule
+> **“Done” means every visible cell is as clean as possible.**
 
-When uncertain:
+If a value is not presentable, it must not appear in the workbook.
 
-Preserve uncertainty.
-Surface it clearly.
-Ask human (maybe).
-Move on.
+---
+
+## Stage 04b — Recovery Layer
+
+**Purpose:**
+Recover rejected ByPerson placements using confidence-labeled methods, without modifying canonical data.
+
+### Methods (in priority order)
+
+1. **Same-event exact** — player_id matches a person_id already in the same event
+2. **Cross-event exact** — player_id matches a person_id seen in other events
+3. **Last-name expansion** — unambiguous last-name match within event context
+4. **Event context** — contextual signals from co-competitors
+
+### Key Rule
+
+> **Canonical data is never modified.** Recovery is a derived, optional surface.
+
+Recovered placements carry explicit confidence labels so downstream consumers can filter by trust level.
+
+### Outputs
+
+* `Recovery_Candidates.csv` — all candidate recoveries with confidence labels
+* `Placements_ByPerson_WithRecovery.csv` — merged canonical + recovered placements
+* `Recovery_Summary.json` — aggregate statistics
+
+---
+
+## Persons_Truth Table
+
+**Invariant:**
+
+* One row = one real human
+* One person_id
+* One presentable canonical name
+
+No duplicates.
+No junk.
+No metadata.
+
+---
+
+## QC Philosophy
+
+* QC detects; it does not repair
+* Ambiguity is surfaced, not hidden
+* Every exclusion is intentional
+
+If something looks wrong, the answer is:
+
+> “Which stage is responsible?”
+
+---
+
+## QC Validation Results
+
+Manual QC validation was performed on the Excel workbook using analytical pivots.
+
+### Anomaly Classification
+
+* **Tier-1 (Structural Failures):** None detected
+* **Tier-2 (Visible, Bounded, Acceptable):** narrative winner rows, format-based unknown divisions, legacy unmapped labels
+
+### Pivot Results
+
+| Pivot | Description | Result |
+|-------|-------------|--------|
+| #2 | Narrative Winners | PASS — low-frequency, non-distorting |
+| #3 | Partner Realism | PASS — realistic sparsity, no identity inflation |
+| #4 | Temporal Plausibility | PASS — temporally clustered careers, no cross-decade inflation |
+| #5 | Division Consistency | PASS — unknown divisions are explicit and low-frequency |
+
+### Known Limitation
+
+Pivot #1 (Full Career Timeline) deferred — requires person-long analytical sheet not yet created. Temporal plausibility validated via Pivot #4 on raw surface.
+
+---
+
+## Definition of Done
+
+The pipeline is **done** when:
+
+* All Excel cells are presentable
+* Every person_id maps to exactly one human
+* No heuristic identity merges remain
+* All remaining ambiguity is explicit and reviewable
+* Structural QC validation passes with zero Tier-1 anomalies
+
+---
+
+## Final Warning to Future Agents
+
+> **Do not be helpful. Be correct.**
+
+If you are unsure:
+
+* Stop
+* Emit QC
+* Ask for human input
+
+Silence is failure. Guessing is corruption.
