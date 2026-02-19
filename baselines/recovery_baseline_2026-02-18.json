@@ -1,0 +1,44 @@
+{
+  "total_rejected": 1352,
+  "total_recovery_attempted": 316,
+  "total_accepted": 303,
+  "by_method": {
+    "cross_event_exact": {
+      "high": {
+        "total": 8,
+        "accepted": 8
+      }
+    },
+    "last_name_global": {
+      "medium": {
+        "total": 76,
+        "accepted": 70
+      }
+    },
+    "last_name_same_event": {
+      "medium": {
+        "total": 210,
+        "accepted": 203
+      }
+    },
+    "same_event_exact": {
+      "high": {
+        "total": 22,
+        "accepted": 22
+      }
+    }
+  },
+  "by_reject_reason": {
+    "missing_player1_id": {
+      "total": 956,
+      "recovered": 289,
+      "accepted": 276
+    },
+    "team_missing_player2_id": {
+      "total": 396,
+      "recovered": 27,
+      "accepted": 27
+    }
+  },
+  "total_merged": 299
+}
