@@ -1501,6 +1501,27 @@ def clean_player_name(name: str) -> str:
             before_trick = name[:second_last[0]].strip()
             name = (before_trick + ' (' + country_content + ')').strip()
 
+    # Rule 28: Strip "and Nth position match" bronze-medal match descriptions
+    # e.g. "and 4º position match", "and 3rd position match"
+    if re.search(r'^and\s+\d', name, re.IGNORECASE):
+        return ""
+
+    # Rule 29a: Strip trailing prize-money and score annotations before junk cleanup
+    # e.g. "R Lavign-$70" → "R Lavign", "Matt Quinn- $10" → "Matt Quinn"
+    # e.g. "Klemens Längauer - 110,38" → "Klemens Längauer", "Rory Dawson - 102. 1" → "Rory Dawson"
+    # e.g. "Y Merzouk- prize" → "Y Merzouk"
+    name = re.sub(r'\s*-\s*\$\d+(?:[.,]\d+)?\s*$', '', name).strip()   # -$70, - $10
+    name = re.sub(r'\s*-\s*\d+[,.]\s*\d+\s*$', '', name).strip()        # - 110,38 / - 102. 1
+    name = re.sub(r'\s*-\s*prize\b.*$', '', name, flags=re.IGNORECASE).strip()  # - prize / - prize money
+
+    # Rule 29: Strip trailing junk markers (trailing dashes, asterisks, en/em-dashes)
+    # e.g. "Nick Jaros -" → "Nick Jaros", "Tim Werner ---" → "Tim Werner"
+    # e.g. "Jason Varvaro-" → "Jason Varvaro"
+    # Preserve hyphens that are part of the name (only strip from END)
+    cleaned = re.sub(r'[\s\*\-–—]+$', '', name).strip()
+    if cleaned:
+        name = cleaned
+
     return name.strip()
 
 
@@ -2465,13 +2486,16 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             if not looks_like_person_name(player1_name):
                 continue  # Skip this placement
 
+        p1_clean = normalize_whitespace(clean_player_name(player1_name))
+        if not p1_clean:
+            continue  # clean_player_name stripped entire value (e.g. "and 4º position match")
         placements.append({
             "division_raw": normalize_whitespace(division_raw),
             "division_canon": division_canon,
             "division_category": division_category,  # net, freestyle, golf, or unknown
             "place": place,
             "competitor_type": competitor_type,
-            "player1_name": normalize_whitespace(clean_player_name(player1_name)),
+            "player1_name": p1_clean,
             "player2_name": normalize_whitespace(clean_player_name(player2_name)) if player2_name else "",
             "entry_raw": normalize_whitespace(entry_raw),
             "parse_confidence": confidence,
