@@ -306,6 +306,7 @@ def reorder_sheets(wb) -> None:
         "PersonStats_ByDivCat",
         "Placements_ByPerson",
         "Persons_Truth",
+        "Coverage_ByEventDiv",
         "Players_Clean",
         "Placements_Flat",
     ]
@@ -1253,6 +1254,220 @@ def build_top_unmapped_names(pf: pd.DataFrame, limit: int = 200) -> tuple[pd.Dat
     return personlike, noise
 
 
+def build_coverage_by_event_division(
+    placements_path: Path,
+    out_dir: Path,
+    quarantine_path: Path | None = None,
+) -> pd.DataFrame:
+    """
+    Coverage definition:
+      For each (event_id, year, division_canon), compute:
+        placements_present = count of distinct place values present
+        min_place, max_place (numeric)
+        expected_span = max_place - min_place + 1
+        missing_places = expected_span - placements_present
+        coverage_ratio = placements_present / expected_span
+
+    IMPORTANT:
+      - Uses only "clean" placements by default.
+      - If quarantine_path is provided and exists, removes those rows from the surface
+        using an (event_id, division_canon, place, player/team key) join.
+      - No guessing, no inference of missing results.
+    """
+
+    df = pd.read_csv(placements_path, dtype=str).fillna("")
+    # Standardize key columns (defensive)
+    for c in ["event_id", "year", "division_canon", "division_category", "place",
+              "competitor_type", "player1_name", "player2_name", "team_display_name"]:
+        if c not in df.columns:
+            df[c] = ""
+
+    # Parse place as int where possible (ignore non-numeric places)
+    df["place_num"] = pd.to_numeric(df["place"], errors="coerce")
+
+    # Keep only rows with a numeric place (coverage is defined on ordinal places)
+    df = df[df["place_num"].notna()].copy()
+    df["place_num"] = df["place_num"].astype(int)
+
+    # Optionally exclude quarantined rows if a quarantine file exists.
+    # This makes coverage reflect the analytics surface, not the diagnostic set.
+    if quarantine_path is not None and Path(quarantine_path).exists():
+        q = pd.read_csv(quarantine_path, dtype=str).fillna("")
+        for c in ["event_id", "division_canon", "division_category", "place",
+                  "competitor_type", "player1_name", "player2_name", "team_display_name"]:
+            if c not in q.columns:
+                q[c] = ""
+        q["place_num"] = pd.to_numeric(q["place"], errors="coerce")
+        q = q[q["place_num"].notna()].copy()
+        q["place_num"] = q["place_num"].astype(int)
+
+        # Build a conservative row identity key. We do NOT use IDs (since presentation-clean).
+        # This aims to remove only the exact quarantined rows, not "similar" ones.
+        def row_key(d: pd.DataFrame) -> pd.Series:
+            # Prefer team_display_name when competitor_type is team; else use player1|player2
+            teamish = (d["competitor_type"].str.lower() == "team")
+            key = d["player1_name"].str.strip() + " | " + d["player2_name"].str.strip()
+            key = key.where(~teamish, d["team_display_name"].str.strip())
+            return key.str.strip()
+
+        df["_rk"] = row_key(df)
+        q["_rk"] = row_key(q)
+
+        q_key = q[["event_id", "division_canon", "place_num", "_rk"]].copy()
+        q_key["_is_quarantined"] = 1
+
+        # Left join to mark quarantined
+        merged = df.merge(
+            q_key.drop_duplicates(),
+            on=["event_id", "division_canon", "place_num", "_rk"],
+            how="left",
+        )
+        merged["_is_quarantined"] = merged["_is_quarantined"].fillna(0).astype(int)
+        df = merged[merged["_is_quarantined"] == 0].copy()
+        df.drop(columns=["_rk", "_is_quarantined"], inplace=True, errors="ignore")
+    else:
+        df.drop(columns=["_rk"], inplace=True, errors="ignore")
+
+    # Aggregate coverage by (event_id, year, division_canon)
+    grp_cols = ["event_id", "year", "division_canon", "division_category"]
+    cov = (
+        df.groupby(grp_cols, dropna=False)
+          .agg(
+              placements_present=("place_num", lambda s: int(pd.Series(s).nunique())),
+              min_place=("place_num", "min"),
+              max_place=("place_num", "max"),
+          )
+          .reset_index()
+    )
+
+    cov["expected_span"] = (cov["max_place"] - cov["min_place"] + 1).astype(int)
+    cov["missing_places"] = (cov["expected_span"] - cov["placements_present"]).astype(int)
+
+    # Avoid division by zero (shouldn't happen, but keep deterministic)
+    cov["coverage_ratio"] = cov.apply(
+        lambda r: (r["placements_present"] / r["expected_span"]) if r["expected_span"] > 0 else 0.0,
+        axis=1
+    )
+
+    # Sort for readability
+    cov = cov.sort_values(["year", "event_id", "division_category", "division_canon"], kind="mergesort")
+
+    # Write CSV output
+    out_path = out_dir / "Coverage_ByEventDivision.csv"
+    cov.to_csv(out_path, index=False)
+    print(f"Wrote: {out_path} ({len(cov)} rows)")
+
+    return cov
+
+
+def build_coverage_gap_priority(
+    cov_df: pd.DataFrame,
+    out_dir: Path,
+) -> pd.DataFrame:
+    """
+    Classify coverage gaps by recoverability using quarantine/rejected evidence.
+
+    Gap classes:
+      recoverable      — ratio 0.4–0.8, missing>=2, quarantine evidence exists
+      possibly_recoverable — ratio 0.2–0.4, little/no quarantine evidence
+      not_recoverable  — ratio <=0.2, no quarantine, consistently sparse
+      document_only    — ratio >=0.8 but <1.0, or missing_places==1
+
+    Practical rule: work upstream only when ratio>=0.4, missing>=2, evidence exists.
+    """
+    # Filter to gaps only
+    gaps = cov_df[cov_df["coverage_ratio"] < 1.0].copy()
+    if gaps.empty:
+        empty = pd.DataFrame(columns=[
+            "event_id", "year", "division_canon", "division_category",
+            "placements_present", "expected_span", "missing_places", "coverage_ratio",
+            "quarantine_rows", "rejected_rows", "excluded_rows",
+            "gap_class", "priority_score",
+        ])
+        out_path = out_dir / "Coverage_GapPriority.csv"
+        empty.to_csv(out_path, index=False)
+        print(f"Wrote: {out_path} (0 rows — no gaps)")
+        return empty
+
+    gaps["event_id"] = gaps["event_id"].astype(str).str.strip()
+    gaps["division_canon"] = gaps["division_canon"].astype(str).str.strip()
+
+    # Load evidence sources
+    def _load_evidence(path: Path) -> pd.DataFrame:
+        if not path.exists():
+            return pd.DataFrame(columns=["event_id", "division_canon"])
+        df = pd.read_csv(path, dtype=str).fillna("")
+        for c in ["event_id", "division_canon"]:
+            if c not in df.columns:
+                df[c] = ""
+            df[c] = df[c].astype(str).str.strip()
+        return df
+
+    rejected = _load_evidence(out_dir / "Placements_ByPerson_Rejected.csv")
+    quarantine = _load_evidence(out_dir / "Placements_ByPerson_SinglesQuarantine.csv")
+    excluded = _load_evidence(out_dir / "qc" / "excluded_results_rows_unpresentable.csv")
+
+    # Count evidence per (event_id, division_canon)
+    def _count_by_key(df: pd.DataFrame) -> dict:
+        if df.empty:
+            return {}
+        counts = df.groupby(["event_id", "division_canon"]).size()
+        return {(str(eid), str(div)): int(cnt) for (eid, div), cnt in counts.items()}
+
+    rej_counts = _count_by_key(rejected)
+    qua_counts = _count_by_key(quarantine)
+    exc_counts = _count_by_key(excluded)
+
+    def _lookup(counts, eid, div):
+        return counts.get((eid, div), 0)
+
+    gaps["rejected_rows"] = gaps.apply(lambda r: _lookup(rej_counts, r["event_id"], r["division_canon"]), axis=1)
+    gaps["quarantine_rows"] = gaps.apply(lambda r: _lookup(qua_counts, r["event_id"], r["division_canon"]), axis=1)
+    gaps["excluded_rows"] = gaps.apply(lambda r: _lookup(exc_counts, r["event_id"], r["division_canon"]), axis=1)
+    gaps["evidence_total"] = gaps["rejected_rows"] + gaps["quarantine_rows"] + gaps["excluded_rows"]
+
+    # Classify
+    def _classify(r):
+        ratio = r["coverage_ratio"]
+        missing = r["missing_places"]
+        evidence = r["evidence_total"]
+
+        if ratio >= 0.4 and missing >= 2 and evidence > 0:
+            return "recoverable"
+        if 0.2 <= ratio < 0.4:
+            return "possibly_recoverable"
+        if ratio < 0.2:
+            return "not_recoverable"
+        # ratio >= 0.4 but no evidence, or missing < 2
+        return "document_only"
+
+    gaps["gap_class"] = gaps.apply(_classify, axis=1)
+
+    # Priority score: higher = more worth fixing
+    # Factors: missing_places (volume), coverage_ratio (inversely), evidence_total
+    gaps["priority_score"] = (
+        gaps["missing_places"] * (1 - gaps["coverage_ratio"]) * (1 + gaps["evidence_total"].clip(upper=10))
+    ).round(1)
+
+    # Sort: recoverable first, then by priority_score descending
+    class_order = {"recoverable": 0, "possibly_recoverable": 1, "document_only": 2, "not_recoverable": 3}
+    gaps["_class_order"] = gaps["gap_class"].map(class_order)
+    gaps.sort_values(["_class_order", "priority_score"], ascending=[True, False], inplace=True)
+    gaps.drop(columns=["_class_order"], inplace=True)
+
+    out_path = out_dir / "Coverage_GapPriority.csv"
+    gaps.to_csv(out_path, index=False)
+
+    # Summary
+    for cls in ["recoverable", "possibly_recoverable", "document_only", "not_recoverable"]:
+        subset = gaps[gaps["gap_class"] == cls]
+        if len(subset) > 0:
+            print(f"  {cls}: {len(subset)} gaps, {int(subset['missing_places'].sum())} missing places")
+
+    print(f"Wrote: {out_path} ({len(gaps)} rows)")
+    return gaps
+
+
 SHEET_RENAMES = {"Person_Stats_ByDivisionCategory": "PersonStats_ByDivCat"}
 
 
@@ -1334,6 +1549,16 @@ def main() -> int:
         return 2
 
     pf = pd.read_csv(pf_csv)
+
+    # --- Coverage metric by event/division ---
+    cov_df = build_coverage_by_event_division(
+        placements_path=out_dir / "Placements_ByPerson.csv",
+        out_dir=out_dir,
+        quarantine_path=out_dir / "Placements_ByPerson_SinglesQuarantine.csv",
+    )
+
+    # --- Gap priority analysis ---
+    gap_df = build_coverage_gap_priority(cov_df, out_dir)
 
     per_all = explode_to_people(pf)
 
@@ -1516,6 +1741,8 @@ def main() -> int:
     if len(person_by_cat) > 0:
         sheets.append(("PersonStats_ByDivCat", person_by_cat))
     sheets.append(("Division_Stats", division_stats))
+    if len(cov_df) > 0:
+        sheets.append(("Coverage_ByEventDiv", cov_df))
 
     write_sheets_append(xlsx, sheets, readme_df=readme_df)
 
@@ -1552,6 +1779,53 @@ def main() -> int:
                     col_letter = get_column_letter(col_idx)
                     cell.hyperlink = f"#{sheet_name}!{col_letter}1"
                     cell.font = hyperlink_font
+
+    # ---- Add coverage_ratio + coverage_flag rows to year sheets ----
+    if len(cov_df) > 0:
+        # Build per-event aggregate: min coverage_ratio across divisions
+        cov_by_event = (
+            cov_df.groupby("event_id", dropna=False)
+            .agg(coverage_ratio=("coverage_ratio", "min"))
+            .reset_index()
+        )
+        cov_by_event["event_id"] = cov_by_event["event_id"].astype(str).str.strip()
+
+        def _coverage_flag(ratio):
+            if pd.isna(ratio):
+                return ""
+            if ratio >= 0.95:
+                return "complete"
+            if ratio >= 0.75:
+                return "mostly_complete"
+            if ratio >= 0.40:
+                return "partial"
+            return "sparse"
+
+        cov_by_event["coverage_flag"] = cov_by_event["coverage_ratio"].map(_coverage_flag)
+        cov_lookup = dict(zip(cov_by_event["event_id"], zip(cov_by_event["coverage_ratio"], cov_by_event["coverage_flag"])))
+
+        for sheet_name in wb.sheetnames:
+            if not is_year_sheet(sheet_name):
+                continue
+            ws = wb[sheet_name]
+            if ws.max_column < 2:
+                continue
+
+            # Year sheets: row 1 = header (event_ids as column headers), rows 2-7 = data
+            # Add two new rows after the last data row
+            next_row = ws.max_row + 1
+            ratio_row = next_row
+            flag_row = next_row + 1
+
+            ws.cell(row=ratio_row, column=1, value="Coverage Ratio")
+            ws.cell(row=flag_row, column=1, value="Coverage Flag")
+
+            for col_idx in range(2, ws.max_column + 1):
+                eid = str(ws.cell(row=1, column=col_idx).value or "").strip()
+                if eid in cov_lookup:
+                    ratio, flag = cov_lookup[eid]
+                    ws.cell(row=ratio_row, column=col_idx, value=round(ratio, 3))
+                    ws.cell(row=flag_row, column=col_idx, value=flag)
 
     wb.save(xlsx)
     wb.close()

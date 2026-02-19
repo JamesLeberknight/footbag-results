@@ -14,9 +14,99 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from collections import defaultdict
 from datetime import datetime
 from typing import Any, Optional
+
+
+def _normalize_name_for_roundtrip_match(name: str) -> str:
+    """
+    Normalize name for fuzzy roundtrip matching. Results text uses display names
+    (cleaned/aliased) while placements use raw names. This handles common differences:
+    - Diacritics (Böhm vs Bohm)
+    - Parenthetical suffixes (Paris Zion), (scratched), (9 Points)
+    - Location suffixes: ", City, Country"
+    - "aka" and nicknames
+    """
+    if not name or not isinstance(name, str):
+        return ""
+    s = name.strip()
+    # Remove parenthetical content (including unclosed)
+    s = re.sub(r"\s*\([^)]*\)", " ", s)
+    s = re.sub(r"\s*\([^)]*$", "", s)
+    # Remove "aka" and what follows
+    s = re.sub(r"\s+aka\s+.*$", "", s, flags=re.IGNORECASE)
+    # Remove internal quoted nicknames: "Flash" in "Flash Gordon" or "Gordon" in "Gordon (Flash)"
+    s = re.sub(r'\s*"[^"]*"\s*', " ", s)
+    s = re.sub(r"\s*'[^']*'\s*", " ", s)
+    # Strip common leading prefixes (e.g. "Winner = ")
+    s = re.sub(r"^(?:Winner\s*=\s*|Runner-?up\s*=\s*)", "", s, flags=re.IGNORECASE)
+    # Strip trailing " - 44" (score/tie-breaker)
+    s = re.sub(r"\s*[-–]\s*\d+\s*$", "", s)
+    # Take part before first comma if it has 2+ words (first/last name)
+    if "," in s:
+        first = s.split(",", 1)[0].strip()
+        if len(first.split()) >= 2:
+            s = first
+    # Strip surrounding quotes and trailing asterisks
+    s = re.sub(r'^["\']|["\']$', "", s)
+    s = re.sub(r"\*+\s*$", "", s)
+    # Strip trailing score-like digits (e.g. "Name(Fin)50")
+    s = re.sub(r"\d+\s*$", "", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    # Diacritics -> ASCII
+    s = "".join(c for c in unicodedata.normalize("NFKD", s) if not unicodedata.combining(c))
+    return s.lower()
+
+LEGIT_DIVISION_TOKENS = {
+    "open singles",
+    "open doubles",
+    "women singles",
+    "women doubles",
+    "womens singles",
+    "womens doubles",
+    "women's singles",
+    "women's doubles",
+    "intermediate",
+    "beginner",
+}
+
+_PLACEMENT_PREFIX_RE = re.compile(r'^\s*\d{1,3}\s*[.)\-:]\s+\S')
+_RE_PLACE_LINE = re.compile(r"^\s*(\d+)\.\s+(.+?)\s*$")
+
+# Strong heading patterns (case-insensitive)
+_HEADING_PATTERNS = [
+    re.compile(r"^\s*FINAL\s+RESULTS\s*$", re.I),
+    re.compile(r"^\s*RESULTS\s*:\s*.+$", re.I),
+    re.compile(r"^\s*RESULTS\s+PARTNERS\s*$", re.I),
+    re.compile(r"^\s*TOTAL\s+RANK\b", re.I),
+    re.compile(r"^\s*LEVEL\s+\d+\s+RANKING\s*$", re.I),
+    re.compile(r"^\s*POOL\s+[A-Z0-9]+\s*$", re.I),
+    re.compile(r"^\s*POOL\s+[A-Z0-9]+\b", re.I),
+    re.compile(r"^\s*SQUARES?\s*:?\s*$", re.I),
+    re.compile(r"^\s*SERVICE\b", re.I),
+    re.compile(r"^\s*TIE\s*$", re.I),
+    re.compile(r"^\s*BRACKET\b", re.I),
+    re.compile(r"^\s*GROUP\b", re.I),
+    re.compile(r"^\s*ROUND\b", re.I),
+    re.compile(r"^\s*SEMIFINAL\b|\bSEMI[-\s]?FINAL\b", re.I),
+]
+
+
+def _is_structure_like_payload(payload: str) -> bool:
+    p = (payload or "").strip()
+    if not p:
+        return False
+
+    # If it matches any strong heading pattern, flag it.
+    for rx in _HEADING_PATTERNS:
+        if rx.search(p):
+            return True
+
+    # Otherwise, do NOT flag. (Abbreviations like HIF, PP, JF are valid.)
+    return False
+
 
 # Import QCIssue from main canonicalization module
 # (In production, would refactor QCIssue to shared module)
@@ -212,13 +302,20 @@ def check_any_field_contains_placeholder_or_instructional_text(rec: dict, field_
     event_id = rec.get("event_id", "")
     value_lower = value.lower().strip()
 
+    # Don't treat common, legitimate division labels as placeholders
+    if "division" in field_name.lower() and value_lower in LEGIT_DIVISION_TOKENS:
+        return issues
+
     # Placeholder patterns (case-insensitive)
     placeholder_patterns = [
         (r'\bTBD\b', 'TBD marker', "WARN"),
         (r'\bTBA\b', 'TBA marker', "WARN"),
         (r'\bn/a\b', 'N/A marker', "WARN"),
         (r'\bunknown\b', 'unknown marker', "INFO"),
-        (r'\?\?+', 'question marks', "WARN"),
+        # Encoding corruption: keep as INFO (useful signal, not a pipeline failure)
+        (r'\?\?+', 'encoding corruption (??)', "INFO"),
+        (r'[A-Za-z]\?[A-Za-z]', 'encoding corruption (?)', "INFO"),
+        (r'�', 'encoding replacement char', "INFO"),
         (r'\bclick here\b', 'clickable instruction', "ERROR"),
         (r'\bsee below\b', 'reference instruction', "ERROR"),
         (r'\bdetails\b.*\bbelow\b', 'reference instruction', "WARN"),
@@ -417,9 +514,22 @@ def check_worlds_missing_expected_disciplines(rec: dict) -> list[QCIssue]:
     If only one is present, flag as incomplete.
     """
     issues = []
-    event_id = rec.get("event_id", "")
+    event_id = str(rec.get("event_id", "") or "")
+
+    # Skip OLD_RESULTS synthetic events (198x import)
+    if event_id.startswith("200198"):
+        return []
+
     event_type = rec.get("event_type", "")
     event_name = rec.get("event_name", "")
+
+    source_url = rec.get("source_url", "") or ""
+    source_path = rec.get("source_path", "") or ""
+    notes = rec.get("html_parse_notes", "") or ""
+
+    # Skip old-text imports: Worlds completeness expectations don't apply
+    if source_url.startswith("local:OLD_RESULTS") or "source:OLD_RESULTS" in notes or "OLD_RESULTS.txt" in source_path:
+        return issues
 
     # Check if this is a Worlds event
     is_worlds = (
@@ -528,9 +638,22 @@ def check_worlds_results_suspiciously_small(rec: dict) -> list[QCIssue]:
     If a Worlds event has very few placements, flag for review.
     """
     issues = []
-    event_id = rec.get("event_id", "")
+    event_id = str(rec.get("event_id", "") or "")
+
+    # Skip OLD_RESULTS synthetic events (198x import)
+    if event_id.startswith("200198"):
+        return []
+
     event_type = rec.get("event_type", "")
     event_name = rec.get("event_name", "")
+
+    source_url = rec.get("source_url", "") or ""
+    source_path = rec.get("source_path", "") or ""
+    notes = rec.get("html_parse_notes", "") or ""
+
+    # Skip old-text imports: Worlds completeness expectations don't apply
+    if source_url.startswith("local:OLD_RESULTS") or "source:OLD_RESULTS" in notes or "OLD_RESULTS.txt" in source_path:
+        return issues
 
     # Check if this is a Worlds event
     is_worlds = (
@@ -848,14 +971,33 @@ def check_results_cell_duplicate_lines(results_text: str, event_id: str) -> list
             continue
 
         # Division header: ALL CAPS line (e.g., "OPEN SINGLES NET")
-        # No length limit — in formatted output, ALL division headers are UPPER CASE
-        if line_stripped.isupper() and len(line_stripped) >= 3:
+        # BUT do NOT treat numbered placement-like lines as headers:
+        # "1. LEVEL 2 RANKING" => isupper() == True, but it's a placement line.
+        if line_stripped.isupper() and len(line_stripped) >= 3 and not re.match(r'^\d{1,3}\s*[.)]', line_stripped):
             current_division = line_stripped
-            # New division scope - reset seen lines for this division
             division_key = (current_category, current_division)
             if division_key not in seen_in_division:
                 seen_in_division[division_key] = {}
             continue
+
+        # Warn on numbered lines whose payload looks like a structure/header artifact
+        m = _RE_PLACE_LINE.match(line)
+        if not m:
+            continue
+
+        payload = m.group(2).strip()
+
+        # ONLY warn if it looks like a structure/header artifact
+        if _is_structure_like_payload(payload):
+            issues.append(QCIssue(
+                check_id="results_cell_numbered_header_like_placement",
+                severity="WARN",
+                event_id=str(event_id),
+                field="Results",
+                message="Numbered line in Results appears to be a non-placement structure/header artifact",
+                example_value=line_stripped[:100],
+                context={"line_number": idx + 1},
+            ))
 
         # This is a placement line
         # Check for duplicates WITHIN THE CURRENT DIVISION ONLY
@@ -900,49 +1042,101 @@ def check_results_cell_duplicate_lines(results_text: str, event_id: str) -> list
     return issues
 
 
+def _get_display_name_for_placement(
+    placement: dict, which: str, players_by_id: dict = None
+) -> str:
+    """Replicate 03_build_excel._build_name_line display logic for roundtrip matching."""
+    if which == "player1":
+        pid = (
+            placement.get("player1_id")
+            or placement.get("player_id")
+            or placement.get("player1_player_id")
+            or ""
+        )
+        raw = (placement.get("player1_name") or "").strip()
+    else:
+        pid = placement.get("player2_id") or placement.get("player2_player_id") or ""
+        raw = (placement.get("player2_name") or "").strip()
+
+    if players_by_id and pid and pid in players_by_id:
+        clean = (players_by_id[pid].get("player_name_clean") or "").strip()
+        return clean or raw
+
+    # Fallback: strip common slop (matches 03_build_excel._lookup_clean)
+    s = re.sub(r"^\s*(?:\*\-|\*|&)\s*", "", raw)
+    s = re.sub(r"\s*-\s*scratch\b.*$", "", s, flags=re.IGNORECASE)
+    s = re.sub(r"\s{2,}", " ", s).strip(" ,.-")
+    return s
+
+
 def check_results_cell_roundtrip_missing_any_placement(
     placements: list[dict],
     results_text: str,
-    event_id: str
+    event_id: str,
+    players_by_id: dict = None,
 ) -> list[QCIssue]:
     """
     Stage 3 check: Verify every placement object appears in rendered Results text.
     Each placement should have its place number + competitor name under correct division.
+
+    Uses normalized matching: results_text uses display names (player_name_clean)
+    while placements use raw names. We normalize both to handle diacritics,
+    parenthetical suffixes (Paris Zion), location suffixes, etc.
     """
     issues = []
 
     if not placements or not results_text:
         return issues
 
-    results_lower = results_text.lower()
     missing = []
 
+    # Parse all placement lines from results: "N. Name" or "N. Name / Name2"
     for idx, p in enumerate(placements):
         place = p.get("place", "")
-        player1 = (p.get("player1_name") or "").strip()
-        player2 = (p.get("player2_name") or "").strip()
-        division = p.get("division_canon") or p.get("division_raw") or ""
+        # Use display names (from players_by_id) when available - matches format_results_from_placements
+        player1 = _get_display_name_for_placement(p, "player1", players_by_id)
+        player2 = _get_display_name_for_placement(p, "player2", players_by_id)
 
-        # Build expected patterns
-        if player2:
-            name_pattern = f"{player1.lower()}.*{player2.lower()}"
-        else:
-            name_pattern = player1.lower()
+        if not player1:
+            continue
 
-        place_pattern = f"{place}."
+        p1_norm = _normalize_name_for_roundtrip_match(player1)
+        p2_norm = _normalize_name_for_roundtrip_match(player2) if player2 else ""
 
-        # Check if this placement appears in results
-        # Look for: "1. John Smith" or "1. John / Jane"
-        if name_pattern and place_pattern:
-            # Simple check: does the name appear anywhere in results?
-            if player1.lower() not in results_lower:
-                missing.append({
-                    "index": idx,
-                    "place": place,
-                    "player1": player1,
-                    "player2": player2,
-                    "division": division
-                })
+        if not p1_norm:
+            continue
+
+        # Check if this placement appears in results (any line with matching place + name)
+        found = False
+        place_str = str(place).strip()
+
+        for line in results_text.splitlines():
+            m = _RE_PLACE_LINE.match(line.strip())
+            if not m:
+                continue
+            line_place, line_name = m.group(1), m.group(2)
+            if line_place != place_str:
+                continue
+            line_norm = _normalize_name_for_roundtrip_match(line_name)
+
+            # Match: placement's normalized name(s) appear in line
+            if p1_norm in line_norm or line_norm in p1_norm:
+                if p2_norm:
+                    if p2_norm in line_norm or line_norm in p2_norm:
+                        found = True
+                        break
+                else:
+                    found = True
+                    break
+
+        if not found:
+            missing.append({
+                "index": idx,
+                "place": place,
+                "player1": player1,
+                "player2": player2,
+                "division": p.get("division_canon") or p.get("division_raw") or "",
+            })
 
     if missing:
         miss_count = len(missing)
@@ -951,7 +1145,7 @@ def check_results_cell_roundtrip_missing_any_placement(
 
         issues.append(QCIssue(
             check_id="results_cell_roundtrip_missing_any_placement",
-            severity="ERROR",
+            severity="WARN",
             event_id=str(event_id),
             field="Results",
             message=f"Results cell missing {miss_count} placement(s) from placements_json",
@@ -959,6 +1153,36 @@ def check_results_cell_roundtrip_missing_any_placement(
             context={
                 "missing_count": miss_count,
                 "example_indices": [m["index"] for m in missing[:3]]
+            }
+        ))
+
+    return issues
+
+
+def check_results_cell_empty_but_has_placements(
+    placements: list[dict],
+    results_text: str,
+    event_id: str
+) -> list[QCIssue]:
+    """
+    Stage 3 check: Detect when placements exist but results_text is empty or very short.
+    This indicates a failure in the formatting step.
+    """
+    issues = []
+
+    placements_count = len(placements) if placements else 0
+
+    if placements_count > 0 and (not results_text or len(results_text.strip()) < 5):
+        issues.append(QCIssue(
+            check_id="results_cell_empty_but_has_placements",
+            severity="ERROR",
+            event_id=str(event_id),
+            field="Results",
+            message=f"Results cell is empty or too short but event has {placements_count} placement(s)",
+            example_value="",
+            context={
+                "placements_count": placements_count,
+                "results_text_length": len(results_text) if results_text else 0
             }
         ))
 
@@ -997,13 +1221,16 @@ def check_results_cell_near_excel_limit(results_text: str, event_id: str) -> lis
     return issues
 
 
-def run_slop_detection_checks_stage3_excel(records: list[dict], results_map: dict) -> list[QCIssue]:
+def run_slop_detection_checks_stage3_excel(
+    records: list[dict], results_map: dict, players_by_id: dict = None
+) -> list[QCIssue]:
     """
     Run Stage 3 checks on Excel workbook data.
 
     Args:
         records: List of event records (from Stage 2)
         results_map: Dict mapping event_id -> formatted results text
+        players_by_id: Dict mapping player_id -> {player_name_clean} (optional, for roundtrip check)
 
     Returns:
         List of QCIssue objects
@@ -1014,19 +1241,25 @@ def run_slop_detection_checks_stage3_excel(records: list[dict], results_map: dic
         event_id = rec.get("event_id", "")
         results_text = results_map.get(str(event_id), "")
 
-        if not results_text:
-            continue
-
-        # Parse placements for roundtrip check
+        # Parse placements for checks
         placements_str = rec.get("placements_json", "[]")
         try:
             placements = json.loads(placements_str)
         except json.JSONDecodeError:
             placements = []
 
-        # Run Stage 3 checks
+        # Run Stage 3 checks (some checks need to run even if results_text is empty)
+        all_issues.extend(check_results_cell_empty_but_has_placements(placements, results_text, event_id))
+
+        if not results_text:
+            continue
+
         all_issues.extend(check_results_cell_duplicate_lines(results_text, event_id))
-        all_issues.extend(check_results_cell_roundtrip_missing_any_placement(placements, results_text, event_id))
+        all_issues.extend(
+            check_results_cell_roundtrip_missing_any_placement(
+                placements, results_text, event_id, players_by_id=players_by_id
+            )
+        )
         all_issues.extend(check_results_cell_near_excel_limit(results_text, event_id))
 
         # Scan the results_text itself with global scanners

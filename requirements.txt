@@ -1,5 +1,6 @@
 beautifulsoup4==4.14.3
 et_xmlfile==2.0.0
+ftfy==6.3.1
 lxml==6.0.2
 numpy==2.4.2
 openpyxl==3.1.5
