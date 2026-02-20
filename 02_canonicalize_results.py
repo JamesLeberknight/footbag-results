@@ -2521,6 +2521,12 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             r'\bin.*finals.*seed\b.*\bbeat\b',  # Tournament scoring description
             r'^[\w\s]+\s+vs\s+[\w\s]+\s+\d+/\d+',  # Tournament match result format (e.g., "X vs Y 11/3")
         ]
+        # Pattern 14: doubles bracket match result "Team1/Player1 Vs Team2/Player2"
+        # e.g., "Oscar Loreto/ Reinaldo Pérez Vs CArlos Márquez/Angel Vivas (scratch)"
+        # These appear in "Doubles Semifinals/Final" sections - skip them as they're
+        # match results, not final placements (final standings are listed separately)
+        if '/' in entry_raw and re.search(r'\bvs\.?\b', entry_raw, re.IGNORECASE):
+            continue  # Skip - doubles bracket match result, not a placement
         if any(re.search(pattern, entry_raw, re.IGNORECASE) for pattern in narrative_patterns):
             continue  # Skip - this is tournament narrative, not a placement
 
@@ -2570,6 +2576,17 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             player2_names = [p.strip() for p in player2.split('/')]
             if player2_names:
                 player2 = player2_names[0]  # Use first part of the slash-separated names
+
+        # Strip TIE format remainder from player2: when entry_raw has TIE doubles format
+        # "A/B and C/D", the "/" split gives player2="B and C/D", then "/" strip gives
+        # player2="B and C". Strip " and C" to leave just the correct partner "B".
+        # Also handles singles TIE: "TIE A and B and C" → player2="B and C" → "B".
+        # All remaining " and " in player2 are parsing artifacts, not legitimate compound names.
+        if player2 and re.search(r'\s+and\s+', player2, re.IGNORECASE):
+            and_m = re.search(r'\s+and\s+', player2, re.IGNORECASE)
+            trimmed = player2[:and_m.start()].strip()
+            if trimmed:  # Don't blank out player2 entirely
+                player2 = trimmed
 
         # Skip trick sequences (identified by " > " separator)
         # e.g., "Diving Clipper > Spinning Clipper > Spinning Paradox Dragonfly"
