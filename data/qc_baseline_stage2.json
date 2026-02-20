@@ -2,8 +2,8 @@
   "stage": "stage2",
   "total_records": 773,
   "total_errors": 0,
-  "total_warnings": 37,
-  "total_info": 907,
+  "total_warnings": 35,
+  "total_info": 896,
   "counts_by_check": {
     "host_club_multiple_locations": {
       "ERROR": 0,
@@ -20,25 +20,20 @@
       "WARN": 0,
       "INFO": 38
     },
-    "player_has_admin_text": {
-      "ERROR": 0,
-      "WARN": 0,
-      "INFO": 46
-    },
     "place_large_gap": {
       "ERROR": 0,
       "WARN": 0,
       "INFO": 52
     },
+    "player_has_admin_text": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 40
+    },
     "host_club_contains_location": {
       "ERROR": 0,
       "WARN": 0,
       "INFO": 45
-    },
-    "player_name_too_long": {
-      "ERROR": 0,
-      "WARN": 2,
-      "INFO": 0
     },
     "location_tba": {
       "ERROR": 0,
@@ -60,6 +55,11 @@
       "WARN": 1,
       "INFO": 0
     },
+    "player_duplicate_in_team": {
+      "ERROR": 0,
+      "WARN": 1,
+      "INFO": 0
+    },
     "cv_worlds_missing_freestyle": {
       "ERROR": 0,
       "WARN": 1,
@@ -72,13 +72,18 @@
     },
     "player_has_semicolon": {
       "ERROR": 0,
-      "WARN": 3,
+      "WARN": 1,
+      "INFO": 0
+    },
+    "player_name_too_long": {
+      "ERROR": 0,
+      "WARN": 1,
       "INFO": 0
     },
     "any_field_contains_placeholder_or_instructional_text": {
       "ERROR": 0,
       "WARN": 10,
-      "INFO": 643
+      "INFO": 638
     },
     "results_raw_has_strong_signals_but_output_empty": {
       "ERROR": 0,

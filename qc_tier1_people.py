@@ -33,7 +33,8 @@ def looks_like_person(name: str) -> bool:
     low = s.lower()
     if low in {"na", "dnf", "()", "nd", "th"}:
         return False
-    if any(x in low for x in ["club", "footbag", "position", "match", "ifpa", "footstar"]):
+    if any(x in low for x in ["club", "footbag", "position", "match", "ifpa", "footstar",
+                               "competing", "kicks", "drops", "adds"]):
         return False
     if re.search(r'-[A-Z]+\)\s*$', s):   # "-CANADA)", "-USA)"
         return False
@@ -42,6 +43,157 @@ def looks_like_person(name: str) -> bool:
     if re.search(r'\b\d{3,}\b', s):       # 3+ digit number token (IFPA/handicap IDs)
         return False
     if low.rstrip().endswith(" and") or low.rstrip().endswith(") and") or low.rstrip().endswith(") or"):
+        return False
+    # Filter entries starting with "[" or "?" (placeholders/corrupt entries)
+    if s.startswith('[') or s.startswith('?'):
+        return False
+    # Filter trick lists (contain ">" or "->")
+    if '>' in s:
+        return False
+    # Filter score table rows: single surname + 3 or more small numbers
+    # e.g. "Widmer 1 3 1 1 1", "Böhm 2 1 4 3"
+    words = s.split()
+    if len(words) >= 4 and all(re.match(r'^\d{1,2}$', w) for w in words[1:]):
+        return False
+    # Filter narrative starters
+    if re.match(r'^(annual\b|winners\s|thru\s)', low):
+        return False
+    # Filter location fragments: "PA -USA) 56", "AZ -USA) 64" etc.
+    if re.search(r'-[A-Z]+\)\s+\d+\s*$', s):
+        return False
+    # Filter state+score tables: "IL 68 31 16", "IL 63 22 11", "IL 68" (2-letter abbrev + number(s))
+    if re.match(r'^[A-Z]{2}\s+\d+', s) and '(' not in s:
+        return False
+    # Filter location fragments starting with state/region + ")" or ", STATE)"
+    # e.g., "GA) 16 pts", "SC) 8 pts", "CO, USA) and Rick Reese"
+    if re.match(r'^[A-Z]{2}\)', s) or re.match(r'^[A-Z]{2},\s+[A-Z]+\)', s):
+        return False
+    # Filter entries ending with " pts" or "pts." (score summaries)
+    if re.search(r'\d+\s+pts\.?\s*$', low):
+        return False
+    # Filter entries with narrative: contains "didn't"/"didn´t" (e.g., "Müller Didn´t show up")
+    if re.search(r"didn['\u00b4`]t", low):
+        return False
+    # Filter ordinal-prefixed entries: "2nd Ryan", "nd= Adrian Dick"
+    if re.match(r'^(1st|2nd|3rd|\d+th|nd=|rd=|st=)\s', low):
+        return False
+    # Filter score table rows with 3+ trailing single-digit numbers even with asterisk:
+    # e.g., "D. Chabannes* 2 1 4 1 1", "P. Marchianni** 3 3 3 4"
+    tokens = s.split()
+    if len(tokens) >= 4:
+        numeric_tail = sum(1 for w in tokens[2:] if re.match(r'^\d{1,2}\*{0,2}$', w))
+        if numeric_tail >= 3:
+            return False
+    # Filter location lists with 2+ commas (e.g., "BC, Arizona, Texas and the")
+    if s.count(',') >= 2:
+        return False
+    # Filter "CA (3-peat)" — location with annotation in parens
+    if re.match(r'^[A-Z]{2}\s+\(', s):
+        return False
+    # Filter pure-initial pairs like "F. D." (not a real full name)
+    if re.match(r'^[A-Z]\.\s+[A-Z]\.$', s):
+        return False
+    # Filter entries starting with "Team " (team names, not individuals)
+    if re.match(r'^team\s', low):
+        return False
+    # Filter entries starting with "USA)" (location fragment like "USA) and Greg Nelson")
+    if s.startswith('USA)'):
+        return False
+    # Filter entries starting with lowercase (trick lists, Czech phrases, etc.)
+    if s and s[0].islower():
+        return False
+    # Filter entries containing "results" keyword (not a person name)
+    if 'results' in low:
+        return False
+    # Filter entries with standalone "?" word (unresolvable placeholders like "Rémi ?", "Marek ?")
+    if any(w in {'?', '??', '???', '????', '?????'} for w in s.split()):
+        return False
+    # Filter "N victories" / "N victory" leaderboard annotations (should be cleaned before alias lookup)
+    if re.search(r'\d+\s+victor(?:y|ies)\b', low):
+        return False
+    # Filter emoji flag sequences (name has unstripped country flag emoji)
+    if re.search(r'[\U0001F1E0-\U0001F1FF]{2}', s):
+        return False
+    # Filter German tournament bracket terms (not player names)
+    if re.search(r'\b(viertelfinale|halbfinale|finale)\b', low):
+        return False
+    # Filter entries ending with ordinal "N." rank suffix like "Barry Thorsen 3."
+    if re.search(r'\s+\d+\.\s*$', s):
+        return False
+    # Filter entries that end with "--N" score/rank like "Shannon Anderson--74"
+    if re.search(r'\s*--\d+\s*$', s):
+        return False
+    # Filter "Platz" (German for "place" - tournament position text)
+    if 'platz' in low:
+        return False
+    # Filter score-table rows with decimal: "First Last 98 30 3.27" (3+ numeric tokens, last is decimal)
+    if len(words) >= 5:
+        tail = words[2:]
+        if sum(1 for w in tail if re.match(r'^\d+(?:[.,]\d+)?$', w)) >= 3:
+            return False
+    # Filter "N Punkte" / "N points" / "N pkt" suffixes (German/English/Polish score annotations)
+    if re.search(r'\d+\s+(?:punkte?|points?|pkt)\b', low):
+        return False
+    # Filter entries with "$$$" / "$$" (noise symbols not in person names)
+    if '$$' in s:
+        return False
+    # Filter entries ending with "<3" emoji-like symbol
+    if s.rstrip().endswith('<3'):
+        return False
+    # Filter narrative/admin entries containing "round robin"
+    if 'round robin' in low:
+        return False
+    # Filter entries with "..." (truncated/incomplete entries)
+    if '...' in s:
+        return False
+    # Filter backslash-separated doubles teams (need split, not alias)
+    if ' \\ ' in s or '\\' in s and re.search(r'\w\\\w', s):
+        return False
+    # Filter entries with digit(s) between two apparent names: "Widen Aroni (Basque Country) 7 Joseph"
+    if re.search(r'\)\s+\d+\s+[A-Z]', s):
+        return False
+    # Filter "First place v1/v2" admin entries
+    if re.match(r'^first\s+place\b', low):
+        return False
+    # Filter location-only entries: "City, ST" patterns like "Bridgewater, NJ"
+    if re.match(r'^[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*,\s+[A-Z]{2}\s*$', s):
+        return False
+    # Filter trick/junk entries ending with ")" but no opening "(" (truncated)
+    if s.endswith(')') and '(' not in s:
+        return False
+    # Filter entries ending with "&" (incomplete entry, second name missing)
+    if s.rstrip().endswith('&'):
+        return False
+    # Filter entries with "_" as a word (placeholder underscore for missing name)
+    if '_' in s and any(w.strip('_') == '' for w in s.split()):
+        return False
+    # Filter "Name - lowercase Uppercase" (two people in one field, second person lowercase-starting)
+    if re.match(r'^\S+\s+\S+\s+-\s+[a-z]\S+\s+[A-Z]', s):
+        return False
+    # Filter entries with "N.Name" ordinal stuck to second person (e.g. "Ryan Morris 3.Ben Baybak")
+    if re.search(r'\s+\d+\.[A-Z]', s):
+        return False
+    # Filter "(Fin)N" or "(Country)Score" suffix without space (encoding/parse noise)
+    if re.search(r'\([A-Z][a-z]{1,4}\)\d+', s):
+        return False
+    # Filter encoding-corrupted entries: "?" embedded inside a word (not standalone)
+    # e.g. "Tomá? Tuček" (Czech š→?), "Marek ?andrik" (?→Š), "Vá?ka Kouda"
+    if re.search(r'\w\?|\?\w', s):
+        return False
+    # Filter entries with "¸" or "¹" or "¿" encoding corruption characters
+    if re.search(r'[¸¹º¿]', s):
+        return False
+    # Filter entries ending with "?" (trailing question mark, unresolved placeholder)
+    if s.rstrip().endswith('?'):
+        return False
+    # Filter entries containing "over" (match result: "Steve Goldberg 11-0 over Ianek Regimbauld")
+    if re.search(r'\d+-\d+\s+over\b', low):
+        return False
+    # Filter entries with asterisk used as separator: "Marc Weber* Bob Silva"
+    if re.search(r'\w\*\s+[A-Z]', s):
+        return False
+    # Filter trick-description entries with trick-specific keywords after name
+    if re.search(r'\b(whirl|swirl|blender|mirage|legbeater|butterfly|torque|paradox|symposium|clipper|ripwalk|hopover|gauntlet|matador|tripwalk|eggbeater|ducking|dropless|scorpion)\b', low):
         return False
     return True
 
@@ -104,7 +256,35 @@ def run_tier1_people_qc(pf: pd.DataFrame, top_n: int = 200) -> tuple[dict, list[
                 ))
 
         # 4) multi-person strings in a single name field
-        mask_multi = name.str.contains(_RE_MULTI_PERSON, na=False) & (name.str.len() > 0)
+        # Apply exclusions to avoid false positives on location fragments and truncated entries
+        def _is_multi_false_positive(n: str) -> bool:
+            lo = (n or "").strip().lower()
+            s = (n or "").strip()
+            # Starts with lowercase → not a person name (narrative, location fragment)
+            if s and s[0].islower():
+                return True
+            # Ends with " and" or ") and" (truncated incomplete entry)
+            if re.search(r'\s+and\s*$', lo):
+                return True
+            # Location fragment pattern: state/country code + ")" e.g. "AB) and", "SUI) and"
+            if re.match(r'^[A-Z]{2,3}[,\s]+[A-Z]+\)', s) or re.match(r'^[A-Z]{2,3}\)', s):
+                return True
+            # 2+ commas → location list
+            if s.count(',') >= 2:
+                return True
+            # Contains "Viertelfinale"/"Halbfinale" → German bracket text
+            if re.search(r'\b(viertelfinale|halbfinale)\b', lo):
+                return True
+            # "III and Name" where III is a Roman numeral rank (not a person)
+            if re.match(r'^(I{1,3}|IV|V|VI|VII|VIII|IX|X)\s+and\b', s):
+                return True
+            return False
+
+        mask_multi = (
+            name.str.contains(_RE_MULTI_PERSON, na=False) &
+            (name.str.len() > 0) &
+            ~name.map(_is_multi_false_positive)
+        )
         if mask_multi.any():
             ex = name[mask_multi].value_counts().head(50)
             for n, cnt in ex.items():

@@ -1363,10 +1363,10 @@ def clean_player_name(name: str) -> str:
         # Strip if paren content contains trick indicators and is long
         has_trick_indicators = ('>' in paren_content or '|' in paren_content or
                                 '=' in paren_content or paren_content.count(',') >= 2 or
-                                paren_content.count('-') >= 2)
+                                paren_content.count('-') >= 2 or ';' in paren_content)
         # Also strip if it's long narrative text (contains ... or starts with common words)
         is_narrative = ('...' in paren_content or
-                        re.match(r'^(I |the |a |an |we |he |she |it |this )', paren_content, re.IGNORECASE))
+                        re.match(r'^(I |the |a |an |we |he |she |it |this |forfeit|did not)', paren_content, re.IGNORECASE))
         if len(paren_content) > 15 and (has_trick_indicators or is_narrative):
             # But not if it's clearly a country/club code (short, all letters)
             if not re.match(r'^[A-Za-z\s]{2,10}$', paren_content):
@@ -1501,6 +1501,149 @@ def clean_player_name(name: str) -> str:
             before_trick = name[:second_last[0]].strip()
             name = (before_trick + ' (' + country_content + ')').strip()
 
+    # Rule 36: Strip "Winner = Name" prefix (event summaries listing the winner)
+    # e.g. "Winner = Franck Rémy" → "Franck Rémy"
+    name = re.sub(r'^Winner\s*=\s*', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 37: Strip ordinal placement in parentheses (French event format)
+    # e.g. "David (1) Rambaud" → "David Rambaud", "Grischa (2) Tellenbach" → "Grischa Tellenbach"
+    name = re.sub(r'\s*\(\d{1,2}\)\s*', ' ', name).strip()
+
+    # Rule 38a: Strip "+CODE" affiliation suffix (double-nationality/club combos)
+    # e.g. "Anne Busch CH+GER" → "Anne Busch CH" (Rule 38 then strips "CH")
+    # e.g. "Ludovic Lacaze RNH+Icarus" → "Ludovic Lacaze RNH" (Rule 38 strips "RNH")
+    # e.g. "Alex Smirnov USA+RUS" → "Alex Smirnov USA" (Rule 38 strips "USA")
+    name = re.sub(r'\+[A-Za-z]{2,10}$', '', name).strip()
+
+    # Rule 38: Strip bare 2-5 letter country/club code at end of name
+    # e.g. "Grischa Tellenbach RNH" → "Grischa Tellenbach", "Charlotte Vollmer GER" → "Charlotte Vollmer"
+    # Only strip if the name part has mixed case (has lowercase letters)
+    m = re.match(r'^([A-Za-zÀ-ÿ][\w\-\'À-ÿ]+(?: [A-Za-zÀ-ÿ][\w\-\'À-ÿ]+)+)\s+([A-Z]{2,5})$', name)
+    if m and any(c.islower() for c in m.group(1)):
+        name = m.group(1).strip()
+
+    # Rule 39: Strip " - ORG" where ORG is 2-5 uppercase letters (org/club suffixes)
+    # e.g. "Wojtek Jamski - WSF" → "Wojtek Jamski", "Marcin Staroń - WSF" → "Marcin Staroń"
+    name = re.sub(r'\s*-\s*[A-Z]{2,5}\s*$', '', name).strip()
+
+    # Rule 30: Strip "(ClubName)REPRESENT" suffix (European club events)
+    # e.g. "Olivier Gonelle(Icarus Team from Montpellier)REPRESENT" → "Olivier Gonelle"
+    name = re.sub(r'\([^)]+\)\s*REPRESENT\s*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 31: Strip "(NN ADDS) trick description" (Circle Contest format)
+    # e.g. "Maxime Boucoiran (75 ADDS) Pixie whirling swirl" → "Maxime Boucoiran"
+    name = re.sub(r'\s*\(\d+\s+ADDS\)\s+.*$', '', name).strip()
+
+    # Rule 32: Strip " with N kicks (golf format)"
+    # e.g. "Stefan Siegert with 16 kicks (4 under par)" → "Stefan Siegert"
+    name = re.sub(r'\s+with\s+\d+\s+kicks\b.*$', '', name).strip()
+
+    # Rule 33: Extend Rule 13 — multiple " ? " separators even without ">"
+    # e.g. "Honza Weber fenix ? food prozessor ? paradox symposium whirl" → "Honza Weber"
+    # Also strips trailing lowercase trick words before "?" (e.g., "Honza Weber fenix")
+    if name.count(' ? ') >= 2:
+        idx = name.index(' ? ')
+        candidate = name[:idx].strip()
+        # Strip trailing lowercase words (they're trick words, not name)
+        candidate = re.sub(r'\s+[a-z]\S*(?:\s+.*)?$', '', candidate).strip()
+        if candidate and candidate[0].isupper():
+            name = candidate
+
+    # Rule 34: Strip " - NN (golf tie/playoff narrative)"
+    # e.g. "Dr. Mike Stefanelli - 31 (3-Way tie, 1 hole playoff)" → "Dr. Mike Stefanelli"
+    name = re.sub(r'\s*-\s*\d+\.?\d*\s*\((?:3-[Ww]ay|[Tt]ie|playoff).*\).*$', '', name).strip()
+
+    # Rule 35: Strip trailing narrative introduced by "Not played off" or "did not"
+    # e.g. "Alex Zerbe Not played off; did not make cut to round 2." → "Alex Zerbe"
+    name = re.sub(r'\s+(?:Not played off|did not)\b.*$', '', name).strip()
+
+    # Rule 40: Strip "N victories" / "N victory" suffix (event leaderboard annotations)
+    # e.g. "Miquel Clemente 5 victories" → "Miquel Clemente", "Grischa Tellenbach 1 victory" → "Grischa Tellenbach"
+    # Also handles "N victory - N points" form
+    name = re.sub(r'\s+\d+\s+victor(?:y|ies)\b.*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 41: Strip "(Location) decimal-score" suffix (Polish/Central European golf format)
+    # e.g. "Mariusz Wilk (Warszawa) 97,50" → "Mariusz Wilk", "Marek Zalewski (Giżycko) 73,44" → "Marek Zalewski"
+    name = re.sub(r'\s*\([^)]+\)\s*\d+[,.]\d+\s*$', '', name).strip()
+    # Also handle bare decimal score at end without location: "Fred Touzelet67.4" → "Fred Touzelet"
+    name = re.sub(r'\d+[.,]\d+\s*$', '', name).strip()
+
+    # Rule 42: Strip emoji flag sequences at end of name
+    # e.g. "Yassin Khateeb 🇩🇪" → "Yassin Khateeb", "Eurik Lindner 🇩🇪" → "Eurik Lindner"
+    name = re.sub(r'[\U0001F1E0-\U0001F1FF]{2}\s*$', '', name).strip()
+
+    # Rule 43: Strip trailing "N. " ordinal rank suffix (Scandinavian format)
+    # e.g. "Barry Thorsen 3." → "Barry Thorsen", "Lucas 1." → "Lucas"
+    name = re.sub(r'\s+\d+\.\s*$', '', name).strip()
+
+    # Rule 44: Strip " - suffix" where suffix is a single word OR entirely lowercase
+    # Handles trick names (single word: "gauntlet"), city names (single word: "Jyväskylä"),
+    # and multi-word trick/score annotations (all-lowercase: "fairy eggbeater", "56 * new course record")
+    # Guard: preserve multi-word suffixes with uppercase (another person like "david Butcher")
+    m44 = re.search(r'\s*-\s+(.+)$', name)
+    if m44:
+        suffix = m44.group(1).strip()
+        suffix_words = suffix.split()
+        # Strip if single word (city/trick) OR all-lowercase (trick/annotation)
+        if len(suffix_words) == 1 or not re.search(r'[A-Z]', suffix):
+            name = name[:m44.start()].strip()
+
+    # Rule 45: Strip dash+number without space at end: "Errol Stryker-44" → "Errol Stryker"
+    # Only when digit follows dash directly (not hyphenated names like "Jean-Pierre")
+    name = re.sub(r'-\d+\s*$', '', name).strip()
+
+    # Rule 46: Strip "N pts" / "Npts" / "N pkt" score suffixes (various formats)
+    # e.g. "Brad Watkins 28pts" → "Brad Watkins", "Damian Budzik 153pkt" → "Damian Budzik"
+    name = re.sub(r'\s*\d+\s*p(?:ts?|kt)\.?\s*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 47: Strip "N Punkte" / "N Punkte ¤" (German points suffix)
+    # e.g. "Stefan Nold 4 Punkte" → "Stefan Nold", "Philipp Schäfer 15 Punkte ¤" → "Philipp Schäfer"
+    name = re.sub(r'\s+\d+\s+Punkte?.*$', '', name).strip()
+
+    # Rule 48: Strip quoted trick descriptions in double quotes
+    # e.g. 'Serge Kaldany "Pixie Ducking Symposium Whirl"' → "Serge Kaldany"
+    name = re.sub(r'\s+"[^"]*"\s*$', '', name).strip()
+    # Also handle smart/curly quotes
+    name = re.sub(r'\s+[\u201c\u201d][^\u201c\u201d]*[\u201c\u201d]\s*$', '', name).strip()
+
+    # Rule 49: Strip "[N]" bracket ordinal and unclosed "[Country" annotation
+    # e.g. "Kerstin Anhuth [4] GER" → "Kerstin Anhuth GER" (then Rule 38 strips GER)
+    # e.g. "Roman Gornitskiy [RUS" → "Roman Gornitskiy" (unclosed bracket with country code)
+    name = re.sub(r'\s*\[\d+\]\s*', ' ', name).strip()
+    # Strip unclosed "[annotation" at end (no closing bracket)
+    name = re.sub(r'\s*\[[^\]]*$', '', name).strip()
+
+    # Rule 50: Strip " \ Name" backslash-joined team member (Bulgarian events)
+    # e.g. "Rossen Kyrta \ Ivan Stanev" → "Rossen Kyrta" (player2 captured separately)
+    # Note: split_entry handles "\" as team separator; this handles residual "\Name" in player1
+    name = re.sub(r'\s*\\\s*.*$', '', name).strip()
+
+    # Rule 51: Strip " N points" suffix (Basque Country event format)
+    # e.g. "Egoitz Campo 11 points" → "Egoitz Campo"
+    name = re.sub(r'\s+\d+\s+points?\s*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 52: Strip "N games" suffix (net tournament format)
+    # e.g. "Kevin Regamey - 4 games" → "Kevin Regamey" (dash handled by Rule 44)
+    name = re.sub(r'\s+\d+\s+games?\s*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 53: Strip "&Word" suffix (teammate first name appended without space after "/" split)
+    # e.g. "Matze Schmidt&Peter" → "Matze Schmidt" (Peter was the partner, separated via "/" split)
+    name = re.sub(r'&\w+$', '', name).strip()
+
+    # Rule 54: Strip trailing golf score "+N" (e.g. "Francois Leh +6" → "Francois Leh")
+    name = re.sub(r'\s+\+\d+\s*$', '', name).strip()
+
+    # Rule 55: Strip trailing standalone number (golf score, ranking, etc.)
+    # e.g. "James Roberts 63" → "James Roberts"
+    # Only strip if result still has 2+ words (don't strip the only identifier from a name)
+    m55 = re.sub(r'\s+\d+\s*$', '', name).strip()
+    if m55 and len(m55.split()) >= 2:
+        name = m55
+
+    # Rule 56: Strip ", Generation" suffix (Roman numeral / Jr / Sr after comma)
+    # e.g. "Rob Woodhull, III" → "Rob Woodhull", "Chris Routh, Jr." → "Chris Routh"
+    name = re.sub(r',\s*(Jr\.?|Sr\.?|I{1,4}|IV|VI{0,3}|VIII|IX|X|2nd|3rd)\s*$', '', name, flags=re.IGNORECASE).strip()
+
     # Rule 28: Strip "and Nth position match" bronze-medal match descriptions
     # e.g. "and 4º position match", "and 3rd position match"
     if re.search(r'^and\s+\d', name, re.IGNORECASE):
@@ -1514,11 +1657,11 @@ def clean_player_name(name: str) -> str:
     name = re.sub(r'\s*-\s*\d+[,.]\s*\d+\s*$', '', name).strip()        # - 110,38 / - 102. 1
     name = re.sub(r'\s*-\s*prize\b.*$', '', name, flags=re.IGNORECASE).strip()  # - prize / - prize money
 
-    # Rule 29: Strip trailing junk markers (trailing dashes, asterisks, en/em-dashes)
+    # Rule 29: Strip trailing junk markers (trailing dashes, asterisks, en/em-dashes, #, _, ])
     # e.g. "Nick Jaros -" → "Nick Jaros", "Tim Werner ---" → "Tim Werner"
-    # e.g. "Jason Varvaro-" → "Jason Varvaro"
-    # Preserve hyphens that are part of the name (only strip from END)
-    cleaned = re.sub(r'[\s\*\-–—]+$', '', name).strip()
+    # e.g. "Jason Varvaro-" → "Jason Varvaro", "Pattrick Schrickel*#" → "Pattrick Schrickel"
+    # e.g. "Marton Lukacs (HU)]" → "Marton Lukacs (HU)"
+    cleaned = re.sub(r'[\s\*\-–—#_\]]+$', '', name).strip()
     if cleaned:
         name = cleaned
 
@@ -1600,6 +1743,32 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
         if len(a) >= 2 and len(b) >= 2:
             return strip_trailing_score(a), strip_trailing_score(b), "team"
 
+    # Try " \ " backslash separator (Bulgarian events use "Player1 \ Player2")
+    if ' \\ ' in entry_clean:
+        a, b = entry_clean.split(' \\ ', 1)
+        a_clean = strip_trailing_score(a.strip())
+        b_clean = strip_trailing_score(b.strip())
+        if looks_like_name(a_clean) and looks_like_name(b_clean):
+            return a_clean, b_clean, "team"
+
+    # Try "+" as team separator (European events: "Player1 + Player2" or "Player1+Player2")
+    # Requires both sides to start with uppercase to avoid false splits on scores/annotations
+    if '+' in entry_clean:
+        parts = entry_clean.split('+', 1)
+        a_clean = strip_trailing_score(parts[0].strip())
+        b_clean = strip_trailing_score(parts[1].strip())
+        if (looks_like_name(a_clean) and looks_like_name(b_clean) and
+                a_clean[:1].isupper() and b_clean[:1].isupper()):
+            return a_clean, b_clean, "team"
+
+    # Try "&" without surrounding spaces (e.g., "Matze Schmidt&Peter")
+    if '&' in entry_clean and ' & ' not in entry_clean:
+        parts = entry_clean.split('&', 1)
+        a_clean = strip_trailing_score(parts[0].strip())
+        b_clean = strip_trailing_score(parts[1].strip())
+        if looks_like_name(a_clean) and looks_like_name(b_clean):
+            return a_clean, b_clean, "team"
+
     # Try " & " second - it's often used when "/" appears in city/country notation
     if " & " in entry_clean:
         a, b = entry_clean.split(" & ", 1)
@@ -1625,6 +1794,11 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
             # If 'a' has commas (multiple names), try to split on comma first
             if ',' in a_clean and a_clean.count(',') >= 1:
                 a_parts = [p.strip() for p in a_clean.split(',')]
+                # Don't split if parts[1] is a name suffix (Roman numeral, Jr., Sr.)
+                # e.g. "David Bernard, III and Andy Ronald" → p1="David Bernard, III", p2="Andy Ronald"
+                _SUFFIX_RE = re.compile(r'^(Jr\.?|Sr\.?|II|III|IV|V|VI|VII|VIII|IX|X|2nd|3rd)$', re.IGNORECASE)
+                if len(a_parts) == 2 and _SUFFIX_RE.match(a_parts[1].strip()):
+                    return a_clean, b_clean, "team"
                 # Use first comma-separated part as player1, rest + b as player2
                 if len(a_parts) >= 2 and len(a_parts[0]) >= 2:
                     p1 = strip_trailing_score(a_parts[0])
