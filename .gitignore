@@ -45,3 +45,49 @@ pivot_*.csv
 *_final.csv
 *.patch
 overrides/*.lnk
+############################
+# Python / runtime
+############################
+__pycache__/
+*.py[cod]
+
+############################
+# Virtual environments
+############################
+.venv/
+venv/
+
+############################
+# Editor / OS noise
+############################
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+############################
+# Pipeline outputs (NEVER COMMIT)
+############################
+out/
+*.xlsx
+
+############################
+# Mirror strategy
+############################
+# If mirror is NOT tracked in git (recommended)
+mirror/
+
+############################
+# Temporary / logs
+############################
+*.log
+*.tmp
+
+# Large artifacts (do not commit)
+*.tar.gz
+*.tar.xz
+mirror.tar.xz
+release_bundle/
+overrides/person_aliases.lock
+alias-candidates.txt
+Claude_old_md_files/
