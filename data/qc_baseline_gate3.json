@@ -1,0 +1,10 @@
+{
+  "stage": "gate3",
+  "date": "2026-02-20",
+  "persons_truth_count": 3699,
+  "gate3_pass": true,
+  "synthetic_excluded": 38,
+  "collision_candidates": 154,
+  "collision_review_rows": 322,
+  "notes": "Gate 3 infrastructure complete: 05_disambiguate_persons.py, argparse+lock in 04_build_analytics.py, synthetic filter (38 excluded), Gate3 PASS at 3699 persons"
+}

@@ -30,10 +30,36 @@ from typing import Optional, Tuple
 import pandas as pd
 import openpyxl
 from openpyxl.utils import get_column_letter
-from openpyxl.styles import Alignment, Font
+from openpyxl.styles import Alignment, Font, PatternFill
 import json
 
 from qc_common import PERSONS, PLACEMENTS
+
+# GATE 2 COVERAGE THRESHOLDS — do not change casually; changing these alters
+# the meaning of all historical coverage annotations in downstream artifacts.
+_G2_COMPLETE        = 0.95
+_G2_MOSTLY_COMPLETE = 0.75
+_G2_PARTIAL         = 0.40
+# Below _G2_PARTIAL → "sparse"
+
+_COVERAGE_FILLS = {
+    "complete":        PatternFill(fill_type="solid", fgColor="92D050"),  # green
+    "mostly_complete": PatternFill(fill_type="solid", fgColor="FFEB9C"),  # yellow
+    "partial":         PatternFill(fill_type="solid", fgColor="FFC000"),  # orange
+    "sparse":          PatternFill(fill_type="solid", fgColor="FFC7CE"),  # light red
+}
+
+
+def _coverage_flag(ratio) -> str:
+    if pd.isna(ratio):
+        return ""
+    if ratio >= _G2_COMPLETE:
+        return "complete"
+    if ratio >= _G2_MOSTLY_COMPLETE:
+        return "mostly_complete"
+    if ratio >= _G2_PARTIAL:
+        return "partial"
+    return "sparse"
 
 
 def read_csv_optional(path: Path) -> pd.DataFrame:
@@ -159,7 +185,8 @@ def is_qc_sheet(name: str) -> bool:
         return True
     if n.endswith(("_full", "_excluded", "_quarantine", "_duplicates")):
         return True
-    if n in {"players_alias_candidates", "teams_alias_candidates", "divisions_normalized"}:
+    if n in {"persons_unresolved", "placements_unresolved",
+             "players_alias_candidates", "teams_alias_candidates", "divisions_normalized"}:
         return True
     return False
 
@@ -231,14 +258,18 @@ def reorder_sheets(wb) -> None:
     preferred = [
         "Index",
         "Summary",
+        "Persons_Truth",          # promoted: first analytics sheet
+        "Analytics_Safe_Surface", # new: default pivot source
         "Divisions",
         "Divisions_Normalized",
         "Division_Stats",
         "Person_Stats",
         "PersonStats_ByDivCat",
         "Placements_ByPerson",
-        "Persons_Truth",
+        "Persons_Unresolved",
+        "Placements_Unresolved",
         "Coverage_ByEventDiv",
+        "Data_Integrity",         # new
         "Players_Clean",
         "Placements_Flat",
     ]
@@ -285,7 +316,7 @@ def _apply_sheet_hiding(wb) -> None:
             hide_columns_by_header(ws, {"effective_person_id"})
             _hide_id_columns_sheet(ws)
         elif sheet_name == "Placements_ByPerson":
-            hide_columns_by_header(ws, {"player1_id", "player2_id"})
+            hide_columns_by_header(ws, {"player1_id", "player2_id", "team_person_key"})
             hide_columns_by_prefix(ws, _prefixes_placements)
             _hide_id_columns_sheet(ws)
         elif is_year_sheet(sheet_name):
@@ -296,6 +327,27 @@ def _apply_sheet_hiding(wb) -> None:
             # Keep QC/diagnostic sheets fully visible; presentation sheets hide ID-like columns.
             if not is_qc_sheet(sheet_name):
                 _hide_id_columns_sheet(ws)
+
+
+def _apply_coverage_colors(wb) -> None:
+    """Color-code coverage_flag column cells in all sheets that have it."""
+    for sheet_name in wb.sheetnames:
+        ws = wb[sheet_name]
+        if ws.max_row < 2:
+            continue
+        cov_col = None
+        for col_idx in range(1, ws.max_column + 1):
+            if str(ws.cell(row=1, column=col_idx).value or "").strip() == "coverage_flag":
+                cov_col = col_idx
+                break
+        if cov_col is None:
+            continue
+        for row_idx in range(2, ws.max_row + 1):
+            cell = ws.cell(row=row_idx, column=cov_col)
+            val = str(cell.value or "").strip()
+            fill = _COVERAGE_FILLS.get(val)
+            if fill:
+                cell.fill = fill
 
 
 def _as_int_place(x) -> Optional[int]:
@@ -746,7 +798,7 @@ def build_player_stats(per: pd.DataFrame) -> pd.DataFrame:
     return stats
 
 
-def build_division_stats(pf: pd.DataFrame) -> pd.DataFrame:
+def build_division_stats(pf: pd.DataFrame, out_dir: Path) -> pd.DataFrame:
     pf = pf.copy()
     pf["place_int"] = pf["place"].apply(_as_int_place)
     pf["is_win"] = pf["place_int"].apply(lambda x: 1 if x == 1 else 0)
@@ -761,6 +813,24 @@ def build_division_stats(pf: pd.DataFrame) -> pd.DataFrame:
         ascending=[False, False, True, True],
         inplace=True
     )
+
+    # Attach worst coverage flag per division (lowest ratio seen across all events)
+    cov_path = out_dir / "Coverage_ByEventDivision.csv"
+    if cov_path.exists():
+        cov = pd.read_csv(cov_path, dtype=str).fillna("")
+        cov["coverage_ratio"] = pd.to_numeric(cov["coverage_ratio"], errors="coerce")
+        cov_agg = (
+            cov.groupby(["division_category", "division_canon"], as_index=False)
+               ["coverage_ratio"].min()
+               .rename(columns={"coverage_ratio": "_min_cov"})
+        )
+        cov_agg["worst_coverage_flag"] = cov_agg["_min_cov"].map(_coverage_flag)
+        cov_agg = cov_agg.drop(columns=["_min_cov"])
+        stats = stats.merge(cov_agg, on=["division_category", "division_canon"], how="left")
+        stats["worst_coverage_flag"] = stats["worst_coverage_flag"].fillna("")
+    else:
+        stats["worst_coverage_flag"] = ""
+
     return stats
 
 
@@ -1065,7 +1135,7 @@ def build_top_unmapped_names(pf: pd.DataFrame, limit: int = 200) -> tuple[pd.Dat
 
 
 def build_coverage_by_event_division(
-    placements_path: Path,
+    pf: pd.DataFrame,          # Gate-1-filtered Placements_Flat (in memory)
     out_dir: Path,
     quarantine_path: Path | None = None,
 ) -> pd.DataFrame:
@@ -1085,12 +1155,14 @@ def build_coverage_by_event_division(
       - No guessing, no inference of missing results.
     """
 
-    df = pd.read_csv(placements_path, dtype=str).fillna("")
-    # Standardize key columns (defensive)
+    df = pf.copy()
+    # Standardize key columns (defensive) — ensure string dtype
     for c in ["event_id", "year", "division_canon", "division_category", "place",
               "competitor_type", "player1_name", "player2_name", "team_display_name"]:
         if c not in df.columns:
             df[c] = ""
+        else:
+            df[c] = df[c].fillna("").astype(str)
 
     # Parse place as int where possible (ignore non-numeric places)
     df["place_num"] = pd.to_numeric(df["place"], errors="coerce")
@@ -1162,12 +1234,446 @@ def build_coverage_by_event_division(
     # Sort for readability
     cov = cov.sort_values(["year", "event_id", "division_category", "division_canon"], kind="mergesort")
 
+    # Add coverage flag (self-contained: consumers don't need to re-implement thresholds)
+    cov["coverage_flag"] = cov["coverage_ratio"].map(_coverage_flag)
+
     # Write CSV output
     out_path = out_dir / "Coverage_ByEventDivision.csv"
     cov.to_csv(out_path, index=False)
     print(f"Wrote: {out_path} ({len(cov)} rows)")
 
     return cov
+
+
+def build_placements_by_person_clean(
+    pf: pd.DataFrame,      # Gate-1-filtered Placements_Flat (with person_id columns)
+    cov_df: pd.DataFrame,  # from build_coverage_by_event_division
+    out_dir: Path,
+) -> pd.DataFrame:
+    """
+    Build clean Placements_ByPerson following canonical sequence:
+    Step 2: person_id already applied (02p5 did the LEFT JOIN)
+    Step 3: canonicalize competitor identity; build team_person_key
+    Step 4: collapse duplicate player-token rows per competitor identity
+    Step 5: apply coverage_flag
+    Step 6: output clean schema
+    """
+    df = pf.copy()
+
+    # Defensive: ensure person_id columns exist and are clean strings
+    for col in ["player1_person_id", "player1_person_canon",
+                "player2_person_id", "player2_person_canon"]:
+        if col not in df.columns:
+            df[col] = ""
+        df[col] = df[col].fillna("").astype(str).str.strip()
+
+    # Ensure base columns exist
+    for col in ["event_id", "year", "division_canon", "division_category",
+                "place", "competitor_type", "team_display_name"]:
+        if col not in df.columns:
+            df[col] = ""
+        df[col] = df[col].fillna("").astype(str).str.strip()
+
+    is_team = df["competitor_type"].str.lower() == "team"
+
+    # --- Step 3: Canonicalize competitor identity ---
+
+    # Singles: identity = player1_person_id
+    df.loc[~is_team, "person_id"] = df.loc[~is_team, "player1_person_id"]
+    df.loc[~is_team, "person_canon"] = df.loc[~is_team, "player1_person_canon"]
+    df.loc[~is_team, "team_person_key"] = ""
+    df.loc[~is_team, "team_display_name"] = ""
+
+    # Teams: stable key = sorted(p1_id, p2_id) joined by "|"
+    def _team_key(row):
+        parts = sorted(x for x in [row["player1_person_id"], row["player2_person_id"]] if x)
+        return "|".join(parts) if parts else ""
+
+    df.loc[is_team, "team_person_key"] = df[is_team].apply(_team_key, axis=1)
+    df.loc[is_team, "person_id"] = ""
+
+    # Team display: use existing team_display_name if present, else build from canons
+    def _team_display(row):
+        existing = str(row.get("team_display_name", "")).strip()
+        if existing:
+            return existing
+        p1 = str(row["player1_person_canon"]).strip()
+        p2 = str(row["player2_person_canon"]).strip()
+        return f"{p1} / {p2}" if p2 else p1
+
+    df.loc[is_team, "team_display_name"] = df[is_team].apply(_team_display, axis=1)
+    df.loc[is_team, "person_canon"] = ""
+
+    # --- Step 4: Deduplicate by competitor identity ---
+    # Group key: person_id for singles, team_person_key for teams
+    df["_group_key"] = df.apply(
+        lambda r: r["team_person_key"] if str(r.get("competitor_type", "")).lower() == "team"
+                  else r["person_id"],
+        axis=1,
+    )
+
+    group_cols = ["event_id", "division_canon", "place", "_group_key"]
+    df["_place_int"] = df["place"].apply(_as_int_place)
+    df = df.sort_values(["event_id", "division_canon", "_place_int", "_group_key"])
+    df = df.drop_duplicates(subset=group_cols, keep="first")
+    df = df.drop(columns=["_group_key", "_place_int"], errors="ignore")
+
+    # --- Step 5: Apply coverage_flag ---
+    if not cov_df.empty:
+        _cov = cov_df[["event_id", "division_canon", "coverage_flag"]].drop_duplicates()
+        df = df.drop(columns=["coverage_flag"], errors="ignore")
+        df = df.merge(_cov, on=["event_id", "division_canon"], how="left")
+        df["coverage_flag"] = df["coverage_flag"].fillna("")
+    else:
+        df["coverage_flag"] = ""
+
+    # person_unresolved flag
+    df["person_unresolved"] = ""
+    _is_team2 = df["competitor_type"].fillna("").str.strip().str.lower() == "team"
+    df.loc[~_is_team2 & (df["person_id"].fillna("") == ""), "person_unresolved"] = "true"
+    df.loc[_is_team2 & (df["team_person_key"].fillna("") == ""), "person_unresolved"] = "true"
+
+    # --- Step 6: Output clean schema ---
+    OUTPUT_COLS = [
+        "event_id", "year", "division_canon", "division_category",
+        "place", "competitor_type",
+        "person_id", "team_person_key", "person_canon", "team_display_name",
+        "coverage_flag", "person_unresolved",
+    ]
+    for c in OUTPUT_COLS:
+        if c not in df.columns:
+            df[c] = ""
+    out = df[OUTPUT_COLS].copy()
+    out_path = out_dir / "Placements_ByPerson.csv"
+    out.to_csv(out_path, index=False)
+    n_unresolved = out["person_unresolved"].eq("true").sum()
+    print(f"Wrote: {out_path} ({len(out)} rows, {n_unresolved} unresolved)")
+    return out
+
+
+def build_persons_unresolved(
+    pf: pd.DataFrame,
+    per_all: pd.DataFrame,
+    out_dir: Path,
+) -> pd.DataFrame:
+    """
+    Build Persons_Unresolved: identity punch list surfacing unmapped players,
+    excluded persons, and multi-person collisions needing human review.
+
+    Output columns:
+      player_id | name_raw | name_clean | person_id | person_canon |
+      issue_type | appearances | evidence | suggested_action
+    """
+    COLS = ["player_id", "name_raw", "name_clean", "person_id", "person_canon",
+            "issue_type", "appearances", "evidence", "suggested_action"]
+    parts = []
+
+    # 1. Unmapped player tokens: rows where player1_person_id is blank
+    p1_pid = pf.get("player1_person_id", pd.Series([""] * len(pf))).fillna("").astype(str).str.strip()
+    unmapped = pf[p1_pid == ""].copy()
+    if not unmapped.empty:
+        for col in ["player1_id", "player1_name_raw", "player1_name_clean"]:
+            if col not in unmapped.columns:
+                unmapped[col] = ""
+            unmapped[col] = unmapped[col].fillna("").astype(str).str.strip()
+        grp = (
+            unmapped
+            .groupby(["player1_id", "player1_name_raw", "player1_name_clean"], dropna=False)
+            .agg(appearances=("event_id", "count"))
+            .reset_index()
+            .rename(columns={
+                "player1_id": "player_id",
+                "player1_name_raw": "name_raw",
+                "player1_name_clean": "name_clean",
+            })
+        )
+        grp["person_id"] = ""
+        grp["person_canon"] = ""
+        grp["issue_type"] = "unmapped_player_id"
+        grp["evidence"] = "no alias in person_aliases.csv"
+        grp["suggested_action"] = grp["appearances"].map(
+            lambda n: "add alias" if n > 1 else "accept as unresolved (single appearance)"
+        )
+        parts.append(grp)
+
+    # 2. Excluded persons from Persons_Truth_Excluded.csv
+    excluded_path = out_dir / "Persons_Truth_Excluded.csv"
+    if excluded_path.exists():
+        excl = pd.read_csv(excluded_path, dtype=str).fillna("")
+        if not excl.empty and "effective_person_id" in excl.columns:
+            exclude_reason_map = {
+                "synthetic_sparse_single":   ("sparse_coverage_only",  "ignore (non-analytic)"),
+                "two_people_quarantine":     ("multi_person_collision", "split or merge person_ids"),
+                "synthetic_quarantine_only": ("quarantine_only",        "accept as unresolved"),
+                "not_presentable_strict":    ("not_presentable",        "fix name or add alias"),
+                "duplicate_person_canon":    ("duplicate_display_name", "resolve in person_aliases.csv"),
+            }
+            app_map: dict[str, int] = {}
+            if not per_all.empty and "person_id" in per_all.columns:
+                _app = (
+                    per_all.groupby("person_id", dropna=False)
+                    .size()
+                    .reset_index(name="n")
+                )
+                app_map = dict(zip(_app["person_id"].astype(str).str.strip(), _app["n"]))
+            rows = []
+            for _, r in excl.iterrows():
+                pid = str(r.get("effective_person_id", "")).strip()
+                canon = str(r.get("person_canon", "")).strip()
+                reason = str(r.get("exclude_reason", "")).strip()
+                issue_type, suggested_action = exclude_reason_map.get(reason, (reason, "review manually"))
+                rows.append({
+                    "player_id": "",
+                    "name_raw": "",
+                    "name_clean": "",
+                    "person_id": pid,
+                    "person_canon": canon,
+                    "issue_type": issue_type,
+                    "appearances": app_map.get(pid, 0),
+                    "evidence": reason,
+                    "suggested_action": suggested_action,
+                })
+            if rows:
+                parts.append(pd.DataFrame(rows))
+
+    # 3. Multi-person quarantine from Persons_Truth_Quarantine_TwoPeople.csv
+    qua_path = out_dir / "Persons_Truth_Quarantine_TwoPeople.csv"
+    if qua_path.exists():
+        qua = pd.read_csv(qua_path, dtype=str).fillna("")
+        if not qua.empty and "effective_person_id" in qua.columns:
+            app_map2: dict[str, int] = {}
+            if not per_all.empty and "person_id" in per_all.columns:
+                _app2 = (
+                    per_all.groupby("person_id", dropna=False)
+                    .size()
+                    .reset_index(name="n")
+                )
+                app_map2 = dict(zip(_app2["person_id"].astype(str).str.strip(), _app2["n"]))
+            rows2 = []
+            for _, r in qua.iterrows():
+                pid = str(r.get("effective_person_id", "")).strip()
+                canon = str(r.get("person_canon", "")).strip()
+                evidence = str(r.get("quarantine_evidence", "")).strip()
+                rows2.append({
+                    "player_id": "",
+                    "name_raw": "",
+                    "name_clean": "",
+                    "person_id": pid,
+                    "person_canon": canon,
+                    "issue_type": "multi_person_collision",
+                    "appearances": app_map2.get(pid, 0),
+                    "evidence": evidence,
+                    "suggested_action": "split person_ids manually",
+                })
+            if rows2:
+                parts.append(pd.DataFrame(rows2))
+
+    if not parts:
+        out = pd.DataFrame(columns=COLS)
+    else:
+        out = pd.concat(parts, ignore_index=True)
+        for c in COLS:
+            if c not in out.columns:
+                out[c] = ""
+        out = out[COLS]
+        out["appearances"] = pd.to_numeric(out["appearances"], errors="coerce").fillna(0).astype(int)
+        out = out.sort_values(["issue_type", "appearances"], ascending=[True, False])
+
+    out_path = out_dir / "Persons_Unresolved.csv"
+    out.to_csv(out_path, index=False)
+    print(f"Wrote: {out_path} ({len(out)} rows)")
+    return out
+
+
+def build_placements_unresolved(
+    placements_by_person_df: pd.DataFrame,
+    out_dir: Path,
+) -> pd.DataFrame:
+    """
+    Build Placements_Unresolved: excluded/unresolved placements with recovery scope.
+
+    Output columns:
+      event_id | year | division_canon | place | competitor_type |
+      name_display | reason_excluded | recovery_candidate
+    """
+    base_cols = ["event_id", "year", "division_canon", "place", "competitor_type",
+                 "name_display", "reason_excluded", "recovery_candidate"]
+    parts = []
+
+    # 1. In-analytics but identity-missing (person_unresolved == "true")
+    if not placements_by_person_df.empty and "person_unresolved" in placements_by_person_df.columns:
+        unres = placements_by_person_df[
+            placements_by_person_df["person_unresolved"].fillna("").str.strip() == "true"
+        ].copy()
+        if not unres.empty:
+            def _name_unres(r):
+                name = str(r.get("person_canon", "") or "").strip()
+                if not name:
+                    name = str(r.get("team_display_name", "") or "").strip()
+                return name
+            unres["name_display"] = unres.apply(_name_unres, axis=1)
+            unres["reason_excluded"] = "unmapped_identity"
+            unres["recovery_candidate"] = unres["place"].apply(
+                lambda p: "yes" if _as_int_place(p) is not None else "no"
+            )
+            for c in ["event_id", "year", "division_canon", "place", "competitor_type"]:
+                if c not in unres.columns:
+                    unres[c] = ""
+            parts.append(unres[[c for c in base_cols if c in unres.columns or True]].reindex(columns=base_cols, fill_value=""))
+
+    # 2. Rejected placements
+    rej_path = out_dir / "Placements_ByPerson_Rejected.csv"
+    if rej_path.exists():
+        rej = pd.read_csv(rej_path, dtype=str).fillna("")
+        if not rej.empty:
+            def _name_rej(r):
+                name = str(r.get("player1_name_clean", "") or "").strip()
+                if not name:
+                    name = str(r.get("player1_name_raw", "") or "").strip()
+                return name
+            rej["name_display"] = rej.apply(_name_rej, axis=1)
+            rej["reason_excluded"] = "rejected_missing_id"
+            rej["recovery_candidate"] = rej.apply(
+                lambda r: "yes" if (_as_int_place(r.get("place", "")) is not None
+                                    and str(r.get("name_display", "")).strip()) else "no",
+                axis=1,
+            )
+            for c in ["event_id", "year", "division_canon", "place", "competitor_type"]:
+                if c not in rej.columns:
+                    rej[c] = ""
+            parts.append(rej.reindex(columns=base_cols, fill_value=""))
+
+    # 3. Unpresentable placements
+    exc_path = out_dir / "qc" / "excluded_results_rows_unpresentable.csv"
+    if exc_path.exists():
+        exc = pd.read_csv(exc_path, dtype=str).fillna("")
+        if not exc.empty:
+            exc["name_display"] = exc.get("player1_name_raw", pd.Series([""] * len(exc))).fillna("").astype(str).str.strip()
+            exc["reason_excluded"] = "unpresentable"
+            exc["recovery_candidate"] = "no"
+            for c in ["event_id", "year", "division_canon", "place", "competitor_type"]:
+                if c not in exc.columns:
+                    exc[c] = ""
+            parts.append(exc.reindex(columns=base_cols, fill_value=""))
+
+    if not parts:
+        out = pd.DataFrame(columns=base_cols)
+    else:
+        out = pd.concat(parts, ignore_index=True)
+        for c in base_cols:
+            if c not in out.columns:
+                out[c] = ""
+        out = out[base_cols]
+        out = out.drop_duplicates(subset=["event_id", "division_canon", "place", "name_display"])
+        _year_int = pd.to_numeric(out["year"], errors="coerce").fillna(0).astype(int)
+        _place_int = out["place"].apply(lambda p: _as_int_place(p) if _as_int_place(p) is not None else 9999)
+        out = out.iloc[(-_year_int).argsort(kind="stable")]
+        out = out.reset_index(drop=True)
+
+    out_path = out_dir / "Placements_Unresolved.csv"
+    out.to_csv(out_path, index=False)
+    print(f"Wrote: {out_path} ({len(out)} rows)")
+    return out
+
+
+def build_analytics_safe_surface(
+    placements_by_person_df: pd.DataFrame,
+    out_dir: Path,
+) -> pd.DataFrame:
+    """
+    Pre-filtered pivot-ready surface: coverage complete/mostly_complete,
+    identity-locked (person_unresolved != true).
+    This is the recommended default pivot source for external analysis.
+    """
+    _complete_flags = {"complete", "mostly_complete"}
+    df = placements_by_person_df[
+        placements_by_person_df["coverage_flag"].isin(_complete_flags) &
+        (placements_by_person_df["person_unresolved"].fillna("").str.strip() != "true")
+    ].copy()
+
+    OUTPUT_COLS = [
+        "year", "division_category", "division_canon",
+        "place", "competitor_type",
+        "person_canon", "team_display_name",
+        "coverage_flag",
+    ]
+    for c in OUTPUT_COLS:
+        if c not in df.columns:
+            df[c] = ""
+    df = df[OUTPUT_COLS].copy()
+
+    df["_year_int"] = pd.to_numeric(df["year"], errors="coerce").fillna(0).astype(int)
+    df["_place_int"] = df["place"].apply(_as_int_place).apply(lambda x: x if x is not None else 9999)
+    df = df.sort_values(["_year_int", "division_category", "division_canon", "_place_int"],
+                        ascending=[False, True, True, True])
+    df = df.drop(columns=["_year_int", "_place_int"])
+
+    out_path = out_dir / "Analytics_Safe_Surface.csv"
+    df.to_csv(out_path, index=False)
+    print(f"Wrote: {out_path} ({len(df)} rows, coverage-filtered + identity-locked)")
+    return df
+
+
+def build_data_integrity(
+    pf_raw_count: int,
+    pf: pd.DataFrame,
+    placements_by_person_df: pd.DataFrame,
+    analytics_safe_df: pd.DataFrame,
+    cov_df: pd.DataFrame,
+    out_dir: Path,
+) -> pd.DataFrame:
+    """
+    Build Data_Integrity metrics registry sheet.
+    Reads Persons_Truth_Excluded.csv from out_dir for Gate 3 drop breakdown.
+    """
+    rows = []
+
+    def _row(category, metric, value, notes=""):
+        return {"category": category, "metric": metric, "value": value, "notes": notes}
+
+    # Placements
+    rows.append(_row("Placements", "Total in source (raw)", pf_raw_count, "Before Gate 1"))
+    rows.append(_row("Placements", "Surviving Gate 1", len(pf), "Rejected + unpresentable removed"))
+    n_unresolved = placements_by_person_df["person_unresolved"].eq("true").sum()
+    rows.append(_row("Placements", "In Analytics_Safe_Surface", len(analytics_safe_df),
+                     "Coverage-filtered + identity-locked"))
+    rows.append(_row("Placements", "Unresolved identity", n_unresolved,
+                     "person_unresolved == true"))
+
+    # Persons
+    excl_path = out_dir / "Persons_Truth_Excluded.csv"
+    pt_path = out_dir / "Persons_Truth.csv"
+    n_persons = 0
+    if pt_path.exists():
+        _pt = pd.read_csv(pt_path, dtype=str).fillna("")
+        n_persons = len(_pt)
+    rows.append(_row("Persons", "Total (Gate 3)", n_persons,
+                     "Presentable, non-synthetic, non-duplicate"))
+    if excl_path.exists():
+        excl = pd.read_csv(excl_path, dtype=str).fillna("")
+        rows.append(_row("Persons", "Excluded in Gate 3", len(excl), "All exclusion reasons"))
+        by_reason = excl.groupby("exclude_reason").size().reset_index(name="count")
+        for _, r in by_reason.iterrows():
+            rows.append(_row("Persons (excluded)", r["exclude_reason"], int(r["count"]), ""))
+
+    # Coverage
+    if not cov_df.empty and "coverage_flag" in cov_df.columns:
+        n_total = len(cov_df)
+        for flag in ["complete", "mostly_complete", "partial", "sparse"]:
+            n = (cov_df["coverage_flag"] == flag).sum()
+            rows.append(_row("Coverage", flag, n,
+                             f"{n/n_total*100:.1f}% of event/division combinations"))
+        n_ok = ((cov_df["coverage_flag"] == "complete") |
+                (cov_df["coverage_flag"] == "mostly_complete")).sum()
+        rows.append(_row("Coverage", "Analytic-safe %",
+                         f"{n_ok/n_total*100:.1f}%",
+                         "complete + mostly_complete"))
+
+    out = pd.DataFrame(rows)
+    out_path = out_dir / "Data_Integrity.csv"
+    out.to_csv(out_path, index=False)
+    print(f"Wrote: {out_path} ({len(out)} rows)")
+    return out
 
 
 def build_coverage_gap_priority(
@@ -1327,23 +1833,49 @@ def write_sheets_append(xlsx_path: Path, sheets: list[Tuple[str, pd.DataFrame]],
             for cell in ws[1]:
                 cell.alignment = Alignment(wrap_text=True, vertical="top")
 
+            # Gate 3: Persons_Truth banner row + sheet protection (applied unconditionally)
+            if sheet_name == "Persons_Truth":
+                ws.insert_rows(2)
+                banner_text = "IDENTITY LOCKED — One row per real person. All analytics derive identity from this sheet only."
+                ws.merge_cells(f"A2:{get_column_letter(ws.max_column)}2")
+                ws["A2"] = banner_text
+                ws["A2"].font = Font(bold=True, italic=True)
+                ws["A2"].alignment = Alignment(horizontal="center")
+                ws.freeze_panes = "A3"   # shift freeze below banner row
+                ws.protection.sheet = True
+                ws.protection.enable()
+            elif sheet_name in {"Placements_ByPerson", "Persons_Unresolved", "Placements_Unresolved"}:
+                ws.protection.sheet = True
+                ws.protection.enable()
+
         # Post-process workbook in-memory (before ExcelWriter saves): README, reorder, hide
         wb = xw.book
         add_or_replace_readme_sheet(wb, readme_df=readme_df, title="README")
         reorder_sheets(wb)
         _apply_sheet_hiding(wb)
+        _apply_coverage_colors(wb)
 
 
 def main() -> int:
+    import argparse
+    parser = argparse.ArgumentParser(description="Stage 4: Build analytics sheets for footbag data.")
+    parser.add_argument("--force-identity", action="store_true",
+                        help="Overwrite Persons_Truth even if persons_truth.lock exists")
+    args = parser.parse_args()
+
     repo = Path(__file__).resolve().parent
     out_dir = repo / "out"
     overrides_dir = repo / "overrides"
 
+    # Gate 3: sentinel file check — lock is created manually after Gate 3 is verified
+    lock_path = out_dir / "persons_truth.lock"
+    if lock_path.exists() and not args.force_identity:
+        print(f"ERROR: Persons_Truth is locked ({lock_path}).")
+        print("       Run with --force-identity to overwrite.")
+        raise SystemExit(1)
+
     # README template (user-provided)
     readme_df = read_csv_optional(repo / "readme-excel.csv")
-
-    # Key outputs (display CSVs)
-    placements_by_person_df = read_csv_optional(out_dir / "Placements_ByPerson.csv")
 
     # Overrides (displayable)
     person_aliases_overrides_df = read_csv_optional(overrides_dir / "person_aliases.csv")
@@ -1359,10 +1891,33 @@ def main() -> int:
         return 2
 
     pf = pd.read_csv(pf_csv)
+    pf_raw_count = len(pf)
+
+    # --- Gate 1 enforcement: exclude rejected / unpresentable rows from analytics ---
+    _rej_path = out_dir / "Placements_ByPerson_Rejected.csv"
+    _exc_path = out_dir / "qc" / "excluded_results_rows_unpresentable.csv"
+    _exclude_parts = []
+    for _p in [_rej_path, _exc_path]:
+        if _p.exists():
+            _df = pd.read_csv(_p, dtype=str).fillna("")
+            if not _df.empty:
+                _exclude_parts.append(_df)
+    if _exclude_parts:
+        _join_cols = ["event_id", "division_raw", "place", "player1_name_raw"]
+        _excl = pd.concat(_exclude_parts, ignore_index=True)
+        for c in _join_cols:
+            _excl[c] = _excl[c].astype(str).str.strip()
+            pf[c] = pf[c].astype(str).str.strip()
+        _excl_keys = _excl[_join_cols].drop_duplicates()
+        _excl_keys["_gate1_exclude"] = True
+        pf = pf.merge(_excl_keys, on=_join_cols, how="left")
+        _n_excl = pf["_gate1_exclude"].notna().sum()
+        print(f"[Gate1] Excluding {_n_excl} rows from analytics (rejected + unpresentable). Remaining: {(~pf['_gate1_exclude'].notna()).sum()}")
+        pf = pf[pf["_gate1_exclude"].isna()].drop(columns=["_gate1_exclude"])
 
     # --- Coverage metric by event/division ---
     cov_df = build_coverage_by_event_division(
-        placements_path=out_dir / "Placements_ByPerson.csv",
+        pf=pf,
         out_dir=out_dir,
         quarantine_path=out_dir / "Placements_ByPerson_SinglesQuarantine.csv",
     )
@@ -1419,10 +1974,14 @@ def main() -> int:
 
     per = per_all[per_all.apply(is_person_row, axis=1)].copy()
 
-    person_stats = build_person_stats(per)
+    _complete_flags = {"complete", "mostly_complete"}
+    _cov_keys = (cov_df[cov_df["coverage_flag"].isin(_complete_flags)]
+                 [["event_id", "division_canon"]].drop_duplicates())
+    per_covered = per.merge(_cov_keys, on=["event_id", "division_canon"], how="inner")
+    person_stats = build_person_stats(per_covered)
     player_stats = build_player_stats(per)
-    division_stats = build_division_stats(pf)
-    person_by_cat = build_person_stats_by_div_category(per)
+    division_stats = build_division_stats(pf, out_dir)
+    person_by_cat = build_person_stats_by_div_category(per_covered)
     top_unmapped_people, top_unmapped_noise = build_top_unmapped_names(pf)
 
     aliases_csv = repo / "overrides" / "person_aliases.csv"
@@ -1469,28 +2028,79 @@ def main() -> int:
     if quarantine_ids:
         persons_truth = persons_truth.loc[~persons_truth["effective_person_id"].astype(str).str.strip().isin(quarantine_ids)].copy()
 
+    # Gate 3 Step 3.3: Exclude synthetic persons (all placements in sparse divisions + total == 1)
+    _cov_flags = cov_df[["event_id", "division_canon", "coverage_flag"]].drop_duplicates()
+    _per_cov = per_all[["person_id", "event_id", "division_canon"]].merge(
+        _cov_flags, on=["event_id", "division_canon"], how="left"
+    )
+    _per_cov["coverage_flag"] = _per_cov["coverage_flag"].fillna("")
+    _syn_agg = (
+        _per_cov.groupby("person_id")
+        .agg(
+            total=("event_id", "count"),
+            sparse=("coverage_flag", lambda s: (s == "sparse").sum()),
+        )
+        .reset_index()
+    )
+    _syn_agg["is_synthetic"] = (_syn_agg["sparse"] == _syn_agg["total"]) & (_syn_agg["total"] == 1)
+    _synthetic_ids = set(_syn_agg.loc[_syn_agg["is_synthetic"], "person_id"].astype(str))
+
+    # Exclude persons whose only placements are quarantined (logic present even when quarantine is empty)
+    _qua_path = out_dir / "Placements_ByPerson_SinglesQuarantine.csv"
+    if _qua_path.exists():
+        _qua_df = pd.read_csv(_qua_path, dtype=str).fillna("")
+        _qua_pids: set[str] = set()
+        for _side in ["player1_person_id", "player2_person_id"]:
+            if _side in _qua_df.columns:
+                _qua_pids |= set(_qua_df[_side].astype(str).str.strip())
+        _qua_pids.discard("")
+        if _qua_pids:
+            _all_pids = set(per_all["person_id"].astype(str).str.strip())
+            _qua_only = _qua_pids - _all_pids
+            if _qua_only:
+                _qua_only_rows = persons_truth[
+                    persons_truth["effective_person_id"].astype(str).str.strip().isin(_qua_only)
+                ].copy()
+                _qua_only_rows["exclude_reason"] = "synthetic_quarantine_only"
+                excluded = pd.concat([excluded, _qua_only_rows], ignore_index=True)
+                persons_truth = persons_truth[
+                    ~persons_truth["effective_person_id"].astype(str).str.strip().isin(_qua_only)
+                ].copy()
+                print(f"[Gate3] Excluded {len(_qua_only_rows)} persons whose only placements are quarantined")
+
+    if _synthetic_ids:
+        _synthetic_rows = persons_truth[
+            persons_truth["effective_person_id"].astype(str).str.strip().isin(_synthetic_ids)
+        ].copy()
+        if not _synthetic_rows.empty:
+            _synthetic_rows["exclude_reason"] = "synthetic_sparse_single"
+            excluded = pd.concat([excluded, _synthetic_rows], ignore_index=True)
+            print(f"[Gate3] Excluded {len(_synthetic_rows)} synthetic persons (sparse+single-appearance)")
+        persons_truth = persons_truth[
+            ~persons_truth["effective_person_id"].astype(str).str.strip().isin(_synthetic_ids)
+        ].copy()
+
     # --- coverage closure (only on strict, presentable set) ---
-    byp_path = PLACEMENTS
-    if byp_path.exists():
-        byp = pd.read_csv(byp_path, dtype=str).fillna("")
-        used_canons = set()
-        for col in ["player1_person_canon", "player2_person_canon"]:
-            if col in byp.columns:
-                for v in byp[col].astype(str):
-                    vv = str(v or "").strip()
-                    if not vv:
-                        continue
-                    # normalize using the exact same no-guess cleaner used in QC07
-                    cleaned, _reason = clean_person_label_no_guess(vv)
-                    key = (cleaned or vv).strip()
-                    if key and is_presentable_person_canon(key):
-                        used_canons.add(key)
-        existing = set(persons_truth["person_canon"].astype(str).str.strip())
-        existing.discard("")
-        missing = sorted(c for c in used_canons if c not in existing)
-        if missing:
-            add_rows = [_mk_truth_row_from_canon(c) for c in missing]
-            persons_truth = pd.concat([persons_truth, pd.DataFrame(add_rows)], ignore_index=True)
+    # Collect all person canons referenced in Placements_Flat and ensure each appears
+    # in Persons_Truth (prevents orphan canons from slipping through presentation).
+    used_canons = set()
+    for col in ["player1_person_canon", "player2_person_canon"]:
+        if col in pf.columns:
+            for v in pf[col].astype(str):
+                vv = str(v or "").strip()
+                if not vv:
+                    continue
+                # normalize using the exact same no-guess cleaner used in QC07
+                cleaned, _reason = clean_person_label_no_guess(vv)
+                key = (cleaned or vv).strip()
+                if key and is_presentable_person_canon(key):
+                    used_canons.add(key)
+    existing = set(persons_truth["person_canon"].astype(str).str.strip())
+    existing.discard("")
+    missing = sorted(c for c in used_canons if c not in existing)
+    if missing:
+        add_rows = [_mk_truth_row_from_canon(c) for c in missing]
+        persons_truth = pd.concat([persons_truth, pd.DataFrame(add_rows)], ignore_index=True)
 
     # Persons views (presentation surface): aliases_presentable from overrides (VERIFIED only)
     alias_map = build_aliases_presentable_from_overrides(person_aliases_overrides_df)
@@ -1542,10 +2152,46 @@ def main() -> int:
     # Persons_Public: canonical name + aliases only (no source/notes/IDs)
     persons_public = persons_truth_display[["person_canon", "aliases_presentable"]].copy()
 
+    # Build clean competitor-centric Placements_ByPerson (new schema)
+    placements_by_person_df = build_placements_by_person_clean(pf, cov_df, out_dir)
+    persons_unresolved_df = build_persons_unresolved(pf, per_all, out_dir)
+    placements_unresolved_df = build_placements_unresolved(placements_by_person_df, out_dir)
+    analytics_safe_df = build_analytics_safe_surface(placements_by_person_df, out_dir)
+    data_integrity_df = build_data_integrity(pf_raw_count, pf, placements_by_person_df,
+                                             analytics_safe_df, cov_df, out_dir)
+
+    # Add career columns to Persons_Truth (coverage-filtered, so stats match Person_Stats)
+    _career = (
+        per_covered.groupby("person_id", dropna=False)
+        .agg(
+            total_placements_gate3=("event_id", "count"),
+            first_year_active=("year", lambda s: int(pd.to_numeric(s, errors="coerce").min())
+                               if pd.to_numeric(s, errors="coerce").notna().any() else ""),
+            last_year_active=("year", lambda s: int(pd.to_numeric(s, errors="coerce").max())
+                              if pd.to_numeric(s, errors="coerce").notna().any() else ""),
+        )
+        .reset_index()
+        .rename(columns={"person_id": "effective_person_id"})
+    )
+    persons_truth_display = persons_truth_display.merge(_career, on="effective_person_id", how="left")
+    persons_truth_display["total_placements_gate3"] = (
+        persons_truth_display["total_placements_gate3"].fillna(0).astype(int)
+    )
+    persons_truth_display["years_active_count"] = persons_truth_display.apply(
+        lambda r: (int(r["last_year_active"]) - int(r["first_year_active"]) + 1)
+        if (pd.notna(r.get("first_year_active")) and r.get("first_year_active") != "" and
+            pd.notna(r.get("last_year_active")) and r.get("last_year_active") != "")
+        else 0,
+        axis=1,
+    )
+
     # ---- Workbook sheets (presentation only — diagnostics go to Review workbook) ----
     sheets = []
     sheets.append(("Placements_ByPerson", placements_by_person_df))
     sheets.append(("Persons_Truth", persons_truth_display))
+    sheets.append(("Analytics_Safe_Surface", analytics_safe_df))
+    sheets.append(("Persons_Unresolved", persons_unresolved_df))
+    sheets.append(("Placements_Unresolved", placements_unresolved_df))
     if len(person_stats) > 0:
         sheets.append(("Person_Stats", person_stats))
     if len(person_by_cat) > 0:
@@ -1553,6 +2199,7 @@ def main() -> int:
     sheets.append(("Division_Stats", division_stats))
     if len(cov_df) > 0:
         sheets.append(("Coverage_ByEventDiv", cov_df))
+    sheets.append(("Data_Integrity", data_integrity_df))
 
     write_sheets_append(xlsx, sheets, readme_df=readme_df)
 
@@ -1600,17 +2247,6 @@ def main() -> int:
         )
         cov_by_event["event_id"] = cov_by_event["event_id"].astype(str).str.strip()
 
-        def _coverage_flag(ratio):
-            if pd.isna(ratio):
-                return ""
-            if ratio >= 0.95:
-                return "complete"
-            if ratio >= 0.75:
-                return "mostly_complete"
-            if ratio >= 0.40:
-                return "partial"
-            return "sparse"
-
         cov_by_event["coverage_flag"] = cov_by_event["coverage_ratio"].map(_coverage_flag)
         cov_lookup = dict(zip(cov_by_event["event_id"], zip(cov_by_event["coverage_ratio"], cov_by_event["coverage_flag"])))
 
@@ -1639,6 +2275,15 @@ def main() -> int:
 
     wb.save(xlsx)
     wb.close()
+
+    # Gate 3 completion check: COUNT(person_id) == COUNT(DISTINCT person_canon)
+    n_ids = persons_truth["effective_person_id"].nunique()
+    n_canons = persons_truth["person_canon"].nunique()
+    if n_ids == n_canons:
+        print(f"[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = {n_ids}")
+    else:
+        print(f"[Gate3] FAIL: person_id count ({n_ids}) != person_canon count ({n_canons})")
+        print(f"        Run: python qc02_canon_multiple_person_ids.py")
 
     print(f"OK: updated {xlsx} with: {', '.join([n for n, _ in sheets])}")
     return 0
