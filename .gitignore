@@ -34,3 +34,14 @@ out/
 # Not required / large artifacts
 mirror_full/
 mirror.log
+# Generated / local artifacts
+baselines/
+reviews/
+old_csv_files/
+python_files_old/
+junk_md/
+pivot_*.csv
+*_sorted.csv
+*_final.csv
+*.patch
+overrides/*.lnk
