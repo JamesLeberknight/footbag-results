@@ -769,6 +769,23 @@ def build_person_stats(per: pd.DataFrame) -> pd.DataFrame:
         last_year=("year", lambda s: int(pd.to_numeric(s, errors="coerce").max()) if pd.to_numeric(s, errors="coerce").notna().any() else ""),
     ).reset_index()
 
+    # Derived columns
+    stats["win_rate"] = (
+        stats["wins"] / stats["placements_with_numeric_place"].replace(0, float("nan"))
+    ).round(3)
+
+    stats["podium_rate"] = (
+        stats["podiums"] / stats["placements_with_numeric_place"].replace(0, float("nan"))
+    ).round(3)
+
+    stats["years_active"] = stats.apply(
+        lambda r: (int(r["last_year"]) - int(r["first_year"]) + 1)
+        if (str(r.get("first_year", "")).strip() and str(r.get("last_year", "")).strip()
+            and pd.notna(r.get("first_year")) and pd.notna(r.get("last_year")))
+        else 0,
+        axis=1,
+    )
+
     # Sort: wins desc, events desc, then name
     stats.sort_values(
         by=["wins", "podiums", "events_competed", "placements_total", "person_canon"],

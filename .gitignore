@@ -30,3 +30,7 @@ out/
 
 # Workspace files
 *.code-workspace
+
+# Not required / large artifacts
+mirror_full/
+mirror.log
