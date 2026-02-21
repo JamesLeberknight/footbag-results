@@ -2,6 +2,8 @@
 mirror/
 mirror_full/
 *.tar
+^.tar.xz
+*.tar.gz
 # Do not upload generated Excel outputs
 *.xlsx
 
