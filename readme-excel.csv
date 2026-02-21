@@ -1,0 +1,42 @@
+Footbag Results — Canonical Archive (v1.1)
+
+PURPOSE
+"This workbook is an archive-quality, canonical record of historical footbag competition results."
+"It is intended for long-term preservation, historical research, and statistical analysis."
+
+KEY RULES
+— Excel is a presentation layer only. Source of truth is CSV output from the pipeline.
+"— Never edit IDs (event_id, person_id, player_id)."
+"— Aggregate people ONLY by person_id, never by name."
+"— If something looks odd but passes QC, it is a historical fact."
+"— Persons_Truth is the only authoritative identity table. All analytics derive identity exclusively from person_id — never by name."
+"— Person_Stats reflects only complete/mostly_complete coverage divisions. Any pivot on raw Placements_ByPerson must filter by coverage_flag first."
+
+SHEET GUIDE
+Index — master list of all events with hyperlinks to year sheets.
+YYYY — one sheet per year; human-readable event records.
+Summary — dataset scope and health metrics.
+Divisions — all known division names and categories.
+Divisions_Normalized — canonical division name mapping.
+Division_Stats — division-level participation and wins.
+"Person_Stats — per-person career statistics (pivot-ready; coverage-filtered: complete/mostly_complete only)."
+PersonStats_ByDivCat — per-person stats broken down by division category.
+Placements_ByPerson — competitor-centric placements with coverage flag (read-only).
+Persons_Truth — authoritative identity table (read-only); includes career stats and active years.
+Analytics_Safe_Surface — pre-filtered pivot source: coverage complete/mostly_complete and identity-locked. Use this as your default analysis base.
+Persons_Unresolved — identity punch list; rows needing alias or manual review (read-only).
+Placements_Unresolved — excluded/unresolved placements; recovery scope (read-only).
+Coverage_ByEventDiv — coverage ratio per event/division.
+Data_Integrity — registry of dataset health metrics (placements; persons; coverage).
+Players_Clean — historical name tokens after cleaning.
+
+ANALYSIS GUIDANCE
+"— Use Person_Stats for medals, careers, and participation (coverage-filtered)."
+— Use Division_Stats for discipline growth analysis.
+"— Year sheets are for reading, not analysis."
+"— Filter Placements_ByPerson by coverage_flag = complete or mostly_complete before aggregating."
+"— Use Persons_Unresolved to find unmapped players and excluded persons that may need aliases added."
+"— Use Placements_Unresolved to assess the scope of excluded data and identify recovery candidates."
+
+VERSION
+Workbook version: v1.1 (coverage-filtered Person_Stats; Persons_Unresolved + Placements_Unresolved added)

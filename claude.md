@@ -180,10 +180,10 @@ Clean *name strings only* while preserving identity multiplicity.
 
 **Key Outputs:**
 
-* `Placements_Flat`
-* `Persons_Raw`
-* `Players_Alias_Candidates`
-* `Teams_Alias_Candidates`
+* `Placements_Flat`        (structural, one row per raw placement)
+* `Placements_ByPerson`    (competitor-centric, deduplicated, coverage-aware)
+* `Persons_Truth`          (identity dimension, one row per real human)
+* `Coverage_ByEventDivision`
 
 **Rules:**
 
@@ -226,6 +226,9 @@ Stage 04 is a **presentation layer**, not a cleaning layer.
 * Enforce presentability constraints
 * Exclude junk and non‑presentable values
 * Produce clearly labeled QC sheets
+* Build `Placements_ByPerson`: LEFT JOIN person identity onto `Placements_Flat`,
+  canonicalize competitor identity (`team_person_key`), collapse duplicate
+  player-token rows, apply `coverage_flag`
 
 ### Key Rule
 
@@ -287,27 +290,13 @@ If something looks wrong, the answer is:
 
 ---
 
-## QC Validation Results
+## Diagnostic Pivots
 
-Manual QC validation was performed on the Excel workbook using analytical pivots.
-
-### Anomaly Classification
-
-* **Tier-1 (Structural Failures):** None detected
-* **Tier-2 (Visible, Bounded, Acceptable):** narrative winner rows, format-based unknown divisions, legacy unmapped labels
-
-### Pivot Results
-
-| Pivot | Description | Result |
-|-------|-------------|--------|
-| #2 | Narrative Winners | PASS — low-frequency, non-distorting |
-| #3 | Partner Realism | PASS — realistic sparsity, no identity inflation |
-| #4 | Temporal Plausibility | PASS — temporally clustered careers, no cross-decade inflation |
-| #5 | Division Consistency | PASS — unknown divisions are explicit and low-frequency |
-
-### Known Limitation
-
-Pivot #1 (Full Career Timeline) deferred — requires person-long analytical sheet not yet created. Temporal plausibility validated via Pivot #4 on raw surface.
+Full diagnostic pivots (career timelines, partner realism, temporal plausibility)
+are deferred until `Placements_ByPerson` is structurally correct — that is,
+properly deduplicated by person identity with a stable `team_person_key`. Until
+then, any aggregation on the output sheet risks double-counting due to
+player-token multiplicity.
 
 ---
 
