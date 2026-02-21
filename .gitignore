@@ -94,3 +94,7 @@ release_bundle/
 overrides/person_aliases.lock
 alias-candidates.txt
 Claude_old_md_files/
+# Mirror crawler/parser artifacts
+*.log
+*_progress.json
+robots_cache.json
