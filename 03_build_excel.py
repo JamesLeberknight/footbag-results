@@ -1199,7 +1199,7 @@ def write_excel(
         
         if qc_summary_path.exists() and qc_issues_path.exists():
             try:
-                import json
+                
                 
                 # Read summary
                 with open(qc_summary_path, "r", encoding="utf-8") as f:
