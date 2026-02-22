@@ -1,0 +1,13 @@
+section,order,title,description
+overview,1,Footbag Results Canonical Workbook,"This workbook contains an archive-quality, canonicalized history of competitive footbag results. All data is generated deterministically from source mirrors and curated overrides. Do not edit generated sheets directly."
+usage,2,How to Use This Workbook,"Use filters, pivots, and lookups for analysis. If errors or missing identities are found, resolve them via the pipeline (overrides and scripts), then regenerate the workbook."
+sheets,3,Year Sheets (1980–Present),"One sheet per competition year. Each row represents a placement in an event division. These sheets are optimized for browsing and pivot analysis."
+sheets,4,Placements_ByPerson,"Person-centric results table. Each row represents a single person’s placement in an event. This is the primary analytics table."
+sheets,5,Analytics_Safe_Surface,"Coverage-filtered results safe for statistics and charts. Excludes unresolved identities and rejected rows. Recommended for aggregate analysis."
+sheets,6,Persons_Truth,"Authoritative person identity table. Each person_id maps to exactly one canonical person name. This table is identity-locked and human-curated via overrides."
+sheets,7,Persons_Unresolved,"Names that could not be confidently resolved to a person_id. These require human review and may include non-person entities. This sheet is regenerated on every run."
+sheets,8,Coverage Reports,"Coverage and gap analysis by event and division. Used to assess historical completeness and prioritize recovery."
+qc,9,Quality Control Notes,"QC checks ensure zero structural errors and flag anomalies without guessing. Warnings indicate review opportunities, not data corruption."
+rules,10,Editing Rules,"Never edit generated CSVs or Excel sheets directly. All corrections must be made via overrides or recovery scripts and then regenerated."
+provenance,11,Data Provenance,"Results are derived from publicly available historical sources mirrored offline. This workbook reflects the best-known reconstruction at time of generation."
+version,12,Versioning,"This workbook is tied to a specific pipeline version and git tag. Reproducibility is guaranteed when run with the same inputs."
