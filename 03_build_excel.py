@@ -415,6 +415,12 @@ def _build_name_line(placement: dict, players_by_id: Optional[dict] = None) -> s
 # ------------------------------------------------------------
 # CSV reading
 # ------------------------------------------------------------
+def _read_optional_csv(path: Path) -> pd.DataFrame:
+    if path.exists():
+        return pd.read_csv(path, dtype=str).fillna("")
+    return pd.DataFrame()
+
+
 def read_stage2_csv(csv_path: Path) -> list[dict]:
     """Read stage2 CSV and return list of event records."""
     # Increase CSV field size limit to handle large JSON fields
@@ -541,6 +547,7 @@ def write_excel(
     records: list[dict],
     players_df: Optional[pd.DataFrame] = None,
     placements_flat_df: Optional[pd.DataFrame] = None,
+    unresolved_df: Optional[pd.DataFrame] = None,
 ) -> None:
     """
     Archive workbook writer (matches Footbag_Results_Canonical.xlsx layout):
@@ -1011,6 +1018,16 @@ def write_excel(
             ws.auto_filter.ref = ws.dimensions
 
         # ------------------------------------------------------------
+        # Persons_Unresolved sheet (from out/Persons_Unresolved*.csv; triage preferred)
+        # ------------------------------------------------------------
+        if unresolved_df is not None and not unresolved_df.empty:
+            df_ur = sanitize_excel_strings(unresolved_df.copy())
+            df_ur.to_excel(xw, sheet_name="Persons_Unresolved", index=False)
+            ws = xw.sheets["Persons_Unresolved"]
+            ws.freeze_panes = "A2"
+            ws.auto_filter.ref = ws.dimensions
+
+        # ------------------------------------------------------------
         # Divisions_Normalized sheet (presentation-only grouping)
         # ------------------------------------------------------------
         norm_map = defaultdict(lambda: {
@@ -1308,15 +1325,44 @@ def write_excel(
             },
         ]
 
-        df_readme = pd.DataFrame(readme_rows)
+        # Prefer external README CSV if present (repo root); fallback to inline readme_rows
+        readme_csv_candidates = [
+            Path("readme-excel.csv"),
+            Path("readme_excel.csv"),
+        ]
+
+        df_readme = None
+        for p in readme_csv_candidates:
+            if p.exists():
+                df_readme = pd.read_csv(
+                    p, dtype=str, quoting=csv.QUOTE_MINIMAL
+                ).fillna("")
+                break
+
+        if df_readme is None:
+            df_readme = pd.DataFrame(readme_rows).fillna("")
+
         df_readme = sanitize_excel_strings(df_readme)
         df_readme.to_excel(xw, sheet_name="README", index=False)
 
         ws = xw.sheets["README"]
         ws.freeze_panes = "A2"
+        ncols = len(df_readme.columns)
         ws.column_dimensions["A"].width = 24
-        ws.column_dimensions["B"].width = 120
+        if ncols >= 4:
+            ws.column_dimensions["B"].width = 8
+            ws.column_dimensions["C"].width = 40
+            ws.column_dimensions["D"].width = 120
+        else:
+            ws.column_dimensions["B"].width = 120
         ws.auto_filter.ref = ws.dimensions
+        # Wrap text in description column (last column) so full content is visible
+        desc_col = ncols
+        for row_idx in range(2, len(df_readme) + 2):
+            cell = ws.cell(row=row_idx, column=desc_col)
+            a = copy(cell.alignment)
+            a.wrap_text = True
+            cell.alignment = a
 
     # Save event_locator map for downstream hyperlinks (Stage 04)
     locator_path = Path(out_xlsx).parent / "out" / "event_locator.json"
@@ -1384,6 +1430,13 @@ def main():
     in_csv = out_dir / "stage2_canonical_events.csv"
     out_xlsx = repo_dir / "Footbag_Results_Canonical.xlsx"
 
+    # Unresolved persons: prefer triage file if present (from 04 or manual)
+    unresolved_triage = out_dir / "Persons_Unresolved_Triage.csv"
+    unresolved_base = out_dir / "Persons_Unresolved.csv"
+    df_unresolved = _read_optional_csv(unresolved_triage)
+    if df_unresolved.empty:
+        df_unresolved = _read_optional_csv(unresolved_base)
+
     players_csv = out_dir / "stage2p5_players_clean.csv"
     players_df = None
     if players_csv.exists():
@@ -1418,7 +1471,7 @@ def main():
     print(f"Loaded {placements_flat_csv} ({len(df_placements_flat)} rows)")
 
     print(f"Writing Excel with {len(records)} events...")
-    write_excel(out_xlsx, records, players_df=players_df, placements_flat_df=df_placements_flat)
+    write_excel(out_xlsx, records, players_df=players_df, placements_flat_df=df_placements_flat, unresolved_df=df_unresolved)
 
     # Run Stage 3 QC on Excel workbook data
     if USE_MASTER_QC:
