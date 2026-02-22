@@ -105,6 +105,153 @@ def _canon_key(s: str) -> str:
     return (s or "").strip().casefold()
 
 
+# --- Triage for Persons_Unresolved (presentation-only heuristics) ---
+_TRIAGE_HARD_REJECT_PHRASES = {
+    "pdl","sky","flip bags","flipbags","kc blender","blender",
+    "bag","bags","footbag","freestyle","net","crew","posse","team","club",
+    "jam","demo","workshop","tournament","results","final"
+}
+_TRIAGE_HARD_REJECT_ISSUE_TYPES = {
+    "not_person_like","club_or_group","heading_or_meta","equipment_or_brand",
+    "trick_notation","location_only","event_title","instructional_text"
+}
+_TRIAGE_PERSON_LIKE_ISSUE_TYPES = {"encoding_corruption","diacritics","misspelling","needs_alias","variant"}
+
+_TRIAGE_REJECT_RX = [
+    ("trick_symbols", re.compile(r"[><=~^*+/\\]|::|->")),
+    ("many_digits", re.compile(r"\d{2,}")),
+    ("url_like", re.compile(r"(https?://|www\.)", re.I)),
+    ("email_like", re.compile(r"\b\S+@\S+\.\S+\b")),
+]
+_TRIAGE_PERSON_RX = [
+    ("two_words_cap", re.compile(r"^[A-Z][a-z]+ [A-Z][a-z]+$")),
+    ("three_words_cap", re.compile(r"^[A-Z][a-z]+ [A-Z][a-z]+ [A-Z][a-z]+$")),
+    ("initial_last", re.compile(r"^[A-Z]\. [A-Z][a-z]+$")),
+    ("last_first", re.compile(r"^[A-Z][a-z]+, [A-Z][a-z]+$")),
+    ("non_ascii", re.compile(r"[^\x00-\x7F]")),
+]
+
+def _triage_persons_unresolved(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Add heuristic triage columns to Persons_Unresolved-style table.
+
+    Expected columns (if present):
+      person_canon, name_raw, issue_type, appearances
+
+    Adds:
+      likelihood_score (int)
+      resolution_likelihood (HIGH|MEDIUM|LOW|REJECT)
+      triage_reasons (semicolon list)
+
+    Deterministic. No merges. Safe for presentation only.
+    """
+    if df is None or df.empty:
+        return df
+
+    def norm(s: str) -> str:
+        return re.sub(r"\s+", " ", (s or "").strip())
+
+    def toks(s: str):
+        s = re.sub(r"[^a-z0-9 ]+", " ", (s or "").lower())
+        return [t for t in s.split() if t]
+
+    def to_int(x) -> int:
+        try:
+            return int(str(x).strip() or "0")
+        except Exception:
+            return 0
+
+    def score_row(name: str, issue_type: str, appearances: int):
+        n = norm(name)
+        nlow = n.lower()
+        token_set = set(toks(n))
+        reasons = []
+        score = 0
+
+        it = (issue_type or "").strip().lower()
+        if it in _TRIAGE_HARD_REJECT_ISSUE_TYPES:
+            reasons.append(f"hard_reject_issue_type:{it}")
+            score -= 120
+        if it in _TRIAGE_PERSON_LIKE_ISSUE_TYPES:
+            reasons.append(f"person_like_issue_type:{it}")
+            score += 20
+
+        if n.isupper() and 2 <= len(n) <= 8 and re.fullmatch(r"[A-Z0-9]+", n):
+            reasons.append("all_caps_acronym")
+            score -= 60
+        if len(n) <= 2:
+            reasons.append("too_short")
+            score -= 50
+
+        for ph in _TRIAGE_HARD_REJECT_PHRASES:
+            if " " in ph and ph in nlow:
+                reasons.append(f"hard_reject_phrase:{ph}")
+                score -= 80
+        for t in token_set:
+            if t in _TRIAGE_HARD_REJECT_PHRASES:
+                reasons.append(f"hard_reject_token:{t}")
+                score -= 70
+
+        for label, rx in _TRIAGE_REJECT_RX:
+            if rx.search(n):
+                reasons.append(label)
+                score -= 15
+
+        for label, rx in _TRIAGE_PERSON_RX:
+            if rx.search(n):
+                reasons.append(label)
+                score += 40
+
+        if appearances >= 20:
+            score += 20; reasons.append("appearances>=20")
+        elif appearances >= 10:
+            score += 12; reasons.append("appearances>=10")
+        elif appearances >= 3:
+            score += 6; reasons.append("appearances>=3")
+        elif appearances == 1:
+            score -= 3; reasons.append("appearances==1")
+
+        score = max(-200, min(200, score))
+
+        if score <= -60: bucket = "REJECT"
+        elif score <= -10: bucket = "LOW"
+        elif score < 50: bucket = "MEDIUM"
+        else: bucket = "HIGH"
+
+        return score, bucket, ";".join(sorted(set(reasons)))
+
+    out = df.copy()
+    # prefer person_canon, fallback to name_raw
+    name_series = out.get("person_canon", pd.Series([""] * len(out))).astype(str)
+    if "name_raw" in out.columns:
+        name_series = name_series.where(name_series.str.strip() != "", out["name_raw"].astype(str))
+
+    issue_series = out.get("issue_type", pd.Series([""] * len(out))).astype(str)
+    app_series = out.get("appearances", pd.Series(["0"] * len(out))).apply(to_int)
+
+    scores, buckets, reasons = [], [], []
+    for n, it, app in zip(name_series.tolist(), issue_series.tolist(), app_series.tolist()):
+        sc, b, rs = score_row(n, it, app)
+        scores.append(sc); buckets.append(b); reasons.append(rs)
+
+    out["likelihood_score"] = scores
+    out["resolution_likelihood"] = buckets
+    out["triage_reasons"] = reasons
+
+    # stable sort
+    order = {"HIGH": 0, "MEDIUM": 1, "LOW": 2, "REJECT": 3}
+    out["_rank"] = out["resolution_likelihood"].map(order).fillna(9).astype(int)
+    if "appearances" in out.columns:
+        out["_app_int"] = app_series
+        out = out.sort_values(by=["_rank", "likelihood_score", "_app_int", "person_canon"],
+                              ascending=[True, False, False, True]).drop(columns=["_rank", "_app_int"])
+    else:
+        out = out.sort_values(by=["_rank", "likelihood_score", "person_canon"],
+                              ascending=[True, False, True]).drop(columns=["_rank"])
+
+    return out
+
+
 def build_aliases_presentable_from_overrides(person_aliases_df: pd.DataFrame) -> dict[str, str]:
     """
     Return person_id -> 'alias1 | alias2 | ...' (VERIFIED only, presentable only, deterministic order).
@@ -198,28 +345,64 @@ def is_qc_sheet(name: str) -> bool:
 # Correctness is evaluated only on presentable values.
 def add_or_replace_readme_sheet(wb, readme_df: pd.DataFrame | None = None, title: str = "README") -> None:
     """
-    Insert README sheet at index 0.
+    Ensure README sheet is at index 0.
 
-    If readme_df is provided (from readme-excel.csv), write it verbatim as a single-column sheet.
-    Otherwise, fall back to a small default README.
+    Behavior:
+    - If readme_df is provided and non-empty: replace README content with full table and pin as first sheet.
+    - Else if README already exists: DO NOT overwrite; just move it to first sheet.
+    - Else: create a minimal fallback README as first sheet.
     """
-    if title in wb.sheetnames:
+
+    # Helper: move an existing sheet to index 0 without rewriting content
+    def _move_to_front(ws):
+        try:
+            wb._sheets.remove(ws)
+            wb._sheets.insert(0, ws)
+        except Exception:
+            # If internal API changes, fallback to remove+create (but try to preserve content)
+            pass
+
+    has_readme = title in wb.sheetnames
+    df_ok = readme_df is not None and len(readme_df.columns) >= 1 and len(readme_df) > 0
+
+    # Case A: No external README provided → preserve Stage 03 README (if present)
+    if not df_ok and has_readme:
+        _move_to_front(wb[title])
+        return
+
+    # Case B: External README provided → replace sheet content (full table)
+    if has_readme:
         ws_old = wb[title]
         wb.remove(ws_old)
 
     ws = wb.create_sheet(title, 0)
 
-    if readme_df is not None and len(readme_df.columns) >= 1 and len(readme_df) > 0:
-        col0 = readme_df.columns[0]
-        ws.cell(row=1, column=1, value=str(col0))
-        for i, v in enumerate(readme_df[col0].tolist(), start=2):
-            ws.cell(row=i, column=1, value=str(v) if v is not None else "")
-        ws.column_dimensions["A"].width = 110
+    if df_ok:
+        df = readme_df.fillna("").astype(str)
+
+        # Header row
+        for c_idx, col_name in enumerate(df.columns.tolist(), start=1):
+            ws.cell(row=1, column=c_idx, value=str(col_name))
+
+        # Data rows
+        for r_idx, row in enumerate(df.itertuples(index=False), start=2):
+            for c_idx, v in enumerate(row, start=1):
+                ws.cell(row=r_idx, column=c_idx, value=str(v) if v is not None else "")
+
         ws.freeze_panes = "A2"
         ws.auto_filter.ref = ws.dimensions
+
+        # Deterministic column widths (sample first 200 rows)
+        for c_idx, col_name in enumerate(df.columns.tolist(), start=1):
+            letter = get_column_letter(c_idx)
+            best = len(str(col_name))
+            for v in df.iloc[:200, c_idx - 1].tolist():
+                best = max(best, len(str(v)))
+            ws.column_dimensions[letter].width = max(10, min(best + 2, 80))
+
         return
 
-    # Fallback minimal README
+    # Case C: No README at all → create fallback minimal README
     lines = [
         "Footbag Results — Canonical Archive",
         "",
@@ -1886,13 +2069,21 @@ def main() -> int:
 
     # Gate 3: sentinel file check — lock is created manually after Gate 3 is verified
     lock_path = out_dir / "persons_truth.lock"
+    persons_truth_csv = out_dir / "Persons_Truth.csv"
+    skip_identity_overwrite = False
     if lock_path.exists() and not args.force_identity:
-        print(f"ERROR: Persons_Truth is locked ({lock_path}).")
-        print("       Run with --force-identity to overwrite.")
-        raise SystemExit(1)
+        if not persons_truth_csv.exists():
+            print(f"ERROR: Persons_Truth is locked ({lock_path}) but {persons_truth_csv} is missing.")
+            print("       Either restore Persons_Truth.csv or run with --force-identity to rebuild.")
+            raise SystemExit(1)
+        print(f"INFO: Persons_Truth is locked ({lock_path}).")
+        print("      Will NOT overwrite Persons_Truth. Continuing with existing identity outputs.")
+        skip_identity_overwrite = True
 
-    # README template (user-provided)
+    # README template (user-provided) — accept either naming convention
     readme_df = read_csv_optional(repo / "readme-excel.csv")
+    if readme_df.empty:
+        readme_df = read_csv_optional(repo / "readme_excel.csv")
 
     # Overrides (displayable)
     person_aliases_overrides_df = read_csv_optional(overrides_dir / "person_aliases.csv")
@@ -2004,174 +2195,188 @@ def main() -> int:
     aliases_csv = repo / "overrides" / "person_aliases.csv"
     aliases_df = load_person_aliases(aliases_csv)
 
-    # NO-GUESSING person dimension (one row per effective_person_id)
-    persons_truth_full = build_persons_truth(per_all, aliases_df)
-    qc_persons_truth(persons_truth_full)
+    if not skip_identity_overwrite:
+        # NO-GUESSING person dimension (one row per effective_person_id)
+        persons_truth_full = build_persons_truth(per_all, aliases_df)
+        qc_persons_truth(persons_truth_full)
 
-    # Try to derive a presentable canon for any row whose current canon is not presentable.
-    cleaned_all = persons_truth_full["person_canon"].map(clean_person_label_no_guess)
-    persons_truth_full["person_canon_clean"] = cleaned_all.map(lambda t: t[0])
-    persons_truth_full["person_canon_clean_reason"] = cleaned_all.map(lambda t: t[1])
+        # Try to derive a presentable canon for any row whose current canon is not presentable.
+        cleaned_all = persons_truth_full["person_canon"].map(clean_person_label_no_guess)
+        persons_truth_full["person_canon_clean"] = cleaned_all.map(lambda t: t[0])
+        persons_truth_full["person_canon_clean_reason"] = cleaned_all.map(lambda t: t[1])
 
-    orig_ok = persons_truth_full["person_canon"].map(is_presentable_person_canon)
-    clean_ok = persons_truth_full["person_canon_clean"].map(is_presentable_person_canon)
+        orig_ok = persons_truth_full["person_canon"].map(is_presentable_person_canon)
+        clean_ok = persons_truth_full["person_canon_clean"].map(is_presentable_person_canon)
 
-    # Only adopt cleaned canon when original is NOT presentable but cleaned IS presentable.
-    use_clean = (~orig_ok) & clean_ok & persons_truth_full["person_canon_clean"].fillna("").ne("")
-    persons_truth_full.loc[use_clean, "person_canon"] = persons_truth_full.loc[use_clean, "person_canon_clean"]
+        # Only adopt cleaned canon when original is NOT presentable but cleaned IS presentable.
+        use_clean = (~orig_ok) & clean_ok & persons_truth_full["person_canon_clean"].fillna("").ne("")
+        persons_truth_full.loc[use_clean, "person_canon"] = persons_truth_full.loc[use_clean, "person_canon_clean"]
 
-    # ---- Option A strict gate + quarantine ----
-    mask_presentable = persons_truth_full["person_canon"].map(is_presentable_person_canon)
+        # ---- Option A strict gate + quarantine ----
+        mask_presentable = persons_truth_full["person_canon"].map(is_presentable_person_canon)
 
-    not_presentable = persons_truth_full.loc[~mask_presentable].copy()
-    not_presentable["exclude_reason"] = "not_presentable_strict"
+        not_presentable = persons_truth_full.loc[~mask_presentable].copy()
+        not_presentable["exclude_reason"] = "not_presentable_strict"
 
-    quarantine = detect_two_people_in_one_slot(persons_truth_full, pf=pf, aliases_df=aliases_df)
-    quarantine_ids = set(quarantine["effective_person_id"].astype(str).str.strip()) if not quarantine.empty else set()
+        quarantine = detect_two_people_in_one_slot(persons_truth_full, pf=pf, aliases_df=aliases_df)
+        quarantine_ids = set(quarantine["effective_person_id"].astype(str).str.strip()) if not quarantine.empty else set()
 
-    excluded = not_presentable.copy()
-    if quarantine_ids:
-        q2 = persons_truth_full.loc[persons_truth_full["effective_person_id"].astype(str).str.strip().isin(quarantine_ids)].copy()
-        q2["exclude_reason"] = "two_people_quarantine"
-        if "quarantine_reason" in quarantine.columns and "quarantine_evidence" in quarantine.columns:
-            q2 = q2.merge(
-                quarantine[["effective_person_id", "quarantine_reason", "quarantine_evidence"]],
-                on="effective_person_id",
-                how="left",
-            )
-        excluded = pd.concat([excluded, q2], ignore_index=True)
+        excluded = not_presentable.copy()
+        if quarantine_ids:
+            q2 = persons_truth_full.loc[persons_truth_full["effective_person_id"].astype(str).str.strip().isin(quarantine_ids)].copy()
+            q2["exclude_reason"] = "two_people_quarantine"
+            if "quarantine_reason" in quarantine.columns and "quarantine_evidence" in quarantine.columns:
+                q2 = q2.merge(
+                    quarantine[["effective_person_id", "quarantine_reason", "quarantine_evidence"]],
+                    on="effective_person_id",
+                    how="left",
+                )
+            excluded = pd.concat([excluded, q2], ignore_index=True)
 
-    persons_truth = persons_truth_full.loc[mask_presentable].copy()
-    if quarantine_ids:
-        persons_truth = persons_truth.loc[~persons_truth["effective_person_id"].astype(str).str.strip().isin(quarantine_ids)].copy()
+        persons_truth = persons_truth_full.loc[mask_presentable].copy()
+        if quarantine_ids:
+            persons_truth = persons_truth.loc[~persons_truth["effective_person_id"].astype(str).str.strip().isin(quarantine_ids)].copy()
 
-    # Gate 3 Step 3.3: Exclude synthetic persons (all placements in sparse divisions + total == 1)
-    _cov_flags = cov_df[["event_id", "division_canon", "coverage_flag"]].drop_duplicates()
-    _per_cov = per_all[["person_id", "event_id", "division_canon"]].merge(
-        _cov_flags, on=["event_id", "division_canon"], how="left"
-    )
-    _per_cov["coverage_flag"] = _per_cov["coverage_flag"].fillna("")
-    _syn_agg = (
-        _per_cov.groupby("person_id")
-        .agg(
-            total=("event_id", "count"),
-            sparse=("coverage_flag", lambda s: (s == "sparse").sum()),
+        # Gate 3 Step 3.3: Exclude synthetic persons (all placements in sparse divisions + total == 1)
+        _cov_flags = cov_df[["event_id", "division_canon", "coverage_flag"]].drop_duplicates()
+        _per_cov = per_all[["person_id", "event_id", "division_canon"]].merge(
+            _cov_flags, on=["event_id", "division_canon"], how="left"
         )
-        .reset_index()
-    )
-    _syn_agg["is_synthetic"] = (_syn_agg["sparse"] == _syn_agg["total"]) & (_syn_agg["total"] == 1)
-    _synthetic_ids = set(_syn_agg.loc[_syn_agg["is_synthetic"], "person_id"].astype(str))
+        _per_cov["coverage_flag"] = _per_cov["coverage_flag"].fillna("")
+        _syn_agg = (
+            _per_cov.groupby("person_id")
+            .agg(
+                total=("event_id", "count"),
+                sparse=("coverage_flag", lambda s: (s == "sparse").sum()),
+            )
+            .reset_index()
+        )
+        _syn_agg["is_synthetic"] = (_syn_agg["sparse"] == _syn_agg["total"]) & (_syn_agg["total"] == 1)
+        _synthetic_ids = set(_syn_agg.loc[_syn_agg["is_synthetic"], "person_id"].astype(str))
 
-    # Exclude persons whose only placements are quarantined (logic present even when quarantine is empty)
-    _qua_path = out_dir / "Placements_ByPerson_SinglesQuarantine.csv"
-    if _qua_path.exists():
-        _qua_df = pd.read_csv(_qua_path, dtype=str).fillna("")
-        _qua_pids: set[str] = set()
-        for _side in ["player1_person_id", "player2_person_id"]:
-            if _side in _qua_df.columns:
-                _qua_pids |= set(_qua_df[_side].astype(str).str.strip())
-        _qua_pids.discard("")
-        if _qua_pids:
-            _all_pids = set(per_all["person_id"].astype(str).str.strip())
-            _qua_only = _qua_pids - _all_pids
-            if _qua_only:
-                _qua_only_rows = persons_truth[
-                    persons_truth["effective_person_id"].astype(str).str.strip().isin(_qua_only)
-                ].copy()
-                _qua_only_rows["exclude_reason"] = "synthetic_quarantine_only"
-                excluded = pd.concat([excluded, _qua_only_rows], ignore_index=True)
-                persons_truth = persons_truth[
-                    ~persons_truth["effective_person_id"].astype(str).str.strip().isin(_qua_only)
-                ].copy()
-                print(f"[Gate3] Excluded {len(_qua_only_rows)} persons whose only placements are quarantined")
+        # Exclude persons whose only placements are quarantined (logic present even when quarantine is empty)
+        _qua_path = out_dir / "Placements_ByPerson_SinglesQuarantine.csv"
+        if _qua_path.exists():
+            _qua_df = pd.read_csv(_qua_path, dtype=str).fillna("")
+            _qua_pids: set[str] = set()
+            for _side in ["player1_person_id", "player2_person_id"]:
+                if _side in _qua_df.columns:
+                    _qua_pids |= set(_qua_df[_side].astype(str).str.strip())
+            _qua_pids.discard("")
+            if _qua_pids:
+                _all_pids = set(per_all["person_id"].astype(str).str.strip())
+                _qua_only = _qua_pids - _all_pids
+                if _qua_only:
+                    _qua_only_rows = persons_truth[
+                        persons_truth["effective_person_id"].astype(str).str.strip().isin(_qua_only)
+                    ].copy()
+                    _qua_only_rows["exclude_reason"] = "synthetic_quarantine_only"
+                    excluded = pd.concat([excluded, _qua_only_rows], ignore_index=True)
+                    persons_truth = persons_truth[
+                        ~persons_truth["effective_person_id"].astype(str).str.strip().isin(_qua_only)
+                    ].copy()
+                    print(f"[Gate3] Excluded {len(_qua_only_rows)} persons whose only placements are quarantined")
 
-    if _synthetic_ids:
-        _synthetic_rows = persons_truth[
-            persons_truth["effective_person_id"].astype(str).str.strip().isin(_synthetic_ids)
-        ].copy()
-        if not _synthetic_rows.empty:
-            _synthetic_rows["exclude_reason"] = "synthetic_sparse_single"
-            excluded = pd.concat([excluded, _synthetic_rows], ignore_index=True)
-            print(f"[Gate3] Excluded {len(_synthetic_rows)} synthetic persons (sparse+single-appearance)")
-        persons_truth = persons_truth[
-            ~persons_truth["effective_person_id"].astype(str).str.strip().isin(_synthetic_ids)
-        ].copy()
+        if _synthetic_ids:
+            _synthetic_rows = persons_truth[
+                persons_truth["effective_person_id"].astype(str).str.strip().isin(_synthetic_ids)
+            ].copy()
+            if not _synthetic_rows.empty:
+                _synthetic_rows["exclude_reason"] = "synthetic_sparse_single"
+                excluded = pd.concat([excluded, _synthetic_rows], ignore_index=True)
+                print(f"[Gate3] Excluded {len(_synthetic_rows)} synthetic persons (sparse+single-appearance)")
+            persons_truth = persons_truth[
+                ~persons_truth["effective_person_id"].astype(str).str.strip().isin(_synthetic_ids)
+            ].copy()
 
-    # --- coverage closure (only on strict, presentable set) ---
-    # Collect all person canons referenced in Placements_Flat and ensure each appears
-    # in Persons_Truth (prevents orphan canons from slipping through presentation).
-    used_canons = set()
-    for col in ["player1_person_canon", "player2_person_canon"]:
-        if col in pf.columns:
-            for v in pf[col].astype(str):
-                vv = str(v or "").strip()
-                if not vv:
-                    continue
-                # normalize using the exact same no-guess cleaner used in QC07
-                cleaned, _reason = clean_person_label_no_guess(vv)
-                key = (cleaned or vv).strip()
-                if key and is_presentable_person_canon(key):
-                    used_canons.add(key)
-    existing = set(persons_truth["person_canon"].astype(str).str.strip())
-    existing.discard("")
-    missing = sorted(c for c in used_canons if c not in existing)
-    if missing:
-        add_rows = [_mk_truth_row_from_canon(c) for c in missing]
-        persons_truth = pd.concat([persons_truth, pd.DataFrame(add_rows)], ignore_index=True)
+        # --- coverage closure (only on strict, presentable set) ---
+        # Collect all person canons referenced in Placements_Flat and ensure each appears
+        # in Persons_Truth (prevents orphan canons from slipping through presentation).
+        used_canons = set()
+        for col in ["player1_person_canon", "player2_person_canon"]:
+            if col in pf.columns:
+                for v in pf[col].astype(str):
+                    vv = str(v or "").strip()
+                    if not vv:
+                        continue
+                    # normalize using the exact same no-guess cleaner used in QC07
+                    cleaned, _reason = clean_person_label_no_guess(vv)
+                    key = (cleaned or vv).strip()
+                    if key and is_presentable_person_canon(key):
+                        used_canons.add(key)
+        existing = set(persons_truth["person_canon"].astype(str).str.strip())
+        existing.discard("")
+        missing = sorted(c for c in used_canons if c not in existing)
+        if missing:
+            add_rows = [_mk_truth_row_from_canon(c) for c in missing]
+            persons_truth = pd.concat([persons_truth, pd.DataFrame(add_rows)], ignore_index=True)
 
-    # Persons views (presentation surface): aliases_presentable from overrides (VERIFIED only)
-    alias_map = build_aliases_presentable_from_overrides(person_aliases_overrides_df)
-    if "effective_person_id" in persons_truth.columns:
-        persons_truth["aliases_presentable"] = persons_truth["effective_person_id"].astype(str).str.strip().map(alias_map).fillna("")
-    else:
-        persons_truth["aliases_presentable"] = ""
+        # Persons views (presentation surface): aliases_presentable from overrides (VERIFIED only)
+        alias_map = build_aliases_presentable_from_overrides(person_aliases_overrides_df)
+        if "effective_person_id" in persons_truth.columns:
+            persons_truth["aliases_presentable"] = persons_truth["effective_person_id"].astype(str).str.strip().map(alias_map).fillna("")
+        else:
+            persons_truth["aliases_presentable"] = ""
 
-    def _drop_self_alias(row: pd.Series) -> str:
-        canon = (row.get("person_canon") or "").strip()
-        aliases = (row.get("aliases_presentable") or "").strip()
-        if not canon or not aliases:
-            return aliases
-        parts = [p.strip() for p in aliases.split(" | ") if p.strip()]
-        parts = [p for p in parts if _canon_key(p) != _canon_key(canon)]
-        return " | ".join(parts)
+        def _drop_self_alias(row: pd.Series) -> str:
+            canon = (row.get("person_canon") or "").strip()
+            aliases = (row.get("aliases_presentable") or "").strip()
+            if not canon or not aliases:
+                return aliases
+            parts = [p.strip() for p in aliases.split(" | ") if p.strip()]
+            parts = [p for p in parts if _canon_key(p) != _canon_key(canon)]
+            return " | ".join(parts)
 
-    persons_truth["aliases_presentable"] = persons_truth.apply(_drop_self_alias, axis=1)
+        persons_truth["aliases_presentable"] = persons_truth.apply(_drop_self_alias, axis=1)
 
-    # Presentation rule: no duplicate display names across different IDs
-    persons_truth, persons_truth_dupe_quarantine = quarantine_duplicate_display_names(
-        persons_truth, name_col="person_canon", id_col="effective_person_id"
-    )
-    if len(persons_truth_dupe_quarantine) > 0:
-        persons_truth_dupe_quarantine = persons_truth_dupe_quarantine.copy()
-        persons_truth_dupe_quarantine["exclude_reason"] = "duplicate_person_canon"
+        # Presentation rule: no duplicate display names across different IDs
+        persons_truth, persons_truth_dupe_quarantine = quarantine_duplicate_display_names(
+            persons_truth, name_col="person_canon", id_col="effective_person_id"
+        )
+        if len(persons_truth_dupe_quarantine) > 0:
+            persons_truth_dupe_quarantine = persons_truth_dupe_quarantine.copy()
+            persons_truth_dupe_quarantine["exclude_reason"] = "duplicate_person_canon"
+            out_dir = repo / "out"
+            out_dir.mkdir(exist_ok=True)
+            persons_truth_dupe_quarantine.to_csv(out_dir / "Persons_DuplicateDisplay.csv", index=False)
+
+        # Option A display sheet: slim, pivot-ready, one row per effective_person_id
+        persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
+        persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
+        persons_truth_display = persons_truth[persons_truth_display_cols].copy()
+
+        persons_truth_full_out = persons_truth_full.copy()
+
+        # ---- Persist definitive CSV artifacts (deterministic) ----
         out_dir = repo / "out"
         out_dir.mkdir(exist_ok=True)
-        persons_truth_dupe_quarantine.to_csv(out_dir / "Persons_DuplicateDisplay.csv", index=False)
 
-    # Option A display sheet: slim, pivot-ready, one row per effective_person_id
-    persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
-    persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
-    persons_truth_display = persons_truth[persons_truth_display_cols].copy()
+        persons_truth.to_csv(PERSONS, index=False)
 
-    persons_truth_full_out = persons_truth_full.copy()
+        persons_truth_full_out.to_csv(out_dir / "Persons_Truth_Full.csv", index=False)
+        excluded.to_csv(out_dir / "Persons_Truth_Excluded.csv", index=False)
+        if not quarantine.empty:
+            quarantine.to_csv(out_dir / "Persons_Truth_Quarantine_TwoPeople.csv", index=False)
 
-    # ---- Persist definitive CSV artifacts (deterministic) ----
-    out_dir = repo / "out"
-    out_dir.mkdir(exist_ok=True)
-
-    persons_truth.to_csv(PERSONS, index=False)
-
-    persons_truth_full_out.to_csv(out_dir / "Persons_Truth_Full.csv", index=False)
-    excluded.to_csv(out_dir / "Persons_Truth_Excluded.csv", index=False)
-    if not quarantine.empty:
-        quarantine.to_csv(out_dir / "Persons_Truth_Quarantine_TwoPeople.csv", index=False)
-
-    # Persons_Public: canonical name + aliases only (no source/notes/IDs)
-    persons_public = persons_truth_display[["person_canon", "aliases_presentable"]].copy()
+        # Persons_Public: canonical name + aliases only (no source/notes/IDs)
+        persons_public = persons_truth_display[["person_canon", "aliases_presentable"]].copy()
+    else:
+        # Lock active: use existing Persons_Truth.csv, do not overwrite
+        persons_truth = pd.read_csv(persons_truth_csv, dtype=str).fillna("")
+        persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
+        persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
+        persons_truth_display = persons_truth[persons_truth_display_cols].copy()
+        persons_public = persons_truth_display[["person_canon", "aliases_presentable"]].copy()
 
     # Build clean competitor-centric Placements_ByPerson (new schema)
     placements_by_person_df = build_placements_by_person_clean(pf, cov_df, out_dir)
     persons_unresolved_df = build_persons_unresolved(pf, per_all, out_dir)
+    # Workbook uses triaged version for Persons_Unresolved sheet when available
+    df_unresolved = read_csv_optional(out_dir / "Persons_Unresolved_Triage.csv")
+    if df_unresolved.empty:
+        df_unresolved = read_csv_optional(out_dir / "Persons_Unresolved.csv")
+    if not df_unresolved.empty:
+        persons_unresolved_df = df_unresolved
     placements_unresolved_df = build_placements_unresolved(placements_by_person_df, out_dir)
     analytics_safe_df = build_analytics_safe_surface(placements_by_person_df, out_dir)
     data_integrity_df = build_data_integrity(pf_raw_count, pf, placements_by_person_df,
@@ -2207,6 +2412,17 @@ def main() -> int:
     sheets.append(("Placements_ByPerson", placements_by_person_df))
     sheets.append(("Persons_Truth", persons_truth_display))
     sheets.append(("Analytics_Safe_Surface", analytics_safe_df))
+    # Put likelihood fields near the front for Persons_Unresolved if present
+    if not persons_unresolved_df.empty:
+        preferred = [
+            "person_canon", "issue_type", "appearances",
+            "resolution_likelihood", "likelihood_score", "triage_reasons",
+            "evidence", "suggested_action", "player_id", "person_id", "name_raw", "name_clean"
+        ]
+        cols = [c for c in preferred if c in persons_unresolved_df.columns] + [
+            c for c in persons_unresolved_df.columns if c not in preferred
+        ]
+        persons_unresolved_df = persons_unresolved_df[cols]
     sheets.append(("Persons_Unresolved", persons_unresolved_df))
     sheets.append(("Placements_Unresolved", placements_unresolved_df))
     if len(person_stats) > 0:
