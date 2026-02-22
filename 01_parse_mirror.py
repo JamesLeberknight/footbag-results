@@ -69,6 +69,26 @@ DATE_OVERRIDES = {
 }
 
 
+# --- Recovery override: results blocks recovered from mirror pages ---
+def _load_recovered_results_overrides(path: str | Path = "overrides/recovered_results.jsonl") -> dict[str, str]:
+    p = Path(path) if isinstance(path, str) else path
+    if not p.exists():
+        print(f"[Stage1] recovered_results overrides: file not found: {p}")
+        return {}
+    overrides: dict[str, str] = {}
+    for line in p.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        obj = json.loads(line)
+        eid = str(obj.get("event_id", "")).strip()
+        txt = obj.get("results_block_raw_override", "")
+        if eid and txt:
+            overrides[eid] = txt
+    print(f"[Stage1] recovered_results overrides loaded: {len(overrides)} from {p}")
+    return overrides
+
+
 def sanitize_csv_string(s: str) -> str:
     """Remove control characters for CSV safety."""
     if not isinstance(s, str):
@@ -805,6 +825,17 @@ def main():
 
     print(f"Parsing mirror at: {mirror_dir}")
     records = parse_mirror(mirror_dir)
+
+    # --- Recovery override: results blocks recovered from mirror pages ---
+    _over = _load_recovered_results_overrides(repo_dir / "overrides" / "recovered_results.jsonl")
+    if _over:
+        n = 0
+        for rec in records:
+            eid = str(rec.get("event_id", "")).strip()
+            if eid in _over:
+                rec["results_block_raw"] = _over[eid]
+                n += 1
+        print(f"[Stage1] recovered_results overrides applied to rows: {n}")
 
     print(f"Writing to: {out_csv}")
     write_stage1_csv(records, out_csv)
