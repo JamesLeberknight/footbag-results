@@ -105,6 +105,58 @@ def _canon_key(s: str) -> str:
     return (s or "").strip().casefold()
 
 
+def apply_person_merges(
+    df: pd.DataFrame,
+    merges_path: str | Path | None = None,
+) -> pd.DataFrame:
+    """
+    Apply human-verified person merges: replace effective_person_id using
+    overrides/person_merges.csv (from_person_id -> to_person_id).
+    Call immediately after effective_person_id is assigned, before any grouping.
+    """
+    if merges_path is None or not Path(merges_path).exists():
+        return df
+    merges = pd.read_csv(merges_path, dtype=str)
+    for c in ["from_person_id", "to_person_id"]:
+        if c not in merges.columns:
+            return df
+    status = merges.get("status", pd.Series([""])).fillna("").astype(str).str.lower()
+    merges = merges[status == "verified"]
+    if merges.empty:
+        return df
+    merge_map = dict(zip(merges["from_person_id"], merges["to_person_id"]))
+    if "effective_person_id" not in df.columns:
+        return df
+    df = df.copy()
+    df["effective_person_id"] = df["effective_person_id"].replace(merge_map)
+    return df
+
+
+def split_persons_truth_on_canon_conflicts(persons_truth_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Returns (persons_truth_clean, persons_truth_conflicted)
+
+    Conflict rule (deterministic):
+      person_canon maps to >1 effective_person_id.
+    """
+    df = persons_truth_df.copy()
+    for c in ["effective_person_id", "person_canon"]:
+        if c not in df.columns:
+            raise ValueError(f"Persons_Truth missing required column: {c}")
+
+    canon_n = (
+        df.groupby("person_canon")["effective_person_id"]
+        .nunique(dropna=False)
+        .reset_index(name="n_ids")
+    )
+    conflicted_canons = set(canon_n.loc[canon_n["n_ids"] > 1, "person_canon"].tolist())
+
+    conflicted = df[df["person_canon"].isin(conflicted_canons)].copy()
+    clean = df[~df["person_canon"].isin(conflicted_canons)].copy()
+
+    return clean, conflicted
+
+
 # --- Triage for Persons_Unresolved (presentation-only heuristics) ---
 _TRIAGE_HARD_REJECT_PHRASES = {
     "pdl","sky","flip bags","flipbags","kc blender","blender",
@@ -1058,11 +1110,16 @@ def build_person_stats_by_div_category(per: pd.DataFrame) -> pd.DataFrame:
     return stats
 
 
-def build_persons_truth(per: pd.DataFrame, aliases_df: pd.DataFrame) -> pd.DataFrame:
+def build_persons_truth(
+    per: pd.DataFrame,
+    aliases_df: pd.DataFrame,
+    merges_path: str | Path | None = None,
+) -> pd.DataFrame:
     """
     Build Persons_Truth: one row per effective_person_id from placements + overrides.
     NO guessing: person_id comes from 02p5 (or fallback to player_id in explode_to_people).
     Normalizes ID/canon so effective_person_id is always the UUID (or stable player_id), not the name.
+    If merges_path is set, applies person_merges.csv (verified from_person_id -> to_person_id) before grouping.
     """
     base_cols = ["effective_person_id", "person_canon", "player_ids_seen", "player_names_seen",
                  "aliases", "alias_statuses", "notes", "source", "person_canon_clean", "person_canon_clean_reason"]
@@ -1148,6 +1205,9 @@ def build_persons_truth(per: pd.DataFrame, aliases_df: pd.DataFrame) -> pd.DataF
                     "person_canon_clean_reason": "",
                 }]),
             ], ignore_index=True)
+
+    # Apply human-verified merges before any further grouping (retired IDs -> canonical)
+    pt = apply_person_merges(pt, merges_path)
 
     # Defensive: ensure effective_person_id is never name-like (fix swapped id/canon rows)
     if len(pt) > 0:
@@ -2197,7 +2257,9 @@ def main() -> int:
 
     if not skip_identity_overwrite:
         # NO-GUESSING person dimension (one row per effective_person_id)
-        persons_truth_full = build_persons_truth(per_all, aliases_df)
+        persons_truth_full = build_persons_truth(
+            per_all, aliases_df, merges_path=repo / "overrides" / "person_merges.csv"
+        )
         qc_persons_truth(persons_truth_full)
 
         # Try to derive a presentable canon for any row whose current canon is not presentable.
@@ -2340,6 +2402,10 @@ def main() -> int:
             out_dir.mkdir(exist_ok=True)
             persons_truth_dupe_quarantine.to_csv(out_dir / "Persons_DuplicateDisplay.csv", index=False)
 
+        # Split on canon conflicts: write only clean Persons_Truth; quarantined rows go to unresolved
+        persons_truth_clean, persons_truth_conflicted = split_persons_truth_on_canon_conflicts(persons_truth)
+        persons_truth = persons_truth_clean
+
         # Option A display sheet: slim, pivot-ready, one row per effective_person_id
         persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
         persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
@@ -2363,6 +2429,7 @@ def main() -> int:
     else:
         # Lock active: use existing Persons_Truth.csv, do not overwrite
         persons_truth = pd.read_csv(persons_truth_csv, dtype=str).fillna("")
+        persons_truth_conflicted = pd.DataFrame()
         persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
         persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
         persons_truth_display = persons_truth[persons_truth_display_cols].copy()
@@ -2377,8 +2444,32 @@ def main() -> int:
         df_unresolved = read_csv_optional(out_dir / "Persons_Unresolved.csv")
     if not df_unresolved.empty:
         persons_unresolved_df = df_unresolved
+    # Append canon-collision rows into unresolved surface (from split_persons_truth_on_canon_conflicts)
+    if len(persons_truth_conflicted) > 0:
+        add = persons_truth_conflicted.copy()
+        add["issue_type"] = "person_canon_collision"
+        add["suggested_action"] = "review_quarantine"
+        add["triage_reasons"] = "person_canon maps to multiple effective_person_id"
+        ids_by_canon = (
+            persons_truth_conflicted.groupby("person_canon")["effective_person_id"]
+            .apply(lambda s: "|".join(sorted(set(s.astype(str)))))
+            .to_dict()
+        )
+        add["evidence"] = add["person_canon"].map(ids_by_canon).fillna("")
+        if "person_id" not in add.columns and "effective_person_id" in add.columns:
+            add["person_id"] = add["effective_person_id"].astype(str).str.strip()
+        for c in ["player_id", "name_raw", "name_clean", "appearances"]:
+            if c not in add.columns:
+                add[c] = "" if c != "appearances" else 0
+        persons_unresolved_df = pd.concat([persons_unresolved_df, add], ignore_index=True, sort=False)
     placements_unresolved_df = build_placements_unresolved(placements_by_person_df, out_dir)
     analytics_safe_df = build_analytics_safe_surface(placements_by_person_df, out_dir)
+    # Exclude canon-collision identities from safe surface (person_canon is the identity column there)
+    if len(persons_truth_conflicted) > 0:
+        conflicted_canons = set(persons_truth_conflicted["person_canon"].astype(str).str.strip().tolist())
+        analytics_safe_df = analytics_safe_df[
+            ~analytics_safe_df["person_canon"].astype(str).str.strip().isin(conflicted_canons)
+        ].copy()
     data_integrity_df = build_data_integrity(pf_raw_count, pf, placements_by_person_df,
                                              analytics_safe_df, cov_df, out_dir)
 
