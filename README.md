@@ -1,4 +1,4 @@
-📦 Footbag Results Pipeline — v1.0
+📦 Footbag Results Pipeline — v1.0.3
 
 Archive-quality, deterministic pipeline for building a canonical Footbag historical results dataset and Excel workbook.
 
@@ -6,11 +6,11 @@ This repository contains:
 
 End-to-end parsing + normalization pipeline
 
-Identity resolution workflow
+Deterministic identity layer (collision-free)
+
+Human-gated identity resolution workflow
 
 QC gates and diagnostics
-
-Deterministic analytics build
 
 Release-based mirror input distribution
 
@@ -64,18 +64,12 @@ Large static inputs (mirror)
 Not tracked in git:
 
 mirror/
-
 out/
-
 *.xlsx
-
 archive files
-
 🔧 Requirements
 
 Python 3.9+
-
-Install dependencies:
 
 python3 -m venv .venv
 source .venv/bin/activate
@@ -84,9 +78,13 @@ pip install -r requirements.txt
 Dependencies:
 
 pandas
+
 openpyxl
+
 beautifulsoup4
+
 lxml
+
 📥 Required Mirror Input (Release Asset)
 
 Stage 01 requires an offline HTML mirror.
@@ -95,9 +93,7 @@ The mirror is distributed via GitHub Release (not stored in git).
 
 Download
 
-Go to the Releases page.
-
-Download:
+Go to the Releases page and download:
 
 mirror.tar.gz
 Extract
@@ -110,24 +106,37 @@ This creates:
 
 ./mirror/
 
-which is required by:
+Required by:
 
 01_parse_mirror.py
-🚀 Running the Full Pipeline
+🚀 Canonical Build Order
+01_parse_mirror.py
+01b_import_old_results.py
+01c_merge_stage1.py
+02_canonicalize_results.py
+02p5_player_token_cleanup.py
+03_build_excel.py
+04_build_analytics.py
+⚠️ Important: Stage Ordering Nuance
 
-Create output directory:
+Stage 03 builds the base Excel workbook.
 
-mkdir -p out
+Stage 04 must run last.
 
-Run in order:
+Stage 04:
 
-python 01_parse_mirror.py
-python 01b_import_old_results.py --in OLD_RESULTS.txt
-python 01c_merge_stage1.py --out-dir out
-python 02_canonicalize_results.py
-python 02p5_player_token_cleanup.py
-python 03_build_excel.py
-python 04_build_analytics.py
+Finalizes analytics tables
+
+Enforces collision-free Persons_Truth
+
+Quarantines ambiguous identities
+
+Sets final workbook sheet ordering (README first)
+
+Never run Stage 03 after Stage 04.
+
+If you do, workbook ordering will be reset.
+
 📤 Outputs
 
 Generated artifacts (in out/):
@@ -142,6 +151,8 @@ Placements_ByPerson.csv
 
 Persons_Truth.csv
 
+Persons_Unresolved.csv
+
 QC summaries
 
 Analytics CSVs
@@ -151,6 +162,61 @@ Generated workbook (repo root):
 Footbag_Results_Canonical.xlsx
 
 ⚠️ Generated outputs are not committed to git.
+
+🔐 Identity Model (v1.0.3)
+Persons_Truth is guaranteed to be:
+
+Collision-free
+
+Deterministic
+
+Derived from overrides + validated data
+
+Never manually edited
+
+If multiple effective_person_id values map to the same person_canon,
+those rows are automatically moved to:
+
+Persons_Unresolved
+
+No speculative merges are performed.
+
+All human decisions are stored in:
+
+overrides/person_aliases.csv
+🔄 Optional Human Resolution Workflow (06 / 07)
+
+These steps are only needed if you want to reduce unresolved identities.
+
+06 — Resolve Unmapped Names
+python 06_resolve_unmapped.py --generate
+# edit out/unmapped_resolution.csv
+python 06_resolve_unmapped.py --apply
+07 — Resolve Quarantine Splits
+python 07_resolve_quarantine.py --generate
+# edit out/quarantine_resolution.csv
+python 07_resolve_quarantine.py --apply
+After Applying 06 or 07
+
+Rebuild identity layer:
+
+python 04_build_analytics.py --force-identity
+
+(Do not rerun Stage 03.)
+
+🔒 Identity Locking
+
+If overrides are locked:
+
+overrides/person_aliases.lock
+
+Remove the lock to apply changes:
+
+rm overrides/person_aliases.lock
+
+Recreate after applying.
+
+Lock files are not committed.
 
 🧪 Quality Control
 
@@ -165,24 +231,6 @@ python qc_master.py
 Baselines are stored in:
 
 data/qc_baseline_*.json
-🔐 Identity Resolution Workflow (Human Gates)
-
-When QC detects issues:
-
-Multi-person canon collisions
-python qc02_canon_multiple_person_ids.py
-python 05_disambiguate_persons.py --generate
-
-Edit generated CSV → apply:
-
-python 05_disambiguate_persons.py --apply
-python 04_build_analytics.py --force-identity
-Unmapped persons
-python qc_tier1_people.py
-python 06_resolve_unmapped.py --generate
-
-Edit → apply → rebuild 02p5 and 04.
-
 📦 Release Policy
 
 Large static inputs are distributed via GitHub Releases:
@@ -191,7 +239,7 @@ mirror.tar.gz
 
 (optional) Footbag_Results_Canonical.xlsx
 
-Git repository contains:
+Repository contains:
 
 Code
 
@@ -199,43 +247,31 @@ Overrides
 
 Baselines
 
-Configuration only
+Configuration
 
-🔁 Reproducibility Test (Recommended)
+🔁 Reproducibility Test
 
 From a clean clone:
 
 git clone <repo-url>
 cd footbag-results
-git checkout v1.0
+git checkout v1.0.3-persons-clean
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 mkdir -p out
 # extract mirror.tar.gz
-# then run pipeline
+# run pipeline
 
-If build completes without errors and QC passes, repository is consistent.
+If build completes and QC passes, repository is consistent.
 
 📜 Versioning
 
-Tag used for this release:
+Current stable identity baseline:
 
-v1.0
+v1.0.3-persons-clean
 
-This tag represents a stable handoff state.
-
-🧠 Notes
-
-No identity merges are performed automatically.
-
-All person resolution decisions are recorded in:
-
-overrides/person_aliases.csv
-
-Lock files are not committed.
-
-The repository is intentionally strict and deterministic.
+This tag represents a collision-free, archive-safe identity state.
 
 👤 Maintainer
 
