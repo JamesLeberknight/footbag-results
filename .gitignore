@@ -99,3 +99,7 @@ Claude_old_md_files/
 *_progress.json
 robots_cache.json
 githib-pswd.txt
+# editor/backup junk
+*BAK
+*.bak
+*~
