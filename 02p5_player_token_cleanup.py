@@ -32,8 +32,6 @@ def build_from_identity_lock(args):
 
     required_cols = [
         "event_id",
-        "event_name",
-        "event_year",
         "division_canon",
         "place",
         "person_id",
