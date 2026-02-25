@@ -1,325 +1,207 @@
-# claude.md v5 — Archive‑Quality Footbag Results Pipeline
+cat > CLAUDE.md <<'EOF'
+# CLAUDE.md
+## Footbag Results Pipeline — Canonical Contract (v1.0)
 
-## Mission
+This document defines the architectural contract and philosophical constraints
+for the Footbag historical results pipeline.
 
-Build an **archive‑quality, deterministic, auditable dataset** of historical footbag competition results.
-
-The goal is **not maximal recall**, but **maximal trust**:
-
-* No guessing
-* No silent repairs
-* No heuristic identity merges
-* Clear separation between *raw*, *cleaned*, *canonical*, and *human‑verified truth*
-
-The final Excel workbook must be suitable for:
-
-* Human review
-* Statistical analysis
-* Long‑term archival use
+It is authoritative for pipeline behavior.
 
 ---
 
-## Core Principles (Non‑Negotiable)
+# 1. Core Principles (Non-Negotiable)
 
-1. **Presentability > Correctness**
+1. Deterministic builds.
+2. No silent merges.
+3. No guessing without explicit tagging.
+4. One real person = one canonical person record.
+5. Garbage / non-person entities are preserved, not erased.
+6. Human-verified identity truth overrides all heuristics.
+7. Analytics depend ONLY on canonical identity outputs.
 
-   * Correctness is evaluated *only* on presentable values.
-   * Non‑presentable values are excluded, not repaired.
-
-2. **Omission is safer than misrepresentation**
-
-   * It is acceptable to drop data.
-   * It is not acceptable to fabricate clarity.
-
-3. **Human truth beats heuristics**
-
-   * Identity merges occur **only** via explicit human‑maintained files.
-
-4. **Determinism**
-
-   * Same inputs → same outputs, byte‑for‑byte.
-
-5. **Auditability**
-
-   * Every transformation must be explainable and reversible.
+This is an archival system, not an experiment.
 
 ---
 
-## Key Definitions
+# 2. Identity Model
 
-### Presentable Value
+## 2.1 player_id vs person_id
 
-A string that:
+- `player_id`
+  - Raw competitor token derived from source data.
+  - May represent real person, garbage, club, trick, or corrupted name.
+  - Must never be deleted silently.
 
-* Represents **exactly one real‑world concept**
-* Contains **no embedded metadata** (locations, rankings, tricks, notes, emojis)
-* Contains **no conjunctions** (and/or/+/\/=)
-* Is suitable for direct display in a publication
-
-Examples:
-
-* ✅ `Rick Reese`
-* ❌ `CO, USA) and Rick Reese`
-* ❌ `Andreas Wolff 🇩🇪 Germany`
-
-Only presentable values may be evaluated for correctness.
-
-### Division Categorization
-
-Division categories (freestyle, net, golf, sideline, unknown) are derived **programmatically** from division name keywords — there is no human-maintained division override file. Divisions that cannot be safely mapped are explicitly labeled `unknown`.
+- `person_id`
+  - Represents a real human being.
+  - Assigned ONLY through human-verified identity artifacts.
+  - Never inferred heuristically in release mode.
 
 ---
 
-### player_id
+## 2.2 Canonical Identity Artifacts (Authoritative Inputs)
 
-* A **raw identity token** derived from source text
-* Preserved aggressively
-* Never merged automatically
-* Many player_ids may refer to the same human
+Release builds rely on:
 
-player_id answers: *“What did the source say?”*
+inputs/identity_lock/
+- Persons_Truth_Final_v13.csv
+- Persons_Unresolved_Organized_v11.csv
+- Placements_ByPerson_v13.csv
 
----
+These files are treated as ground truth.
 
-### person_id
+They must satisfy:
 
-* A **stable, canonical identity** representing a real human
-* Assigned only via human verification
-* One person_id ⇔ one real person
+- Exactly one row per real human in Persons_Truth.
+- No collisions in person_canon.
+- All unresolved real humans appear in Persons_Unresolved.
+- All garbage explicitly classified (__NON_PERSON__).
+- No competitor dropped.
 
-person_id answers: *“Who is this actually?”*
-
----
-
-## Pipeline Overview
-
-```
-01  → HTML mirror ingestion (raw)
-02  → Structural parsing & normalization
-02p5→ Player token cleanup (NO identity merges)
-03  → Canonical tables & QC datasets
-04  → Excel presentation & human QC surface
-04b → Recovery layer (confidence-labeled, optional)
-```
-
-Each stage has a **strict responsibility boundary**.
+Identity truth is not recomputed in release mode.
 
 ---
 
-## Stage 01 — Raw Ingestion
+# 3. Pipeline Modes
 
-**Purpose:**
+## 3.1 Release Mode (Canonical v1.0)
 
-* Mirror historical HTML
-* Preserve original content faithfully
+Purpose:
+Produce the canonical, archival dataset and Excel workbook.
 
-**Rules:**
+Characteristics:
+- Consumes identity-lock artifacts.
+- Does not perform identity merges.
+- Does not generate alias suggestions.
+- Deterministic from a clean clone.
+- Produces:
+  - Placements_Flat.csv
+  - Persons_Truth.csv
+  - Persons_Unresolved.csv
+  - persons_truth.lock
+  - Canonical Excel workbook
 
-* No cleaning
-* No interpretation
-* No normalization
-
-**Outputs:**
-
-* Raw mirrored text
-
----
-
-## Stage 02 — Structural Parsing
-
-**Purpose:**
-
-* Extract events, divisions, placements, players, teams
-* Normalize structure, *not meaning*
-
-**Rules:**
-
-* Preserve all tokens
-* Do not modify names beyond whitespace normalization
-
-**Outputs:**
-
-* `events_df`
-* `placements_df`
-* `players_df`
-* `teams_df`
+Release mode is the only mode required for archival reproduction.
 
 ---
 
-## Stage 02.5 — Player Token Cleanup (NO IDENTITY MERGES)
+## 3.2 Rebuild Mode (Research / Reconstruction)
 
-**Purpose:**
-Clean *name strings only* while preserving identity multiplicity.
+Purpose:
+Reconstruct placements from raw mirror data.
 
-**Allowed:**
+Characteristics:
+- Parses HTML mirror.
+- Produces canonicalized events.
+- Generates candidate identities.
+- May produce alias suggestions.
+- Does NOT establish canonical identity.
 
-* Remove rankings, ages, IFPA numbers
-* Remove locations and parenthetical metadata
-* Normalize diacritics for comparison (not display)
-
-**Forbidden:**
-
-* Merging player_ids
-* Guessing identities
-* Collapsing similar names
-
-**Outputs:**
-
-* `player_name_clean`
-* `name_status`: `ok | suspicious | needs_review | junk`
-* Alias *suggestions* only
+Rebuild mode is exploratory.
+Release mode is authoritative.
 
 ---
 
-## Stage 03 — Canonical & QC Tables
+# 4. Stage Responsibilities
 
-**Purpose:**
+## Stage 01–02 (Rebuild Mode Only)
+- Parse mirror.
+- Normalize events.
+- Preserve raw tokens.
+- No identity merges.
 
-* Produce normalized datasets
-* Surface ambiguity explicitly
+## Stage 02p5
+- Structural token cleanup.
+- In Release Mode:
+  - Generates Placements_Flat from authoritative placements.
+  - No heuristic identity logic executed.
 
-**Key Outputs:**
+## Stage 03
+- Build canonical workbook structure.
+- No identity mutations.
 
-* `Placements_Flat`        (structural, one row per raw placement)
-* `Placements_ByPerson`    (competitor-centric, deduplicated, coverage-aware)
-* `Persons_Truth`          (identity dimension, one row per real human)
-* `Coverage_ByEventDivision`
+## Stage 04
+- Apply identity lock artifacts.
+- Enforce coverage guarantees.
+- Generate analytics.
+- Write persons_truth.lock.
+- Finalize sheet ordering.
 
-**Rules:**
-
-* No human truth is created here
-* QC is additive, never destructive
-
----
-
-## Human Truth Layer (Out‑of‑Band)
-
-**Files:**
-
-* `person_aliases.csv`
-* `events_overrides.jsonl`
-
-**Rules:**
-
-* Human‑maintained only
-* Version‑controlled
-* Explicit decisions only
-
-This is the *only* place identity merges occur.
+Stage 04 must never alter canonical identity rows.
 
 ---
 
-## Stage 04 — Excel Presentation & QC Surface
+# 5. Coverage Guarantees
 
-**Purpose:**
-Produce the **final Excel workbook** used for:
+Every placement competitor must map to exactly one of:
 
-* Human inspection
-* Manual verification
-* Long‑term archival reference
+- Persons_Truth
+- Persons_Unresolved
+- __NON_PERSON__
 
-Stage 04 is a **presentation layer**, not a cleaning layer.
-
-### Responsibilities
-
-* Apply human truth (person_id mappings)
-* Enforce presentability constraints
-* Exclude junk and non‑presentable values
-* Produce clearly labeled QC sheets
-* Build `Placements_ByPerson`: LEFT JOIN person identity onto `Placements_Flat`,
-  canonicalize competitor identity (`team_person_key`), collapse duplicate
-  player-token rows, apply `coverage_flag`
-
-### Key Rule
-
-> **“Done” means every visible cell is as clean as possible.**
-
-If a value is not presentable, it must not appear in the workbook.
+No row may be dropped silently.
+All exclusions must be auditable.
 
 ---
 
-## Stage 04b — Recovery Layer
+# 6. Identity Lock Sentinel
 
-**Purpose:**
-Recover rejected ByPerson placements using confidence-labeled methods, without modifying canonical data.
+Release builds generate:
 
-### Methods (in priority order)
+out/persons_truth.lock
 
-1. **Same-event exact** — player_id matches a person_id already in the same event
-2. **Cross-event exact** — player_id matches a person_id seen in other events
-3. **Last-name expansion** — unambiguous last-name match within event context
-4. **Event context** — contextual signals from co-competitors
+This file contains:
+- sha256 hashes of authoritative inputs
+- row counts
+- filenames
+- release timestamp
 
-### Key Rule
-
-> **Canonical data is never modified.** Recovery is a derived, optional surface.
-
-Recovered placements carry explicit confidence labels so downstream consumers can filter by trust level.
-
-### Outputs
-
-* `Recovery_Candidates.csv` — all candidate recoveries with confidence labels
-* `Placements_ByPerson_WithRecovery.csv` — merged canonical + recovered placements
-* `Recovery_Summary.json` — aggregate statistics
+This sentinel proves identity immutability for the release.
 
 ---
 
-## Persons_Truth Table
+# 7. Versioning Rules
 
-**Invariant:**
+- Patch (v1.0.x):
+  - Documentation updates
+  - Refactors
+  - No data changes
 
-* One row = one real human
-* One person_id
-* One presentable canonical name
+- Minor (v1.x.0):
+  - Additive analytics
+  - No identity changes
 
-No duplicates.
-No junk.
-No metadata.
+- Major (v2.0.0):
+  - Any change to:
+    - Persons_Truth
+    - Persons_Unresolved
+    - Identity classification logic
 
----
-
-## QC Philosophy
-
-* QC detects; it does not repair
-* Ambiguity is surfaced, not hidden
-* Every exclusion is intentional
-
-If something looks wrong, the answer is:
-
-> “Which stage is responsible?”
+Identity changes require a new release and full regeneration.
 
 ---
 
-## Diagnostic Pivots
+# 8. What This System Is Not
 
-Full diagnostic pivots (career timelines, partner realism, temporal plausibility)
-are deferred until `Placements_ByPerson` is structurally correct — that is,
-properly deduplicated by person identity with a stable `team_person_key`. Until
-then, any aggregation on the output sheet risks double-counting due to
-player-token multiplicity.
+- Not a dynamic alias resolution engine.
+- Not a speculative merge system.
+- Not an automated identity inference pipeline.
+- Not tolerant of silent data loss.
 
----
-
-## Definition of Done
-
-The pipeline is **done** when:
-
-* All Excel cells are presentable
-* Every person_id maps to exactly one human
-* No heuristic identity merges remain
-* All remaining ambiguity is explicit and reviewable
-* Structural QC validation passes with zero Tier-1 anomalies
+It is a controlled archival reconstruction of historical data.
 
 ---
 
-## Final Warning to Future Agents
+# 9. Mental Model
 
-> **Do not be helpful. Be correct.**
+Human truth > heuristics.
 
-If you are unsure:
+Identity is locked.
+Ambiguity is preserved.
+Noise is explicit.
+Reproducibility is mandatory.
 
-* Stop
-* Emit QC
-* Ask for human input
+---
 
-Silence is failure. Guessing is corruption.
+End of contract.
+EOF
