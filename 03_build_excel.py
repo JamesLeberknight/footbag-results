@@ -29,127 +29,13 @@ import pandas as pd
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font
 
-# Import master QC orchestrator (support both old and new layouts)
+# Import master QC orchestrator
 try:
-    from qc_master import run_qc_for_stage, print_qc_summary  # legacy layout
+    from qc_master import run_qc_for_stage, print_qc_summary
     USE_MASTER_QC = True
 except ImportError:
-    try:
-        from qc.qc_master import run_qc_for_stage, print_qc_summary  # new layout (qc/)
-        USE_MASTER_QC = True
-    except Exception:
-        print("Warning: Could not import qc_master, Stage 3 QC will not run")
-        USE_MASTER_QC = False
-
-
-# -----------------------------
-# v1.0 Release Mode (Identity-Lock)
-# -----------------------------
-
-def _write_readme_sheet(ws):
-    ws["A1"] = "Footbag Results — Canonical Workbook (v1.0 Identity-Locked Release)"
-    ws["A3"] = "Build mode:"
-    ws["B3"] = "RELEASE (identity-lock)"
-    ws["A5"] = "Authoritative inputs:"
-    ws["A6"] = " - inputs/identity_lock/Persons_Truth_Final_v13.csv"
-    ws["A7"] = " - inputs/identity_lock/Persons_Unresolved_Organized_v11.csv"
-    ws["A8"] = " - inputs/identity_lock/Placements_ByPerson_v13.csv"
-    ws["A10"] = "Notes:"
-    ws["A11"] = " - Identity is locked; no heuristic merges are performed in release builds."
-    ws["A12"] = " - Unresolved humans are preserved; non-person entities are explicitly classified."
-    ws["A13"] = " - This workbook is generated from out/Placements_Flat.csv."
-
-    # Make header prominent
-    ws["A1"].font = Font(bold=True, size=14)
-
-
-def build_workbook_from_placements_flat(
-    placements_flat_csv: Path,
-    out_xlsx: Path,
-):
-    """
-    Release-mode workbook builder.
-    Builds Year sheets directly from out/Placements_Flat.csv.
-    Does not require stage2_canonical_events.csv.
-    """
-    df = pd.read_csv(placements_flat_csv)
-
-    required = ["year", "event_id", "division_canon", "place", "person_id", "person_canon"]
-    missing = [c for c in required if c not in df.columns]
-    if missing:
-        raise RuntimeError(f"Placements_Flat missing required columns: {missing}")
-
-    # Clean sort for determinism
-    sort_cols = [c for c in ["year", "event_id", "division_canon", "place", "person_canon"] if c in df.columns]
-    df = df.sort_values(sort_cols, kind="mergesort").reset_index(drop=True)
-
-    # Choose presentation columns (keep a few QC fields; hide later if you want)
-    preferred_cols = [
-        "event_id",
-        "division_canon",
-        "division_category",
-        "place",
-        "competitor_type",
-        "person_canon",
-        "team_display_name",
-        "person_id",
-        "coverage_flag",
-        "person_unresolved",
-    ]
-    cols = [c for c in preferred_cols if c in df.columns]
-
-    # Build workbook
-    out_xlsx.parent.mkdir(parents=True, exist_ok=True)
-    with pd.ExcelWriter(out_xlsx, engine="openpyxl") as writer:
-        # README
-        pd.DataFrame([{}]).to_excel(writer, sheet_name="README", index=False)
-        ws = writer.book["README"]
-        _write_readme_sheet(ws)
-
-        # Year sheets
-        years = sorted(int(y) for y in df["year"].dropna().unique())
-        for y in years:
-            dy = df[df["year"] == y][cols].copy()
-            sheet_name = str(y)
-            dy.to_excel(writer, sheet_name=sheet_name, index=False)
-
-            ws_y = writer.book[sheet_name]
-            ws_y.freeze_panes = "A2"  # freeze header row
-
-            # simple column widths (deterministic)
-            for i, col in enumerate(dy.columns, start=1):
-                width = max(12, min(40, len(col) + 2))
-                ws_y.column_dimensions[get_column_letter(i)].width = width
-
-        # Put README first (already is), nothing else required in v1.0 minimal release workbook
-
-    print(f"Wrote: {out_xlsx}")
-
-
-def maybe_run_release_mode_and_exit():
-    """
-    If rebuild-mode inputs are absent but Placements_Flat exists, build release workbook and exit.
-    This keeps old behavior intact when stage2_canonical_events.csv is present.
-    """
-    out_dir = Path("out")
-    stage2_events = out_dir / "stage2_canonical_events.csv"
-    placements_flat = out_dir / "Placements_Flat.csv"
-    out_xlsx = Path("Footbag_Results_Canonical.xlsx")
-
-    if stage2_events.exists():
-        # Rebuild-mode path (existing script behavior) should proceed.
-        return
-
-    if placements_flat.exists():
-        print("[03] Release mode: stage2_canonical_events.csv not found; using Placements_Flat.csv")
-        build_workbook_from_placements_flat(placements_flat, out_xlsx)
-        sys.exit(0)
-
-    # Neither input exists; fall through to existing error behavior later
-    return
-
-
-maybe_run_release_mode_and_exit()
+    print("Warning: Could not import qc_master, Stage 3 QC will not run")
+    USE_MASTER_QC = False
 
 
 # Excel/openpyxl rejects control chars: 0x00-0x08, 0x0B-0x0C, 0x0E-0x1F
