@@ -33,7 +33,10 @@ from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment, Font, PatternFill
 import json
 
-from qc_common import PERSONS, PLACEMENTS
+try:
+    from qc_common import PERSONS, PLACEMENTS  # legacy (root)
+except ImportError:
+    from qc.qc_common import PERSONS, PLACEMENTS  # new layout (qc/)
 
 # GATE 2 COVERAGE THRESHOLDS — do not change casually; changing these alters
 # the meaning of all historical coverage annotations in downstream artifacts.
@@ -893,15 +896,53 @@ def load_person_aliases(path: Path) -> pd.DataFrame:
 
 def explode_to_people(pf: pd.DataFrame) -> pd.DataFrame:
     """
-    Convert Placements_Flat (one row per placement with player1/player2) into
-    one row per person appearance, so person stats are easy.
+    Convert Placements_Flat into one row per person appearance.
 
-    Team rows become two rows (one for player1, one for player2).
-    Individual rows become one row (player1).
+    Supports two layouts:
+    - Identity-lock (02p5): one row per person already; columns person_id, person_canon, team_display_name, etc. No player1_/player2_.
+    - Legacy: one row per placement with player1/player2; we explode to one row per person.
     """
     pf = pf.copy()
 
-    # Ensure person columns exist (02p5 should emit them, but be defensive)
+    # Identity-lock layout: already one row per person (person_id, person_canon; no player1_id)
+    has_flat_layout = "person_id" in pf.columns and "person_canon" in pf.columns and "player1_id" not in pf.columns
+    if has_flat_layout:
+        base_cols = [
+            "event_id", "year",
+            "division_canon", "division_raw", "division_category",
+            "competitor_type",
+            "place",
+        ]
+        for c in base_cols:
+            if c not in pf.columns:
+                pf[c] = ""
+        if "division_raw" not in pf.columns:
+            pf["division_raw"] = pf.get("division_canon", pd.Series([""] * len(pf))).fillna("")
+        pf["place_int"] = pf["place"].apply(_as_int_place)
+        person_id = pf["person_id"].fillna("").astype(str).str.strip().map(_norm)
+        person_canon = pf["person_canon"].fillna("").astype(str).str.strip().map(_norm)
+        out = pd.DataFrame({
+            "event_id": pf["event_id"].fillna("").astype(str),
+            "year": pf["year"].fillna("").astype(str),
+            "division_canon": pf["division_canon"].fillna("").map(_norm),
+            "division_raw": pf["division_raw"].fillna("").map(_norm),
+            "division_category": pf["division_category"].fillna("").map(lambda x: _norm(str(x)) or "unknown"),
+            "competitor_type": pf["competitor_type"].fillna("").astype(str),
+            "place": pf["place"].fillna("").astype(str),
+            "place_int": pf["place_int"],
+            "person_id": person_id,
+            "person_canon": person_canon,
+            "player_id": person_id,  # flat layout has no raw player_id; use person_id
+            "player_name": person_canon,
+            "player_name_clean": person_canon,
+            "player_name_raw": person_canon,
+            "identity_source": person_id.apply(lambda x: "override" if x else "fallback_player_id"),
+            "team_display_name": pf.get("team_display_name", pd.Series([""] * len(pf))).fillna("").astype(str),
+            "member_role": "player1",
+        })
+        return out
+
+    # Legacy layout: one row per placement with player1/player2
     for col in ["player1_person_id", "player1_person_canon", "player2_person_id", "player2_person_canon"]:
         if col not in pf.columns:
             pf[col] = ""
@@ -909,7 +950,6 @@ def explode_to_people(pf: pd.DataFrame) -> pd.DataFrame:
         if col not in pf.columns:
             pf[col] = ""
 
-    # identity_source for Persons_Truth filter: override when person_id from 02p5, else fallback
     pf["p1_identity_source"] = pf.apply(
         lambda r: "override" if _norm(r.get("player1_person_id", "")) else "fallback_player_id",
         axis=1,
@@ -1349,26 +1389,37 @@ def _looks_like_person(name: str) -> bool:
 def build_top_unmapped_names(pf: pd.DataFrame, limit: int = 200) -> tuple[pd.DataFrame, pd.DataFrame]:
     rows = []
 
-    for side in ["player1", "player2"]:
-        name_col = f"{side}_name"
-        pid_col = f"{side}_person_id"
-
-        if name_col not in pf.columns or pid_col not in pf.columns:
-            continue
-
+    # Flat layout (identity-lock): one row per person, person_canon / person_id
+    if "person_canon" in pf.columns and "person_id" in pf.columns and "player1_name" not in pf.columns:
         sub = pf[
-            (pf[name_col].fillna("").str.strip() != "") &
-            (pf[pid_col].fillna("").str.strip() == "")
+            (pf["person_canon"].fillna("").astype(str).str.strip() != "") &
+            (pf["person_id"].fillna("").astype(str).str.strip() == "")
         ]
+        if not sub.empty:
+            counts = sub["person_canon"].value_counts()
+            for name, cnt in counts.items():
+                rows.append({"name": name, "appearances": cnt, "as_player1": cnt, "as_player2": 0})
+    else:
+        for side in ["player1", "player2"]:
+            name_col = f"{side}_name"
+            pid_col = f"{side}_person_id"
 
-        counts = sub[name_col].value_counts()
+            if name_col not in pf.columns or pid_col not in pf.columns:
+                continue
 
-        for name, cnt in counts.items():
-            rows.append({
-                "name": name,
-                "appearances": cnt,
-                f"as_{side}": cnt,
-            })
+            sub = pf[
+                (pf[name_col].fillna("").str.strip() != "") &
+                (pf[pid_col].fillna("").str.strip() == "")
+            ]
+
+            counts = sub[name_col].value_counts()
+
+            for name, cnt in counts.items():
+                rows.append({
+                    "name": name,
+                    "appearances": cnt,
+                    f"as_{side}": cnt,
+                })
 
     if not rows:
         empty = pd.DataFrame(columns=["name", "appearances", "as_player1", "as_player2"])
@@ -1423,6 +1474,12 @@ def build_coverage_by_event_division(
             df[c] = ""
         else:
             df[c] = df[c].fillna("").astype(str)
+    # Flat layout (identity-lock): no player1/player2; use person_canon for row key
+    if "player1_name" in df.columns and df["player1_name"].fillna("").str.strip().eq("").all():
+        if "person_canon" in df.columns:
+            df["player1_name"] = df["person_canon"].fillna("").astype(str).str.strip()
+        if "team_display_name" in df.columns:
+            df["player2_name"] = ""  # keep empty; row_key uses team_display_name for teams
 
     # Parse place as int where possible (ignore non-numeric places)
     df["place_num"] = pd.to_numeric(df["place"], errors="coerce")
@@ -1439,6 +1496,8 @@ def build_coverage_by_event_division(
                   "competitor_type", "player1_name", "player2_name", "team_display_name"]:
             if c not in q.columns:
                 q[c] = ""
+        if "person_canon" in q.columns and q["player1_name"].fillna("").str.strip().eq("").all():
+            q["player1_name"] = q["person_canon"].fillna("").astype(str).str.strip()
         q["place_num"] = pd.to_numeric(q["place"], errors="coerce")
         q = q[q["place_num"].notna()].copy()
         q["place_num"] = q["place_num"].astype(int)
@@ -1519,6 +1578,43 @@ def build_placements_by_person_clean(
     Step 6: output clean schema
     """
     df = pf.copy()
+
+    # Flat layout (identity-lock): already one row per person/team with person_id, person_canon
+    has_flat_layout = "person_id" in df.columns and "player1_person_id" not in df.columns
+    if has_flat_layout:
+        for col in ["event_id", "year", "division_canon", "division_category",
+                    "place", "competitor_type", "person_id", "team_person_key",
+                    "person_canon", "team_display_name"]:
+            if col not in df.columns:
+                df[col] = ""
+            df[col] = df[col].fillna("").astype(str).str.strip()
+        if "team_person_key" not in df.columns or df["team_person_key"].eq("").all():
+            df["team_person_key"] = df.get("team_person_key", pd.Series([""] * len(df))).fillna("")
+        is_team = df["competitor_type"].str.strip().str.lower() == "team"
+        df.loc[~is_team, "team_person_key"] = ""
+        df.loc[~is_team, "team_display_name"] = ""
+        df["person_unresolved"] = ""
+        df.loc[~is_team & (df["person_id"].str.strip() == ""), "person_unresolved"] = "true"
+        df.loc[is_team & (df["team_person_key"].str.strip() == ""), "person_unresolved"] = "true"
+        if not cov_df.empty:
+            _cov = cov_df[["event_id", "division_canon", "coverage_flag"]].drop_duplicates()
+            df = df.drop(columns=["coverage_flag"], errors="ignore")
+            df = df.merge(_cov, on=["event_id", "division_canon"], how="left")
+            df["coverage_flag"] = df["coverage_flag"].fillna("")
+        else:
+            df["coverage_flag"] = df.get("coverage_flag", "").fillna("")
+        OUTPUT_COLS = [
+            "event_id", "year", "division_canon", "division_category",
+            "place", "competitor_type",
+            "person_id", "team_person_key", "person_canon", "team_display_name",
+            "coverage_flag", "person_unresolved",
+        ]
+        out = df.reindex(columns=OUTPUT_COLS, fill_value="")
+        out_path = out_dir / "Placements_ByPerson.csv"
+        out.to_csv(out_path, index=False)
+        n_unresolved = out["person_unresolved"].eq("true").sum()
+        print(f"Wrote: {out_path} ({len(out)} rows, {n_unresolved} unresolved)")
+        return out
 
     # Defensive: ensure person_id columns exist and are clean strings
     for col in ["player1_person_id", "player1_person_canon",
@@ -1628,33 +1724,55 @@ def build_persons_unresolved(
             "issue_type", "appearances", "evidence", "suggested_action"]
     parts = []
 
-    # 1. Unmapped player tokens: rows where player1_person_id is blank
-    p1_pid = pf.get("player1_person_id", pd.Series([""] * len(pf))).fillna("").astype(str).str.strip()
-    unmapped = pf[p1_pid == ""].copy()
-    if not unmapped.empty:
-        for col in ["player1_id", "player1_name_raw", "player1_name_clean"]:
-            if col not in unmapped.columns:
-                unmapped[col] = ""
-            unmapped[col] = unmapped[col].fillna("").astype(str).str.strip()
-        grp = (
-            unmapped
-            .groupby(["player1_id", "player1_name_raw", "player1_name_clean"], dropna=False)
-            .agg(appearances=("event_id", "count"))
-            .reset_index()
-            .rename(columns={
-                "player1_id": "player_id",
-                "player1_name_raw": "name_raw",
-                "player1_name_clean": "name_clean",
-            })
-        )
-        grp["person_id"] = ""
-        grp["person_canon"] = ""
-        grp["issue_type"] = "unmapped_player_id"
-        grp["evidence"] = "no alias in person_aliases.csv"
-        grp["suggested_action"] = grp["appearances"].map(
-            lambda n: "add alias" if n > 1 else "accept as unresolved (single appearance)"
-        )
-        parts.append(grp)
+    # 1. Unmapped player tokens: rows where person_id (or player1_person_id) is blank
+    if "person_id" in pf.columns and "player1_person_id" not in pf.columns:
+        # Flat layout: unmapped = no person_id
+        pid_blank = pf["person_id"].fillna("").astype(str).str.strip() == ""
+        unmapped = pf[pid_blank & (pf["person_canon"].fillna("").astype(str).str.strip() != "")].copy()
+        if not unmapped.empty:
+            grp = (
+                unmapped.groupby("person_canon", dropna=False)
+                .agg(appearances=("event_id", "count"))
+                .reset_index()
+            )
+            grp["player_id"] = ""
+            grp["name_raw"] = grp["person_canon"]
+            grp["name_clean"] = grp["person_canon"]
+            grp["person_id"] = ""
+            grp["person_canon"] = ""
+            grp["issue_type"] = "unmapped_player_id"
+            grp["evidence"] = "no alias in person_aliases.csv"
+            grp["suggested_action"] = grp["appearances"].map(
+                lambda n: "add alias" if n > 1 else "accept as unresolved (single appearance)"
+            )
+            parts.append(grp[COLS])
+    else:
+        p1_pid = pf.get("player1_person_id", pd.Series([""] * len(pf))).fillna("").astype(str).str.strip()
+        unmapped = pf[p1_pid == ""].copy()
+        if not unmapped.empty:
+            for col in ["player1_id", "player1_name_raw", "player1_name_clean"]:
+                if col not in unmapped.columns:
+                    unmapped[col] = ""
+                unmapped[col] = unmapped[col].fillna("").astype(str).str.strip()
+            grp = (
+                unmapped
+                .groupby(["player1_id", "player1_name_raw", "player1_name_clean"], dropna=False)
+                .agg(appearances=("event_id", "count"))
+                .reset_index()
+                .rename(columns={
+                    "player1_id": "player_id",
+                    "player1_name_raw": "name_raw",
+                    "player1_name_clean": "name_clean",
+                })
+            )
+            grp["person_id"] = ""
+            grp["person_canon"] = ""
+            grp["issue_type"] = "unmapped_player_id"
+            grp["evidence"] = "no alias in person_aliases.csv"
+            grp["suggested_action"] = grp["appearances"].map(
+                lambda n: "add alias" if n > 1 else "accept as unresolved (single appearance)"
+            )
+            parts.append(grp)
 
     # 2. Excluded persons from Persons_Truth_Excluded.csv
     excluded_path = out_dir / "Persons_Truth_Excluded.csv"
