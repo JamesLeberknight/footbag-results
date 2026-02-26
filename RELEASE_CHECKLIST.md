@@ -63,3 +63,51 @@ python 02p5_player_token_cleanup.py \
   --identity_lock_persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v18.csv \
   --identity_lock_unresolved_csv inputs/identity_lock/Persons_Unresolved_Organized_v15.csv \
   --out_dir out
+```
+
+☐ Verify output: `out/Placements_Flat.csv` exists, row count = 25679
+
+### 3.2 Build Excel Workbook
+
+☐ Ensure `out/stage2_canonical_events.csv` exists (from Rebuild Mode or prior run)
+
+☐ Run:
+```bash
+python 03_build_excel.py
+```
+
+☐ Verify: `Footbag_Results_Canonical.xlsx` created/updated
+
+### 3.3 Build Analytics
+
+☐ Run:
+```bash
+python 04_build_analytics.py
+```
+
+☐ Verify output contains:
+  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3345`
+  - `out/persons_truth.lock` updated
+
+### 3.4 Verify Lock Sentinel
+
+☐ `out/persons_truth.lock` contains:
+  - `"file": "Persons_Truth_Final_v18.csv"`
+  - `"rows": 3345`
+
+---
+
+## 4. QC Verification
+
+☐ Stage 2 QC: 0 errors
+☐ Gate 3: PASS (3345)
+☐ Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
+☐ `out/Analytics_Safe_Surface.csv`: 22863 rows
+
+---
+
+## 5. Release
+
+☐ Commit all outputs (except `out/` which is gitignored)
+☐ Tag release: `git tag v1.0.5` (or next appropriate version)
+☐ Update CHANGELOG.md with release notes
