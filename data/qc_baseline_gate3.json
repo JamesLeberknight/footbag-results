@@ -1,12 +1,15 @@
 {
   "stage": "gate3",
   "date": "2026-02-26",
-  "persons_truth_count": 3433,
-  "persons_unresolved_count": 580,
-  "identity_lock_version": "v15",
+  "persons_truth_count": 3345,
+  "persons_unresolved_count": 332,
+  "identity_lock_version": "v16",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-26: v18 Truth \u2014 89 duplicate/alias Truth rows consolidated (72 groups)",
+  "notes": "Updated 2026-02-26: v16 Unresolved \u2014 87 rows removed (62 resolved to Truth, 21 non-person, 4 dedup). Analytics_Safe_Surface: 22856 rows.",
   "gate3_pass_count": 3345,
   "persons_truth_file": "Persons_Truth_Final_v18.csv",
-  "persons_truth_rows": 3345
+  "persons_truth_rows": 3345,
+  "persons_unresolved_file": "Persons_Unresolved_Organized_v16.csv",
+  "persons_unresolved_rows": 332,
+  "analytics_safe_surface_rows": 22856
 }

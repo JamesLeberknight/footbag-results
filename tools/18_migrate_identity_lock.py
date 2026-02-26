@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 18_migrate_identity_lock.py — Produce updated identity lock files (v19 Truth,
-v16 Unresolved, v19 Placements) by processing approved migration categories.
+v17 Unresolved, v20 Placements) by processing approved migration categories.
 
 Categories processed:
 
@@ -17,14 +17,14 @@ Categories processed:
 
 Inputs:
   inputs/identity_lock/Persons_Truth_Final_v18.csv
-  inputs/identity_lock/Persons_Unresolved_Organized_v15.csv
-  inputs/identity_lock/Placements_ByPerson_v18.csv
+  inputs/identity_lock/Persons_Unresolved_Organized_v16.csv
+  inputs/identity_lock/Placements_ByPerson_v19.csv
   out/backfill_resolutions.csv  (optional — from tool 15 --apply)
 
 Outputs:
   inputs/identity_lock/Persons_Truth_Final_v19.csv
-  inputs/identity_lock/Persons_Unresolved_Organized_v16.csv
-  inputs/identity_lock/Placements_ByPerson_v19.csv
+  inputs/identity_lock/Persons_Unresolved_Organized_v17.csv
+  inputs/identity_lock/Placements_ByPerson_v20.csv
 
 Modes:
   default  — dry run: print summary of changes, write nothing
@@ -33,7 +33,7 @@ Modes:
 
 Usage:
   python tools/18_migrate_identity_lock.py                   # dry run
-  python tools/18_migrate_identity_lock.py --apply           # write v19/v16 files
+  python tools/18_migrate_identity_lock.py --apply           # write v19/v17 files
   python tools/18_migrate_identity_lock.py --apply --out_dir /tmp/test_out
 """
 
@@ -50,13 +50,13 @@ IDENTITY_LOCK = ROOT / "inputs" / "identity_lock"
 OUT = ROOT / "out"
 
 TRUTH_IN = IDENTITY_LOCK / "Persons_Truth_Final_v18.csv"
-UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v15.csv"
-PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v18.csv"
+UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v16.csv"
+PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v19.csv"
 RESOLUTIONS_CSV = OUT / "backfill_resolutions.csv"
 
 TRUTH_OUT_NAME = "Persons_Truth_Final_v19.csv"
-UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v16.csv"
-PLACEMENTS_OUT_NAME = "Placements_ByPerson_v19.csv"
+UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v17.csv"
+PLACEMENTS_OUT_NAME = "Placements_ByPerson_v20.csv"
 
 NON_PERSON_CANON = "__NON_PERSON__"
 
