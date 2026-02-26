@@ -7,7 +7,20 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
-## [v1.0.0] — Canonical Identity-Locked Release  
+## [v1.0.4] — QC Package Reorganization
+**Release date:** 2026-02-25
+
+### Changes
+- Organized all QC modules into `qc/` Python package (`qc/__init__.py`).
+- Fixed import paths across pipeline after QC reorganization.
+- Restored original Stage 03 / Stage 04 workbook builders for v1.0 format parity.
+- Hardened `.gitignore` to exclude editor backup files and build artifacts.
+
+**Data: no change.** Identity lock artifacts are identical to v1.0.0.
+
+---
+
+## [v1.0.0] — Canonical Identity-Locked Release
 **Release date:** 2026-02-25
 
 ### 🚀 Overview
@@ -111,8 +124,31 @@ reproducible, and safe for public distribution and long-term preservation.
 
 ---
 
+## Pre-Canonical Patch Tags (Historical Reference)
+
+The tags below were applied during the **development phase before v1.0.0** was cut.
+They represent intermediate checkpoints on the road to the canonical identity-locked release.
+They are **not post-v1.0.0 patches** — they predate the identity-lock architecture.
+Preserved for provenance.
+
+### [v1.0.3-persons-clean]
+- Finalized collision-free `Persons_Truth` in Stage 04.
+- Unresolved / colliding identities quarantined to `Persons_Unresolved`.
+- Tag message: *"Collision-free Persons_Truth; unresolved identities quarantined"*
+
+### [v1.0.2]
+- Stage 01: made mirror root path explicit; enabled recovered-results overrides.
+- Workbook: preserved README sheet across rebuilds; added `Persons_Unresolved` triage columns.
+- Introduced `readme-excel.csv` as the workbook README source of truth.
+
+### [v1.0.1]
+- Fixed Stage 03 JSON scoping bug that caused failures on clean clones.
+- Tag message: *"Fix Stage 03 Excel build for clean clones"*
+
+---
+
 ## Pre-v1.0 Versions (Historical)
-Earlier versions (≤ v0.x / v1.0.x-persons-clean) represent **development and stabilization phases**:
+Earlier versions (≤ v0.x / Gate-series) represent **development and stabilization phases**:
 - Identity partially heuristic
 - Manual post-hoc corrections required
 - Not suitable for archival or public canonical use

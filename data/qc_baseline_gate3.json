@@ -1,10 +1,9 @@
 {
   "stage": "gate3",
-  "date": "2026-02-20",
-  "persons_truth_count": 3699,
+  "date": "2026-02-25",
+  "persons_truth_count": 3366,
+  "persons_unresolved_count": 854,
+  "identity_lock_version": "v13",
   "gate3_pass": true,
-  "synthetic_excluded": 38,
-  "collision_candidates": 154,
-  "collision_review_rows": 322,
-  "notes": "Gate 3 infrastructure complete: 05_disambiguate_persons.py, argparse+lock in 04_build_analytics.py, synthetic filter (38 excluded), Gate3 PASS at 3699 persons"
+  "notes": "Identity locked at v1.0.0 release: Persons_Truth_Final_v13.csv (3366 rows), Persons_Unresolved_Organized_v11.csv (854 rows), Placements_ByPerson_v13.csv (25679 rows). Pre-lock development baseline (Gate 3 infrastructure 2026-02-20) had 3699 persons before final reclassification pass."
 }
