@@ -2,8 +2,8 @@
   "stage": "gate3",
   "date": "2026-02-26",
   "persons_truth_count": 3433,
-  "persons_unresolved_count": 774,
-  "identity_lock_version": "v14",
+  "persons_unresolved_count": 580,
+  "identity_lock_version": "v15",
   "gate3_pass": true,
-  "notes": "v14/v12 lock: Persons_Truth_Final_v14.csv (3433 rows, +67 from CC migration), Persons_Unresolved_Organized_v12.csv (774 rows, -80: 13 NPS/LNP + 67 CC promoted to Truth), Placements_ByPerson_v14.csv (25679 rows). Migration applied via tools/18_migrate_identity_lock.py --apply. Backfill candidates (623 ACB entries) pending human review in Phase 2."
+  "notes": "v15/v13 lock: Persons_Truth_Final_v15.csv (3433 rows, unchanged), Persons_Unresolved_Organized_v13.csv (580 rows, -194 fuzzy backfill resolutions applied), Placements_ByPerson_v15.csv (25679 rows, 992 placement rows remapped). Analytics_Safe_Surface: 22815 rows (+33 vs v14). Unresolved placements: 305 (-33 vs v14). Remaining ACB entries in v13: 429 (623 - 194 resolved)."
 }

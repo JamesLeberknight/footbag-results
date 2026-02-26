@@ -1,30 +1,30 @@
 #!/usr/bin/env python3
 """
-18_migrate_identity_lock.py — Produce updated identity lock files (v14 Truth,
-v12 Unresolved, v14 Placements) by processing three approved migration categories.
+18_migrate_identity_lock.py — Produce updated identity lock files (v15 Truth,
+v13 Unresolved, v15 Placements) by processing approved migration categories.
 
 Categories processed:
 
-  1. NON_PERSON_SLOP (exclusion_reason == "NON_PERSON_SLOP") — 12 rows
-     + LIKELY_NON_PERSON (unresolved_class == "LIKELY_NON_PERSON") — 1 row
+  1. NON_PERSON_SLOP (exclusion_reason == "NON_PERSON_SLOP")
+     + LIKELY_NON_PERSON (unresolved_class == "LIKELY_NON_PERSON")
      → Remove from Unresolved; set person_canon = "__NON_PERSON__" in Placements
 
-  2. COVERAGE_CLOSURE (exclusion_reason == "COVERAGE_CLOSURE") — 67 rows
+  2. COVERAGE_CLOSURE (exclusion_reason == "COVERAGE_CLOSURE")
      → Promote to Truth; set person_unresolved = "" in Placements; remove from Unresolved
 
   3. Fuzzy resolutions (out/backfill_resolutions.csv — optional)
      → Update Placements person_id/person_canon to resolved Truth person; remove from Unresolved
 
 Inputs:
-  inputs/identity_lock/Persons_Truth_Final_v13.csv
-  inputs/identity_lock/Persons_Unresolved_Organized_v11.csv
-  inputs/identity_lock/Placements_ByPerson_v13.csv
-  out/backfill_resolutions.csv  (optional — from tool 15 --apply)
-
-Outputs:
   inputs/identity_lock/Persons_Truth_Final_v14.csv
   inputs/identity_lock/Persons_Unresolved_Organized_v12.csv
   inputs/identity_lock/Placements_ByPerson_v14.csv
+  out/backfill_resolutions.csv  (optional — from tool 15 --apply)
+
+Outputs:
+  inputs/identity_lock/Persons_Truth_Final_v15.csv
+  inputs/identity_lock/Persons_Unresolved_Organized_v13.csv
+  inputs/identity_lock/Placements_ByPerson_v15.csv
 
 Modes:
   default  — dry run: print summary of changes, write nothing
@@ -33,7 +33,7 @@ Modes:
 
 Usage:
   python tools/18_migrate_identity_lock.py                   # dry run
-  python tools/18_migrate_identity_lock.py --apply           # write v14/v12 files
+  python tools/18_migrate_identity_lock.py --apply           # write v15/v13 files
   python tools/18_migrate_identity_lock.py --apply --out_dir /tmp/test_out
 """
 
@@ -49,14 +49,14 @@ ROOT = Path(__file__).resolve().parent.parent
 IDENTITY_LOCK = ROOT / "inputs" / "identity_lock"
 OUT = ROOT / "out"
 
-TRUTH_IN = IDENTITY_LOCK / "Persons_Truth_Final_v13.csv"
-UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v11.csv"
-PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v13.csv"
+TRUTH_IN = IDENTITY_LOCK / "Persons_Truth_Final_v14.csv"
+UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v12.csv"
+PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v14.csv"
 RESOLUTIONS_CSV = OUT / "backfill_resolutions.csv"
 
-TRUTH_OUT_NAME = "Persons_Truth_Final_v14.csv"
-UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v12.csv"
-PLACEMENTS_OUT_NAME = "Placements_ByPerson_v14.csv"
+TRUTH_OUT_NAME = "Persons_Truth_Final_v15.csv"
+UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v13.csv"
+PLACEMENTS_OUT_NAME = "Placements_ByPerson_v15.csv"
 
 NON_PERSON_CANON = "__NON_PERSON__"
 
@@ -379,13 +379,13 @@ def run_migration(apply: bool, out_dir: Path) -> int:
     print(f"Written: {pf_out_path}  ({len(pf_out)} rows)")
     print()
     print("Final counts:")
-    print(f"  Persons_Truth_Final_v14.csv:        {len(truth_out):5d} rows")
-    print(f"  Persons_Unresolved_Organized_v12.csv: {len(ur_out):5d} rows")
-    print(f"  Placements_ByPerson_v14.csv:         {len(pf_out):5d} rows")
+    print(f"  Persons_Truth_Final_v15.csv:          {len(truth_out):5d} rows")
+    print(f"  Persons_Unresolved_Organized_v13.csv: {len(ur_out):5d} rows")
+    print(f"  Placements_ByPerson_v15.csv:          {len(pf_out):5d} rows")
     print()
     print("Next steps:")
     print("  1. Verify output files look correct")
-    print("  2. Update RELEASE_CHECKLIST.md to reference v14/v12 inputs")
+    print("  2. Update RELEASE_CHECKLIST.md to reference v15/v13 inputs")
     print("  3. Run full pipeline and confirm QC passes")
     print("  4. Cut v2.0.0")
     return 0
