@@ -10,9 +10,9 @@ No step may be skipped.
 ## 0. Preconditions (Must Be True)
 
 ☐ `inputs/identity_lock/` contains **only**:
-  - `Persons_Truth_Final_v13.csv`
-  - `Persons_Unresolved_Organized_v11.csv`
-  - `Placements_ByPerson_v13.csv`
+  - `Persons_Truth_Final_v14.csv`
+  - `Persons_Unresolved_Organized_v12.csv`
+  - `Placements_ByPerson_v14.csv`
 
 ☐ These files are:
   - Human-verified
@@ -59,7 +59,7 @@ No step may be skipped.
 ☐ Run:
 ```bash
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v13.csv \
-  --identity_lock_persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v13.csv \
-  --identity_lock_unresolved_csv inputs/identity_lock/Persons_Unresolved_Organized_v11.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v14.csv \
+  --identity_lock_persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v14.csv \
+  --identity_lock_unresolved_csv inputs/identity_lock/Persons_Unresolved_Organized_v12.csv \
   --out_dir out

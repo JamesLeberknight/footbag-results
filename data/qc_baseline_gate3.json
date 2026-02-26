@@ -1,9 +1,9 @@
 {
   "stage": "gate3",
-  "date": "2026-02-25",
-  "persons_truth_count": 3366,
-  "persons_unresolved_count": 854,
-  "identity_lock_version": "v13",
+  "date": "2026-02-26",
+  "persons_truth_count": 3433,
+  "persons_unresolved_count": 774,
+  "identity_lock_version": "v14",
   "gate3_pass": true,
-  "notes": "Identity locked at v1.0.0 release: Persons_Truth_Final_v13.csv (3366 rows), Persons_Unresolved_Organized_v11.csv (854 rows), Placements_ByPerson_v13.csv (25679 rows). Pre-lock development baseline (Gate 3 infrastructure 2026-02-20) had 3699 persons before final reclassification pass."
+  "notes": "v14/v12 lock: Persons_Truth_Final_v14.csv (3433 rows, +67 from CC migration), Persons_Unresolved_Organized_v12.csv (774 rows, -80: 13 NPS/LNP + 67 CC promoted to Truth), Placements_ByPerson_v14.csv (25679 rows). Migration applied via tools/18_migrate_identity_lock.py --apply. Backfill candidates (623 ACB entries) pending human review in Phase 2."
 }
