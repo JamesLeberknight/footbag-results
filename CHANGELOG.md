@@ -7,6 +7,33 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.6] — Identity Curation Round 3
+**Release date:** 2026-02-27
+
+### Changes
+- **12 new Truth entries** promoted from Unresolved (COVERAGE_CLOSURE):
+  Ken Somolinos (62 app), Jim Hankins (45 app), Yves Kreil (50 app),
+  Robin Puchel (41 app), Walt Houston (34 app, merged Walter R. Houston),
+  Nicolas De Zeeuw (23 app), Benjamin De Bastos (22 app), Eric Chang (12 app),
+  Fabien Riffaud (10 app), Jessica Cedeño (10 app), Richard Cook (5 app),
+  Łukasz Krysiewicz (5 app).
+- **2 backfill merges**: Sunil Tsunami Jani → Sunil Jani; Alex Trenner → Alexander Trenner.
+- **1 Unresolved cleanup**: Ken Hamric (already covered by existing Truth entry).
+- New tool: `tools/23_promote_unresolved.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v23 | 3353 |
+| Persons_Unresolved_Organized | v20 | 283 |
+| Placements_ByPerson | v24 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3353
+- Analytics_Safe_Surface: 22862 rows
+
+---
+
 ## [v1.0.5] — Identity Curation Round 2
 **Release date:** 2026-02-27
 

@@ -6,9 +6,9 @@ against Persons_Truth to suggest candidate identity resolutions.
 Modes:
 
   --generate  (default)
-    Reads:  inputs/identity_lock/Persons_Unresolved_Organized_v19.csv
-    Reads:  inputs/identity_lock/Persons_Truth_Final_v22.csv
-    Reads:  inputs/identity_lock/Placements_ByPerson_v23.csv  (for appearance counts)
+    Reads:  inputs/identity_lock/Persons_Unresolved_Organized_v20.csv
+    Reads:  inputs/identity_lock/Persons_Truth_Final_v23.csv
+    Reads:  inputs/identity_lock/Placements_ByPerson_v24.csv  (for appearance counts)
     Writes: out/backfill_candidates.csv
 
     Output columns:
@@ -59,9 +59,9 @@ ROOT = Path(__file__).resolve().parent.parent
 IDENTITY_LOCK = ROOT / "inputs" / "identity_lock"
 OUT = ROOT / "out"
 
-UNRESOLVED_CSV = IDENTITY_LOCK / "Persons_Unresolved_Organized_v19.csv"
-TRUTH_CSV = IDENTITY_LOCK / "Persons_Truth_Final_v22.csv"
-PLACEMENTS_CSV = IDENTITY_LOCK / "Placements_ByPerson_v23.csv"
+UNRESOLVED_CSV = IDENTITY_LOCK / "Persons_Unresolved_Organized_v20.csv"
+TRUTH_CSV = IDENTITY_LOCK / "Persons_Truth_Final_v23.csv"
+PLACEMENTS_CSV = IDENTITY_LOCK / "Placements_ByPerson_v24.csv"
 
 CANDIDATES_CSV = OUT / "backfill_candidates.csv"
 RESOLUTIONS_CSV = OUT / "backfill_resolutions.csv"

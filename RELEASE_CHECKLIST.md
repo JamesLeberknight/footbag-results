@@ -10,9 +10,9 @@ No step may be skipped.
 ## 0. Preconditions (Must Be True)
 
 ☐ `inputs/identity_lock/` contains **only**:
-  - `Persons_Truth_Final_v22.csv`
-  - `Persons_Unresolved_Organized_v19.csv`
-  - `Placements_ByPerson_v23.csv`
+  - `Persons_Truth_Final_v23.csv`
+  - `Persons_Unresolved_Organized_v20.csv`
+  - `Placements_ByPerson_v24.csv`
 
 ☐ These files are:
   - Human-verified
@@ -59,9 +59,9 @@ No step may be skipped.
 ☐ Run:
 ```bash
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v23.csv \
-  --identity_lock_persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v22.csv \
-  --identity_lock_unresolved_csv inputs/identity_lock/Persons_Unresolved_Organized_v19.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v24.csv \
+  --identity_lock_persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v23.csv \
+  --identity_lock_unresolved_csv inputs/identity_lock/Persons_Unresolved_Organized_v20.csv \
   --out_dir out
 ```
 
@@ -86,21 +86,21 @@ python 04_build_analytics.py
 ```
 
 ☐ Verify output contains:
-  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3341`
+  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3353`
   - `out/persons_truth.lock` updated
 
 ### 3.4 Verify Lock Sentinel
 
 ☐ `out/persons_truth.lock` contains:
-  - `"file": "Persons_Truth_Final_v22.csv"`, `"rows": 3341`
-  - `"file": "Persons_Unresolved_Organized_v19.csv"`, `"rows": 299`
+  - `"file": "Persons_Truth_Final_v23.csv"`, `"rows": 3353`
+  - `"file": "Persons_Unresolved_Organized_v20.csv"`, `"rows": 283`
 
 ---
 
 ## 4. QC Verification
 
 ☐ Stage 2 QC: 0 errors
-☐ Gate 3: PASS (3341)
+☐ Gate 3: PASS (3353)
 ☐ Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
 ☐ `out/Analytics_Safe_Surface.csv`: 22862 rows
 
@@ -109,5 +109,5 @@ python 04_build_analytics.py
 ## 5. Release
 
 ☐ Commit all outputs (except `out/` which is gitignored)
-☐ Tag release: `git tag v1.0.5` (or next appropriate version)
+☐ Tag release: `git tag v1.0.6` (or next appropriate version)
 ☐ Update CHANGELOG.md with release notes

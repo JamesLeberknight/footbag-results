@@ -16,15 +16,15 @@ Categories processed:
      → Update Placements person_id/person_canon to resolved Truth person; remove from Unresolved
 
 Inputs:
-  inputs/identity_lock/Persons_Truth_Final_v21.csv
-  inputs/identity_lock/Persons_Unresolved_Organized_v19.csv
-  inputs/identity_lock/Placements_ByPerson_v22.csv
+  inputs/identity_lock/Persons_Truth_Final_v23.csv
+  inputs/identity_lock/Persons_Unresolved_Organized_v20.csv
+  inputs/identity_lock/Placements_ByPerson_v24.csv
   out/backfill_resolutions.csv  (optional — from tool 15 --apply)
 
 Outputs:
-  inputs/identity_lock/Persons_Truth_Final_v22.csv
-  inputs/identity_lock/Persons_Unresolved_Organized_v20.csv
-  inputs/identity_lock/Placements_ByPerson_v23.csv
+  inputs/identity_lock/Persons_Truth_Final_v24.csv
+  inputs/identity_lock/Persons_Unresolved_Organized_v21.csv
+  inputs/identity_lock/Placements_ByPerson_v25.csv
 
 Modes:
   default  — dry run: print summary of changes, write nothing
@@ -49,14 +49,14 @@ ROOT = Path(__file__).resolve().parent.parent
 IDENTITY_LOCK = ROOT / "inputs" / "identity_lock"
 OUT = ROOT / "out"
 
-TRUTH_IN = IDENTITY_LOCK / "Persons_Truth_Final_v22.csv"
-UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v19.csv"
-PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v23.csv"
+TRUTH_IN = IDENTITY_LOCK / "Persons_Truth_Final_v23.csv"
+UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v20.csv"
+PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v24.csv"
 RESOLUTIONS_CSV = OUT / "backfill_resolutions.csv"
 
-TRUTH_OUT_NAME = "Persons_Truth_Final_v23.csv"
-UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v20.csv"
-PLACEMENTS_OUT_NAME = "Placements_ByPerson_v24.csv"
+TRUTH_OUT_NAME = "Persons_Truth_Final_v24.csv"
+UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v21.csv"
+PLACEMENTS_OUT_NAME = "Placements_ByPerson_v25.csv"
 
 NON_PERSON_CANON = "__NON_PERSON__"
 
