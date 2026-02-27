@@ -1606,8 +1606,9 @@ def build_placements_by_person_clean(
         df.loc[~is_team, "team_person_key"] = ""
         df.loc[~is_team, "team_display_name"] = ""
         df["person_unresolved"] = ""
-        df.loc[~is_team & (df["person_id"].str.strip() == ""), "person_unresolved"] = "true"
-        df.loc[is_team & (df["team_person_key"].str.strip() == ""), "person_unresolved"] = "true"
+        _is_non_person = df["person_canon"].str.strip() == "__NON_PERSON__"
+        df.loc[~is_team & ~_is_non_person & (df["person_id"].str.strip() == ""), "person_unresolved"] = "true"
+        df.loc[is_team & ~_is_non_person & (df["team_person_key"].str.strip() == ""), "person_unresolved"] = "true"
         if not cov_df.empty:
             _cov = cov_df[["event_id", "division_canon", "coverage_flag"]].drop_duplicates()
             df = df.drop(columns=["coverage_flag"], errors="ignore")
@@ -1695,11 +1696,12 @@ def build_placements_by_person_clean(
     else:
         df["coverage_flag"] = ""
 
-    # person_unresolved flag
+    # person_unresolved flag (__NON_PERSON__ entries are classified, not missing identity)
     df["person_unresolved"] = ""
     _is_team2 = df["competitor_type"].fillna("").str.strip().str.lower() == "team"
-    df.loc[~_is_team2 & (df["person_id"].fillna("") == ""), "person_unresolved"] = "true"
-    df.loc[_is_team2 & (df["team_person_key"].fillna("") == ""), "person_unresolved"] = "true"
+    _is_non_person2 = df["person_canon"].fillna("").str.strip() == "__NON_PERSON__"
+    df.loc[~_is_team2 & ~_is_non_person2 & (df["person_id"].fillna("") == ""), "person_unresolved"] = "true"
+    df.loc[_is_team2 & ~_is_non_person2 & (df["team_person_key"].fillna("") == ""), "person_unresolved"] = "true"
 
     # --- Step 6: Output clean schema ---
     OUTPUT_COLS = [
