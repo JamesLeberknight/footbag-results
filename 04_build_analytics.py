@@ -2301,9 +2301,6 @@ def main() -> int:
     if readme_df.empty:
         readme_df = read_csv_optional(repo / "readme_excel.csv")
 
-    # Overrides (displayable)
-    person_aliases_overrides_df = read_csv_optional(overrides_dir / "person_aliases.csv")
-
     pf_csv = out_dir / "Placements_Flat.csv"
     xlsx = repo / "Footbag_Results_Canonical.xlsx"
 
@@ -2408,10 +2405,11 @@ def main() -> int:
     person_by_cat = build_person_stats_by_div_category(per_covered)
     top_unmapped_people, top_unmapped_noise = build_top_unmapped_names(pf)
 
-    aliases_csv = repo / "overrides" / "person_aliases.csv"
-    aliases_df = load_person_aliases(aliases_csv)
-
     if not skip_identity_overwrite:
+        aliases_csv = repo / "overrides" / "person_aliases.csv"
+        aliases_df = load_person_aliases(aliases_csv)
+        person_aliases_overrides_df = read_csv_optional(overrides_dir / "person_aliases.csv")
+
         # NO-GUESSING person dimension (one row per effective_person_id)
         persons_truth_full = build_persons_truth(
             per_all, aliases_df, merges_path=repo / "overrides" / "person_merges.csv"

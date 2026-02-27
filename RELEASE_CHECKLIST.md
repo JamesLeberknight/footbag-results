@@ -60,8 +60,6 @@ No step may be skipped.
 ```bash
 python 02p5_player_token_cleanup.py \
   --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v24.csv \
-  --identity_lock_persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v23.csv \
-  --identity_lock_unresolved_csv inputs/identity_lock/Persons_Unresolved_Organized_v20.csv \
   --out_dir out
 ```
 

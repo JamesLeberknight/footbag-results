@@ -69,8 +69,6 @@ def main():
     parser = argparse.ArgumentParser(description="Stage 02.5 — Player token cleanup")
 
     parser.add_argument("--identity_lock_placements_csv")
-    parser.add_argument("--identity_lock_persons_truth_csv")
-    parser.add_argument("--identity_lock_unresolved_csv")
     parser.add_argument("--out_dir", default="out")
 
     args, _ = parser.parse_known_args()
