@@ -5,11 +5,11 @@
   "persons_unresolved_count": 299,
   "identity_lock_version": "v22",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-27: REC-E/I Truth merges applied (-2 Truth). Jakob Wagner Revstein→Jakob Wagner; Noah Jay Bohn→Noah Jay. Unresolved stays 299. Analytics_Safe_Surface: 22860 rows (pending pipeline re-run).",
+  "notes": "Updated 2026-02-27: REC-E/I merges (-2 Truth). Gate3 PASS=3341. Analytics_Safe_Surface=22862 (was 22860, +2 from remapped placements). Lock sentinel updated.",
   "gate3_pass_count": 3341,
   "persons_truth_file": "Persons_Truth_Final_v22.csv",
   "persons_truth_rows": 3341,
   "persons_unresolved_file": "Persons_Unresolved_Organized_v19.csv",
   "persons_unresolved_rows": 299,
-  "analytics_safe_surface_rows": 22860
+  "analytics_safe_surface_rows": 22862
 }

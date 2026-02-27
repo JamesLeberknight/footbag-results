@@ -102,7 +102,7 @@ python 04_build_analytics.py
 ☐ Stage 2 QC: 0 errors
 ☐ Gate 3: PASS (3341)
 ☐ Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
-☐ `out/Analytics_Safe_Surface.csv`: 22863 rows
+☐ `out/Analytics_Safe_Surface.csv`: 22862 rows
 
 ---
 
