@@ -7,6 +7,37 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.13] — Identity Curation Round 8: NEEDS_CONTEXT Resolution
+**Release date:** 2026-02-27
+
+### Changes
+- **All 46 NEEDS_CONTEXT Unresolved entries resolved** (tool 28):
+  - **28 doubles pairs → `__NON_PERSON__`**: concatenated team names stored as single
+    person_canon (no-separator, language connectors og/a/und/Y, country code CAN).
+  - **3 pairs removed from Unresolved only** (0 PBP rows): Lisa Uebele Andreas Wolff,
+    Christian Bock Christian Bruhn, Craig McNair Sage Woodmansee.
+  - **2 CANON_CORRECTs to existing Truth**: Félix Antoine Guérard → Félix-Antoine Guérard
+    (hyphen missing); CARLOS MEDINA → Carlos Medina (all-caps).
+  - **13 new Truth entries**: Paweł Rożek, Wiktor Dębski, Eduardo Martinez,
+    Cameron Dowie, Andrey Pomanov, Victor Burnham, Andrey Egorov,
+    Sébastien Verdy, Stéphane Comeau, Luke Anderson, Max Kerkoff, Jamie Lepley,
+    Edison Alejandro Rodriguez Betancur.
+- New tool: `tools/28_needs_context_resolution.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v28 | 3395 |
+| Persons_Unresolved_Organized | v25 | 194 |
+| Placements_ByPerson | v29 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3395 (Truth 3382→3395, +13)
+- Analytics_Safe_Surface: 22944 rows (unchanged)
+- Placements_Unresolved: 170 rows (unchanged)
+
+---
+
 ## [v1.0.12] — Identity Curation Round 7: Coverage Closure + Noise Reclassification
 **Release date:** 2026-02-27
 
