@@ -10,9 +10,9 @@ No step may be skipped.
 ## 0. Preconditions (Must Be True)
 
 ☐ `inputs/identity_lock/` contains **only**:
-  - `Persons_Truth_Final_v25.csv`
-  - `Persons_Unresolved_Organized_v22.csv`
-  - `Placements_ByPerson_v26.csv`
+  - `Persons_Truth_Final_v26.csv`
+  - `Persons_Unresolved_Organized_v23.csv`
+  - `Placements_ByPerson_v27.csv`
 
 ☐ These files are:
   - Human-verified
@@ -59,7 +59,7 @@ No step may be skipped.
 ☐ Run:
 ```bash
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v26.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v27.csv \
   --out_dir out
 ```
 
@@ -91,8 +91,8 @@ python 04_build_analytics.py
 
 ☐ `out/persons_truth.lock` is written automatically by stage 04 after Gate 3 PASS.
    Confirm the printed output contains the expected filename and row count:
-   - `"file": "Persons_Truth_Final_v25.csv"`, `"rows": 3365`
-   - `"file": "Persons_Unresolved_Organized_v22.csv"`, `"rows": 283`
+   - `"file": "Persons_Truth_Final_v26.csv"`, `"rows": 3365`
+   - `"file": "Persons_Unresolved_Organized_v23.csv"`, `"rows": 267`
 
 ---
 

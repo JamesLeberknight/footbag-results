@@ -7,6 +7,38 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.11] — Identity Curation Round 6: Unresolved Near-Duplicate Merges
+**Release date:** 2026-02-27
+
+### Changes
+- **Track B — 6 Unresolved variants merged into Truth** (tool 26):
+  - Élise Regreny → Elise Regreny (diacritic É→E, same Net player 2017–2022)
+  - Krystof Maléø → Krystof Maler (encoding corruption ø→r, same Czech player 2008–2018)
+  - Jorden Moirs → Jorden Moir (trailing s, same player 2003–2011)
+  - Andy Ronalds → Andy Ronald (trailing s, same player 1997–2005)
+  - James Deans → James Dean (trailing s, same 1997 beginner)
+  - Christian Loewe → Christian Loew (spelling variant, 0 PBP rows — Unresolved only)
+- **Track A — 10 stale entries removed** from Unresolved_Organized (persons promoted to
+  Truth by tools 23–25 but not yet cleaned from the curated file):
+  Brent Welch, Ian Pfeiffer, Toxic Tom B., Garikoitz Casquero, Josu Royuela,
+  Jose Cocolan, Olivier Fages, Baptiste Supan, James Geraci (×2).
+- 7 PBP rows remapped (person_canon + person_id corrected).
+- New tool: `tools/26_merge_unresolved_variants.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v26 | 3365 |
+| Persons_Unresolved_Organized | v23 | 267 |
+| Placements_ByPerson | v27 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3365 (unchanged)
+- Analytics_Safe_Surface: 22935 rows (unchanged)
+- Placements_Unresolved: 179 rows (unchanged — recovered rows are in low-coverage events)
+
+---
+
 ## [v1.0.10] — Identity Curation Round 5: Corrupted Names + Orphans
 **Release date:** 2026-02-27
 
