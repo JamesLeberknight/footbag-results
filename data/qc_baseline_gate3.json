@@ -1,15 +1,15 @@
 {
   "stage": "gate3",
   "date": "2026-02-27",
-  "persons_truth_count": 3353,
+  "persons_truth_count": 3363,
   "persons_unresolved_count": 283,
-  "identity_lock_version": "v23",
+  "identity_lock_version": "v24",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-27: 12 COVERAGE_CLOSURE promotions (Ken Somolinos, Jim Hankins, Yves Kreil, Robin Puchel, Walt Houston, Nicolas De Zeeuw, Benjamin De Bastos, Eric Chang, Fabien Riffaud, Jessica Cedeño, Richard Cook, Łukasz Krysiewicz). 2 backfill merges (Sunil Tsunami Jani, Alex Trenner). Truth 3341→3353. Unresolved 299→283. Analytics_Safe_Surface: 22862 rows.",
-  "gate3_pass_count": 3353,
-  "persons_truth_file": "Persons_Truth_Final_v23.csv",
-  "persons_truth_rows": 3353,
-  "persons_unresolved_file": "Persons_Unresolved_Organized_v20.csv",
+  "notes": "Updated 2026-02-27: 10 new Truth entries from full-name resolution (tool 24). UUID_BACKFILL 13 rows, TRUTH_PROMOTE 2 (Brent Welch, James Geraci), NEW_PERSONS 8 (Jose Cocolan, Baptiste Supan, Olivier Fages, Garikoitz Casquero, Josu Royuela, Toxic Tom B., Mikuláš Čáp, Tomáš Mirovský), CANON_CORRECT 3 (Robin Puchel, Mikuláš Čáp, Tomáš Mirovský), NOISE 3 → __NON_PERSON__, UUID_REMAP 1 (Curtis Taylor deefac3b→f3a1b132). Truth 3353→3363. Unresolved v20→v21 (unchanged 283). Analytics_Safe_Surface: 22915 rows.",
+  "gate3_pass_count": 3363,
+  "persons_truth_file": "Persons_Truth_Final_v24.csv",
+  "persons_truth_rows": 3363,
+  "persons_unresolved_file": "Persons_Unresolved_Organized_v21.csv",
   "persons_unresolved_rows": 283,
-  "analytics_safe_surface_rows": 22862
+  "analytics_safe_surface_rows": 22915
 }

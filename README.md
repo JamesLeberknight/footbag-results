@@ -68,9 +68,9 @@ Large static inputs (mirror)
 │
 ├─ inputs/
 │   └─ identity_lock/             ← Authoritative human-verified truth (immutable)
-│       ├─ Persons_Truth_Final_v23.csv
-│       ├─ Persons_Unresolved_Organized_v20.csv
-│       └─ Placements_ByPerson_v24.csv
+│       ├─ Persons_Truth_Final_v24.csv
+│       ├─ Persons_Unresolved_Organized_v21.csv
+│       └─ Placements_ByPerson_v25.csv
 │
 ├─ overrides/
 │
@@ -147,7 +147,7 @@ Rebuild Mode first (see below), or restore it from a prior run before proceeding
 
 ```
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v24.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v25.csv \
   --out_dir out
 
 python 03_build_excel.py       # requires out/stage2_canonical_events.csv

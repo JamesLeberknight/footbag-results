@@ -457,7 +457,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1024091202,2002,***Open Freestyle,freestyle,6,player,58e6ac47-fc96-5e9d-9121-99ef6927e939,,Csallo Gergo,,complete,,csallo gergo
 1024091202,2002,***Womens Freestyle,freestyle,1,player,382d73ac-d902-5d91-8e78-dbf8ec9bb23a,,Horvath Patricia,,complete,,horvath patricia
 1024091202,2002,***Womens Freestyle,freestyle,2,player,f97314f0-7819-5e74-a1a6-cadff8e910cc,,Molnar Vanda,,complete,,molnar vanda
-1025084282,2002,Intermediate 1Min 30 Sec,freestyle,1,player,,,Brendan Erskine,,mostly_complete,true,brendan erskine melb footbag club
+1025084282,2002,Intermediate 1Min 30 Sec,freestyle,1,player,2b72150a-23a0-5c22-864d-86e32a01f185,,Brendan Erskine,,mostly_complete,true,brendan erskine melb footbag club
 1025084282,2002,Intermediate 1Min 30 Sec,freestyle,2,player,ae5126a4-8758-5311-b211-6731f8bf5e44,,Gareth Williams,,mostly_complete,,gareth williams logan hackstars
 1025084282,2002,Intermediate 1Min 30 Sec,freestyle,3,player,,,__NON_PERSON__,,mostly_complete,,forra logan hackstars
 1025084282,2002,Intermediate 1Min 30 Sec,freestyle,4,player,,,__NON_PERSON__,,mostly_complete,,rorz logan hackstars
@@ -516,14 +516,14 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1028218784,2002,Intermediate Doubles Net,net,2,team,,746cc216-852b-5788-bdf3-7b08b853664c|deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,__NON_PERSON__,Mike Stokely / Curtis Taylor,complete,,
 1028218784,2002,Intermediate Doubles Net,net,3,team,,800eb80e-721b-5b63-aa53-96d47ead4e92|97810564-c84a-5634-8fdb-43db7db90117,__NON_PERSON__,Martina Santesteban / Nathan Dorr,complete,,
 1028218784,2002,Intermediate Freestyle,freestyle,1,player,746cc216-852b-5788-bdf3-7b08b853664c,,Mike Stokely,,complete,,mike stokely
-1028218784,2002,Intermediate Freestyle,freestyle,2,player,deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,,Curtis Taylor,,complete,,curtis taylor
+1028218784,2002,Intermediate Freestyle,freestyle,2,player,f3a1b132-58a5-5743-9590-e2ad379146f3,,Curtis Taylor,,complete,,curtis taylor
 1028218784,2002,Intermediate Freestyle,freestyle,3,player,a493a44f-7699-5ffd-b14b-80db1beb1edc,,Shawn Moehring,,complete,,shawn moehring
 1028218784,2002,Intermediate Golf,golf,1,player,bd23a85e-2163-5e80-aecb-52f35079e9c1,,Chris Gober,,complete,,chris gober
 1028218784,2002,Intermediate Golf,golf,2,player,746cc216-852b-5788-bdf3-7b08b853664c,,Mike Stokely,,complete,,mike stokely
 1028218784,2002,Intermediate Golf,golf,3,player,a493a44f-7699-5ffd-b14b-80db1beb1edc,,Shawn Moehring,,complete,,tie shawn moehring
 1028218784,2002,Intermediate Golf,golf,3,player,800eb80e-721b-5b63-aa53-96d47ead4e92,,Nathan Dorr,,complete,,tie nathan dorr
 1028218784,2002,Intermediate One Minute Consecutives,sideline,1,player,151040a2-6316-57fa-874d-5cdf66765613,,Alex Spears,,complete,,alex spears
-1028218784,2002,Intermediate Singles Net,net,1,player,deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,,Curtis Taylor,,complete,,curtis taylor
+1028218784,2002,Intermediate Singles Net,net,1,player,f3a1b132-58a5-5743-9590-e2ad379146f3,,Curtis Taylor,,complete,,curtis taylor
 1028218784,2002,Intermediate Singles Net,net,2,player,bd23a85e-2163-5e80-aecb-52f35079e9c1,,Chris Gober,,complete,,chris gober
 1028218784,2002,Intermediate Singles Net,net,3,player,151040a2-6316-57fa-874d-5cdf66765613,,Alex Spears,,complete,,alex spears
 1028218784,2002,Intermediate Singles Net,net,4,player,746cc216-852b-5788-bdf3-7b08b853664c,,Mike Stokely,,complete,,mike stokely
@@ -938,7 +938,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1036298726,2003,Big 3 Round 2,freestyle,4,player,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,,Rick Reese,,complete,,rick reese
 1036298726,2003,Big 3 Round 2,freestyle,4,player,28565dd0-2196-5404-bf23-6cf0617ce79b,,Tuan Vu,,complete,,tuan vu
 1036298726,2003,Big 3 Round 2,freestyle,4,team,,bd97ebe2-5ecd-5854-9d2e-b877a27ac527,__NON_PERSON__,Daryl Genz / Sumo,complete,,
-1036298726,2003,Big 3 Round 2,freestyle,5,player,,,thru 8th,,complete,true,thru 8th
+1036298726,2003,Big 3 Round 2,freestyle,5,player,,,__NON_PERSON__,,complete,true,__non_person__
 1036298726,2003,Big 3 Round 2,freestyle,5,team,,0cd12e3e-59c9-5c4e-9d1a-90847747697b|2daa07f5-d830-521e-af6e-4a39cd094e92,__NON_PERSON__,Chad Devlahovich / Blurry Whirl,complete,,
 1036298726,2003,Big 3 Round 2,freestyle,5,team,,2daa07f5-d830-521e-af6e-4a39cd094e92,__NON_PERSON__,Chad Devlahovich / footbags,complete,,
 1036298726,2003,Big 3 Round 2,freestyle,5,player,542be6a9-3b5a-5374-961b-9de19c0def7a,,Peter Irish,,complete,,peter irish
@@ -1509,24 +1509,24 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1057773472,2003,Pro/Am Net,net,1,team,,01cc2734-72e1-5f24-b00c-97afa97bac5e|ebafee66-698f-5f25-9905-6dfe81600f05,__NON_PERSON__,Vahid Brown / David Bernard,complete,,
 1057773472,2003,Pro/Am Net,net,2,team,,62c1dce2-7afb-5dbe-94ad-9cd07fb7633b|a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,__NON_PERSON__,Brett Armstrong / Jon Lind,complete,,
 1058378281,2003,Freestyle ? 30 Second Shred,freestyle,3,player,3878cf90-a92e-53dc-a8cb-dbba0edd823a,,Andrew Koller,,complete,,andrew koller
-1058378281,2003,Freestyle ? 30 Second Shred,freestyle,4,player,,,Mike Lopez,,complete,true,mike lopez san antonio
+1058378281,2003,Freestyle ? 30 Second Shred,freestyle,4,player,778326dc-8646-52dc-82c4-f0c274a2b447,,Mike Lopez,,complete,true,mike lopez san antonio
 1058378281,2003,Freestyle ? 30 Second Shred,freestyle,5,player,c45a05ae-81a5-5277-b302-e5133afefad7,,Juan Sanchez,,complete,,juan sanchez
-1058378281,2003,Freestyle ? 30 Second Shred,freestyle,6,player,,,Curtis Taylor,,complete,true,curtis taylor houston
-1058378281,2003,Freestyle ? 30 Second Shred,freestyle,7,player,,,Windsen Pan,,complete,true,windsen pan houston
-1058378281,2003,Freestyle ? 30 Second Shred,freestyle,8,player,,,Jose Cocolan,,complete,true,jose cocolan san antonio
-1058378281,2003,Freestyle ? 30 Second Shred,freestyle,9,player,,,James Roberts,,complete,true,james roberts dallas
+1058378281,2003,Freestyle ? 30 Second Shred,freestyle,6,player,f3a1b132-58a5-5743-9590-e2ad379146f3,,Curtis Taylor,,complete,true,curtis taylor houston
+1058378281,2003,Freestyle ? 30 Second Shred,freestyle,7,player,c035902d-8658-5b8d-8de2-4079452de49d,,Windsen Pan,,complete,true,windsen pan houston
+1058378281,2003,Freestyle ? 30 Second Shred,freestyle,8,player,97c85c3d-4a44-5986-bd86-5daf5b89ad55,,Jose Cocolan,,complete,true,jose cocolan san antonio
+1058378281,2003,Freestyle ? 30 Second Shred,freestyle,9,player,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,,James Roberts,,complete,true,james roberts dallas
 1058378281,2003,Freestyle ? Intermediate,freestyle,1,player,,,Steven Sevilla,,complete,true,steven sevilla houston
-1058378281,2003,Freestyle ? Intermediate,freestyle,2,player,,,Monica Sandoval,,complete,true,monica sandoval dallas
+1058378281,2003,Freestyle ? Intermediate,freestyle,2,player,64ce4eb8-0db7-5f91-9c06-6c504e9cec79,,Monica Sandoval,,complete,true,monica sandoval dallas
 1058378281,2003,Freestyle ? Intermediate,freestyle,3,player,,,Jocelyn Sandoval,,complete,true,jocelyn sandoval dallas
 1058378281,2003,Freestyle ? Open,freestyle,1,player,73f415ee-765e-55ec-bde1-247d6b97eba6,,Ellis Piltz,,mostly_complete,,ellis piltz
 1058378281,2003,Freestyle ? Open,freestyle,2,player,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,,James Roberts,,mostly_complete,,james roberts
 1058378281,2003,Freestyle ? Open,freestyle,3,player,3878cf90-a92e-53dc-a8cb-dbba0edd823a,,Andrew Koller,,mostly_complete,,andrew koller
-1058378281,2003,Freestyle ? Open,freestyle,4,player,,,Derric Scalf,,mostly_complete,true,derric scalf dallas
+1058378281,2003,Freestyle ? Open,freestyle,4,player,b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,,Derric Scalf,,mostly_complete,true,derric scalf dallas
 1058378281,2003,Freestyle ? Open,freestyle,5,player,5aea8767-8f47-540d-80f3-69f67abace35,,Michael Lopez,,mostly_complete,,michael lopez
 1058378281,2003,Freestyle ? Open,freestyle,6,player,a1c7ef80-cbe3-50d0-aced-cdafcd490d4d,,José Cocolan,,mostly_complete,,jose cocolan
 1058378281,2003,Freestyle ? Open,freestyle,7,player,c45a05ae-81a5-5277-b302-e5133afefad7,,Juan Sanchez,,mostly_complete,,juan sanchez
-1058378281,2003,Freestyle ? Open,freestyle,8,player,,,James Geraci,,mostly_complete,true,james geraci austin
-1058378281,2003,Freestyle ? Open,freestyle,11,player,,,Josh Bast,,mostly_complete,true,josh bast san antonio
+1058378281,2003,Freestyle ? Open,freestyle,8,player,e979f25e-5e69-5516-8bd9-15e44cef6e19,,James Geraci,,mostly_complete,true,james geraci austin
+1058378281,2003,Freestyle ? Open,freestyle,11,player,c383fcb7-76ce-5f22-874c-c9aaacfe0ccc,,Josh Bast,,mostly_complete,true,josh bast san antonio
 1058378281,2003,Freestyle ? Open,freestyle,12,player,746cc216-852b-5788-bdf3-7b08b853664c,,Mike Stokely,,mostly_complete,,mike stokely
 1058378281,2003,Intermediate Doubles Net,net,1,team,,151040a2-6316-57fa-874d-5cdf66765613|1e45e0bb-c3a5-5d42-9bfa-cc460eff654d,__NON_PERSON__,Alex Spears / Carl Cavazos,complete,,
 1058378281,2003,Intermediate Golf,golf,1,player,1e45e0bb-c3a5-5d42-9bfa-cc460eff654d,,Carl Cavazos,,complete,,carl cavazos
@@ -1546,14 +1546,14 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1058378281,2003,Open Golf,golf,2,player,051c1b5e-f34d-5e7b-a27c-50f94324c96d,,Eric Burgess,,complete,,eric burgess
 1058378281,2003,Open Golf,golf,3,player,7a0b457d-c8fa-5c7f-bc5f-3598f375457d,,Mike Gatewood,,complete,,mike gatewood
 1058378281,2003,Open Singles,net,1,player,7c8a958d-74ca-5038-a961-4455fde610d8,,Chris Sieber,,complete,,chris siebert dc
-1058378281,2003,Open Singles,net,2,player,,,Tim Vozar,,complete,true,tim vozar houston
+1058378281,2003,Open Singles,net,2,player,aea29c23-9cfe-5025-8ff4-ad3341304468,,Tim Vozar,,complete,true,tim vozar houston
 1058378281,2003,Open Singles,net,3,player,84c14f8c-06df-54c2-a58b-545f5a970ce1,,James Harley,,complete,,james harley sc
 1058378281,2003,Women's Doubles,net,1,team,,54e16a85-0204-5ef1-aa92-a09c9af8ae1c|e3000de1-60fa-51e1-bc35-98a860fadd6b,__NON_PERSON__,Tina Lewis / Kelly Kelley,complete,,
 1058378281,2003,Women's Doubles,net,2,team,,e41184d4-ed7c-53d0-a3be-6b1e92fa5279|ff744d13-860e-5ab6-8920-dac66414b828,__NON_PERSON__,Heather Thomas / Sam Conlon,complete,,
 1058378281,2003,Women's Freestyle,freestyle,1,player,64ce4eb8-0db7-5f91-9c06-6c504e9cec79,,Monica Sandoval,,complete,,monica sandoval dallas dfc
 1058378281,2003,Women's Freestyle,freestyle,2,team,,1cbaa989-68df-5416-984a-564f619af31f|a52272a4-d5f3-56b0-b43b-45b2c4c5bfe7,__NON_PERSON__,Jocelyn Sandoval / Dallas DFC,complete,,
 1058378281,2003,Women's Golf,golf,1,player,4992549d-1cae-580c-8abe-108185c9f1c0,,Rebecca Hendrix,,complete,,rebecca hendrix
-1058378281,2003,Women's Singles,net,1,player,,,Tina Lewis,,complete,true,tina lewis austin
+1058378281,2003,Women's Singles,net,1,player,54e16a85-0204-5ef1-aa92-a09c9af8ae1c,,Tina Lewis,,complete,true,tina lewis austin
 1058378281,2003,Women's Singles,net,2,player,e41184d4-ed7c-53d0-a3be-6b1e92fa5279,,Heather Thomas,,complete,,heather thomas
 1058378281,2003,Women's Singles,net,3,player,e3000de1-60fa-51e1-bc35-98a860fadd6b,,Kelly Kelley,,complete,,kelly kelley
 1058378281,2003,Women's Singles,net,4,player,ff744d13-860e-5ab6-8920-dac66414b828,,Samantha Conlon,,complete,,samantha conlon
@@ -2392,8 +2392,8 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1089373321,2004,Intermediate Freestyle,freestyle,1,player,4dad34f3-16a0-533a-9ec9-dd23bafdcae3,,Flavio Loetscher,,complete,,flavio loetscher
 1089373321,2004,Intermediate Freestyle,freestyle,2,player,1185b853-cc88-5315-a144-6cbe414077cc,,Max Sarrazin,,complete,,max sarrazin
 1089373321,2004,Intermediate Freestyle,freestyle,3,player,b20bec33-66d4-5ea4-8f90-0c034479366f,,Robert Creel,,complete,,robert creel
-1089373321,2004,Intermediate Freestyle,freestyle,4,player,,,Baptiste Supan,,complete,true,baptiste supan px club
-1089373321,2004,Intermediate Freestyle,freestyle,5,player,,,Olivier Fages,,complete,true,olivier fages px club
+1089373321,2004,Intermediate Freestyle,freestyle,4,player,847d1abc-9830-5afd-b841-b8421880a94f,,Baptiste Supan,,complete,true,baptiste supan px club
+1089373321,2004,Intermediate Freestyle,freestyle,5,player,e8e43cfc-9436-59a1-ac35-16f0c10954cd,,Olivier Fages,,complete,true,olivier fages px club
 1089373321,2004,Intermediate Freestyle,freestyle,6,player,296b0848-31d0-5f66-aa7f-fdc3b4f54079,,JB Pinto,,complete,,jb pinto
 1089373321,2004,Intermediate Freestyle,freestyle,7,player,0d091a0c-1363-5080-917c-c0522c2b492b,,Sidart Deb,,complete,,sidart deb
 1089373321,2004,Intermediate Singles Net,net,1,player,8983b558-9cb9-5a25-bb28-589435a8f34e,,Serge Kaldany,,partial,,serge kaldany
@@ -6264,7 +6264,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1189977929,2008,Singles Net,net,5,player,84c14f8c-06df-54c2-a58b-545f5a970ce1,,James Harley,,complete,,james harley
 1189977929,2008,Singles Net,net,6,player,5d63ebc3-688c-560b-8889-961694f1cebc,,Mike Gupton,,complete,,mike gupton
 1189977929,2008,Singles Net,net,7,player,746cc216-852b-5788-bdf3-7b08b853664c,,Mike Stokely,,complete,,mike stokely
-1189977929,2008,Singles Net,net,8,player,deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,,Curtis Taylor,,complete,,curtis taylor
+1189977929,2008,Singles Net,net,8,player,f3a1b132-58a5-5743-9590-e2ad379146f3,,Curtis Taylor,,complete,,curtis taylor
 1190256479,2007,Open Circle Contest,freestyle,1,player,033a8589-0c98-5729-a8b4-068c4efcf025,,David Clavens,,complete,,david clavens
 1190256479,2007,Open Circle Contest,freestyle,2,player,16aae952-d265-5e4d-81b8-5474f6c43802,,Jorden Moir,,complete,,jorden moir
 1190256479,2007,Open Circle Contest,freestyle,3,player,457cdaa2-3ec3-5aed-b340-708420125d7c,,Will Digges,,complete,,will digges
@@ -7294,7 +7294,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1216849705,2008,Net Singles,net,5,player,0f04687b-1e6c-597f-be61-6edb9e8e6bfa,,Ben Benulis,,complete,,ben benulis
 1216849705,2008,Net Singles,net,6,player,fa005bba-9079-5b6a-9eec-592016d90f66,,Greg Solis,,complete,,greg solis
 1216849705,2008,Unknown,unknown,1,player,2c16c43d-6111-5231-b813-23f20f6ba7a3,,Jonathan Schneider,,complete,,jonathan schneider
-1216849705,2008,Unknown,unknown,2,player,deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,,Curtis Taylor,,complete,,curtis taylor
+1216849705,2008,Unknown,unknown,2,player,f3a1b132-58a5-5743-9590-e2ad379146f3,,Curtis Taylor,,complete,,curtis taylor
 1216849705,2008,Unknown,unknown,3,player,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,,James Roberts,,complete,,james roberts
 1218721346,2008,Open Doubles Net,net,1,team,,2d74f8a9-e7c2-5062-9a17-c1c4ca0ebf0f|4466afbd-a8d2-59c8-a46b-1108c4f1ea10,__NON_PERSON__,Rob Creel / New Orleans,partial,,
 1218721346,2008,Open Doubles Net,net,3,player,579640f0-042f-5c78-8b85-fd74091261af,,Big Ben Alston,,partial,,big ben alston
@@ -8357,7 +8357,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1235253768,2009,Open Women Speed Consecutive 50,sideline,1,player,54e16a85-0204-5ef1-aa92-a09c9af8ae1c,,Tina Lewis,,complete,,tina lewis
 1235253768,2009,Open Women Speed Consecutive 50,sideline,2,player,e3000de1-60fa-51e1-bc35-98a860fadd6b,,Kelly Kelley,,complete,,kelly kelley
 1235253768,2009,Singles Freestyle,freestyle,1,player,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,,James Roberts,,complete,,james roberts
-1235253768,2009,Singles Freestyle,freestyle,2,player,deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,,Curtis Taylor,,complete,,curtis taylor
+1235253768,2009,Singles Freestyle,freestyle,2,player,f3a1b132-58a5-5743-9590-e2ad379146f3,,Curtis Taylor,,complete,,curtis taylor
 1235253768,2009,Singles Freestyle,freestyle,3,player,0f04687b-1e6c-597f-be61-6edb9e8e6bfa,,Ben Benulis,,complete,,ben benulis
 1235253768,2009,Singles Freestyle,freestyle,4,player,4466afbd-a8d2-59c8-a46b-1108c4f1ea10,,Rob Creel,,complete,,rob creel
 1235253768,2009,Singles Freestyle,freestyle,5,player,82095e8d-6026-521e-a513-a1543f0840ba,,Micheal Stokley,,complete,,micheal stokley
@@ -8838,7 +8838,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1248033041,2009,Golf,golf,4,player,d03d053d-16e3-5132-ba7d-285956eaf3da,,Dave Spears,,complete,,dave spears
 1248033041,2009,Golf,golf,5,player,1130d6a6-a00f-5522-a518-df7c5bd25f3c,,Michael Gupton,,complete,,michael gupton
 1248033041,2009,Golf,golf,6,player,62bdd1f4-4414-5259-9996-91770a34d09f,,Edwin Veltman,,complete,,edwin veltman
-1248033041,2009,Golf,golf,7,player,deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,,Curtis Taylor,,complete,,curtis taylor
+1248033041,2009,Golf,golf,7,player,f3a1b132-58a5-5743-9590-e2ad379146f3,,Curtis Taylor,,complete,,curtis taylor
 1248033041,2009,Golf,golf,8,player,746cc216-852b-5788-bdf3-7b08b853664c,,Mike Stokely,,complete,,mike stokely
 1248033041,2009,Mixed Doubles Net - 3 Teams,net,1,team,,54e16a85-0204-5ef1-aa92-a09c9af8ae1c|84c14f8c-06df-54c2-a58b-545f5a970ce1,__NON_PERSON__,Tina Lewis / James Harley,complete,,
 1248033041,2009,Mixed Doubles Net - 3 Teams,net,2,team,,bd1ac97c-6c20-5bcd-9fbd-f5279f4c22bf|e3000de1-60fa-51e1-bc35-98a860fadd6b,__NON_PERSON__,Kelly Kelley / Chris Siebert,complete,,
@@ -12113,7 +12113,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1298627369,2011,Open Singles Net,net,12,player,f11d8cfd-276b-57fd-ae34-1f9345931683,,Jonas Thoell,,complete,,jonas thull
 1298627369,2011,Open Singles Net,net,13,player,9188c2d1-9556-5ad8-b890-6c22425dbbf0,,Stephan Rauthenberg,,complete,,stephan rauthenberg
 1298627369,2011,Open Singles Net,net,14,player,ee71cb5a-4b77-54c2-9bc7-c11165318ba5,,Steve Kuntze,,complete,,steve kuntze
-1298627369,2011,Open Singles Net,net,15,player,,,Robin P¸chel,,complete,true,robin p chel
+1298627369,2011,Open Singles Net,net,15,player,3c50ab0f-2056-50ce-a5f2-c7c95e96702f,,Robin Puchel,,complete,true,robin puchel
 1298627369,2011,Open Singles Net,net,16,player,6f69628f-6e43-53b9-91a6-0bff36dc6ee7,,Christian Bock,,complete,,christian bock
 1298627369,2011,Open Singles Net,net,17,player,8eecbc3c-d682-5125-96f0-6d25a4831ad0,,Tino Holzmann,,complete,,tino holzmann
 1298627369,2011,Open Singles Net,net,18,player,fa9be285-7a85-5ffa-a4dd-5561ae4c5c62,,Benjamin Kanske,,complete,,benjamin kanske
@@ -16330,11 +16330,11 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1415986036,2015,Battle,freestyle,3,player,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,,Alexander Trenner,,complete,,alexander trenner
 1415986036,2015,Request,freestyle,1,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,complete,,milan benda
 1415986036,2015,Request,freestyle,1,player,e7b1287b-e8aa-5234-b338-12a225d821c2,,Patrik Šmerda,,complete,,patrik smerda
-1415986036,2015,Request,freestyle,2,player,,,Tomá¹ Mirovský,,complete,true,toma1 mirovsky
+1415986036,2015,Request,freestyle,2,player,f3e003ea-8778-53f1-b790-86efe8cbb30d,,Tomáš Mirovský,,complete,true,tomáš mirovský
 1415986036,2015,Request,freestyle,2,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,complete,,jindrich smola
 1415986036,2015,Request,freestyle,3,player,4beb2ce2-19e8-5443-9b5b-e221febea787,,Andreas Nawrath,,complete,,andreas nawrath
 1415986036,2015,Request,freestyle,3,player,8a46754a-1520-59da-974d-a7287ce000e1,,Hugo Hájek,,complete,,hugo hajek
-1415986036,2015,Request,freestyle,4,player,,,Mikulá¹ Èáp,,complete,true,mikula1 eap
+1415986036,2015,Request,freestyle,4,player,6f22be06-2a66-5efd-b6ed-8d92f217dbdb,,Mikuláš Čáp,,complete,true,mikuláš čáp
 1415986036,2015,Routines,freestyle,1,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,complete,,milan benda
 1415986036,2015,Routines,freestyle,2,player,700e0ec0-94b9-5de3-b9a9-8d40a3645de3,,Patrik Cerny,,complete,,patrik cerny
 1415986036,2015,Routines,freestyle,3,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,complete,,jindrich smola
@@ -17991,7 +17991,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1487797845,2017,Open Doubles Net,net,4,player,a9518594-35d9-53cd-8e8d-a7bc4de94236,,Sébastien Maillet,,complete,,sebastien maillet
 1487797845,2017,Open Doubles Net,net,5,player,4f12fea1-3237-5a49-bc94-31fd3e10d91c,,Yassin Khateeb,,complete,,yassin khateeb
 1487797845,2017,Open Doubles Net,net,6,player,3e3269dc-9c8f-5a7d-a113-922c71054fdb,,Felix Ostwaldt,,complete,,felix ostwaldt
-1487797845,2017,Open Doubles Net,net,7,player,,,Gregor Morel Ale¹ Pelko,,complete,true,gregor morel ale1 pelko
+1487797845,2017,Open Doubles Net,net,7,player,,,__NON_PERSON__,,complete,true,__non_person__
 1487797845,2017,Open Doubles Net,net,8,player,fd8d3afc-a726-5ac8-841c-be6459e303bf,,Manuel Kruse,,complete,,manuel kruse
 1487797845,2017,Open Doubles Net,net,9,player,21aff1eb-8eee-5870-b16b-d22012a6970a,,Rosen Kyrta,,complete,,rosen kyrta
 1487797845,2017,Open Doubles Net,net,10,player,493ba501-d49d-54ed-98d3-1c3c4a8cc427,,Joschka Sebrandtke,,complete,,joschka sebrandtke
@@ -21728,12 +21728,12 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1741024635,2025,Women’S Singles Net,net,9,player,a6500854-2f53-5a6f-b63f-a3c072838ebd,,Caroline Birch,,complete,,caroline birch
 1741024635,2025,Women’S Singles Net,net,10,player,7f8cf1ed-c6f5-5aee-a28c-7bc18a786d61,,Victoria Grillo Garcia,,complete,,victoria grillo garcia
 1742511366,2025,Open Singles Net,net,1,player,e0d1d6f2-45be-5cc5-a815-1e882552e95f,,Egoitz Campo,,complete,,egoitz campo 11 points
-1742511366,2025,Open Singles Net,net,2,player,,,Ander López,,complete,true,ander lopez 8 points
+1742511366,2025,Open Singles Net,net,2,player,ee50c606-ce87-50bb-bfd4-2e3c53e14ede,,Ander López,,complete,true,ander lopez 8 points
 1742511366,2025,Open Singles Net,net,3,player,91051e19-2663-50dc-b447-c24ff4701d13,,Lander Campo,,complete,,lander campo 8 points
 1742511366,2025,Open Singles Net,net,4,player,c05f4bc8-7b2e-548b-94d2-ccc72282bfa1,,Ivan Carballo,,complete,,ivan carballo 4 points
 1742511366,2025,Open Singles Net,net,5,player,a7af13be-45b2-5e36-a37f-18a457acd963,,Joseba Zubiaurre,,complete,,joseba zubiaurre 3 points
-1742511366,2025,Open Singles Net,net,6,player,,,Josu Royuela,,complete,true,josu royuela 1 points
-1742511366,2025,Open Singles Net,net,7,player,,,Garikoitz Casquero,,complete,true,garikoitz casquero 1 point
+1742511366,2025,Open Singles Net,net,6,player,1024059e-1738-5768-a86b-24746f24eaac,,Josu Royuela,,complete,true,josu royuela 1 points
+1742511366,2025,Open Singles Net,net,7,player,668d501e-84a7-5605-9b7c-82a8941f38e4,,Garikoitz Casquero,,complete,true,garikoitz casquero 1 point
 1745298933,2025,Open Doubles Net,net,1,team,,317a2847-0733-5dee-9558-5afbc8561046|bb89d2bb-12af-5038-a092-0b4cf1269860,__NON_PERSON__,Marcin Czech / Petr Loskot,complete,,
 1745298933,2025,Open Doubles Net,net,2,team,,15161b84-ea6f-5685-8f5e-27852216c1f5|fb09d2be-a773-5bc1-9da3-60cbabff4338,__NON_PERSON__,Pavel Hejra / Štìpán Klimek,complete,,
 1745298933,2025,Open Doubles Net,net,3,team,,384c1fd0-bc17-53d8-9680-55b03876dddf|700e0ec0-94b9-5de3-b9a9-8d40a3645de3,__NON_PERSON__,Patrik Èerný / Petr Fuèík,complete,,
@@ -22405,7 +22405,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 857879540,1997,Doubles Net,net,1,team,,79665d43-fc4f-5484-9f76-92c81c16ee10|cf4f814b-253e-580b-8010-f510ff168777,__NON_PERSON__,John Mortensen / Lonn Vo,complete,,
 857879540,1997,Doubles Net,net,2,player,08ecb6e2-5ae2-539e-a4be-41cb2d98524b,,Garth Smith,,complete,,garth smith
 857879540,1997,Doubles Net,net,2,team,,4c135bb4-c05b-5b8c-8ca4-d60512ccbf24|66a19925-00c6-5da5-8b24-2bb656591603,__NON_PERSON__,Ann Lasken / Matt Quint,complete,,
-857879540,1997,Doubles Net,net,3,player,,,Toxic Tom B.,,complete,true,toxic tom b 
+857879540,1997,Doubles Net,net,3,player,f770d567-8f0b-5891-ae6f-4e1412a2227d,,Toxic Tom B.,,complete,true,toxic tom b 
 857879540,1997,Doubles Net,net,3,team,,069371cb-847f-5c68-a3dd-7b1171999566,__NON_PERSON__,Jim Hankin / Toxic Tom B.,complete,,
 857879540,1997,Doubles Net,net,3,team,,172da5dd-ca4a-554e-8981-99993e295dd7,__NON_PERSON__,Stuart Roll / Chris H.,complete,,
 857879540,1997,Open Doubles Footbag,net,1,team,,3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c|53335424-f4eb-5933-8b9b-939b6f177ea2,__NON_PERSON__,Emmanuel Bouchard / Scott Milne,complete,,
@@ -22431,7 +22431,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 857879540,1997,Singles Freestyle,freestyle,1,player,,,__NON_PERSON__,,complete,true,vijay of upenn footbag club
 857879540,1997,Singles Freestyle,freestyle,2,player,38ace662-7295-5be2-a71f-add24991ad14,,Dan Kramer,,complete,,dan kramer
 857879540,1997,Singles Freestyle,freestyle,3,player,3896e00e-da12-559a-8642-ec8f42525409,,Craig Singer,,complete,,craig singer
-857879540,1997,Singles Net,net,1,player,,,Toxic Tom B.,,complete,true,toxic tom b 
+857879540,1997,Singles Net,net,1,player,f770d567-8f0b-5891-ae6f-4e1412a2227d,,Toxic Tom B.,,complete,true,toxic tom b 
 857879540,1997,Singles Net,net,1,player,79665d43-fc4f-5484-9f76-92c81c16ee10,,John Mortensen,,complete,,john mortensen
 857879540,1997,Singles Net,net,2,player,71ae4086-3d7f-5fdb-812b-778eda4da0cf,,Anthony Intermann,,complete,,anthony intermann
 857879540,1997,Singles Net,net,2,player,ffb44633-32b2-5794-8239-1e20e2c68e23,,Josh Penney,,complete,,josh penney
@@ -22668,7 +22668,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 859923755,1997,Mixed Doubles Net,net,3,player,1df424ed-8425-5452-ac6a-f7abb11bb468,,Jimmy Evans,,complete,,jimmy evans
 859923755,1997,Mixed Doubles Net,net,4,player,d98880da-61e1-5dbc-a4b9-8288c1d83967,,Gina Meyer J.J. Jones,,complete,,gina meyer j j jones
 859923755,1997,Mixed Doubles Net,net,5,player,20e4a023-1bb9-5d19-a6dc-73da6eb30a8d,,Anne Miller,,complete,,anne miller
-859923755,1997,Novice Doubles,net,1,player,,,Marc Weber* Bob Silva,,complete,true,marc weber bob silva
+859923755,1997,Novice Doubles,net,1,player,,,__NON_PERSON__,,complete,true,__non_person__
 859923755,1997,Novice Doubles,net,2,player,0982e26c-d7ec-5d44-9f6d-1c77594b1e74,,Doug Toth Chris Cleaver,,complete,,doug toth chris cleaver
 859923755,1997,Novice Doubles,net,3,player,8f15594c-f3f9-53d9-bfe5-409e746b7c29,,Sunil Jani,,complete,,sunil jani
 859923755,1997,Open Singles Freestyle,freestyle,1,player,28565dd0-2196-5404-bf23-6cf0617ce79b,,Tuan Vu,,complete,,tuan vu
@@ -22775,7 +22775,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 876331623,1998,Intermediate Singles Freestyle,freestyle,4,player,2fba2bff-d73a-5082-ad4c-b956439788bd,,Geoff Hand,,complete,,geoff hand
 876331623,1998,Mixed Doubles Net,net,1,team,,4f763ef4-fb7b-5fcb-9883-988370e20b2e|adc70b9b-7496-5ded-8feb-fdc8e9c5d21c,__NON_PERSON__,Julie Symons / Alexis Deschenes,complete,,
 876331623,1998,Mixed Doubles Net,net,2,team,,10bcd8b8-7925-51f0-958b-a09a887db9a0|f995558d-69d9-557a-892a-0e695d85250b,__NON_PERSON__,Lisa McDaniel / P.T. Lovern,complete,,
-876331623,1998,Open Doubles Net,net,1,player,,,Brent Welch,,complete,true,brent welch
+876331623,1998,Open Doubles Net,net,1,player,95643c20-ec23-57a5-a742-5b44534ae959,,Brent Welch,,complete,true,brent welch
 876331623,1998,Open Doubles Net,net,2,team,,202607a4-85da-5231-957a-85eb5a4e3e76|4514adf1-2871-5407-9b1c-d5a43d1ede56,__NON_PERSON__,Sebastien Peron / Patrick Asswad,complete,,
 876331623,1998,Open Doubles Net,net,3,team,,4f763ef4-fb7b-5fcb-9883-988370e20b2e|adc70b9b-7496-5ded-8feb-fdc8e9c5d21c,__NON_PERSON__,Alexis Deschenes / Julie Symons,complete,,
 876331623,1998,Open Doubles Net,net,4,team,,10bcd8b8-7925-51f0-958b-a09a887db9a0|8959d778-41d3-554e-a831-6e1f73534b0f,__NON_PERSON__,P.T. Lovern / Chris Ott,complete,,

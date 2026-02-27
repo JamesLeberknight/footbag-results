@@ -7,6 +7,39 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.9] — Identity Curation Round 4: Full-Name Resolution
+**Release date:** 2026-02-27
+
+### Changes
+- **10 new Truth entries** from full-name unresolved placements (tool 24):
+  Brent Welch (3 app), James Geraci (2 app), Jose Cocolan (1 app),
+  Baptiste Supan (1 app), Olivier Fages (1 app), Garikoitz Casquero (1 app),
+  Josu Royuela (1 app), Toxic Tom B. (2 app), Mikuláš Čáp (1 app), Tomáš Mirovský (1 app).
+- **13 UUID backfills**: Tina Lewis, James Roberts, Derric Scalf, Tim Vozar,
+  Brendan Erskine, Windsen Pan, Ander López, Monica Sandoval, Josh Bast, Mike Lopez,
+  Brent Welch, Curtis Taylor, James Geraci.
+- **3 canon corrections** (encoding-corrupted PBP canons repaired):
+  Robin Puchel (P¸chel→Puchel), Mikuláš Čáp, Tomáš Mirovský.
+- **3 noise entries** reclassified to `__NON_PERSON__`:
+  "thru 8th", "Marc Weber* Bob Silva", "Gregor Morel Ale¹ Pelko".
+- **1 UUID remap**: Curtis Taylor PBP orphan UUID (deefac3b) unified with
+  existing Truth UUID (f3a1b132, source=data_only).
+- New tool: `tools/24_resolve_full_names.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v24 | 3363 |
+| Persons_Unresolved_Organized | v21 | 283 |
+| Placements_ByPerson | v25 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3363
+- Analytics_Safe_Surface: 22915 rows (+53 from recovered placements)
+- Placements_Unresolved: 201 rows (was 227, −26)
+
+---
+
 ## [v1.0.8] — Pipeline: Phase Out Dead Inputs in Release Mode
 **Release date:** 2026-02-27
 
