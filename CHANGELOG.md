@@ -7,6 +7,31 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.5] — Identity Curation Round 2
+**Release date:** 2026-02-27
+
+### Changes
+- **Unresolved curation** (`tools/20_curate_unresolved.py`): classified 87 entries from v15 Unresolved — 62 exits to Truth (city/nickname/trick-suffix cleanup), 21 reclassified as `__NON_PERSON__`, 4 deduped. Unresolved v15→v16.
+- **Backfill round 2**: 20 HIGH-tier fuzzy resolutions applied via tools 15+18. Unresolved v16→v17.
+- **G23 merge + round-2 cleanup** (`tools/21_promote_v20.py`): Juan Palomino 3-way Truth merge; 9 further Unresolved cleanups. Truth v18→v20 (-2), Unresolved v17→v18 (-9).
+- **Backfill round 3**: 4 Czech/Spanish resolutions (Jindřich Smola ×2, Vojtěch Janousek, Juan Bernardo Palacios Lemos). Unresolved v18→v19 (-4).
+- **REC-E/I Truth merges** (`tools/22_merge_truth_pairs.py`): Jakob Wagner Revstein → Jakob Wagner (same-event alias); Noah Jay Bohn → Noah Jay (last name dropped in results). Truth v21→v22 (-2).
+- **Archive hygiene**: all superseded lock versions moved to `inputs/identity_lock_archive/`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v22 | 3341 |
+| Persons_Unresolved_Organized | v19 | 299 |
+| Placements_ByPerson | v23 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3341
+- Analytics_Safe_Surface: 22862 rows
+- Placements_Flat: 25679 rows
+
+---
+
 ## [v1.0.4] — QC Package Reorganization
 **Release date:** 2026-02-25
 
