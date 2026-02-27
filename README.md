@@ -68,12 +68,11 @@ Large static inputs (mirror)
 │
 ├─ inputs/
 │   └─ identity_lock/             ← Authoritative human-verified truth (immutable)
-│       ├─ Persons_Truth_Final_v13.csv
-│       ├─ Persons_Unresolved_Organized_v11.csv
-│       └─ Placements_ByPerson_v13.csv
+│       ├─ Persons_Truth_Final_v23.csv
+│       ├─ Persons_Unresolved_Organized_v20.csv
+│       └─ Placements_ByPerson_v24.csv
 │
 ├─ overrides/
-│   └─ person_aliases.csv
 │
 ├─ data/
 │   ├─ qc_baseline_stage1.json
@@ -148,9 +147,7 @@ Rebuild Mode first (see below), or restore it from a prior run before proceeding
 
 ```
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v13.csv \
-  --identity_lock_persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v13.csv \
-  --identity_lock_unresolved_csv inputs/identity_lock/Persons_Unresolved_Organized_v11.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v24.csv \
   --out_dir out
 
 python 03_build_excel.py       # requires out/stage2_canonical_events.csv
@@ -224,9 +221,6 @@ Persons_Unresolved
 
 No speculative merges are performed.
 
-All human decisions are stored in:
-
-overrides/person_aliases.csv
 ⚠️ Identity Resolution (Legacy)
 
 The scripts below (`06`, `07`) are preserved in `legacy/` for reference.

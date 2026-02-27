@@ -7,6 +7,25 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.8] — Pipeline: Phase Out Dead Inputs in Release Mode
+**Release date:** 2026-02-27
+
+### Changes
+- **Stage 04**: `person_aliases.csv` loads moved inside the `if not skip_identity_overwrite:`
+  block — they were loaded unconditionally but only consumed in the heuristic path.
+  In Release Mode (lock active), `Persons_Truth_Final_v23.csv` already carries
+  `aliases_presentable`; loading `person_aliases.csv` was dead weight.
+- **02p5**: removed `--identity_lock_persons_truth_csv` and `--identity_lock_unresolved_csv`
+  args — accepted by argparse but never read inside `build_from_identity_lock()`.
+  Only `--identity_lock_placements_csv` is required.
+- **README.md**: updated identity lock file versions (v13→v23/v20/v24), removed stale
+  `person_aliases.csv` reference from overrides tree, simplified 02p5 command.
+- **RELEASE_CHECKLIST.md §3.1**: command simplified to the single required flag.
+
+**Data: no change.** No behaviour change in Release Mode.
+
+---
+
 ## [v1.0.7] — Pipeline: Self-Sealing Lock Sentinel
 **Release date:** 2026-02-27
 
