@@ -10,9 +10,9 @@ No step may be skipped.
 ## 0. Preconditions (Must Be True)
 
 ☐ `inputs/identity_lock/` contains **only**:
-  - `Persons_Truth_Final_v26.csv`
-  - `Persons_Unresolved_Organized_v23.csv`
-  - `Placements_ByPerson_v27.csv`
+  - `Persons_Truth_Final_v27.csv`
+  - `Persons_Unresolved_Organized_v24.csv`
+  - `Placements_ByPerson_v28.csv`
 
 ☐ These files are:
   - Human-verified
@@ -59,11 +59,11 @@ No step may be skipped.
 ☐ Run:
 ```bash
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v27.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v28.csv \
   --out_dir out
 ```
 
-☐ Verify output: `out/Placements_Flat.csv` exists, row count = 25679
+☐ Verify output: `out/Placements_Flat.csv` exists, row count = 25679 (unchanged)
 
 ### 3.2 Build Excel Workbook
 
@@ -84,15 +84,15 @@ python 04_build_analytics.py
 ```
 
 ☐ Verify output contains:
-  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3365`
+  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3382`
   - `INFO: Lock sentinel written → out/persons_truth.lock`
 
 ### 3.4 Verify Lock Sentinel
 
 ☐ `out/persons_truth.lock` is written automatically by stage 04 after Gate 3 PASS.
    Confirm the printed output contains the expected filename and row count:
-   - `"file": "Persons_Truth_Final_v26.csv"`, `"rows": 3365`
-   - `"file": "Persons_Unresolved_Organized_v23.csv"`, `"rows": 267`
+   - `"file": "Persons_Truth_Final_v27.csv"`, `"rows": 3382`
+   - `"file": "Persons_Unresolved_Organized_v24.csv"`, `"rows": 240`
 
 ---
 
@@ -101,7 +101,7 @@ python 04_build_analytics.py
 ☐ Stage 2 QC: 0 errors
 ☐ Gate 3: PASS (3365)
 ☐ Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
-☐ `out/Analytics_Safe_Surface.csv`: 22935 rows
+☐ `out/Analytics_Safe_Surface.csv`: 22944 rows
 
 ---
 

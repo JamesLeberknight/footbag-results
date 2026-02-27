@@ -7,6 +7,42 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.12] — Identity Curation Round 7: Coverage Closure + Noise Reclassification
+**Release date:** 2026-02-27
+
+### Changes
+- **Track C — 17 new Truth entries** (tool 27, COVERAGE_CLOSURE):
+  AJ Shultz (5 app), EJ Gammage (4 app), T.J. Boutorwick (4 app),
+  Maciej Długoszek (4 app), Aaron De Glanville (4 app), Kamil Hucał (3 app),
+  Natalia Fry (3 app), C.J. Zohrer (2 app), JB Pinto (2 app), JJ Jones (2 app),
+  Jana Čačáková (2 app), Kamil Burzyński (2 app), Lukáš Blažek (2 app),
+  Matyáš Mach (2 app), Rafał Piórkowski (2 app), Tomasz Strzałkowski (2 app),
+  Alex Lopez (5 app, normalised from ALEX LOPEZ).
+- **5 CANON_CORRECTs** to existing Truth entries (tool 27):
+  - Luka W.-Lavallée → Luka Weyler (abbreviated double-surname, 3 PBP rows)
+  - JAN CERMAK → Honza Cermak (Jan=Honza in Czech, all-caps form, 3 PBP rows)
+  - Jim Hankins ID → Jim Hankins (Idaho location suffix, 2 PBP rows)
+  - Robert McCloskey ID → Rob McCloskey (Idaho location suffix, 2 PBP rows)
+  - ALEX LOPEZ → Alex Lopez (all-caps variant, 5 PBP rows)
+- **Track D — 6 noise entries** reclassified to `__NON_PERSON__` (tool 27):
+  TG Sux, Footbag Team Moscow, de finales, places, st, Fcky.
+- 27 Unresolved entries removed (17 promoted + 5 bad canons + 6 noise).
+- New tool: `tools/27_coverage_closure_and_noise.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v27 | 3382 |
+| Persons_Unresolved_Organized | v24 | 240 |
+| Placements_ByPerson | v28 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3382 (Truth 3365→3382, +17)
+- Analytics_Safe_Surface: 22944 rows (+9 from recovered placements)
+- Placements_Unresolved: 170 rows (was 179, −9)
+
+---
+
 ## [v1.0.11] — Identity Curation Round 6: Unresolved Near-Duplicate Merges
 **Release date:** 2026-02-27
 

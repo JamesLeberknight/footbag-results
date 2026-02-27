@@ -1,15 +1,15 @@
 {
   "stage": "gate3",
   "date": "2026-02-27",
-  "persons_truth_count": 3365,
-  "persons_unresolved_count": 267,
-  "identity_lock_version": "v26",
+  "persons_truth_count": 3382,
+  "persons_unresolved_count": 240,
+  "identity_lock_version": "v27",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-27: tool 26 — 6 Unresolved near-duplicate variants merged into Truth (Élise→Elise Regreny, Krystof Maléø→Maler, Moirs→Moir, Ronalds→Ronald, Deans→Dean, Loewe→Loew). 10 stale Unresolved entries removed (persons in Truth since tools 23-25). 7 PBP rows remapped. Truth unchanged 3365. Unresolved 283→267. Analytics_Safe_Surface: 22935 rows.",
-  "gate3_pass_count": 3365,
-  "persons_truth_file": "Persons_Truth_Final_v26.csv",
-  "persons_truth_rows": 3365,
-  "persons_unresolved_file": "Persons_Unresolved_Organized_v23.csv",
-  "persons_unresolved_rows": 267,
-  "analytics_safe_surface_rows": 22935
+  "notes": "Updated 2026-02-27: tool 27 — 17 new Truth entries (COVERAGE_CLOSURE: AJ Shultz, EJ Gammage, T.J. Boutorwick, Maciej Długoszek, Aaron De Glanville, Kamil Hucał, Natalia Fry, C.J. Zohrer, JB Pinto, JJ Jones, Jana Čačáková, Kamil Burzyński, Lukáš Blažek, Matyáš Mach, Rafał Piórkowski, Tomasz Strzałkowski, Alex Lopez). 5 CANON_CORRECTs to existing Truth (Luka W.-Lavallée→Luka Weyler, JAN CERMAK→Honza Cermak, Jim Hankins ID→Jim Hankins, Robert McCloskey ID→Rob McCloskey, ALEX LOPEZ→Alex Lopez). 6 noise entries → __NON_PERSON__ (TG Sux, Footbag Team Moscow, de finales, places, st, Fcky). 27 Unresolved entries removed. Truth 3365→3382. Unresolved 267→240. Analytics_Safe_Surface: 22944 rows. Placements_Unresolved: 170 rows.",
+  "gate3_pass_count": 3382,
+  "persons_truth_file": "Persons_Truth_Final_v27.csv",
+  "persons_truth_rows": 3382,
+  "persons_unresolved_file": "Persons_Unresolved_Organized_v24.csv",
+  "persons_unresolved_rows": 240,
+  "analytics_safe_surface_rows": 22944
 }
