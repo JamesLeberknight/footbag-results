@@ -53,6 +53,15 @@ _COVERAGE_FILLS = {
 }
 
 
+def _compute_sha256(path: Path) -> str:
+    import hashlib
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def _coverage_flag(ratio) -> str:
     if pd.isna(ratio):
         return ""
@@ -2251,10 +2260,33 @@ def main() -> int:
     out_dir = repo / "out"
     overrides_dir = repo / "overrides"
 
-    # Gate 3: sentinel file check — lock is created manually after Gate 3 is verified
+    # Gate 3: sentinel file check — lock is written automatically after Gate 3 PASS
+    # (sources auto-discovered from inputs/identity_lock/; sentinel written after Gate 3 check below)
     lock_path = out_dir / "persons_truth.lock"
     persons_truth_csv = out_dir / "Persons_Truth.csv"
+
+    # Auto-discover canonical identity lock source files from inputs/identity_lock/
+    _lock_dir = repo / "inputs" / "identity_lock"
+
+    def _version_key(p):
+        import re
+        m = re.search(r'v(\d+)', p.stem)
+        return int(m.group(1)) if m else 0
+
+    _truth_candidates = list(_lock_dir.glob("Persons_Truth_Final_v*.csv"))
+    _unresolved_candidates = list(_lock_dir.glob("Persons_Unresolved_Organized_v*.csv"))
+    lock_truth_source = max(_truth_candidates, key=_version_key) if _truth_candidates else None
+    lock_unresolved_source = max(_unresolved_candidates, key=_version_key) if _unresolved_candidates else None
+
     skip_identity_overwrite = False
+
+    # On first run (no lock, no out/Persons_Truth.csv), auto-copy from identity lock source.
+    if lock_truth_source and not lock_path.exists() and not persons_truth_csv.exists():
+        import shutil
+        print(f"INFO: No lock found. Auto-copying {lock_truth_source.name} → out/Persons_Truth.csv")
+        shutil.copy2(lock_truth_source, persons_truth_csv)
+        skip_identity_overwrite = True  # treat auto-copied truth as the locked version
+
     if lock_path.exists() and not args.force_identity:
         if not persons_truth_csv.exists():
             print(f"ERROR: Persons_Truth is locked ({lock_path}) but {persons_truth_csv} is missing.")
@@ -2743,6 +2775,28 @@ def main() -> int:
     n_canons = persons_truth["person_canon"].nunique()
     if n_ids == n_canons:
         print(f"[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = {n_ids}")
+        # Write (or refresh) the identity lock sentinel.
+        if lock_truth_source and lock_unresolved_source:
+            import datetime
+            _unresolved_rows = sum(1 for _ in open(lock_unresolved_source)) - 1  # subtract header
+            sentinel = {
+                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                "persons_truth": {
+                    "file": lock_truth_source.name,
+                    "rows": int(persons_truth["effective_person_id"].count()),
+                    "sha256": _compute_sha256(lock_truth_source),
+                },
+                "persons_unresolved": {
+                    "file": lock_unresolved_source.name,
+                    "rows": _unresolved_rows,
+                    "sha256": _compute_sha256(lock_unresolved_source),
+                },
+            }
+            with open(lock_path, "w") as f:
+                json.dump(sentinel, f, indent=2)
+            print(f"INFO: Lock sentinel written → {lock_path}")
+        else:
+            print("WARN: Identity lock source files not found in inputs/identity_lock/ — sentinel NOT written.")
     else:
         print(f"[Gate3] FAIL: person_id count ({n_ids}) != person_canon count ({n_canons})")
         print(f"        Run: python qc02_canon_multiple_person_ids.py")

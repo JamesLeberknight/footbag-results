@@ -87,13 +87,14 @@ python 04_build_analytics.py
 
 ☐ Verify output contains:
   - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3353`
-  - `out/persons_truth.lock` updated
+  - `INFO: Lock sentinel written → out/persons_truth.lock`
 
 ### 3.4 Verify Lock Sentinel
 
-☐ `out/persons_truth.lock` contains:
-  - `"file": "Persons_Truth_Final_v23.csv"`, `"rows": 3353`
-  - `"file": "Persons_Unresolved_Organized_v20.csv"`, `"rows": 283`
+☐ `out/persons_truth.lock` is written automatically by stage 04 after Gate 3 PASS.
+   Confirm the printed output contains the expected filename and row count:
+   - `"file": "Persons_Truth_Final_v23.csv"`, `"rows": 3353`
+   - `"file": "Persons_Unresolved_Organized_v20.csv"`, `"rows": 283`
 
 ---
 
