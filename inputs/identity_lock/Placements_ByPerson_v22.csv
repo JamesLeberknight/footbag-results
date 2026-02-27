@@ -9267,7 +9267,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1256202918,2010,Circle Contest,freestyle,3,player,b274fbcc-9283-5e2e-9c68-704f3212796e,,Yves Kreil,,mostly_complete,,yves kreil
 1256202918,2010,Circle Contest,freestyle,3,player,c90a00eb-95d7-5375-a769-b71cbce34d87,,Jakob Wagner,,mostly_complete,,jakob wagner
 1256202918,2010,Circle Contest,freestyle,5,player,979be325-d5b9-593b-afa6-edd4d9142c28,,Daniel Spacil,,mostly_complete,,daniel spacil
-1256202918,2010,Circle Contest,freestyle,5,player,9df395f3-c0ec-5bac-a040-5c6d19372248,,Jindra Smolav,,mostly_complete,,jindra smolav
+1256202918,2010,Circle Contest,freestyle,5,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,mostly_complete,,jindra smolav
 1256202918,2010,Circle Contest,freestyle,7,player,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,,Alexander Trenner,,mostly_complete,,alexander trenner
 1256202918,2010,Circle Contest,freestyle,8,player,1df65a5e-fdb5-5385-a31e-4ac28b916b28,,Andreas Peier,,mostly_complete,,andreas peier
 1256202918,2010,Circle Contest,freestyle,9,player,83629694-b951-527d-922d-9a5d7d9a37e1,,Arthur Ledain,,mostly_complete,,arthur ledain aka tutur
@@ -9316,7 +9316,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1256202918,2010,Open Routines,freestyle,1,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,mostly_complete,,milan benda
 1256202918,2010,Open Routines,freestyle,2,player,8983b558-9cb9-5a25-bb28-589435a8f34e,,Serge Kaldany,,mostly_complete,,serge kaldany
 1256202918,2010,Open Routines,freestyle,3,player,171e6321-c025-5483-af9d-c92b2ee04806,,Tuomas Riisalo,,mostly_complete,,tuomas riisalo
-1256202918,2010,Open Routines,freestyle,4,player,9df395f3-c0ec-5bac-a040-5c6d19372248,,Jindra Smolav,,mostly_complete,,jindra smolav
+1256202918,2010,Open Routines,freestyle,4,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,mostly_complete,,jindra smolav
 1256202918,2010,Open Routines,freestyle,5,player,979be325-d5b9-593b-afa6-edd4d9142c28,,Daniel Spacil,,mostly_complete,,daniel spacil
 1256202918,2010,Open Routines,freestyle,6,player,83629694-b951-527d-922d-9a5d7d9a37e1,,Arthur Ledain,,mostly_complete,,arthur ledain aka tutur
 1256202918,2010,Open Routines,freestyle,7,player,700e0ec0-94b9-5de3-b9a9-8d40a3645de3,,Patrik Cerny,,mostly_complete,,patrik cerny
@@ -9385,7 +9385,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1256202918,2010,Shred 30,freestyle,5,player,dfd9c592-0f50-582b-8e8c-fcb60d9c2bb8,,Tuukka Antikainen,,complete,,tuukka antikainen
 1256202918,2010,Shred 30,freestyle,6,player,be1b4187-c73a-58a6-beb7-1bba61be3f28,,Paul Cronjaeger,,complete,,paul cronjaeger
 1256202918,2010,Shred 30,freestyle,7,player,c90a00eb-95d7-5375-a769-b71cbce34d87,,Jakob Wagner,,complete,,jakob wagner
-1256202918,2010,Shred 30,freestyle,8,player,,,Jindra Smolav ?,,complete,true,jindra smolav 
+1256202918,2010,Shred 30,freestyle,8,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,complete,,jindra smolav 
 1256202918,2010,Shred 30,freestyle,9,player,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,,Alexander Trenner,,complete,,alexander trenner
 1256202918,2010,Shred 30,freestyle,10,player,73733b5e-6e77-5f59-b29c-e2354619bddb,,Ondrej Skrabal,,complete,,ondrej skrabal
 1256202918,2010,Shred 30,freestyle,11,player,d38d6a95-920f-5c38-86a9-1c291109c12c,,David Castillo,,complete,,david castillo
@@ -15679,7 +15679,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1389730147,2014,Open Circle Contest,freestyle,4,player,8e2c07e2-aeb8-5325-be31-ffcc452944ec,,Mikko Lepisto,,mostly_complete,,mikko lepisto
 1389730147,2014,Open Circle Contest,freestyle,5,player,8781b759-cc12-5efa-bfcd-c2595866382f,,Slawa Sidorin,,mostly_complete,,slawa sidorin
 1389730147,2014,Open Circle Contest,freestyle,5,player,8a15006e-bc85-5621-bbe6-66090397b7d2,,Przemyslaw Pietrzycki,,mostly_complete,,przemyslaw pietrzycki
-1389730147,2014,Open Circle Contest,freestyle,7,player,,,Vojtìch Janou¹ek,,mostly_complete,true,vojtich janou1ek
+1389730147,2014,Open Circle Contest,freestyle,7,player,52e23781-a79d-558f-9ce4-068b613d441f,,Vojta Janousek,,mostly_complete,,vojtich janou1ek
 1389730147,2014,Open Circle Contest,freestyle,7,player,2ad84903-ac37-5f07-9487-acc01cd28f9a,,Jiøí Pavlas,,mostly_complete,,ji i pavlas
 1389730147,2014,Open Circle Contest,freestyle,7,player,635f1b2e-c1b4-5e59-8193-f66d650a02f6,,Oldøich Pláteník,,mostly_complete,,old ich platenik
 1389730147,2014,Open Doubles Net,net,1,team,,0b3ffb10-2257-510e-a69a-26ff2fc87508|a3781ac2-c529-5316-b22b-2bdcfa67bb67,__NON_PERSON__,Damian Budzik / Pawel Rozek,complete,,
@@ -18388,7 +18388,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1515176008,2018,Open Doubles,net,4,team,,c7d606bd-4757-5779-9aea-33313bdb27fb|f5f6f800-86d2-51ae-954a-4b6b292674d4,__NON_PERSON__,GIANNI ALMANZA / JULIAN FLOREZ,complete,,
 1515176008,2018,Open Singles,net,1,player,ccbb4b15-2d0f-5982-8801-9e891ad3205a,,Reinaldo Cardozo,,complete,,reinaldo cardozo
 1515176008,2018,Open Singles,net,2,player,f5f6f800-86d2-51ae-954a-4b6b292674d4,,Julian Florez Cifuentes,,complete,,julian florez cifuentes
-1515176008,2018,Open Singles,net,3,player,4b69d36b-2034-5823-b4ea-45219f69ca27,,JUAN PALACIOS,,complete,,juan palacios
+1515176008,2018,Open Singles,net,3,player,3123701a-43bd-5273-8472-ba332dc67fed,,JUAN BERNARDO PALACIOS LEMOS,,complete,,juan palacios
 1515176008,2018,Open Singles,net,4,player,cb047679-c1ef-5ab8-8944-999ca66d1ea3,,CARLOS RAMIREZ,,complete,,carlos ramirez
 1515176008,2018,Open Singles,net,5,player,d5438c2d-a43e-5124-a46a-6f0944785f00,,ANTONIO LINEROS,,complete,,antonio lineros
 1515176008,2018,Open Singles,net,6,player,34f7525c-19c0-5557-996f-cf770d365ed0,,ALEJANDRO RODRIGUEZ,,complete,,alejandro rodriguez
@@ -18783,7 +18783,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1527557123,2018,Open Doubles,net,3,player,ef2c88aa-ab9e-58d1-b4c9-1374e77859eb,,Sebastian Ceballos,,complete,,sebastian ceballos
 1527557123,2018,Open Individual,net,1,player,ccbb4b15-2d0f-5982-8801-9e891ad3205a,,Reinaldo Cardozo,,complete,,reinaldo cardozo
 1527557123,2018,Open Individual,net,2,player,f5f6f800-86d2-51ae-954a-4b6b292674d4,,Julian Florez Cifuentes,,complete,,julian florez cifuentes
-1527557123,2018,Open Individual,net,3,player,4b69d36b-2034-5823-b4ea-45219f69ca27,,JUAN PALACIOS,,complete,,juan palacios
+1527557123,2018,Open Individual,net,3,player,3123701a-43bd-5273-8472-ba332dc67fed,,JUAN BERNARDO PALACIOS LEMOS,,complete,,juan palacios
 1527557123,2018,Open Individual,net,4,player,ef2c88aa-ab9e-58d1-b4c9-1374e77859eb,,Sebastian Ceballos,,complete,,sebastian ceballos
 1527557123,2018,Open Individual,net,5,player,cb047679-c1ef-5ab8-8944-999ca66d1ea3,,CARLOS RAMIREZ,,complete,,carlos ramirez
 1527557123,2018,Open Individual,net,6,player,0a48e125-3d2b-5424-9c97-14e593fbdc6f,,ANIBAL MONTES,,complete,,anibal montes
@@ -19025,7 +19025,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1537994275,2018,Open Doubles,freestyle,4,player,ccbb4b15-2d0f-5982-8801-9e891ad3205a,,Reinaldo Cardozo,,complete,,reinaldo cardozo antonio linero
 1537994275,2018,Open Singles,freestyle,1,player,ccbb4b15-2d0f-5982-8801-9e891ad3205a,,Reinaldo Cardozo,,complete,,reinaldo cardozo
 1537994275,2018,Open Singles,freestyle,2,player,f5f6f800-86d2-51ae-954a-4b6b292674d4,,Julian Florez Cifuentes,,complete,,julian florez cifuentes
-1537994275,2018,Open Singles,freestyle,3,player,4b69d36b-2034-5823-b4ea-45219f69ca27,,JUAN PALACIOS,,complete,,juan palacios
+1537994275,2018,Open Singles,freestyle,3,player,3123701a-43bd-5273-8472-ba332dc67fed,,JUAN BERNARDO PALACIOS LEMOS,,complete,,juan palacios
 1537994275,2018,Open Singles,freestyle,4,player,0a48e125-3d2b-5424-9c97-14e593fbdc6f,,ANIBAL MONTES,,complete,,anibal montes
 1537994275,2018,Open Singles,freestyle,5,player,34f7525c-19c0-5557-996f-cf770d365ed0,,ALEJANDRO RODRIGUEZ,,complete,,alejandro rodriguez
 1537994275,2018,Open Singles,freestyle,6,player,cb047679-c1ef-5ab8-8944-999ca66d1ea3,,CARLOS RAMIREZ,,complete,,carlos ramirez
@@ -19707,7 +19707,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1568692191,2019,Smudge /Eggbeater/Doble Leg Over,net,3,player,dc18b43c-4679-577c-8411-3c7134e59f91,,Guillermo Ramirez,,complete,,guillermo ramirez
 1568692191,2019,Unknown,unknown,1,player,ccbb4b15-2d0f-5982-8801-9e891ad3205a,,Reinaldo Cardozo,,complete,,reinaldo cardozo
 1568692191,2019,Unknown,unknown,2,player,f5f6f800-86d2-51ae-954a-4b6b292674d4,,Julian Florez Cifuentes,,complete,,julian florez cifuentes
-1568692191,2019,Unknown,unknown,3,player,4b69d36b-2034-5823-b4ea-45219f69ca27,,JUAN PALACIOS,,complete,,juan palacios
+1568692191,2019,Unknown,unknown,3,player,3123701a-43bd-5273-8472-ba332dc67fed,,JUAN BERNARDO PALACIOS LEMOS,,complete,,juan palacios
 1568692191,2019,Unknown,unknown,4,player,c7d606bd-4757-5779-9aea-33313bdb27fb,,Gianni Almanza Amaya,,complete,,gianni almanza amaya
 1568692191,2019,Unknown,unknown,5,player,cb047679-c1ef-5ab8-8944-999ca66d1ea3,,CARLOS RAMIREZ,,complete,,carlos ramirez
 1568692191,2019,Unknown,unknown,6,player,bccd6d14-b132-5b0c-83bd-8eb8299409a2,,Esteban Restrepo,,complete,,esteban restrepo
@@ -21340,7 +21340,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1730420667,2024,Open Doubles,net,4,team,,1e239558-36f9-55f8-981d-62c36bb534e7|f5f6f800-86d2-51ae-954a-4b6b292674d4,__NON_PERSON__,JULIAN FLOREZ / YEISON ALZATE,complete,,
 1730420667,2024,Open Doubles,net,5,team,,1dd8d608-c48f-58e7-bcf4-abd35e2b4b04|4b69d36b-2034-5823-b4ea-45219f69ca27,__NON_PERSON__,Nikolle Valentina Flórez Mora / JUAN PALACIOS,complete,,
 1730420667,2024,Open Singles,net,1,player,80d153ff-7014-5830-acb1-e1162671323f,,Germain Uzcategui,,complete,,germain uzcategui
-1730420667,2024,Open Singles,net,2,player,4b69d36b-2034-5823-b4ea-45219f69ca27,,JUAN PALACIOS,,complete,,juan palacios
+1730420667,2024,Open Singles,net,2,player,3123701a-43bd-5273-8472-ba332dc67fed,,JUAN BERNARDO PALACIOS LEMOS,,complete,,juan palacios
 1730420667,2024,Open Singles,net,3,player,5813a6cb-748f-5095-ba4d-50c77dee8281,,Edison Alejandro Rodríguez Betancur,,complete,,edison alejandro rodriguez betancur
 1730420667,2024,Open Singles,net,4,player,da631353-0d65-5a29-9572-37f115385c15,,Antonio Linero Castro,,complete,,antonio linero castro
 1730420667,2024,Open Singles,net,5,player,e1f0745d-5c51-50cf-bcfd-386394b5a9e9,,Daniel Jaramillo,,complete,,daniel jaramillo
@@ -21949,7 +21949,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1760495074,2025,Open Doubles,net,2,team,,c7d606bd-4757-5779-9aea-33313bdb27fb|ef2c88aa-ab9e-58d1-b4c9-1374e77859eb,__NON_PERSON__,Gianni Almanza Amaya / Sebastián Ceballos,complete,,
 1760495074,2025,Open Doubles,net,3,team,,1dd8d608-c48f-58e7-bcf4-abd35e2b4b04|337dae34-54b0-5196-9943-88a7d247b0d7,__NON_PERSON__,Marcela Mercado Montoya / Nikolle Valentina Flórez,complete,,
 1760495074,2025,Open Singles,net,1,player,80d153ff-7014-5830-acb1-e1162671323f,,Germain Uzcategui,,complete,,germain uzcategui
-1760495074,2025,Open Singles,net,2,player,4b69d36b-2034-5823-b4ea-45219f69ca27,,JUAN PALACIOS,,complete,,juan palacios
+1760495074,2025,Open Singles,net,2,player,3123701a-43bd-5273-8472-ba332dc67fed,,JUAN BERNARDO PALACIOS LEMOS,,complete,,juan palacios
 1760495074,2025,Open Singles,net,3,player,c7d606bd-4757-5779-9aea-33313bdb27fb,,Gianni Almanza Amaya,,complete,,gianni almanza amaya
 1760495074,2025,Open Singles,net,4,player,816fca6c-66be-5d1c-8141-ab2457e99a94,,Marcela Mercado,,complete,,marcela mercado
 1760495074,2025,Open Singles,net,5,player,1dd8d608-c48f-58e7-bcf4-abd35e2b4b04,,Nikolle Valentina Flórez Mora,,complete,,nikolle valentina florez mora
