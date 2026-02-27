@@ -1,4 +1,4 @@
-📦 Footbag Results Pipeline — v1.0.4
+📦 Footbag Results Pipeline — v1.0.10
 
 Archive-quality, deterministic pipeline for building a canonical Footbag historical results dataset and Excel workbook.
 
@@ -203,7 +203,7 @@ Footbag_Results_Canonical.xlsx
 
 ⚠️ Generated outputs are not committed to git.
 
-🔐 Identity Model (v1.0.4)
+🔐 Identity Model (v1.0.10)
 Persons_Truth is guaranteed to be:
 
 Collision-free
@@ -267,7 +267,7 @@ From a clean clone:
 
 git clone <repo-url>
 cd footbag-results
-git checkout v1.0.4
+git checkout v1.0.10
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -281,7 +281,7 @@ If build completes and QC passes, repository is consistent.
 
 Current stable release:
 
-v1.0.4
+v1.0.10
 
 This tag represents the canonical identity-locked, archive-safe state.
 
