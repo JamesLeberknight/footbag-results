@@ -557,6 +557,9 @@ def _apply_sheet_hiding(wb) -> None:
             hide_columns_by_header(ws, {"player1_id", "player2_id", "team_person_key"})
             hide_columns_by_prefix(ws, _prefixes_placements)
             _hide_id_columns_sheet(ws)
+        elif sheet_name == "Placements_Flat":
+            hide_columns_by_header(ws, {"norm", "division_raw"})
+            _hide_id_columns_sheet(ws)
         elif is_year_sheet(sheet_name):
             hide_columns_by_header(ws, {"player1_id", "player2_id"})
             hide_columns_by_prefix(ws, _prefixes_year)
@@ -2011,7 +2014,10 @@ def build_data_integrity(
 
     # Placements
     rows.append(_row("Placements", "Total in source (raw)", pf_raw_count, "Before Gate 1"))
-    rows.append(_row("Placements", "Surviving Gate 1", len(pf), "Rejected + unpresentable removed"))
+    _gate1_removed = pf_raw_count - len(pf)
+    _gate1_note = (f"Gate 1 excluded {_gate1_removed} rows (rejected + unpresentable)"
+                   if _gate1_removed > 0 else "No rejections at Gate 1")
+    rows.append(_row("Placements", "Surviving Gate 1", len(pf), _gate1_note))
     n_unresolved = placements_by_person_df["person_unresolved"].eq("true").sum()
     rows.append(_row("Placements", "In Analytics_Safe_Surface", len(analytics_safe_df),
                      "Coverage-filtered + identity-locked"))
@@ -2616,6 +2622,18 @@ def main() -> int:
         axis=1,
     )
 
+    # ---- Normalize year column to int for consistent Excel types across all sheets ----
+    def _cast_year_int(df: pd.DataFrame) -> pd.DataFrame:
+        if "year" in df.columns:
+            df = df.copy()
+            df["year"] = pd.to_numeric(df["year"], errors="coerce").astype("Int64")
+        return df
+
+    placements_by_person_df = _cast_year_int(placements_by_person_df)
+    analytics_safe_df       = _cast_year_int(analytics_safe_df)
+    placements_unresolved_df = _cast_year_int(placements_unresolved_df)
+    cov_df                  = _cast_year_int(cov_df)
+
     # ---- Workbook sheets (presentation only — diagnostics go to Review workbook) ----
     sheets = []
     sheets.append(("Placements_ByPerson", placements_by_person_df))
@@ -2700,10 +2718,12 @@ def main() -> int:
                 continue
 
             # Year sheets: row 1 = header (event_ids as column headers), rows 2-7 = data
-            # Add two new rows after the last data row
-            next_row = ws.max_row + 1
-            ratio_row = next_row
-            flag_row = next_row + 1
+            # Coverage rows are always rows 8-9 (fixed); using max_row would append
+            # duplicates on every run.  Delete any stale rows beyond row 7 first.
+            if ws.max_row > 7:
+                ws.delete_rows(8, ws.max_row - 7)
+            ratio_row = 8
+            flag_row = 9
 
             ws.cell(row=ratio_row, column=1, value="Coverage Ratio")
             ws.cell(row=flag_row, column=1, value="Coverage Flag")

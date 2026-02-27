@@ -638,6 +638,8 @@ def write_excel(
                 a = copy(cell.alignment)
                 a.wrap_text = True
                 cell.alignment = a
+            # Freeze top-left: row 1 (event IDs) + col A (row labels) always visible
+            worksheet.freeze_panes = "B2"
 
         # Unknown-year sheet
         if unknown_year:
@@ -746,7 +748,7 @@ def write_excel(
         
         summary_data = [
             {"Metric": "Total Events", "Value": total_events},
-            {"Metric": "Total Placements", "Value": total_placements},
+            {"Metric": "Total Placements (stage2 raw)", "Value": total_placements},
             {"Metric": "Year Min", "Value": year_min if year_min else ""},
             {"Metric": "Year Max", "Value": year_max if year_max else ""},
         ]
@@ -996,7 +998,10 @@ def write_excel(
         # Placements_Flat sheet (truth-preserving analysis table)
         # ------------------------------------------------------------
         if placements_flat_df is not None and len(placements_flat_df) > 0:
-            df_pf = sanitize_excel_strings(placements_flat_df.copy())
+            df_pf = placements_flat_df.copy()
+            if "year" in df_pf.columns:
+                df_pf["year"] = pd.to_numeric(df_pf["year"], errors="coerce").astype("Int64")
+            df_pf = sanitize_excel_strings(df_pf)
             df_pf.to_excel(xw, sheet_name="Placements_Flat", index=False)
             ws = xw.sheets["Placements_Flat"]
             ws.freeze_panes = "A2"
@@ -1080,7 +1085,6 @@ def write_excel(
             divisions_norm_data.append({
                 "division_key": key,
                 "division_display": pick_best_division_display(aliases),
-                "preferred_display_name": "",  # manual override
                 "division_category": cat,
                 "count_placements": nm["placements"],
                 "count_events": len(nm["events"]),
@@ -1291,7 +1295,9 @@ def write_excel(
                 "Section": "SAFE — Presentation-ready",
                 "Description": (
                     "These sheets are structurally sound and can be trusted for pivot tables:\n"
-                    "- Year sheets (1980-2026): Event archive, one column per event\n"
+                    "- Year sheets (1985-present): Event archive, one column per event. "
+                    "Note: 1980-1984 placements exist in Placements_Flat/Analytics_Safe_Surface "
+                    "but have no year sheet (those events are not in the stage2 source).\n"
                     "- Index: Event index with hyperlinks to year sheets\n"
                     "- Summary: Aggregate counts (events, placements, year range)\n"
                     "- Divisions: Canonical division labels and counts\n"
