@@ -125,7 +125,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1011291051,2002,Open Singles,net,15,player,,,Jean,,mostly_complete,true,jean
 1011291051,2002,Open Singles,net,15,player,169a272b-2931-5aa0-a245-cd495ad4891b,,Olivier Tronchon,,mostly_complete,,olivier tronchon
 1011324897,2002,Intermediate Routines,freestyle,1,player,0f51c65d-c889-5354-8cb7-21bef31c04ca,,Jake Milofsky,,complete,,jake milofsky
-1011324897,2002,Intermediate Routines,freestyle,2,player,3f3c94b7-3d69-544e-9749-9a13ece71731,,Noah Jay Bohn,,complete,,noah jay bohn
+1011324897,2002,Intermediate Routines,freestyle,2,player,b1ad926c-8e9f-5135-8ab0-0547f6ca6943,,Noah Jay,,complete,,noah jay
 1011324897,2002,Intermediate Routines,freestyle,3,player,cecf97df-dde6-5289-b5ea-135792d7ae63,,Nino Almazon,,complete,,nino almazon
 1011324897,2002,Intermediate Shred,freestyle,1,player,ea4b97b8-2ee0-516b-94ce-ccdf349463da,,Caleb Abraham,,complete,,caleb abraham
 1011324897,2002,Intermediate Shred,freestyle,2,player,42cfb7b0-8f51-53ff-9721-f4ac4b909290,,Brad Nelson,,complete,,brad nelson
@@ -7578,7 +7578,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1222687523,2008,Sick 3,freestyle,2,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,complete,,milan benda blurriest swirl
 1222687523,2008,Sick 3,freestyle,3,player,1f864e5e-28bc-5370-8f30-49bc3c65c64c,,Jeremy Masselis,,complete,,jeremy jayjoo masselis pixie paradon swirl
 1222687523,2008,Sick 3,freestyle,4,player,0b36838e-ef53-5c81-adf5-5dda95b42e84,,Andreas Grandi Peier,,complete,,andreas grandi peier pixie ducking paradox swirl
-1222687523,2008,Sick 3,freestyle,5,player,5e59054a-bb7c-5e63-8e8e-0fa8279ca84b,,Jakob Wagner Revstein,,complete,,jakob wagner revstein
+1222687523,2008,Sick 3,freestyle,5,player,c90a00eb-95d7-5375-a769-b71cbce34d87,,Jakob Wagner,,complete,,jakob wagner
 1222687523,2008,Sick 3,freestyle,6,team,,1d5764c3-59b0-558b-8926-f600599d91fa,__NON_PERSON__,Jan Dexter Struz ? Blurry Torque / Whirly Gig,complete,,
 1222687523,2008,Sick 3,freestyle,7,player,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,,Alexander Trenner,,complete,,alexander trenner paradox ducking swirl
 1222687523,2008,Sick 3,freestyle,8,player,6879d4b4-d8d3-5cb2-8e9e-65a82d3167e8,,David Hofstetter,,complete,,david hostetter scropion s tail
