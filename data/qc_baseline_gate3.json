@@ -1,15 +1,15 @@
 {
   "stage": "gate3",
-  "date": "2026-02-26",
-  "persons_truth_count": 3345,
-  "persons_unresolved_count": 332,
-  "identity_lock_version": "v16",
+  "date": "2026-02-27",
+  "persons_truth_count": 3343,
+  "persons_unresolved_count": 303,
+  "identity_lock_version": "v18",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-26: v16 Unresolved \u2014 87 rows removed (62 resolved to Truth, 21 non-person, 4 dedup). Analytics_Safe_Surface: 22856 rows.",
-  "gate3_pass_count": 3345,
-  "persons_truth_file": "Persons_Truth_Final_v18.csv",
-  "persons_truth_rows": 3345,
-  "persons_unresolved_file": "Persons_Unresolved_Organized_v16.csv",
-  "persons_unresolved_rows": 332,
-  "analytics_safe_surface_rows": 22856
+  "notes": "Updated 2026-02-27: 20 backfill resolutions applied; G23 Juan Palomino merged (-2 Truth); Unresolved round-2 cleanup (-9). Analytics_Safe_Surface: 22860 rows.",
+  "gate3_pass_count": 3343,
+  "persons_truth_file": "Persons_Truth_Final_v20.csv",
+  "persons_truth_rows": 3343,
+  "persons_unresolved_file": "Persons_Unresolved_Organized_v18.csv",
+  "persons_unresolved_rows": 303,
+  "analytics_safe_surface_rows": 22860
 }

@@ -16,15 +16,15 @@ Categories processed:
      → Update Placements person_id/person_canon to resolved Truth person; remove from Unresolved
 
 Inputs:
-  inputs/identity_lock/Persons_Truth_Final_v18.csv
-  inputs/identity_lock/Persons_Unresolved_Organized_v16.csv
-  inputs/identity_lock/Placements_ByPerson_v19.csv
+  inputs/identity_lock/Persons_Truth_Final_v20.csv
+  inputs/identity_lock/Persons_Unresolved_Organized_v18.csv
+  inputs/identity_lock/Placements_ByPerson_v21.csv
   out/backfill_resolutions.csv  (optional — from tool 15 --apply)
 
 Outputs:
-  inputs/identity_lock/Persons_Truth_Final_v19.csv
-  inputs/identity_lock/Persons_Unresolved_Organized_v17.csv
-  inputs/identity_lock/Placements_ByPerson_v20.csv
+  inputs/identity_lock/Persons_Truth_Final_v21.csv
+  inputs/identity_lock/Persons_Unresolved_Organized_v19.csv
+  inputs/identity_lock/Placements_ByPerson_v22.csv
 
 Modes:
   default  — dry run: print summary of changes, write nothing
@@ -49,14 +49,14 @@ ROOT = Path(__file__).resolve().parent.parent
 IDENTITY_LOCK = ROOT / "inputs" / "identity_lock"
 OUT = ROOT / "out"
 
-TRUTH_IN = IDENTITY_LOCK / "Persons_Truth_Final_v18.csv"
-UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v16.csv"
-PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v19.csv"
+TRUTH_IN = IDENTITY_LOCK / "Persons_Truth_Final_v20.csv"
+UNRESOLVED_IN = IDENTITY_LOCK / "Persons_Unresolved_Organized_v18.csv"
+PLACEMENTS_IN = IDENTITY_LOCK / "Placements_ByPerson_v21.csv"
 RESOLUTIONS_CSV = OUT / "backfill_resolutions.csv"
 
-TRUTH_OUT_NAME = "Persons_Truth_Final_v19.csv"
-UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v17.csv"
-PLACEMENTS_OUT_NAME = "Placements_ByPerson_v20.csv"
+TRUTH_OUT_NAME = "Persons_Truth_Final_v21.csv"
+UNRESOLVED_OUT_NAME = "Persons_Unresolved_Organized_v19.csv"
+PLACEMENTS_OUT_NAME = "Placements_ByPerson_v22.csv"
 
 NON_PERSON_CANON = "__NON_PERSON__"
 
@@ -379,7 +379,7 @@ def run_migration(apply: bool, out_dir: Path) -> int:
     print(f"Written: {pf_out_path}  ({len(pf_out)} rows)")
     print()
     print("Final counts:")
-    print(f"  Persons_Truth_Final_v18.csv:          {len(truth_out):5d} rows")
+    print(f"  Persons_Truth_Final_v20.csv:          {len(truth_out):5d} rows")
     print(f"  Persons_Unresolved_Organized_v15.csv: {len(ur_out):5d} rows")
     print(f"  Placements_ByPerson_v18.csv:          {len(pf_out):5d} rows")
     print()

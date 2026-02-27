@@ -44,9 +44,9 @@ This is an archival system, not an experiment.
 Release builds rely on:
 
 inputs/identity_lock/
-- Persons_Truth_Final_v18.csv
-- Persons_Unresolved_Organized_v16.csv
-- Placements_ByPerson_v19.csv
+- Persons_Truth_Final_v20.csv
+- Persons_Unresolved_Organized_v18.csv
+- Placements_ByPerson_v21.csv
 
 These files are treated as ground truth.
 
