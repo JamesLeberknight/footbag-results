@@ -7,6 +7,25 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.7] — Pipeline: Self-Sealing Lock Sentinel
+**Release date:** 2026-02-27
+
+### Changes
+- **Stage 04 now writes `out/persons_truth.lock` automatically** after Gate 3 PASS.
+  Previously the sentinel had to be created manually, breaking clean-clone reproducibility.
+  Sentinel includes SHA256 hashes and row counts for both identity lock source files.
+- **Stage 04 auto-copies `Persons_Truth.csv` on first run** from a clean clone.
+  If no lock and no `out/Persons_Truth.csv` exist, the highest-versioned
+  `Persons_Truth_Final_v*.csv` in `inputs/identity_lock/` is copied automatically.
+  Canonical count (3353) is preserved — no heuristic rebuild.
+- Both fixes are idempotent: re-runs refresh the sentinel with identical SHA256s and
+  row counts (only timestamp changes).
+- Updated `RELEASE_CHECKLIST.md` sections 3.3–3.4 to reflect automatic sentinel writing.
+
+**Data: no change.** Identity lock artifacts are identical to v1.0.6.
+
+---
+
 ## [v1.0.6] — Identity Curation Round 3
 **Release date:** 2026-02-27
 
