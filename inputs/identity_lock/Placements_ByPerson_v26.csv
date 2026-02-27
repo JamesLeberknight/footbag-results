@@ -1515,9 +1515,9 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1058378281,2003,Freestyle ? 30 Second Shred,freestyle,7,player,c035902d-8658-5b8d-8de2-4079452de49d,,Windsen Pan,,complete,true,windsen pan houston
 1058378281,2003,Freestyle ? 30 Second Shred,freestyle,8,player,97c85c3d-4a44-5986-bd86-5daf5b89ad55,,Jose Cocolan,,complete,true,jose cocolan san antonio
 1058378281,2003,Freestyle ? 30 Second Shred,freestyle,9,player,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,,James Roberts,,complete,true,james roberts dallas
-1058378281,2003,Freestyle ? Intermediate,freestyle,1,player,,,Steven Sevilla,,complete,true,steven sevilla houston
+1058378281,2003,Freestyle ? Intermediate,freestyle,1,player,b5aa549c-480b-5457-993e-221d86a12e51,,Steven Sevilla,,complete,true,steven sevilla houston
 1058378281,2003,Freestyle ? Intermediate,freestyle,2,player,64ce4eb8-0db7-5f91-9c06-6c504e9cec79,,Monica Sandoval,,complete,true,monica sandoval dallas
-1058378281,2003,Freestyle ? Intermediate,freestyle,3,player,,,Jocelyn Sandoval,,complete,true,jocelyn sandoval dallas
+1058378281,2003,Freestyle ? Intermediate,freestyle,3,player,1cbaa989-68df-5416-984a-564f619af31f,,Jocelyn Sandoval,,complete,true,jocelyn sandoval dallas
 1058378281,2003,Freestyle ? Open,freestyle,1,player,73f415ee-765e-55ec-bde1-247d6b97eba6,,Ellis Piltz,,mostly_complete,,ellis piltz
 1058378281,2003,Freestyle ? Open,freestyle,2,player,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,,James Roberts,,mostly_complete,,james roberts
 1058378281,2003,Freestyle ? Open,freestyle,3,player,3878cf90-a92e-53dc-a8cb-dbba0edd823a,,Andrew Koller,,mostly_complete,,andrew koller
@@ -3397,7 +3397,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1114277529,2005,Intermediate Freestyle,freestyle,3,player,0c03e968-f8b4-58fa-94d9-7c5094645d7a,,Honza Weber,,sparse,,honza weber
 1114277529,2005,Intermediate Freestyle,freestyle,3,player,6c044599-4454-5f2b-aea5-91fab5a8705a,,Martin Nový,,sparse,,martin novy
 1114277529,2005,Intermediate Freestyle,freestyle,3,player,f2e73bec-d859-51b9-8312-edb5a473e83e,,Ales Zelinka,,sparse,,ales zelinka
-1114277529,2005,Intermediate Freestyle,freestyle,30,player,,,tivteřinová smr?ť triků,,sparse,true,tivterinova smr t triku
+1114277529,2005,Intermediate Freestyle,freestyle,30,player,,,__NON_PERSON__,,sparse,true,__non_person__
 1114277529,2005,Open Freestyle,freestyle,1,player,98ce4e04-05ca-56ca-b8c6-83f51c164c89,,Vaclav Klouda,,complete,,vaclav klouda
 1114277529,2005,Open Freestyle,freestyle,1,team,,afe75323-69ef-5791-9c0d-549b4904eccc|fb09d2be-a773-5bc1-9da3-60cbabff4338,__NON_PERSON__,Pavel Hejra / Michal Daněk,complete,,
 1114277529,2005,Open Freestyle,freestyle,1,player,fb09d2be-a773-5bc1-9da3-60cbabff4338,,Pavel Hejra,,complete,,pavel hejra
@@ -5401,7 +5401,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1170456736,2007,Open Doubles,net,6,player,1c3a4a2b-31a8-5dd9-98f7-ee6c30ebcc29,,Dominique Soulard,,complete,,dominique soulard
 1170456736,2007,Open Doubles,net,7,player,87216aed-3048-50f7-8c54-d7e9e7bb52f3,,Phillip Lessard,,complete,,phillip lessard
 1170456736,2007,Open Doubles,net,8,player,2caf7286-2a00-5527-8ec3-313132cf469b,,Mario Vaillancourt,,complete,,mario vaillancourt martin cote
-1170456736,2007,Open Doubles,net,9,player,,,Dominic O?Brien-Stéphane Tailleur,,complete,true,dominic o brien stephane tailleur
+1170456736,2007,Open Doubles,net,9,player,,,__NON_PERSON__,,complete,true,__non_person__
 1170456736,2007,Open Doubles,net,10,player,28565dd0-2196-5404-bf23-6cf0617ce79b,,Tuan Vu,,complete,,tuan vu
 1170456736,2007,Open Singles,net,1,player,563baddd-8bf2-576f-b915-19fe76431eaa,,Gilles Demers,,complete,,gilles demers
 1170456736,2007,Open Singles,net,2,player,691f48a0-1dbd-5ef5-99ea-13615a7437d2,,Yves Archambault,,complete,,yves archambault
@@ -5617,11 +5617,11 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1176844933,2007,Open Golf,golf,2,player,0f04687b-1e6c-597f-be61-6edb9e8e6bfa,,Ben Benulis,,complete,,ben benulis
 1176844933,2007,Open Golf,golf,3,player,d03d053d-16e3-5132-ba7d-285956eaf3da,,Dave Spears,,complete,,dave spears
 1177512537,2007,Doubles Net,net,1,player,57cde887-ef91-56b9-a22d-79e8ed562354,,Grischa Tellenbach Vincent Rousseau,,mostly_complete,,grischa tellenbach vincent rousseau
-1177512537,2007,Doubles Net,net,2,player,,,Nicolas de Zeeuw ? Miquel Clemente,,mostly_complete,true,nicolas de zeeuw miquel clemente
-1177512537,2007,Doubles Net,net,3,player,,,Lino Landau ? Marc Brunet,,mostly_complete,true,lino landau marc brunet
+1177512537,2007,Doubles Net,net,2,player,,,__NON_PERSON__,,mostly_complete,true,__non_person__
+1177512537,2007,Doubles Net,net,3,player,,,__NON_PERSON__,,mostly_complete,true,__non_person__
 1177512537,2007,Doubles Net,net,5,team,,83629694-b951-527d-922d-9a5d7d9a37e1|eb025239-b9ab-5cef-9307-7639f88a225a,__NON_PERSON__,Arthur Ledain / Karim Daouk,mostly_complete,,
 1177512537,2007,Doubles Net,net,6,player,698fd3e8-a756-5c8e-bfdc-127a68fb6a58,,Arnaud Saniez,,mostly_complete,,arnaud saniez mouss kabbal
-1177512537,2007,Doubles Net,net,7,player,,,Ludovic Lacaze ? Eric Fonteneau,,mostly_complete,true,ludovic lacaze eric fonteneau
+1177512537,2007,Doubles Net,net,7,player,,,__NON_PERSON__,,mostly_complete,true,__non_person__
 1177512537,2007,Doubles Net,net,8,player,16a5156d-35ae-595e-8157-f48db30bb628,,Jules Meneboo,,mostly_complete,,jules meneboo thierry gonelle
 1177512537,2007,Shred 30,freestyle,1,player,8983b558-9cb9-5a25-bb28-589435a8f34e,,Serge Kaldany,,complete,,serge kaldany
 1177512537,2007,Shred 30,freestyle,2,player,1f864e5e-28bc-5370-8f30-49bc3c65c64c,,Jeremy Masselis,,complete,,jeremy masselis
@@ -6394,7 +6394,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1194517448,2008,Intermediate Singles Routines,freestyle,6,player,9d12fe41-0154-57a6-b312-5f3b46f621b5,,Pavel Motorov,,partial,,pavel motorov
 1194517448,2008,Intermediate Singles Routines,freestyle,7,player,6dd82a33-917c-5182-8265-7d6e792a8747,,Viktor Kratochvíl,,partial,,viktor kratochvil
 1194517448,2008,Intermediate Singles Routines,freestyle,8,player,603bbc2d-6488-5891-a942-b5c5c79e0018,,Pawel Cisek,,partial,,pawel cisek
-1194517448,2008,Intermediate Singles Routines,freestyle,9,player,,,Matja? Borič,,partial,true,matja boric
+1194517448,2008,Intermediate Singles Routines,freestyle,9,player,33314117-41ab-5fa6-adf6-998eeefba8aa,,Matjaž Borič,,partial,true,matjaž borič
 1194517448,2008,Intermediate Singles Routines,freestyle,9,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,partial,,jindrich smola
 1194517448,2008,Intermediate Singles Routines,freestyle,9,player,8ae5afbe-ccef-550c-8070-bbea34d99708,,Karel Hak,,partial,,karel hak
 1194517448,2008,Intermediate Singles Routines,freestyle,9,player,c5b1d0d2-8be2-5b4d-8665-7e93fadd24b0,,Jeff Mudd,,partial,,jeff mudd
@@ -8371,8 +8371,8 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1235504528,2009,Open Doubles Net,net,8,team,,0db6a0c8-57d8-589f-8822-a5c544f5bbf6|a7b5d479-6c69-58fe-be82-ecef17c80069,__NON_PERSON__,Sakarias Liukko / Petteri Petäinen,complete,,
 1235504528,2009,Open Doubles Net,net,9,team,,4fe4f26c-8c31-5464-a3cf-d0ddfd4776f0|7444ebf8-86b3-5daf-b170-aebb4f0c8dbf,__NON_PERSON__,Ville Laakso / Aleksander Smirnov,complete,,
 1235504528,2009,Open Doubles Net,net,10,team,,4e02fcd5-e3dd-540d-aa12-776f79332aa7|83699fe0-f724-5278-a4c3-de300953810c,__NON_PERSON__,Oxana Prikhodko / Julia Tikhomirova,complete,,
-1235653935,2009,Intermediate Doubles Net,net,1,player,,,Michał Róg ? Michał Klimczak,,complete,true,micha rog micha klimczak
-1235653935,2009,Intermediate Doubles Net,net,2,player,,,Petr Stejskal ? Pavel Cerveny,,complete,true,petr stejskal pavel cerveny
+1235653935,2009,Intermediate Doubles Net,net,1,player,,,__NON_PERSON__,,complete,true,__non_person__
+1235653935,2009,Intermediate Doubles Net,net,2,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Intermediate Doubles Net,net,3,player,94fa84c1-d2d6-52df-a224-c318a0e3771c,,Maciej Pietrzycki,,complete,,maciej pietrzycki przemys aw pietrzycki
 1235653935,2009,Intermediate Singles Freestyle,freestyle,1,player,e5a6f257-390d-5df7-8cb0-5832e2855573,,Pawe Nowak,,complete,,pawe nowak
 1235653935,2009,Intermediate Singles Freestyle,freestyle,2,player,b2920174-aa60-591e-97a7-a829d4ca0587,,Jan Drugda,,complete,,jan drugda
@@ -8409,29 +8409,29 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1235653935,2009,Open Doubles Freestyle,freestyle,5,team,,23462c9a-29d4-578f-9cfc-19d9ba086f45|28ed65ae-ea5e-5e04-bff5-97b8f71e6696,__NON_PERSON__,Jan Struz / Pavel Cerveny,complete,,
 1235653935,2009,Open Doubles Freestyle,freestyle,6,team,,38c0f384-29fa-5cd9-b3e7-707e76e7aa9a|9e51cb21-c122-54b7-93a6-8f5a3b69365c,__NON_PERSON__,Dominik Knoll / Andreas Hoffmann,complete,,
 1235653935,2009,Open Doubles Net,net,1,player,ab966624-6643-5dea-b165-67e66af402f9,,Florian Goetze,,complete,,florian goetze jani markkanen
-1235653935,2009,Open Doubles Net,net,2,player,,,Andreas Wolff ? Uli Haase,,complete,true,andreas wolff uli haase
+1235653935,2009,Open Doubles Net,net,2,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Open Doubles Net,net,3,player,115c774a-67c3-5107-a42f-83ab04721dd7,,Chis Löw Hannes Daniel,,complete,,chis low hannes daniel
 1235653935,2009,Open Doubles Net,net,4,player,826a0e03-c3b6-500b-83b1-e517fa61a77c,,Yves Kreil Antonio Fritsch,,complete,,yves kreil antonio fritsch
 1235653935,2009,Open Doubles Net,net,5,player,63b42121-63a4-5b68-a8b3-cceb8d6d4420,,Henrik Martikainen,,complete,,henrik martikainen iisak liukko
-1235653935,2009,Open Doubles Net,net,6,player,,,Manuel Kruse ? Simon Voss,,complete,true,manuel kruse simon voss
-1235653935,2009,Open Doubles Net,net,7,player,,,Yassin Khateeb ? Markus Portenkirchner,,complete,true,yassin khateeb markus portenkirchner
+1235653935,2009,Open Doubles Net,net,6,player,,,__NON_PERSON__,,complete,true,__non_person__
+1235653935,2009,Open Doubles Net,net,7,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Open Doubles Net,net,8,player,df8dad09-7f32-5af0-bab3-a62e9096dfbf,,Eurik Lindner Markus Kaspczak,,complete,,eurik lindner markus kaspczak
 1235653935,2009,Open Doubles Net,net,9,player,a1e7bdfd-ef7d-5bc2-b36c-ea28a04d55c9,,Grischa Tellenbach Damian Budzik,,complete,,grischa tellenbach damian budzik
 1235653935,2009,Open Doubles Net,net,10,player,1a1b1397-a4b8-5826-b51d-ff5391eba110,,Hakan Hellberg,,complete,,hakan hellberg magnus hellberg
 1235653935,2009,Open Doubles Net,net,11,player,4e02fcd5-e3dd-540d-aa12-776f79332aa7,,Oxana Prikhodko,,complete,,oxana prikhodko
-1235653935,2009,Open Doubles Net,net,12,player,,,Lisa Uebele ? Kerstin Anhuth,,complete,true,lisa uebele kerstin anhuth
+1235653935,2009,Open Doubles Net,net,12,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Open Doubles Net,net,13,player,6f69628f-6e43-53b9-91a6-0bff36dc6ee7,,Christian Bock,,complete,,christian bock christian bruhn
-1235653935,2009,Open Doubles Net,net,14,player,,,Ninni Liukko ? Piia Tantarimäki,,complete,true,ninni liukko piia tantarimaki
+1235653935,2009,Open Doubles Net,net,14,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Open Doubles Net,net,15,player,153997cf-41c0-528b-85ef-d897c3186262,,Piotrek Koscielny,,complete,,piotrek koscielny
 1235653935,2009,Open Mixed Doubles Freestyle,freestyle,1,team,,601e2208-5626-5454-a5c1-b5e9d79392fb|c917c04b-83fa-5c1a-8f2c-292f24db5616,__NON_PERSON__,Małgorzata Nycz / Wiktor Dębski,complete,,
 1235653935,2009,Open Mixed Doubles Freestyle,freestyle,2,team,,7921325b-8eab-5f32-aaa9-38578c2760bc|f07f753e-8a4b-5bad-a6f9-cc76e1504f82,__NON_PERSON__,Małgorzata Olędzka / Tomasz Ostrowski,complete,,
 1235653935,2009,Open Mixed Doubles Freestyle,freestyle,3,team,,3568ce18-bf1b-55b6-aefd-61f65f55b08c|7a8c8b83-9ae8-5b65-8f1f-6923058cc237,__NON_PERSON__,Dorota Wojtasiuk / Jakub Grabarczyk,complete,,
-1235653935,2009,Open Mixed Doubles Net,net,1,player,,,Lisa Uebele ? Andreas Wolff,,complete,true,lisa uebele andreas wolff
+1235653935,2009,Open Mixed Doubles Net,net,1,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Open Mixed Doubles Net,net,2,player,0b73f6bd-2b2a-57ef-8de6-853138d11297,,Yulia Tikhomirova,,complete,,yulia tikhomirova hannes daniel
 1235653935,2009,Open Mixed Doubles Net,net,3,player,4e02fcd5-e3dd-540d-aa12-776f79332aa7,,Oxana Prikhodko,,complete,,oxana prikhodko yves kreil
-1235653935,2009,Open Mixed Doubles Net,net,4,player,,,Kerstin Anhuth ? Chris Löw,,complete,true,kerstin anhuth chris low
-1235653935,2009,Open Mixed Doubles Net,net,5,player,,,Ninni Liukko ? Yassin Khateeb,,complete,true,ninni liukko yassin khateeb
-1235653935,2009,Open Mixed Doubles Net,net,6,player,,,Piia Tantarimäki ? Uli Haase,,complete,true,piia tantarimaki uli haase
+1235653935,2009,Open Mixed Doubles Net,net,4,player,,,__NON_PERSON__,,complete,true,__non_person__
+1235653935,2009,Open Mixed Doubles Net,net,5,player,,,__NON_PERSON__,,complete,true,__non_person__
+1235653935,2009,Open Mixed Doubles Net,net,6,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Open Request Contest,freestyle,1,player,ac1268dc-a961-568f-860e-63e9ea815c01,,Damian Gielnicki,,complete,,damian gielnicki
 1235653935,2009,Open Request Contest,freestyle,2,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,complete,,milan benda
 1235653935,2009,Open Request Contest,freestyle,3,player,6513b145-8a4a-556a-a04f-981d95db2d70,,Arkadiusz Dudzinski,,complete,,arkadiusz dudzinski
@@ -8493,8 +8493,8 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1235653935,2009,Open Singles Net,net,22,player,64336b8d-cd07-5851-a083-617bb0f65bee,,Piotr Kosciekny,,complete,,piotr kosciekny
 1235653935,2009,Open Singles Net,net,23,player,2fe08509-fcb3-5ecd-8828-40411bc4a036,,Wojciech Jamski,,complete,,wojciech jamski
 1235653935,2009,Women's Doubles Net,net,1,player,4e02fcd5-e3dd-540d-aa12-776f79332aa7,,Oxana Prikhodko,,complete,,oxana prikhodko
-1235653935,2009,Women's Doubles Net,net,2,player,,,Lisa Uebele ? Kerstin Anhuth,,complete,true,lisa uebele kerstin anhuth
-1235653935,2009,Women's Doubles Net,net,3,player,,,Ninni Liukko ? Piia Tantarimäki,,complete,true,ninni liukko piia tantarimaki
+1235653935,2009,Women's Doubles Net,net,2,player,,,__NON_PERSON__,,complete,true,__non_person__
+1235653935,2009,Women's Doubles Net,net,3,player,,,__NON_PERSON__,,complete,true,__non_person__
 1235653935,2009,Women's Singles Freestyle,freestyle,1,player,6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,,Tina Aeberli,,complete,,tina aeberli
 1235653935,2009,Women's Singles Freestyle,freestyle,2,player,b05824d4-4a6f-5132-828d-51d1da0a1845,,Karolina Modrzejewska,,complete,,karolina modrzejewska
 1235653935,2009,Women's Singles Freestyle,freestyle,3,player,4e02fcd5-e3dd-540d-aa12-776f79332aa7,,Oxana Prikhodko,,complete,,oxana prikhodko
@@ -9389,7 +9389,7 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1256202918,2010,Shred 30,freestyle,9,player,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,,Alexander Trenner,,complete,,alexander trenner
 1256202918,2010,Shred 30,freestyle,10,player,73733b5e-6e77-5f59-b29c-e2354619bddb,,Ondrej Skrabal,,complete,,ondrej skrabal
 1256202918,2010,Shred 30,freestyle,11,player,d38d6a95-920f-5c38-86a9-1c291109c12c,,David Castillo,,complete,,david castillo
-1256202918,2010,Shred 30,freestyle,12,player,,,Ian Pfeiffer ?,,complete,true,ian pfeiffer 
+1256202918,2010,Shred 30,freestyle,12,player,0680f071-3207-5a8e-88e5-32b4ecfe24cd,,Ian Pfeiffer,,complete,true,ian pfeiffer
 1256202918,2010,Shred 30,freestyle,13,player,5efb87ee-f6be-5136-8670-00c79a799d6a,,Sébastien Lefay,,complete,,sebastien lefay 
 1256202918,2010,Women's Routines,freestyle,1,player,6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,,Tina Aeberli,,complete,,tina aeberli
 1256202918,2010,Women's Routines,freestyle,2,player,4e02fcd5-e3dd-540d-aa12-776f79332aa7,,Oxana Prikhodko,,complete,,oxana prikhodko

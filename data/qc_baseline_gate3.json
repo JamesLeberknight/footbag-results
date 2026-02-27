@@ -1,15 +1,15 @@
 {
   "stage": "gate3",
   "date": "2026-02-27",
-  "persons_truth_count": 3363,
+  "persons_truth_count": 3365,
   "persons_unresolved_count": 283,
-  "identity_lock_version": "v24",
+  "identity_lock_version": "v25",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-27: 10 new Truth entries from full-name resolution (tool 24). UUID_BACKFILL 13 rows, TRUTH_PROMOTE 2 (Brent Welch, James Geraci), NEW_PERSONS 8 (Jose Cocolan, Baptiste Supan, Olivier Fages, Garikoitz Casquero, Josu Royuela, Toxic Tom B., Mikuláš Čáp, Tomáš Mirovský), CANON_CORRECT 3 (Robin Puchel, Mikuláš Čáp, Tomáš Mirovský), NOISE 3 → __NON_PERSON__, UUID_REMAP 1 (Curtis Taylor deefac3b→f3a1b132). Truth 3353→3363. Unresolved v20→v21 (unchanged 283). Analytics_Safe_Surface: 22915 rows.",
-  "gate3_pass_count": 3363,
-  "persons_truth_file": "Persons_Truth_Final_v24.csv",
-  "persons_truth_rows": 3363,
-  "persons_unresolved_file": "Persons_Unresolved_Organized_v21.csv",
+  "notes": "Updated 2026-02-27: tool 25 — 2 new Truth entries (Ian Pfeiffer orphan promote, Matjaž Borič new person). 2 UUID backfills (Jocelyn Sandoval, Steven Sevilla — missed by tool 24 SKIP). 2 canon corrections (Ian Pfeiffer ?, Matja? Borič). 16 corrupted doubles pairs + tivteřinová → __NON_PERSON__. Truth 3363→3365. Unresolved v21→v22 (unchanged 283). Analytics_Safe_Surface: 22935 rows.",
+  "gate3_pass_count": 3365,
+  "persons_truth_file": "Persons_Truth_Final_v25.csv",
+  "persons_truth_rows": 3365,
+  "persons_unresolved_file": "Persons_Unresolved_Organized_v22.csv",
   "persons_unresolved_rows": 283,
-  "analytics_safe_surface_rows": 22915
+  "analytics_safe_surface_rows": 22935
 }

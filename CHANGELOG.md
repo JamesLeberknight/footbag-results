@@ -7,6 +7,36 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.10] — Identity Curation Round 5: Corrupted Names + Orphans
+**Release date:** 2026-02-27
+
+### Changes
+- **2 new Truth entries** (tool 25): Ian Pfeiffer (orphan UUID 0680f071 in PBP, not in Truth),
+  Matjaž Borič (corrupted as "Matja? Borič" in PBP).
+- **2 UUID backfills**: Jocelyn Sandoval and Steven Sevilla — both were already in Truth but
+  tool 24 SKIP logic did not assign their UUID to PBP rows.
+- **2 canon corrections** (encoding-corrupted PBP canons repaired):
+  "Ian Pfeiffer ?" → "Ian Pfeiffer", "Matja? Borič" → "Matjaž Borič".
+- **16 corrupted doubles pairs** reclassified to `__NON_PERSON__`:
+  Doubles partner names stored as singles with "?" replacing the separator character.
+  Both individuals in each pair are present in Truth under their own canons.
+- **1 non-person text** entry reclassified: "tivteřinová smr?ť triků" (Czech division descriptor).
+- New tool: `tools/25_resolve_corrupted_names.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v25 | 3365 |
+| Persons_Unresolved_Organized | v22 | 283 |
+| Placements_ByPerson | v26 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3365
+- Analytics_Safe_Surface: 22935 rows (+20 from recovered placements)
+- Placements_Unresolved: 179 rows (was 201, −22)
+
+---
+
 ## [v1.0.9] — Identity Curation Round 4: Full-Name Resolution
 **Release date:** 2026-02-27
 
