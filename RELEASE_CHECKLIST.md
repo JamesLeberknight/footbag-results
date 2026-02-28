@@ -10,9 +10,9 @@ No step may be skipped.
 ## 0. Preconditions (Must Be True)
 
 ☐ `inputs/identity_lock/` contains **only**:
-  - `Persons_Truth_Final_v28.csv`
-  - `Persons_Unresolved_Organized_v25.csv`
-  - `Placements_ByPerson_v29.csv`
+  - `Persons_Truth_Final_v29.csv`
+  - `Persons_Unresolved_Organized_v26.csv`
+  - `Placements_ByPerson_v30.csv`
 
 ☐ These files are:
   - Human-verified
@@ -59,7 +59,7 @@ No step may be skipped.
 ☐ Run:
 ```bash
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v29.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v30.csv \
   --out_dir out
 ```
 
@@ -84,24 +84,24 @@ python 04_build_analytics.py
 ```
 
 ☐ Verify output contains:
-  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3395`
+  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3437`
   - `INFO: Lock sentinel written → out/persons_truth.lock`
 
 ### 3.4 Verify Lock Sentinel
 
 ☐ `out/persons_truth.lock` is written automatically by stage 04 after Gate 3 PASS.
    Confirm the printed output contains the expected filename and row count:
-   - `"file": "Persons_Truth_Final_v28.csv"`, `"rows": 3395`
-   - `"file": "Persons_Unresolved_Organized_v25.csv"`, `"rows": 194`
+   - `"file": "Persons_Truth_Final_v29.csv"`, `"rows": 3437`
+   - `"file": "Persons_Unresolved_Organized_v26.csv"`, `"rows": 93`
 
 ---
 
 ## 4. QC Verification
 
 ☐ Stage 2 QC: 0 errors
-☐ Gate 3: PASS (3395)
+☐ Gate 3: PASS (3437)
 ☐ Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
-☐ `out/Analytics_Safe_Surface.csv`: 22944 rows
+☐ `out/Analytics_Safe_Surface.csv`: 22945 rows
 
 ---
 

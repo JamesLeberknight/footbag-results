@@ -7,6 +7,58 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.14] — Identity Curation Round 9: AUTO_COVERAGE_BACKFILL Resolution
+**Release date:** 2026-02-27
+
+### Changes
+- **All 194 AUTO_COVERAGE_BACKFILL Unresolved entries resolved** (tool 29):
+  - **26 STALE_REMOVE** (0 PBP rows): 14 "?" separator doubles pairs + encoding-corrupt
+    entries (Mikulá¹ Èáp, Tomá¹ Mirovský, Matja? Borič, Robin P¸chel, Gregor Morel
+    Ale¹ Pelko, tivteřinová smr?ť triků, Dominic O?Brien-Stéphane Tailleur,
+    Marc Weber* Bob Silva) + Ian Pfeiffer ? (Ian already in Truth), thru 8th (placeholder),
+    Ulrike Häßler and Robert Szymański (correct forms, 0 PBP — PBP had variant forms).
+  - **18 NOISE → `__NON_PERSON__`**: Hyphen-separated doubles pairs (Eduardo
+    Martinez-Diego Chávez, Mark Hunsberger-Josh DeClercq, Francis Guimond-Stéphane Roy,
+    Andreina Peńa-Reinaldo Pérez, Julio Garcia-Ángel Vivas, Victor Lezama-Ángel Hernández,
+    PAVEL HEJRA-PETR FUCIK, PAVEL HEJRA-PATRIK CERNY, Gina Meyer J.J. Jones) + non-person
+    labels (Ronalde plus H, Team Magic, Team Spirit, Team Tüte, DER CHAMP, IRON MAN,
+    LEG OVER., Min. Timed Consecutives, Andre P. Aberration).
+  - **11 CANON_CORRECTs to existing Truth**: yves kreil → Yves Kreil; Alex Trenne/Trener
+    → Alexander Trenner; Krysiewicz Łukasz → Łukasz Krysiewicz; Walter Houston ID → Walt
+    Houston; Luka WeyLav ID → Luka Weyler; De Zeeuw → Nicolas De Zeeuw; X. Anhuth →
+    Kerstin Anhuth; X. Hankins → Jim Hankins; Arnaud Mamoute Saniez → Arnaud Saniez;
+    Greg GFSmoothie Nelson → Greg Nelson.
+  - **42 new Truth entries**: 29 direct promotions (Mikołaj Kulesz, Przemysław Popławski,
+    Radek Łątka, Paweł Ptaszyński, Paweł Kosoń, Paweł Ciepielski, Paweł Holiczko,
+    Łukasz Bochenek, Filip Prędkiewicz, Kacper Prędkiewicz, Mateusz Związek,
+    Michał Pietryńczak, Michał Przybyłowicz, Jakub Ścisiński, Grzesiek Łatuszyński,
+    Michał Zembaty, Marcin Gadziński, Natalia Fryś, Patrik Šmerda, Michal Černý,
+    Olivier B.-Bergé, Boris de nantes, Ronald Ańez, Dave Hill, DJ Dourney, Nils G. Unna,
+    Stephen R. Richardson, Dr. Mike Stefanelli, Michal Hadaś) + 13 via CANON_CORRECT
+    (Robert Szymański, Cezary Śmigulski, Ulrike Häßler, Alejandro Rueda Patiño, Ken Sams,
+    Ken Schuyler, Ian Price, Beb Riefer, Nick Szwarc, Jack Bissell, Eric Schmidt,
+    Michael Wilson, JF Lemieux).
+  - 18 CANON_CORRECT operations for reversed/corrupted/variant PBP forms:
+    Szymański Robert, Gadziński Marcin, Holiczko Paweł, Śmigulski Cezary, Ulrike H?fller,
+    Alejandro Rueda Patińo, KEN SAMS, KEN SCHUYLER, IAN PRICE, BEB RIEFER,
+    Nick A Szwarc, Jack s Bissell, d Eric Schmidt, d Michael Wilson,
+    JF Lemeiux/Lemiux/Lonieux, 'Dr. Mike' Stefanelli.
+- New tool: `tools/29_auto_coverage_backfill_resolution.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v29 | 3437 |
+| Persons_Unresolved_Organized | v26 | 93 |
+| Placements_ByPerson | v30 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3437 (Truth 3395→3437, +42)
+- Analytics_Safe_Surface: 22945 rows (was 22944)
+- Placements_Unresolved: 169 rows (unchanged)
+
+---
+
 ## [v1.0.13] — Identity Curation Round 8: NEEDS_CONTEXT Resolution
 **Release date:** 2026-02-27
 

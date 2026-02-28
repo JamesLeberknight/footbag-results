@@ -1,15 +1,15 @@
 {
   "stage": "gate3",
   "date": "2026-02-27",
-  "persons_truth_count": 3395,
-  "persons_unresolved_count": 194,
-  "identity_lock_version": "v28",
+  "persons_truth_count": 3437,
+  "persons_unresolved_count": 93,
+  "identity_lock_version": "v29",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-27: tool 28 — resolved all 46 NEEDS_CONTEXT Unresolved entries. 28 doubles pairs → __NON_PERSON__ (no-separator concatenated, language connectors og/a/und/Y, CAN country code). 3 pairs removed from Unresolved only (0 PBP). 2 CANON_CORRECTs to existing Truth (Félix Antoine Guérard→Félix-Antoine Guérard, CARLOS MEDINA→Carlos Medina). 13 new Truth entries: Paweł Rożek, Wiktor Dębski, Eduardo Martinez, Cameron Dowie, Andrey Pomanov, Victor Burnham, Andrey Egorov, Sébastien Verdy, Stéphane Comeau, Luke Anderson, Max Kerkoff, Jamie Lepley, Edison Alejandro Rodriguez Betancur. Truth 3382→3395. Unresolved 240→194. Analytics_Safe_Surface: 22944 rows. Placements_Unresolved: 170 rows.",
-  "gate3_pass_count": 3395,
-  "persons_truth_file": "Persons_Truth_Final_v28.csv",
-  "persons_truth_rows": 3395,
-  "persons_unresolved_file": "Persons_Unresolved_Organized_v25.csv",
-  "persons_unresolved_rows": 194,
-  "analytics_safe_surface_rows": 22944
+  "notes": "Updated 2026-02-27: tool 29 — resolved all 194 AUTO_COVERAGE_BACKFILL Unresolved entries. 26 STALE_REMOVE (0 PBP: 14 '?' separator doubles pairs + 12 encoding-corrupt/placeholder entries). 18 NOISE → __NON_PERSON__ (hyphen-separated doubles pairs + non-person labels). 11 CANON_CORRECTs to existing Truth (yves kreil, Alex Trenne/Trener, Krysiewicz Łukasz, Walter Houston ID, Luka WeyLav ID, De Zeeuw, X. Anhuth, X. Hankins, Arnaud Mamoute Saniez, Greg GFSmoothie Nelson). 42 new Truth entries: 29 direct promotions (Mikołaj Kulesz, Przemysław Popławski, Radek Łątka, Paweł Ptaszyński, Paweł Kosoń, Paweł Ciepielski, Paweł Holiczko, Łukasz Bochenek, Filip Prędkiewicz, Kacper Prędkiewicz, Mateusz Związek, Michał Pietryńczak, Michał Przybyłowicz, Jakub Ścisiński, Grzesiek Łatuszyński, Michał Zembaty, Marcin Gadziński, Natalia Fryś, Patrik Šmerda, Michal Černý, Olivier B.-Bergé, Boris de nantes, Ronald Ańez, Dave Hill, DJ Dourney, Nils G. Unna, Stephen R. Richardson, Dr. Mike Stefanelli, Michal Hadaś) + 13 via CANON_CORRECT (Robert Szymański, Cezary Śmigulski, Ulrike Häßler, Alejandro Rueda Patiño, Ken Sams, Ken Schuyler, Ian Price, Beb Riefer, Nick Szwarc, Jack Bissell, Eric Schmidt, Michael Wilson, JF Lemieux). Truth 3395→3437. Unresolved 194→93. Analytics_Safe_Surface: 22945 rows. Placements_Unresolved: 169 rows.",
+  "gate3_pass_count": 3437,
+  "persons_truth_file": "Persons_Truth_Final_v29.csv",
+  "persons_truth_rows": 3437,
+  "persons_unresolved_file": "Persons_Unresolved_Organized_v26.csv",
+  "persons_unresolved_rows": 93,
+  "analytics_safe_surface_rows": 22945
 }
