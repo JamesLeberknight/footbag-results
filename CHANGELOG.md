@@ -7,6 +7,33 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.15] — Identity Curation Round 10: Handle/Noise Cleanup
+**Release date:** 2026-02-27
+
+### Changes
+- **17 clear non-person entries reclassified → `__NON_PERSON__`** (tool 30):
+  Initials/symbols: `G*`, `*`, `FLT`, `MLS`, `Footcraft`, `Winner`,
+  `Jeremy Watlers-prizes` (parsing artifact).
+  Gaming/online handles: `Reaper`, `Gobbish`, `Zerg`, `Fingerbang`, `LAbitch`,
+  `Jester`, `Herra X` (Finnish "Mr. X"), `Skaut` (Czech "scout"),
+  `Rake`, `Dreuf`.
+- Persons_Truth unchanged (v29, 3437 rows).
+- New tool: `tools/30_noise_cleanup.py`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v29 | 3437 (unchanged) |
+| Persons_Unresolved_Organized | v27 | 76 |
+| Placements_ByPerson | v31 | 25679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3437 (Truth unchanged)
+- Analytics_Safe_Surface: 22959 rows (was 22945, +14 from resolved coverage)
+- Placements_Unresolved: 154 rows (was 169, -15)
+
+---
+
 ## [v1.0.14] — Identity Curation Round 9: AUTO_COVERAGE_BACKFILL Resolution
 **Release date:** 2026-02-27
 

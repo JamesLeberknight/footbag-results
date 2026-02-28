@@ -45,8 +45,8 @@ Release builds rely on:
 
 inputs/identity_lock/
 - Persons_Truth_Final_v29.csv
-- Persons_Unresolved_Organized_v26.csv
-- Placements_ByPerson_v30.csv
+- Persons_Unresolved_Organized_v27.csv
+- Placements_ByPerson_v31.csv
 
 These files are treated as ground truth.
 

@@ -1,4 +1,4 @@
-📦 Footbag Results Pipeline — v1.0.14
+📦 Footbag Results Pipeline — v1.0.15
 
 Archive-quality, deterministic pipeline for building a canonical Footbag historical results dataset and Excel workbook.
 
@@ -69,8 +69,8 @@ Large static inputs (mirror)
 ├─ inputs/
 │   └─ identity_lock/             ← Authoritative human-verified truth (immutable)
 │       ├─ Persons_Truth_Final_v29.csv
-│       ├─ Persons_Unresolved_Organized_v26.csv
-│       └─ Placements_ByPerson_v30.csv
+│       ├─ Persons_Unresolved_Organized_v27.csv
+│       └─ Placements_ByPerson_v31.csv
 │
 ├─ overrides/
 │
@@ -147,7 +147,7 @@ Rebuild Mode first (see below), or restore it from a prior run before proceeding
 
 ```
 python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v30.csv \
+  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v31.csv \
   --out_dir out
 
 python 03_build_excel.py       # requires out/stage2_canonical_events.csv
@@ -203,7 +203,7 @@ Footbag_Results_Canonical.xlsx
 
 ⚠️ Generated outputs are not committed to git.
 
-🔐 Identity Model (v1.0.14)
+🔐 Identity Model (v1.0.15)
 Persons_Truth is guaranteed to be:
 
 Collision-free
@@ -267,7 +267,7 @@ From a clean clone:
 
 git clone <repo-url>
 cd footbag-results
-git checkout v1.0.14
+git checkout v1.0.15
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -281,7 +281,7 @@ If build completes and QC passes, repository is consistent.
 
 Current stable release:
 
-v1.0.14
+v1.0.15
 
 This tag represents the canonical identity-locked, archive-safe state.
 

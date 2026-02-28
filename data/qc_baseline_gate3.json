@@ -2,14 +2,14 @@
   "stage": "gate3",
   "date": "2026-02-27",
   "persons_truth_count": 3437,
-  "persons_unresolved_count": 93,
+  "persons_unresolved_count": 76,
   "identity_lock_version": "v29",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-27: tool 29 — resolved all 194 AUTO_COVERAGE_BACKFILL Unresolved entries. 26 STALE_REMOVE (0 PBP: 14 '?' separator doubles pairs + 12 encoding-corrupt/placeholder entries). 18 NOISE → __NON_PERSON__ (hyphen-separated doubles pairs + non-person labels). 11 CANON_CORRECTs to existing Truth (yves kreil, Alex Trenne/Trener, Krysiewicz Łukasz, Walter Houston ID, Luka WeyLav ID, De Zeeuw, X. Anhuth, X. Hankins, Arnaud Mamoute Saniez, Greg GFSmoothie Nelson). 42 new Truth entries: 29 direct promotions (Mikołaj Kulesz, Przemysław Popławski, Radek Łątka, Paweł Ptaszyński, Paweł Kosoń, Paweł Ciepielski, Paweł Holiczko, Łukasz Bochenek, Filip Prędkiewicz, Kacper Prędkiewicz, Mateusz Związek, Michał Pietryńczak, Michał Przybyłowicz, Jakub Ścisiński, Grzesiek Łatuszyński, Michał Zembaty, Marcin Gadziński, Natalia Fryś, Patrik Šmerda, Michal Černý, Olivier B.-Bergé, Boris de nantes, Ronald Ańez, Dave Hill, DJ Dourney, Nils G. Unna, Stephen R. Richardson, Dr. Mike Stefanelli, Michal Hadaś) + 13 via CANON_CORRECT (Robert Szymański, Cezary Śmigulski, Ulrike Häßler, Alejandro Rueda Patiño, Ken Sams, Ken Schuyler, Ian Price, Beb Riefer, Nick Szwarc, Jack Bissell, Eric Schmidt, Michael Wilson, JF Lemieux). Truth 3395→3437. Unresolved 194→93. Analytics_Safe_Surface: 22945 rows. Placements_Unresolved: 169 rows.",
+  "notes": "Updated 2026-02-27: tool 30 — reclassified 17 clear non-person entries (gaming handles, offensive handles, initialisms, parsing artifacts) → __NON_PERSON__. Truth unchanged (v29, 3437 rows). Unresolved 93→76. Analytics_Safe_Surface: 22959 rows (+14 from resolved coverage). Placements_Unresolved: 154 rows.",
   "gate3_pass_count": 3437,
   "persons_truth_file": "Persons_Truth_Final_v29.csv",
   "persons_truth_rows": 3437,
-  "persons_unresolved_file": "Persons_Unresolved_Organized_v26.csv",
-  "persons_unresolved_rows": 93,
-  "analytics_safe_surface_rows": 22945
+  "persons_unresolved_file": "Persons_Unresolved_Organized_v27.csv",
+  "persons_unresolved_rows": 76,
+  "analytics_safe_surface_rows": 22959
 }
