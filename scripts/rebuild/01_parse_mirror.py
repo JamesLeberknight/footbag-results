@@ -13,13 +13,78 @@ Output: out/stage1_raw_events.csv
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
+import math
 import re
 from pathlib import Path
 from typing import Iterable, Optional
 
+import pandas as pd
 from bs4 import BeautifulSoup
+
+
+def norm_text(x) -> str:
+    """Coerce None/NaN/non-string to a safe string for QC + CSV writing."""
+    if x is None:
+        return ""
+    if isinstance(x, float) and math.isnan(x):
+        return ""
+    if isinstance(x, (int, float, bool)):
+        return str(x)
+    return str(x)
+
+
+def _read_text_best_effort(p: Path) -> str:
+    # HTML in the wild can be messy. Always decode best-effort.
+    # utf-8 first; fallback to latin1; never crash parse stage.
+    try:
+        return p.read_text(encoding="utf-8", errors="replace")
+    except Exception:
+        return p.read_text(encoding="latin1", errors="replace")
+
+
+def resolve_event_html(root: Path, mirror_name: str, repairs_name: str, event_id: str, use_repairs: bool = True) -> tuple[Path | None, str | None]:
+    """
+    Returns (path, html_text) using precedence:
+      repairs/index.html -> mirror/index.html -> mirror/<id>.html
+    """
+    rel = Path("www.footbag.org") / "events" / "show" / str(event_id)
+
+    if use_repairs:
+        p = root / repairs_name / rel / "index.html"
+        if p.exists():
+            return p, _read_text_best_effort(p)
+
+    base = root / mirror_name / rel
+    p = base / "index.html"
+    if p.exists():
+        return p, _read_text_best_effort(p)
+
+    # Some mirrors store as <id>.html
+    p2 = base / f"{event_id}.html"
+    if p2.exists():
+        return p2, _read_text_best_effort(p2)
+
+    return None, None
+
+
+# Place line detection for has_results (lines starting with a number)
+PLACE_LINE_RE = re.compile(r"^\s*\d+\s+", re.M)
+
+
+def compute_has_results(results_block_raw: str, min_lines: int) -> bool:
+    if not results_block_raw:
+        return False
+
+    # If placement-like lines exist, always count as results
+    if PLACE_LINE_RE.search(results_block_raw):
+        return True
+
+    # Otherwise require minimum line count
+    lines = [ln.strip() for ln in results_block_raw.splitlines() if ln.strip()]
+    return len(lines) >= min_lines
 
 
 # CSV safety: remove control chars that could cause issues
@@ -500,12 +565,16 @@ def write_stage1_csv(records: list[dict], out_path: Path) -> None:
         "year",
         "source_path",
         "source_url",
+        "source_file",
+        "source_layer",
         "event_name_raw",
         "date_raw",
         "location_raw",
         "host_club_raw",
         "event_type_raw",
         "results_block_raw",
+        "results_lines_n",
+        "has_results",
         "html_parse_notes",
         "html_warnings",
     ]
@@ -526,6 +595,8 @@ def check_results_extraction(rec: dict) -> list[dict]:
     location = rec.get("location_raw", "")
     date = rec.get("date_raw", "")
     results = rec.get("results_block_raw", "")
+    if not isinstance(results, str):
+        results = norm_text(results)
     html = rec.get("_html", "")
 
     # s1_results_empty: Event has location/date but no results
@@ -815,16 +886,82 @@ def main():
     Parse HTML mirror and output stage1_raw_events.csv
     """
     repo_dir = Path(__file__).resolve().parent
-    # Mirror is inside this repo: FOOTBAG_DATA/mirror/
-    mirror_dir = repo_dir / "mirror"
-    out_dir = repo_dir / "out"
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--root", default=".", help="Project root containing mirror_full/ mirror_repairs/ etc")
+    ap.add_argument("--mirror", default="mirror_full", help="Mirror directory under root (default mirror_full)")
+    ap.add_argument("--repairs", default="mirror_repairs", help="Repairs overlay directory under root (default mirror_repairs)")
+    ap.add_argument("--no-repairs", action="store_true", help="Disable overlay from repairs directory")
+    ap.add_argument(
+        "--mode",
+        choices=["all", "results"],
+        default="results",
+        help="all = every event page, results = only pages with real results",
+    )
+    ap.add_argument(
+        "--min-results-lines",
+        type=int,
+        default=5,
+        help="Minimum non-empty lines in results block to count as results",
+    )
+    ap.add_argument(
+        "--out",
+        default=str(repo_dir / "out"),
+        help="Output directory. Default: ./out",
+    )
+    args = ap.parse_args()
+
+    ROOT = Path(args.root).resolve()
+    MIRROR_DIR = ROOT / args.mirror / "www.footbag.org" / "events" / "show"
+    out_dir = Path(args.out).resolve()
     out_csv = out_dir / "stage1_raw_events.csv"
 
     # Ensure output directory exists
     out_dir.mkdir(exist_ok=True)
 
-    print(f"Parsing mirror at: {mirror_dir}")
-    records = parse_mirror(mirror_dir)
+    event_ids = sorted([p.name for p in MIRROR_DIR.iterdir() if p.is_dir() and p.name.isdigit()])
+    print(f"Parsing mirror at: {ROOT / args.mirror} ({len(event_ids)} event dirs)")
+
+    records = []
+    for eid in event_ids:
+        source_path, html = resolve_event_html(
+            ROOT,
+            mirror_name=args.mirror,
+            repairs_name=args.repairs,
+            event_id=eid,
+            use_repairs=(not args.no_repairs),
+        )
+        DEBUG_EIDS = {"1023993464"}  # add more later
+        if eid in DEBUG_EIDS:
+            print(f"[DEBUG] {eid} using source_path={source_path}")
+        if html is None:
+            records.append({
+                "event_id": eid,
+                "year": None,
+                "source_path": "",
+                "source_url": "",
+                "source_file": "",
+                "source_layer": args.mirror,
+                "event_name_raw": None,
+                "date_raw": None,
+                "location_raw": None,
+                "host_club_raw": None,
+                "event_type_raw": None,
+                "results_block_raw": None,
+                "html_parse_notes": "",
+                "html_warnings": "missing_html",
+                "results_lines_n": "0",
+                "has_results": "False",
+            })
+            continue
+        source_url = "file://" + str(source_path).replace("\\", "/")
+        rec = extract_event_record(html, str(source_path), source_url)
+        rec["source_file"] = str(source_path) if source_path else ""
+        rec["source_layer"] = ("repairs" if (source_path and args.repairs in str(source_path)) else args.mirror)
+        results_block_raw = rec.get("results_block_raw") or ""
+        rec["results_lines_n"] = str(len([ln for ln in results_block_raw.splitlines() if ln.strip()])) if results_block_raw else "0"
+        rec["has_results"] = "True" if compute_has_results(results_block_raw, args.min_results_lines) else "False"
+        records.append(rec)
 
     # --- Recovery override: results blocks recovered from mirror pages ---
     _over = _load_recovered_results_overrides(repo_dir / "overrides" / "recovered_results.jsonl")
@@ -837,15 +974,35 @@ def main():
                 n += 1
         print(f"[Stage1] recovered_results overrides applied to rows: {n}")
 
-    print(f"Writing to: {out_csv}")
-    write_stage1_csv(records, out_csv)
+    # Recompute has_results / results_lines_n after overrides (overrides can add results_block_raw)
+    for rec in records:
+        results_block_raw = rec.get("results_block_raw") or ""
+        rec["results_lines_n"] = str(len([ln for ln in results_block_raw.splitlines() if ln.strip()])) if results_block_raw else "0"
+        rec["has_results"] = "True" if compute_has_results(results_block_raw, args.min_results_lines) else "False"
 
-    print_verification_stats(records)
+    df = pd.DataFrame(records)
+    if args.mode == "results":
+        df = df[df["has_results"] == "True"].copy()
+    records_to_write = df.to_dict("records")
+
+    print(f"Writing to: {out_csv} (mode={args.mode}, rows={len(records_to_write)})")
+    write_stage1_csv(records_to_write, out_csv)
+
+    print_verification_stats(records_to_write)
     print(f"Wrote: {out_csv}")
+
+    # Normalize text fields to real strings before QC (avoids float has no len() etc.)
+    TEXT_FIELDS = [
+        "event_name_raw", "date_raw", "location_raw", "host_club_raw",
+        "event_type_raw", "results_block_raw",
+    ]
+    for rec in records_to_write:
+        for k in TEXT_FIELDS:
+            rec[k] = norm_text(rec.get(k))
 
     # Run Stage 1 QC checks
     print("\nRunning Stage 1 QC checks...")
-    qc_summary, qc_issues = run_stage1_qc(records)
+    qc_summary, qc_issues = run_stage1_qc(records_to_write)
     write_stage1_qc_outputs(qc_summary, qc_issues, out_dir)
     print_stage1_qc_summary(qc_summary)
 
