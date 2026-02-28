@@ -1,15 +1,18 @@
 {
   "stage": "gate3",
-  "date": "2026-02-27",
-  "persons_truth_count": 3437,
+  "date": "2026-02-28",
+  "persons_truth_count": 3451,
   "persons_unresolved_count": 76,
-  "identity_lock_version": "v29",
+  "identity_lock_version": "v31",
   "gate3_pass": true,
-  "notes": "Updated 2026-02-27: tool 30 — reclassified 17 clear non-person entries (gaming handles, offensive handles, initialisms, parsing artifacts) → __NON_PERSON__. Truth unchanged (v29, 3437 rows). Unresolved 93→76. Analytics_Safe_Surface: 22959 rows (+14 from resolved coverage). Placements_Unresolved: 154 rows.",
-  "gate3_pass_count": 3437,
-  "persons_truth_file": "Persons_Truth_Final_v29.csv",
-  "persons_truth_rows": 3437,
+  "notes": "Updated 2026-02-28: tool 32 (post_release_qc) identity collision fixes — 6 wrong UUID assignments corrected in PBP v32→v33 (Alexandre Bélanger, Reinaldo Pérez, JUAN PALACIOS ×2, ANIBAL MONTES, BERNARDO PALACIOS all had shared UUIDs from pre-existing v31 data errors). Juan Palacios Lemos (e5395a41) added to PT v30→v31. Truth v30→v31 (3450→3451). PBP v32→v33 (row count unchanged). Gate3 PASS=3451. QC tool 32 Check 2 fixed: use fresh Coverage_ByEventDivision flags. Check 3: 0 IDENTITY_COLLISION errors, 10 sub_round WARNs (expected). 1 Check 1 WARN: event 1447494731 (9 unresolvable surname-only entries).",
+  "gate3_pass_count": 3451,
+  "persons_truth_file": "Persons_Truth_Final_v31.csv",
+  "persons_truth_rows": 3451,
   "persons_unresolved_file": "Persons_Unresolved_Organized_v27.csv",
   "persons_unresolved_rows": 76,
-  "analytics_safe_surface_rows": 22959
+  "analytics_safe_surface_rows": 22958,
+  "placements_flat_rows": 25679,
+  "placements_unresolved_rows": 155,
+  "index_rows": 790
 }

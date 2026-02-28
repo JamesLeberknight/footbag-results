@@ -714,16 +714,17 @@ def write_excel(
 
         # Build Index sheet: one row per event with hyperlinks
         index_data = []
+        sce_event_ids = {str(rec.get("event_id", "")) for rec in records if rec.get("event_id")}
         for rec in records:
             eid = str(rec.get("event_id", ""))
             if not eid:
                 continue
-            
+
             year = rec.get("year")
             placements = rec.get("placements", [])
             results_text = results_map.get(eid, "")
             results_lines = len(results_text.splitlines()) if results_text else 0
-            
+
             index_data.append({
                 "event_id": eid,
                 "year": year if year is not None else "",
@@ -734,8 +735,33 @@ def write_excel(
                 "Host Club": sanitize_string(rec.get("host_club") or ""),
                 "placements_count": len(placements),
                 "results_lines": results_lines,
+                "event_source": "",
             })
-        
+
+        # Append Index-only stub rows for synthetic events in PBP but not in stage2.
+        # These are pre-mirror historical events (1980-1986) and a few others whose
+        # results were compiled from non-mirror sources.
+        if placements_flat_df is not None and not placements_flat_df.empty:
+            pf_event_ids = placements_flat_df["event_id"].dropna().astype(str).unique()
+            for eid in sorted(pf_event_ids, key=_eid_sort_key):
+                if eid in sce_event_ids:
+                    continue
+                pf_rows = placements_flat_df[placements_flat_df["event_id"].astype(str) == eid]
+                year_val = int(pf_rows["year"].iloc[0]) if len(pf_rows) > 0 else None
+                cats = sorted(pf_rows["division_category"].dropna().unique()) if "division_category" in pf_rows.columns else []
+                index_data.append({
+                    "event_id": eid,
+                    "year": year_val if year_val is not None else "",
+                    "Tournament Name": f"(pre-mirror event, {year_val})" if year_val else "(pre-mirror event)",
+                    "Date": "",
+                    "Location": "",
+                    "Event Type": ",".join(cats),
+                    "Host Club": "",
+                    "placements_count": len(pf_rows),
+                    "results_lines": 0,
+                    "event_source": "synthetic_pre_mirror",
+                })
+
         # Sort by year, then event_id
         index_data.sort(key=lambda x: (x["year"] if x["year"] != "" else 9999, _eid_sort_key(x["event_id"])))
         
