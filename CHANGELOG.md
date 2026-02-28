@@ -7,6 +7,34 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.16] — QC: Fix 4 False-Positive Warning Categories
+**Release date:** 2026-02-28
+
+### Changes
+- **Issue 1 — `results_raw_has_strong_signals_but_output_empty` (4 WARNs → 0)**:
+  Suppress when `placements_count ≥ enumerated items` (numbered/ordinal lines) in
+  `results_raw`. All 4 events were correctly parsed small events, not dropped results.
+- **Issue 2 — Worlds warnings (3 WARNs → 0)**:
+  - `worlds_missing_expected_disciplines`: 2021 Worlds classified as INFO (pandemic
+    recovery year, freestyle-only format — no net divisions held).
+  - `worlds_results_suspiciously_small`: 2020/2021/1999 Worlds added to known-external
+    skip list (same as `worlds_missing_expected_disciplines`).
+  - `cv_worlds_missing_freestyle` (rebuild script): 1999/2020/2021 Worlds added to
+    known-external list; will resolve to WARN=0 on next rebuild.
+- **Issue 3 — placeholder `n/a` (10 WARNs stage2, 11 WARNs stage3 → 0)**:
+  `\bn/a\b` downgraded from WARN to INFO. In source data, "n/a" is a legitimate data
+  value ("not applicable" for player club or golf DNF), not a pipeline placeholder.
+  Stage3 baseline was already producing 0 WARNs; both baselines updated.
+- **Archive cleanup**: Deleted old identity lock files v28/v25/v26/v29/v30 from
+  tracked paths (moved to `inputs/identity_lock/archive/` by tools 28–30, deletion
+  accidentally omitted from those commits).
+
+### QC baselines
+- Stage2: 35 → 19 WARNs, 896 → 912 INFO (no data changes)
+- Stage3: 11 → 0 WARNs (no data changes; baseline was stale)
+
+---
+
 ## [v1.0.15] — Identity Curation Round 10: Handle/Noise Cleanup
 **Release date:** 2026-02-27
 
