@@ -421,6 +421,35 @@ def _read_optional_csv(path: Path) -> pd.DataFrame:
     return pd.DataFrame()
 
 
+def load_location_canon(path: Path) -> dict:
+    """Load location_canon_full_final.csv → {event_id: display_string}.
+
+    US events:     "City, State, United States"
+    Non-US events: "City, Country"
+    Falls back to raw location if the file is missing.
+    """
+    if not path.exists():
+        print(f"WARN: Location canon file not found: {path} — using raw location")
+        return {}
+    lookup = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            eid     = str(row.get("event_id", "")).strip()
+            city    = row.get("city_canon", "").strip()
+            state   = row.get("state_canon", "").strip()
+            country = row.get("country_canon", "").strip()
+            iso3    = row.get("country_iso3", "").strip()
+            if iso3 == "USA" and state:
+                display = f"{city}, {state}, {country}"
+            elif city and country:
+                display = f"{city}, {country}"
+            else:
+                display = city or country  # incomplete event fallback
+            if eid and display:
+                lookup[eid] = display
+    return lookup
+
+
 def read_stage2_csv(csv_path: Path) -> list[dict]:
     """Read stage2 CSV and return list of event records."""
     # Increase CSV field size limit to handle large JSON fields
@@ -548,6 +577,7 @@ def write_excel(
     players_df: Optional[pd.DataFrame] = None,
     placements_flat_df: Optional[pd.DataFrame] = None,
     unresolved_df: Optional[pd.DataFrame] = None,
+    location_lookup: Optional[dict] = None,
 ) -> None:
     """
     Archive workbook writer (matches Footbag_Results_Canonical.xlsx layout):
@@ -557,6 +587,11 @@ def write_excel(
     - Results are generated from placements (canonical), not copied raw
     """
     players_by_id = build_players_by_id(players_df)
+    _loc_lookup = location_lookup or {}
+
+    def _loc(eid: str, rec: dict) -> str:
+        """Return canonical location display string, falling back to raw."""
+        return _loc_lookup.get(str(eid)) or rec.get("location") or ""
 
     # Build results map from placements (use cleaned player names when available)
     results_map = {}
@@ -619,7 +654,7 @@ def write_excel(
                 data[col_key] = [
                     sanitize_string(rec.get("event_name") or ""),
                     display_date(rec.get("date") or "", y),
-                    sanitize_string(rec.get("location") or ""),
+                    sanitize_string(_loc(eid, rec)),
                     sanitize_string(rec.get("event_type") or ""),
                     sanitize_string(rec.get("host_club") or ""),
                     sanitize_string(results_map.get(eid) or ""),
@@ -658,7 +693,7 @@ def write_excel(
                 data[col_key] = [
                     sanitize_string(rec.get("event_name") or ""),
                     display_date(rec.get("date") or "", None),
-                    sanitize_string(rec.get("location") or ""),
+                    sanitize_string(_loc(eid, rec)),
                     sanitize_string(rec.get("event_type") or ""),
                     sanitize_string(rec.get("host_club") or ""),
                     sanitize_string(results_map.get(eid) or ""),
@@ -694,7 +729,7 @@ def write_excel(
                 "year": year if year is not None else "",
                 "Tournament Name": sanitize_string(rec.get("event_name") or ""),
                 "Date": sanitize_string(rec.get("date") or ""),
-                "Location": sanitize_string(rec.get("location") or ""),
+                "Location": sanitize_string(_loc(eid, rec)),
                 "Event Type": sanitize_string(rec.get("event_type") or ""),
                 "Host Club": sanitize_string(rec.get("host_club") or ""),
                 "placements_count": len(placements),
@@ -1476,8 +1511,12 @@ def main():
     df_placements_flat = pd.read_csv(placements_flat_csv)
     print(f"Loaded {placements_flat_csv} ({len(df_placements_flat)} rows)")
 
+    location_canon_csv = out_dir / "location_canon_full_final.csv"
+    location_lookup = load_location_canon(location_canon_csv)
+    print(f"Loaded {len(location_lookup)} canonical locations")
+
     print(f"Writing Excel with {len(records)} events...")
-    write_excel(out_xlsx, records, players_df=players_df, placements_flat_df=df_placements_flat, unresolved_df=df_unresolved)
+    write_excel(out_xlsx, records, players_df=players_df, placements_flat_df=df_placements_flat, unresolved_df=df_unresolved, location_lookup=location_lookup)
 
     # Run Stage 3 QC on Excel workbook data
     if USE_MASTER_QC:
