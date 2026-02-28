@@ -451,6 +451,10 @@ def check_host_club_suspicious_prefix_or_markup(rec: dict) -> list[QCIssue]:
 
     for pattern, label, severity in suspicious_patterns:
         if re.search(pattern, host_club):
+            # \m/ is a heavy metal "horns" emoticon used as a stylized prefix — not markup
+            if pattern == r'\\[a-z]/' and re.match(r'^\\m/', host_club, re.IGNORECASE):
+                continue
+
             # Check if it's potentially stylized (ambiguous)
             needs_review = bool(re.search(r'\\[a-z]/', host_club))
 

@@ -2,7 +2,7 @@
   "stage": "stage2",
   "total_records": 773,
   "total_errors": 0,
-  "total_warnings": 19,
+  "total_warnings": 18,
   "total_info": 912,
   "counts_by_check": {
     "host_club_multiple_locations": {
@@ -92,7 +92,7 @@
     },
     "host_club_suspicious_prefix_or_markup": {
       "ERROR": 0,
-      "WARN": 1,
+      "WARN": 0,
       "INFO": 0
     },
     "worlds_missing_expected_disciplines": {
