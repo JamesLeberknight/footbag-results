@@ -7,6 +7,25 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.17] — QC: Fix host_club false-positive + pipeline regeneration
+**Release date:** 2026-02-28
+
+### Changes
+- **`host_club_suspicious_prefix_or_markup` false positive (1 WARN → 0)**:
+  Event 1408070192 ("New Year's Footbag Jam") had `host_club = '\m/ichigan footbag'`.
+  The `\m/` is a heavy-metal "horns" emoticon, not HTML/wiki markup. Added explicit
+  exception for `^\\m/` prefix in `check_host_club_suspicious_prefix_or_markup()`.
+- **Pipeline regeneration**: Ran stages 03 + 04; all checks pass.
+  - Gate 3: PASS = 3437 (Persons_Truth_Final_v29.csv, unchanged)
+  - Lock sentinel refreshed: v29 (3437 rows), v27 (76 rows)
+  - Analytics_Safe_Surface.csv: 22959 rows (unchanged)
+  - Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
+
+### QC baselines
+- Stage2: 19 → 18 WARNs (host_club_suspicious_prefix_or_markup 1→0)
+
+---
+
 ## [v1.0.16] — QC: Fix 4 False-Positive Warning Categories
 **Release date:** 2026-02-28
 
