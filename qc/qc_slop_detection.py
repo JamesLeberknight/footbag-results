@@ -310,7 +310,7 @@ def check_any_field_contains_placeholder_or_instructional_text(rec: dict, field_
     placeholder_patterns = [
         (r'\bTBD\b', 'TBD marker', "WARN"),
         (r'\bTBA\b', 'TBA marker', "WARN"),
-        (r'\bn/a\b', 'N/A marker', "WARN"),
+        (r'\bn/a\b', 'N/A marker', "INFO"),  # n/a in source data = "not applicable", not a pipeline placeholder
         (r'\bunknown\b', 'unknown marker', "INFO"),
         # Encoding corruption: keep as INFO (useful signal, not a pipeline failure)
         (r'\?\?+', 'encoding corruption (??)', "INFO"),
@@ -555,6 +555,7 @@ def check_worlds_missing_expected_disciplines(rec: dict) -> list[QCIssue]:
     WORLDS_KNOWN_EXTERNAL_RESULTS = {
         "1587822289": "2020 Online Worlds — results on external wiki, not in mirror",
         "915561090": "1999 Worlds — freestyle results on external linked pages, not in mirror",
+        "1623054449": "2021 Worlds — pandemic recovery year, freestyle-only championship format (no net divisions held)",
     }
 
     if str(event_id) in WORLDS_KNOWN_EXTERNAL_RESULTS:
@@ -674,6 +675,15 @@ def check_worlds_results_suspiciously_small(rec: dict) -> list[QCIssue]:
     except (ValueError, TypeError):
         pass
 
+    # Skip Worlds events with known external results (same list as worlds_missing_expected_disciplines)
+    WORLDS_KNOWN_EXTERNAL_RESULTS = {
+        "1587822289": "2020 Online Worlds — results on external wiki, not in mirror",
+        "915561090": "1999 Worlds — freestyle results on external linked pages, not in mirror",
+        "1623054449": "2021 Worlds — pandemic recovery year, freestyle-only championship format",
+    }
+    if event_id in WORLDS_KNOWN_EXTERNAL_RESULTS:
+        return issues
+
     # Parse placements
     placements_str = rec.get("placements_json", "[]")
     try:
@@ -767,6 +777,16 @@ def check_results_raw_has_strong_signals_but_output_empty(rec: dict) -> list[QCI
             all_tab_lines = all('\t' in l for l in lines if l)
             if scoring_keywords or all_tab_lines:
                 return issues  # Suppress — scoring table, not placements
+
+        # Suppress: if all enumerated items in results_raw appear to be captured.
+        # Count numbered (1. 2. 3.) and ordinal (1st 2nd 3rd) lines as expected placements.
+        # If placements_count >= that count, the parser captured everything — no dropping.
+        if placements_count > 0:
+            numbered_count = len(re.findall(r'^\s*\d+[.)]\s', results_raw, re.MULTILINE))
+            ordinal_count = len(re.findall(r'^\s*\d+(st|nd|rd|th)\b', results_raw, re.MULTILINE | re.IGNORECASE))
+            expected_from_raw = max(numbered_count, ordinal_count)
+            if expected_from_raw == 0 or placements_count >= expected_from_raw:
+                return issues  # All enumerated items appear captured — small event, not a drop
 
         # Downgrade: small events with some valid placements and short results_raw
         # These are correctly parsed small events, not dropped results

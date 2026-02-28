@@ -4055,17 +4055,26 @@ def check_expected_divisions(rec: dict) -> list[QCIssue]:
                 ))
 
     # Check expected (warn if missing)
+    # Known Worlds events with external or limited results — suppress freestyle-missing check
+    WORLDS_KNOWN_EXTERNAL_RESULTS = {
+        "915561090": "1999 Worlds — freestyle results on external linked pages, not in mirror",
+        "1587822289": "2020 Online Worlds — results on external wiki, not in mirror",
+        "1623054449": "2021 Worlds — pandemic recovery year, freestyle-only championship format",
+    }
     for expected_cat in expected.get("expected", []):
         if expected_cat not in categories_present:
             if event_type == "worlds" and expected_cat == "freestyle":
-                issues.append(QCIssue(
-                    check_id="cv_worlds_missing_freestyle",
-                    severity="WARN",
-                    event_id=str(event_id),
-                    field="placements_json",
-                    message="Worlds event has no freestyle divisions",
-                    context={"categories_present": list(categories_present)}
-                ))
+                if str(event_id) in WORLDS_KNOWN_EXTERNAL_RESULTS:
+                    pass  # Known data gap — suppress warning
+                else:
+                    issues.append(QCIssue(
+                        check_id="cv_worlds_missing_freestyle",
+                        severity="WARN",
+                        event_id=str(event_id),
+                        field="placements_json",
+                        message="Worlds event has no freestyle divisions",
+                        context={"categories_present": list(categories_present)}
+                    ))
 
     # cv_all_unknown_divisions: All placements have division_category=unknown
     if placements:

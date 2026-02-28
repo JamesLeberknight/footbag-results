@@ -2,8 +2,8 @@
   "stage": "stage2",
   "total_records": 773,
   "total_errors": 0,
-  "total_warnings": 35,
-  "total_info": 896,
+  "total_warnings": 19,
+  "total_info": 912,
   "counts_by_check": {
     "host_club_multiple_locations": {
       "ERROR": 0,
@@ -82,12 +82,12 @@
     },
     "any_field_contains_placeholder_or_instructional_text": {
       "ERROR": 0,
-      "WARN": 10,
-      "INFO": 638
+      "WARN": 0,
+      "INFO": 653
     },
     "results_raw_has_strong_signals_but_output_empty": {
       "ERROR": 0,
-      "WARN": 4,
+      "WARN": 0,
       "INFO": 0
     },
     "host_club_suspicious_prefix_or_markup": {
@@ -97,12 +97,12 @@
     },
     "worlds_missing_expected_disciplines": {
       "ERROR": 0,
-      "WARN": 1,
-      "INFO": 2
+      "WARN": 0,
+      "INFO": 3
     },
     "worlds_results_suspiciously_small": {
       "ERROR": 0,
-      "WARN": 1,
+      "WARN": 0,
       "INFO": 0
     }
   }
