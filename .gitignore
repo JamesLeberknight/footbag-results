@@ -1,53 +1,33 @@
-# Do not upload the offline mirror
+############################
+# Pipeline outputs (regenerated; never commit)
+############################
+out/
+index.csv
+
+############################
+# Mirror (distributed via GitHub Release)
+############################
 mirror/
 mirror_full/
+mirror.log
+mirror.tar.xz
 *.tar
-^.tar.xz
 *.tar.gz
-# Do not upload generated Excel outputs
-*.xlsx
-
-# Python junk
-__pycache__/
-*.pyc
-
-# Virtual environments
-venv/
-.venv/
-footbag_venv/
-
-# OS junk
-.DS_Store
-
-# Windows Zone.Identifier files
-*:Zone.Identifier
-
-# Zip archives
+*.tar.xz
 *.zip
 
-# IDE settings
-.vscode/
+############################
+# Excel workbook (generated output)
+############################
+*.xlsx
 
-# Generated output (can be regenerated from pipeline)
-out/
-
-# Workspace files
-*.code-workspace
-
-# Not required / large artifacts
-mirror_full/
-mirror.log
-# Generated / local artifacts
-baselines/
-reviews/
-old_csv_files/
-python_files_old/
-junk_md/
-pivot_*.csv
-*_sorted.csv
-*_final.csv
-*.patch
+############################
+# Identity artifacts
+############################
+overrides/person_aliases.lock
 overrides/*.lnk
+alias-candidates.txt
+
 ############################
 # Python / runtime
 ############################
@@ -59,47 +39,37 @@ __pycache__/
 ############################
 .venv/
 venv/
+footbag_venv/
 
 ############################
 # Editor / OS noise
 ############################
 .vscode/
 .idea/
+*.code-workspace
 .DS_Store
 Thumbs.db
+*:Zone.Identifier
 
 ############################
-# Pipeline outputs (NEVER COMMIT)
-############################
-out/
-*.xlsx
-
-############################
-# Mirror strategy
-############################
-# If mirror is NOT tracked in git (recommended)
-mirror/
-
-############################
-# Temporary / logs
+# Temporary / dev artifacts
 ############################
 *.log
 *.tmp
-
-# Large artifacts (do not commit)
-*.tar.gz
-*.tar.xz
-mirror.tar.xz
-release_bundle/
-overrides/person_aliases.lock
-alias-candidates.txt
+*.patch
+baselines/
+reviews/
+old_csv_files/
+python_files_old/
+junk_md/
 Claude_old_md_files/
-# Mirror crawler/parser artifacts
-*.log
-*_progress.json
+pivot_*.csv
+*_sorted.csv
+*_final.csv
+release_bundle/
 robots_cache.json
 githib-pswd.txt
-# editor/backup junk
+*_progress.json
 *BAK
 *.bak
 *~
