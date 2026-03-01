@@ -495,25 +495,49 @@ def check_zero_participant_divisions(
     else:
         _ok("No Coverage entries with placements_present=0")
 
-    # 6b: stage2 events with 0 placements (informational — known limitation)
-    empty_events = []
+    # 6b: stage2 events with 0 placements (informational — known limitation).
+    # These events appear on the mirror (website) but have no published results.
+    # Separated into future events (not yet held) and historical (results never posted).
+    from datetime import date as _date
+    _current_year = _date.today().year
+
+    empty_future = []
+    empty_hist   = []
     for _, row in sce.iterrows():
         try:
             pj = json.loads(row.get("placements_json") or "[]")
         except (json.JSONDecodeError, TypeError):
             pj = []
         if len(pj) == 0:
-            empty_events.append((str(row["event_id"]), str(row.get("event_name", "?"))))
+            year_val = row.get("year")
+            try:
+                yr = int(float(year_val))
+            except (TypeError, ValueError):
+                yr = 0
+            entry = (str(row["event_id"]), str(row.get("event_name", "?")), yr)
+            if yr >= _current_year:
+                empty_future.append(entry)
+            else:
+                empty_hist.append(entry)
 
+    n_total = len(empty_future) + len(empty_hist)
     _info(
-        f"stage2 events with 0 parsed placements (no results published on mirror): "
-        f"{len(empty_events)}"
+        f"stage2 events with 0 parsed placements (no results on mirror): "
+        f"{n_total} total  ({len(empty_future)} future, {len(empty_hist)} historical)"
     )
-    if empty_events:
-        for eid, name in empty_events[:5]:
-            _info(f"  event {eid}: {name!r}")
-        if len(empty_events) > 5:
-            _info(f"  … and {len(empty_events) - 5} more")
+    if empty_future:
+        _info(f"  Future events (not yet held — no results expected):")
+        for eid, name, yr in sorted(empty_future, key=lambda x: x[2]):
+            _info(f"    event {eid} ({yr}): {name!r}")
+    if empty_hist:
+        _info(f"  Historical events (results were never published on mirror):")
+        for eid, name, yr in sorted(empty_hist, key=lambda x: x[2]):
+            _info(f"    event {eid} ({yr}): {name!r}")
+    _info(
+        f"  Note: Index shows {n_total + 5} events with placements_count=0; "
+        f"the extra 5 have stage2 noise entries that were filtered out of PBP "
+        f"(see Check 1 for details)."
+    )
 
     # Informational: single-placement divisions
     single = cov[cov["placements_present"] == 1]
