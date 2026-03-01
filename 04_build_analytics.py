@@ -2749,19 +2749,19 @@ def main() -> int:
             if ws.max_column < 2:
                 continue
 
-            # Year sheets: row 1 = header (event_ids as column headers), rows 2-7 = data
-            # Coverage rows are always rows 8-9 (fixed); using max_row would append
-            # duplicates on every run.  Delete any stale rows beyond row 7 first.
-            if ws.max_row > 7:
-                ws.delete_rows(8, ws.max_row - 7)
-            ratio_row = 8
-            flag_row = 9
+            # Year sheets layout (after 03 banner insert):
+            #   row 1 = YEAR banner (merged), row 2 = event-id headers, rows 3-8 = data
+            # Coverage rows go at rows 9-10.  Delete any stale rows beyond row 8 first.
+            if ws.max_row > 8:
+                ws.delete_rows(9, ws.max_row - 8)
+            ratio_row = 9
+            flag_row = 10
 
             ws.cell(row=ratio_row, column=1, value="Coverage Ratio")
             ws.cell(row=flag_row, column=1, value="Coverage Flag")
 
             for col_idx in range(2, ws.max_column + 1):
-                eid = str(ws.cell(row=1, column=col_idx).value or "").strip()
+                eid = str(ws.cell(row=2, column=col_idx).value or "").strip()
                 if eid in cov_lookup:
                     ratio, flag = cov_lookup[eid]
                     ws.cell(row=ratio_row, column=col_idx, value=round(ratio, 3))

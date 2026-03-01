@@ -27,7 +27,7 @@ from collections import defaultdict
 
 import pandas as pd
 from openpyxl.utils import get_column_letter
-from openpyxl.styles import Font
+from openpyxl.styles import Alignment, Font, PatternFill
 
 # Import master QC orchestrator
 try:
@@ -666,15 +666,30 @@ def write_excel(
             df_year = sanitize_excel_strings(df_year)
             df_year.to_excel(xw, sheet_name=sheet_name)
 
-            # Apply wrap_text formatting to Results row (row 7)
             worksheet = xw.sheets[sheet_name]
+
+            # Insert a year-banner row above the event-ID header row.
+            # After insert: row 1 = banner, row 2 = event IDs, rows 3-8 = data.
+            worksheet.insert_rows(1)
+            n_cols = len(eids) + 1  # col A (labels) + one per event
+            last_col = get_column_letter(n_cols)
+            worksheet.merge_cells(f"A1:{last_col}1")
+            banner = worksheet["A1"]
+            banner.value = int(y)
+            banner.font = Font(name="Calibri", size=48, bold=True, color="FFFFFF")
+            banner.alignment = Alignment(horizontal="center", vertical="center")
+            banner.fill = PatternFill(start_color="1F3864", end_color="1F3864",
+                                      fill_type="solid")
+            worksheet.row_dimensions[1].height = 72
+
+            # Apply wrap_text formatting to Results row (now row 8 after banner insert)
             for col_idx in range(2, len(eids) + 2):  # Start from column B (2)
-                cell = worksheet.cell(row=7, column=col_idx)
+                cell = worksheet.cell(row=8, column=col_idx)
                 a = copy(cell.alignment)
                 a.wrap_text = True
                 cell.alignment = a
-            # Freeze top-left: row 1 (event IDs) + col A (row labels) always visible
-            worksheet.freeze_panes = "B2"
+            # Freeze: banner + event-ID header row visible; col A (labels) visible
+            worksheet.freeze_panes = "B3"
 
         # Unknown-year sheet
         if unknown_year:
