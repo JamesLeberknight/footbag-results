@@ -807,9 +807,18 @@ def write_excel(
                 year_stats[year]["events"] += 1
                 year_stats[year]["placements"] += len(rec.get("placements", []))
         
+        pf_rows = len(placements_flat_df) if placements_flat_df is not None else 0
+        pf_resolved = (
+            placements_flat_df["person_unresolved"].fillna("").astype(str).str.strip().str.lower().ne("true").sum()
+            if placements_flat_df is not None and "person_unresolved" in placements_flat_df.columns
+            else pf_rows
+        )
+
         summary_data = [
             {"Metric": "Total Events", "Value": total_events},
             {"Metric": "Total Placements (stage2 raw)", "Value": total_placements},
+            {"Metric": "Total Placements (identity-locked / PBP)", "Value": pf_rows},
+            {"Metric": "Total Placements (resolved persons only)", "Value": pf_resolved},
             {"Metric": "Year Min", "Value": year_min if year_min else ""},
             {"Metric": "Year Max", "Value": year_max if year_max else ""},
         ]

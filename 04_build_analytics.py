@@ -1625,7 +1625,7 @@ def build_placements_by_person_clean(
         out = df.reindex(columns=OUTPUT_COLS, fill_value="")
         out_path = out_dir / "Placements_ByPerson.csv"
         out.to_csv(out_path, index=False)
-        n_unresolved = out["person_unresolved"].eq("true").sum()
+        n_unresolved = out["person_unresolved"].fillna("").str.lower().eq("true").sum()
         print(f"Wrote: {out_path} ({len(out)} rows, {n_unresolved} unresolved)")
         return out
 
@@ -1716,7 +1716,7 @@ def build_placements_by_person_clean(
     out = df[OUTPUT_COLS].copy()
     out_path = out_dir / "Placements_ByPerson.csv"
     out.to_csv(out_path, index=False)
-    n_unresolved = out["person_unresolved"].eq("true").sum()
+    n_unresolved = out["person_unresolved"].fillna("").str.lower().eq("true").sum()
     print(f"Wrote: {out_path} ({len(out)} rows, {n_unresolved} unresolved)")
     return out
 
@@ -1895,7 +1895,7 @@ def build_placements_unresolved(
     # 1. In-analytics but identity-missing (person_unresolved == "true")
     if not placements_by_person_df.empty and "person_unresolved" in placements_by_person_df.columns:
         unres = placements_by_person_df[
-            placements_by_person_df["person_unresolved"].fillna("").str.strip() == "true"
+            placements_by_person_df["person_unresolved"].fillna("").str.strip().str.lower() == "true"
         ].copy()
         if not unres.empty:
             def _name_unres(r):
@@ -1980,7 +1980,7 @@ def build_analytics_safe_surface(
     _complete_flags = {"complete", "mostly_complete"}
     df = placements_by_person_df[
         placements_by_person_df["coverage_flag"].isin(_complete_flags) &
-        (placements_by_person_df["person_unresolved"].fillna("").str.strip() != "true")
+        (placements_by_person_df["person_unresolved"].fillna("").str.strip().str.lower() != "true")
     ].copy()
 
     OUTPUT_COLS = [
@@ -2029,7 +2029,7 @@ def build_data_integrity(
     _gate1_note = (f"Gate 1 excluded {_gate1_removed} rows (rejected + unpresentable)"
                    if _gate1_removed > 0 else "No rejections at Gate 1")
     rows.append(_row("Placements", "Surviving Gate 1", len(pf), _gate1_note))
-    n_unresolved = placements_by_person_df["person_unresolved"].eq("true").sum()
+    n_unresolved = placements_by_person_df["person_unresolved"].fillna("").str.lower().eq("true").sum()
     rows.append(_row("Placements", "In Analytics_Safe_Surface", len(analytics_safe_df),
                      "Coverage-filtered + identity-locked"))
     rows.append(_row("Placements", "Unresolved identity", n_unresolved,
