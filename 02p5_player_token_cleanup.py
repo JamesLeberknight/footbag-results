@@ -45,6 +45,11 @@ def build_from_identity_lock(args):
     # Structural normalization only
     df_flat = df.copy()
 
+    # Strip invisible U+00AD SOFT HYPHEN from division_canon (source artifact in PBP).
+    # Accented letters, right quotes, en-dashes are legitimate and preserved.
+    if "division_canon" in df_flat.columns:
+        df_flat["division_canon"] = df_flat["division_canon"].str.replace("\u00ad", "", regex=False)
+
     # Override person_canon from PT so PF always reflects PT's authoritative name.
     # PBP canon can lag when PT is updated (e.g. canon corrections, new full-name
     # disambiguation) without a full PBP regeneration.
