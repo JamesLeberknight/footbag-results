@@ -27,7 +27,7 @@ from collections import defaultdict
 
 import pandas as pd
 from openpyxl.utils import get_column_letter
-from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.styles import Alignment, Font
 
 # Import master QC orchestrator
 try:
@@ -676,11 +676,7 @@ def write_excel(
             worksheet.merge_cells(f"A1:{last_col}1")
             banner = worksheet["A1"]
             banner.value = int(y)
-            banner.font = Font(name="Calibri", size=48, bold=True, color="FFFFFF")
             banner.alignment = Alignment(horizontal="center", vertical="center")
-            banner.fill = PatternFill(start_color="1F3864", end_color="1F3864",
-                                      fill_type="solid")
-            worksheet.row_dimensions[1].height = 72
 
             # Apply wrap_text formatting to Results row (now row 8 after banner insert)
             for col_idx in range(2, len(eids) + 2):  # Start from column B (2)
