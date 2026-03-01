@@ -316,11 +316,47 @@ def check_duplicate_triples(pf: pd.DataFrame) -> int:
     if collisions == 0 and sub_rounds > 0:
         _ok(f"No identity collisions; {sub_rounds} sub-round duplicates (expected pool/circle/round-robin data)")
 
-    # Pool-play tie summary (informational)
+    # Pool-play / tie summary (informational).
+    # Multiple distinct players sharing the same (event, div, place) is expected in footbag:
+    #   • Circle Contest / 2-Square: groups of 4-8 compete simultaneously; each group has
+    #     its own place=1, place=2, … so the same numeric place repeats across groups.
+    #   • Pool/round-robin play: separate pools each produce their own rank sequence.
+    #   • True score ties: Shred 30, Golf, Consecutive — identical scores yield shared place.
+    # None of these represent data errors; all placements are preserved as-is.
     pf_player = pf_num[pf_num["competitor_type"] == "player"]
-    tie_groups = pf_player.groupby(["event_id", "division_canon", "place"]).size()
-    ties = tie_groups[tie_groups > 1]
-    _info(f"(event,div,place) with >1 distinct players (ties/pool-play, expected): {len(ties)} groups")
+    tie_groups_all = pf_player.groupby(["event_id", "division_canon", "place"])["person_id"].nunique()
+    ties = tie_groups_all[tie_groups_all > 1]
+
+    # Categorise by broad division type for transparency.
+    _CIRCLE_KW  = ("circle", "circ")
+    _SQUARE_KW  = ("2-square", "2 square", "2square")
+    _STYLE_KW   = ("shred", "sick", "battle", "routines", "freestyle", "request",
+                   "ironman", "combo", "routine")
+    _GOLF_KW    = ("golf",)
+
+    def _cat(div: str) -> str:
+        d = div.lower()
+        if any(k in d for k in _CIRCLE_KW):   return "circle/group"
+        if any(k in d for k in _SQUARE_KW):   return "2-square/group"
+        if any(k in d for k in _GOLF_KW):     return "golf (score tie)"
+        if any(k in d for k in _STYLE_KW):    return "freestyle (score tie)"
+        return "net/pool-play"
+
+    tie_df = ties.reset_index()
+    tie_df["cat"] = tie_df["division_canon"].apply(_cat)
+    cat_counts = tie_df["cat"].value_counts()
+    events_affected = tie_df["event_id"].nunique()
+
+    _info(
+        f"(event,div,place) with >1 distinct players (ties/pool-play, expected): "
+        f"{len(ties)} groups across {events_affected} events"
+    )
+    for cat, cnt in cat_counts.items():
+        _info(f"    {cnt:4d}  {cat}")
+    _info(
+        "  All shared-place rows are preserved; no data dropped. "
+        "Known limitation: sub-group context (pool/circle ID) is not available in source."
+    )
 
     # Only IDENTITY_COLLISION errors count toward exit code; sub_rounds are WARNs only
     return collisions
