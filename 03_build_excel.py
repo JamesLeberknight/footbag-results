@@ -738,6 +738,18 @@ def write_excel(
                 "event_source": "",
             })
 
+        # Build PBP row-count lookup: used to override placements_count so the Index
+        # reflects what is actually queryable in Placements_ByPerson, not the stage2 raw
+        # count (which can include noise/unresolvable entries that never reach PBP).
+        pf_count_by_event: dict[str, int] = {}
+        if placements_flat_df is not None and not placements_flat_df.empty:
+            for _eid, _grp in placements_flat_df.groupby(placements_flat_df["event_id"].astype(str)):
+                pf_count_by_event[str(_eid)] = len(_grp)
+
+        # Back-fill placements_count in the already-built index_data rows using PBP counts.
+        for row in index_data:
+            row["placements_count"] = pf_count_by_event.get(str(row["event_id"]), 0)
+
         # Append Index-only stub rows for synthetic events in PBP but not in stage2.
         # These are pre-mirror historical events (1980-1986) and a few others whose
         # results were compiled from non-mirror sources.
