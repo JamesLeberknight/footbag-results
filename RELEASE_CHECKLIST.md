@@ -25,20 +25,17 @@ No step may be skipped.
 
 ## 1. Repository Hygiene
 
-☐ Core scripts only in root (or `scripts/`):
+☐ Core release scripts only at repo root:
   - `02p5_player_token_cleanup.py`
   - `03_build_excel.py`
   - `04_build_analytics.py`
+  - `Makefile`
 
-☐ Non-core code moved to:
-  - `qc/`, `tools/`, or `legacy/`
-
+☐ `scripts/rebuild/` contains Rebuild Mode scripts (01, 01b, 01c, 02)
+☐ `legacy/OLD_RESULTS.txt` present (required by 01b)
 ☐ `out/`, mirrors, and `.xlsx` files are gitignored
-
-☐ README.md reflects **identity-lock release mode**
-
-☐ CHANGELOG.md contains a v1.0.0 entry describing identity lock
-
+☐ README.md reflects current version and identity-lock files
+☐ CHANGELOG.md contains a release entry for this version
 ☐ `CLAUDE.md` preserved (unchanged)
 
 ---
@@ -46,15 +43,27 @@ No step may be skipped.
 ## 2. Clean Environment Test (Mandatory)
 
 ☐ New shell / fresh clone (no cached outputs)
-☐ Virtual environment created
-☐ Dependencies installed from `requirements.txt`
+☐ `make setup` succeeds (venv created, deps installed)
 ☐ `out/` directory created empty
 
 ---
 
-## 3. Identity-Locked Pipeline Run
+## 3. Rebuild Mode
 
-### 3.1 Generate Placements_Flat (Identity Lock Mode)
+### 3.1 Parse mirror and build stage-2 events
+
+☐ Mirror extracted: `tar -xzf mirror.tar.gz` → `mirror/`
+☐ Run:
+```bash
+make rebuild
+```
+☐ Verify: `out/stage2_canonical_events.csv` exists
+
+---
+
+## 4. Release Mode
+
+### 4.1 Generate Placements_Flat (Identity Lock Mode)
 
 ☐ Run:
 ```bash
@@ -62,51 +71,57 @@ python 02p5_player_token_cleanup.py \
   --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v33.csv \
   --out_dir out
 ```
+☐ Verify: `out/Placements_Flat.csv` exists, row count = 25,679
 
-☐ Verify output: `out/Placements_Flat.csv` exists, row count = 25679 (unchanged, UUID fixes only)
+### 4.2 Build Excel Workbook
 
-### 3.2 Build Excel Workbook
-
-☐ Ensure `out/stage2_canonical_events.csv` exists (from Rebuild Mode or prior run)
-
+☐ Ensure `out/stage2_canonical_events.csv` exists (from Rebuild Mode)
 ☐ Run:
 ```bash
 python 03_build_excel.py
 ```
-
 ☐ Verify: `Footbag_Results_Canonical.xlsx` created/updated
 
-### 3.3 Build Analytics
+### 4.3 Build Analytics
 
 ☐ Run:
 ```bash
 python 04_build_analytics.py
 ```
-
 ☐ Verify output contains:
   - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3451`
   - `INFO: Lock sentinel written → out/persons_truth.lock`
 
-### 3.4 Verify Lock Sentinel
+### 4.4 Verify Lock Sentinel
 
-☐ `out/persons_truth.lock` is written automatically by stage 04 after Gate 3 PASS.
-   Confirm the printed output contains the expected filename and row count:
+☐ `out/persons_truth.lock` written by stage 04 after Gate 3 PASS.
+   Confirm printed output shows:
    - `"file": "Persons_Truth_Final_v31.csv"`, `"rows": 3451`
    - `"file": "Persons_Unresolved_Organized_v27.csv"`, `"rows": 76`
 
 ---
 
-## 4. QC Verification
+## 5. QC Verification
 
-☐ Stage 2 QC: 0 errors
-☐ Gate 3: PASS (3437)
+```bash
+make qc
+```
+
+☐ `qc/qc_master.py`: 0 errors, Gate 3 PASS (3451)
+☐ `tools/32_post_release_qc.py`: all 6 checks pass (exit 0)
+☐ `tools/33_schema_logic_qc.py`: all 7 checks pass (exit 0)
+☐ `out/Analytics_Safe_Surface.csv`: 22,958 rows
 ☐ Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
-☐ `out/Analytics_Safe_Surface.csv`: 22959 rows
 
 ---
 
-## 5. Release
+## 6. Release
 
-☐ Commit all outputs (except `out/` which is gitignored)
-☐ Tag release: `git tag v1.0.6` (or next appropriate version)
-☐ Update CHANGELOG.md with release notes
+☐ Commit all staged changes (docs, overrides, baselines — not `out/`)
+☐ Update `CHANGELOG.md` with release notes
+☐ Tag release:
+```bash
+git tag v1.0.18
+git push origin main --tags
+```
+☐ Create GitHub Release: attach `mirror.tar.gz` as release asset
