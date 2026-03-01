@@ -7,6 +7,130 @@ This project follows **semantic versioning**, with an additional rule:
 
 ---
 
+## [v1.0.19] — QC fixes + data integrity documentation
+**Release date:** 2026-02-28
+
+### Changes
+
+#### Data fixes
+- **Ken Hamric canon** — double-space typo (`Ken  Hamric`) corrected in
+  `Persons_Truth_Final_v31.csv` and propagated to `out/Persons_Truth.csv`.
+- **Juan Palacios Lemos canon** — stale `JUAN PALACIOS` canon in PBP (pre-tool-32
+  state) corrected via new `--persons_truth_csv` PT-override in `02p5`.
+- **`02p5` PT canon override** — added `--persons_truth_csv` argument; on every
+  release run, `person_canon` in `Placements_Flat` is synchronised against PT,
+  ensuring PBP staleness never silently propagates. Applied 2 overrides (above).
+- **`person_unresolved` case mismatch** — PBP writes `"True"`/`"False"` (Python
+  bool strings); four comparison sites in `04_build_analytics.py` used lowercase
+  `"true"`. Fixed with `.str.lower()` at all sites. Impact: `Data_Integrity.csv`
+  Unresolved count now correctly reads 155 (was 230 due to missed `"True"` rows).
+- **`Index.placements_count`** — was sourced from stage2 raw counts. Five events
+  had stage2 noise (narrative text, score-contaminated names, surname-only entries)
+  that never reached PBP, making the Index inconsistent. Now sourced from PBP row
+  counts. Result: 0 mismatches; Index sum = PBP total = 25,679.
+- **U+00AD soft-hyphen in `division_canon`** — PBP_v33 has 10 soft-hyphen
+  occurrences in 6 division names for event 1323272493. Stripped in `02p5` on
+  output (accented letters, right quotes, en-dashes preserved). Tool 33 now
+  reports 0 errors on division integrity.
+- **Summary sheet placements rows** — added two explicit rows:
+  `Total Placements (identity-locked / PBP)` = 25,679 and
+  `Total Placements (resolved persons only)` = 25,524, distinguishing from the
+  existing stage2 raw count (26,603).
+
+#### QC documentation improvements
+- **Tool 32 Check 3** — added categorical breakdown of 1,286 shared-place groups
+  (freestyle score ties, net/pool-play, circle/group, golf score ties, 2-square/group)
+  with event count and inline explanation of why shared places are expected.
+- **Tool 32 Check 6** — removed 5-event truncation; now lists all 39 zero-placement
+  stage2 events, separated into 5 future events (2026, not yet held) and 34
+  historical events (results never posted). Added cross-reference note explaining
+  why the Index shows 44 (5 extra have stage2 noise filtered from PBP).
+- **Tool 33 Check 7** — added sub-check 7e: loads `Coverage_GapPriority.csv` and
+  reports 433 (event, division) pairs with incomplete place sequences, broken down
+  by gap class (document_only 413, possibly_recoverable 15, not_recoverable 5).
+  Known limitation documented inline.
+
+### Identity lock state (unchanged from v1.0.18)
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v31 | 3,451 |
+| Persons_Unresolved_Organized | v27 | 76 |
+| Placements_ByPerson | v33 | 25,679 |
+
+### Pipeline outputs (unchanged from v1.0.18)
+- Gate3: PASS = 3,451
+- Analytics_Safe_Surface: 22,958 rows
+- Placements_Unresolved: 155 rows
+
+---
+
+## [v1.0.18] — Referential closure, post-release QC, tool 33, repo cleanup
+**Release date:** 2026-02-28
+
+### Changes
+
+#### Identity curation (tool 31 — Referential Closure)
+- **15 orphan events** (in PBP but absent from stage2) added as synthetic
+  pre-mirror stubs to the Index.
+- **70 orphan PBP person_ids** (UUIDs present in PBP but missing from Truth)
+  remapped to their correct Truth entries.
+- **3 non-person entries** cleared from Truth.
+- **18 new Truth entries** added (persons found in PBP with no Truth record).
+- **5 QC07 warnings removed** (entries confirmed non-persons).
+- **53 QC07 warnings upgraded** to resolved Truth mappings.
+- **Phillip Lessard → Philippe Lessard** (canon rename, confirmed spelling).
+- Identity lock bumped: Truth v30→v31 (3,451 rows), Placements v32→v33 (25,679).
+
+#### Post-release data integrity (tool 32 — 6 UUID corrections)
+Fixed 6 wrong UUID assignments introduced by pre-v31 data errors:
+Alexandre Bélanger, Reinaldo Pérez, JUAN PALACIOS (×2), ANIBAL MONTES,
+BERNARDO PALACIOS — all had shared UUIDs. Juan Palacios Lemos (e5395a41)
+added to Persons_Truth.
+
+#### New tool: `tools/33_schema_logic_qc.py`
+Read-only, 7-check schema & logic audit mirroring tool 32's architecture.
+Checks: person integrity, division integrity, place sequence, same-person
+multi-place, division inflation, longevity scan, cardinality & density.
+Exits 1 on any ERROR; WARNs are informational only.
+
+#### New tool: `tools/extract_event_locations_from_mirror.py`
+Extracts raw location strings from the mirror and maps them to canonical
+display strings used in the workbook Index.
+
+#### Workbook: canonical location display strings
+Replaced raw location strings in the Index with canonical display strings
+(city/country formatted for human readability).
+
+#### Repository cleanup
+- Added `Makefile` with targets: `setup`, `rebuild`, `release`, `qc`, `all`.
+- Rewrote `README.md`: v1.0.17 → v1.0.18 badge, mirror as top prerequisite,
+  explicit script names in Quick Start, correct lock file versions.
+- Updated `RELEASE_CHECKLIST.md` to v1.0.18 with corrected counts and lock files.
+- Consolidated `.gitignore` (3+ duplicate sections → one clean file; added `index.csv`).
+- Archived superseded lock versions to `inputs/identity_lock_archive/`:
+  `Persons_Truth_Final_v29.csv`, `v30.csv`; `Placements_ByPerson_v31.csv`, `v32.csv`.
+- Moved `triage_unmapped_names_with_usage.py` from root to `tools/`.
+- Deleted stale artifacts: `04_build_analytics.patch`, `readme-excel.csv`,
+  `overrides/Local Disk (C) - Shortcut.lnk`.
+
+### Identity lock state
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v31 | 3,451 |
+| Persons_Unresolved_Organized | v27 | 76 |
+| Placements_ByPerson | v33 | 25,679 |
+
+### Pipeline outputs
+- Gate3: PASS = 3,451 (Truth v29 3,437 → v31 3,451, +14)
+- Analytics_Safe_Surface: 22,958 rows
+- Placements_Unresolved: 155 rows
+
+### QC baselines
+- Tool 32: 0 IDENTITY_COLLISION errors, 10 sub-round WARNs (pool/circle expected)
+- Tool 33: 0 errors, 7 checks pass
+
+---
+
 ## [v1.0.17] — QC: Fix host_club false-positive + pipeline regeneration
 **Release date:** 2026-02-28
 
