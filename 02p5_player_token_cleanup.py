@@ -45,6 +45,28 @@ def build_from_identity_lock(args):
     # Structural normalization only
     df_flat = df.copy()
 
+    # Override person_canon from PT so PF always reflects PT's authoritative name.
+    # PBP canon can lag when PT is updated (e.g. canon corrections, new full-name
+    # disambiguation) without a full PBP regeneration.
+    if args.persons_truth_csv:
+        print(f"[02p5] Applying PT canon override from: {args.persons_truth_csv}")
+        pt = pd.read_csv(args.persons_truth_csv, dtype=str, usecols=["effective_person_id", "person_canon"])
+        pt = pt.dropna(subset=["effective_person_id", "person_canon"])
+        pt_map = pt.set_index("effective_person_id")["person_canon"].to_dict()
+
+        overrides = 0
+        def _override_canon(row):
+            nonlocal overrides
+            pid = str(row["person_id"]).strip() if pd.notna(row["person_id"]) else ""
+            pt_canon = pt_map.get(pid)
+            if pt_canon and str(row["person_canon"]).strip() != pt_canon.strip():
+                overrides += 1
+                return pt_canon
+            return row["person_canon"]
+
+        df_flat["person_canon"] = df_flat.apply(_override_canon, axis=1)
+        print(f"[02p5] PT canon overrides applied: {overrides}")
+
     # division_raw is not available in locked data; derive deterministically
     if "division_raw" not in df_flat.columns:
         df_flat["division_raw"] = df_flat["division_canon"]
@@ -69,6 +91,9 @@ def main():
     parser = argparse.ArgumentParser(description="Stage 02.5 — Player token cleanup")
 
     parser.add_argument("--identity_lock_placements_csv")
+    parser.add_argument("--persons_truth_csv", default=None,
+                        help="Persons_Truth CSV for canon override (recommended: "
+                             "inputs/identity_lock/Persons_Truth_Final_vN.csv)")
     parser.add_argument("--out_dir", default="out")
 
     args, _ = parser.parse_known_args()
