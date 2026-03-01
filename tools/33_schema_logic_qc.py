@@ -20,6 +20,7 @@ Inputs (must all exist):
   out/Placements_Flat.csv
   out/Persons_Truth.csv
   out/Coverage_ByEventDivision.csv
+  out/Coverage_GapPriority.csv
   out/Data_Integrity.csv
   out/Analytics_Safe_Surface.csv
   Footbag_Results_Canonical.xlsx  (Person_Stats sheet)
@@ -41,6 +42,7 @@ XLSX = ROOT / "Footbag_Results_Canonical.xlsx"
 PF_CSV  = OUT / "Placements_Flat.csv"
 PT_CSV  = OUT / "Persons_Truth.csv"
 COV_CSV = OUT / "Coverage_ByEventDivision.csv"
+CGP_CSV = OUT / "Coverage_GapPriority.csv"
 DI_CSV  = OUT / "Data_Integrity.csv"
 ASS_CSV = OUT / "Analytics_Safe_Surface.csv"
 
@@ -596,6 +598,7 @@ def check_cardinality_and_density(
     pf: pd.DataFrame,
     pt: pd.DataFrame,
     cov: pd.DataFrame,
+    cgp: pd.DataFrame | None,
     di: pd.DataFrame,
     ass: pd.DataFrame,
 ) -> int:
@@ -604,6 +607,7 @@ def check_cardinality_and_density(
     7b — PT UUID format validation
     7c — Data_Integrity cross-check (staleness detector)
     7d — Persons with 0 analytics-safe placements (INFO)
+    7e — Coverage gap summary (INFO, known limitation)
     """
     _banner("CHECK 7 · Cardinality & Density")
 
@@ -699,6 +703,25 @@ def check_cardinality_and_density(
     else:
         _info("Analytics_Safe_Surface has no person_canon column — skipping density check")
 
+    # 7e — Coverage gap summary (INFO only; no errors raised)
+    # These (event, division) pairs have incomplete place sequences in the source data.
+    # Known limitation: results lists were often partial (top-N only) or were never
+    # fully recorded for older events. All present placements are kept; no rows dropped.
+    if cgp is not None and not cgp.empty:
+        n_total = len(cgp)
+        missing_total = int(cgp["missing_places"].sum()) if "missing_places" in cgp.columns else 0
+        _info(
+            f"(event,div) pairs with incomplete place sequences (Coverage_GapPriority): "
+            f"{n_total} pairs, {missing_total:,} missing place numbers total"
+        )
+        if "gap_class" in cgp.columns:
+            for cls, cnt in cgp["gap_class"].value_counts().items():
+                _info(f"    {cnt:4d}  {cls}")
+        _info(
+            "  Known limitation: source data for these events listed only top-N finishers. "
+            "All present placements are preserved; gaps are not data errors."
+        )
+
     return issues
 
 
@@ -724,6 +747,7 @@ def main() -> None:
     di  = pd.read_csv(DI_CSV)
     ass = pd.read_csv(ASS_CSV, dtype=str, low_memory=False)
     ps  = pd.read_excel(XLSX, sheet_name="Person_Stats")
+    cgp = pd.read_csv(CGP_CSV) if CGP_CSV.exists() else None
 
     # Numeric conversions for Coverage (needed for place sequence check)
     for col in ["placements_present", "min_place", "max_place", "expected_span"]:
@@ -733,6 +757,7 @@ def main() -> None:
     print(f"  Placements_Flat:          {len(pf):,} rows")
     print(f"  Persons_Truth:            {len(pt):,} rows")
     print(f"  Coverage_ByEventDivision: {len(cov):,} rows")
+    print(f"  Coverage_GapPriority:     {len(cgp):,} rows" if cgp is not None else "  Coverage_GapPriority:     (not found)")
     print(f"  Analytics_Safe_Surface:   {len(ass):,} rows")
     print(f"  Person_Stats (Excel):     {len(ps):,} rows")
 
@@ -743,7 +768,7 @@ def main() -> None:
     total += check_same_person_multi_place(pf)
     total += check_division_inflation(pf)
     total += check_longevity(ps)
-    total += check_cardinality_and_density(pf, pt, cov, di, ass)
+    total += check_cardinality_and_density(pf, pt, cov, cgp, di, ass)
 
     _banner("SUMMARY")
     if total == 0:
