@@ -683,6 +683,10 @@ def is_person_like(name: str) -> bool:
         return False
     t = name.strip().lower()
 
+    # pipeline sentinel placeholders (e.g. __NON_PERSON__)
+    if t.startswith("__") and t.endswith("__"):
+        return False
+
     # obvious junk tokens
     if t in {"()", "na", "nd", "rd", "th"}:
         return False
@@ -1605,6 +1609,21 @@ def build_placements_by_person_clean(
         is_team = df["competitor_type"].str.strip().str.lower() == "team"
         df.loc[~is_team, "team_person_key"] = ""
         df.loc[~is_team, "team_display_name"] = ""
+        # For fully-resolved team rows (both partners have a UUID → pipe-joined key), use
+        # team_person_key as person_id for a distinct, stable (event, div, place, person_id) key.
+        # For partially-resolved teams (only one partner resolved, no pipe in key), append "|?"
+        # to make a synthetic key that is unique per team but does NOT collide with the
+        # resolved partner's player rows (which carry the bare UUID as person_id).
+        _has_full_team_key = is_team & df["team_person_key"].str.contains("|", regex=False, na=False)
+        _has_partial_team_key = (
+            is_team
+            & (df["team_person_key"].str.strip() != "")
+            & ~df["team_person_key"].str.contains("|", regex=False, na=False)
+        )
+        df.loc[_has_full_team_key, "person_id"] = df.loc[_has_full_team_key, "team_person_key"]
+        df.loc[_has_partial_team_key, "person_id"] = (
+            df.loc[_has_partial_team_key, "team_person_key"] + "|?"
+        )
         df["person_unresolved"] = ""
         _is_non_person = df["person_canon"].str.strip() == "__NON_PERSON__"
         df.loc[~is_team & ~_is_non_person & (df["person_id"].str.strip() == ""), "person_unresolved"] = "true"
@@ -1980,7 +1999,8 @@ def build_analytics_safe_surface(
     _complete_flags = {"complete", "mostly_complete"}
     df = placements_by_person_df[
         placements_by_person_df["coverage_flag"].isin(_complete_flags) &
-        (placements_by_person_df["person_unresolved"].fillna("").str.strip().str.lower() != "true")
+        (placements_by_person_df["person_unresolved"].fillna("").str.strip().str.lower() != "true") &
+        (~placements_by_person_df["person_canon"].fillna("").str.strip().str.startswith("__"))
     ].copy()
 
     OUTPUT_COLS = [
@@ -2619,6 +2639,31 @@ def main() -> int:
                 add[c] = "" if c != "appearances" else 0
         persons_unresolved_df = pd.concat([persons_unresolved_df, add], ignore_index=True, sort=False)
     placements_unresolved_df = build_placements_unresolved(placements_by_person_df, out_dir)
+
+    # --- Filter PBP for presentation ---
+    # 1. Remove unresolved-identity rows: captured in Placements_Unresolved, not for PBP.
+    _unres_mask = placements_by_person_df["person_unresolved"].fillna("").str.strip().str.lower() == "true"
+    placements_by_person_df = placements_by_person_df[~_unres_mask].copy()
+    # 2. Collapse __NON_PERSON__ player rows to one per (event_id, division_canon, place).
+    #    Resolved team rows carry team_person_key (or team_person_key+"|?") as person_id,
+    #    so they are already distinct and must not be collapsed. Only genuinely
+    #    unidentifiable player entries (competitor_type == "player", no person_id) need dedup.
+    _np_player_mask = (
+        (placements_by_person_df["person_canon"].fillna("").str.strip() == "__NON_PERSON__") &
+        (placements_by_person_df["competitor_type"].fillna("").str.strip().str.lower() == "player")
+    )
+    _non_person_player_deduped = placements_by_person_df[_np_player_mask].drop_duplicates(
+        subset=["event_id", "division_canon", "place"], keep="first"
+    )
+    placements_by_person_df = pd.concat(
+        [placements_by_person_df[~_np_player_mask], _non_person_player_deduped], ignore_index=True
+    ).sort_values(["year", "event_id", "division_canon", "place"],
+                  ascending=[False, True, True, True]).reset_index(drop=True)
+    # Rewrite CSV with filtered content
+    _pbp_out_path = out_dir / "Placements_ByPerson.csv"
+    placements_by_person_df.to_csv(_pbp_out_path, index=False)
+    print(f"Wrote: {_pbp_out_path} ({len(placements_by_person_df)} rows, 0 unresolved [filtered])")
+
     analytics_safe_df = build_analytics_safe_surface(placements_by_person_df, out_dir)
     # Exclude canon-collision identities from safe surface (person_canon is the identity column there)
     if len(persons_truth_conflicted) > 0:
@@ -2766,6 +2811,30 @@ def main() -> int:
                     ratio, flag = cov_lookup[eid]
                     ws.cell(row=ratio_row, column=col_idx, value=round(ratio, 3))
                     ws.cell(row=flag_row, column=col_idx, value=flag)
+
+    # ---- Sync Index placements_count → actual filtered PBP row count per event ----
+    if "Index" in wb.sheetnames:
+        _ws_idx = wb["Index"]
+        _idx_header = [str(_ws_idx.cell(row=1, column=c).value or "").strip()
+                       for c in range(1, _ws_idx.max_column + 1)]
+        _eid_col = next((i + 1 for i, h in enumerate(_idx_header) if h == "event_id"), None)
+        _pc_col  = next((i + 1 for i, h in enumerate(_idx_header) if h == "placements_count"), None)
+        if _eid_col and _pc_col:
+            _pbp_counts = placements_by_person_df.groupby(
+                placements_by_person_df["event_id"].astype(str).str.strip()
+            ).size().to_dict()
+            _updated = 0
+            for _r in range(2, _ws_idx.max_row + 1):
+                _eid = str(_ws_idx.cell(row=_r, column=_eid_col).value or "").strip()
+                if not _eid:
+                    continue
+                _new_val = _pbp_counts.get(_eid, 0)
+                _old_val = _ws_idx.cell(row=_r, column=_pc_col).value
+                if _old_val != _new_val:
+                    _ws_idx.cell(row=_r, column=_pc_col).value = _new_val
+                    _updated += 1
+            if _updated:
+                print(f"[Index] Updated placements_count for {_updated} events to match filtered PBP.")
 
     wb.save(xlsx)
     wb.close()

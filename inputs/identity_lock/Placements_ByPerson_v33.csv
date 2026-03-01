@@ -1199,7 +1199,6 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1044624680,2003,Shred 30,freestyle,2,player,00535124-269f-5de1-be41-94948cdae1c0,,Ben Scarborough,,complete,,ben scarborough
 1044624680,2003,Shred 30,freestyle,2,player,16b2083f-d41a-5944-8669-d41494e21159,,Alex Faber,,complete,,alex faber
 1044624680,2003,Shred 30,freestyle,2,player,cb2f5aeb-165a-5e47-96a0-b80622a0d252,,Ben Barrows,,complete,,ben barrows
-1044624680,2003,Shred 30,freestyle,3,player,fe957e20-aafe-5c08-97fe-547046fedb9e,,Alex Heerman,,complete,,alex heerman jabag
 1044624680,2003,Shred 30,freestyle,3,player,66c8ee00-cda8-5430-ba1c-ffb177198d18,,Andrew Coleman,,complete,,andrew coleman
 1044624680,2003,Shred 30,freestyle,3,player,fe957e20-aafe-5c08-97fe-547046fedb9e,,Alex Heerman,,complete,,alex heerman
 1044624680,2003,Sick 1,freestyle,1,player,2c16c43d-6111-5231-b813-23f20f6ba7a3,,Jonathan Schneider,,complete,,jonathan schneider
@@ -5629,7 +5628,6 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1177512537,2007,Sick3,freestyle,1,player,8983b558-9cb9-5a25-bb28-589435a8f34e,,Serge Kaldany,,complete,,serge kaldany
 1177512537,2007,Sick3,freestyle,2,player,1f864e5e-28bc-5370-8f30-49bc3c65c64c,,Jeremy Masselis,,complete,,jeremy masselis
 1177512537,2007,Sick3,freestyle,3,player,6afe2e47-df47-5055-bba0-0aa2341d43e0,,Max Boucoiran,,complete,,max boucoiran
-1177512537,2007,Singles Freestyle,freestyle,1,player,8983b558-9cb9-5a25-bb28-589435a8f34e,,Serge Kaldany,,mostly_complete,,serge kaldany quantum ducking mirage
 1177512537,2007,Singles Freestyle,freestyle,1,player,8983b558-9cb9-5a25-bb28-589435a8f34e,,Serge Kaldany,,mostly_complete,,serge kaldany
 1177512537,2007,Singles Freestyle,freestyle,2,player,1f864e5e-28bc-5370-8f30-49bc3c65c64c,,Jeremy Masselis,,mostly_complete,,jeremy masselis paradox grifter
 1177512537,2007,Singles Freestyle,freestyle,2,player,8069a4cf-1543-5a0a-bf83-92edff9e120f,,Maxime Boucoiran,,mostly_complete,,maxime boucoiran
@@ -6868,10 +6866,8 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1199106237,2008,Women Singles Net,net,8,player,e023aa06-ace7-5617-8145-aaca829f4c54,,Helena Schlichting,,complete,,helena schlichting
 1199106237,2008,Women Singles Net,net,9,player,8f01ab79-0a5d-599e-86fe-1c9efd894c86,,Noora Plattonen,,complete,,noora plattonen
 1199106237,2008,Women Singles Net,net,10,player,68d3247d-c0f9-520e-8c74-87a418aa90e1,,Sarah Kessel,,complete,,sarah kessel
-1200725314,2008,Open Singles Freestyle,freestyle,1,player,be7a8e7f-f052-5c31-b27b-47d4fee9a265,,Evan Gatesman,,complete,,evan gatesman blurry whirling swirl
 1200725314,2008,Open Singles Freestyle,freestyle,1,player,be7a8e7f-f052-5c31-b27b-47d4fee9a265,,Evan Gatesman,,complete,,evan gatesman
 1200725314,2008,Open Singles Freestyle,freestyle,2,player,666a999f-ca5c-5d15-97f4-27abeb8ac5af,,Scott Behmer,,complete,,scott behmer
-1200725314,2008,Open Singles Freestyle,freestyle,2,player,f825bd42-5056-55c5-8a4c-ba0788615e01,,Ben Skaggs,,complete,,ben skaggs
 1200725314,2008,Open Singles Freestyle,freestyle,2,player,f825bd42-5056-55c5-8a4c-ba0788615e01,,Ben Skaggs,,complete,,ben skaggs
 1200725314,2008,Open Singles Freestyle,freestyle,3,player,58bb3c4a-1a60-537d-ba4e-55de294abd8c,,Dustin Rhodes,,complete,,dustin rhodes
 1200725314,2008,Open Singles Freestyle,freestyle,3,player,416e8b3a-f738-5d7f-8e22-89a74a41e538,,Peter Holoien,,complete,,peter holoien paradon swirl
@@ -6947,7 +6943,6 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1203102773,2008,Open Singles Net,net,11,player,3c8f777d-5b9b-5cfb-bc08-b25995b9c02c,,Zeke Ibardaloza,,complete,,zeke ibardaloza
 1203604560,2008,Mini-Net / Foot-C,net,1,player,e528ca88-e462-5870-bd7f-45fb49bfbcfc,,Arthur Ledain,,partial,,arthur ledain aka tutur
 1203604560,2008,Mini-Net / Foot-C,net,2,player,c7a23f15-f2ed-5f2b-ac50-bb1adb185475,,Greg Lima,,partial,,greg lima
-1203604560,2008,Mini-Net / Foot-C,net,3,player,a5c9d383-777c-5f21-9604-6fd1cba79fb4,,Marc Brunet,,partial,,marc brunet lino landau
 1203604560,2008,Mini-Net / Foot-C,net,3,player,a5c9d383-777c-5f21-9604-6fd1cba79fb4,,Marc Brunet,,partial,,marc brunet
 1203604560,2008,Mini-Net / Foot-C,net,4,player,fbf52ca9-ba84-50bc-bce9-0244718c18e7,,Lino Landau,,partial,,lino landau
 1203604560,2008,Mini-Net / Foot-C,net,5,player,4ea3ca6a-daf2-5ea6-aa76-f521e7cac688,,Augustin Tiffou,,partial,,augustin tiffou
@@ -15360,9 +15355,6 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1378666423,2013,Circle,freestyle,1,player,00d8d056-e8a7-5229-97bf-e0cb3b881cd8,,Anssi Sundberg,,complete,,anssi sundberg
 1378666423,2013,Circle,freestyle,1,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,complete,,milan benda
 1378666423,2013,Circle,freestyle,1,player,97d088ee-48f7-5920-b973-94cc1deb0b66,,Juho Marjo,,complete,,juho marjo
-1378666423,2013,Circle,freestyle,1,player,7c74c3f5-dc54-5e47-8365-e84497f4c943,,Aleksi Airinen,,complete,,aleksi airlinen
-1378666423,2013,Circle,freestyle,1,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,complete,,milan bneda
-1378666423,2013,Circle,freestyle,2,player,69667b03-2f4f-55b7-9c2f-79a5b60f362b,,Lauri Airinen,,complete,,lauri airinen superfly swirl
 1378666423,2013,Circle,freestyle,2,player,69667b03-2f4f-55b7-9c2f-79a5b60f362b,,Lauri Airinen,,complete,,lauri airinen
 1378666423,2013,Circle,freestyle,2,player,8e2c07e2-aeb8-5325-be31-ffcc452944ec,,Mikko Lepisto,,complete,,mikko lepisto
 1378666423,2013,Circle,freestyle,2,player,97d088ee-48f7-5920-b973-94cc1deb0b66,,Juho Marjo,,complete,,juho marjo
@@ -24562,7 +24554,6 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 953918475,2000,Pro Single Freestyle,freestyle,3,player,e8b82661-4428-5e51-a786-29bf7a23728f,,Eric Wulff,,complete,,eric wulff
 953918475,2000,Pro Single Freestyle,freestyle,4,player,b63b58da-fe12-59da-92d6-15726472e38b,,Carol Wedemeyer,,complete,,carol wedemeyer
 953918475,2000,Pro Single Freestyle,freestyle,5,player,da2cbc95-e09b-5a22-9baf-00e25552c9b6,,Greg Nelson,,complete,,greg nelson
-953918475,2000,Pro Singles Net,net,1,player,3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c,,Emmanuel Bouchard,,complete,,emannuel bouchard
 953918475,2000,Pro Singles Net,net,1,player,3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c,,Emmanuel Bouchard,,complete,,emmanuel bouchard
 953918475,2000,Pro Singles Net,net,2,player,691f48a0-1dbd-5ef5-99ea-13615a7437d2,,Yves Archambault,,complete,,yves archambault
 953918475,2000,Pro Singles Net,net,3,player,6d50650f-7f41-5484-894f-74986085f48b,,Martin Cote,,complete,,martin cote
@@ -25666,9 +25657,8 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1286381599,2010,Open Doubles,net,4,player,cd277323-fc63-5adf-bb0c-e05ab57a46e8,,Roberto Da Silva,,complete,,roberto da silva
 1286381599,2010,Open Doubles,net,4,player,d79400d9-48d1-532f-9698-d061ff012410,,Reinaldo Pérez,,complete,,reinaldo perez
 1527557123,2018,Open Doubles,net,1,player,cb047679-c1ef-5ab8-8944-999ca66d1ea3,,CARLOS RAMIREZ,,complete,,carlos ramirez
-1527557123,2018,Open Doubles,net,1,player,e5395a41-84fc-5c0f-8d71-1d79a06dddce,,JUAN PALACIOS,,complete,,juan palacios
-1537994275,2018,Open Doubles,freestyle,2,player,cb047679-c1ef-5ab8-8944-999ca66d1ea3,,CARLOS RAMIREZ,,complete,,carlos ramirez
-1537994275,2018,Open Doubles,freestyle,2,player,e5395a41-84fc-5c0f-8d71-1d79a06dddce,,JUAN PALACIOS,,complete,,juan palacios
+1527557123,2018,Open Doubles,net,1,player,e5395a41-84fc-5c0f-8d71-1d79a06dddce,,Juan Palacios Lemos,,complete,,juan palacios lemos
+1537994275,2018,Open Doubles,freestyle,2,player,e5395a41-84fc-5c0f-8d71-1d79a06dddce,,Juan Palacios Lemos,,complete,,juan palacios lemos
 1537994275,2018,Open Doubles,freestyle,3,player,34f7525c-19c0-5557-996f-cf770d365ed0,,ALEJANDRO RODRIGUEZ,,complete,,alejandro rodriguez
 1537994275,2018,Open Doubles,freestyle,3,player,0a48e125-3d2b-5424-9c97-14e593fbdc6f,,ANIBAL MONTES,,complete,,anibal montes
 1549597969,2019,Open Doubles,freestyle,1,player,cb047679-c1ef-5ab8-8944-999ca66d1ea3,,CARLOS RAMIREZ,,complete,,carlos ramirez
