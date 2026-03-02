@@ -76,3 +76,19 @@ githib-pswd.txt
 #####################
 05_make_intermediate_release_v2.py
 06_fixup_workbook_sentinels.py
+# Mirrors / generated artifacts
+mirror_full/
+mirror_out/
+out/
+release_bundle/
+mirror.log
+mirror_progress.json
+
+# Archived identity versions
+inputs/identity_lock_archive/*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
