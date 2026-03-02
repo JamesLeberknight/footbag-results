@@ -178,6 +178,18 @@ QC reports under out/qc_reports/
 
 Final Excel workbook (*.xlsx)
 
+### Workbook Sentinel Closure
+
+If the final workbook contains placement rows bucketed under the
+reserved sentinel identity `__NON_PERSON__`, run:
+
+python tools/06_fixup_workbook_sentinels.py INPUT.xlsx OUTPUT.xlsx
+
+This ensures referential closure between Placements_ByPerson and
+Persons_Truth within the workbook artifact.
+
+This does not modify `Persons_Truth_Final_v31.csv`.
+
 All generated artifacts are reproducible from:
 
 Mirror data
