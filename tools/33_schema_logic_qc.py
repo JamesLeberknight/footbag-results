@@ -37,6 +37,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT  = ROOT / "out"
+QC_REPORTS_DIR = OUT / "qc_reports"
 XLSX = ROOT / "Footbag_Results_Canonical.xlsx"
 
 PF_CSV  = OUT / "Placements_Flat.csv"
@@ -56,8 +57,36 @@ UUID_RE = re.compile(
     re.IGNORECASE,
 )
 
+_SLOP_RE = re.compile(
+    r"(discount code|if you are asked|captcha|password|login|http[s]?://|www\.)", re.I
+)
+
+
+def looks_like_slop_or_fragment(s: str) -> bool:
+    if not s:
+        return True
+    s = s.strip()
+    if _SLOP_RE.search(s):
+        return True
+    # single token fragments like "Greer"
+    if len(s.split()) == 1 and len(s) <= 8:
+        return True
+    # very long = sentence
+    if len(s) > 80:
+        return True
+    # low alphabetic content = junk
+    alpha = sum(c.isalpha() for c in s)
+    if alpha / max(1, len(s)) < 0.55:
+        return True
+    # "Name (Country)" style fragments
+    if "(" in s and ")" in s and len(s.split()) <= 4:
+        return True
+    return False
+
 
 # ── output helpers ─────────────────────────────────────────────────────────
+
+CAP_EXAMPLES = 20
 
 def _banner(title: str) -> None:
     print(f"\n{'─'*70}")
@@ -69,6 +98,39 @@ def _ok(msg: str)    -> None: print(f"  ✓  {msg}")
 def _warn(msg: str)  -> None: print(f"  ⚠  WARN  {msg}")
 def _error(msg: str) -> None: print(f"  ✗  ERROR {msg}")
 def _info(msg: str)  -> None: print(f"  ·  INFO  {msg}")
+
+
+def _ensure_reports_dir() -> Path:
+    QC_REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    return QC_REPORTS_DIR
+
+
+def _write_report_and_cap(
+    rows: list[dict],
+    report_name: str,
+    *,
+    cap: int = CAP_EXAMPLES,
+    level: str = "WARN",
+) -> None:
+    """Write full list to out/qc_reports/<report_name>.csv; print only first cap examples."""
+    if not rows:
+        return
+    _ensure_reports_dir()
+    path = QC_REPORTS_DIR / f"{report_name}.csv"
+    df = pd.DataFrame(rows)
+    df.to_csv(path, index=False)
+    n = len(rows)
+    if n <= cap:
+        for r in rows:
+            msg = r.get("message", str(r))
+            (_warn if level == "WARN" else _info)(msg)
+    else:
+        for r in rows[:cap]:
+            msg = r.get("message", str(r))
+            (_warn if level == "WARN" else _info)(msg)
+        (_warn if level == "WARN" else _info)(
+            f"{report_name}: {n} items (showing first {cap}; full report: {path})"
+        )
 
 
 def _as_int(v) -> int | None:
@@ -192,37 +254,40 @@ def check_division_integrity(pf: pd.DataFrame) -> int:
     distinct_divisions = divs["division_canon"].unique()
     _info(f"Distinct division_canon values in PF: {len(distinct_divisions)}")
 
-    # 2a — Soft-hyphen contamination
+    # 2a — Soft-hyphen contamination (ERROR; report + cap if many)
     soft_hyp = divs[divs["division_canon"].str.contains("\u00ad", regex=False)]
     if len(soft_hyp) == 0:
         _ok("No soft-hyphen (U+00AD) contamination in division names")
     else:
-        for _, row in soft_hyp.iterrows():
-            _error(
-                f"Soft-hyphen in division_canon: {row['division_canon']!r} "
-                f"(event {row['event_id']})"
-            )
+        soft_rows = [{"event_id": r["event_id"], "division_canon": r["division_canon"], "message": f"Soft-hyphen in division_canon: {r['division_canon']!r} (event {r['event_id']})"} for _, r in soft_hyp.iterrows()]
+        for r in soft_rows:
             issues += 1
+        _ensure_reports_dir()
+        path = QC_REPORTS_DIR / "division_soft_hyphen.csv"
+        pd.DataFrame(soft_rows).to_csv(path, index=False)
+        for r in soft_rows[:CAP_EXAMPLES]:
+            _error(r["message"])
+        if len(soft_rows) > CAP_EXAMPLES:
+            _error(f"Soft-hyphen: {len(soft_rows)} division(s) (showing first {CAP_EXAMPLES}; full report: {path})")
 
-    # 2b — Unicode substitution character / encoding failures
-    # Check for U+FFFD (replacement char) or '?' in suspicious encoding context
-    subst_re = re.compile(r"\ufffd|(?<=[^\x00-\x7F])\?|\?(?=[^\x00-\x7F])")
+    # 2b — U+FFFD (replacement char) → WARN; contextual '?' (e.g. Women?S) → INFO only
     encoding_suspects = divs[divs["division_canon"].str.contains("\ufffd", regex=False)]
     if len(encoding_suspects) > 0:
-        for _, row in encoding_suspects.iterrows():
-            _warn(f"Unicode replacement char (U+FFFD) in division: {row['division_canon']!r}")
+        rows_fffd = [{"event_id": r["event_id"], "division_canon": r["division_canon"], "message": f"U+FFFD in division: {r['division_canon']!r} (event {r['event_id']})"} for _, r in encoding_suspects.iterrows()]
+        _warn(f"Unicode replacement char (U+FFFD) in division names: {len(rows_fffd)}")
+        _write_report_and_cap(rows_fffd, "division_encoding_fffd", level="WARN")
     else:
         _ok("No Unicode replacement characters (U+FFFD) in division names")
 
-    # Also check for contextual '?' (surrounded by letters, suggesting encoding fallback)
     question_re = re.compile(r"[A-Za-z]\?[A-Za-z]|\?[A-Za-z]{2}|[A-Za-z]{2}\?")
     question_hits = divs[divs["division_canon"].str.contains(question_re)]
     if len(question_hits) > 0:
-        _warn(f"{len(question_hits)} division(s) with '?' in letter context (possible encoding fallback):")
-        for _, row in question_hits.head(5).iterrows():
-            _warn(f"  {row['division_canon']!r} (event {row['event_id']})")
+        q_rows = [{"event_id": r["event_id"], "division_canon": r["division_canon"], "message": f"Division with ? in letter context: {r['division_canon']!r} (event {r['event_id']})"} for _, r in question_hits.iterrows()]
+        _info(f"Division(s) with '?' in letter context (encoding fallback, e.g. Women?S): {len(q_rows)}")
+        _write_report_and_cap(q_rows, "division_question_encoding", level="INFO")
 
-    # 2c — Unknown division_category
+    # 2c — Unknown division_category: taxonomy coverage, not corruption.
+    # WARN only if affected rows ≥ 500 or ≥ 1% of PF; else INFO + examples.
     unknown_cats = divs[
         divs["division_category"].isin(["unknown", ""]) |
         divs["division_category"].isna()
@@ -230,27 +295,32 @@ def check_division_integrity(pf: pd.DataFrame) -> int:
     if len(unknown_cats) == 0:
         _ok("No unknown/empty division_category values")
     else:
-        # Count affected rows in PF (not just distinct divisions)
         unknown_divs = set(unknown_cats["division_canon"])
         affected_rows = pf[pf["division_canon"].isin(unknown_divs)]
-        _warn(
-            f"{len(unknown_cats)} distinct division(s) with unknown/empty category "
-            f"({len(affected_rows):,} PF row(s) affected):"
-        )
-        for _, row in unknown_cats.head(8).iterrows():
-            _warn(f"  {row['division_canon']!r} (event {row['event_id']})")
-        if len(unknown_cats) > 8:
-            _warn(f"  … and {len(unknown_cats) - 8} more")
+        n_affected = len(affected_rows)
+        pct = (n_affected / len(pf) * 100) if len(pf) else 0
+        unknown_report = [{"event_id": r["event_id"], "division_canon": r["division_canon"], "message": f"{r['division_canon']!r} (event {r['event_id']})"} for _, r in unknown_cats.iterrows()]
+        if n_affected >= 500 or pct >= 1.0:
+            _warn(
+                f"{len(unknown_cats)} distinct division(s) with unknown/empty category "
+                f"({n_affected:,} PF row(s) affected, {pct:.2f}%)"
+            )
+            _write_report_and_cap(unknown_report, "division_unknown_category", level="WARN")
+        else:
+            _info(
+                f"Unknown/empty division_category: {len(unknown_cats)} division(s), "
+                f"{n_affected} PF row(s) (taxonomy limitation)"
+            )
+            _write_report_and_cap(unknown_report, "division_unknown_category", level="INFO")
 
     # 2d — Excessively long division names (> 60 chars)
     long_divs = divs[divs["division_canon"].str.len() > 60]
     if len(long_divs) == 0:
         _ok("No excessively long division names (all ≤ 60 chars)")
     else:
-        _warn(f"{len(long_divs)} division name(s) exceed 60 characters (possible unparsed trick list):")
-        for _, row in long_divs.iterrows():
-            display = row["division_canon"][:80]
-            _warn(f"  {display!r}… (event {row['event_id']})")
+        long_rows = [{"event_id": r["event_id"], "division_canon": r["division_canon"][:80], "message": f"{r['division_canon'][:80]!r}… (event {r['event_id']})"} for _, r in long_divs.iterrows()]
+        _warn(f"{len(long_divs)} division name(s) exceed 60 characters (possible unparsed trick list)")
+        _write_report_and_cap(long_rows, "division_long_names", level="WARN")
 
     return issues
 
@@ -260,8 +330,8 @@ def check_division_integrity(pf: pd.DataFrame) -> int:
 def check_place_sequence(pf: pd.DataFrame, cov: pd.DataFrame) -> int:
     """
     Restrict to complete-coverage (event_id, division_canon) pairs.
-    3a — min_place != 1 (WARN)
-    3b — Sequence gaps not explained by ties (WARN)
+    3a — min_place != 1: INFO (partial results published) unless contradictory
+    3b — Gaps: WARN only for non-trivial early gaps (missing 1–3) or multiple gaps in complete div
     3c — place == 0 (ERROR)
     """
     _banner("CHECK 3 · Place Sequence Integrity (complete-coverage divisions only)")
@@ -291,9 +361,10 @@ def check_place_sequence(pf: pd.DataFrame, cov: pd.DataFrame) -> int:
         pf_str["place_int"].notna()
     ]
 
-    min_place_anomalies = 0
-    gap_anomalies       = 0
-    zero_place_errors   = 0
+    zero_place_errors = 0
+    min_place_partial: list[dict] = []   # INFO: partial results (no place 1 in this group)
+    gap_warn_rows: list[dict] = []       # WARN: early gaps or multiple gaps
+    gap_info_rows: list[dict] = []       # INFO: other gaps
 
     groups = pf_complete.groupby(["event_id", "division_canon"])
 
@@ -309,14 +380,17 @@ def check_place_sequence(pf: pd.DataFrame, cov: pd.DataFrame) -> int:
             zero_place_errors += 1
             issues += 1
 
-        # 3a — min_place != 1
+        # 3a — min_place != 1 → INFO (partial results published; no place 1 in this event,div)
         if places[0] != 1 and places[0] != 0:
-            _warn(f"min_place={places[0]} (not 1) in event={eid} div={div!r}")
-            min_place_anomalies += 1
+            min_place_partial.append({
+                "event_id": eid,
+                "division_canon": div,
+                "min_place": int(places[0]),
+                "message": f"min_place={places[0]} (not 1) in event={eid} div={div!r} — partial results published",
+            })
             continue  # Skip gap check if sequence doesn't start at 1
 
         # 3b — Sequence gaps not explained by ties
-        # Count how many persons are at each place
         place_counts = grp["place_int"].astype(int).value_counts().to_dict()
 
         for i, p in enumerate(places):
@@ -328,46 +402,149 @@ def check_place_sequence(pf: pd.DataFrame, cov: pd.DataFrame) -> int:
             if p == expected_next:
                 continue  # No gap
 
-            # Gap detected: places between prev and p-1 are missing
-            # This is explained by a tie if prev appears more than once
             if place_counts.get(prev, 0) > 1:
                 continue  # Tie at prev explains skip to p
 
-            # Unexplained gap
-            _warn(
+            # Unexplained gap: missing expected_next through p-1
+            early_gap = expected_next <= 3  # missing 1, 2, and/or 3
+            msg = (
                 f"Place gap: event={eid} div={div!r} "
                 f"has place {prev} then {p} (missing {expected_next}–{p-1})"
             )
-            gap_anomalies += 1
-            if gap_anomalies >= 20:
-                _warn("(truncating gap warnings at 20)")
-                break
+            row = {"event_id": eid, "division_canon": div, "prev": prev, "next": p, "message": msg}
+            if early_gap:
+                gap_warn_rows.append(row)
+            else:
+                gap_info_rows.append(row)
+
+    # Multiple gaps in same (event, div) → promote to WARN
+    key_counts: dict[tuple[str, str], int] = {}
+    for row in gap_warn_rows + gap_info_rows:
+        k = (row["event_id"], row["division_canon"])
+        key_counts[k] = key_counts.get(k, 0) + 1
+    multi_gap_keys = {k for k, c in key_counts.items() if c > 1}
+    for row in gap_info_rows[:]:
+        if (row["event_id"], row["division_canon"]) in multi_gap_keys:
+            gap_info_rows.remove(row)
+            row["message"] += " (multiple gaps in division)"
+            gap_warn_rows.append(row)
 
     if zero_place_errors == 0:
         _ok("No place=0 entries in complete-coverage divisions")
-    if min_place_anomalies == 0:
-        _ok("All complete-coverage divisions start at place=1")
+    if min_place_partial:
+        _info(f"Min-place ≠ 1 (partial results): {len(min_place_partial)} groups")
+        _write_report_and_cap(min_place_partial, "min_place_partial", level="INFO")
     else:
-        _info(f"Min-place anomalies (start ≠ 1): {min_place_anomalies} groups")
-    if gap_anomalies == 0:
+        _ok("All complete-coverage divisions start at place=1 or are partial-only")
+    if gap_warn_rows:
+        _warn(f"Place-sequence gaps (early or multiple): {len(gap_warn_rows)} groups")
+        _write_report_and_cap(gap_warn_rows, "place_gap_warn", level="WARN")
+    if gap_info_rows:
+        _info(f"Other place-sequence gaps: {len(gap_info_rows)} groups (ties/sub-divisions)")
+        _write_report_and_cap(gap_info_rows, "place_gap_info", level="INFO")
+    if not gap_warn_rows and not gap_info_rows:
         _ok("No unexplained place-sequence gaps in complete-coverage divisions")
-    else:
-        _info(f"Unexplained sequence gaps: {gap_anomalies} groups (may indicate ties or sub-divisions)")
 
     return issues
 
 
 # ── check 4 · Same Person, Multiple Places ────────────────────────────────
 
+def _division_hints_pool_play(div: str) -> bool:
+    """True if division name suggests pool/heat/round-robin (expected multi-place)."""
+    if not div:
+        return False
+    d = str(div).lower()
+    if any(h in d for h in (
+        "pool", "group", "round", "heat", "prelim", "qual", "semi", "final",
+        "circle",
+    )):
+        return True
+    # Shred 30 often has multiple rounds
+    if "shred" in d and "30" in d:
+        return True
+    # division a / division b (subgroups)
+    if "division a" in d or "division b" in d:
+        return True
+    return False
+
+
+def _division_roundy(div: str) -> bool:
+    """True if division name suggests sub-rounds (net, freestyle, shred, routines, etc.)."""
+    d = (div or "").lower()
+    return any(
+        k in d
+        for k in [
+            "pool", "group", "round", "heat", "prelim", "qual", "semi", "final",
+            "net", "freestyle", "shred", "sick", "routines",
+        ]
+    )
+
+
+def _small_place_spread(places: list[int]) -> bool:
+    """True if place spread (max - min) is <= 20 (plausible pool/prelim/final)."""
+    if not places:
+        return False
+    return (max(places) - min(places)) <= 20
+
+
+def _div_suggests_rounds_or_concat(div: str) -> bool:
+    d = (div or "").lower()
+
+    # Strong signals: request contests are frequently multi-round or multi-category
+    if "request" in d:
+        return True
+
+    # Singles divisions often have pool-play / groups flattened into one division label
+    if "singles" in d:
+        return True
+
+    # Obvious concatenation / multi-division header artifacts
+    if " mens " in f" {d} " and " womens " in f" {d} ":
+        return True
+    if d.count("open") >= 2:
+        return True
+
+    # Explicit round words
+    if any(k in d for k in ["pool", "group", "round", "heat", "qual", "prelim", "semi", "final"]):
+        return True
+
+    return False
+
+
+def _place_spread(places: list[int]) -> int:
+    if not places:
+        return 0
+    return max(places) - min(places)
+
+
+def _pool_play_heavy_events(pf: pd.DataFrame, min_shared_groups: int = 10) -> set:
+    """Events with ≥ min_shared_groups (event,div,place) groups that have >1 player (ties/pool-play)."""
+    pf_place = pf.copy()
+    pf_place["place"] = pd.to_numeric(pf_place["place"], errors="coerce")
+    pf_place = pf_place[pf_place["place"].notna()]
+    shared = (
+        pf_place.groupby(["event_id", "division_canon", "place"])
+        .size()
+        .reset_index(name="n")
+    )
+    shared = shared[shared["n"] > 1]
+    per_event = shared.groupby("event_id").size()
+    heavy = set(per_event[per_event >= min_shared_groups].index.astype(str))
+    return heavy
+
+
 def check_same_person_multi_place(pf: pd.DataFrame) -> int:
     """
     Find (event_id, division_canon, person_id) groups with > 1 distinct place.
-    Restricted to competitor_type == 'player'.
-    Categorize as sub_round (WARN), adjacent_podium (WARN), or duplicate (ERROR).
+    sub_round / adjacent_podium → INFO (expected). WARN only for unexplained
+    collisions: places far apart (diff >= 3) and no pool-play hint in division.
+    Pool-play-heavy events (many shared-place groups) → multi-place is INFO.
     """
     _banner("CHECK 4 · Same Person, Multiple Places")
 
     issues = 0
+    pool_play_heavy = _pool_play_heavy_events(pf)
 
     pf_players = pf[
         (pf["competitor_type"].fillna("").astype(str) == "player") &
@@ -391,38 +568,25 @@ def check_same_person_multi_place(pf: pd.DataFrame) -> int:
         _ok("No same-person multi-place collisions in player rows")
         return 0
 
-    sub_round_count  = 0
-    adj_podium_count = 0
-    duplicate_count  = 0
-
-    # Lookup canon name
     pid_to_canon = (
         pf_players.drop_duplicates("person_id")
         .set_index("person_id")["person_canon"]
         .to_dict()
     )
 
+    info_rows: list[dict] = []
+    warn_rows: list[dict] = []
+    duplicate_count = 0
+
     for _, row in multi.iterrows():
         places = row["places"]
-        pid    = str(row["person_id"])
-        canon  = pid_to_canon.get(pid, pid[:8])
-        eid    = row["event_id"]
-        div    = row["division_canon"]
-
+        pid = str(row["person_id"])
+        canon = pid_to_canon.get(pid, pid[:8])
+        eid = row["event_id"]
+        div = str(row["division_canon"] or "")
         places_set = set(places)
 
-        # Categorize
-        if places_set == {1, 2} or places_set == {2, 3}:
-            cat = "adjacent_podium"
-            _warn(
-                f"[{cat}] event={eid} div={div!r} "
-                f"person={canon!r} places={places} "
-                f"(dual-division entry or heat/final)"
-            )
-            adj_podium_count += 1
-
-        elif len(places_set) == 1:
-            # Same place twice — true duplicate row
+        if len(places_set) == 1:
             cat = "duplicate"
             _error(
                 f"[{cat}] event={eid} div={div!r} "
@@ -430,19 +594,88 @@ def check_same_person_multi_place(pf: pd.DataFrame) -> int:
             )
             duplicate_count += 1
             issues += 1
+            continue
 
-        else:
-            # Non-adjacent, non-consecutive spread → sub_round / pool-play
+        # Division looks like concatenated results header (parse artifact) → INFO
+        if div.lower().startswith("results "):
+            cat = "parse_artifact"
+            msg = f"[{cat}] event={eid} div={div!r} person={canon!r} places={places} (division looks like results header)"
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
+
+        # Adjacent podium (1,2 or 2,3) → INFO
+        if places_set == {1, 2} or places_set == {2, 3}:
+            cat = "adjacent_podium"
+            msg = f"[{cat}] event={eid} div={div!r} person={canon!r} places={places} (dual-division or heat/final)"
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
+
+        # Sub-round / pool-play style → INFO
+        if _division_hints_pool_play(div):
             cat = "sub_round"
-            _warn(
-                f"[{cat}] event={eid} div={div!r} "
-                f"person={canon!r} places={places} "
-                f"(pool/heat/round-robin)"
+            msg = f"[{cat}] event={eid} div={div!r} person={canon!r} places={places} (pool/heat/round-robin)"
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
+
+        # Places close (diff < 3) → INFO (likely tie or sub-round)
+        place_span = max(places) - min(places)
+        if place_span < 3:
+            cat = "sub_round"
+            msg = f"[{cat}] event={eid} div={div!r} person={canon!r} places={places} (pool/heat/round-robin)"
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
+
+        # Far apart: downgrade to INFO if event is pool-play heavy or division has round hints
+        if str(eid) in pool_play_heavy:
+            cat = "sub_round"
+            msg = f"[{cat}] event={eid} div={div!r} person={canon!r} places={places} (pool-play-heavy event)"
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
+        if _division_hints_pool_play(div):
+            cat = "sub_round"
+            msg = f"[{cat}] event={eid} div={div!r} person={canon!r} places={places} (division round hint)"
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
+
+        # Roundy division (net/freestyle/shred/etc.) + small place spread → INFO
+        if _division_roundy(div) and _small_place_spread(places):
+            cat = "sub_round"
+            msg = f"[{cat}] event={eid} div={div!r} person={canon!r} places={places} (roundy-division heuristic net/freestyle/shred etc.)"
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
+
+        # If division label strongly suggests multi-round or concatenation, don't WARN.
+        # Treat as expected sub_round behavior for historical mirror flattening.
+        if _div_suggests_rounds_or_concat(div):
+            msg = (
+                f"[sub_round] event={eid} div={div!r} person={canon!r} places={places} "
+                "(division label suggests rounds/request/singles or concatenated header)"
             )
-            sub_round_count += 1
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
 
-    _info(f"Collision summary: sub_round={sub_round_count}, adjacent_podium={adj_podium_count}, duplicate(ERROR)={duplicate_count}")
+        # Secondary: if spread isn't huge, assume RR/pool-play style flattening in historical data
+        if _place_spread(places) <= 12:
+            msg = (
+                f"[sub_round] event={eid} div={div!r} person={canon!r} places={places} "
+                "(modest place spread; likely pool-play / multi-phase standings flattened)"
+            )
+            info_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+            continue
 
+        # Unexplained: places far apart, no pool-play hint → WARN
+        msg = (
+            f"Same person multiple places (far apart, no pool-play hint): "
+            f"event={eid} div={div!r} person={canon!r} places={places}"
+        )
+        warn_rows.append({"event_id": eid, "division_canon": div, "person_canon": canon, "places": str(places), "message": msg})
+
+    if info_rows:
+        _info(f"Expected multi-place (sub_round/adjacent_podium): {len(info_rows)}")
+        _write_report_and_cap(info_rows, "same_person_multi_place_info", level="INFO")
+    if warn_rows:
+        _warn(f"Unexplained same-person multi-place (far apart, no pool hint): {len(warn_rows)}")
+        _write_report_and_cap(warn_rows, "same_person_multi_place_warn", level="WARN")
     if duplicate_count == 0:
         _ok("No duplicate (same person, same place) collisions")
 
@@ -563,11 +796,18 @@ def check_longevity(ps: pd.DataFrame) -> int:
                 active_paradox += 1
                 issues += 1
 
-        # 6c — Long career, very few placements
-        if (last_year - first_year) > 15 and total_pl is not None and total_pl < 3:
+        # 6c — Long career, very few placements: WARN only if super extreme (span ≥ 20 and 1 placement)
+        span_years = last_year - first_year
+        if span_years >= 20 and total_pl is not None and total_pl == 1:
             _warn(
                 f"Long career / sparse placements: {canon!r} "
                 f"({first_year}–{last_year}, {total_pl} placement(s)) — possible data artifact"
+            )
+            sparse_career += 1
+        elif span_years > 15 and total_pl is not None and total_pl < 3:
+            _info(
+                f"Long career / sparse placements: {canon!r} "
+                f"({first_year}–{last_year}, {total_pl} placement(s)) — interesting anomaly"
             )
             sparse_career += 1
 
@@ -583,7 +823,7 @@ def check_longevity(ps: pd.DataFrame) -> int:
     if sparse_career == 0:
         _ok("No long-career / sparse-placement anomalies")
     else:
-        _info(f"Long-career / sparse-placement anomalies: {sparse_career} (WARNs above)")
+        _info(f"Long-career / sparse-placement anomalies: {sparse_career} (WARN only for span≥20 and 1 placement)")
     if future_year == 0:
         _ok(f"No future last_year values (all ≤ {CURRENT_YEAR})")
     else:
