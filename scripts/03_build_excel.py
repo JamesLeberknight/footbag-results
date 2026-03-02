@@ -13,15 +13,20 @@ Output: Footbag_Results_Canonical.xlsx
 
 from __future__ import annotations
 
-import csv
+from pathlib import Path
 import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+import csv
 import json
 import re
 import string
 import hashlib
 import unicodedata
 from copy import copy
-from pathlib import Path
 from typing import Optional
 from collections import defaultdict
 
@@ -29,12 +34,15 @@ import pandas as pd
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment, Font
 
+OUT_DIR = REPO_ROOT / "out"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
 # Import master QC orchestrator
 try:
-    from qc_master import run_qc_for_stage, print_qc_summary
+    from qc import qc_master
     USE_MASTER_QC = True
 except ImportError:
-    print("Warning: Could not import qc_master, Stage 3 QC will not run")
+    print("Warning: Could not import qc.qc_master, Stage 3 QC will not run")
     USE_MASTER_QC = False
 
 
@@ -71,7 +79,7 @@ def load_alias_map(path):
     return alias_map
 
 
-ALIAS_MAP = load_alias_map("out/person_alias_map_bootstrap.csv")
+ALIAS_MAP = load_alias_map(OUT_DIR / "person_alias_map_bootstrap.csv")
 
 
 def sanitize_excel_strings(df: pd.DataFrame) -> pd.DataFrame:
@@ -1308,8 +1316,8 @@ def write_excel(
                 ws.auto_filter.ref = ws.dimensions
 
         # Build QC_TopIssues sheet: from QC output files
-        qc_summary_path = Path(__file__).resolve().parent / "out" / "stage3_qc_summary.json"
-        qc_issues_path = Path(__file__).resolve().parent / "out" / "stage3_qc_issues.jsonl"
+        qc_summary_path = OUT_DIR / "stage3_qc_summary.json"
+        qc_issues_path = OUT_DIR / "stage3_qc_issues.jsonl"
         
         if qc_summary_path.exists() and qc_issues_path.exists():
             try:
@@ -1464,8 +1472,7 @@ def write_excel(
             cell.alignment = a
 
     # Save event_locator map for downstream hyperlinks (Stage 04)
-    locator_path = Path(out_xlsx).parent / "out" / "event_locator.json"
-    locator_path.parent.mkdir(exist_ok=True)
+    locator_path = OUT_DIR / "event_locator.json"
     with open(locator_path, "w", encoding="utf-8") as f:
         json.dump(event_locator, f)
 
@@ -1524,24 +1531,22 @@ def main():
     """
     Read stage2 CSV and output final Excel workbook.
     """
-    repo_dir = Path(__file__).resolve().parent
-    out_dir = repo_dir / "out"
-    in_csv = out_dir / "stage2_canonical_events.csv"
-    out_xlsx = repo_dir / "Footbag_Results_Canonical.xlsx"
+    in_csv = OUT_DIR / "stage2_canonical_events.csv"
+    out_xlsx = REPO_ROOT / "Footbag_Results_Canonical.xlsx"
 
     # Unresolved persons: prefer triage file if present (from 04 or manual)
-    unresolved_triage = out_dir / "Persons_Unresolved_Triage.csv"
-    unresolved_base = out_dir / "Persons_Unresolved.csv"
+    unresolved_triage = OUT_DIR / "Persons_Unresolved_Triage.csv"
+    unresolved_base = OUT_DIR / "Persons_Unresolved.csv"
     df_unresolved = _read_optional_csv(unresolved_triage)
     if df_unresolved.empty:
         df_unresolved = _read_optional_csv(unresolved_base)
 
-    players_csv = out_dir / "stage2p5_players_clean.csv"
+    players_csv = OUT_DIR / "stage2p5_players_clean.csv"
     players_df = None
     if players_csv.exists():
         players_df = pd.read_csv(players_csv)
     else:
-        print(f"Warning: Stage 2.5 players file not found: {players_csv} (falling back to placement-derived Players)")
+        print(f"Info: No stage2p5 players file at {players_csv}; using placement-derived Players.")
 
     if not in_csv.exists():
         print(f"ERROR: Input file not found: {in_csv}")
@@ -1561,7 +1566,7 @@ def main():
             results_map[str(eid)] = format_results_from_placements(placements, players_by_id)
 
     # Placements_Flat must exist (person_id-enriched from 02p5); do not overwrite
-    placements_flat_csv = out_dir / "Placements_Flat.csv"
+    placements_flat_csv = OUT_DIR / "Placements_Flat.csv"
     if not placements_flat_csv.exists():
         print(f"ERROR: Missing required {placements_flat_csv}. Run 02p5 to generate it.", file=sys.stderr)
         return
@@ -1569,7 +1574,7 @@ def main():
     df_placements_flat = pd.read_csv(placements_flat_csv)
     print(f"Loaded {placements_flat_csv} ({len(df_placements_flat)} rows)")
 
-    location_canon_csv = out_dir / "location_canon_full_final.csv"
+    location_canon_csv = OUT_DIR / "location_canon_full_final.csv"
     location_lookup = load_location_canon(location_canon_csv)
     print(f"Loaded {len(location_lookup)} canonical locations")
 
@@ -1578,10 +1583,10 @@ def main():
 
     # Run Stage 3 QC on Excel workbook data
     if USE_MASTER_QC:
-        qc_summary, qc_issues = run_qc_for_stage(
-            "stage3", records, results_map=results_map, players_by_id=players_by_id, out_dir=out_dir
+        qc_summary, qc_issues = qc_master.run_qc_for_stage(
+            "stage3", records, results_map=results_map, players_by_id=players_by_id, out_dir=OUT_DIR
         )
-        print_qc_summary(qc_summary, "stage3")
+        qc_master.print_qc_summary(qc_summary, "stage3")
     else:
         print("Skipping Stage 3 QC (qc_master not available)")
 

@@ -30,6 +30,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 # Stage 1 fieldnames (must match 01_parse_mirror.py)
 STAGE1_FIELDNAMES = [
@@ -37,12 +38,16 @@ STAGE1_FIELDNAMES = [
     "year",
     "source_path",
     "source_url",
+    "source_file",
+    "source_layer",
     "event_name_raw",
     "date_raw",
     "location_raw",
     "host_club_raw",
     "event_type_raw",
     "results_block_raw",
+    "results_lines_n",
+    "has_results",
     "html_parse_notes",
     "html_warnings",
 ]
@@ -89,6 +94,17 @@ def _clean(s: str) -> str:
     # normalize runs of spaces on a single line, but preserve newlines at caller level
     s = re.sub(r"[ \t]+", " ", s)
     return s.strip()
+
+
+# Count placement lines in results_block_raw produced by this importer.
+# Matches "1. Name", "2. Name", etc. (our canonical output format)
+RE_PLACE_DOT_LINE = re.compile(r"^\s*\d+\.\s+\S", re.MULTILINE)
+
+
+def compute_results_lines_n(results_block_raw: str) -> int:
+    if not results_block_raw:
+        return 0
+    return len(RE_PLACE_DOT_LINE.findall(results_block_raw))
 
 
 # --------------------------------------------------------------------
@@ -479,17 +495,31 @@ def build_stage1_rows_from_old_results(
         # merged line span for traceability
         src = f"{txt_path.name}#L{m['start_line']}-{m['end_line']}"
 
+        n_lines = compute_results_lines_n(results_block_raw)
+
         row = {
             "event_id": eid,
-            "year": year,
+            "year": str(year),
+
+            # traceability
             "source_path": src,
-            "source_url": f"local:{txt_path.name}",
+            "source_url": "",                 # keep blank (no real URL); avoids downstream "url-like" confusion
+            "source_file": txt_path.name,     # "OLD_RESULTS.txt"
+            "source_layer": "old_results",
+
+            # raw fields
             "event_name_raw": _make_event_name(year, m["org_raw"]),
             "date_raw": "",
             "location_raw": "",
             "host_club_raw": "",
             "event_type_raw": event_type_raw,
+
+            # results
             "results_block_raw": results_block_raw,
+            "results_lines_n": str(n_lines),
+            "has_results": "True" if n_lines > 0 else "False",
+
+            # notes / warnings
             "html_parse_notes": "; ".join(parse_notes),
             "html_warnings": "; ".join(warnings),
         }
@@ -515,18 +545,23 @@ def build_stage1_rows_from_old_results(
 def write_stage1_csv(rows: List[dict], out_path: Path) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=STAGE1_FIELDNAMES, extrasaction="ignore")
+        w = csv.DictWriter(f, fieldnames=STAGE1_FIELDNAMES, extrasaction="raise")
         w.writeheader()
         w.writerows(rows)
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Import OLD_RESULTS.txt into stage1_raw_events-shaped CSV.")
-    ap.add_argument("--in", dest="in_path", default="OLD_RESULTS.txt", help="Path to OLD_RESULTS.txt")
+    ap.add_argument(
+        "--old-results",
+        dest="old_results_path",
+        default=str(REPO_ROOT / "OLD_RESULTS.txt"),
+        help="Path to OLD_RESULTS.txt (default: <repo_root>/OLD_RESULTS.txt)",
+    )
     ap.add_argument("--out", dest="out_path", default="out/stage1_raw_events_old.csv", help="Output CSV path")
     args = ap.parse_args()
 
-    in_path = Path(args.in_path)
+    in_path = Path(args.old_results_path)
     out_path = Path(args.out_path)
 
     if not in_path.exists():

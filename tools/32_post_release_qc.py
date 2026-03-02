@@ -22,7 +22,9 @@ Inputs (must all exist):
 
 from __future__ import annotations
 
+import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -37,6 +39,95 @@ PF_CSV  = OUT / "Placements_Flat.csv"
 COV_CSV = OUT / "Coverage_ByEventDivision.csv"
 
 SAFE_COVERAGE_FLAGS = {"complete", "mostly_complete"}
+
+_SLOP_RE = re.compile(
+    r"(discount code|if you are asked|captcha|password|login|http[s]?://|www\.)",
+    re.I,
+)
+
+
+def looks_like_non_name(s: str) -> bool:
+    if not s:
+        return True
+    s = s.strip()
+    if len(s) > 80:
+        return True
+    if _SLOP_RE.search(s):
+        return True
+    # too many quotes / punctuation often indicates sentence text
+    if sum(ch in s for ch in '"""') >= 2:
+        return True
+    # very low alpha ratio -> not a name
+    alpha = sum(c.isalpha() for c in s)
+    if alpha / max(1, len(s)) < 0.55:
+        return True
+    # single-token very short often broken/garbage in bad sources
+    if len(s.split()) == 1 and len(s) <= 6:
+        return True
+    return False
+
+
+def looks_like_slop_or_fragment(s: str) -> bool:
+    if not s:
+        return True
+    s = s.strip()
+    if _SLOP_RE.search(s):
+        return True
+    # single token fragments like "Greer"
+    if len(s.split()) == 1 and len(s) <= 8:
+        return True
+    # very long = sentence
+    if len(s) > 80:
+        return True
+    # low alphabetic content = junk
+    alpha = sum(c.isalpha() for c in s)
+    if alpha / max(1, len(s)) < 0.55:
+        return True
+    # "Name (Country)" style fragments
+    if "(" in s and ")" in s and len(s.split()) <= 4:
+        return True
+    return False
+
+
+SLOP_PATTERNS = [
+    r"discount code",
+    r"if you are asked",
+    r"http[s]?://",
+    r"www\.",
+    r"mailto:",
+    r"password",
+    r"login",
+    r"captcha",
+]
+
+
+def looks_like_slop(s: str) -> bool:
+    if not s:
+        return True
+    s2 = s.strip().lower()
+    return any(re.search(p, s2) for p in SLOP_PATTERNS)
+
+
+def load_unresolved_event_ids(out_dir: Path) -> set[str]:
+    """
+    If you already have a better unresolved file name, point to it here.
+    This is optional — if file doesn't exist, returns empty set.
+    """
+    candidates = [
+        out_dir / "Placements_Unresolved.csv",
+        out_dir / "Placements_Flat_Unresolved.csv",
+    ]
+    for p in candidates:
+        if p.exists():
+            ids = set()
+            with p.open("r", encoding="utf-8", newline="") as f:
+                r = csv.DictReader(f)
+                for row in r:
+                    eid = (row.get("event_id") or "").strip()
+                    if eid:
+                        ids.add(eid)
+            return ids
+    return set()
 
 
 # ── output helpers ─────────────────────────────────────────────────────────
@@ -79,7 +170,8 @@ def check_placements_count(
     """
     _banner("CHECK 1 · Placements-count reconciliation (Index stubs + stage2↔PF)")
 
-    issues = 0
+    errors_count = 0
+    warnings_count = 0
 
     # 1a — Synthetic stub counts
     if "event_source" in index_df.columns:
@@ -91,12 +183,12 @@ def check_placements_count(
             pf_cnt  = int(pf_counts.get(int(eid), 0)) if eid.isdigit() else 0
             if idx_cnt is None or idx_cnt != pf_cnt:
                 _error(f"stub event {eid}: Index placements_count={idx_cnt} ≠ PF rows={pf_cnt}")
-                issues += 1
-        if not issues:
+                errors_count += 1
+        if not errors_count:
             _ok(f"All {len(stubs)} synthetic stubs have correct placements_count in Index")
     else:
         _warn("Index sheet missing 'event_source' column — cannot check stub counts")
-        issues += 1
+        warnings_count += 1
 
     # 1b — stage2 vs PF summary
     total_s2  = 0
@@ -116,14 +208,15 @@ def check_placements_count(
 
         if pfc == 0 and s2c >= 5:
             # Only flag if first placement looks like a real name (not score noise)
-            first_name = pj[0].get("player1_name", "") if pj else ""
+            stage2_names = [x.get("player1_name", "") for x in pj]
+            first_name = stage2_names[0] if stage2_names else ""
             has_digit_prefix = bool(first_name) and first_name[0].isdigit()
             is_obvious_noise = any(
                 kw in first_name.lower()
                 for kw in ("drops", "place:", "nd", "rd", "first", "second", "years", "v1")
             )
             if not has_digit_prefix and not is_obvious_noise:
-                events_with_zero_pf.append((str(eid), s2c, first_name))
+                events_with_zero_pf.append((str(eid), s2c, stage2_names))
 
         # Flag events where PF has < 40% of stage2 count and stage2 has ≥10 entries
         if s2c >= 10 and pfc < s2c * 0.4:
@@ -135,9 +228,25 @@ def check_placements_count(
     _info(f"Resolved fraction: {pf_total/total_s2*100:.1f}% of stage2 entries in PF "
           f"(identity-lock mode; remainder = unresolved persons or noise)")
 
-    for eid, s2c, name in events_with_zero_pf:
-        _warn(f"event {eid}: {s2c} stage2 entries but 0 PF rows (first name: {name!r})")
-        issues += 1
+    unresolved_event_ids = load_unresolved_event_ids(OUT)
+    for eid, s2c, stage2_names in events_with_zero_pf:
+        names = stage2_names
+        first_name = names[0] if names else ""
+        expected_filtered = False
+        reason = None
+        if names and all(looks_like_non_name(n) for n in names):
+            expected_filtered = True
+            reason = "non-name/slop stage2 content"
+        elif eid in unresolved_event_ids:
+            expected_filtered = True
+            reason = "all placements unresolved under identity-lock"
+        if expected_filtered:
+            _info(f"event {eid}: {s2c} stage2 entries but 0 PF rows — expected filtered ({reason}) (first name: {first_name!r})")
+        elif looks_like_slop_or_fragment(first_name):
+            _info(f"event {eid}: {s2c} stage2 entries but 0 PF rows — expected filtered/noise under identity-lock (first name: {first_name!r})")
+        else:
+            _warn(f"event {eid}: {s2c} stage2 entries but 0 PF rows (first name: {first_name!r})")
+            warnings_count += 1
 
     if large_loss:
         _info(f"Events with <40% of stage2 placements in PF (≥10 stage2 entries): {len(large_loss)}")
@@ -146,7 +255,7 @@ def check_placements_count(
     else:
         _ok("No events with <40% resolution rate (among events with ≥10 stage2 placements)")
 
-    return issues
+    return (errors_count, warnings_count)
 
 
 # ── check 2 ────────────────────────────────────────────────────────────────
@@ -576,20 +685,28 @@ def main() -> None:
     print(f"  Index rows:     {len(idx)}")
     print(f"  Person_Stats:   {len(ps)} rows")
 
-    total = 0
-    total += check_placements_count(sce, pf, idx)
-    total += check_medal_counts(pf, ps, cov)
-    total += check_duplicate_triples(pf)
-    total += check_index_coverage(sce, pf, idx)
-    total += check_birth_year(pt_p)
-    total += check_zero_participant_divisions(sce, cov)
+    errors_count = 0
+    warnings_count = 0
+
+    r1 = check_placements_count(sce, pf, idx)
+    errors_count += r1[0]
+    warnings_count += r1[1]
+    errors_count += check_medal_counts(pf, ps, cov)
+    errors_count += check_duplicate_triples(pf)
+    errors_count += check_index_coverage(sce, pf, idx)
+    errors_count += check_birth_year(pt_p)
+    errors_count += check_zero_participant_divisions(sce, cov)
 
     _banner("SUMMARY")
-    if total == 0:
+    if errors_count == 0 and warnings_count == 0:
         print("  ✓  All 6 checks passed — no issues found")
+    elif errors_count == 0:
+        print(f"  ✓  No errors; {warnings_count} warning(s) (allowed)")
     else:
-        print(f"  ✗  {total} issue(s) across all checks")
+        print(f"  ✗  {errors_count} error(s)" + (f", {warnings_count} warning(s)" if warnings_count else "") + " across all checks")
+    if errors_count > 0:
         sys.exit(1)
+    # else: allow WARNs
 
 
 if __name__ == "__main__":

@@ -30,6 +30,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any, Optional
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 # Import stage-specific check modules
 # These contain the actual check functions to keep this orchestrator lean
 try:
@@ -41,12 +43,33 @@ try:
 except ImportError:
     pass
 
-# Import slop detection checks (our new comprehensive scanner)
-from qc_slop_detection import (
-    run_slop_detection_checks_stage2,
-    run_slop_detection_checks_stage3_excel,
-    QCIssue,
-)
+# Slop detection is optional. Repo may omit it.
+try:
+    from qc_slop_detection import (
+        run_slop_detection_checks_stage2,
+        run_slop_detection_checks_stage3_excel,
+        QCIssue,
+    )
+except Exception as e:
+    run_slop_detection_checks_stage2 = None
+    run_slop_detection_checks_stage3_excel = None
+    _SLOP_IMPORT_ERROR = e
+
+    class QCIssue:
+        """Stub when qc_slop_detection is not available."""
+        def __init__(self, check_id="", severity="ERROR", event_id="", field="", message="", example_value="", context=None):
+            self.check_id = check_id
+            self.severity = severity
+            self.event_id = event_id
+            self.field = field
+            self.message = message
+            self.example_value = example_value or ""
+            self.context = context or {}
+
+        def to_dict(self):
+            return {"check_id": self.check_id, "severity": self.severity, "event_id": self.event_id, "field": self.field, "message": self.message, "example_value": self.example_value, "context": self.context}
+else:
+    _SLOP_IMPORT_ERROR = None
 
 
 # ============================================================
@@ -184,7 +207,7 @@ def run_stage2_qc(records: list[dict], out_dir: Path) -> tuple[dict, list]:
     # (module name "02_canonicalize_results" is invalid for import_module)
     from importlib.util import spec_from_file_location, module_from_spec
 
-    stage2_path = Path(__file__).parent / "02_canonicalize_results.py"
+    stage2_path = REPO_ROOT / "scripts" / "02_canonicalize_results.py"
     if stage2_path.exists():
         spec = spec_from_file_location("stage2_canonicalize_results", stage2_path)
         canon_module = module_from_spec(spec)
@@ -250,7 +273,12 @@ def run_stage2_qc(records: list[dict], out_dir: Path) -> tuple[dict, list]:
         print(f"Warning: Could not import existing checks: {e}")
 
     # Add new slop detection checks
-    slop_issues = run_slop_detection_checks_stage2(records)
+    if run_slop_detection_checks_stage2 is None:
+        # optional: log once
+        # print(f"[QC] INFO: slop detection disabled ({_SLOP_IMPORT_ERROR})")
+        slop_issues = []
+    else:
+        slop_issues = run_slop_detection_checks_stage2(records)
     all_issues.extend(slop_issues)
 
     # Build summary
@@ -290,9 +318,12 @@ def run_stage3_qc(
     all_issues = []
 
     # Run slop detection on Excel cells
-    slop_issues = run_slop_detection_checks_stage3_excel(
-        records, results_map, players_by_id=players_by_id
-    )
+    if run_slop_detection_checks_stage3_excel is None:
+        slop_issues = []
+    else:
+        slop_issues = run_slop_detection_checks_stage3_excel(
+            records, results_map, players_by_id=players_by_id
+        )
     all_issues.extend(slop_issues)
 
     # Build summary

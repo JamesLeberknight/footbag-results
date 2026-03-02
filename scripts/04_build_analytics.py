@@ -19,12 +19,20 @@ No guessing: if person_id missing, falls back to player_id.
 
 from __future__ import annotations
 
+from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+OUT_DIR = REPO_ROOT / "out"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
 import csv
 import re
-import sys
 import uuid
 import unicodedata
-from pathlib import Path
 from typing import Optional, Tuple
 
 import pandas as pd
@@ -33,10 +41,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.styles import Alignment, Font, PatternFill
 import json
 
-try:
-    from qc_common import PERSONS, PLACEMENTS  # legacy (root)
-except ImportError:
-    from qc.qc_common import PERSONS, PLACEMENTS  # new layout (qc/)
+from qc.qc_common import PERSONS, PLACEMENTS
 
 # GATE 2 COVERAGE THRESHOLDS — do not change casually; changing these alters
 # the meaning of all historical coverage annotations in downstream artifacts.
@@ -734,6 +739,11 @@ def is_presentable_person_canon(s: str) -> bool:
     t = unicodedata.normalize("NFKC", s).strip()
     if not t:
         return False
+
+    # Allow pipeline sentinel used for classified non-person rows.
+    # This keeps referential integrity for analytics while remaining explicit.
+    if t == "__NON_PERSON__":
+        return True
 
     # hard rejects
     if _RE_SEPARATORS.search(t):
@@ -2278,8 +2288,8 @@ def main() -> int:
                         help="Overwrite Persons_Truth even if persons_truth.lock exists")
     args = parser.parse_args()
 
-    repo = Path(__file__).resolve().parent
-    out_dir = repo / "out"
+    repo = REPO_ROOT
+    out_dir = OUT_DIR
     overrides_dir = repo / "overrides"
 
     # Gate 3: sentinel file check — lock is written automatically after Gate 3 PASS
@@ -2426,6 +2436,9 @@ def main() -> int:
     division_stats = build_division_stats(pf, out_dir)
     person_by_cat = build_person_stats_by_div_category(per_covered)
     top_unmapped_people, top_unmapped_noise = build_top_unmapped_names(pf)
+
+    # Build once so FINAL referential-integrity check can use placements person_canon before writing Persons_Truth
+    placements_by_person_df = build_placements_by_person_clean(pf, cov_df, out_dir)
 
     if not skip_identity_overwrite:
         aliases_csv = repo / "overrides" / "person_aliases.csv"
@@ -2574,8 +2587,6 @@ def main() -> int:
         if len(persons_truth_dupe_quarantine) > 0:
             persons_truth_dupe_quarantine = persons_truth_dupe_quarantine.copy()
             persons_truth_dupe_quarantine["exclude_reason"] = "duplicate_person_canon"
-            out_dir = repo / "out"
-            out_dir.mkdir(exist_ok=True)
             persons_truth_dupe_quarantine.to_csv(out_dir / "Persons_DuplicateDisplay.csv", index=False)
 
         # Split on canon conflicts: write only clean Persons_Truth; quarantined rows go to unresolved
@@ -2590,8 +2601,16 @@ def main() -> int:
         persons_truth_full_out = persons_truth_full.copy()
 
         # ---- Persist definitive CSV artifacts (deterministic) ----
-        out_dir = repo / "out"
-        out_dir.mkdir(exist_ok=True)
+        # --- FINAL referential integrity enforcement ---
+        df_pbp = placements_by_person_df
+        df_pt = persons_truth
+        if "__NON_PERSON__" in set(df_pbp["person_canon"].astype(str).str.strip()):
+            if "__NON_PERSON__" not in set(df_pt["person_canon"].astype(str).str.strip()):
+                df_pt = pd.concat(
+                    [df_pt, pd.DataFrame([_mk_truth_row_from_canon("__NON_PERSON__")])],
+                    ignore_index=True
+                )
+                persons_truth = df_pt
 
         persons_truth.to_csv(PERSONS, index=False)
 
@@ -2611,8 +2630,7 @@ def main() -> int:
         persons_truth_display = persons_truth[persons_truth_display_cols].copy()
         persons_public = persons_truth_display[["person_canon", "aliases_presentable"]].copy()
 
-    # Build clean competitor-centric Placements_ByPerson (new schema)
-    placements_by_person_df = build_placements_by_person_clean(pf, cov_df, out_dir)
+    # Placements_ByPerson already built above for FINAL referential-integrity check
     persons_unresolved_df = build_persons_unresolved(pf, per_all, out_dir)
     # Workbook uses triaged version for Persons_Unresolved sheet when available
     df_unresolved = read_csv_optional(out_dir / "Persons_Unresolved_Triage.csv")
@@ -2752,7 +2770,7 @@ def main() -> int:
             del wb[name]
 
     # ---- Add hyperlinks from Placements_ByPerson event_id → year sheets ----
-    locator_path = repo / "out" / "event_locator.json"
+    locator_path = OUT_DIR / "event_locator.json"
     if locator_path.exists() and "Placements_ByPerson" in wb.sheetnames:
         with open(locator_path, encoding="utf-8") as f:
             event_locator = json.load(f)

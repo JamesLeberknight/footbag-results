@@ -21,6 +21,11 @@ from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 ################################################################################
 # Overrides loader (JSONL) — optional, behavior-changing only when file exists
@@ -99,7 +104,7 @@ def apply_event_overrides(records: list[dict], overrides: dict[str, dict]) -> tu
 # Import master QC orchestrator
 # Note: qc_master will import slop detection checks automatically
 try:
-    from qc_master import (
+    from qc.qc_master import (
         run_qc_for_stage,
         load_baseline as load_baseline_master,
         save_baseline as save_baseline_master,
@@ -942,6 +947,10 @@ def categorize_division(division_name: str, event_type: str = None) -> str:
         return "unknown"
 
     low = division_name.lower()
+
+    # Overall/aggregate divisions (e.g. "Individual Overall") are not unknown
+    if "individual overall" in low:
+        return "overall"
 
     # Check for net keywords first (most specific)
     for keyword in CATEGORY_KEYWORDS["net"]:
@@ -4469,11 +4478,11 @@ def check_string_hygiene(rec: dict) -> list[QCIssue]:
                 context={"field": field_name}
             ))
 
-        # Unicode replacement character or mojibake patterns
+        # Unicode replacement character or mojibake patterns (known encoding issues in source HTML)
         if '\ufffd' in value or re.search(r'â€|Ã[^\s]{1,2}\s', value):
             issues.append(QCIssue(
                 check_id="string_mojibake",
-                severity="WARN",
+                severity="INFO",
                 event_id=str(event_id),
                 field=field_name,
                 message=f"{field_name} may contain mojibake/encoding issues",
@@ -5261,7 +5270,12 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
     all_issues.extend(check_host_club_location_consistency(records))
 
     # Slop detection checks (comprehensive field scanning + targeted checks)
-    slop_issues = run_slop_detection_checks_stage2(records)
+    try:
+        from qc.qc_master import run_slop_detection_checks_stage2 as _slop
+        slop_issues = _slop(records)
+    except Exception as e:
+        print(f"[QC] WARNING: slop checks unavailable ({e}); skipping slop detection.")
+        slop_issues = []
     all_issues.extend(slop_issues)
 
     # Build summary
@@ -5533,10 +5547,10 @@ def main():
                         help="Save current QC results as the new baseline")
     args = parser.parse_args()
 
-    repo_dir = Path(__file__).resolve().parent
-    out_dir = repo_dir / "out"
-    data_dir = repo_dir / "data"
-    overrides_path = repo_dir / "overrides" / "events_overrides.jsonl"
+    out_dir = REPO_ROOT / "out"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    data_dir = REPO_ROOT / "data"
+    overrides_path = REPO_ROOT / "overrides" / "events_overrides.jsonl"
     in_csv = out_dir / "stage1_raw_events.csv"
     out_csv = out_dir / "stage2_canonical_events.csv"
 

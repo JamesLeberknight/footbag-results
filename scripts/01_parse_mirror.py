@@ -5,10 +5,10 @@
 This script:
 - Reads local offline mirror under ./mirror
 - Extracts raw event data from HTML (no semantic cleaning)
-- Outputs: out/stage1_raw_events.csv
+- Outputs: out/stage1_raw_events_mirror.csv
 
 Input: ./mirror/www.footbag.org/events/show/*/index.html
-Output: out/stage1_raw_events.csv
+Output: out/stage1_raw_events_mirror.csv
 """
 
 from __future__ import annotations
@@ -883,8 +883,9 @@ def print_verification_stats(records: list[dict]) -> None:
 
 def main():
     """
-    Parse HTML mirror and output stage1_raw_events.csv
+    Parse HTML mirror and output stage1_raw_events_mirror.csv
     """
+    REPO_ROOT = Path(__file__).resolve().parents[1]
     repo_dir = Path(__file__).resolve().parent
 
     ap = argparse.ArgumentParser()
@@ -906,18 +907,16 @@ def main():
     )
     ap.add_argument(
         "--out",
-        default=str(repo_dir / "out"),
-        help="Output directory. Default: ./out",
+        default=str(REPO_ROOT / "out"),
+        help="Output directory. Default: repo root /out",
     )
     args = ap.parse_args()
 
     ROOT = Path(args.root).resolve()
     MIRROR_DIR = ROOT / args.mirror / "www.footbag.org" / "events" / "show"
     out_dir = Path(args.out).resolve()
-    out_csv = out_dir / "stage1_raw_events.csv"
-
-    # Ensure output directory exists
-    out_dir.mkdir(exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_csv = out_dir / "stage1_raw_events_mirror.csv"
 
     event_ids = sorted([p.name for p in MIRROR_DIR.iterdir() if p.is_dir() and p.name.isdigit()])
     print(f"Parsing mirror at: {ROOT / args.mirror} ({len(event_ids)} event dirs)")
