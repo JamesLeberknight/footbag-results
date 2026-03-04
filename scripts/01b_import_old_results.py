@@ -555,8 +555,8 @@ def main() -> int:
     ap.add_argument(
         "--old-results",
         dest="old_results_path",
-        default=str(REPO_ROOT / "OLD_RESULTS.txt"),
-        help="Path to OLD_RESULTS.txt (default: <repo_root>/OLD_RESULTS.txt)",
+        default=str(REPO_ROOT / "inputs" / "OLD_RESULTS.txt"),
+        help="Path to OLD_RESULTS.txt (default: <repo_root>/inputs/OLD_RESULTS.txt)",
     )
     ap.add_argument("--out", dest="out_path", default="out/stage1_raw_events_old.csv", help="Output CSV path")
     args = ap.parse_args()

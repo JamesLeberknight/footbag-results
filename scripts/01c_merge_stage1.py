@@ -25,7 +25,7 @@ import os
 import sys
 from collections import Counter
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
@@ -226,7 +226,7 @@ def main() -> int:
         notes.append(f"WARNING: merged row count {merged_rows} != expected {expected}")
 
     summary = MergeSummary(
-        timestamp_utc=datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        timestamp_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         mirror_path=str(mirror_path),
         old_path=str(old_path),
         output_path=str(output_path),

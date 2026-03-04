@@ -244,6 +244,10 @@ EVENT_TYPE_OVERRIDES = {
     "1044952105": "net",      # L'Hivernal, The Windchill - doubles with "-" separator
     "1269111845": "net",      # King of the Hill 2010 - singles knockout format
     "1347475695": "net",      # Carnabal Footbag Contest - doubles with "/" pairs
+    # Misplaced golf: event name/label said golf but divisions include net (Mixed Doubles, etc.)
+    "857874500": "mixed",
+    "860944937": "mixed",
+    "876590022": "mixed",
 }
 
 # ------------------------------------------------------------
@@ -2723,6 +2727,47 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
 
 
 # ------------------------------------------------------------
+# Location canon (inputs/location_canon_full_final.csv)
+# ------------------------------------------------------------
+LOCATION_CANON_PATH = REPO_ROOT / "inputs" / "location_canon_full_final.csv"
+
+
+def _location_canon_part(s: str) -> str:
+    """Normalize a location part: strip and treat NaN as empty (return empty string)."""
+    s = (s or "").strip()
+    if s and s.lower() != "nan":
+        return s
+    return ""
+
+
+def load_location_canon(path: Optional[Path] = None) -> dict[str, str]:
+    """
+    Load event_id -> canonical location string from location_canon_full_final.csv.
+    CSV columns: event_id, city_canon, state_canon, country_canon, country_iso3, ...
+    Returns dict mapping event_id (str) to "City, State, Country" (non-empty parts only).
+    NaN values are treated as empty; if all parts are empty/NaN, the event is not included.
+    """
+    p = path or LOCATION_CANON_PATH
+    result: dict[str, str] = {}
+    if not p.exists():
+        return result
+    with open(p, "r", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            eid = (row.get("event_id") or "").strip()
+            if not eid:
+                continue
+            city = _location_canon_part(row.get("city_canon", ""))
+            state = _location_canon_part(row.get("state_canon", ""))
+            country = _location_canon_part(row.get("country_canon", ""))
+            parts = [x for x in (city, state, country) if x]
+            if not parts:
+                continue
+            result[eid] = ", ".join(parts)
+    return result
+
+
+# ------------------------------------------------------------
 # CSV processing
 # ------------------------------------------------------------
 def read_stage1_csv(csv_path: Path) -> list[dict]:
@@ -3233,13 +3278,18 @@ def infer_event_type(event_name: str, results_raw: str, placements: list = None)
     return "mixed"  # Has placements but couldn't classify - assume mixed
 
 
-def canonicalize_records(records: list[dict]) -> tuple[list[dict], dict]:
+def canonicalize_records(
+    records: list[dict],
+    location_canon: Optional[dict[str, str]] = None,
+) -> tuple[list[dict], dict]:
     """
     Process stage1 records into canonical format with placements.
+    location_canon: optional dict event_id -> "City, State, Country" from location_canon_full_final.csv.
     Returns: (canonical_records, players_registry)
     """
     canonical = []
     players = {}  # player_id -> {"player_name": str, "countries": Counter()}
+    location_canon = location_canon or {}
 
     for rec in records:
         event_id = rec.get("event_id", "")
@@ -3301,9 +3351,16 @@ def canonicalize_records(records: list[dict]) -> tuple[list[dict], dict]:
             if not date:
                 date = BROKEN_SOURCE_MESSAGE
 
-        # Apply location override if available (overrides take precedence over canonicalization)
+        # Apply location override if available (overrides take precedence)
         if str(event_id) in LOCATION_OVERRIDES:
             location = LOCATION_OVERRIDES[str(event_id)]
+        # Else use location canon (inputs/location_canon_full_final.csv) when available
+        elif str(event_id) in location_canon:
+            location = location_canon[str(event_id)]
+
+        # If location is NaN, output nothing (empty string)
+        if (location or "").strip().lower() == "nan":
+            location = ""
 
         # Get event name and apply override if available
         event_name = rec.get("event_name_raw", "")
@@ -4098,6 +4155,51 @@ def check_expected_divisions(rec: dict) -> list[QCIssue]:
                 context={"placement_count": len(placements)}
             ))
 
+    return issues
+
+
+def check_misplaced_golf(rec: dict) -> list[QCIssue]:
+    """Flag event_type=golf when placements contain net-structural divisions (Mixed Doubles, etc.)."""
+    issues = []
+    if (rec.get("event_type") or "").lower() != "golf":
+        return issues
+    placements = []
+    try:
+        placements = json.loads(rec.get("placements_json", "[]"))
+    except Exception:
+        return issues
+    if not placements:
+        return issues
+    net_structural_patterns = [
+        "mixed double", "mixed single", "open single", "open double",
+        "doubles net", "singles net",
+    ]
+    for p in placements:
+        div = (p.get("division_canon") or p.get("division_raw") or "").lower()
+        if not div:
+            continue
+        if "mixed" in div and ("double" in div or "single" in div):
+            issues.append(QCIssue(
+                check_id="misplaced_golf",
+                severity="WARN",
+                event_id=str(rec.get("event_id", "")),
+                field="event_type",
+                message="event_type=golf but placements include net division (e.g. Mixed Doubles); consider override to mixed/net",
+                example_value=div[:60],
+                context={"division_canon": p.get("division_canon", "")},
+            ))
+            break
+        if any(phrase in div for phrase in net_structural_patterns):
+            issues.append(QCIssue(
+                check_id="misplaced_golf",
+                severity="WARN",
+                event_id=str(rec.get("event_id", "")),
+                field="event_type",
+                message="event_type=golf but placements include net-structural division name",
+                example_value=div[:60],
+                context={"division_canon": p.get("division_canon", "")},
+            ))
+            break
     return issues
 
 
@@ -5259,6 +5361,7 @@ def run_qc(records: list[dict]) -> tuple[dict, list[dict]]:
 
         # Cross-validation checks (Stage 2 specific)
         all_issues.extend(check_expected_divisions(rec))
+        all_issues.extend(check_misplaced_golf(rec))
         all_issues.extend(check_division_quality(rec))
         all_issues.extend(check_team_splitting(rec))
         all_issues.extend(check_year_date_consistency(rec))
@@ -5562,8 +5665,12 @@ def main():
     print(f"Reading: {in_csv}")
     records = read_stage1_csv(in_csv)
 
+    location_canon = load_location_canon()
+    if location_canon:
+        print(f"Location canon: {LOCATION_CANON_PATH} ({len(location_canon)} events)")
+
     print(f"Canonicalizing {len(records)} events...")
-    canonical, players = canonicalize_records(records)
+    canonical, players = canonicalize_records(records, location_canon=location_canon)
 
     # Apply overrides (behavior change only if overrides file exists)
     overrides = load_event_overrides_jsonl(overrides_path)

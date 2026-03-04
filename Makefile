@@ -12,7 +12,7 @@ setup:
 ## Requires: mirror/ directory extracted from mirror.tar.gz (see README)
 rebuild:
 	$(PYTHON) scripts/01_parse_mirror.py
-	$(PYTHON) scripts/01b_import_old_results.py --old-results OLD_RESULTS.txt
+	$(PYTHON) scripts/01b_import_old_results.py
 	$(PYTHON) scripts/01c_merge_stage1.py
 	$(PYTHON) scripts/02_canonicalize_results.py
 

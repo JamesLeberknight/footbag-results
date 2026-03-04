@@ -239,6 +239,36 @@ def year_to_sheet_name(y) -> str:
         return str(y)
 
 
+def _parse_date_for_sort(date_str: str) -> tuple[int, int, int]:
+    """
+    Parse date string to (year, month, day) for chronological sorting.
+    Returns (9999, 12, 31) if unparseable so such events sort last within the year.
+    """
+    if not date_str or not str(date_str).strip():
+        return (9999, 12, 31)
+    s = str(date_str).strip()
+    # ISO-style YYYY-MM-DD
+    m = re.match(r"(\d{4})-(\d{1,2})-(\d{1,2})", s)
+    if m:
+        return (int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    # Year only (19xx or 20xx)
+    year_m = re.search(r"\b(19|20)(\d{2})\b", s)
+    if year_m:
+        y = int(year_m.group(1) + year_m.group(2))
+        # Try "Month DD" or "Month D" before year
+        month_names = r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*"
+        md_m = re.search(rf"({month_names})\s+(\d{{1,2}})", s, re.IGNORECASE)
+        if md_m:
+            month_map = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+                         "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
+            mon_str = md_m.group(1)[:3].lower()
+            month = month_map.get(mon_str, 0)
+            day = int(md_m.group(2))
+            return (y, month, day)
+        return (y, 0, 0)
+    return (9999, 12, 31)
+
+
 def display_date(date_str: str, year) -> str:
     """
     Presentation-only: if date has no explicit YYYY and we *know* the sheet year,
@@ -429,35 +459,6 @@ def _read_optional_csv(path: Path) -> pd.DataFrame:
     return pd.DataFrame()
 
 
-def load_location_canon(path: Path) -> dict:
-    """Load location_canon_full_final.csv → {event_id: display_string}.
-
-    US events:     "City, State, United States"
-    Non-US events: "City, Country"
-    Falls back to raw location if the file is missing.
-    """
-    if not path.exists():
-        print(f"WARN: Location canon file not found: {path} — using raw location")
-        return {}
-    lookup = {}
-    with open(path, newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            eid     = str(row.get("event_id", "")).strip()
-            city    = row.get("city_canon", "").strip()
-            state   = row.get("state_canon", "").strip()
-            country = row.get("country_canon", "").strip()
-            iso3    = row.get("country_iso3", "").strip()
-            if iso3 == "USA" and state:
-                display = f"{city}, {state}, {country}"
-            elif city and country:
-                display = f"{city}, {country}"
-            else:
-                display = city or country  # incomplete event fallback
-            if eid and display:
-                lookup[eid] = display
-    return lookup
-
-
 def read_stage2_csv(csv_path: Path) -> list[dict]:
     """Read stage2 CSV and return list of event records."""
     # Increase CSV field size limit to handle large JSON fields
@@ -585,7 +586,6 @@ def write_excel(
     players_df: Optional[pd.DataFrame] = None,
     placements_flat_df: Optional[pd.DataFrame] = None,
     unresolved_df: Optional[pd.DataFrame] = None,
-    location_lookup: Optional[dict] = None,
 ) -> None:
     """
     Archive workbook writer (matches Footbag_Results_Canonical.xlsx layout):
@@ -595,11 +595,10 @@ def write_excel(
     - Results are generated from placements (canonical), not copied raw
     """
     players_by_id = build_players_by_id(players_df)
-    _loc_lookup = location_lookup or {}
 
     def _loc(eid: str, rec: dict) -> str:
-        """Return canonical location display string, falling back to raw."""
-        return _loc_lookup.get(str(eid)) or rec.get("location") or ""
+        """Return location display string from event record."""
+        return rec.get("location") or ""
 
     # Build results map from placements (use cleaned player names when available)
     results_map = {}
@@ -626,6 +625,12 @@ def write_excel(
         except Exception:
             return 0
 
+    def _chronological_sort_key(rec: dict) -> tuple:
+        """Sort by date (year, month, day), then by event_id."""
+        date_tuple = _parse_date_for_sort(rec.get("date") or "")
+        eid = str(rec.get("event_id", ""))
+        return (date_tuple[0], date_tuple[1], date_tuple[2], _eid_sort_key(eid))
+
     # Group records by year
     by_year = {}
     unknown_year = []
@@ -641,10 +646,10 @@ def write_excel(
     event_locator = {}  # event_id(str) -> (sheet_name(str), col_idx(int))
 
     with pd.ExcelWriter(out_xlsx, engine="openpyxl") as xw:
-        # Build one sheet per year
+        # Build one sheet per year (events ordered chronologically by date)
         for y in sorted(by_year.keys()):
-            year_records = by_year[y]
-            eids = sorted([str(r.get("event_id", "")) for r in year_records], key=_eid_sort_key)
+            year_records = sorted(by_year[y], key=_chronological_sort_key)
+            eids = [str(r.get("event_id", "")) for r in year_records]
 
             # Excel columns: A=1 is row labels, so first event column is B=2
             sheet_name = year_to_sheet_name(y)
@@ -695,9 +700,10 @@ def write_excel(
             # Freeze: banner + event-ID header row visible; col A (labels) visible
             worksheet.freeze_panes = "B3"
 
-        # Unknown-year sheet
+        # Unknown-year sheet (chronological by date, then event_id)
         if unknown_year:
-            eids = sorted([str(r.get("event_id", "")) for r in unknown_year], key=_eid_sort_key)
+            unknown_sorted = sorted(unknown_year, key=_chronological_sort_key)
+            eids = [str(r.get("event_id", "")) for r in unknown_sorted]
             # Excel columns: A=1 is row labels, so first event column is B=2
             for j, eid in enumerate(eids, start=2):
                 event_locator[str(eid)] = ("unknown_year", j)
@@ -1387,47 +1393,69 @@ def write_excel(
             {
                 "Section": "Purpose",
                 "Description": (
-                    "This workbook is an archive-quality canonical dataset derived from "
-                    "historical footbag event results. It preserves original data while "
-                    "providing normalized and review-friendly views for analysis and curation."
+                    "Canonical archive of historical footbag competition results. "
+                    "Identity is locked: every placement maps to a verified person record "
+                    "(Persons_Truth) or is explicitly marked unresolved. "
+                    "Reproducible from source — do not edit sheets directly."
                 ),
             },
             {
-                "Section": "SAFE — Presentation-ready",
+                "Section": "ANALYTICS — Safe for pivot tables and stats",
                 "Description": (
-                    "These sheets are structurally sound and can be trusted for pivot tables:\n"
-                    "- Year sheets (1985-present): Event archive, one column per event. "
-                    "Note: 1980-1984 placements exist in Placements_Flat/Analytics_Safe_Surface "
-                    "but have no year sheet (those events are not in the stage2 source).\n"
-                    "- Index: Event index with hyperlinks to year sheets\n"
-                    "- Summary: Aggregate counts (events, placements, year range)\n"
-                    "- Divisions: Canonical division labels and counts\n"
-                    "- Divisions_Normalized: Near-identical divisions grouped\n"
-                    "- Division_Stats: Division-level aggregates"
+                    "These sheets use identity-locked, coverage-filtered data and can be "
+                    "trusted for analysis:\n"
+                    "- Analytics_Safe_Surface: Flat placement rows, complete/mostly_complete "
+                    "coverage only, identity resolved. Primary source for all stats.\n"
+                    "- Person_Stats: Career stats per person (events, wins, podiums, year range) "
+                    "— derived from Analytics_Safe_Surface.\n"
+                    "- PersonStats_ByDivCat: Same, broken down by division category "
+                    "(freestyle / net / sideline / golf).\n"
+                    "- Persons_Truth: Canonical person registry — one row per verified human, "
+                    "identity locked.\n"
+                    "- Division_Stats: Per-division aggregates.\n"
+                    "- Coverage_ByEventDiv: Coverage quality (complete / mostly_complete / "
+                    "partial / sparse) for every event×division combination."
                 ),
             },
             {
-                "Section": "DIAGNOSTIC — Not yet pivot-ready",
+                "Section": "EVENT ARCHIVE — Browse by year",
                 "Description": (
-                    "These sheets still contain structural errors from placement parsing.\n"
-                    "Use for investigation but do NOT treat counts as authoritative:\n"
-                    "- Placements_ByPerson: Contains quarantinable rows; some Singles "
-                    "misclassified as teams with embedded multi-person data\n"
-                    "- Person_Stats: Derived from contaminated placements; counts unreliable\n"
-                    "- PersonStats_ByDivCat: Singles vs doubles breakdowns are wrong\n"
-                    "- Persons_Truth: Correct intent but unresolved alias collisions remain\n"
-                    "- Players_Clean: Raw player tokens, inherits parse contamination\n"
-                    "- Placements_Flat: Complete truth-preserving fact table (includes all rows)"
+                    "- Year sheets (1980–present): One column per event, raw results text "
+                    "plus structured placement data. Ordered chronologically within each year.\n"
+                    "- Index: Full event list with hyperlinks to year sheets.\n"
+                    "- Summary: Aggregate counts (events, placements, year range).\n"
+                    "- Divisions / Divisions_Normalized: Canonical division labels and "
+                    "near-identical groupings."
                 ),
             },
             {
-                "Section": "Known Issues",
+                "Section": "COMPLETE RECORD — Unfiltered (includes partial coverage)",
                 "Description": (
-                    "- ~114 Singles placements have player2 filled (should be blank)\n"
-                    "- ~349 additional rows quarantined to separate CSV (not in this workbook)\n"
-                    "- competitor_type cannot be fully trusted (partial fix applied)\n"
-                    "- Some person_canon values have unresolved alias collisions\n"
-                    "- See Persons_Truth_Review.xlsx for full diagnostic workbook"
+                    "These sheets contain all placements, including events with incomplete "
+                    "coverage. Counts will differ from Analytics_Safe_Surface.\n"
+                    "- Placements_Flat: All 25,669 placement rows. "
+                    "coverage_flag column indicates quality.\n"
+                    "- Placements_ByPerson: Same rows with person_id and person_canon.\n"
+                    "- Persons_Unresolved: 449 ambiguous/unresolved identities "
+                    "(abbreviated names, single-name handles, unclear aliases).\n"
+                    "- Placements_Unresolved: 155 placements whose person cannot be "
+                    "fully resolved with current evidence.\n"
+                    "- Data_Integrity: Pipeline integrity metrics and coverage summary."
+                ),
+            },
+            {
+                "Section": "Known Limitations",
+                "Description": (
+                    "- 155 placements remain unresolved (tied to 76 real-person ambiguities "
+                    "such as 'Jean', 'Pierre', abbreviated last initials).\n"
+                    "- 16 person entries excluded: two-person concatenated strings that "
+                    "could not be split without guessing "
+                    "(e.g. 'Manuel Kruse Simon Voss').\n"
+                    "- Partial/sparse coverage in ~4.4% of event×division combinations — "
+                    "see Coverage_ByEventDiv. These rows appear in Placements_Flat but "
+                    "not in Analytics_Safe_Surface.\n"
+                    "- Identity is frozen at v31/v27/v33. Any new person identifications "
+                    "require a new versioned release."
                 ),
             },
         ]
@@ -1574,12 +1602,8 @@ def main():
     df_placements_flat = pd.read_csv(placements_flat_csv)
     print(f"Loaded {placements_flat_csv} ({len(df_placements_flat)} rows)")
 
-    location_canon_csv = OUT_DIR / "location_canon_full_final.csv"
-    location_lookup = load_location_canon(location_canon_csv)
-    print(f"Loaded {len(location_lookup)} canonical locations")
-
     print(f"Writing Excel with {len(records)} events...")
-    write_excel(out_xlsx, records, players_df=players_df, placements_flat_df=df_placements_flat, unresolved_df=df_unresolved, location_lookup=location_lookup)
+    write_excel(out_xlsx, records, players_df=players_df, placements_flat_df=df_placements_flat, unresolved_df=df_unresolved)
 
     # Run Stage 3 QC on Excel workbook data
     if USE_MASTER_QC:

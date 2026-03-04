@@ -52,6 +52,17 @@ Thumbs.db
 *:Zone.Identifier
 
 ############################
+# Legacy / archived scripts
+############################
+legacy/
+
+############################
+# Dev / scratch data files
+############################
+host_clubs.csv
+index_raw.csv
+
+############################
 # Temporary / dev artifacts
 ############################
 *.log

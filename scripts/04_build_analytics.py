@@ -50,6 +50,16 @@ _G2_MOSTLY_COMPLETE = 0.75
 _G2_PARTIAL         = 0.40
 # Below _G2_PARTIAL → "sparse"
 
+# Manual overrides for coverage_flag on specific (event_id, division_canon) pairs.
+# Use when the computed ratio under-counts a division whose results are structurally
+# complete (e.g. bracket finals with natural tied places).
+# Values must be one of: "complete", "mostly_complete", "partial", "sparse".
+COVERAGE_FLAG_OVERRIDES: dict[tuple[str, str], str] = {
+    # 2017 Worlds 2-Square: 12 finalists, places 1/2/3/3/5/5/5/5/9/9/9/9 — full bracket,
+    # ties at lower rounds cause ratio=0.556 but all finalists are accounted for.
+    ("1471686537", "2-Square"): "mostly_complete",
+}
+
 _COVERAGE_FILLS = {
     "complete":        PatternFill(fill_type="solid", fgColor="92D050"),  # green
     "mostly_complete": PatternFill(fill_type="solid", fgColor="FFEB9C"),  # yellow
@@ -1581,6 +1591,14 @@ def build_coverage_by_event_division(
 
     # Add coverage flag (self-contained: consumers don't need to re-implement thresholds)
     cov["coverage_flag"] = cov["coverage_ratio"].map(_coverage_flag)
+
+    # Apply manual overrides
+    if COVERAGE_FLAG_OVERRIDES:
+        for (eid, div), flag in COVERAGE_FLAG_OVERRIDES.items():
+            mask = (cov["event_id"].astype(str) == str(eid)) & (cov["division_canon"] == div)
+            if mask.any():
+                cov.loc[mask, "coverage_flag"] = flag
+                print(f"Coverage override: ({eid}, {div!r}) → {flag}")
 
     # Write CSV output
     out_path = out_dir / "Coverage_ByEventDivision.csv"
