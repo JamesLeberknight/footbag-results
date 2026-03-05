@@ -77,6 +77,7 @@ Claude_old_md_files/
 pivot_*.csv
 *_sorted.csv
 *_final.csv
+!inputs/location_canon_full_final.csv
 release_bundle/
 robots_cache.json
 githib-pswd.txt

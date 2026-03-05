@@ -49,6 +49,36 @@ except ImportError:
 # Excel/openpyxl rejects control chars: 0x00-0x08, 0x0B-0x0C, 0x0E-0x1F
 _ILLEGAL_XLSX_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 
+# Characters that don't decompose cleanly via NFKD; map to closest ASCII equivalent.
+_ASCII_PRE_MAP: dict[str, str] = {
+    "ł": "l", "Ł": "L", "ø": "o", "Ø": "O", "ß": "ss",
+    "đ": "d", "Đ": "D", "ı": "i", "ŋ": "n",
+    "þ": "th", "Þ": "Th", "æ": "ae", "Æ": "AE",
+    "œ": "oe", "Œ": "OE", "ð": "d", "Ð": "D",
+    "\u2013": "-",   # en-dash
+    "\u2014": "-",   # em-dash
+    "\u2018": "'",   # left single quote
+    "\u2019": "'",   # right single quote / apostrophe
+    "\u201c": '"',   # left double quote
+    "\u201d": '"',   # right double quote
+    "\u00b0": "",    # degree sign
+    "\ufffd": "?",   # replacement character
+}
+_ASCII_PRE_TABLE = str.maketrans(_ASCII_PRE_MAP)
+
+
+def _to_ascii(s: str) -> str:
+    """
+    Transliterate a string to plain ASCII for Excel cell output.
+    Applies pre-map for non-decomposable characters, then NFKD normalization,
+    then drops any remaining non-ASCII bytes.  Newlines and tabs are preserved.
+    """
+    if not isinstance(s, str):
+        return s
+    s = s.translate(_ASCII_PRE_TABLE)
+    s = unicodedata.normalize("NFKD", s)
+    return "".join(c for c in s if ord(c) < 128 or c in "\n\t")
+
 
 def load_alias_map(path):
     """
@@ -83,23 +113,23 @@ ALIAS_MAP = load_alias_map(OUT_DIR / "person_alias_map_bootstrap.csv")
 
 
 def sanitize_excel_strings(df: pd.DataFrame) -> pd.DataFrame:
-    """Required to write .xlsx safely (not semantic cleaning)."""
+    """Sanitize all string cells for Excel: strip control chars + transliterate to ASCII."""
     if df.empty:
         return df
     out = df.copy()
     for col in out.columns:
         if pd.api.types.is_string_dtype(out[col]) or out[col].dtype == object:
             out[col] = out[col].apply(
-                lambda v: _ILLEGAL_XLSX_RE.sub("", v) if isinstance(v, str) else v
+                lambda v: _ILLEGAL_XLSX_RE.sub("", _to_ascii(v)) if isinstance(v, str) else v
             )
     return out
 
 
 def sanitize_string(s: str) -> str:
-    """Sanitize a single string for Excel."""
+    """Sanitize a single string for Excel: strip control chars + transliterate to ASCII."""
     if not isinstance(s, str):
         return s
-    return _ILLEGAL_XLSX_RE.sub("", s)
+    return _ILLEGAL_XLSX_RE.sub("", _to_ascii(s))
 
 
 def _strip_diacritics(s: str) -> str:

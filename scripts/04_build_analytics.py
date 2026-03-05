@@ -43,6 +43,46 @@ import json
 
 from qc.qc_common import PERSONS, PLACEMENTS
 
+# ---------------------------------------------------------------------------
+# ASCII normalization for Excel output
+# ---------------------------------------------------------------------------
+_ASCII_PRE_MAP: dict[str, str] = {
+    "ł": "l", "Ł": "L", "ø": "o", "Ø": "O", "ß": "ss",
+    "đ": "d", "Đ": "D", "ı": "i", "ŋ": "n",
+    "þ": "th", "Þ": "Th", "æ": "ae", "Æ": "AE",
+    "œ": "oe", "Œ": "OE", "ð": "d", "Ð": "D",
+    "\u2013": "-",   # en-dash
+    "\u2014": "-",   # em-dash
+    "\u2018": "'",   # left single quote
+    "\u2019": "'",   # right single quote / apostrophe
+    "\u201c": '"',   # left double quote
+    "\u201d": '"',   # right double quote
+    "\u00b0": "",    # degree sign
+    "\ufffd": "?",   # replacement character
+}
+_ASCII_PRE_TABLE = str.maketrans(_ASCII_PRE_MAP)
+
+
+def _to_ascii(s: str) -> str:
+    """Transliterate a string to plain ASCII. Newlines and tabs are preserved."""
+    if not isinstance(s, str):
+        return s
+    s = s.translate(_ASCII_PRE_TABLE)
+    s = unicodedata.normalize("NFKD", s)
+    return "".join(c for c in s if ord(c) < 128 or c in "\n\t")
+
+
+def _ascii_df(df: pd.DataFrame) -> pd.DataFrame:
+    """Apply _to_ascii to all string columns of a DataFrame."""
+    if df.empty:
+        return df
+    out = df.copy()
+    for col in out.columns:
+        if out[col].dtype == object:
+            out[col] = out[col].apply(lambda v: _to_ascii(v) if isinstance(v, str) else v)
+    return out
+
+
 # GATE 2 COVERAGE THRESHOLDS — do not change casually; changing these alters
 # the meaning of all historical coverage annotations in downstream artifacts.
 _G2_COMPLETE        = 0.95
@@ -2235,7 +2275,7 @@ def write_sheets_append(xlsx_path: Path, sheets: list[Tuple[str, pd.DataFrame]],
     with pd.ExcelWriter(xlsx_path, engine="openpyxl", mode="a", if_sheet_exists="replace") as xw:
         for name, df in sheets:
             sheet_name = SHEET_RENAMES.get(name, name)
-            df.to_excel(xw, sheet_name=sheet_name, index=False)
+            _ascii_df(df).to_excel(xw, sheet_name=sheet_name, index=False)
 
             # ---- Excel usability formatting ----
             ws = xw.book[sheet_name]
@@ -2871,6 +2911,18 @@ def main() -> int:
                     _updated += 1
             if _updated:
                 print(f"[Index] Updated placements_count for {_updated} events to match filtered PBP.")
+
+    # ASCII-normalize all string cells before saving
+    for _ws in wb.worksheets:
+        _protected = _ws.protection.sheet
+        if _protected:
+            _ws.protection.sheet = False
+        for _row in _ws.iter_rows():
+            for _cell in _row:
+                if isinstance(_cell.value, str):
+                    _cell.value = _to_ascii(_cell.value)
+        if _protected:
+            _ws.protection.sheet = True
 
     wb.save(xlsx)
     wb.close()
