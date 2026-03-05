@@ -290,6 +290,10 @@ _RE_MULTI_SPACES = re.compile(r"\s+")
 _BAD_PHRASES = (
     "DID NOT", "ACCORDING TO", "SCORES NOT", "NEW WORLD RECORD",
     "NOT COMPARABLE", "DID NOT PLAY", "INITIAL SEEDING",
+    # Section-count noise parsed as player names
+    "SQUARE", "SQUARES", "COMPETITORS", "BENEFACTORS",
+    "TOTAL REGISTERED", "TOTAL COMPETITORS", "PLACES:",
+    "V1, FIRST PLACE", "V2, FIRST PLACE",
 )
 
 _TEAM_WORDS = ("TEAM", "FOOTBAG TEAM")  # very light
@@ -769,6 +773,8 @@ TRICK_NAME_WORDS = {
     "bedwetter", "barfly", "eggbeater", "pixie", "dexterity",
     "torque", "dragonfly", "osis", "sampler", "symphony",
     "blender", "swirl", "symposium",
+    # Dexterity / superfly family
+    "superfly", "blurriest",
 }
 
 # Section headers that indicate logistical/announcement content — not results.
@@ -1176,15 +1182,19 @@ def looks_like_division_header(line: str) -> bool:
     if '!' in line and not line.rstrip().endswith(':'):
         return False
 
-    # Must contain at least one division keyword (word-boundary match)
-    if not _has_division_keyword(low):
+    # Must contain at least one division keyword (word-boundary match).
+    # Use the de-parenthesized version so parenthetical content (e.g., trick
+    # annotations like "...last dex of last superfly") can't trigger keywords.
+    low_no_parens = line_without_parens.lower()
+    if not _has_division_keyword(low_no_parens):
         return False
 
     # Reject if the line contains freestyle trick-name words.
     # e.g. "DOBLE LEG OVER" matches "doble" (Spanish=doubles) but is actually a
     # trick name.  Trick words have word-boundary priority over division keywords.
+    # Also check de-parenthesized version to avoid false positives from annotations.
     for tw in TRICK_NAME_WORDS:
-        if re.search(r'\b' + re.escape(tw) + r'\b', low):
+        if re.search(r'\b' + re.escape(tw) + r'\b', low_no_parens):
             return False
 
     # Accept if line is reasonably structured:
@@ -1262,6 +1272,8 @@ def canonicalize_division(division_raw: str) -> str:
     div = re.sub(r'\bd[?\ufffd]vky\b', 'Women', div, flags=re.IGNORECASE)
     # 4. Trailing "?" / U+FFFD noise at end of word or line
     div = re.sub(r'[?\ufffd]+$', '', div).strip()
+    # 5. Trailing ":" (colon carried over from division header detection)
+    div = div.rstrip(':').strip()
     return smart_title(" ".join(div.split()))
 
 
@@ -1745,6 +1757,34 @@ def clean_player_name(name: str) -> str:
     if cleaned:
         name = cleaned
 
+    # Rule 57: Strip trailing " :" (space + colon, French/European bracket format)
+    # e.g. "Serge Kaldany :" → "Serge Kaldany", "Basel) :" → "Basel)"
+    name = re.sub(r'\s*:\s*$', '', name).strip()
+
+    # Rule 58: Strip trailing " ID:" (North American bracket format)
+    # e.g. "Emmanuel Bouchard ID:" → "Emmanuel Bouchard"
+    name = re.sub(r'\s+ID:\s*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 59: Strip trailing ellipsis
+    # e.g. "Julia Böhm ..." → "Julia Böhm"
+    name = re.sub(r'\s*\.{2,}\s*$', '', name).strip()
+    name = name.rstrip('…').strip()
+
+    # Rule 60: Strip leading period or comma (ordinal parsing artifact)
+    # e.g. ". Emmanuel Bouchard" → "Emmanuel Bouchard", ", Scott Behmer" → "Scott Behmer"
+    name = re.sub(r'^[.,]\s*', '', name).strip()
+
+    # Rule 61: Strip " -> trick" annotation (Finnish/European Sick 3 format)
+    # e.g. "Legbeater -> Vortex" → "" (whole thing is trick list, caller discards empty)
+    # e.g. player2 side: gets cleaned away so only player1 is stored
+    if re.search(r'\s+->\s+', name):
+        # Everything from "->" is a trick annotation; strip it
+        name = re.sub(r'\s*->\s*.+$', '', name).strip()
+
+    # Rule 62: Strip trailing comma (leftover after score-stripping rules)
+    # e.g. "Andrew Coleman 24, 57, 12," → "Andrew Coleman 24, 57, 12" (then Rule 55 strips numbers)
+    name = re.sub(r',\s*$', '', name).strip()
+
     return name.strip()
 
 
@@ -2205,7 +2245,13 @@ def looks_like_person_name(s: str) -> bool:
         return False
     if t.startswith("(") or t.startswith("["):
         return False
-    if any(x in t.upper() for x in ("POOL", "RANK", "RANKING", "FINAL RESULTS", "RESULTS:", "SCORES")):
+    tu = t.upper()
+    if any(x in tu for x in ("POOL", "RANK", "RANKING", "FINAL RESULTS", "RESULTS:", "SCORES")):
+        return False
+    # Reject section-count noise parsed as player names
+    if any(tu == x or tu.startswith(x + " ") or tu.startswith(x + ":") for x in (
+            "SQUARE", "SQUARES", "COMPETITORS", "TEAMS", "BENEFACTORS",
+            "TOTAL REGISTERED", "TOTAL COMPETITORS", "4 PLACES", "6 PLACES")):
         return False
     # must contain letters
     if not any(ch.isalpha() for ch in t):
