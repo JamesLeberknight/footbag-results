@@ -1058,6 +1058,10 @@ def _has_division_keyword(text: str) -> bool:
         # Use word boundary matching to avoid "pro" matching "Prokoph"
         if re.search(r'\b' + re.escape(kw) + r'\b', text_lower):
             return True
+    # Handle alpha-digit compound division names where \b doesn't fire between \w chars:
+    # "Shred30" → no \b between 'd' and '3'; "Sick3" → same
+    if re.search(r'\bshred\d', text_lower) or re.search(r'\bsick\d', text_lower):
+        return True
     return False
 
 
