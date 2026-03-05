@@ -733,7 +733,7 @@ DIVISION_KEYWORDS = {
     # Freestyle-specific
     "freestyle", "circle", "shred", "routine", "routines",
     "battle", "sick3", "sick 3", "sick", "request", "last standing", "last",
-    "ironman", "combo", "trick",
+    "ironman", "combo", "trick", "ten",
     # Sideline/other
     "consecutive", "consec", "one pass", "distance",
     # Golf
@@ -747,6 +747,49 @@ DIVISION_KEYWORDS = {
     "homme",   # French for men's
     "femme",   # French for women's
     "feminin", # French for feminine
+}
+
+# Footbag freestyle trick-name words.
+# These appear in performance-annotation lines (e.g. "BLURRY WHIRL", "DOBLE LEG OVER")
+# and must NOT be mistaken for division headers or player names.
+# Rule: if a short all-caps/mixed-caps line contains ANY of these words (whole-word match)
+# it is almost certainly annotated trick data, not a division or competitor.
+TRICK_NAME_WORDS = {
+    # Leg-over family
+    "legover", "leg over",
+    # Whirl family
+    "whirl", "blurry",
+    # Clipper family
+    "clipper", "hyperclip",
+    # Walking tricks
+    "ripwalk", "janiwalker", "locwalk", "swiftwalk",
+    # Paradox family
+    "paradox", "mirage",
+    # Misc named tricks
+    "bedwetter", "barfly", "eggbeater", "pixie", "dexterity",
+    "torque", "dragonfly", "osis", "sampler", "symphony",
+    "blender", "swirl", "symposium",
+}
+
+# Section headers that indicate logistical/announcement content — not results.
+# When the parser sees one of these as a standalone header line, it enters a
+# noise-skip mode and ignores all subsequent lines until a recognized division
+# header or numeric placement line resets it.
+NOISE_SECTION_HEADERS = {
+    "attendees", "attendee list",
+    "contacts", "contact information", "contact info",
+    "hotel", "hotel information", "hotel reservations", "hotel amenities",
+    "travel", "travel information",
+    "dates and times", "schedule",
+    "maps", "map",
+    "registration", "registration for events",
+    "prizes", "prize list",
+    "sponsors", "sponsorship",
+    "about", "description", "event description",
+    "information", "general information",
+    "rules", "event rules",
+    # Event-announcement sections that list divisions descriptively (not as results)
+    "events", "event list", "divisions", "division list",
 }
 
 # Common abbreviated division headers and their expansions
@@ -1132,6 +1175,13 @@ def looks_like_division_header(line: str) -> bool:
     # Must contain at least one division keyword (word-boundary match)
     if not _has_division_keyword(low):
         return False
+
+    # Reject if the line contains freestyle trick-name words.
+    # e.g. "DOBLE LEG OVER" matches "doble" (Spanish=doubles) but is actually a
+    # trick name.  Trick words have word-boundary priority over division keywords.
+    for tw in TRICK_NAME_WORDS:
+        if re.search(r'\b' + re.escape(tw) + r'\b', low):
+            return False
 
     # Accept if line is reasonably structured:
     # 1. Starts with a division-related word, OR
@@ -2092,6 +2142,46 @@ def is_continuation_or_junk_result_line(s: str) -> bool:
 
     return False
 
+def _is_trick_name_line(s: str) -> bool:
+    """True if s looks like a standalone freestyle trick name (not a player or division).
+
+    Matches entries like "LEG OVER.", "BLURRY WHIRL", "DOBLE LEG OVER".
+    These appear as performance annotations after the player name in some
+    South-American result formats and should be dropped.
+
+    Trick words inside parentheses are annotating a player entry and must NOT
+    trigger this check — e.g. "Will Digges (Pixie Paradon Swirl)" is a player.
+    We strip parenthetical content before testing.
+    """
+    # Remove parenthetical trick annotations (e.g. "(Pixie Paradon Swirl)")
+    # before testing, so that "Name (trick)" is not falsely rejected.
+    stripped = re.sub(r'\([^)]*\)', '', s).strip().rstrip('.')
+    # If removing parens leaves only the trick content, the original was a bare trick line
+    low_s = stripped.lower()
+    return any(re.search(r'\b' + re.escape(tw) + r'\b', low_s) for tw in TRICK_NAME_WORDS)
+
+
+def _arrow_outside_parens(s: str) -> bool:
+    """True if ' > ' appears outside of balanced parentheses.
+
+    Used to distinguish trick-sequence entries like
+    "Diving Clipper > Spinning Clipper > Paradox" (skip)
+    from annotated player entries like
+    "Will Digges (Alpine Blurry > Janiwalker)" (keep — trick info is parenthetical).
+    """
+    depth = 0
+    i = 0
+    while i < len(s):
+        if s[i] == '(':
+            depth += 1
+        elif s[i] == ')':
+            depth = max(0, depth - 1)
+        elif depth == 0 and s[i:i+3] == ' > ':
+            return True
+        i += 1
+    return False
+
+
 def looks_like_person_name(s: str) -> bool:
     t = (s or "").strip()
     if not t:
@@ -2141,6 +2231,10 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
 
     # Track whether we're in a seeding section (should skip these entries)
     in_seeding_section = False
+
+    # Track whether we're in a logistical/announcement section (attendees, hotel, etc.)
+    # Resets when a recognised division header or numeric placement line appears.
+    in_noise_section = False
 
     place_re = re.compile(r"^\s*(\d{1,3})\s*[.)\-:]?\s*(.+)$")
     # Pattern for ordinal placements like "1ST Name", "2ND Name", "1st: Name", "2nd: Name"
@@ -2251,6 +2345,34 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
                     division_raw = candidate
                 else:
                     rejected_division_headers += 1
+                continue
+
+        # Detect logistical/announcement section headers (e.g. "ATTENDEES:", "HOTEL:")
+        # A noise-section header is a short ALL-CAPS or Title-Case line ending in ":"
+        # whose stripped lowercase matches NOISE_SECTION_HEADERS.
+        _noise_candidate = line.rstrip(":").strip().lower()
+        if line.endswith(":") and _noise_candidate in NOISE_SECTION_HEADERS:
+            in_noise_section = True
+            continue
+
+        # A recognized division header or a numeric placement line exits noise-skip mode.
+        # Require an explicit separator for numeric lines (avoids street addresses like
+        # "175 Jefferson Road" triggering an exit). Division headers must end with ":"
+        # to avoid attendee names containing division keywords (e.g. "Dan Cyr (Intermediate: Sick 1)")
+        # from prematurely ending the skip.
+        if in_noise_section:
+            # Allow "1. Name" / "1) Name" / "1- Name" / "1: Name" but NOT "3:00 pm".
+            # When separator is ":", require next char to NOT be a digit (avoids HH:MM times).
+            _has_placement = (
+                bool(re.match(r"^\s*\d{1,3}\s*[.)\-]\s*\S", line))
+                or bool(re.match(r"^\s*\d{1,3}\s*:\s*(?!\d)\S", line))
+            )
+            _is_div_header = (line.endswith(":")
+                              and looks_like_division_header(line.rstrip(":").strip())
+                              and line.rstrip(":").strip().lower() not in NOISE_SECTION_HEADERS)
+            if _has_placement or _is_div_header:
+                in_noise_section = False
+            else:
                 continue
 
         # Skip entries in seeding sections (these are pre-tournament rankings, not results)
@@ -2499,8 +2621,8 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         # Pattern 6: entry contains phone number patterns
         if re.search(r'\d{3}[-.]\d{3}[-.]\d{4}|\d{3}[-.]\d{4}|1-800-', entry_raw):
             continue  # Skip - contains phone number
-        # Pattern 7: entry is a rule/instruction sentence (contains "is allowed", "contact", "reservations")
-        if re.search(r'\b(is allowed|contact is|by phone|make reservations)\b', entry_raw, re.IGNORECASE):
+        # Pattern 7: entry is a rule/instruction sentence
+        if re.search(r'\b(is allowed|contact is|by phone|make reservations|discount code|you are asked)\b', entry_raw, re.IGNORECASE):
             continue  # Skip - rule or instruction text
         # Pattern 8: entry starts with degree/ordinal sign noise (after stripping, only noise remains)
         # e.g., "º and 4º position match" — but NOT valid names (which had º stripped above)
@@ -2601,16 +2723,21 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             if trimmed:  # Don't blank out player2 entirely
                 player2 = trimmed
 
-        # Skip trick sequences (identified by " > " separator)
+        # Skip trick sequences (identified by " > " separator OUTSIDE parentheses)
         # e.g., "Diving Clipper > Spinning Clipper > Spinning Paradox Dragonfly"
-        # These appear in freestyle routines but should not be treated as player names
-        if player1 and ' > ' in player1:
-            # This looks like a trick sequence, not a name
+        # But keep "Will Digges (Alpine Blurry > Janiwalker)" — trick info is parenthetical.
+        if player1 and _arrow_outside_parens(player1):
             continue  # Skip - this is a trick list, not a placement
-        if player2 and ' > ' in player2:
+        if player2 and _arrow_outside_parens(player2):
             # If player2 is a trick list, just treat entry as single player
             player2 = None
             competitor_type = "player"
+
+        # Skip entries that are standalone trick names (no " > " but still recognisable
+        # as trick annotation). e.g. "LEG OVER.", "BLURRY WHIRL", "DOBLE LEG OVER".
+        # These appear after the player name in South-American result formats.
+        if player1 and _is_trick_name_line(player1):
+            continue  # Skip - freestyle trick name, not a competitor
 
         # Skip placements with invalid player names (noise)
         # A valid player name should have at least 2 alphanumeric characters
