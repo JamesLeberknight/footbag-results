@@ -1245,7 +1245,20 @@ def canonicalize_division(division_raw: str) -> str:
     """
     if not division_raw:
         return "Unknown"
-    return smart_title(" ".join(division_raw.split()))
+    div = division_raw
+    # Fix encoding corruption: "?" or U+FFFD used as placeholder for lost accented chars
+    # 1. Possessive apostrophe: "Women?s" / "Master?S" → "Women's" / "Master's"
+    div = re.sub(r"(\w)[?\ufffd][Ss]\b", r"\1's", div)
+    # 2. Space-surrounded "?" used as dash: "30 Second Shred ? Open" → "30 Second Shred - Open"
+    div = re.sub(r'\s[?\ufffd]\s', ' - ', div)
+    # 3. Known multilingual level/gender words with corrupted accented char
+    div = re.sub(r'\binterm[?\ufffd]diaire\b', 'Intermediate', div, flags=re.IGNORECASE)
+    div = re.sub(r'\binterm[?\ufffd]diate\b', 'Intermediate', div, flags=re.IGNORECASE)
+    div = re.sub(r'\bf[?\ufffd]minin(e?)\b', r'Feminin\1', div, flags=re.IGNORECASE)
+    div = re.sub(r'\bd[?\ufffd]vky\b', 'Women', div, flags=re.IGNORECASE)
+    # 4. Trailing "?" / U+FFFD noise at end of word or line
+    div = re.sub(r'[?\ufffd]+$', '', div).strip()
+    return smart_title(" ".join(div.split()))
 
 
 # ------------------------------------------------------------
