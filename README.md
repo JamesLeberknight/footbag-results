@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — Canonical Excel Builder (v1.0.18)
+# Footbag Results Pipeline — Canonical Excel Builder (v1.0.21)
 
 Deterministic pipeline for producing the **final, reviewer-ready Excel workbook** of historical Footbag results.
 
@@ -39,7 +39,7 @@ inputs/identity_lock/Persons_Truth_Final_v31.csv
 
 `Persons_Truth_Final_v31.csv` enforces:
 
-- One row per real person (3,447 persons)
+- One row per real person (3,444 persons)
 - Globally unique `effective_person_id` (UUID)
 - Unique canonical display name (`person_canon`)
 - Human-verified identity resolution
@@ -221,7 +221,7 @@ QC ensures:
 
 Warnings may remain for known historical limitations (ties, pool play, partial top-N publishing).
 
-**Current baseline (v1.0.18):** Gate 3 PASS = 3,447 · Stage 2: 0 errors, 31 warnings · Stage 3: 0 errors
+**Current baseline (v1.0.21):** Gate 3 PASS = 3,444 · Stage 2: 0 errors, 15 warnings · Stage 3: 0 errors
 
 ---
 
@@ -279,7 +279,7 @@ No randomness. No implicit identity merges. No silent data mutation.
 | Minor (v1.x.0) | Additive analytics sheets |
 | Major (v2.0.0) | Any change to Persons_Truth or identity logic |
 
-Current identity baseline: `Persons_Truth_Final_v31.csv` (3,447 persons · v1.0.18)
+Current identity baseline: `Persons_Truth_Final_v31.csv` (3,444 persons · v1.0.21)
 
 ---
 
