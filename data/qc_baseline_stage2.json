@@ -1,19 +1,14 @@
 {
   "stage": "stage2",
-  "total_records": 782,
+  "total_records": 784,
   "total_errors": 0,
   "total_warnings": 15,
-  "total_info": 340,
+  "total_info": 252,
   "counts_by_check": {
     "host_club_multiple_locations": {
       "ERROR": 0,
       "WARN": 0,
       "INFO": 11
-    },
-    "string_mojibake": {
-      "ERROR": 0,
-      "WARN": 0,
-      "INFO": 80
     },
     "host_club_contains_location": {
       "ERROR": 0,
@@ -23,7 +18,7 @@
     "place_does_not_start_at_1": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 43
+      "INFO": 39
     },
     "place_large_gap": {
       "ERROR": 0,
@@ -33,14 +28,9 @@
     "player_has_admin_text": {
       "ERROR": 0,
       "WARN": 0,
-      "INFO": 39
+      "INFO": 35
     },
     "cv_freestyle_event_no_freestyle_divs": {
-      "ERROR": 0,
-      "WARN": 1,
-      "INFO": 0
-    },
-    "player_duplicate_in_team": {
       "ERROR": 0,
       "WARN": 1,
       "INFO": 0
@@ -54,6 +44,11 @@
       "ERROR": 0,
       "WARN": 0,
       "INFO": 1
+    },
+    "player_duplicate_in_team": {
+      "ERROR": 0,
+      "WARN": 1,
+      "INFO": 0
     }
   }
 }

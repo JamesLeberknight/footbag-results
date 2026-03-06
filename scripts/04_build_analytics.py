@@ -761,14 +761,16 @@ def is_person_like(name: str) -> bool:
     return True
 
 
-# allowed: letters, spaces, hyphens, apostrophes
-_RE_ALLOWED_CHARS = re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ'’ -]+$")
+# allowed: letters, spaces, hyphens, apostrophes, periods (for initials like T.J.)
+# Latin Extended-A (\u0100-\u017F) covers Polish (Ł,ą,ę,ś,ź,ż,ć,ń) and Czech (č,š,ž,ř,ě,ů)
+_RE_ALLOWED_CHARS = re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ\u0100-\u017F\x27\u2019 .-]+$")
 
 # disallowed tokens (metadata / junk)
+# Note: "de" removed — it is a valid surname particle (De Zeeuw, Boris de nantes, etc.)
 _RE_BAD_TOKENS = re.compile(
     r"""
     \b(
-        usa|canada|germany|de|ger|fin|cz|
+        usa|canada|germany|ger|fin|cz|
         victory|points?|scratch|results?|open|
         place|position|playoff|rank|
         pixie|ducking|paradox|swirl|torque|
@@ -780,6 +782,20 @@ _RE_BAD_TOKENS = re.compile(
 
 # hard separators
 _RE_SEPARATORS = re.compile(r"[+/\\=]|🇩🇪|🇫🇮|🇨🇦|🇺🇸")
+
+# Confirmed real persons in PT that fail the heuristic for structural reasons.
+# Human truth overrides the heuristic — list here rather than bending the rules.
+_PRESENTABLE_ALLOWLIST = frozenset({
+    "Wally Victory",   # surname = victory (blocked by bad_token)
+    "Kendall KIC",     # community handle as last name (3-letter all-caps)
+    "Greg RNH",        # community handle as last name (3-letter all-caps)
+    "Toxic Tom B.",    # nickname + trailing last initial
+})
+
+# Matches a single alphabetic letter optionally followed by a period: "F", "L.", "R."
+_RE_SINGLE_INITIAL = re.compile(r"^[A-Za-z]\.$")
+# Matches multi-letter abbreviation like "S.M.", "T.J." (two or more initials)
+_RE_MULTI_INITIAL = re.compile(r"^[A-Za-z](?:\.[A-Za-z])+\.$")
 
 
 def is_presentable_person_canon(s: str) -> bool:
@@ -793,6 +809,10 @@ def is_presentable_person_canon(s: str) -> bool:
     # Allow pipeline sentinel used for classified non-person rows.
     # This keeps referential integrity for analytics while remaining explicit.
     if t == "__NON_PERSON__":
+        return True
+
+    # Human-verified override: confirmed real persons that fail the heuristic.
+    if t in _PRESENTABLE_ALLOWLIST:
         return True
 
     # hard rejects
@@ -809,12 +829,21 @@ def is_presentable_person_canon(s: str) -> bool:
     if not (2 <= len(parts) <= 4):
         return False
 
-    # Each token must look like a name
-    for p in parts:
+    last = len(parts) - 1
+    for i, p in enumerate(parts):
         if len(p) == 1:
-            return False   # single-letter initials not allowed
-        if p.isupper() and len(p) <= 3:
-            return False   # country codes
+            return False   # bare single-letter token (no period)
+        # Single-letter initial with period (e.g. "L.", "E."): only reject when
+        # last token — middle-position initials like "Walter R. Houston" are fine.
+        if _RE_SINGLE_INITIAL.match(p) and i == last:
+            return False
+        # Multi-initial abbreviation in last position (e.g. "Max S.M."): unresolved.
+        if _RE_MULTI_INITIAL.match(p) and i == last:
+            return False
+        # 3-letter all-caps = country/club code (USA, GER, KIC…).
+        # 2-letter all-caps (AJ, DJ, JB…) are valid first-name initials — allowed.
+        if p.isupper() and len(p) == 3:
+            return False
     return True
 
 
@@ -2691,6 +2720,14 @@ def main() -> int:
         persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
         persons_truth_display = persons_truth[persons_truth_display_cols].copy()
         persons_public = persons_truth_display[["person_canon", "aliases_presentable"]].copy()
+
+        # Re-evaluate presentability against the current heuristic so that
+        # Persons_Truth_Excluded.csv (and hence Persons_Unresolved.csv) reflect
+        # any changes to is_presentable_person_canon without requiring a full rebuild.
+        _mask_ok = persons_truth["person_canon"].map(is_presentable_person_canon)
+        _not_presentable = persons_truth.loc[~_mask_ok].copy()
+        _not_presentable["exclude_reason"] = "not_presentable_strict"
+        _not_presentable.to_csv(out_dir / "Persons_Truth_Excluded.csv", index=False)
 
     # Placements_ByPerson already built above for FINAL referential-integrity check
     persons_unresolved_df = build_persons_unresolved(pf, per_all, out_dir)

@@ -275,6 +275,12 @@ EVENT_PARSING_RULES = {
     "884112176": {
         "pre_parse_fixup": "ordinal_inline_divisions",
     },
+    # 2023 US Open - ordinals appear alone on separate lines before player names
+    # Format: "1v1, First place:\nLuka Weyler-Lavallée\n2nd\nChris Siebert\n3rd\n..."
+    # Fixup normalizes division headers and joins ordinals with following player lines
+    "1664206719": {
+        "pre_parse_fixup": "us_open_2023",
+    },
 }
 
 def fixup_ordinal_inline_divisions(text: str) -> str:
@@ -299,6 +305,83 @@ def fixup_ordinal_inline_divisions(text: str) -> str:
         flags=re.MULTILINE
     )
     return text
+
+
+def fixup_us_open_2023(text: str) -> str:
+    """
+    Normalize 2023 US Open (event 1664206719) results format.
+    The source uses standalone ordinals before player names and division headers
+    with "First place:" suffix that confuse the general parser.
+
+    Transformations:
+    - "1v1, First place:" -> "Open Singles Net:"
+    - "2v2, First place:" -> "Open Doubles Net:"
+    - "Circle, First place:" -> "Circle Contest:"
+    - "Routines, First place:" -> "Routines:"
+    - "Intermediate" section context tracked for sub-header mapping
+    - Standalone ordinals ("2nd") joined with following player line: "2. Chris Siebert"
+    - Leading asterisks stripped (*Luka -> Luka)
+    """
+    lines = text.split('\n')
+    normalized = []
+    in_intermediate = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Track Intermediate vs Open section context
+        if re.match(r'^Intermediate\s*$', stripped, re.IGNORECASE):
+            in_intermediate = True
+            continue  # consume the section label; sub-headers below emit the real div name
+        if re.match(r'^Freestyle\s*$', stripped, re.IGNORECASE):
+            in_intermediate = False
+            normalized.append('Freestyle:')
+            continue
+
+        # Map 1v1/2v2 headers (with or without trailing colon)
+        if re.match(r'^1v1,?\s*[Ff]irst\s+[Pp]lace\s*:?\s*$', stripped):
+            normalized.append('Intermediate Singles Net:' if in_intermediate else 'Open Singles Net:')
+            continue
+        if re.match(r'^2v2,?\s*[Ff]irst\s+[Pp]lace\s*:?\s*$', stripped):
+            normalized.append('Intermediate Doubles Net:' if in_intermediate else 'Open Doubles Net:')
+            continue
+
+        # Map freestyle division headers
+        if re.match(r'^[Cc]ircle,?\s*[Ff]irst\s+[Pp]lace\s*:?\s*$', stripped):
+            normalized.append('Circle Contest:')
+            continue
+        if re.match(r'^[Rr]outines?,?\s*[Ff]irst\s+[Pp]lace\s*:?\s*$', stripped):
+            normalized.append('Routines:')
+            continue
+        # Bare "First place:" at end of event = Intermediate Routines
+        if re.match(r'^[Ff]irst\s+[Pp]lace\s*:?\s*$', stripped):
+            normalized.append('Intermediate Routines:')
+            continue
+
+        # Strip leading asterisk (marks 1st-place player in doubles section)
+        if stripped.startswith('*'):
+            stripped = stripped[1:].strip()
+
+        normalized.append(stripped)
+
+    # Second pass: join standalone ordinals with the following player line
+    # "2nd\nChris Siebert 12722" -> "2. Chris Siebert 12722"
+    joined = []
+    i = 0
+    while i < len(normalized):
+        line = normalized[i]
+        bare_ord = re.match(r'^(\d{1,2})\s*(?:st|nd|rd|th)\s*$', line, re.IGNORECASE)
+        if bare_ord and i + 1 < len(normalized):
+            next_line = normalized[i + 1].strip()
+            # Only join if next line looks like a player name (not another ordinal or empty)
+            if next_line and not re.match(r'^\d{1,2}\s*(?:st|nd|rd|th)\s*$', next_line, re.IGNORECASE):
+                joined.append(f'{bare_ord.group(1)}. {next_line}')
+                i += 2
+                continue
+        joined.append(line)
+        i += 1
+
+    return '\n'.join(joined)
 
 
 # Valid 3-letter country codes for merged team detection
@@ -329,6 +412,14 @@ _BAD_PHRASES = (
     "V1, FIRST PLACE", "V2, FIRST PLACE",
     # Ordinal-place fragments: "2ndPlace:" parsed with "2" stripped leaves "NDPLACE"
     "NDPLACE", "STPLACE", "RDPLACE", "THPLACE",
+    # Commentary / absence notices
+    "DIDN",         # "didn't show up", "didn´t" (apostrophe variants)
+    "SHOW UP",      # "didn't show up for semifinals"
+    "ABERRATION",   # "Andre P. Aberration" — result anomaly annotation
+    # Circle Contest scoring header lines parsed as names
+    "ADDS CONTACTS", "RATIO UNIQUES", "SCORE ADD",
+    # Winner annotation
+    "WINNER:",      # "Winner: Everybody." — commentary, not a person name
 )
 
 _TEAM_WORDS = ("TEAM", "FOOTBAG TEAM")  # very light
@@ -1379,6 +1470,10 @@ def clean_player_name(name: str) -> str:
 
     original = name
 
+    # Pre-rule: Strip "tie " / "tie: " prefix from tied-place entries
+    # e.g. "tie Michael Lopez" → "Michael Lopez", "Tie: Jeff Wells" → "Jeff Wells"
+    name = re.sub(r'^tie\s*:?\s+', '', name, flags=re.IGNORECASE).strip()
+
     # Rule 1: Strip "Name (CZE) - 242.79 (127 adds, 31 uniques, ...)"
     # Score + stats after dash/equals following a parenthetical
     name = re.sub(r'(\))\s*[-=]\s*\d+\.?\d*\s*\([\d\s,a-zA-Z]+\).*$', r'\1', name).strip()
@@ -1876,6 +1971,10 @@ def clean_player_name(name: str) -> str:
     # "Rob McCloskey ? Event Record" → "Rob McCloskey"
     name = re.sub(r'\s*\??\s*Event\s+Record\b.*$', '', name, flags=re.IGNORECASE).strip()
 
+    # Rule 71: Strip bare "N ADDS" scoring suffix (Circle Contest format)
+    # "French ConneXion 75 ADDS" → "French ConneXion"
+    name = re.sub(r'\s+\d+\s+[Aa][Dd][Dd][Ss]\b.*$', '', name).strip()
+
     return name.strip()
 
 
@@ -2344,6 +2443,9 @@ def looks_like_person_name(s: str) -> bool:
             "SQUARE", "SQUARES", "COMPETITORS", "TEAMS", "BENEFACTORS",
             "TOTAL REGISTERED", "TOTAL COMPETITORS", "4 PLACES", "6 PLACES")):
         return False
+    # Reject known commentary / scoring-header phrases (shared with _BAD_PHRASES)
+    if any(p in tu for p in _BAD_PHRASES):
+        return False
     # must contain letters
     if not any(ch.isalpha() for ch in t):
         return False
@@ -2386,6 +2488,8 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
     pre_parse_fixup = event_rules.get("pre_parse_fixup")
     if pre_parse_fixup == "ordinal_inline_divisions":
         results_text = fixup_ordinal_inline_divisions(results_text)
+    elif pre_parse_fixup == "us_open_2023":
+        results_text = fixup_us_open_2023(results_text)
 
     # Track whether we're in a seeding section (should skip these entries)
     in_seeding_section = False
