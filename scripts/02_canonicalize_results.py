@@ -179,6 +179,8 @@ JUNK_EVENTS_TO_EXCLUDE = {
     "1118129163",  # "Event Listing" placeholder - June TBA 2005, Site TBA, no results
     "1031232420",  # FootJam03 - stats not results: "91 players registered...1000+spectators"
     "1043428338",  # Spring Footbag Jam - description not results: "31 players said SFJ was their first"
+    "984874006",   # PST Obligatory Footbag Forum 2001 - informal gathering; all pre blocks are
+                   # event announcement and post-event narrative recap, no formal placements
 }
 
 # Event name overrides for placeholder/template names
@@ -257,6 +259,7 @@ EVENT_TYPE_OVERRIDES = {
 # Each event_id maps to a dict of rule names and their config.
 # Available rules:
 #   - "split_merged_teams": Split "Player1 [seed] COUNTRY Player2 COUNTRY" format
+#   - "pre_parse_fixup": Name of a fixup function to apply to results_raw before parsing
 #
 # Decision: 2026-02 - This structure allows adding event-specific parsing
 # without polluting the general parsing logic.
@@ -266,7 +269,37 @@ EVENT_PARSING_RULES = {
     "1293877677": {
         "split_merged_teams": True,
     },
+    # 1998 Fighting Illini Footbag Festival - division header includes 1st place inline
+    # Format: "Open Singles -  1st  Steve Smith\n  2nd  Ted Martin\n  3rd  Mike Voightmann"
+    # All 6 divisions use this layout; 18 placements expected
+    "884112176": {
+        "pre_parse_fixup": "ordinal_inline_divisions",
+    },
 }
+
+def fixup_ordinal_inline_divisions(text: str) -> str:
+    """
+    Normalise results where division header includes 1st place inline:
+      "  Open Singles -  1st  Steve Smith"  ->  "Open Singles:\n1. Steve Smith"
+      "                  2nd  Ted Martin"   ->  "2. Ted Martin"
+    Used for event 884112176 (1998 Fighting Illini Footbag Festival).
+    """
+    # Step 1: "[whitespace]DIVISION - 1st NAME" -> "DIVISION:\n1. NAME"
+    text = re.sub(
+        r'^\s*([A-Za-z][^\n-]*?)\s+-\s+1st\s+(.+?)$',
+        r'\1:\n1. \2',
+        text,
+        flags=re.MULTILINE
+    )
+    # Step 2: indented ordinal continuations -> "N. NAME"
+    text = re.sub(
+        r'^\s+(\d+)(?:st|nd|rd|th)\s+(.+?)$',
+        r'\1. \2',
+        text,
+        flags=re.MULTILINE
+    )
+    return text
+
 
 # Valid 3-letter country codes for merged team detection
 VALID_COUNTRY_CODES = {
@@ -294,6 +327,8 @@ _BAD_PHRASES = (
     "SQUARE", "SQUARES", "COMPETITORS", "BENEFACTORS",
     "TOTAL REGISTERED", "TOTAL COMPETITORS", "PLACES:",
     "V1, FIRST PLACE", "V2, FIRST PLACE",
+    # Ordinal-place fragments: "2ndPlace:" parsed with "2" stripped leaves "NDPLACE"
+    "NDPLACE", "STPLACE", "RDPLACE", "THPLACE",
 )
 
 _TEAM_WORDS = ("TEAM", "FOOTBAG TEAM")  # very light
@@ -745,12 +780,14 @@ DIVISION_KEYWORDS = {
     # 2-square/4-square
     "2-square", "2 square", "two square", "four square", "4-square",
     # Non-English terms
-    "simple",  # French for singles
-    "doble",   # Spanish for doubles
-    "sencillo", # Spanish for singles
-    "homme",   # French for men's
-    "femme",   # French for women's
-    "feminin", # French for feminine
+    "simple",       # French for singles
+    "doble",        # Spanish for doubles (singular)
+    "dobles",       # Spanish for doubles (plural)
+    "individuales", # Spanish for singles
+    "sencillo",     # Spanish for singles
+    "homme",        # French for men's
+    "femme",        # French for women's
+    "feminin",      # French for feminine
 }
 
 # Footbag freestyle trick-name words.
@@ -844,6 +881,8 @@ DIVISION_LANGUAGE_MAP = {
     "resultado footbag net open dobles": "Open Doubles Net",
     "open net dobles": "Open Doubles Net",
     "open dobles": "Open Doubles",
+    "individuales": "Open Singles",
+    "dobles": "Open Doubles",
     "resultados sick three": "Sick 3",
     "sick 3 resultados": "Sick 3",
 
@@ -1749,11 +1788,11 @@ def clean_player_name(name: str) -> str:
     name = re.sub(r'\s*-\s*\d+[,.]\s*\d+\s*$', '', name).strip()        # - 110,38 / - 102. 1
     name = re.sub(r'\s*-\s*prize\b.*$', '', name, flags=re.IGNORECASE).strip()  # - prize / - prize money
 
-    # Rule 29: Strip trailing junk markers (trailing dashes, asterisks, en/em-dashes, #, _, ])
+    # Rule 29: Strip trailing junk markers (trailing dashes, asterisks, en/em-dashes, #, _, ], =)
     # e.g. "Nick Jaros -" → "Nick Jaros", "Tim Werner ---" → "Tim Werner"
     # e.g. "Jason Varvaro-" → "Jason Varvaro", "Pattrick Schrickel*#" → "Pattrick Schrickel"
-    # e.g. "Marton Lukacs (HU)]" → "Marton Lukacs (HU)"
-    cleaned = re.sub(r'[\s\*\-–—#_\]]+$', '', name).strip()
+    # e.g. "Marton Lukacs (HU)]" → "Marton Lukacs (HU)", "Brendan Erskine =" → "Brendan Erskine"
+    cleaned = re.sub(r'[\s\*\-–—#_\]=]+$', '', name).strip()
     if cleaned:
         name = cleaned
 
@@ -1784,6 +1823,58 @@ def clean_player_name(name: str) -> str:
     # Rule 62: Strip trailing comma (leftover after score-stripping rules)
     # e.g. "Andrew Coleman 24, 57, 12," → "Andrew Coleman 24, 57, 12" (then Rule 55 strips numbers)
     name = re.sub(r',\s*$', '', name).strip()
+
+    # Rule 63: Strip "representing CLUB/TEAM" suffix (e.g. '"Nato" representing Nato\'s marauders')
+    name = re.sub(r'\s+representing\s+.+$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 63b: Reject ordinal-fragment tokens left by "2ndPlace:" parsing
+    # "2ndPlace:" → parser strips "2" ordinal → "ndPlace" or "stPlace" etc.
+    if re.fullmatch(r'(?:nd|st|rd|th)[Pp]lace\.?', name):
+        return ""
+
+    # Rule 64: Strip parenthesized numeric score/count sequences
+    # Multi-number: "(2,2,2,1,1,1)", "(130,4)", "(199.8333)", "( 165,33)"
+    # Preserves country/city info like "(Poland)" or "(Planet Footbag Zürich, CH)"
+    name = re.sub(r'\s*\(\s*\d+(?:[,. ]+\d+)+\s*\)', '', name).strip()
+    # Single large number: "(8533)", "(631)", "(525)" — clearly a score/ID, not a location
+    name = re.sub(r'\s*\(\s*\d{3,}\s*\)', '', name).strip()
+
+    # Rule 65: Strip "N Drops/drops/dropless" score annotations
+    # "Nils 16,5p 7 Drops" → "Nils",  "Justin 14,2 12 Drops" → "Justin"
+    # "Brett Ables 290 0 drops" → "Brett Ables", "David Clavens $275 dropless" → "David Clavens"
+    name = re.sub(r'\s+\d+[,.]\d+p?\s+\d+\s+[Dd]rops?\b.*$', '', name).strip()
+    name = re.sub(r'\s+\d+\s+[Dd]rops?\b.*$', '', name).strip()
+    name = re.sub(r'\s+\$\d+(?:[,.]\d+)?\s+[Dd]roples{1,2}\b.*$', '', name).strip()
+
+    # Rule 66: Strip IFPA registration number annotations
+    # "Daniel IFPA # 51574 Open" → "Daniel", "Sam Hogan (No IFPA # Amature" → "Sam Hogan"
+    # "Ryan Morris ( No IFPA#)" → "Ryan Morris"
+    name = re.sub(r'\s+IFPA\s*#?\s*\d+.*$', '', name, flags=re.IGNORECASE).strip()
+    name = re.sub(r'\s*\(\s*No\s+IFPA\b.*$', '', name, flags=re.IGNORECASE).strip()
+    # Strip bare "( No IFPA#)" unclosed/closed variants
+    name = re.sub(r'\s*\(\s*No\s+IFPA.*?\)?\s*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 67: Strip inline ID annotations
+    # "Robert McCloskey ID:12506" → "Robert McCloskey"
+    name = re.sub(r'\s+ID:\s*\d+\b.*$', '', name, flags=re.IGNORECASE).strip()
+
+    # Rule 68: Strip bare registration/IFPA numbers with optional division suffix
+    # "Jim 83027 Open" → "Jim", "Jake Dodd 82585 Open" → "Jake Dodd", "Jim 83027" → "Jim"
+    name = re.sub(
+        r'\s+\d{4,}\s+(Open|Amature|Amateur|Novice|Intermediate|Advanced|Pro|Masters?)\b.*$',
+        '', name, flags=re.IGNORECASE).strip()
+    # Bare 5+-digit number at end (safe threshold — avoids clipping 4-digit golf/net scores)
+    m68 = re.sub(r'\s+\d{5,}$', '', name).strip()
+    if m68:
+        name = m68
+
+    # Rule 69: Strip high-precision floating-point ratio scores
+    # "Aleksi Airinen 256,9655172 138" → "Aleksi Airinen"
+    name = re.sub(r'\s+\d+[,.]\d{5,}(?:\s+\d+)?$', '', name).strip()
+
+    # Rule 70: Strip "? Event Record" / "Event Record" annotation
+    # "Rob McCloskey ? Event Record" → "Rob McCloskey"
+    name = re.sub(r'\s*\??\s*Event\s+Record\b.*$', '', name, flags=re.IGNORECASE).strip()
 
     return name.strip()
 
@@ -2292,6 +2383,10 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
     event_rules = EVENT_PARSING_RULES.get(str(event_id), {})
     use_merged_team_split = event_rules.get("split_merged_teams", False)
 
+    pre_parse_fixup = event_rules.get("pre_parse_fixup")
+    if pre_parse_fixup == "ordinal_inline_divisions":
+        results_text = fixup_ordinal_inline_divisions(results_text)
+
     # Track whether we're in a seeding section (should skip these entries)
     in_seeding_section = False
 
@@ -2718,6 +2813,7 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             r'\bhighest.*ratio.*games\b',  # Tournament rules/tiebreaker
             r'\bin.*finals.*seed\b.*\bbeat\b',  # Tournament scoring description
             r'^[\w\s]+\s+vs\s+[\w\s]+\s+\d+/\d+',  # Tournament match result format (e.g., "X vs Y 11/3")
+            r'\bposition\s+match\b',  # Scheduling text: "3rd and 4th position match"
         ]
         # Pattern 14: doubles bracket match result "Team1/Player1 Vs Team2/Player2"
         # e.g., "Oscar Loreto/ Reinaldo Pérez Vs CArlos Márquez/Angel Vivas (scratch)"
@@ -2727,6 +2823,11 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             continue  # Skip - doubles bracket match result, not a placement
         if any(re.search(pattern, entry_raw, re.IGNORECASE) for pattern in narrative_patterns):
             continue  # Skip - this is tournament narrative, not a placement
+
+        # Pattern 15: URL or query-string fragment
+        # e.g., "28&source_impression_id=..." from a line-wrapped URL
+        if re.match(r'^&\w', entry_raw) or re.search(r'https?://', entry_raw):
+            continue  # Skip - URL fragment, not a placement
 
         # Increment placement index for this valid entry
         placement_index += 1
@@ -2774,6 +2875,12 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             player2_names = [p.strip() for p in player2.split('/')]
             if player2_names:
                 player2 = player2_names[0]  # Use first part of the slash-separated names
+
+        # Post-process: drop admin annotations that slipped into player2 via "/" team-split
+        # e.g., player2 = "only played in round 1; scores not comparable to above"
+        if player2 is not None and ';' in player2 and not looks_like_person(player2.strip()):
+            player2 = None
+            competitor_type = "player"
 
         # Strip TIE format remainder from player2: when entry_raw has TIE doubles format
         # "A/B and C/D", the "/" split gives player2="B and C/D", then "/" strip gives
@@ -2962,10 +3069,15 @@ def load_location_canon(path: Optional[Path] = None) -> dict[str, str]:
 # ------------------------------------------------------------
 def read_stage1_csv(csv_path: Path) -> list[dict]:
     """Read stage1 CSV and return list of event records."""
+    _NAN_STRINGS = {"nan", "none", "null", "na", "#n/a"}
     records = []
     with open(csv_path, "r", newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
+            # Normalise pandas/Excel NaN sentinel strings to empty string for all text fields
+            for key, val in row.items():
+                if isinstance(val, str) and val.strip().lower() in _NAN_STRINGS:
+                    row[key] = ""
             # Convert year to int if present
             if row.get("year"):
                 try:

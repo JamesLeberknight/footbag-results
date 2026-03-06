@@ -493,10 +493,15 @@ def read_stage2_csv(csv_path: Path) -> list[dict]:
     """Read stage2 CSV and return list of event records."""
     # Increase CSV field size limit to handle large JSON fields
     csv.field_size_limit(min(2**31 - 1, 10 * 1024 * 1024))  # 10MB limit
+    _NAN_STRINGS = {"nan", "none", "null", "na", "#n/a"}
     records = []
     with open(csv_path, "r", newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
+            # Normalise pandas/Excel NaN sentinel strings to empty string
+            for key, val in row.items():
+                if isinstance(val, str) and val.strip().lower() in _NAN_STRINGS:
+                    row[key] = ""
             # Convert year to int if present
             if row.get("year"):
                 try:

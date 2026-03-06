@@ -37,12 +37,19 @@ def norm_text(x) -> str:
 
 
 def _read_text_best_effort(p: Path) -> str:
-    # HTML in the wild can be messy. Always decode best-effort.
-    # utf-8 first; fallback to latin1; never crash parse stage.
+    # HTML in the wild can be messy. Decode best-effort:
+    # Try strict UTF-8 first (valid for most modern pages).
+    # Fall back to latin-1 (ISO-8859-1) for older pages with accented chars
+    # (ä, ü, ö, etc.) that are not valid UTF-8.
+    # Final fallback: UTF-8 with replacement chars (never crash).
     try:
-        return p.read_text(encoding="utf-8", errors="replace")
+        return p.read_text(encoding="utf-8")
+    except (UnicodeDecodeError, Exception):
+        pass
+    try:
+        return p.read_text(encoding="latin-1")
     except Exception:
-        return p.read_text(encoding="latin1", errors="replace")
+        return p.read_text(encoding="utf-8", errors="replace")
 
 
 def resolve_event_html(root: Path, mirror_name: str, repairs_name: str, event_id: str, use_repairs: bool = True) -> tuple[Path | None, str | None]:

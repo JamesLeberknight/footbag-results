@@ -2682,6 +2682,10 @@ def main() -> int:
     else:
         # Lock active: use existing Persons_Truth.csv, do not overwrite
         persons_truth = pd.read_csv(persons_truth_csv, dtype=str).fillna("")
+        # Drop spurious duplicate columns (e.g. 'person_canon.1' from historical merge artifact)
+        dup_cols = [c for c in persons_truth.columns if c.endswith(".1") or c.endswith(".2")]
+        if dup_cols:
+            persons_truth = persons_truth.drop(columns=dup_cols)
         persons_truth_conflicted = pd.DataFrame()
         persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
         persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]

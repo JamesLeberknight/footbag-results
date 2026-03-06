@@ -59,3 +59,6 @@
 {"event_id":"1109356644","location_note":"Multiple parks used during event","reason":"Location spans multiple venues","source":"qc_review","confidence":"medium"}
 {"event_id":"1023993464","exclude":true,"note":"Known broken source: SQL error in HTML; location missing not recoverable"}
 {"event_id":"1030642331","exclude":true,"note":"Known broken source: SQL error in HTML; location missing not recoverable"}
+{"event_id":"1091802943","host_club":"Austin Style Footbag Club - Texas Footbag League","source":"series_inference","confidence":"very_high","note":"2004 Texas State Footbag Championships; all other series events (2001,2003,2007-2012) have this club"}
+{"event_id":"879319107","host_club":"Dallas Footbag Club","source":"series_inference","confidence":"high","note":"1998 Southern Regional Championships; 2001 edition in same city already has this club"}
+{"event_id":"909186885","host_club":"Dallas Footbag Club","source":"series_inference","confidence":"high","note":"1999 Southern Regional Championships; 2001 edition in same city already has this club"}
