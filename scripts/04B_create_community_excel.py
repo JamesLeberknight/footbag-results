@@ -439,6 +439,9 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                         display = " / ".join(_display_name(m) for m in members if m)
                 else:
                     display = _display_name(person)
+                    # Solo entry in a doubles division — partner not recorded
+                    if "double" in div_canon.lower():
+                        display = f"{display} / ?"
 
                 entries.append((place_int, display, cat))
 
