@@ -20,8 +20,8 @@ rebuild:
 ## Requires: out/stage2_canonical_events.csv (run 'make rebuild' first)
 release:
 	$(PYTHON) scripts/02p5_player_token_cleanup.py \
-	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v33.csv \
-	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v31.csv \
+	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v34.csv \
+	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v32.csv \
 	  --out_dir out
 	$(PYTHON) scripts/03_build_excel.py
 	$(PYTHON) scripts/04_build_analytics.py

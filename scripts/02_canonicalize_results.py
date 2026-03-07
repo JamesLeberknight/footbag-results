@@ -281,6 +281,19 @@ EVENT_PARSING_RULES = {
     "1664206719": {
         "pre_parse_fixup": "us_open_2023",
     },
+    # 2024 IFPA World Championships - Open Doubles uses "(CC)- Name" format (no space before dash)
+    # e.g. "1. Emmanuel Bouchard (CAN)- François Pelletier (CAN)"
+    # Fixup normalizes to "(CC) - Name" so the standard dash separator detection works.
+    "1706036811": {
+        "pre_parse_fixup": "worlds_2024_doubles",
+    },
+    # 1997 University of Oregon - results use two-column tabular layout
+    # e.g. "Singles Golf                  Doubles Golf"
+    #      "1. Jim Fitzgerald (23)        1. Andy Ronald/ Jeff Johnson"
+    # Fixup splits wide lines at long space gaps into two sequential lines.
+    "857874500": {
+        "pre_parse_fixup": "two_column_oregon_1997",
+    },
 }
 
 def fixup_ordinal_inline_divisions(text: str) -> str:
@@ -382,6 +395,57 @@ def fixup_us_open_2023(text: str) -> str:
         i += 1
 
     return '\n'.join(joined)
+
+
+def fixup_worlds_2024_doubles(text: str) -> str:
+    """
+    Normalize 2024 IFPA World Championships (event 1706036811) Open Doubles format.
+
+    The source HTML uses "(CC)- Name" with no space before the dash:
+      "1. Emmanuel Bouchard (CAN)- François Pelletier (CAN)"
+    This prevents the standard ' - ' dash-separator detection in split_entry().
+
+    Fix: insert a space before the dash when it immediately follows a closing paren.
+    """
+    # Pattern: closing paren + optional whitespace + dash + uppercase-starting name
+    # e.g. "(CAN)- " -> "(CAN) - "
+    text = re.sub(r'\)\s*-\s*([A-Z])', r') - \1', text)
+    return text
+
+
+def fixup_two_column_oregon_1997(text: str) -> str:
+    """
+    Fix 1997 University of Oregon (event 857874500) two-column tabular layout.
+
+    The source has division headers and results printed side-by-side:
+      "Singles Golf                                    Doubles Golf"
+      "1. Jim Fitzgerald (23)                          1. Andy Ronald/ Jeff Johnson"
+
+    Strategy: collect left-column and right-column content separately, then
+    output all left content followed by all right content.  This ensures each
+    division header is immediately followed by its own results rather than the
+    next column's header.
+    """
+    lines = text.split('\n')
+    left_lines = []
+    right_lines = []
+
+    for line in lines:
+        # Detect two-column lines: left content + 10+ spaces + right content
+        m = re.search(r'^(.+?)\s{10,}(.+)$', line)
+        if m:
+            left = m.group(1).rstrip()
+            right = m.group(2).strip()
+            # Strip "TIE" prefix from right side (appears before tied-place results)
+            right = re.sub(r'^TIE\s+', '', right).strip()
+            left_lines.append(left)
+            if right and len(right) >= 2:
+                right_lines.append(right)
+        else:
+            # Single-column line: goes to left stream only
+            left_lines.append(line)
+
+    return '\n'.join(left_lines + right_lines)
 
 
 # Valid 3-letter country codes for merged team detection
@@ -862,7 +926,7 @@ DIVISION_KEYWORDS = {
     "net", "volley",
     # Freestyle-specific
     "freestyle", "circle", "shred", "routine", "routines",
-    "battle", "sick3", "sick 3", "sick", "request", "last standing", "last",
+    "battle", "battles", "sick3", "sick 3", "sick", "request", "last standing", "last",
     "ironman", "combo", "trick", "ten",
     # Sideline/other
     "consecutive", "consec", "one pass", "distance",
@@ -2490,6 +2554,10 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         results_text = fixup_ordinal_inline_divisions(results_text)
     elif pre_parse_fixup == "us_open_2023":
         results_text = fixup_us_open_2023(results_text)
+    elif pre_parse_fixup == "worlds_2024_doubles":
+        results_text = fixup_worlds_2024_doubles(results_text)
+    elif pre_parse_fixup == "two_column_oregon_1997":
+        results_text = fixup_two_column_oregon_1997(results_text)
 
     # Track whether we're in a seeding section (should skip these entries)
     in_seeding_section = False
