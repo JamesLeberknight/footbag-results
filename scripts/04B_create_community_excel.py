@@ -905,7 +905,8 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
 
 # ── Player Stats sheet ────────────────────────────────────────────────────────
 
-def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict):
+def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
+                       persons_df: pd.DataFrame | None = None):
     """
     One row per resolved player showing career statistics.
     Filterable so any player can look themselves up.
@@ -914,8 +915,8 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict):
     ws.freeze_panes = "A2"
 
     hdrs   = ["Player", "Wins", "Podiums", "Placements", "Events",
-              "First Year", "Last Year", "Career (yrs)"]
-    widths = [32, 8, 8, 12, 8, 12, 12, 12]
+              "First Year", "Last Year", "Career (yrs)", "Legacy ID"]
+    widths = [32, 8, 8, 12, 8, 12, 12, 12, 10]
 
     for c, (h, w) in enumerate(zip(hdrs, widths), start=1):
         _c(ws, 1, c, h, font=FONT_HDR, fill=FILL_HDR)
@@ -923,6 +924,14 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict):
 
     if stats.empty:
         return
+
+    # Build legacyid lookup from Persons_Truth
+    legacyid_map: dict = {}
+    if persons_df is not None and "legacyid" in persons_df.columns:
+        for _, pr in persons_df.iterrows():
+            lid = pr.get("legacyid", "")
+            if lid:
+                legacyid_map[pr["person_canon"]] = lid
 
     df = stats.sort_values("person_canon").reset_index(drop=True)
 
@@ -938,6 +947,8 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict):
         ws.cell(row=excel_row, column=6, value=int(row["first_year"]) or None)
         ws.cell(row=excel_row, column=7, value=int(row["last_year"])  or None)
         ws.cell(row=excel_row, column=8, value=int(row["career_span"]) or None)
+        lid = legacyid_map.get(pc, "")
+        ws.cell(row=excel_row, column=9, value=int(lid) if lid else None)
 
     ws.auto_filter.ref = f"A1:{get_column_letter(len(hdrs))}{len(df) + 1}"
 
@@ -1240,7 +1251,7 @@ def main():
     # Index placeholder — correct content added after year sheets are built
     idx_placeholder = wb.create_sheet("Index")
 
-    build_player_stats(wb, stats, honours)
+    build_player_stats(wb, stats, honours, persons_df=persons_df)
     build_player_results(wb, pf, s2_events)
 
     # ── Year sheets ───────────────────────────────────────────────────────────

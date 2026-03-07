@@ -2681,7 +2681,7 @@ def main() -> int:
         persons_truth = persons_truth_clean
 
         # Option A display sheet: slim, pivot-ready, one row per effective_person_id
-        persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
+        persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id", "legacyid"]
         persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
         persons_truth_display = persons_truth[persons_truth_display_cols].copy()
 
@@ -2716,7 +2716,7 @@ def main() -> int:
         if dup_cols:
             persons_truth = persons_truth.drop(columns=dup_cols)
         persons_truth_conflicted = pd.DataFrame()
-        persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id"]
+        persons_truth_display_cols = ["person_canon", "aliases_presentable", "source", "notes", "effective_person_id", "legacyid"]
         persons_truth_display_cols = [c for c in persons_truth_display_cols if c in persons_truth.columns]
         persons_truth_display = persons_truth[persons_truth_display_cols].copy()
         persons_public = persons_truth_display[["person_canon", "aliases_presentable"]].copy()
