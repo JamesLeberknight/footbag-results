@@ -388,6 +388,17 @@ def load_honours(pt_df: pd.DataFrame) -> dict:
 
 # ── Placement data for year sheets ────────────────────────────────────────────
 
+_FLAG_RANK = {"complete": 0, "mostly_complete": 1, "partial": 2, "sparse": 3}
+
+def compute_event_coverage(pf: pd.DataFrame) -> dict:
+    """Return dict event_id → worst coverage_flag string for that event."""
+    result = {}
+    for eid, grp in pf.groupby("event_id"):
+        worst = max(grp["coverage_flag"], key=lambda f: _FLAG_RANK.get(f.lower(), 0))
+        result[str(eid)] = worst.lower()
+    return result
+
+
 def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
     """
     Returns dict: event_id → OrderedDict{division_canon: [(place_int, display, cat)]}.
@@ -405,6 +416,7 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
         div_placements: dict = {}
 
         for div_canon, ddf in edf.groupby("division_canon"):
+            div_canon = div_canon.rstrip(":").strip()
             ddf = ddf.copy()
             ddf["_place"] = pd.to_numeric(ddf["place"], errors="coerce")
             ddf = ddf.sort_values(["_place", "team_person_key", "person_canon"],
@@ -417,7 +429,7 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                 person = (row.get("person_canon") or "").strip()
                 if not person or person == "__NON_PERSON__":
                     continue
-                if (row.get("person_unresolved") or "").lower() == "true":
+                if (row.get("person_unresolved") or "").lower() in ("true", "1"):
                     continue
 
                 try:
@@ -467,7 +479,7 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
 def compute_leaderboards(pbp: pd.DataFrame) -> pd.DataFrame:
     """Compute wins / podiums / placements / events / career_span per person."""
     df = pbp.copy()
-    df = df[df["person_unresolved"].str.lower() != "true"]
+    df = df[~df["person_unresolved"].str.lower().isin(("true", "1"))]
     df = df[df["person_canon"].str.strip() != ""]
     df = df[df["person_canon"].str.strip() != "__NON_PERSON__"]
     df["_place"] = pd.to_numeric(df["place"], errors="coerce")
@@ -494,7 +506,7 @@ def compute_leaderboards(pbp: pd.DataFrame) -> pd.DataFrame:
 def compute_leaderboards_by_cat(pbp: pd.DataFrame) -> dict:
     """Wins per person per division_category."""
     df = pbp.copy()
-    df = df[df["person_unresolved"].str.lower() != "true"]
+    df = df[~df["person_unresolved"].str.lower().isin(("true", "1"))]
     df = df[~df["person_canon"].str.strip().isin(["", "__NON_PERSON__"])]
     df["_place"] = pd.to_numeric(df["place"], errors="coerce")
     wins = df[df["_place"] == 1]
@@ -540,8 +552,7 @@ def _get_symbol(display: str, honours: dict) -> str:
 
 # ── ReadMe sheet ──────────────────────────────────────────────────────────────
 
-def build_readme(wb: Workbook, events: dict, pf: pd.DataFrame,
-                 honours: dict):
+def build_readme(wb: Workbook, events: dict, pf: pd.DataFrame):
     ws = wb.create_sheet("ReadMe")
     ws.column_dimensions["A"].width = 50
     ws.column_dimensions["B"].width = 22
@@ -710,8 +721,7 @@ def build_honours_sheet(wb: Workbook, honours: dict,
 # ── Summary sheet ─────────────────────────────────────────────────────────────
 
 def build_summary(wb: Workbook, events: dict, event_placements: dict,
-                  stats: pd.DataFrame, pbp: pd.DataFrame,
-                  honours: dict):
+                  stats: pd.DataFrame, pbp: pd.DataFrame):
     ws = wb.create_sheet("Summary")
     ws.column_dimensions["A"].width = 32
     ws.column_dimensions["B"].width = 20
@@ -742,8 +752,16 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
         _c(ws, r, 1, label, font=FONT_SUBHEAD)
         _c(ws, r, 2, value, font=FONT_NORMAL)
 
+    # ── Data note ────────────────────────────────────────────────────────────
+    note_row = 9
+    _c(ws, note_row, 1, "Note", font=FONT_SUBHEAD)
+    _c(ws, note_row + 1, 1,
+       "Results data is incomplete for early years (pre-1997). "
+       "Coverage improves significantly from 1997 onward.",
+       font=FONT_SMALL)
+
     # ── Leaderboards ─────────────────────────────────────────────────────────
-    lb_row = 9
+    lb_row = 12
     _c(ws, lb_row, 1, "Leaderboards", font=FONT_SECTION)
     lb_row += 1
 
@@ -840,7 +858,8 @@ def build_records(wb: Workbook, stats: pd.DataFrame, cat_stats: dict,
 # ── Index sheet ───────────────────────────────────────────────────────────────
 
 def build_index_real(wb: Workbook, events: dict, event_placements: dict,
-                     event_col_map: dict, insert_at: int):
+                     event_col_map: dict, insert_at: int,
+                     event_coverage: dict = None):
     """Build the Index sheet with hyperlinks and insert at the correct position."""
     ws = wb.create_sheet("Index")
     wb.move_sheet("Index", offset=-(len(wb.sheetnames) - 1 - insert_at))
@@ -848,8 +867,8 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
     ws.freeze_panes = "A2"
 
     hdrs   = ["Year", "Event", "City / Region", "Country", "Host Club",
-              "Divisions", "Players"]
-    widths = [7, 48, 32, 12, 30, 11, 10]
+              "Divisions", "Players", "Coverage"]
+    widths = [7, 48, 32, 12, 30, 11, 10, 12]
     for c, (h, w) in enumerate(zip(hdrs, widths), start=1):
         _c(ws, 1, c, h, font=FONT_HDR, fill=FILL_HDR, align=ALIGN_CENTER)
         ws.column_dimensions[get_column_letter(c)].width = w
@@ -872,6 +891,11 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
         ws.cell(row=row_idx, column=6, value=n_d)
         ws.cell(row=row_idx, column=7, value=n_p)
 
+        flag = (event_coverage or {}).get(str(eid), "complete")
+        if flag in ("partial", "sparse"):
+            cov_cell = ws.cell(row=row_idx, column=8, value=flag)
+            cov_cell.font = Font(italic=True, size=9, color="CC0000")
+
         cell = ws.cell(row=row_idx, column=2, value=ev["event_name"])
         if eid in event_col_map:
             sheet_name, col_letter = event_col_map[eid]
@@ -882,7 +906,7 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
             cell.font = FONT_NORMAL
 
         if row_idx % 2 == 0:
-            for c in range(1, 8):
+            for c in range(1, 9):
                 cell_obj = ws.cell(row=row_idx, column=c)
                 if cell_obj.fill.fgColor.rgb in ("00000000", "FFFFFFFF"):
                     cell_obj.fill = _fill("F7F9FC")
@@ -899,9 +923,9 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
     ws = wb.create_sheet("Player Stats")
     ws.freeze_panes = "A2"
 
-    hdrs   = ["Player", "Wins", "Podiums", "Placements", "Events",
+    hdrs   = ["Player", "Nickname", "Wins", "Podiums", "Placements", "Events",
               "First Year", "Last Year", "Career (yrs)", "Legacy ID"]
-    widths = [32, 8, 8, 12, 8, 12, 12, 12, 10]
+    widths = [32, 18, 8, 8, 12, 8, 12, 12, 12, 10]
 
     for c, (h, w) in enumerate(zip(hdrs, widths), start=1):
         _c(ws, 1, c, h, font=FONT_HDR, fill=FILL_HDR)
@@ -925,15 +949,17 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
         excel_row = r_idx + 2
 
         ws.cell(row=excel_row, column=1, value=_display_name(pc))
-        ws.cell(row=excel_row, column=2, value=int(row["wins"]))
-        ws.cell(row=excel_row, column=3, value=int(row["podiums"]))
-        ws.cell(row=excel_row, column=4, value=int(row["placements"]))
-        ws.cell(row=excel_row, column=5, value=int(row["events"]))
-        ws.cell(row=excel_row, column=6, value=int(row["first_year"]) or None)
-        ws.cell(row=excel_row, column=7, value=int(row["last_year"])  or None)
-        ws.cell(row=excel_row, column=8, value=int(row["career_span"]) or None)
+        nick = honours.get(pc, {}).get("nickname", "") if honours.get(pc, {}).get("bap") else ""
+        ws.cell(row=excel_row, column=2, value=nick or None)
+        ws.cell(row=excel_row, column=3, value=int(row["wins"]))
+        ws.cell(row=excel_row, column=4, value=int(row["podiums"]))
+        ws.cell(row=excel_row, column=5, value=int(row["placements"]))
+        ws.cell(row=excel_row, column=6, value=int(row["events"]))
+        ws.cell(row=excel_row, column=7, value=int(row["first_year"]) or None)
+        ws.cell(row=excel_row, column=8, value=int(row["last_year"])  or None)
+        ws.cell(row=excel_row, column=9, value=int(row["career_span"]) or None)
         lid = legacyid_map.get(pc, "")
-        ws.cell(row=excel_row, column=9, value=int(lid) if lid else None)
+        ws.cell(row=excel_row, column=10, value=int(lid) if lid else None)
 
     ws.auto_filter.ref = f"A1:{get_column_letter(len(hdrs))}{len(df) + 1}"
 
@@ -953,7 +979,7 @@ def build_player_results(wb: Workbook, pf: pd.DataFrame, events: dict):
         ws.column_dimensions[get_column_letter(c)].width = w
 
     df = pf.copy()
-    df = df[df["person_unresolved"].str.lower() != "true"]
+    df = df[~df["person_unresolved"].str.lower().isin(("true", "1"))]
     df = df[~df["person_canon"].isin(["", "__NON_PERSON__"])]
 
     df["_place"] = pd.to_numeric(df["place"], errors="coerce")
@@ -1005,7 +1031,7 @@ def build_player_results(wb: Workbook, pf: pd.DataFrame, events: dict):
         ws.cell(row=row_idx, column=1, value=ev.get("year") or _to_int(row.get("year")))
         ws.cell(row=row_idx, column=2, value=ev.get("event_name") or eid)
         ws.cell(row=row_idx, column=3, value=ev.get("location", ""))
-        ws.cell(row=row_idx, column=4, value=row.get("division_canon", ""))
+        ws.cell(row=row_idx, column=4, value=row.get("division_canon", "").rstrip(":").strip())
         ws.cell(row=row_idx, column=5, value=row.get("division_category", ""))
         ws.cell(row=row_idx, column=6, value=place_val)
         ws.cell(row=row_idx, column=7, value=_display_name(person))
@@ -1047,7 +1073,7 @@ FONT_CAT   = Font(bold=True, size=8, color="444444")
 
 
 def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
-                     honours: dict) -> tuple:
+                     honours: dict, coverage_flag: str = "complete") -> tuple:
     """
     Write one event into column `col` (1-based, already offset for label col).
     Returns (last_row_written, max_content_length).
@@ -1128,7 +1154,7 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
 
 def build_year_sheet(wb: Workbook, year: int, eids: list,
                      events: dict, event_placements: dict,
-                     honours: dict) -> dict:
+                     honours: dict, event_coverage: dict = None) -> dict:
     """
     Build one year sheet with:
     - Column A: row labels (Event, Location, Host Club, Date, Players)
@@ -1157,7 +1183,9 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
     for col_offset, eid in enumerate(sorted_eids, start=2):   # B=2, C=3, …
         ev         = events[eid]
         placements = event_placements.get(eid, OrderedDict())
-        last_row, max_w = _write_event_col(ws, col_offset, ev, placements, honours)
+        flag       = (event_coverage or {}).get(str(eid), "complete")
+        last_row, max_w = _write_event_col(ws, col_offset, ev, placements, honours,
+                                           coverage_flag=flag)
         event_col_map[eid]       = get_column_letter(col_offset)
         col_max_widths[col_offset] = max_w
 
@@ -1210,6 +1238,7 @@ def main():
 
     print("Building event placements…")
     event_placements = build_event_placements(pf, s2_events)
+    event_coverage   = compute_event_coverage(pf)
 
     print("Computing leaderboards…")
     stats     = compute_leaderboards(pbp)
@@ -1226,12 +1255,10 @@ def main():
     wb = Workbook()
     wb.remove(wb.active)
 
-    # Sheet order: ReadMe, Summary, Records, Honours, [Index placeholder],
+    # Sheet order: Summary, Records, [Index placeholder],
     #              Players, Player Results, year sheets
-    build_readme(wb, s2_events, pf, honours)
-    build_summary(wb, s2_events, event_placements, stats, pbp, honours)
+    build_summary(wb, s2_events, event_placements, stats, pbp)
     build_records(wb, stats, cat_stats, s2_events, event_placements, honours)
-    build_honours_sheet(wb, honours, bap_rows, fbhof_rows, stats)
 
     # Index placeholder — correct content added after year sheets are built
     idx_placeholder = wb.create_sheet("Index")
@@ -1246,18 +1273,19 @@ def main():
     print(f"Building {len(sorted_years)} year sheets…")
     for year in sorted_years:
         col_map = build_year_sheet(
-            wb, year, year_to_eids[year], s2_events, event_placements, honours
+            wb, year, year_to_eids[year], s2_events, event_placements, honours,
+            event_coverage=event_coverage,
         )
         for eid, col_letter in col_map.items():
             all_event_col_map[eid] = (str(year), col_letter)
 
     # ── Rebuild Index now that year positions are known ───────────────────────
-    # Sheet order after year sheets: [..., Index placeholder at position 4]
-    # We remove placeholder and insert real Index at position 4
-    # (ReadMe=0, Summary=1, Records=2, Honours=3, Index=4, …)
+    # Sheet order after year sheets: [..., Index placeholder at position 2]
+    # We remove placeholder and insert real Index at position 2
+    # (Summary=0, Records=1, Index=2, …)
     wb.remove(idx_placeholder)
     build_index_real(wb, s2_events, event_placements, all_event_col_map,
-                     insert_at=4)
+                     insert_at=2, event_coverage=event_coverage)
 
     # ── Save ──────────────────────────────────────────────────────────────────
     print(f"Saving {XLSX}…")

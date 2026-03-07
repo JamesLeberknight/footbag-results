@@ -79,7 +79,7 @@ Characteristics:
   - Persons_Truth.csv
   - Persons_Unresolved.csv
   - persons_truth.lock
-  - Canonical Excel workbook
+  - Footbag_Results_Community.xlsx (community Excel workbook)
 
 Release mode is the only mode required for archival reproduction.
 
@@ -128,6 +128,15 @@ Release mode is authoritative.
 - Finalize sheet ordering.
 
 Stage 04 must never alter canonical identity rows.
+
+## Stage 04B
+- Produce the community-facing Excel workbook (`Footbag_Results_Community.xlsx`).
+- Reads Placements_ByPerson, Placements_Flat, stage2_canonical_events, Persons_Truth.
+- Filters __NON_PERSON__ and unresolved entries from all display surfaces.
+- Sheet structure: Summary, Records, Index, Player Stats, Player Results, year sheets.
+- Honours data (BAP / FBHOF) used only for BAP nickname column in Player Stats.
+- Coverage flags (partial / sparse) surfaced in Index sheet Coverage column.
+- No identity mutations. Read-only with respect to canonical identity.
 
 ---
 

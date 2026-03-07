@@ -22,7 +22,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 876336655,Scottsdale,Arizona,United States,USA
 876356874,Palo Alto,California,United States,USA
 876590022,Seattle,Washington,United States,USA
-876591529,Quebec,,Canada,CAN
+876591529,Montreal,Quebec,Canada,CAN
 877061793,Portland,Oregon,United States,USA
 877848852,Auburn,Alabama,United States,USA
 879319107,Richardson,Texas,United States,USA
@@ -252,7 +252,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1131659634,Oakland/San Francisco,California,United States,USA
 1132511088,Kuopio,,Finland,FIN
 1133888413,Murfreesboro,Tennessee,United States,USA
-1134914723,,,France,FRA
+1134914723,Paris,,France,FRA
 1135116604,Frankfurt,,Germany,DEU
 1137347261,Denver,Colorado,United States,USA
 1137937282,Litomerice,,Czech Republic,CZE
@@ -625,7 +625,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1485863923,Lublin,,Poland,POL
 1485967222,Peninsula Cherokee,Alabama,United States,USA
 1485970612,Quebec,,Canada,CAN
-1486654923,,,France,FRA
+1486654923,Paris,,France,FRA
 1487797845,Aranjuez,,Spain,ESP
 1487800738,Zagora,,Bulgaria,
 1488957997,Vaud,,Switzerland,CHE
@@ -640,7 +640,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1509295388,Turku,,Finland,FIN
 1509295589,Helsinki,,Finland,FIN
 1515176008,Antioquia,,Colombia,COL
-1516978874,,,France,FRA
+1516978874,Paris,,France,FRA
 1518200935,Kranj,,Slovenia,SVN
 1519215398,Sofia,,Bulgaria,
 1519233007,Zagora,,Bulgaria,
@@ -678,7 +678,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1568289502,Bulgaria,,Bulgaria,
 1568692191,Antioquia,,Colombia,COL
 1568961264,Paris,,France,FRA
-1572864719,,,Czech Republic,CZE
+1572864719,Hradec Kralove,,Czech Republic,CZE
 1574365921,Bizkaia,,Basque Country,
 1575361225,Wien,,Austria,AUT
 1576342966,Helsinki,,Finland,FIN
@@ -727,7 +727,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1692508794,Zagora,,Bulgaria,
 1694170899,Warszawa,,Poland,POL
 1694868513,Berlin,,Germany,DEU
-1695501837,,,Czech Republic,CZE
+1695501837,Byst,,Czech Republic,CZE
 1697391704,Krakow,,Poland,POL
 1699593640,Miranda,,Venezuela,VEN
 1699709080,Tabor,,Czech Republic,CZE
@@ -774,19 +774,19 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1768520954,Portland,Oregon,United States,USA
 1768623808,San Francisco,California,United States,USA
 1768955907,Ibaraki,,Japan,JPN
-2001980001,,,United States,USA
-2001981001,,,United States,USA
-2001982001,,,United States,USA
-2001982002,,,United States,USA
-2001983001,,,United States,USA
-2001983002,,,United States,USA
-2001983003,,,United States,USA
-2001983004,,,United States,USA
-2001984001,,,United States,USA
-2001984002,,,United States,USA
-2001985001,,,United States,USA
-2001985002,,,United States,USA
-2001986001,,,United States,USA
+2001980001,Oregon City,Oregon,United States,USA
+2001981001,Oregon City,Oregon,United States,USA
+2001982001,Oregon City,Oregon,United States,USA
+2001982002,Oregon City,Oregon,United States,USA
+2001983001,Boulder,Colorado,United States,USA
+2001983002,Boulder,Colorado,United States,USA
+2001983003,Boulder,Colorado,United States,USA
+2001983004,Boulder,Colorado,United States,USA
+2001984001,Boulder,Colorado,United States,USA
+2001984002,Boulder,Colorado,United States,USA
+2001985001,Golden,Colorado,United States,USA
+2001985002,Golden,Colorado,United States,USA
+2001986001,Golden,Colorado,United States,USA
 857875468,Portland,Oregon,United States,USA
 857879540,College Park,Maryland,United States,USA
 987361779,Bushnell,Illinois,United States,USA

@@ -74,7 +74,8 @@ This should be treated as a **major version event**.
 │  ├─ 02_canonicalize_results.py
 │  ├─ 02p5_player_token_cleanup.py
 │  ├─ 03_build_excel.py
-│  └─ 04_build_analytics.py
+│  ├─ 04_build_analytics.py
+│  └─ 04B_create_community_excel.py
 ├─ qc/
 │  └─ qc_master.py
 ├─ tools/
@@ -158,6 +159,24 @@ summary sheets, person stats, coverage analysis, and data integrity.
 Identity used here is strictly derived from `Persons_Truth`.
 Writes `out/persons_truth.lock` on Gate 3 PASS.
 
+### Stage 04B — Build Community Excel
+
+```
+scripts/04B_create_community_excel.py
+```
+
+Produces `Footbag_Results_Community.xlsx` — the primary community-facing deliverable.
+
+Reads `Placements_ByPerson.csv`, `Placements_Flat.csv`, `stage2_canonical_events.csv`, and `Persons_Truth.csv`. Filters out `__NON_PERSON__` and unresolved entries throughout.
+
+Sheet structure:
+- **Summary** — dataset overview (events, years, placements, players) and leaderboards
+- **Records** — all-time and per-category record holders; largest events
+- **Index** — full event list with hyperlinks to year sheets; coverage flag for partial/sparse events
+- **Player Stats** — career stats per resolved player; BAP nickname column; Legacy ID column
+- **Player Results** — flat placement history, one row per placement
+- **Year sheets** (1980–present) — one column per event, grouped by division category
+
 ---
 
 ## Running the Pipeline
@@ -225,7 +244,7 @@ QC ensures:
 
 Warnings may remain for known historical limitations (ties, pool play, partial top-N publishing).
 
-**Current baseline (v2.0.0):** Gate 3 PASS = 3,449 · Stage 2: 0 errors, 15 warnings · Stage 3: 0 errors · Placements_Flat: 26,028 rows
+**Current baseline (v2.0.0):** Gate 3 PASS = 3,449 · Stage 2: 784 events, 0 errors, 15 warnings · Placements_Flat: 26,028 rows (18,464 resolved) · Community Excel: 18,376 displayed placements
 
 ---
 
@@ -245,20 +264,9 @@ Typical outputs under `out/`:
 | `Persons_Unresolved.csv` | Persons with unresolved identity |
 | `persons_truth.lock` | SHA-256 sentinel proving identity immutability |
 | `out/qc_reports/` | QC detail reports |
-| `Footbag_Results_Canonical.xlsx` | **Final workbook (primary deliverable)** |
+| `Footbag_Results_Community.xlsx` | **Community Excel workbook (primary deliverable)** |
 
 All generated artifacts are reproducible from: mirror data, legacy results, `Persons_Truth_Final_v32.csv`, and code version.
-
-### Workbook Sentinel Closure
-
-If the final workbook contains placement rows bucketed under the reserved sentinel identity `__NON_PERSON__`, run:
-
-```bash
-python tools/06_fixup_workbook_sentinels.py INPUT.xlsx OUTPUT.xlsx
-```
-
-This ensures referential closure between `Placements_ByPerson` and `Persons_Truth` within the workbook artifact.
-This does **not** modify `Persons_Truth_Final_v32.csv`.
 
 ---
 

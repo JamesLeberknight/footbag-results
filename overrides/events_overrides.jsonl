@@ -62,3 +62,25 @@
 {"event_id":"1091802943","host_club":"Austin Style Footbag Club - Texas Footbag League","source":"series_inference","confidence":"very_high","note":"2004 Texas State Footbag Championships; all other series events (2001,2003,2007-2012) have this club"}
 {"event_id":"879319107","host_club":"Dallas Footbag Club","source":"series_inference","confidence":"high","note":"1998 Southern Regional Championships; 2001 edition in same city already has this club"}
 {"event_id":"909186885","host_club":"Dallas Footbag Club","source":"series_inference","confidence":"high","note":"1999 Southern Regional Championships; 2001 edition in same city already has this club"}
+{"event_id": "2001980001", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001981001", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001982001", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001982002", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001983001", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001983002", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001983003", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001983004", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001984001", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001984002", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001985001", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001985002", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001986001", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "857876517", "host_club": "Sole Purpose Footbag Club", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "876591529", "host_club": "Pro Kicker", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "980969461", "host_club": "Bay Area Footbag League", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "1013283071", "host_club": "Bay Area Footbag League", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "1134914723", "host_club": "Rien N'est Hacky - RNH Footbag", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "1486654923", "host_club": "Rien N'est Hacky - RNH Footbag", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "1516978874", "host_club": "Rien N'est Hacky - RNH Footbag", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "1572864719", "host_club": "Hradec Kralove Footbag Club", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "1695501837", "host_club": "Hradec Kralove Footbag Club", "source": "research.2026-03", "confidence": "high"}
