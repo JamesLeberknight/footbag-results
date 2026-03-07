@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — Canonical Excel Builder (v1.0.21)
+# Footbag Results Pipeline — Canonical Excel Builder (v2.0.0)
 
 Deterministic pipeline for producing the **final, reviewer-ready Excel workbook** of historical Footbag results.
 
@@ -36,14 +36,14 @@ Identity is the foundation of the dataset.
 All person identity used in analytics and the workbook derives exclusively from:
 
 ```
-inputs/identity_lock/Persons_Truth_Final_v31.csv
+inputs/identity_lock/Persons_Truth_Final_v32.csv
 ```
 
 ### Persons_Truth
 
-`Persons_Truth_Final_v31.csv` enforces:
+`Persons_Truth_Final_v32.csv` enforces:
 
-- One row per real person (3,444 persons)
+- One row per real person (3,449 persons)
 - Globally unique `effective_person_id` (UUID)
 - Unique canonical display name (`person_canon`)
 - Human-verified identity resolution
@@ -64,9 +64,9 @@ This should be treated as a **major version event**.
 ├─ Makefile
 ├─ inputs/
 │  └─ identity_lock/
-│     ├─ Persons_Truth_Final_v31.csv
+│     ├─ Persons_Truth_Final_v32.csv
 │     ├─ Persons_Unresolved_Organized_v27.csv
-│     └─ Placements_ByPerson_v33.csv
+│     └─ Placements_ByPerson_v35.csv
 ├─ scripts/
 │  ├─ 01_parse_mirror.py
 │  ├─ 01b_import_old_results.py
@@ -84,7 +84,7 @@ This should be treated as a **major version event**.
 └─ out/                          (generated outputs — not source of truth)
 ```
 
-The only authoritative identity artifact is `Persons_Truth_Final_v31.csv`.
+The only authoritative identity artifact is `Persons_Truth_Final_v32.csv`.
 
 ---
 
@@ -131,7 +131,7 @@ scripts/02p5_player_token_cleanup.py
 
 Release-mode bridge between stage-2 canonical events and the identity lock.
 
-- Applies `Placements_ByPerson_v33.csv` (identity-locked placements) to produce `Placements_Flat.csv`
+- Applies `Placements_ByPerson_v35.csv` (identity-locked placements) to produce `Placements_Flat.csv`
 - Enforces coverage guarantees: every placement maps to Persons_Truth, Persons_Unresolved, or `__NON_PERSON__`
 - Does **not** perform identity merges or heuristic resolution
 
@@ -225,7 +225,7 @@ QC ensures:
 
 Warnings may remain for known historical limitations (ties, pool play, partial top-N publishing).
 
-**Current baseline (v1.0.21):** Gate 3 PASS = 3,444 · Stage 2: 0 errors, 15 warnings · Stage 3: 0 errors
+**Current baseline (v2.0.0):** Gate 3 PASS = 3,449 · Stage 2: 0 errors, 15 warnings · Stage 3: 0 errors · Placements_Flat: 26,028 rows
 
 ---
 
@@ -247,7 +247,7 @@ Typical outputs under `out/`:
 | `out/qc_reports/` | QC detail reports |
 | `Footbag_Results_Canonical.xlsx` | **Final workbook (primary deliverable)** |
 
-All generated artifacts are reproducible from: mirror data, legacy results, `Persons_Truth_Final_v31.csv`, and code version.
+All generated artifacts are reproducible from: mirror data, legacy results, `Persons_Truth_Final_v32.csv`, and code version.
 
 ### Workbook Sentinel Closure
 
@@ -258,13 +258,13 @@ python tools/06_fixup_workbook_sentinels.py INPUT.xlsx OUTPUT.xlsx
 ```
 
 This ensures referential closure between `Placements_ByPerson` and `Persons_Truth` within the workbook artifact.
-This does **not** modify `Persons_Truth_Final_v31.csv`.
+This does **not** modify `Persons_Truth_Final_v32.csv`.
 
 ---
 
 ## Determinism Guarantee
 
-From a clean clone with the same mirror, legacy inputs, `Persons_Truth_Final_v31.csv`, and code version, the pipeline produces:
+From a clean clone with the same mirror, legacy inputs, `Persons_Truth_Final_v32.csv`, and code version, the pipeline produces:
 
 - Identical row counts
 - Identical UUID assignments
@@ -283,7 +283,7 @@ No randomness. No implicit identity merges. No silent data mutation.
 | Minor (v1.x.0) | Additive analytics sheets |
 | Major (v2.0.0) | Any change to Persons_Truth or identity logic |
 
-Current identity baseline: `Persons_Truth_Final_v31.csv` (3,444 persons · v1.0.21)
+Current identity baseline: `Persons_Truth_Final_v32.csv` (3,449 persons · v2.0.0)
 
 ---
 

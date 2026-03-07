@@ -46,9 +46,9 @@ STAGE2_CSV = OUT / "stage2_canonical_events.csv"
 # (event_id → (root_cause_tag, explanation))
 # ---------------------------------------------------------------------------
 KNOWN_CAUSES: dict[str, tuple[str, str]] = {
-    "915561090":  ("EXTERNAL_LINK",
-                   "Full results at /worlds99/results/results.html not mirrored; "
-                   "freestyle at http://www.wam.umd.edu/~rvbpaco/1999WorldsFreestyle.html (off-site)"),
+    # 915561090 (1999 Worlds): RECOVERED 2026-03-07 — all 19 divisions in
+    # legacy_data/event_results/915561090.txt via RESULTS_FILE_OVERRIDES.
+    # Entry removed; QC now detects OK status automatically.
     "1706036811": ("INCOMPLETE_POST",
                    "Women's freestyle divisions (Routines, Battles, Shred 30, Sick 3) "
                    "were not posted to footbag.org by the 2024 organiser"),
@@ -296,7 +296,10 @@ def main() -> None:
         if not errs and not warns:
             continue
 
-        total_errors   += len(errs)
+        # Only count as actionable errors if root cause is unknown (PARTIAL)
+        # and not already explained by a human-documented KNOWN_CAUSES entry.
+        if errs and r["event_id"] not in KNOWN_CAUSES:
+            total_errors += len(errs)
         total_warnings += len(warns)
         problem_events.append(r)
 

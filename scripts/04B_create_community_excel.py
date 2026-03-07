@@ -574,9 +574,6 @@ def build_readme(wb: Workbook, events: dict, pf: pd.DataFrame,
     _c(ws, 18, 1, "James Leberknight",  font=FONT_NORMAL)
     _c(ws, 19, 1, str(datetime.now().year), font=FONT_SMALL)
 
-    _c(ws, 21, 1, "Honours", font=FONT_SUBHEAD)
-    _c(ws, 22, 1, "BAP and Hall of Fame inductees are listed on the Honours sheet.",
-       font=FONT_NORMAL)
 
 
 # ── Honours sheet ─────────────────────────────────────────────────────────────
@@ -745,23 +742,8 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
         _c(ws, r, 1, label, font=FONT_SUBHEAD)
         _c(ws, r, 2, value, font=FONT_NORMAL)
 
-    # ── Honours section ───────────────────────────────────────────────────────
-    _c(ws, 9, 1, "Honours", font=FONT_SECTION)
-
-    n_bap   = sum(1 for h in honours.values() if h["bap"])
-    n_fbhof = sum(1 for h in honours.values() if h["fbhof"])
-    n_both  = sum(1 for h in honours.values() if h["bap"] and h["fbhof"])
-
-    for r, (label, value) in enumerate([
-        ("Big Add Posse",  f"{n_bap} members in dataset"),
-        ("Hall of Fame",   f"{n_fbhof} members in dataset"),
-        ("Both Honours",   f"{n_both} players"),
-    ], start=10):
-        _c(ws, r, 1, label, font=FONT_SUBHEAD)
-        _c(ws, r, 2, value, font=FONT_NORMAL)
-
     # ── Leaderboards ─────────────────────────────────────────────────────────
-    lb_row = 15
+    lb_row = 9
     _c(ws, lb_row, 1, "Leaderboards", font=FONT_SECTION)
     lb_row += 1
 

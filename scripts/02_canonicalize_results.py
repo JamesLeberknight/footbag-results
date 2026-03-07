@@ -276,6 +276,14 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/915561090.txt",
         "replace": True,
     },
+    # 2003 World Footbag Championships — full results at
+    # http://www.footbag.org/worlds2003/results.html (not in mirror).
+    # Recovered 2026-03-07 via direct HTTP fetch; 15 divisions, 192 placements.
+    # Mirror partial data (10 divs, 186 placements) replaced entirely.
+    "1035277529": {
+        "file":    "legacy_data/event_results/1035277529.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
