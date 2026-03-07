@@ -23,6 +23,10 @@ The purpose of this repository is to build a clean, internally consistent, archi
 
 All parsing, normalization, analytics, and QC exist to support this final spreadsheet.
 
+### Data Completeness
+
+Results data is **incomplete for early years**. The primary source (Footbag.org mirror) provides dense coverage from 1997 onward. Pre-1997 data is sparse: only a handful of events are recorded for 1985–1986 and 1990–1991, and the years 1987–1989 and 1992–1996 have no coverage at all. Historical records recovery from print sources (e.g. Footbag World magazine) is ongoing.
+
 ---
 
 ## Identity Model (Authoritative Core)

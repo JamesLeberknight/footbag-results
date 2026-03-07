@@ -2042,7 +2042,7 @@ def clean_player_name(name: str) -> str:
     return name.strip()
 
 
-def split_entry(entry: str) -> tuple[str, Optional[str], str]:
+def split_entry(entry: str, is_doubles: bool = False) -> tuple[str, Optional[str], str]:
     """
     Detect teams/multiple players separated by '/', ' and ', ' & ', commas, or dash separators.
     Returns (player1, player2, competitor_type).
@@ -2055,7 +2055,8 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
     3. " and " between names (word separator)
     4. "et" between names (French "and")
     5. " - ", " – ", " — " between names (dash separators: hyphen, en-dash, em-dash)
-    6. ", " between multiple names (comma separator for groups - returns first 2)
+    6. Bare dash "Name1-Name2" (doubles only: both sides must be multi-word full names)
+    7. ", " between multiple names (comma separator for groups - returns first 2)
     """
     entry = " ".join(entry.split()).strip()
 
@@ -2183,9 +2184,9 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
                         return p1, p2_clean, "team"
             return a_clean, b_clean, "team"
 
-    # French "et" separator (case insensitive)
-    # Check for " et " between two names
-    et_match = re.search(r'\s+et\s+', entry_clean, re.IGNORECASE)
+    # "et" / "og" / "und" separator (French "and", Danish/Norwegian "og", German "und")
+    # Check for these connectives between two names
+    et_match = re.search(r'\s+(?:et|og|und)\s+', entry_clean, re.IGNORECASE)
     if et_match:
         a = entry_clean[:et_match.start()].strip()
         b = entry_clean[et_match.end():].strip()
@@ -2214,6 +2215,27 @@ def split_entry(entry: str) -> tuple[str, Optional[str], str]:
             a_first.isupper() and b_first.isupper() and
             not re.match(ordinal_pattern, a, re.IGNORECASE)):
             return strip_trailing_score(a), strip_trailing_score(b), "team"
+
+    # Bare-dash separator for doubles divisions: "Name1-Name2" (no spaces around dash)
+    # Heuristic: if BOTH sides of a bare dash are multi-word (contain a space), it's
+    # likely a team separator rather than a hyphenated single name (e.g., "Jean-Pierre").
+    # Guards: both sides must have ≤5 words (rejects narrative text) and no bare digits.
+    # Only activated when is_doubles=True to avoid false splits in singles events.
+    if is_doubles and '-' in entry_clean:
+        _digit_re = re.compile(r'(?<!\()\b\d+\b(?!\))')  # digits outside parentheses
+        for i, c in enumerate(entry_clean):
+            if c != '-' or i == 0:
+                continue
+            left = entry_clean[:i].strip()
+            right = entry_clean[i + 1:].strip()
+            left_words = left.split()
+            right_words = right.split()
+            if (' ' in left and ' ' in right
+                    and len(left_words) <= 5 and len(right_words) <= 5
+                    and len(left) >= 4 and len(right) >= 4
+                    and looks_like_name(left) and looks_like_name(right)
+                    and not _digit_re.search(left) and not _digit_re.search(right)):
+                return strip_trailing_score(left), strip_trailing_score(right), "team"
 
     # Comma-separated names (for multi-player entries like Circle Contest)
     # e.g., "Paweł Nowak, Paweł Ścierski, Krzysztof Sobótka, Sylwia Kocyk (Poland)"
@@ -3029,7 +3051,8 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
             if use_merged_team_split:
                 player1, player2, competitor_type = split_merged_team(name_line)
             else:
-                player1, player2, competitor_type = split_entry(name_line)
+                _is_doubles_div = bool(re.search(r'\bdoubles?\b', division_raw or '', re.IGNORECASE))
+                player1, player2, competitor_type = split_entry(name_line, is_doubles=_is_doubles_div)
 
         # Fallback: detect merged team format "Name [seed] CAN Name GER"
         if player2 is None and isinstance(player1, str):
