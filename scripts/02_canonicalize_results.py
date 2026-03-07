@@ -263,6 +263,21 @@ EVENT_TYPE_OVERRIDES = {
 #
 # Decision: 2026-02 - This structure allows adding event-specific parsing
 # without polluting the general parsing logic.
+# Events whose results_raw is replaced or supplemented by an external text file.
+# Key: event_id string.
+# "replace": True  → discard results_raw entirely, use file only.
+# "replace": False → prepend file content to existing results_raw (supplement).
+# Paths are relative to the repository root.
+RESULTS_FILE_OVERRIDES: dict[str, dict] = {
+    # 1999 World Footbag Championships — full results live at
+    # http://www.footbag.org/worlds99/results/results.html but were not in the mirror.
+    # Recovered 2026-03-07 via direct HTTP fetch; all 19 divisions, 197 placements.
+    "915561090": {
+        "file":    "legacy_data/event_results/915561090.txt",
+        "replace": True,
+    },
+}
+
 EVENT_PARSING_RULES = {
     # 2011 World Championships - doubles results have merged team format
     # Format: "Emmanuel Bouchard [1] CAN Florian Goetze GER"
@@ -3808,6 +3823,23 @@ def canonicalize_records(
                 event_type_hint = "freestyle"
             elif "golf" in name_lower:
                 event_type_hint = "golf"
+
+        # Apply results file overrides (e.g. recovered external results not in mirror)
+        if str(event_id) in RESULTS_FILE_OVERRIDES:
+            _override = RESULTS_FILE_OVERRIDES[str(event_id)]
+            _override_path = REPO_ROOT / _override["file"]
+            if _override_path.exists():
+                _override_text = _override_path.read_text(encoding="utf-8")
+                # Strip comment lines (# prefix)
+                _override_lines = [l for l in _override_text.splitlines()
+                                   if not l.startswith("#")]
+                _override_clean = "\n".join(_override_lines)
+                if _override.get("replace"):
+                    results_raw = _override_clean
+                else:
+                    results_raw = _override_clean + "\n" + results_raw
+            else:
+                print(f"  WARN: results file override not found: {_override_path}")
 
         # Parse placements WITH event_type context for better division categorization
         placements, rejected_division_headers = parse_results_text(results_raw, event_id, event_type_hint)
