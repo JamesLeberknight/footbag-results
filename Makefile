@@ -11,20 +11,21 @@ setup:
 ## Rebuild Mode: parse HTML mirror → canonical stage-2 events
 ## Requires: mirror/ directory extracted from mirror.tar.gz (see README)
 rebuild:
-	$(PYTHON) scripts/01_parse_mirror.py
-	$(PYTHON) scripts/01b_import_old_results.py
-	$(PYTHON) scripts/01c_merge_stage1.py
-	$(PYTHON) scripts/02_canonicalize_results.py
+	$(PYTHON) pipeline/01_parse_mirror.py
+	$(PYTHON) pipeline/01b_import_old_results.py
+	$(PYTHON) pipeline/01c_merge_stage1.py
+	$(PYTHON) pipeline/02_canonicalize_results.py
 
 ## Release Mode: identity-locked canonical outputs + workbook
 ## Requires: out/stage2_canonical_events.csv (run 'make rebuild' first)
 release:
-	$(PYTHON) scripts/02p5_player_token_cleanup.py \
+	$(PYTHON) pipeline/02p5_player_token_cleanup.py \
 	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v35.csv \
 	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v32.csv \
 	  --out_dir out
-	$(PYTHON) scripts/03_build_excel.py
-	$(PYTHON) scripts/04_build_analytics.py
+	$(PYTHON) pipeline/03_build_excel.py
+	$(PYTHON) pipeline/04_build_analytics.py
+	$(PYTHON) pipeline/04B_create_community_excel.py
 
 ## QC: master checks + post-release integrity + schema/logic audit
 qc:

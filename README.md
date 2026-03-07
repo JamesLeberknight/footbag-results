@@ -67,7 +67,7 @@ This should be treated as a **major version event**.
 │     ├─ Persons_Truth_Final_v32.csv
 │     ├─ Persons_Unresolved_Organized_v27.csv
 │     └─ Placements_ByPerson_v35.csv
-├─ scripts/
+├─ pipeline/
 │  ├─ 01_parse_mirror.py
 │  ├─ 01b_import_old_results.py
 │  ├─ 01c_merge_stage1.py
@@ -94,7 +94,7 @@ The only authoritative identity artifact is `Persons_Truth_Final_v32.csv`.
 ### Stage 01 — Parse Mirror
 
 ```
-scripts/01_parse_mirror.py
+pipeline/01_parse_mirror.py
 ```
 
 Extracts raw structured placement data from the HTML mirror.
@@ -102,7 +102,7 @@ Extracts raw structured placement data from the HTML mirror.
 ### Stage 01b — Import Legacy Results
 
 ```
-scripts/01b_import_old_results.py
+pipeline/01b_import_old_results.py
 ```
 
 Imports historical results not present in the mirror.
@@ -110,7 +110,7 @@ Imports historical results not present in the mirror.
 ### Stage 01c — Merge Stage 1 Sources
 
 ```
-scripts/01c_merge_stage1.py
+pipeline/01c_merge_stage1.py
 ```
 
 Unifies mirror and legacy inputs into a single structured dataset.
@@ -118,7 +118,7 @@ Unifies mirror and legacy inputs into a single structured dataset.
 ### Stage 02 — Canonicalize Results
 
 ```
-scripts/02_canonicalize_results.py
+pipeline/02_canonicalize_results.py
 ```
 
 Normalizes event metadata, division names, and placement structure.
@@ -127,7 +127,7 @@ Produces canonical stage-2 tables.
 ### Stage 02p5 — Player Token Cleanup
 
 ```
-scripts/02p5_player_token_cleanup.py
+pipeline/02p5_player_token_cleanup.py
 ```
 
 Release-mode bridge between stage-2 canonical events and the identity lock.
@@ -141,7 +141,7 @@ Requires `out/stage2_canonical_events.csv` (produced by stage 02).
 ### Stage 03 — Build Excel Workbook (Primary Output)
 
 ```
-scripts/03_build_excel.py
+pipeline/03_build_excel.py
 ```
 
 Builds the final Excel spreadsheet from canonical stage-2 data.
@@ -150,7 +150,7 @@ Applies canonical location strings from `inputs/location_canon_full_final.csv`.
 ### Stage 04 — Build Analytics
 
 ```
-scripts/04_build_analytics.py
+pipeline/04_build_analytics.py
 ```
 
 Generates analytics surfaces written into the workbook:
@@ -162,7 +162,7 @@ Writes `out/persons_truth.lock` on Gate 3 PASS.
 ### Stage 04B — Build Community Excel
 
 ```
-scripts/04B_create_community_excel.py
+pipeline/04B_create_community_excel.py
 ```
 
 Produces `Footbag_Results_Community.xlsx` — the primary community-facing deliverable.
@@ -194,7 +194,7 @@ Sheet structure:
 
 3. **`inputs/OLD_RESULTS.txt`** is included in this repo. It contains three historical
    events that predate the mirror and are required for a complete dataset. The rebuild
-   pipeline processes it automatically via `scripts/01b_import_old_results.py`.
+   pipeline processes it automatically via `pipeline/01b_import_old_results.py`.
 
 ### Commands
 
