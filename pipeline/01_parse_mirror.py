@@ -893,7 +893,7 @@ def main():
     Parse HTML mirror and output stage1_raw_events_mirror.csv
     """
     REPO_ROOT = Path(__file__).resolve().parents[1]
-    repo_dir = Path(__file__).resolve().parent
+    repo_dir = REPO_ROOT
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".", help="Project root containing mirror_full/ mirror_repairs/ etc")

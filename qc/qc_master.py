@@ -207,7 +207,7 @@ def run_stage2_qc(records: list[dict], out_dir: Path) -> tuple[dict, list]:
     # (module name "02_canonicalize_results" is invalid for import_module)
     from importlib.util import spec_from_file_location, module_from_spec
 
-    stage2_path = REPO_ROOT / "scripts" / "02_canonicalize_results.py"
+    stage2_path = REPO_ROOT / "pipeline" / "02_canonicalize_results.py"
     if stage2_path.exists():
         spec = spec_from_file_location("stage2_canonicalize_results", stage2_path)
         canon_module = module_from_spec(spec)

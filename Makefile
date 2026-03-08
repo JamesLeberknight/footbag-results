@@ -1,6 +1,6 @@
 PYTHON = .venv/bin/python
 
-.PHONY: setup rebuild release qc all
+.PHONY: setup rebuild release qc all run
 
 ## First-time setup: create venv, install deps, create out/ dir
 setup:
@@ -35,3 +35,6 @@ qc:
 
 ## Full pipeline: rebuild → release → qc
 all: rebuild release qc
+
+## Alias: run pipeline
+run: all

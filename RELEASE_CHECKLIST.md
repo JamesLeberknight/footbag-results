@@ -31,7 +31,7 @@ No step may be skipped.
   - `04_build_analytics.py`
   - `Makefile`
 
-☐ `scripts/rebuild/` contains Rebuild Mode scripts (01, 01b, 01c, 02)
+☐ `pipeline/` contains Rebuild Mode scripts (01, 01b, 01c, 02)
 ☐ `legacy/OLD_RESULTS.txt` present (required by 01b)
 ☐ `out/`, mirrors, and `.xlsx` files are gitignored
 ☐ README.md reflects current version and identity-lock files
