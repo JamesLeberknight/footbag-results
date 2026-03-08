@@ -69,6 +69,50 @@ def infer_team_type(division_canon: str) -> str:
     return "singles"
 
 
+_MONTHS = {
+    "january": 1, "february": 2, "march": 3, "april": 4,
+    "may": 5, "june": 6, "july": 7, "august": 8,
+    "september": 9, "october": 10, "november": 11, "december": 12,
+}
+
+
+def parse_date_range(s: str) -> tuple[str, str]:
+    """
+    Parse stage2 date strings into ISO start_date and end_date.
+
+    Handles:
+      "July 31-August 6, 2011"   → ("2011-07-31", "2011-08-06")
+      "August 3-9, 2019"         → ("2019-08-03", "2019-08-09")
+      "March 15, 2008"           → ("2008-03-15", "2008-03-15")
+    Returns ("", "") if unparseable.
+    """
+    s = s.strip()
+    # Month D-Month D, YYYY
+    m = re.match(r"(\w+)\s+(\d+)\s*-\s*(\w+)\s+(\d+),\s*(\d{4})", s)
+    if m:
+        m1, d1, m2, d2, y = m.groups()
+        mo1 = _MONTHS.get(m1.lower())
+        mo2 = _MONTHS.get(m2.lower())
+        if mo1 and mo2:
+            return f"{y}-{mo1:02d}-{int(d1):02d}", f"{y}-{mo2:02d}-{int(d2):02d}"
+    # Month D-D, YYYY
+    m = re.match(r"(\w+)\s+(\d+)\s*-\s*(\d+),\s*(\d{4})", s)
+    if m:
+        mn, d1, d2, y = m.groups()
+        mo = _MONTHS.get(mn.lower())
+        if mo:
+            return f"{y}-{mo:02d}-{int(d1):02d}", f"{y}-{mo:02d}-{int(d2):02d}"
+    # Month D, YYYY  (single day)
+    m = re.match(r"(\w+)\s+(\d+),\s*(\d{4})", s)
+    if m:
+        mn, d, y = m.groups()
+        mo = _MONTHS.get(mn.lower())
+        if mo:
+            iso = f"{y}-{mo:02d}-{int(d):02d}"
+            return iso, iso
+    return "", ""
+
+
 def parse_location(location: str) -> tuple[str, str, str]:
     """
     Best-effort parse of a raw location string into (city, region, country).
@@ -212,6 +256,7 @@ for row in sorted_rows:
     event_name = row["event_name"] or ""
     location   = row.get("location", "") or ""
     city, region, country = parse_location(location)
+    start_date, end_date = parse_date_range(row.get("date", "") or "")
     pj = json.loads(row.get("placements_json", "[]"))
 
     # Ordered unique divisions (preserving first-appearance order from parsed results)
@@ -231,8 +276,8 @@ for row in sorted_rows:
         "year":            year,
         "event_name":      event_name,
         "event_slug":      slugify(event_name) if event_name else "",
-        "start_date":      "",   # not available in stage2
-        "end_date":        "",   # not available in stage2
+        "start_date":      start_date,
+        "end_date":        end_date,
         "city":            city,
         "region":          region,
         "country":         country,
