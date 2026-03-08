@@ -98,6 +98,11 @@ COVERAGE_FLAG_OVERRIDES: dict[tuple[str, str], str] = {
     # 2017 Worlds 2-Square: 12 finalists, places 1/2/3/3/5/5/5/5/9/9/9/9 — full bracket,
     # ties at lower rounds cause ratio=0.556 but all finalists are accounted for.
     ("1471686537", "2-Square"): "mostly_complete",
+    # Western Regionals 1998 (876356874): sparse doubles freestyle — only 1 or 3 placements
+    # from what were likely larger fields; source data incomplete for these disciplines.
+    ("876356874", "Mixed Doubles Freestyle"):       "sparse",
+    ("876356874", "Women's Open Doubles Freestyle"): "sparse",
+    ("876356874", "Open Doubles Freestyle"):         "partial",
     # Early-year synthetic events (200198xxxx): only top-3 placements in historical records.
     # More competitors participated — these are partial results at best.
     ("2001980001", "Doubles Consecutive Kicks"): "partial",

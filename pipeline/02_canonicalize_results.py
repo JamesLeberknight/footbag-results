@@ -317,6 +317,13 @@ EVENT_PARSING_RULES = {
     "857874500": {
         "pre_parse_fixup": "two_column_oregon_1997",
     },
+    # 2000 NZ Footbag Championships - results use up to 3-column tabular layout
+    # e.g. "Under 13 Singles            Open Mens Singles           Open Womens Singles"
+    #      "1. Jonathan Bartlett (24)   1. Steve Ramsey (407)       1. Hannah Whiteman (28)"
+    # Fixup reconstructs each column as an independent division stream.
+    "947196813": {
+        "pre_parse_fixup": "nz_champs_2000",
+    },
 }
 
 def fixup_ordinal_inline_divisions(text: str) -> str:
@@ -434,6 +441,187 @@ def fixup_worlds_2024_doubles(text: str) -> str:
     # e.g. "(CAN)- " -> "(CAN) - "
     text = re.sub(r'\)\s*-\s*([A-Z])', r') - \1', text)
     return text
+
+
+def fixup_nz_champs_2000(text: str) -> str:
+    """
+    NZ Champs 2000 (event 947196813): convert multi-column <pre> layout to sequential.
+
+    The source has up to 3 divisions printed side-by-side with 6+ space gaps:
+      "Under 13 Singles            Open Mens Singles           Open Womens Singles"
+      "1. Jonathan Bartlett (24)   1. Steve Ramsey (407)       1. Hannah Whiteman (28)"
+
+    Column boundaries are established by header rows (all-non-placement segments).
+    Data rows are sliced at those fixed boundaries and routed per-column.
+    Wrapped entries (ending "/" or starting "(") are rejoined to the previous entry.
+    Single-column overflow (one column ran longer than others) is routed to the
+    column whose last-seen placement number is the closest predecessor.
+    """
+    WIDE_GAP = re.compile(r'\s{6,}')
+    PLACE_RE  = re.compile(r'^(\d+)\s*[.=)\-:]')
+
+    def get_col_starts(line):
+        """Column start positions for lines with ≥2 wide-gap-separated segments."""
+        starts = [0]
+        for m in WIDE_GAP.finditer(line):
+            s = m.end()
+            if s < len(line) and line[s:].strip():
+                starts.append(s)
+        return starts if len(starts) >= 2 else None
+
+    def slice_cols(line, starts):
+        segs = []
+        for i, s in enumerate(starts):
+            end = starts[i + 1] if i + 1 < len(starts) else len(line)
+            segs.append((line[s:end] if s < len(line) else '').strip())
+        return segs
+
+    def place_num(s):
+        m = PLACE_RE.match(s.strip())
+        return int(m.group(1)) if m else None
+
+    def all_look_like_div_names(segs):
+        """True only if every non-empty segment looks like a division name.
+        Rejects player fragments (parenthetical scores, slashes, starts with digit)."""
+        for seg in segs:
+            if not seg:
+                continue
+            if re.search(r'\(\d+\)', seg):   # "(13)" "(362)" — score, not div name
+                return False
+            if '/' in seg:                   # "J.Kingi/K.Stuart" — team separator
+                return False
+            if re.match(r'\d+\s*[.=]', seg): # starts with placement marker
+                return False
+        return True
+
+    # Mapping from section header keywords to a short qualifier prepended to column names
+    # so that "Open Mens Singles" under Consecutive vs Net vs Freestyle stay distinct.
+    _SECTION_PREFIX = {
+        "consecutive": "Consecutive",
+        "net":         "Net",
+        "freestyle":   "Freestyle",
+    }
+
+    lines          = text.split('\n')
+    output         = []
+    col_pos        = []   # column start positions
+    col_names      = []   # division name per column
+    col_data       = []   # list[list[str]] — accumulated lines per column
+    last_pl        = []   # last place number seen per column
+    section_pfx    = [""] # current section qualifier (list so closure can mutate it)
+
+    def flush():
+        for name, data in zip(col_names, col_data):
+            if data:
+                pfx = section_pfx[0]
+                output.append(f"{pfx} {name}".strip() if pfx else name)
+                output.extend(data)
+        col_pos.clear(); col_names.clear(); col_data.clear(); last_pl.clear()
+
+    for raw in lines:
+        s = raw.strip()
+        if not s:
+            continue
+
+        gaps = get_col_starts(raw)
+
+        # ── In multi-col context ──────────────────────────────────────────────
+        # Always slice using stored col_pos — data rows may have narrow gaps between
+        # columns that don't trigger the 6+ space detector.
+        if col_pos:
+            segs = slice_cols(raw, col_pos)
+
+            if all_look_like_div_names(segs):
+                # All segments look like division names (not player fragments).
+                if gaps:
+                    # Has its own wide gaps → new column header row (recalibrate positions)
+                    flush()
+                    new_gaps     = get_col_starts(raw)
+                    new_segs     = slice_cols(raw, new_gaps)
+                    col_pos[:]   = new_gaps
+                    col_names[:] = [sg for sg in new_segs if sg]
+                    col_data[:]  = [[] for _ in col_names]
+                    last_pl[:]   = [0] * len(col_names)
+                else:
+                    # No wide gaps, no placements → section header line → flush and output
+                    flush()
+                    sl = s.lower()
+                    for kw, pfx in _SECTION_PREFIX.items():
+                        if kw in sl:
+                            section_pfx[0] = pfx
+                            break
+                    output.append(s)
+                continue
+
+            # Overflow heuristic: if line content doesn't reach col_pos[1], the entry
+            # belongs to whichever column has the closest preceding place number.
+            if len(col_pos) > 1 and len(raw.rstrip()) < col_pos[1] and segs[0]:
+                p_val = place_num(segs[0])
+                if p_val is not None:
+                    best = 0
+                    best_delta = abs(p_val - (last_pl[0] + 1)) if last_pl else 999
+                    for j_r in range(1, len(last_pl)):
+                        d = abs(p_val - (last_pl[j_r] + 1))
+                        if d < best_delta:
+                            best_delta = d
+                            best = j_r
+                    col_data[best].append(segs[0])
+                    last_pl[best] = p_val
+                continue
+
+            # Data row: route each segment to its column.
+            # Bleed-over fix: a short continuation line (e.g. "S.O'Leary (13)  3.")
+            # may have the next column's placement marker bled into this segment
+            # because compact spacing shifts content left of col_pos.  Strip the
+            # trailing placement token and prepend it to the next segment.
+            for j, seg in enumerate(segs):
+                if j >= len(col_data) or not seg:
+                    continue
+                # Detect bleed-over before routing.
+                # A short continuation segment may end with the start of the next
+                # column's placement token bleeding in (e.g. "S.O'Leary (13)  3."
+                # or "S.O'Leary                3=A").  Pattern captures the
+                # trailing whitespace + digit + separator + any following non-space.
+                bleed_m = re.search(r'\s+(\d+[.=]\S*)\s*$', seg)
+                if bleed_m and not PLACE_RE.match(seg):
+                    bleed = bleed_m.group(1)
+                    seg   = seg[:bleed_m.start()].strip()
+                    if j + 1 < len(segs):
+                        segs[j + 1] = bleed + segs[j + 1]
+                p = place_num(seg)
+                if p is not None:
+                    col_data[j].append(seg)
+                    last_pl[j] = p
+                elif seg.startswith('(') and col_data[j]:
+                    # Trailing score continuation: "(50)" → append to previous entry
+                    col_data[j][-1] += ' ' + seg
+                elif col_data[j] and col_data[j][-1].rstrip().endswith('/'):
+                    # Name continuation after slash: "M.Scott-Murray/" + "S.O'Leary"
+                    col_data[j][-1] = col_data[j][-1].rstrip() + seg
+            continue
+
+        # ── No multi-col context yet ──────────────────────────────────────────
+        if gaps:
+            segs = slice_cols(raw, gaps)
+            # All segments look like division names → column header row
+            if all_look_like_div_names(segs):
+                flush()
+                col_pos[:]   = gaps
+                col_names[:] = [sg for sg in segs if sg]
+                col_data[:]  = [[] for _ in col_names]
+                last_pl[:]   = [0] * len(col_names)
+                continue
+
+        # Single-column line with no multi-col context (section headers, noise, etc.)
+        sl = s.lower()
+        for kw, pfx in _SECTION_PREFIX.items():
+            if kw in sl:
+                section_pfx[0] = pfx
+                break
+        output.append(s)
+
+    flush()
+    return '\n'.join(output)
 
 
 def fixup_two_column_oregon_1997(text: str) -> str:
@@ -2609,6 +2797,8 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         results_text = fixup_worlds_2024_doubles(results_text)
     elif pre_parse_fixup == "two_column_oregon_1997":
         results_text = fixup_two_column_oregon_1997(results_text)
+    elif pre_parse_fixup == "nz_champs_2000":
+        results_text = fixup_nz_champs_2000(results_text)
 
     # Track whether we're in a seeding section (should skip these entries)
     in_seeding_section = False

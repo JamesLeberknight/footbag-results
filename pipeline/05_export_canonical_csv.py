@@ -282,6 +282,7 @@ for row in sorted_rows:
         "region":          region,
         "country":         country,
         "host_club":       row.get("host_club", "") or "",
+        "event_type":      row.get("event_type", "") or "",
         "status":          derive_status(len(pj), cov_flags),
         "notes":           "",
         "source":          "mirror",
@@ -399,7 +400,7 @@ write_csv(
     CANONICAL / "events.csv",
     ["event_key", "legacy_event_id", "year", "event_name", "event_slug",
      "start_date", "end_date", "city", "region", "country",
-     "host_club", "status", "notes", "source"],
+     "host_club", "event_type", "status", "notes", "source"],
     events_out,
 )
 write_csv(
