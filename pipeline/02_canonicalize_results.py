@@ -1610,7 +1610,7 @@ def looks_like_division_header(line: str) -> bool:
 
     valid_starts = [
         'open', 'pro', 'intermediate', 'int', 'amateur', 'novice', 'beginner',
-        'advanced', 'masters', 'women', "women's", 'woman', 'men', "men's",
+        'advanced', 'masters', 'women', "women's", 'womens', 'woman', 'men', "men's",
         'ladies', 'girls', 'junior', 'mixed', 'single', 'double', 'net',
         'freestyle', 'shred', 'sick', 'circle', 'routine', 'golf', 'battle',
         'request', 'consecutive', 'timed', 'big', 'last',
