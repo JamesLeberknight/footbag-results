@@ -26,6 +26,7 @@ release:
 	$(PYTHON) pipeline/03_build_excel.py
 	$(PYTHON) pipeline/04_build_analytics.py
 	$(PYTHON) pipeline/04B_create_community_excel.py
+	$(PYTHON) pipeline/05_export_canonical_csv.py
 
 ## QC: master checks + post-release integrity + schema/logic audit
 qc:
