@@ -1,38 +1,43 @@
 ############################
-# Pipeline outputs (regenerated; never commit)
+# Pipeline outputs (generated — never commit)
 ############################
 out/
 index.csv
+index_raw.csv
 
 ############################
-# Mirror (distributed via GitHub Release)
+# Mirror (distribute via GitHub Release — not committed)
 ############################
 mirror/
 mirror_full/
+mirror_out/
 mirror.log
 mirror.tar.xz
+mirror_progress.json
 *.tar
 *.tar.gz
 *.tar.xz
 *.zip
 
 ############################
-# Excel workbook (generated output)
+# Excel workbooks (generated)
 ############################
 *.xlsx
 
 ############################
-# Identity artifacts
+# Identity lock (generated sentinel only)
 ############################
 overrides/person_aliases.lock
 overrides/*.lnk
-alias-candidates.txt
+inputs/identity_lock_archive/*
 
 ############################
 # Python / runtime
 ############################
 __pycache__/
 *.py[cod]
+*.pyc
+.ipynb_checkpoints/
 
 ############################
 # Virtual environments
@@ -52,55 +57,38 @@ Thumbs.db
 *:Zone.Identifier
 
 ############################
-# Legacy / archived scripts
+# Legacy / archived scripts (not pipeline)
 ############################
 legacy/
+scripts/
 
 ############################
-# Dev / scratch data files
+# Root-level scratch / one-off QC scripts and data files
 ############################
+qc_*.py
+qc_*.csv
+qc_spreadsheet_gate.py
+alias-candidates.txt
 host_clubs.csv
-index_raw.csv
+location_canon_full_final.csv
 
 ############################
-# Temporary / dev artifacts
+# Miscellaneous dev artifacts
 ############################
+robots_cache.json
 *.log
 *.tmp
 *.patch
-baselines/
-reviews/
+*.bak
+*BAK
+*~
 old_csv_files/
 python_files_old/
 junk_md/
 Claude_old_md_files/
-pivot_*.csv
-*_sorted.csv
-*_final.csv
-!inputs/location_canon_full_final.csv
 release_bundle/
-robots_cache.json
+reviews/
+baselines/
 githib-pswd.txt
 *_progress.json
-*BAK
-*.bak
-*~
-#####################
 05_make_intermediate_release_v2.py
-
-# Mirrors / generated artifacts
-mirror_full/
-mirror_out/
-out/
-release_bundle/
-mirror.log
-mirror_progress.json
-
-# Archived identity versions
-inputs/identity_lock_archive/*
-
-# Python
-.venv/
-__pycache__/
-*.pyc
-.ipynb_checkpoints/

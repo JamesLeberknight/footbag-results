@@ -1,301 +1,273 @@
-# Footbag Results Pipeline — Canonical Excel Builder (v2.0.0)
+# Footbag Results Pipeline — v2.1.0
 
-Deterministic pipeline for producing the **final, reviewer-ready Excel workbook** of historical Footbag results.
+Deterministic pipeline for reconstructing and archiving historical Footbag results.
 
-This repository reconstructs structured event and placement data from:
-
-- An offline HTML mirror of Footbag.org
-- Legacy historical result files
-- A curated identity lock (`Persons_Truth`)
-
-The primary deliverable is the final Excel spreadsheet.
+Produces canonical relational CSV exports, an analytics Excel workbook, and a
+community-facing Excel workbook from an HTML mirror of Footbag.org and curated
+identity-lock artifacts.
 
 ---
 
-## Primary Goal
+## Quick Start
 
-The purpose of this repository is to build a clean, internally consistent, archival-quality Excel workbook of Footbag results suitable for:
+```bash
+# 1. One-time setup
+make setup
 
-- Historical preservation
-- Statistical analysis
-- Community sharing
-- Reviewer audit
+# 2. Full pipeline (rebuild → release → qc)
+make all
+```
 
-All parsing, normalization, analytics, and QC exist to support this final spreadsheet.
+Or run stages individually:
 
-### Data Completeness
-
-Results data is **incomplete for early years**. The primary source (Footbag.org mirror) provides dense coverage from 1997 onward. Pre-1997 data is sparse: only a handful of events are recorded for 1985–1986 and 1990–1991, and the years 1987–1989 and 1992–1996 have no coverage at all. Historical records recovery from print sources (e.g. Footbag World magazine) is ongoing.
+```bash
+make rebuild   # Parse mirror → canonical stage-2 events
+make release   # Apply identity lock → workbooks + canonical CSVs
+make qc        # Run all QC checks
+```
 
 ---
 
-## Identity Model (Authoritative Core)
+## Prerequisites
 
-Identity is the foundation of the dataset.
+### 1. Python 3.12+ and make
 
-All person identity used in analytics and the workbook derives exclusively from:
+### 2. HTML mirror
+
+The Footbag.org mirror is not stored in this repository (it is large).
+Obtain it from the GitHub Release assets and extract it so the repo root
+contains a `mirror/` directory:
+
+```bash
+tar -xzf mirror.tar.gz   # produces mirror/ in the current directory
+```
+
+Without `mirror/`, only **release mode** can run (using a pre-existing
+`out/stage2_canonical_events.csv`).
+
+### 3. Identity lock files (already in repo)
 
 ```
-inputs/identity_lock/Persons_Truth_Final_v32.csv
+inputs/identity_lock/
+    Persons_Truth_Final_v34.csv          # 3,452 canonical persons
+    Persons_Unresolved_Organized_v27.csv # 76 unresolved entries
+    Placements_ByPerson_v37.csv          # 26,156 identity-locked placements
 ```
 
-### Persons_Truth
+These are human-verified and treated as immutable for this release.
 
-`Persons_Truth_Final_v32.csv` enforces:
+### 4. Legacy results (already in repo)
 
-- One row per real person (3,449 persons)
-- Globally unique `effective_person_id` (UUID)
-- Unique canonical display name (`person_canon`)
-- Human-verified identity resolution
-- Collision-free canonicalization
+```
+inputs/OLD_RESULTS.txt    # Historical events not in the mirror
+legacy_data/              # Per-event result overrides (1999, 2003 Worlds, etc.)
+```
 
-Release mode **does not infer identity**.
-It only applies the identity lock.
+---
 
-If `Persons_Truth` changes, the identity of the dataset changes.
-This should be treated as a **major version event**.
+## Pipeline Stages
+
+### Rebuild Mode (stages 01–02)
+
+Parses raw data into canonical stage-2 events.
+Run once, or whenever the mirror or parser changes.
+
+```bash
+make rebuild
+```
+
+| Stage | Script | Description |
+|---|---|---|
+| 01 | `pipeline/01_parse_mirror.py` | Parse HTML mirror → raw stage-1 placements |
+| 01b | `pipeline/01b_import_old_results.py` | Import legacy results from `inputs/OLD_RESULTS.txt` |
+| 01c | `pipeline/01c_merge_stage1.py` | Merge mirror + legacy into unified stage-1 |
+| 02 | `pipeline/02_canonicalize_results.py` | Normalize events, divisions, placements → `out/stage2_canonical_events.csv` |
+
+**Output:** `out/stage2_canonical_events.csv` — 784 events.
+
+### Release Mode (stages 02p5–05)
+
+Applies the identity lock and produces all final outputs.
+Requires `out/stage2_canonical_events.csv` from rebuild mode.
+
+```bash
+make release
+```
+
+| Stage | Script | Description |
+|---|---|---|
+| 02p5 | `pipeline/02p5_player_token_cleanup.py` | Apply identity lock → `Placements_Flat.csv`, `Placements_ByPerson.csv` |
+| 03 | `pipeline/03_build_excel.py` | Canonical Excel workbook (`Footbag_Results_Canonical.xlsx`) |
+| 04 | `pipeline/04_build_analytics.py` | Analytics surfaces, person stats, coverage, lock sentinel |
+| 04B | `pipeline/04B_create_community_excel.py` | Community Excel workbook (`Footbag_Results_Community.xlsx`) |
+| 05 | `pipeline/05_export_canonical_csv.py` | Relational CSV export to `out/canonical/` |
+
+### QC
+
+```bash
+make qc
+```
+
+| Script | Checks |
+|---|---|
+| `qc/qc_master.py` | Stage-2 and stage-3 integrity |
+| `tools/32_post_release_qc.py` | 6 post-release data integrity checks |
+| `tools/33_schema_logic_qc.py` | 7 schema and logic consistency checks |
+
+---
+
+## Outputs
+
+All outputs go into `out/` (gitignored — never committed).
+
+### Core identity outputs
+
+| File | Rows | Description |
+|---|---|---|
+| `out/Placements_Flat.csv` | 26,156 | All placements, identity-locked |
+| `out/Placements_ByPerson.csv` | 26,156 | Placements joined to person identity |
+| `out/Persons_Truth.csv` | 3,452 | Active identity truth (copy of v34 source) |
+| `out/Persons_Unresolved.csv` | ~402 | Persons without resolved identity |
+| `out/Placements_Unresolved.csv` | ~376 | Placements for unresolved persons |
+| `out/persons_truth.lock` | — | SHA-256 sentinel proving identity immutability |
+
+### Analytics outputs
+
+| File | Rows | Description |
+|---|---|---|
+| `out/Analytics_Safe_Surface.csv` | 16,242 | Coverage-filtered, identity-locked analytics rows |
+| `out/Coverage_ByEventDivision.csv` | 3,682 | Coverage flag per (event, division) |
+| `out/Coverage_GapPriority.csv` | 436 | Prioritized list of coverage gaps |
+
+### Canonical relational export (`out/canonical/`)
+
+Ground-truth normalized CSVs intended for database import:
+
+| File | Rows | Description |
+|---|---|---|
+| `events.csv` | 784 | One row per event |
+| `event_disciplines.csv` | 3,781 | One row per discipline within an event |
+| `event_results.csv` | 24,069 | One row per placement slot |
+| `event_result_participants.csv` | 34,854 | One row per participant |
+| `persons.csv` | 3,452 | Canonical persons with aliases and legacy IDs |
+
+Natural keys:
+- `events`: `event_key`
+- `event_disciplines`: `(event_key, discipline_key)`
+- `event_results`: `(event_key, discipline_key, placement)`
+- `event_result_participants`: `(event_key, discipline_key, placement, participant_order)`
+
+### Workbooks
+
+| File | Description |
+|---|---|
+| `Footbag_Results_Canonical.xlsx` | Full analytics workbook (internal/archival) |
+| `Footbag_Results_Community.xlsx` | Community-facing workbook with honours, records, leaderboards |
+
+---
+
+## Identity Model
+
+Every placement competitor maps to exactly one of:
+
+- **`Persons_Truth`** — a verified real person with a stable UUID
+- **`Persons_Unresolved`** — a person whose identity could not be confirmed
+- **`__NON_PERSON__`** — noise, handles, club names, or parsing artifacts
+
+Release mode **never infers identity**. It only applies the identity lock.
+
+The identity lock files are in `inputs/identity_lock/`. Any change to
+`Persons_Truth_Final` triggers a minor version bump (see Versioning below).
+
+After every successful release, `out/persons_truth.lock` is written with
+SHA-256 hashes of all three identity lock inputs, proving immutability.
+
+---
+
+## Data Coverage
+
+| Metric | Value |
+|---|---|
+| Events | 784 |
+| Year range | 1980–2026 |
+| Placements (identity-locked) | 26,156 |
+| Persons (canonical) | 3,452 |
+| Gate3 PASS | 3,452 |
+
+Coverage is dense from 1997 onward (the primary Footbag.org mirror).
+Pre-1997 data comes from historical records: 1980–1986 and 1990–1991 have
+partial results (top-3 only for most divisions). Years 1987–1989 and
+1992–1996 have no coverage.
+
+---
+
+## Versioning
+
+| Version | Trigger |
+|---|---|
+| Patch (v2.x.y) | Docs, refactors, QC fixes — no data change |
+| Minor (v2.x.0) | Any change to identity lock files or analytics |
+| Major (v3.0.0) | Architectural change to identity model or pipeline contract |
+
+Current identity baseline:
+
+| Artifact | Version | Rows |
+|---|---|---|
+| `Persons_Truth_Final` | v34 | 3,452 |
+| `Persons_Unresolved_Organized` | v27 | 76 |
+| `Placements_ByPerson` | v37 | 26,156 |
 
 ---
 
 ## Repository Structure
 
-```text
+```
 /
-├─ Makefile
-├─ inputs/
-│  └─ identity_lock/
-│     ├─ Persons_Truth_Final_v32.csv
-│     ├─ Persons_Unresolved_Organized_v27.csv
-│     └─ Placements_ByPerson_v35.csv
-├─ pipeline/
-│  ├─ 01_parse_mirror.py
-│  ├─ 01b_import_old_results.py
-│  ├─ 01c_merge_stage1.py
-│  ├─ 02_canonicalize_results.py
-│  ├─ 02p5_player_token_cleanup.py
-│  ├─ 03_build_excel.py
-│  ├─ 04_build_analytics.py
-│  └─ 04B_create_community_excel.py
-├─ qc/
-│  └─ qc_master.py
-├─ tools/
-│  ├─ 32_post_release_qc.py
-│  └─ 33_schema_logic_qc.py
-├─ overrides/
-└─ out/                          (generated outputs — not source of truth)
+├── Makefile                          # Pipeline commands
+├── requirements.txt
+├── run_pipeline.sh                   # Alternative to make
+├── pipeline/
+│   ├── 01_parse_mirror.py            # Rebuild: parse HTML mirror
+│   ├── 01b_import_old_results.py     # Rebuild: import legacy results
+│   ├── 01c_merge_stage1.py           # Rebuild: merge stage-1 sources
+│   ├── 02_canonicalize_results.py    # Rebuild: produce stage-2 events
+│   ├── 02p5_player_token_cleanup.py  # Release: apply identity lock
+│   ├── 03_build_excel.py             # Release: canonical Excel workbook
+│   ├── 04_build_analytics.py         # Release: analytics + lock sentinel
+│   ├── 04B_create_community_excel.py # Release: community Excel workbook
+│   └── 05_export_canonical_csv.py    # Release: relational CSV export
+├── qc/
+│   └── qc_master.py                  # Stage-2 and stage-3 QC
+├── tools/
+│   ├── 32_post_release_qc.py         # 6 post-release integrity checks
+│   ├── 33_schema_logic_qc.py         # 7 schema and logic checks
+│   └── ...                           # Identity curation and patch tools
+├── inputs/
+│   ├── identity_lock/                # Authoritative identity artifacts
+│   │   ├── Persons_Truth_Final_v34.csv
+│   │   ├── Persons_Unresolved_Organized_v27.csv
+│   │   └── Placements_ByPerson_v37.csv
+│   ├── location_canon_full_final.csv # Canonical location display strings
+│   ├── bap_data.csv                  # BAP honours data
+│   ├── fbhof_data.csv                # FBHOF honours data
+│   └── OLD_RESULTS.txt               # Legacy results (pre-mirror)
+├── legacy_data/
+│   └── event_results/                # Per-event result overrides
+├── overrides/
+│   └── person_aliases.csv            # Manual person alias assignments
+├── data/
+│   └── qc_baseline_*.json            # QC baseline snapshots
+└── out/                              # Generated outputs (gitignored)
+    ├── stage2_canonical_events.csv
+    ├── Placements_Flat.csv
+    ├── Persons_Truth.csv
+    ├── persons_truth.lock
+    ├── canonical/                    # Relational CSV export
+    └── ...
 ```
-
-The only authoritative identity artifact is `Persons_Truth_Final_v32.csv`.
-
----
-
-## Pipeline Overview
-
-### Stage 01 — Parse Mirror
-
-```
-pipeline/01_parse_mirror.py
-```
-
-Extracts raw structured placement data from the HTML mirror.
-
-### Stage 01b — Import Legacy Results
-
-```
-pipeline/01b_import_old_results.py
-```
-
-Imports historical results not present in the mirror.
-
-### Stage 01c — Merge Stage 1 Sources
-
-```
-pipeline/01c_merge_stage1.py
-```
-
-Unifies mirror and legacy inputs into a single structured dataset.
-
-### Stage 02 — Canonicalize Results
-
-```
-pipeline/02_canonicalize_results.py
-```
-
-Normalizes event metadata, division names, and placement structure.
-Produces canonical stage-2 tables.
-
-### Stage 02p5 — Player Token Cleanup
-
-```
-pipeline/02p5_player_token_cleanup.py
-```
-
-Release-mode bridge between stage-2 canonical events and the identity lock.
-
-- Applies `Placements_ByPerson_v35.csv` (identity-locked placements) to produce `Placements_Flat.csv`
-- Enforces coverage guarantees: every placement maps to Persons_Truth, Persons_Unresolved, or `__NON_PERSON__`
-- Does **not** perform identity merges or heuristic resolution
-
-Requires `out/stage2_canonical_events.csv` (produced by stage 02).
-
-### Stage 03 — Build Excel Workbook (Primary Output)
-
-```
-pipeline/03_build_excel.py
-```
-
-Builds the final Excel spreadsheet from canonical stage-2 data.
-Applies canonical location strings from `inputs/location_canon_full_final.csv`.
-
-### Stage 04 — Build Analytics
-
-```
-pipeline/04_build_analytics.py
-```
-
-Generates analytics surfaces written into the workbook:
-summary sheets, person stats, coverage analysis, and data integrity.
-
-Identity used here is strictly derived from `Persons_Truth`.
-Writes `out/persons_truth.lock` on Gate 3 PASS.
-
-### Stage 04B — Build Community Excel
-
-```
-pipeline/04B_create_community_excel.py
-```
-
-Produces `Footbag_Results_Community.xlsx` — the primary community-facing deliverable.
-
-Reads `Placements_ByPerson.csv`, `Placements_Flat.csv`, `stage2_canonical_events.csv`, and `Persons_Truth.csv`. Filters out `__NON_PERSON__` and unresolved entries throughout.
-
-Sheet structure:
-- **Summary** — dataset overview (events, years, placements, players) and leaderboards
-- **Records** — all-time and per-category record holders; largest events
-- **Index** — full event list with hyperlinks to year sheets; coverage flag for partial/sparse events
-- **Player Stats** — career stats per resolved player; BAP nickname column; Legacy ID column
-- **Player Results** — flat placement history, one row per placement
-- **Year sheets** (1980–present) — one column per event, grouped by division category
-
----
-
-## Running the Pipeline
-
-### Prerequisites
-
-1. **Python 3.12+** and `make`
-
-2. **HTML mirror** — the Footbag.org mirror is not stored in this repo (it's large).
-   Obtain it separately and extract it so the repo root contains a `mirror/` directory:
-   ```
-   mirror/
-   └─ ...html files...
-   ```
-
-3. **`inputs/OLD_RESULTS.txt`** is included in this repo. It contains three historical
-   events that predate the mirror and are required for a complete dataset. The rebuild
-   pipeline processes it automatically via `pipeline/01b_import_old_results.py`.
-
-### Commands
-
-```bash
-# First-time setup: create venv, install dependencies
-make setup
-
-# Full pipeline (rebuild → release → qc)
-make all
-
-# Rebuild only: mirror + legacy results → canonical stage-2 events
-make rebuild
-
-# Release only: identity lock → workbook (requires out/stage2_canonical_events.csv)
-make release
-
-# QC only
-make qc
-```
-
-**Rebuild mode** parses the HTML mirror and `inputs/OLD_RESULTS.txt` into canonical stage-2 tables.
-
-**Release mode** applies the identity lock and produces the final workbook. Requires `out/stage2_canonical_events.csv` — run `make rebuild` first if it doesn't exist.
-
----
-
-## Quality Control (QC)
-
-```bash
-make qc
-```
-
-QC includes:
-
-- Pipeline integrity checks (`qc/qc_master.py`)
-- Post-release reconciliation checks (`tools/32_post_release_qc.py`)
-- Schema and logical consistency validation (`tools/33_schema_logic_qc.py`)
-
-QC ensures:
-
-- Referential integrity (placements ↔ Persons_Truth)
-- No duplicate canonical persons
-- No duplicate placement collisions
-- Consistent event/index coverage
-- Division taxonomy sanity
-- Place-sequence integrity (where full results are claimed)
-
-Warnings may remain for known historical limitations (ties, pool play, partial top-N publishing).
-
-**Current baseline (v2.0.0):** Gate 3 PASS = 3,449 · Stage 2: 784 events, 0 errors, 15 warnings · Placements_Flat: 26,028 rows (18,464 resolved) · Community Excel: 18,376 displayed placements
-
----
-
-## Generated Outputs
-
-Typical outputs under `out/`:
-
-| File | Description |
-|---|---|
-| `Placements_Flat.csv` | All placements, one row per competitor slot |
-| `Placements_ByPerson.csv` | Placements joined to identity lock |
-| `Placements_Unresolved.csv` | Placements with no identity assignment |
-| `Analytics_Safe_Surface.csv` | Coverage-filtered, identity-locked analytics rows |
-| `Coverage_ByEventDivision.csv` | Coverage completeness per event/division |
-| `Coverage_GapPriority.csv` | Prioritized list of coverage gaps |
-| `Persons_Truth.csv` | Active copy of identity lock (from v31 source) |
-| `Persons_Unresolved.csv` | Persons with unresolved identity |
-| `persons_truth.lock` | SHA-256 sentinel proving identity immutability |
-| `out/qc_reports/` | QC detail reports |
-| `Footbag_Results_Community.xlsx` | **Community Excel workbook (primary deliverable)** |
-
-All generated artifacts are reproducible from: mirror data, legacy results, `Persons_Truth_Final_v32.csv`, and code version.
-
----
-
-## Determinism Guarantee
-
-From a clean clone with the same mirror, legacy inputs, `Persons_Truth_Final_v32.csv`, and code version, the pipeline produces:
-
-- Identical row counts
-- Identical UUID assignments
-- Identical QC results
-- Identical workbook sheet structure
-
-No randomness. No implicit identity merges. No silent data mutation.
-
----
-
-## Versioning Policy
-
-| Version | Meaning |
-|---|---|
-| Patch (v1.0.x) | QC improvements, formatting, refactors — no identity change |
-| Minor (v1.x.0) | Additive analytics sheets |
-| Major (v2.0.0) | Any change to Persons_Truth or identity logic |
-
-Current identity baseline: `Persons_Truth_Final_v32.csv` (3,449 persons · v2.0.0)
 
 ---
 
 ## Maintainer
 
-James Leberknight
-Footbag archival reconstruction project
+James Leberknight — Footbag archival reconstruction project

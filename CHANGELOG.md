@@ -2,6 +2,92 @@
 
 All notable changes to this project are documented in this file.
 
+---
+
+## [v2.1.0] — Identity fixes, coverage overrides, canonical CSV export
+**Release date:** 2026-03-08
+
+### Changes
+
+#### Parser fixes
+- **"Last, First" European name format** — `split_entry()` was incorrectly
+  treating comma-separated `"Last, First"` entries as doubles teams in singles
+  divisions. Fix: when not in a doubles division and the right part after the
+  comma is a single word, treat the whole entry as one player. Affected 9 events
+  (Swiss Open, Finnish Open, European Champs, South American events).
+
+#### Identity curation (tools 36, 37)
+- **Placements_ByPerson v35 → v36** (tool 36): 93 newly resolvable placements
+  added from 9 Last,First events (Swiss 2016, RNH 2019, European Champs 2011,
+  Finnish Open, Copa Venezuela, Copa Suramericana, Copa Ciencias, Perpetual Flame,
+  Swiss Open 2011). These were previously missing due to the parsing bug above.
+- **PT v32 → v33** (tool 37): Added 2 new persons: Vlad Eskanasy (bd039e6a),
+  Wilder González (6a2b2558). Updated Markus Kapszak entry with "Kaspczak, Markus"
+  UUID and alias.
+- **PBP v36 → v37** (tool 37): 35 remaining unresolved Last,First placements added
+  via name reconstruction + 4 manual overrides (Kaspczak/Kapszak spelling variant,
+  Quimel Gonzales reversed order, Jhon Orace Valera truncation, Wladiuska Pacheco
+  Castro truncation).
+- **PT v33 → v34**: Corrected Heather Cook/Thomas identity confusion — removed
+  Heather Cook UUID and alias from Heather Thomas; added Heather Cook as a new
+  person (28ccdba7). Gate3 PASS = 3,452.
+
+#### Coverage overrides
+- **95 early-year coverage overrides** added to `COVERAGE_FLAG_OVERRIDES` in
+  `04_build_analytics.py` for all synthetic pre-mirror events (200198xxxx).
+  All set to "partial" — these events have only top-3 placements from historical
+  records; more competitors participated than are recorded.
+
+#### New: Stage 05 — canonical relational CSV export
+- **`pipeline/05_export_canonical_csv.py`** — new final pipeline stage that exports
+  5 normalized CSVs to `out/canonical/` for database import:
+  - `events.csv` (784 rows)
+  - `event_disciplines.csv` (3,781 rows)
+  - `event_results.csv` (24,069 rows)
+  - `event_result_participants.csv` (34,854 rows, 87.8% person_id resolved)
+  - `persons.csv` (3,452 rows)
+  Person ID resolution uses a 3-level fallback: player token → player_names_seen
+  → unresolved. All 4 natural-key uniqueness constraints verified on every run.
+  Added to `make release` target.
+
+#### Data recovery (v2.0.0–v2.0.1, previously tagged)
+- **1999 Worlds** (event 915561090): 43 → 226 placements, 1 → 19 divisions.
+  Recovered from legacy results file via RESULTS_FILE_OVERRIDES mechanism.
+- **2003 Worlds** (event 1035277529): 186 → 192 placements, 10 → 15 divisions.
+- **Legacy ID coverage**: expanded from 200 → 315 persons with legacyid assigned.
+- **Community Excel overhaul**: sheet order Summary → Records → Index → Player Stats
+  → Player Results → year sheets; 19 location upgrades; 22 host club fills.
+
+#### Repository
+- Rewrote `README.md` with clear quick-start instructions and current counts.
+- Rewrote `RELEASE_CHECKLIST.md` with current versions and stage 05 checks.
+- Cleaned up `.gitignore`: consolidated duplicates, added `qc_*.py`, `qc_*.csv`,
+  `scripts/`, and other root-level scratch artifacts.
+- Removed `qc_spreadsheet_gate.py` from git tracking.
+
+### Identity lock state
+
+| Artifact | Version | Rows |
+|---|---|---|
+| Persons_Truth_Final | v34 | 3,452 |
+| Persons_Unresolved_Organized | v27 | 76 |
+| Placements_ByPerson | v37 | 26,156 |
+
+### Pipeline outputs
+
+| Metric | Value |
+|---|---|
+| Gate3 PASS | 3,452 |
+| Analytics_Safe_Surface | 16,242 rows |
+| Community Excel placements | 18,504 |
+| BAP matches | 84/84 |
+| QC checks | 0 errors (32: 1 known warn; 33: 0 errors) |
+
+---
+
+
+All notable changes to this project are documented in this file.
+
 This project follows **semantic versioning**, with an additional rule:
 **Any change to human identity truth requires a new version.**
 

@@ -1,103 +1,93 @@
-# v1.0 Canonical Release Checklist
+# Release Checklist
 
-This checklist defines the exact steps required to produce and publish
-a **canonical, identity-locked, archive-quality release**.
-
+Exact steps required to produce and publish a canonical, identity-locked release.
 No step may be skipped.
 
 ---
 
-## 0. Preconditions (Must Be True)
+## 0. Preconditions
 
-☐ `inputs/identity_lock/` contains **only**:
-  - `Persons_Truth_Final_v31.csv`
-  - `Persons_Unresolved_Organized_v27.csv`
-  - `Placements_ByPerson_v33.csv`
+Confirm `inputs/identity_lock/` contains exactly:
 
-☐ These files are:
-  - Human-verified
-  - Collision-free by construction
-  - Treated as immutable for this release
+| File | Version | Rows |
+|---|---|---|
+| `Persons_Truth_Final_v34.csv` | v34 | 3,452 |
+| `Persons_Unresolved_Organized_v27.csv` | v27 | 76 |
+| `Placements_ByPerson_v37.csv` | v37 | 26,156 |
 
-☐ No intent to modify identity, merge people, or reclassify garbage
+These files are human-verified and immutable for this release.
 
 ---
 
 ## 1. Repository Hygiene
 
-☐ Core release scripts only at repo root:
-  - `02p5_player_token_cleanup.py`
-  - `03_build_excel.py`
-  - `04_build_analytics.py`
-  - `Makefile`
-
-☐ `pipeline/` contains Rebuild Mode scripts (01, 01b, 01c, 02)
-☐ `legacy/OLD_RESULTS.txt` present (required by 01b)
-☐ `out/`, mirrors, and `.xlsx` files are gitignored
-☐ README.md reflects current version and identity-lock files
-☐ CHANGELOG.md contains a release entry for this version
-☐ `CLAUDE.md` preserved (unchanged)
+- [ ] `pipeline/` contains all 9 pipeline scripts (01 through 05)
+- [ ] `inputs/identity_lock/` references in `Makefile` and `run_pipeline.sh` match current versions
+- [ ] `out/`, mirrors, and `.xlsx` files are gitignored
+- [ ] `README.md` reflects current version and identity lock versions
+- [ ] `CHANGELOG.md` has a release entry for this version
 
 ---
 
-## 2. Clean Environment Test (Mandatory)
+## 2. Setup (first time or new clone)
 
-☐ New shell / fresh clone (no cached outputs)
-☐ `make setup` succeeds (venv created, deps installed)
-☐ `out/` directory created empty
+```bash
+make setup
+```
+
+Verify: `.venv/` created, `out/` directory exists.
 
 ---
 
 ## 3. Rebuild Mode
 
-### 3.1 Parse mirror and build stage-2 events
+Requires `mirror/` extracted in the repo root.
 
-☐ Mirror extracted: `tar -xzf mirror.tar.gz` → `mirror/`
-☐ Run:
 ```bash
+tar -xzf mirror.tar.gz
 make rebuild
 ```
-☐ Verify: `out/stage2_canonical_events.csv` exists
+
+Verify:
+- [ ] `out/stage2_canonical_events.csv` exists
+- [ ] Stage 2 QC: 0 errors, ≤15 warnings (check output)
 
 ---
 
 ## 4. Release Mode
 
-### 4.1 Generate Placements_Flat (Identity Lock Mode)
-
-☐ Run:
 ```bash
-python 02p5_player_token_cleanup.py \
-  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v33.csv \
-  --out_dir out
+make release
 ```
-☐ Verify: `out/Placements_Flat.csv` exists, row count = 25,679
 
-### 4.2 Build Excel Workbook
+Runs stages 02p5 → 03 → 04 → 04B → 05 in sequence.
 
-☐ Ensure `out/stage2_canonical_events.csv` exists (from Rebuild Mode)
-☐ Run:
-```bash
-python 03_build_excel.py
-```
-☐ Verify: `Footbag_Results_Canonical.xlsx` created/updated
+Verify after completion:
 
-### 4.3 Build Analytics
+**Stage 02p5:**
+- [ ] `out/Placements_Flat.csv` exists, 26,156 rows
+- [ ] `out/Placements_ByPerson.csv` exists, 26,156 rows
 
-☐ Run:
-```bash
-python 04_build_analytics.py
-```
-☐ Verify output contains:
-  - `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3451`
-  - `INFO: Lock sentinel written → out/persons_truth.lock`
+**Stage 03:**
+- [ ] `Footbag_Results_Canonical.xlsx` created/updated
+- [ ] Stage 3 QC: 0 errors, 0 warnings
 
-### 4.4 Verify Lock Sentinel
+**Stage 04:**
+- [ ] Output contains: `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3452`
+- [ ] `out/persons_truth.lock` written
+- [ ] Lock sentinel shows `Persons_Truth_Final_v34.csv`, rows: 3452
 
-☐ `out/persons_truth.lock` written by stage 04 after Gate 3 PASS.
-   Confirm printed output shows:
-   - `"file": "Persons_Truth_Final_v31.csv"`, `"rows": 3451`
-   - `"file": "Persons_Unresolved_Organized_v27.csv"`, `"rows": 76`
+**Stage 04B:**
+- [ ] `Footbag_Results_Community.xlsx` created/updated
+- [ ] Output shows: `Honours: 84/84 BAP names matched`
+
+**Stage 05:**
+- [ ] `out/canonical/events.csv` — 784 rows
+- [ ] `out/canonical/event_disciplines.csv` — 3,781 rows
+- [ ] `out/canonical/event_results.csv` — 24,069 rows
+- [ ] `out/canonical/event_result_participants.csv` — 34,854 rows
+- [ ] `out/canonical/persons.csv` — 3,452 rows
+- [ ] All 4 key uniqueness checks: PASS
 
 ---
 
@@ -107,21 +97,26 @@ python 04_build_analytics.py
 make qc
 ```
 
-☐ `qc/qc_master.py`: 0 errors, Gate 3 PASS (3451)
-☐ `tools/32_post_release_qc.py`: all 6 checks pass (exit 0)
-☐ `tools/33_schema_logic_qc.py`: all 7 checks pass (exit 0)
-☐ `out/Analytics_Safe_Surface.csv`: 22,958 rows
-☐ Tier-1 QC: 0 T1_UNMAPPED, 0 T1_MULTI
+- [ ] `qc/qc_master.py`: 0 errors
+- [ ] `tools/32_post_release_qc.py`: all 6 checks pass (exit 0), ≤1 warning
+- [ ] `tools/33_schema_logic_qc.py`: all 7 checks pass (exit 0)
 
 ---
 
 ## 6. Release
 
-☐ Commit all staged changes (docs, overrides, baselines — not `out/`)
-☐ Update `CHANGELOG.md` with release notes
-☐ Tag release:
 ```bash
-git tag v1.0.18
+# Commit all staged changes
+git add -p
+git commit -m "release: vX.Y.Z — <summary>"
+
+# Update changelog
+# Edit CHANGELOG.md with release notes
+
+# Tag and push
+git tag vX.Y.Z
 git push origin main --tags
 ```
-☐ Create GitHub Release: attach `mirror.tar.gz` as release asset
+
+- [ ] GitHub Release created
+- [ ] `mirror.tar.gz` attached as release asset
