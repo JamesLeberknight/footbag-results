@@ -18,7 +18,7 @@ python pipeline/02_canonicalize_results.py
 echo "Stage 02p5: player token cleanup"
 python pipeline/02p5_player_token_cleanup.py --identity_lock_placements_csv \
           inputs/identity_lock/Placements_ByPerson_v37.csv \
-          --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v33.csv \
+          --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v34.csv \
           --out_dir out
 
 echo "Stage 03: build Excel workbook"
