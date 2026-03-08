@@ -2288,6 +2288,12 @@ def split_entry(entry: str, is_doubles: bool = False) -> tuple[str, Optional[str
                 # Only treat as team if both parts are reasonable name lengths (3+ chars)
                 p1 = strip_trailing_score(parts[0])
                 p2 = strip_trailing_score(parts[1])
+                # Guard: if not a doubles division and right part is a single word,
+                # this is "Last, First" European naming format — treat as single player.
+                # e.g., "Daouk, Karim", "Belouin Ollivier, Boris", "Markkanen, Jani"
+                # Return the full "Last, First" token to preserve UUID mapping in identity lock.
+                if not is_doubles and ' ' not in p2:
+                    return strip_trailing_score(entry_clean), None, "player"
                 # Check if both parts look like names (not location info)
                 # Location format: short country code (2-3 chars) or country names
                 # Names are typically 3+ chars, contain letters, may have accents

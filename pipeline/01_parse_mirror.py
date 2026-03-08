@@ -411,12 +411,12 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
         # Note: Mixed <br> and <br/> in HTML causes BeautifulSoup issues, so we extract
         # the full text and parse it line by line instead of walking the DOM
         h2_tags = results_div.find_all("h2")
-        division_headers = [h2.get_text(strip=True) for h2 in h2_tags
+        division_headers = [h2.get_text(strip=True).replace('\u00a0', ' ') for h2 in h2_tags
                            if h2.get_text(strip=True) and "manually" not in h2.get_text(strip=True).lower()]
 
         if division_headers:
             # Get full text of results div and parse it
-            full_text = results_div.get_text("\n", strip=False)
+            full_text = results_div.get_text("\n", strip=False).replace('\u00a0', ' ')
             lines = full_text.splitlines()
             structured_results = []
             in_structured_section = False
@@ -433,8 +433,8 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
                 # often contains the SAME results, and continuing would re-extract them
                 if "manually entered" in line.lower() or line.startswith("Related Photos"):
                     break
-                # Collect numbered entries
-                if in_structured_section and re.match(r'^\d+\.?\s+\S', line):
+                # Collect numbered entries (use full placement regex to handle all separator styles)
+                if in_structured_section and _PLACEMENT_LINE_RE.match(line):
                     structured_results.append(line)
 
             if structured_results and len(structured_results) > len(division_headers):
@@ -445,7 +445,7 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
         if not results_block_raw:
             all_pres = results_div.find_all("pre")
             for pre in all_pres:
-                pre_text = pre.get_text("\n", strip=False)
+                pre_text = pre.get_text("\n", strip=False).replace('\u00a0', ' ')
                 # Check if this pre contains actual results (numbered placements)
                 if _PLACEMENT_LINE_RE.search(pre_text):
                     results_block_raw = pre_text
@@ -457,7 +457,7 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
         if results_block_raw:
             results_pre = results_div.select_one("pre.eventsPre")
             if results_pre:
-                pre_text = results_pre.get_text("\n", strip=False)
+                pre_text = results_pre.get_text("\n", strip=False).replace('\u00a0', ' ')
                 has_placements = _PLACEMENT_LINE_RE.search(pre_text)
 
                 if has_placements:
@@ -475,7 +475,7 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
         if not results_block_raw:
             results_pre = results_div.select_one("pre.eventsPre")
             if results_pre:
-                results_block_raw = results_pre.get_text("\n", strip=False)
+                results_block_raw = results_pre.get_text("\n", strip=False).replace('\u00a0', ' ')
                 parse_notes.append("results: div.eventsResults > pre.eventsPre")
 
     # Fallback to first pre.eventsPre if no eventsResults div
@@ -490,7 +490,7 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
             if events_offered_div and pre in events_offered_div.find_all("pre"):
                 parse_notes.append("results: skipped pre.eventsPre (inside Events Offered, not results)")
             else:
-                results_block_raw = pre.get_text("\n", strip=False)
+                results_block_raw = pre.get_text("\n", strip=False).replace('\u00a0', ' ')
                 parse_notes.append("results: pre.eventsPre (fallback)")
 
     if not results_block_raw:
