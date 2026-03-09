@@ -399,8 +399,16 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
 
             entries    = []
             seen_teams: set = set()
-            # True only when the division was designed for teams (some rows have competitor_type="team")
-            is_team_division = (ddf["competitor_type"].str.lower() == "team").any()
+            # Determine if this is a true team division using only VISIBLE rows
+            # (exclude __NON_PERSON__ / unresolved which may be mis-parsed teams).
+            _visible = ddf[
+                ~ddf["person_canon"].str.strip().isin(["", "__NON_PERSON__"]) &
+                ~ddf["person_unresolved"].str.lower().isin(("true", "1"))
+            ]
+            is_team_division = (
+                not _visible.empty and
+                (_visible["competitor_type"].str.lower() == "team").mean() > 0.5
+            )
 
             for _, row in ddf.iterrows():
                 person = (row.get("person_canon") or "").strip()
@@ -698,10 +706,10 @@ def build_honours_sheet(wb: Workbook, honours: dict,
 def build_summary(wb: Workbook, events: dict, event_placements: dict,
                   stats: pd.DataFrame, pbp: pd.DataFrame):
     ws = wb.create_sheet("Summary")
-    ws.column_dimensions["A"].width = 28
-    ws.column_dimensions["B"].width = 14
-    ws.column_dimensions["C"].width =  4
-    ws.column_dimensions["D"].width = 42
+    ws.column_dimensions["A"].width = 30
+    ws.column_dimensions["B"].width =  8
+    ws.column_dimensions["C"].width = 30
+    ws.column_dimensions["D"].width =  7
     ws.column_dimensions["E"].width =  7
     ws.column_dimensions["F"].width =  8
 
@@ -748,22 +756,24 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
 
     # ── Largest events ────────────────────────────────────────────────────────
     _merge_title(12, "Largest Events", FONT_SECTION)
-    _c(ws, 13, 1, "Event",   font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
-    _c(ws, 13, 2, "Year",    font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
-    _c(ws, 13, 3, "Players", font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    _c(ws, 13, 1, "Event",    font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    _c(ws, 13, 2, "Year",     font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    _c(ws, 13, 3, "Location", font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    _c(ws, 13, 4, "Players",  font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
     ws.row_dimensions[13].height = 13
 
     event_sizes = []
     for eid, ep in event_placements.items():
         n = sum(len(v) for v in ep.values())
         ev = events.get(eid, {})
-        event_sizes.append((ev.get("event_name", eid), ev.get("year", 0), n))
-    top_events = sorted(event_sizes, key=lambda x: x[2], reverse=True)[:15]
+        event_sizes.append((ev.get("event_name", eid), ev.get("year", 0),
+                            ev.get("location", ""), n))
+    top_events = sorted(event_sizes, key=lambda x: x[3], reverse=True)[:15]
 
-    for i, (name, year, n) in enumerate(top_events):
+    for i, (name, year, loc, n) in enumerate(top_events):
         fill = FILL_ALT if i % 2 else FILL_WHITE
         r = 14 + i
-        for ci, val in [(1, name), (2, year or ""), (3, n)]:
+        for ci, val in [(1, name), (2, year or ""), (3, loc), (4, n)]:
             c = ws.cell(row=r, column=ci, value=val)
             c.font = Font(size=9)
             c.fill = fill
@@ -1045,8 +1055,8 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
     ws.freeze_panes = "A2"
 
     hdrs   = ["Player", "Nickname", "Wins", "Podiums", "Placements", "Events",
-              "First Year", "Last Year", "Career (yrs)", "Legacy ID"]
-    widths = [32, 18, 8, 8, 12, 8, 12, 12, 12, 10]
+              "Legacy ID"]
+    widths = [32, 18, 8, 8, 12, 8, 10]
 
     for c, (h, w) in enumerate(zip(hdrs, widths), start=1):
         _c(ws, 1, c, h, font=FONT_HDR, fill=FILL_HDR)
@@ -1076,11 +1086,8 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
         ws.cell(row=excel_row, column=4, value=int(row["podiums"]))
         ws.cell(row=excel_row, column=5, value=int(row["placements"]))
         ws.cell(row=excel_row, column=6, value=int(row["events"]))
-        ws.cell(row=excel_row, column=7, value=int(row["first_year"]) or None)
-        ws.cell(row=excel_row, column=8, value=int(row["last_year"])  or None)
-        ws.cell(row=excel_row, column=9, value=int(row["career_span"]) or None)
         lid = legacyid_map.get(pc, "")
-        ws.cell(row=excel_row, column=10, value=int(lid) if lid else None)
+        ws.cell(row=excel_row, column=7, value=int(lid) if lid else None)
 
     ws.auto_filter.ref = f"A1:{get_column_letter(len(hdrs))}{len(df) + 1}"
 

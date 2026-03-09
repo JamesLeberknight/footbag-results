@@ -4115,9 +4115,13 @@ def canonicalize_records(
         if not event_type:
             event_type = infer_event_type(event_name, results_raw, placements)
 
-        # Apply event_type override if available
+        # Apply event_type override if available; re-categorize divisions if type changed
         if str(event_id) in EVENT_TYPE_OVERRIDES:
-            event_type = EVENT_TYPE_OVERRIDES[str(event_id)]
+            overridden_type = EVENT_TYPE_OVERRIDES[str(event_id)]
+            if overridden_type != event_type:
+                for p in placements:
+                    p["division_category"] = categorize_division(p["division_canon"], overridden_type)
+            event_type = overridden_type
 
         year = rec.get("year")
 

@@ -9,7 +9,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 857880964,Mt. Prospect,Illinois,United States,USA
 857881519,B.C.,,Canada,CAN
 857881898,Harrisburg,Pennsylvania,United States,USA
-859400929,Quebec,,Canada,CAN
+859400929,Montreal,Quebec,Canada,CAN
 859657310,New York,New York,United States,USA
 859787898,Portland,Oregon,United States,USA
 859913311,Scottsdale,Arizona,United States,USA
@@ -27,7 +27,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 877848852,Auburn,Alabama,United States,USA
 879319107,Richardson,Texas,United States,USA
 881872990,Carbondale,Illinois,United States,USA
-883135865,Quebec,,Canada,CAN
+883135865,Montreal,Quebec,Canada,CAN
 884112176,Champaign,Illinois,United States,USA
 886044392,B.C.,,Canada,CAN
 888294869,Mercer Island,Washington,United States,USA
@@ -43,12 +43,12 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 912467534,,Oregon,United States,USA
 913061034,Helsinki,,Finland,FIN
 915561090,Chicago,Illinois,United States,USA
-916193231,Quebec,,Canada,CAN
+916193231,Montreal,Quebec,Canada,CAN
 916977484,Eugene,Oregon,United States,USA
 917278465,Berlin,,Germany,DEU
 917741782,Champaign,Illinois,United States,USA
 919703711,B.C.,,Canada,CAN
-919885513,Quebec,,Canada,CAN
+919885513,Montreal,Quebec,Canada,CAN
 920579000,College Park,Maryland,United States,USA
 924977661,Seattle,Washington,United States,USA
 929217368,Harrisburg,Pennsylvania,United States,USA
@@ -70,7 +70,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 948943299,Arica,,Chile,CHL
 949991621,Hermosa Beach,California,United States,USA
 951771943,San Francisco,California,United States,USA
-952906680,Quebec,,Canada,CAN
+952906680,Montreal,Quebec,Canada,CAN
 953918475,Harrisburg,Pennsylvania,United States,USA
 955745735,Wichita,Kansas,United States,USA
 955831740,Turku,,Finland,FIN
@@ -79,9 +79,9 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 959094047,Zurich,,Switzerland,CHE
 959353403,Pocatello,Idaho,United States,USA
 961053916,Oulu,,Finland,FIN
-961626997,Quebec,,Canada,CAN
+961626997,Quebec City,Quebec,Canada,CAN
 967817818,Austin,Texas,United States,USA
-972427576,Quebec,,Canada,CAN
+972427576,Montreal,Quebec,Canada,CAN
 973573676,Auckland,,New Zealand,NZL
 974683678,Boulder,Colorado,United States,USA
 977260894,Arica,,Chile,CHL
@@ -94,7 +94,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 980969461,Bay Area,California,United States,USA
 981129410,College Park,Maryland,United States,USA
 981560223,Zurich,,Switzerland,CHE
-984694623,Quebec,,Canada,CAN
+984694623,Montreal,Quebec,Canada,CAN
 984874006,State College,Pennsylvania,United States,USA
 987985282,Queensland,,Australia,AUS
 988325277,Saskatchewan,,Canada,CAN
@@ -103,7 +103,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 990512631,Turku,,Finland,FIN
 990626988,Wroclaw,,Poland,POL
 990905420,B.C.,,Canada,CAN
-991285803,Quebec,,Canada,CAN
+991285803,Montreal,Quebec,Canada,CAN
 991757909,Harrisburg,Pennsylvania,United States,USA
 992517335,Keuruu,,Finland,FIN
 994186570,Washington,Pennsylvania,United States,USA
@@ -117,7 +117,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1001942070,Austin,Texas,United States,USA
 1004370976,Basel-Stadt,,Switzerland,CHE
 1005667143,Helsinki,,Finland,FIN
-1011291051,Quebec,,Canada,CAN
+1011291051,Quebec City,Quebec,Canada,CAN
 1011324897,State College,Pennsylvania,United States,USA
 1011556608,Basel,,Switzerland,CHE
 1012638214,Palo Alto,California,United States,USA
@@ -151,15 +151,15 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1036298726,Fort Collins,Colorado,United States,USA
 1036653244,Alberta,,Canada,CAN
 1038895913,Wellington,,New Zealand,NZL
-1039550946,Quebec,,Canada,CAN
+1039550946,Montreal,Quebec,Canada,CAN
 1041241196,Gyor,,Hungary,HUN
 1042566573,Philadelphia,Pennsylvania,United States,USA
 1042821772,Hessen,,Germany,DEU
 1043096425,Long Branch,New Jersey,United States,USA
 1043430155,Portersville,Pennsylvania,United States,USA
 1044624680,Augusta,Georgia,United States,USA
-1044952105,Quebec,,Canada,CAN
-1045628278,Quebec,,Canada,CAN
+1044952105,Montreal,Quebec,Canada,CAN
+1045628278,Montreal,Quebec,Canada,CAN
 1046985067,Ambridge,Pennsylvania,United States,USA
 1049457912,Laurel,Maryland,United States,USA
 1050067583,Turku,,Finland,FIN
@@ -179,12 +179,12 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1063788560,Turku,,Finland,FIN
 1064330873,Hessen,,Germany,DEU
 1064849293,Montpellier,,France,FRA
-1065478531,Quebec,,Canada,CAN
+1065478531,Montreal,Quebec,Canada,CAN
 1068406344,Gyor,,Hungary,HUN
 1068638122,Zurich,,Switzerland,CHE
 1069415266,Paris,,France,FRA
 1069791565,Lyon,,France,FRA
-1069929277,Quebec,,Canada,CAN
+1069929277,Montreal,Quebec,Canada,CAN
 1070734498,Praha,,Czech Republic,CZE
 1070954568,Center Denver,Colorado,United States,USA
 1071060801,Aachen,,Germany,DEU
@@ -231,8 +231,8 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1105087209,Zurich,,Switzerland,CHE
 1105353373,Frankfurt,,Germany,DEU
 1106561176,Aachen,,Germany,DEU
-1107289556,Quebec,,Canada,CAN
-1107290435,Quebec,,Canada,CAN
+1107289556,Montreal,Quebec,Canada,CAN
+1107290435,Montreal,Quebec,Canada,CAN
 1109356644,Harrisburg,Pennsylvania,United States,USA
 1109682847,Harjumaa,,Estonia,EST
 1109802420,Turku,,Finland,FIN
@@ -267,7 +267,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1143195910,Savoie,,France,FRA
 1146356760,Athens,Alabama,United States,USA
 1146789209,College Park,Maryland,United States,USA
-1146843672,Quebec,,Canada,CAN
+1146843672,Montreal,Quebec,Canada,CAN
 1148241486,Pittsburgh,Pennsylvania,United States,USA
 1148374547,Carnon,,France,FRA
 1149763452,Paris,,France,FRA
@@ -291,9 +291,9 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1166622628,Paris,,France,FRA
 1167422711,Memphis,Tennessee,United States,USA
 1168634226,Prague,,Czech Republic,CZE
-1170456736,Quebec,,Canada,CAN
+1170456736,Montreal,Quebec,Canada,CAN
 1172562114,Santa Cruz,California,United States,USA
-1172931308,Quebec,,Canada,CAN
+1172931308,Montreal,Quebec,Canada,CAN
 1173467292,Missoula,Montana,United States,USA
 1173606489,Jyvaskyla,,Finland,FIN
 1176318174,Portland,Oregon,United States,USA
@@ -302,7 +302,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1177512537,Carnon,,France,FRA
 1177615498,Turku,,Finland,FIN
 1179679872,Aachen,,Germany,DEU
-1179874637,Quebec,,Canada,CAN
+1179874637,Montreal,Quebec,Canada,CAN
 1180373807,Jyvaskyla,,Finland,FIN
 1180496320,B.C.,,Canada,CAN
 1181021804,Alberta,,Canada,CAN
@@ -332,11 +332,11 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1202118857,Jyvaskyla,,Finland,FIN
 1203102773,Chicago,Illinois,United States,USA
 1203604560,Paris,,France,FRA
-1204006435,Quebec,,Canada,CAN
-1204009603,Quebec,,Canada,CAN
+1204006435,Montreal,Quebec,Canada,CAN
+1204009603,Montreal,Quebec,Canada,CAN
 1204904987,Paris,,France,FRA
 1205552627,Jyvaskyla,,Finland,FIN
-1206161350,Quebec,,Canada,CAN
+1206161350,Montreal,Quebec,Canada,CAN
 1208064566,Manitoba,,Canada,CAN
 1208345952,Turku,,Finland,FIN
 1208408135,Alberta,,Canada,CAN
@@ -362,7 +362,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1226938152,Helsinki,,Finland,FIN
 1228946926,Praha,,Czech Republic,CZE
 1229435305,Chicago,Illinois,United States,USA
-1230850031,Quebec,,Canada,CAN
+1230850031,Montreal,Quebec,Canada,CAN
 1231286017,Portland,Oregon,United States,USA
 1231432184,Praha,,Czech Republic,CZE
 1232474501,San Francisco,California,United States,USA
@@ -373,9 +373,9 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1235253768,Houston,Texas,United States,USA
 1235504528,Jyvaskyla,,Finland,FIN
 1235653935,Strzelin,,Poland,POL
-1237771561,Quebec,,Canada,CAN
+1237771561,Montreal,Quebec,Canada,CAN
 1238728089,NSW,,Australia,AUS
-1239056543,Quebec,,Canada,CAN
+1239056543,Montreal,Quebec,Canada,CAN
 1239721441,Wroclaw/Strzelin,,Poland,POL
 1240469006,Turku,,Finland,FIN
 1241011525,Nantes,,France,FRA
@@ -388,7 +388,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1245793403,Harrisburg,Pennsylvania,United States,USA
 1248033041,Austin,Texas,United States,USA
 1248864536,Bialystok,,Poland,POL
-1250478677,Quebec,,Canada,CAN
+1250478677,Montreal,Quebec,Canada,CAN
 1251952403,Caracas,,Venezuela,VEN
 1251990500,Mazowieckie,,Poland,POL
 1252110023,College Park,Maryland,United States,USA
@@ -505,7 +505,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1335898356,Turku,,Finland,FIN
 1336988107,dolnoslaskie,,Poland,POL
 1337309613,B.C.,,Canada,CAN
-1337327565,Quebec,,Canada,CAN
+1337327565,Montreal,Quebec,Canada,CAN
 1337617980,Sachsen,,Germany,DEU
 1337623340,Brooklyn,New York,United States,USA
 1338821785,Warszawa,,Poland,POL
@@ -530,10 +530,10 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1357642226,Frankfurt,,Germany,DEU
 1358271250,San Francisco,California,United States,USA
 1358964427,Laani,,Finland,FIN
-1361207019,Quebec,,Canada,CAN
+1361207019,Montreal,Quebec,Canada,CAN
 1361239371,Tachira,,Venezuela,VEN
 1361239920,Tachira,,Venezuela,VEN
-1362598500,Quebec,,Canada,CAN
+1362598500,Montreal,Quebec,Canada,CAN
 1362657553,Moscow,,Russia,RUS
 1362915311,Turku,,Finland,FIN
 1363551565,Helsinki,,Finland,FIN
@@ -568,7 +568,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1394773593,Oakland,California,United States,USA
 1399929003,Antioquia,,Colombia,COL
 1401113913,Brsg.,,Germany,DEU
-1403287103,Quebec,,Canada,CAN
+1403287103,Montreal,Quebec,Canada,CAN
 1404123889,Burgas,,Bulgaria,
 1405875596,Brooklyn,New York,United States,USA
 1406219099,Lubaczow,,Poland,POL
@@ -589,7 +589,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1425372477,West Linn,Oregon,United States,USA
 1427144456,Erie,Pennsylvania,United States,USA
 1430582557,Caracas,,Venezuela,VEN
-1430596760,Quebec,,Canada,CAN
+1430596760,Montreal,Quebec,Canada,CAN
 1431288258,Turku,,Finland,FIN
 1432901754,Nantes,,France,FRA
 1435110091,Brooklyn,New York,United States,USA
@@ -612,7 +612,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1459426362,Nantes,,France,FRA
 1460640850,Hessen,,Germany,DEU
 1461077179,Wroclaw,,Poland,POL
-1463511970,Quebec,,Canada,CAN
+1463511970,Montreal,Quebec,Canada,CAN
 1464967908,Brooklyn,New York,United States,USA
 1466891959,Vaud,,Switzerland,CHE
 1466942562,Bremen,,Germany,DEU
@@ -624,7 +624,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1485520697,Hessen,,Germany,DEU
 1485863923,Lublin,,Poland,POL
 1485967222,Peninsula Cherokee,Alabama,United States,USA
-1485970612,Quebec,,Canada,CAN
+1485970612,Montreal,Quebec,Canada,CAN
 1486654923,Paris,,France,FRA
 1487797845,Aranjuez,,Spain,ESP
 1487800738,Zagora,,Bulgaria,
@@ -649,7 +649,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1524683077,New York,New York,United States,USA
 1526035381,Hessen,,Germany,DEU
 1526583313,Tabor,,Czech Republic,CZE
-1526588580,Quebec,,Canada,CAN
+1526588580,Montreal,Quebec,Canada,CAN
 1527557123,Antioquia,,Colombia,COL
 1529239199,Erie,Pennsylvania,United States,USA
 1531284609,Krakow,,Poland,POL
@@ -696,8 +696,8 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1624971880,Krakow,,Poland,POL
 1625854837,Doylesburg,Pennsylvania,United States,USA
 1628024472,Kralove,,Czech Republic,CZE
-1628025574,Quebec,,Canada,CAN
-1628025851,Quebec,,Canada,CAN
+1628025574,Montreal,Quebec,Canada,CAN
+1628025851,Montreal,Quebec,Canada,CAN
 1628596712,Bilbao,,Basque Country,
 1634665636,Warszawa,,Poland,POL
 1634938934,Bizkaia,,Basque Country,
@@ -710,7 +710,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1647508742,Nantes,,France,FRA
 1649177702,Camp Doylesburg,Pennsylvania,United States,USA
 1649326445,Kralove,,Czech Republic,CZE
-1653152207,Quebec,,Canada,CAN
+1653152207,Montreal,Quebec,Canada,CAN
 1653647467,Bizkaia,,Basque Country,
 1657486956,Bizkaia,,Basque Country,
 1664206719,Erie,Pennsylvania,United States,USA
@@ -721,7 +721,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1677285621,Bizkaia,,Basque Country,
 1677937557,Hessen,,Germany,DEU
 1678957450,Medellin,,Colombia,COL
-1686926080,Quebec,,Canada,CAN
+1686926080,Montreal,Quebec,Canada,CAN
 1688144863,Brooklyn,New York,United States,USA
 1690897570,Bizkaia,,Basque Country,
 1692508794,Zagora,,Bulgaria,
@@ -732,14 +732,14 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1699593640,Miranda,,Venezuela,VEN
 1699709080,Tabor,,Czech Republic,CZE
 1700920831,Helsinki,,Finland,FIN
-1706036811,Quebec,,Canada,CAN
+1706036811,Montreal,Quebec,Canada,CAN
 1706536250,Hessen,,Germany,DEU
 1709070838,Vaud,,Switzerland,CHE
 1709496969,Atlantique,,France,FRA
 1711181388,Zagora,,Bulgaria,
 1711182054,Zagora,,Bulgaria,
 1713276656,Miranda,,Venezuela,VEN
-1719166875,Quebec,,Canada,CAN
+1719166875,Montreal,Quebec,Canada,CAN
 1721038326,Paris,,France,FRA
 1721320739,Brooklyn,New York,United States,USA
 1721817655,Bizkaia,,Basque Country,
@@ -759,7 +759,7 @@ event_id,city_canon,state_canon,country_canon,country_iso3
 1742511366,Bizkaia,,Basque Country,
 1745298933,Byst,,Czech Republic,CZE
 1745686591,Uusimaa,,Finland,FIN
-1746737817,Quebec,,Canada,CAN
+1746737817,Montreal,Quebec,Canada,CAN
 1749326277,Helsinki,,Finland,FIN
 1750356087,Brooklyn,New York,United States,USA
 1751568193,Jaworzno,,Poland,POL
