@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — v2.1.1
+# Footbag Results Pipeline — v2.2.0
 
 Deterministic pipeline for reconstructing and archiving historical Footbag results.
 
@@ -91,9 +91,9 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 
 ```
 inputs/identity_lock/
-    Persons_Truth_Final_v34.csv          # 3,452 canonical persons
+    Persons_Truth_Final_v35.csv          # 3,456 canonical persons
     Persons_Unresolved_Organized_v27.csv # 76 unresolved entries
-    Placements_ByPerson_v37.csv          # 26,156 identity-locked placements
+    Placements_ByPerson_v38.csv          # 26,339 identity-locked placements
 ```
 
 These are human-verified and treated as immutable for this release.
@@ -166,9 +166,9 @@ All outputs go into `out/` (gitignored — never committed).
 
 | File | Rows | Description |
 |---|---|---|
-| `out/Placements_Flat.csv` | 26,156 | All placements, identity-locked |
-| `out/Placements_ByPerson.csv` | 26,156 | Placements joined to person identity |
-| `out/Persons_Truth.csv` | 3,452 | Active identity truth (copy of v34 source) |
+| `out/Placements_Flat.csv` | 26,339 | All placements, identity-locked |
+| `out/Placements_ByPerson.csv` | 26,339 | Placements joined to person identity |
+| `out/Persons_Truth.csv` | 3,456 | Active identity truth (copy of v35 source) |
 | `out/Persons_Unresolved.csv` | ~402 | Persons without resolved identity |
 | `out/Placements_Unresolved.csv` | ~376 | Placements for unresolved persons |
 | `out/persons_truth.lock` | — | SHA-256 sentinel proving identity immutability |
@@ -189,10 +189,10 @@ intended for database import or external consumption:
 | File | Rows | Description |
 |---|---|---|
 | `events.csv` | 784 | One row per event; includes `event_type` (net/mixed/freestyle/worlds/golf/social) |
-| `event_disciplines.csv` | 3,795 | One row per discipline within an event |
-| `event_results.csv` | 24,116 | One row per placement slot |
-| `event_result_participants.csv` | 34,893 | One row per participant |
-| `persons.csv` | 3,452 | Canonical persons with aliases and legacy IDs |
+| `event_disciplines.csv` | 3,851 | One row per discipline within an event |
+| `event_results.csv` | 24,576 | One row per placement slot |
+| `event_result_participants.csv` | 35,861 | One row per participant |
+| `persons.csv` | 3,456 | Canonical persons with aliases and legacy IDs |
 
 Natural keys:
 - `events`: `event_key`
@@ -233,9 +233,9 @@ SHA-256 hashes of all three identity lock inputs, proving immutability.
 |---|---|
 | Events | 784 |
 | Year range | 1980–2026 |
-| Placements (identity-locked) | 26,156 |
-| Persons (canonical) | 3,452 |
-| Gate3 PASS | 3,452 |
+| Placements (identity-locked) | 26,339 |
+| Persons (canonical) | 3,456 |
+| Gate3 PASS | 3,456 |
 
 Coverage is dense from 1997 onward (the primary Footbag.org mirror).
 Pre-1997 data comes from historical records: 1980–1986 and 1990–1991 have
@@ -256,9 +256,9 @@ Current identity baseline:
 
 | Artifact | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final` | v34 | 3,452 |
+| `Persons_Truth_Final` | v35 | 3,456 |
 | `Persons_Unresolved_Organized` | v27 | 76 |
-| `Placements_ByPerson` | v37 | 26,156 |
+| `Placements_ByPerson` | v38 | 26,339 |
 
 ---
 
