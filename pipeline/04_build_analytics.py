@@ -98,10 +98,13 @@ COVERAGE_FLAG_OVERRIDES: dict[tuple[str, str], str] = {
     # 2017 Worlds 2-Square: 12 finalists, places 1/2/3/3/5/5/5/5/9/9/9/9 — full bracket,
     # ties at lower rounds cause ratio=0.556 but all finalists are accounted for.
     ("1471686537", "2-Square"): "mostly_complete",
-    # Worlds 2000 (941418343): Women's Singles Net — places 6 and 8 are structurally absent
-    # due to ties at 5 and 7 (not missing data). Two players tied at 5 skip place 6;
-    # two players tied at 7 skip place 8. All 9 competitors are present.
-    ("941418343", "Womens Singles Net"): "complete",
+    # Worlds 2000 (941418343): tie-skip gaps — all competitors present, no data missing.
+    # Women's Singles Net: 2-way ties at 5 and 7 skip places 6 and 8. 9 competitors.
+    # Intermediate Singles Net: 3-way tie at 10 skips places 11 and 12. 17 competitors.
+    # Mixed Doubles Net: ties at 5(×2),7(×2),9(×4),13(×4),17(×2) skip 6,8,10-12,14-16. 9 teams.
+    ("941418343", "Womens Singles Net"):        "complete",
+    ("941418343", "Intermediate Singles Net"):  "complete",
+    ("941418343", "Mixed Doubles Net"):         "complete",
     # Western Regionals 1998 (876356874): sparse doubles freestyle — only 1 or 3 placements
     # from what were likely larger fields; source data incomplete for these disciplines.
     ("876356874", "Mixed Doubles Freestyle"):       "sparse",
