@@ -294,6 +294,235 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1035277529.txt",
         "replace": True,
     },
+    # German Footbag Open 2004 — division headers lacked colons; stage2 misattributed
+    # placements and dropped 9 entries. All 10 divisions, 39 placements.
+    "1079444598": {
+        "file":    "legacy_data/event_results/1079444598.txt",
+        "replace": True,
+    },
+    # Colorado Shred Symposium 4 (2003) — ordinal+paren format ("1st) Name: City")
+    # not matched by stage2; headers after Women's Shred :30 not detected.
+    # Uses BIG 3 Round 2 (finals) only. 6 divisions, 48 placements.
+    "1036298726": {
+        "file":    "legacy_data/event_results/1036298726.txt",
+        "replace": True,
+    },
+    # 5th Annual Colorado Shred Symposium (2004) — sub-division headers without colons
+    # (Big 3, Sick Trick, Most Rippin' Run) not detected; pending_division captured
+    # "Big 3" as a player name. 8 divisions, 56 placements.
+    "1070954568": {
+        "file":    "legacy_data/event_results/1070954568.txt",
+        "replace": True,
+    },
+    # 5th Annual Wilanow Footbag Open 2007 — multiple failures: "i" doubles separator,
+    # backtick in "Most Rippin` Run:", missing colons on Request Contest and 2/4 Square.
+    # 9 divisions, 57 placements.
+    "1189345008": {
+        "file":    "legacy_data/event_results/1189345008.txt",
+        "replace": True,
+    },
+    # Footbag Fiesta 2005 (Poland) — Open Sick3 header lacked colon (entirely missed);
+    # Open Big One truncated at place 5 by blank line. 7 divisions, 41 placements.
+    "1102443443": {
+        "file":    "legacy_data/event_results/1102443443.txt",
+        "replace": True,
+    },
+    # Victorian Footbag Championships 2002 — "Sic 3" wrong keyword; Shred 30 had no
+    # place numbers. Stage2 captured 6/9. All 9 recovered.
+    "1032602594": {
+        "file":    "legacy_data/event_results/1032602594.txt",
+        "replace": True,
+    },
+    # ShrEdmonton Freestyle Assembly 2008 — "Glow Square Tournament" and
+    # "planetfootbag animation challenge" had no DIVISION_KEYWORDS; division headers
+    # lacked colons. Stage2 captured 16/23. All 23 recovered.
+    "1208408135": {
+        "file":    "legacy_data/event_results/1208408135.txt",
+        "replace": True,
+    },
+    # The Hackrifice Open 2006 — bare "Intermediate" sub-sections within division blocks
+    # caused dedup collapse (3 Jess Archer entries merged to 1). Stage2 captured 12/17.
+    # All 17 recovered with proper Intermediate Shred 30/Sick 3/Sick Trick names.
+    "1156283186": {
+        "file":    "legacy_data/event_results/1156283186.txt",
+        "replace": True,
+    },
+    # Greater Rochester Area Shred Symposium and RIT Juggle-IN 2005 — bare "Intermediate"
+    # and "Open" section headers (no colons) with sub-division names caused stage2 to
+    # merge same-named divisions across levels. Stage2 captured 12/18. All 18 recovered.
+    "1111735438": {
+        "file":    "legacy_data/event_results/1111735438.txt",
+        "replace": True,
+    },
+    # Australian East Coast Regionals 2003 — tied "=" marker in Open Routines, Intermediate
+    # Routines absorbed. Stage2 captured 20/25. All 25 recovered.
+    "1061453080": {
+        "file":    "legacy_data/event_results/1061453080.txt",
+        "replace": True,
+    },
+    # Frankfurt Footbag Open 2004 — "Open FIVES" (net 5-up) had no keyword; encoding
+    # corruption truncated Open Freestyle at place 5. Stage2 captured 13/19 (+1 tied Golf).
+    # Renamed to "Open Net Fives"; all entries recovered.
+    "1094201584": {
+        "file":    "legacy_data/event_results/1094201584.txt",
+        "replace": True,
+    },
+    # 32nd Annual East Coast Footbag Championships 2014 — "tie N." placement format not
+    # captured by stage2 placement regex. Circle contests lost 14 tied-5th placements.
+    # Stage2 captured 41/55. All 55 recovered.
+    "1405875596": {
+        "file":    "legacy_data/event_results/1405875596.txt",
+        "replace": True,
+    },
+    # Valentines Day Massacre 2006 — "4 - SQUARE" parsed as placement, not division header;
+    # "CONSECUTIVES 3 MIN." not detected. Stage2 captured 11/14. All 14 recovered.
+    "1133888413": {
+        "file":    "legacy_data/event_results/1133888413.txt",
+        "replace": True,
+    },
+    # 2nd Annual UMaine Hacky Sack Club Tournament 2004 — "LEVEL 1/2 RANKING" sub-section
+    # headers not detected as division boundaries. Stage2 got 33 in wrong divisions.
+    # All 41 recovered with correct Open/Intermediate division names.
+    "1096695238": {
+        "file":    "legacy_data/event_results/1096695238.txt",
+        "replace": True,
+    },
+    # Czech Footbag Championships 2004 — "Big 1" (15 entries) not detected; "Open Freestyle"
+    # appeared twice (seeding+final). Stage2 captured 45/53. All 53 recovered.
+    "1092073845": {
+        "file":    "legacy_data/event_results/1092073845.txt",
+        "replace": True,
+    },
+    # RNH Contest 2006 (France) — "Big 1" (6 entries) not detected as division.
+    # Stage2 captured 49/58. All 58 recovered.
+    "1134914723": {
+        "file":    "legacy_data/event_results/1134914723.txt",
+        "replace": True,
+    },
+    # 1999 Southern Regional — "***" sport headers with bare sub-divisions (Open,
+    # Women's, Intermediate, Novice) caused cross-sport deduplication. Stage2 captured
+    # 37/45. All 45 recovered with fully qualified division names.
+    "909186885": {
+        "file":    "legacy_data/event_results/909186885.txt",
+        "replace": True,
+    },
+    # U.S. Open Footbag Championships 2014 — freestyle in h2-scoped sections (Sick Trick
+    # partially captured); net results in separate pre block entirely missed by stage2.
+    # Stage2 captured 24/61. All 61 recovered.
+    "1386623061": {
+        "file":    "legacy_data/event_results/1386623061.txt",
+        "replace": True,
+    },
+    # Austrian Footbag Championships 2016 — "Overall Austria (Battle + Circle)" not detected
+    # by stage2 (parenthetical keyword interference). Stage2 captured 18/22. All 22 recovered.
+    "1473932659": {
+        "file":    "legacy_data/event_results/1473932659.txt",
+        "replace": True,
+    },
+    # 21st IFPA European Footbag Net Championships 2021 — flag emoji and country/city
+    # annotations in names caused 5 of 37 placements to fail. Stage2 captured 32/37.
+    # All 37 recovered with cleaned names.
+    "1624971880": {
+        "file":    "legacy_data/event_results/1624971880.txt",
+        "replace": True,
+    },
+    # 2006 Southeast Regionals — sick 3 entries 3-5 dropped (trick combos with ">"
+    # caused clean_player_name to strip names). Stage2 captured 12/15. All 15 recovered.
+    "1155788760": {
+        "file":    "legacy_data/event_results/1155788760.txt",
+        "replace": True,
+    },
+    # 2003 Southeastern Regional Championships — "Intermediate Big3" captured 2/3
+    # (Nick Miller missing). Stage2 captured 22/25. All 25 recovered.
+    "1044624680": {
+        "file":    "legacy_data/event_results/1044624680.txt",
+        "replace": True,
+    },
+    # Space City Freestyle Jam 2004 — Open Sick3/Sick Trick each missing 3rd place entry.
+    # Stage2 captured 14/16. All 16 recovered.
+    "1080757998": {
+        "file":    "legacy_data/event_results/1080757998.txt",
+        "replace": True,
+    },
+    # New South Wales Footbag Championships 2002 — "Sic 3" wrong keyword; merged into
+    # Freestyle singles with dedup. Stage2 captured 6/8. All 8 recovered.
+    "1035817350": {
+        "file":    "legacy_data/event_results/1035817350.txt",
+        "replace": True,
+    },
+    # '07 Southeastern Net Championships — no division header, inferred from event name;
+    # entries 8-9 missing. Stage2 captured 7/9. All 9 recovered.
+    "1167422711": {
+        "file":    "legacy_data/event_results/1167422711.txt",
+        "replace": True,
+    },
+    # 2003 Steel City Footbag Open — "Intermediate Big3" captured 2/3.
+    # Stage2 captured 8/9. All 9 recovered.
+    "1046985067": {
+        "file":    "legacy_data/event_results/1046985067.txt",
+        "replace": True,
+    },
+    # 41st Annual East Coast Footbag Championships 2023 — "5 (tie)-" format not matched.
+    # Stage2 captured 17/19. All 19 recovered.
+    "1688144863": {
+        "file":    "legacy_data/event_results/1688144863.txt",
+        "replace": True,
+    },
+    # Lake Erie Footbag Tournament 2016 — "2ndPlace:" (no space) + split-line doubles.
+    # Stage2 captured 8/9. All 9 recovered.
+    "1447494731": {
+        "file":    "legacy_data/event_results/1447494731.txt",
+        "replace": True,
+    },
+    # Footbag Finnish Open 2024 — "1st round, Round Robin..." garbage row in stage2.
+    # Stage2 captured 7 (6 real + 1 garbage). 6 real placements.
+    "1745686591": {
+        "file":    "legacy_data/event_results/1745686591.txt",
+        "replace": True,
+    },
+    # Shred Zero Summer Open 2002 — "Big 3" division lacks keyword; 1 missing.
+    # Stage2 captured 6/7. All 7 recovered.
+    "1022992222": {
+        "file":    "legacy_data/event_results/1022992222.txt",
+        "replace": True,
+    },
+    # IV.Basque Tournament Net Individual 2022 — seeding+partial+final sections parsed,
+    # 10 rows with duplicates and missing Frank Haase. 6 correct placements.
+    "1645621833": {
+        "file":    "legacy_data/event_results/1645621833.txt",
+        "replace": True,
+    },
+    # VII.Basque Tournament Net Individual 2025 — date/location lines parsed as placements.
+    # Stage2 had 9 (7 real + 2 garbage). 7 real placements.
+    "1742511366": {
+        "file":    "legacy_data/event_results/1742511366.txt",
+        "replace": True,
+    },
+    # I. Basque Tournament Net Individual 2019 — date/registration line parsed as p23.
+    # Stage2 had 6 (5 real + 1 garbage). 5 real placements.
+    "1566500647": {
+        "file":    "legacy_data/event_results/1566500647.txt",
+        "replace": True,
+    },
+    # 3rd Annual Sunshred Footbag Open 2005 — trick combo ">" annotations dropped
+    # Rewind Combo p1 and p2. Stage2 captured 12/14. All 14 recovered.
+    "1102788509": {
+        "file":    "legacy_data/event_results/1102788509.txt",
+        "replace": True,
+    },
+    # V.Basque Tournament Footbag Net Individual 2023 — "1. round" section header
+    # parsed as placement. Stage2 captured 7 (6 real + 1 garbage). 6 real placements.
+    "1677285621": {
+        "file":    "legacy_data/event_results/1677285621.txt",
+        "replace": True,
+    },
+    # 2e Championnat de France de Footbag 2005 — two competitions on one page;
+    # "Big 1" unrecognized, "G*" nickname fails check, bracket junk rows.
+    # Stage2 captured 51 (45 real + 6 junk). 53 real placements here.
+    "1103297805": {
+        "file":    "legacy_data/event_results/1103297805.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
@@ -2791,7 +3020,8 @@ def looks_like_person_name(s: str) -> bool:
     if t.startswith("(") or t.startswith("["):
         return False
     tu = t.upper()
-    if any(x in tu for x in ("POOL", "RANK", "RANKING", "FINAL RESULTS", "RESULTS:", "SCORES")):
+    import re as _re
+    if any(_re.search(r'\b' + x + r'\b', tu) for x in ("POOL", "RANK", "RANKING", "FINAL RESULTS", "RESULTS:", "SCORES")):
         return False
     # Reject section-count noise parsed as player names
     if any(tu == x or tu.startswith(x + " ") or tu.startswith(x + ":") for x in (
