@@ -187,7 +187,9 @@ JUNK_EVENTS_TO_EXCLUDE = {
     # 01b_import_old_results.py no longer generates these; exclusion here guards
     # against any stale stage-1 CSV that predates that fix.
     "2001982002",  # 1982 NHSA FREESTYLE — Open Doubles Freestyle (subset of 2001982001)
-    "2001983002",  # 1983 NHSA FREESTYLE — Singles/Team Freestyle (dup of 2001983001)
+    # NOTE: 2001983002 was formerly "1983 NHSA FREESTYLE" but after 01b dropped FREESTYLE
+    # sub-events, this ID now maps to the 1983 WFA championship. It is NOT excluded here;
+    # it has a RESULTS_FILE_OVERRIDE below.
     "2001983004",  # 1983 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001983003)
     "2001984002",  # 1984 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001984001)
     "2001985002",  # 1985 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001985001)
@@ -521,6 +523,39 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
     # Stage2 captured 51 (45 real + 6 junk). 53 real placements here.
     "1103297805": {
         "file":    "legacy_data/event_results/1103297805.txt",
+        "replace": True,
+    },
+    # Pre-mirror World Championships (1980-1985) — clean replacements for all pre-mirror
+    # events whose stage1 inline multi-placement parsing produced ordering errors and
+    # duplicate p1 entries. Legacy files provide correct p1/p2/p3 for all divisions.
+    "2001980001": {
+        "file":    "legacy_data/event_results/2001980001.txt",
+        "replace": True,
+    },
+    "2001981001": {
+        "file":    "legacy_data/event_results/2001981001.txt",
+        "replace": True,
+    },
+    "2001982001": {
+        "file":    "legacy_data/event_results/2001982001.txt",
+        "replace": True,
+    },
+    "2001983001": {
+        "file":    "legacy_data/event_results/2001983001.txt",
+        "replace": True,
+    },
+    # 1983 WFA — formerly excluded via JUNK_EVENTS_TO_EXCLUDE (stale comment; ID shifted
+    # after 01b stopped generating FREESTYLE sub-events). Now active with correct results.
+    "2001983002": {
+        "file":    "legacy_data/event_results/2001983002.txt",
+        "replace": True,
+    },
+    "2001984001": {
+        "file":    "legacy_data/event_results/2001984001.txt",
+        "replace": True,
+    },
+    "2001985001": {
+        "file":    "legacy_data/event_results/2001985001.txt",
         "replace": True,
     },
 }

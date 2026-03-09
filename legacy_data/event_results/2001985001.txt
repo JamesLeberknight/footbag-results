@@ -1,0 +1,99 @@
+# World Championships 1985
+# Source: inputs/OLD_RESULTS.txt — 1980-1985 World Championships Results (1985 section)
+# Previously: inline multi-placement parsing created ordering errors and misclassified entries.
+# Doubles One-Pass p2: source lists "2nd - Mag Hughes/David Robinson, 3rd -Brent Welch"
+#   p3 Brent Welch's partner unknown; Brent Welch stored as single-name entry.
+# Women's Doubles CK p3: Nancy Reynolds & Kendall KIC (nickname; stored as given)
+# event_id: 2001985001
+
+Men's Overall
+1. Ken Shults
+2. Jim Caveney
+3. Bruce Guettich
+
+Women's Overall
+1. Tricia George
+2. Constance Constable
+3. Nancy Reynolds
+
+Golf
+1. Ken Shults
+2. Chris Ott
+3. Evan Bozett
+
+Women's Golf
+1. Tricia George
+2. Linda Burt
+3. Trudy Archdale
+
+Intermediate Singles Net
+1. Mark Pistorio
+
+Advanced Singles Net
+1. Gary Griggs
+2. Jimmy Evans
+3. Allan Petersen
+
+Advanced Doubles Net
+1. Jimmy Evans & Chris Ott
+2. Bruce Guettich & Andy Linder
+
+Ultra Singles Net
+1. Mag Hughes
+2. David Robinson
+3. Ken Shults
+
+Ultra Doubles Net
+1. Ken Shults & Mike Harding
+2. Mag Hughes & Bill Hayne
+
+Mixed Doubles Net
+1. Tricia George & David Robinson
+
+Women's Singles Net
+1. Tricia George
+2. Nancy Reynolds
+3. Trudy Archdale
+
+Women's Doubles Net
+1. Nancy Reynolds & Tricia George
+
+Singles Consecutive Kicks
+1. Andy Linder
+2. Pat Castle
+3. Fred Barnum
+
+Doubles Consecutive Kicks
+1. Pat Castle & Jack Schoolcraft
+2. Chris Ott & Jeff Johnson
+3. Jon Lind & Dennis Ross
+
+Doubles One-Pass Consecutive Kicks
+1. Jim Caveney & Bruce Guettich
+2. Mag Hughes & David Robinson
+
+Women's Singles Consecutive Kicks
+1. Tricia George
+2. Constance Constable
+3. Marie Elsner
+
+Women's Doubles Consecutive Kicks
+1. Jodi Chandler & Marie Elsner
+2. Tricia George & Constance Constable
+3. Nancy Reynolds & Kendall KIC
+
+Women's Doubles One-Pass Consecutive Kicks
+1. Tricia George & Constance Constable
+2. Jodi Chandler & Nancy Reynolds
+
+Singles Freestyle
+1. Ken Shults
+2. Dennis Ross
+3. Jack Schoolcraft
+
+Team Freestyle
+1. Jim Caveney & Bruce Guettich
+2. Scott Cleere & Bill Bethurum
+
+Women's Freestyle
+1. Jodi Chandler & Tricia George

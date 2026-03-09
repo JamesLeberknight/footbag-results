@@ -1,0 +1,20 @@
+# World Championships 1980 (NHSA)
+# Source: inputs/OLD_RESULTS.txt — 1980-1985 World Championships Results
+# Only p1 known for Consecutive Kicks events.
+# event_id: 2001980001
+
+Singles Consecutive Kicks
+1. Ken Shults
+
+Doubles Consecutive Kicks
+1. Ken Shults & Mike Harding
+
+Singles Net
+1. John Stalberger
+2. Walt Mason
+3. Ken Shults
+
+Doubles Net
+1. John Stalberger & Max Smith
+2. Walt Mason & Mag Hughes
+3. Gale Bigler & Dave Frazier

@@ -1,0 +1,38 @@
+# World Championships 1981 (NHSA)
+# Source: inputs/OLD_RESULTS.txt — 1980-1985 World Championships Results
+# Team Consecutive Kicks: source lists Kalia Klaban/Gary Lautt/Jim Caveney (3 members).
+# Schema stores max 2; Jim Caveney omitted.
+# event_id: 2001981001
+
+Intermediate Singles Consecutive Kicks
+1. Max Smith
+
+Singles Consecutive Kicks
+1. Gary Lautt
+
+Women's Singles Consecutive Kicks
+1. Kalia Klaban
+
+Team Consecutive Kicks
+1. Kalia Klaban & Gary Lautt
+
+Intermediate Singles Net
+1. Mike Harding
+
+Intermediate Doubles Net
+1. Mike Harding & Mark Daniels
+
+Singles Net
+1. John Stalberger
+2. Ken Shults
+3. Dave Hill
+
+Doubles Net
+1. Mag Hughes & Bill Hayne
+2. John Stalberger & Max Smith
+3. Ken Shults & Walt Mason
+
+Women's Doubles Net
+1. Rita Buckley & Misty Helms
+2. unknown
+3. Lori Jean Conover & Jennifer Reese

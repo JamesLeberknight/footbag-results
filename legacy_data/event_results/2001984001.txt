@@ -1,0 +1,113 @@
+# World Championships 1984
+# Source: inputs/OLD_RESULTS.txt — 1980-1985 World Championships Results (1984 section)
+# Previously: inline multi-placement parsing errors created 7 garbage Women's Doubles CK rows.
+# Women's Doubles CK corrected to documented 2 placements.
+# event_id: 2001984001
+
+Men's Overall
+1. Mag Hughes
+
+Women's Overall
+1. Tricia George
+
+Golf
+1. Ken Shults
+2. Tim Mackey
+3. Torben Wigger
+
+Women's Golf
+1. Tricia George
+2. Constance Constable
+3. Vanessa Sabala
+
+Intermediate Singles Net
+1. Tom Akin
+
+Intermediate Doubles Net
+1. Torben Wigger & Rick Kaufman
+
+Intermediate Freestyle
+1. Brent Welch & Colin Cowles
+
+Advanced Singles Net
+1. Mag Hughes
+2. David Robinson
+3. Ken Shults
+
+Advanced Doubles Net
+1. Mag Hughes & Bill Hayne
+2. Ken Shults & Mike Harding
+3. David Robinson & Jim Caveney
+
+Ultra Singles Net
+1. Ken Shults
+2. Mag Hughes
+3. David Robinson
+
+Ultra Doubles Net
+1. Mag Hughes & Bill Hayne
+2. Kevin Coker & Steve Granzberg
+3. Scott Cleere & Bill Bethurum
+
+Mixed Doubles Net
+1. Tricia George & David Robinson
+2. Nancy Reynolds & Greg Cortopassi
+3. Cheryl Hughes & Mag Hughes
+
+Women's Singles Net
+1. Nancy Reynolds
+2. Tricia George
+3. Trudy Archdale
+
+Women's Doubles Net
+1. Nancy Reynolds & Tricia George
+2. Constance Constable & Jenny Davison
+3. Jodi Chandler & Shannon Storment
+
+Women's Ultra Singles Net
+1. Nancy Reynolds
+2. Cheryl Hughes
+3. Tricia George
+
+Singles Consecutive Kicks
+1. Pat Castle
+2. Gary Lautt
+3. Andy Linder
+
+Doubles Consecutive Kicks
+1. Gary Lautt & Jim Caveney
+2. Andy Linder & Jimmy Evans
+3. Lee Guenther & Mike Mueller
+
+Doubles One-Pass Consecutive Kicks
+1. Gary Lautt & Jim Caveney
+2. Jodi Chandler & Jon Lind
+3. Mag Hughes & Greg Cortopassi
+
+Women's Singles Consecutive Kicks
+1. Jodi Chandler
+2. Tricia George
+3. Constance Constable
+
+Women's Doubles Consecutive Kicks
+1. Jodi Chandler & Tricia George
+2. Constance Constable & Vanessa Sabala
+
+Women's Doubles One-Pass Consecutive Kicks
+1. Tricia George & Constance Constable
+2. Ruth Osterman & Vanessa Sabala
+
+Singles Freestyle
+1. Andy Linder
+2. Ken Shults
+3. Jack Schoolcraft
+
+Team Freestyle
+1. Jack Schoolcraft & Jim Fitzgerald
+2. Mag Hughes & Gary Lautt
+3. Scott Cleere & Bill Bethurum
+
+Women's Freestyle
+1. Jodi Chandler & Tricia George
+2. Constance Constable & Suzanne Beauchemin
+3. Ruth Osterman & Vanessa Sabala
