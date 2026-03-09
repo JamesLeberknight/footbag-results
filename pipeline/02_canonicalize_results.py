@@ -181,6 +181,16 @@ JUNK_EVENTS_TO_EXCLUDE = {
     "1043428338",  # Spring Footbag Jam - description not results: "31 players said SFJ was their first"
     "984874006",   # PST Obligatory Footbag Forum 2001 - informal gathering; all pre blocks are
                    # event announcement and post-event narrative recap, no formal placements
+    # Standalone "NHSA/WFA FREESTYLE" sub-events from OLD_RESULTS.txt.
+    # Their freestyle divisions are already captured in the main NHSA/WFA event
+    # for the same year; keeping them causes duplicate or orphan entries.
+    # 01b_import_old_results.py no longer generates these; exclusion here guards
+    # against any stale stage-1 CSV that predates that fix.
+    "2001982002",  # 1982 NHSA FREESTYLE — Open Doubles Freestyle (subset of 2001982001)
+    "2001983002",  # 1983 NHSA FREESTYLE — Singles/Team Freestyle (dup of 2001983001)
+    "2001983004",  # 1983 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001983003)
+    "2001984002",  # 1984 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001984001)
+    "2001985002",  # 1985 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001985001)
 }
 
 # Event name overrides for placeholder/template names

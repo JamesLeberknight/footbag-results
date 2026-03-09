@@ -472,6 +472,11 @@ def build_stage1_rows_from_old_results(
         return ""
 
     for (year, _orgN), m in merged_items:
+        # Skip standalone "NHSA/WFA FREESTYLE" sub-events — their content is
+        # duplicated (or a subset of) the main NHSA/WFA event for the same year.
+        if (m.get("org_raw") or "").upper().endswith("FREESTYLE"):
+            continue
+
         per_year_seq[year] = per_year_seq.get(year, 0) + 1
         eid = _synthetic_event_id(year, per_year_seq[year])
 
