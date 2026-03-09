@@ -465,11 +465,20 @@ def extract_event_record(html: str, source_path: str, source_url: str, soup: Bea
                     if len(pre_text) > len(results_block_raw) * 2:
                         results_block_raw = pre_text
                         parse_notes.append("results: div.eventsResults > pre.eventsPre (much larger than structured)")
-                    # Strategy 2: If <pre> contains "freestyle" but structured doesn't, prefer <pre>
+                    # Strategy 2: If <pre> contains "freestyle" but structured doesn't:
+                    #   - If pre is larger → prefer pre (h2 had incomplete coverage)
+                    #   - If pre is smaller → merge: structured already has more content (e.g.
+                    #     full net results), but pre has unique freestyle/special divisions
                     elif (re.search(r'\bfreestyle\b', pre_text, re.I) and
                           not re.search(r'\bfreestyle\b', results_block_raw, re.I)):
-                        results_block_raw = pre_text
-                        parse_notes.append("results: div.eventsResults > pre.eventsPre (has freestyle, structured doesn't)")
+                        if len(pre_text) >= len(results_block_raw):
+                            results_block_raw = pre_text
+                            parse_notes.append("results: div.eventsResults > pre.eventsPre (has freestyle, structured doesn't)")
+                        else:
+                            # Merge: keep structured (comprehensive) and append pre so
+                            # unique divisions in pre (e.g. Shred:30, Sick 3, Golf) are parsed
+                            results_block_raw = results_block_raw + "\n" + pre_text
+                            parse_notes.append("results: merged h2-structured + pre.eventsPre (structured larger, pre has unique freestyle divs)")
 
         # Final fallback: any pre.eventsPre in eventsResults
         if not results_block_raw:
