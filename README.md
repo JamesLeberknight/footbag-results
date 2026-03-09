@@ -8,44 +8,86 @@ identity-lock artifacts.
 
 ---
 
+## Requirements
+
+> **The HTML mirror is required to run the full pipeline.**
+> Download `mirror.tar.gz` from the GitHub Release assets and extract it
+> before running anything:
+>
+> ```bash
+> tar -xzf mirror.tar.gz        # produces mirror/ in the current directory
+> # — or, if you have mirror_full/ —
+> ln -s mirror_full mirror
+> ```
+>
+> Without `mirror/`, only **release mode** works (requires a pre-built
+> `out/stage2_canonical_events.csv`).
+
+---
+
 ## Quick Start
 
 ```bash
-# 1. One-time setup
-make setup
+# 1. One-time setup (create venv, install deps, create out/)
+./run_pipeline.sh setup
 
-# 2. Full pipeline (rebuild → release → qc)
-make all
+# 2. Extract the mirror (see Requirements above), then run the full pipeline
+./run_pipeline.sh all
 ```
 
 Or run stages individually:
 
 ```bash
-make rebuild   # Parse mirror → canonical stage-2 events
-make release   # Apply identity lock → workbooks + canonical CSVs
-make qc        # Run all QC checks
+./run_pipeline.sh rebuild   # Parse mirror → stage2_canonical_events.csv
+./run_pipeline.sh release   # Apply identity lock → workbooks + canonical CSVs
+./run_pipeline.sh qc        # Run all QC checks
 ```
 
 ---
 
-## Prerequisites
+## Installation
 
-### 1. Python 3.12+ and make
+### 1. Python 3.12+
 
-### 2. HTML mirror
+### 2. Clone and set up
 
-The Footbag.org mirror is not stored in this repository (it is large).
-Obtain it from the GitHub Release assets and extract it so the repo root
-contains a `mirror/` directory:
+```bash
+git clone <repo-url>
+cd FOOTBAG_DATA
+
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+mkdir -p out
+```
+
+Or use the setup shortcut:
+
+```bash
+./run_pipeline.sh setup
+```
+
+---
+
+## Data Prerequisites
+
+### 1. HTML mirror (required for rebuild)
+
+Obtain `mirror.tar.gz` from the GitHub Release assets and extract it so
+the repo root contains a `mirror/` directory:
 
 ```bash
 tar -xzf mirror.tar.gz   # produces mirror/ in the current directory
 ```
 
-Without `mirror/`, only **release mode** can run (using a pre-existing
-`out/stage2_canonical_events.csv`).
+If the archive extracted as `mirror_full/` instead:
 
-### 3. Identity lock files (already in repo)
+```bash
+ln -s mirror_full mirror
+```
+
+Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/index.html`.
+
+### 2. Identity lock files (already in repo)
 
 ```
 inputs/identity_lock/
@@ -56,7 +98,7 @@ inputs/identity_lock/
 
 These are human-verified and treated as immutable for this release.
 
-### 4. Legacy results (already in repo)
+### 3. Legacy results (already in repo)
 
 ```
 inputs/OLD_RESULTS.txt    # Historical events not in the mirror
@@ -70,10 +112,10 @@ legacy_data/              # Per-event result overrides (1999, 2003 Worlds, etc.)
 ### Rebuild Mode (stages 01–02)
 
 Parses raw data into canonical stage-2 events.
-Run once, or whenever the mirror or parser changes.
+**Requires `mirror/`.** Run once, or whenever the mirror or parser changes.
 
 ```bash
-make rebuild
+./run_pipeline.sh rebuild
 ```
 
 | Stage | Script | Description |
@@ -88,10 +130,10 @@ make rebuild
 ### Release Mode (stages 02p5–05)
 
 Applies the identity lock and produces all final outputs.
-Requires `out/stage2_canonical_events.csv` from rebuild mode.
+Requires `out/stage2_canonical_events.csv` (run rebuild first, or obtain from a prior release).
 
 ```bash
-make release
+./run_pipeline.sh release
 ```
 
 | Stage | Script | Description |
@@ -105,7 +147,7 @@ make release
 ### QC
 
 ```bash
-make qc
+./run_pipeline.sh qc
 ```
 
 | Script | Checks |

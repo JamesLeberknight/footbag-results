@@ -9,7 +9,6 @@ Read-only transformation only.  No identity changes, no canonical mutations.
 
 Inputs  (from out/):
     stage2_canonical_events.csv  — event metadata + division source order
-    index.csv                    — clean display metadata (name, date, location)
     Placements_Flat.csv          — identity-resolved placements
     Placements_ByPerson.csv      — for leaderboard computation
     Persons_Truth.csv            — for honours matching
@@ -190,33 +189,6 @@ def _split_location(loc: str):
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
-def load_index() -> dict:
-    """Load index.csv → dict event_id → {name, date, location, host_club}."""
-    path = OUT_DIR / "index.csv"
-    meta = {}
-    try:
-        df = pd.read_csv(path, dtype=str, encoding="latin-1").fillna("")
-        for _, row in df.iterrows():
-            eid = str(row.get("event_id", "")).strip()
-            if not eid:
-                continue
-            loc = row.get("Location", "").strip()
-            city, country = _split_location(loc)
-            meta[eid] = {
-                "event_name": row.get("Tournament Name", "").strip(),
-                "date":       row.get("Date", "").strip(),
-                "location":   loc,
-                "city":       city,
-                "country":    country,
-                "host_club":  row.get("Host Club", "").strip(),
-                "year":       _to_int(row.get("year", "")),
-                "event_type": row.get("Event Type", "").strip(),
-            }
-    except Exception as exc:
-        print(f"  WARN: could not load index.csv: {exc}", file=sys.stderr)
-    return meta
-
-
 def load_stage2_events() -> dict:
     """
     Load stage2_canonical_events.csv.
@@ -251,6 +223,7 @@ def load_stage2_events() -> dict:
                 "city":       city,
                 "country":    country,
                 "host_club":  (row.get("host_club") or "").strip(),
+                "event_type": (row.get("event_type") or "").strip(),
                 "div_order":  div_order,
             }
     return events
@@ -1366,23 +1339,10 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
 
 def main():
     print("Loading data…")
-    index_meta = load_index()
     s2_events  = load_stage2_events()
     pf         = load_placements_flat()
     pbp        = load_placements_by_person()
     persons_df = load_persons_truth()
-
-    # Merge index metadata (better display strings) into s2 events.
-    # NOTE: location/city/country are NOT overwritten — stage2_canonical_events.csv
-    # has canonical "City, Country" form (e.g. "Quebec, Canada"), while index.csv
-    # has raw verbose strings (e.g. "La Ronde and Plaine des Jeux Montreal, Quebec, Canada").
-    for eid, s2 in s2_events.items():
-        if eid in index_meta:
-            im = index_meta[eid]
-            if im["event_name"]:  s2["event_name"]  = im["event_name"]
-            if im["date"]:        s2["date"]         = im["date"]
-            if im["host_club"]:   s2["host_club"]    = im["host_club"]
-            if im.get("event_type"): s2["event_type"] = im["event_type"]
 
     print("Loading honours (BAP / FBHOF)…")
     honours, bap_rows, fbhof_rows = load_honours(persons_df)
