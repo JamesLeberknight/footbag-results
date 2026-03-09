@@ -411,9 +411,20 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
             )
 
             for _, row in ddf.iterrows():
-                person = (row.get("person_canon") or "").strip()
+                person       = (row.get("person_canon") or "").strip()
+                comp         = (row.get("competitor_type") or "player").lower()
+                tpk          = (row.get("team_person_key") or "").strip()
+                cat          = (row.get("division_category") or "").strip()
+                team_display = (row.get("team_display_name") or "").strip()
+
                 if not person or person == "__NON_PERSON__":
-                    continue
+                    # Allow team entries whose display name is fully populated
+                    # (both partners named, e.g. 1997 Worlds where neither player
+                    # reached PT threshold). Exclude "solo-in-doubles" artifacts
+                    # that end with "/ ?" (one partner genuinely unknown).
+                    if not (comp == "team" and tpk and team_display
+                            and not team_display.rstrip().endswith("/ ?")):
+                        continue
                 if (row.get("person_unresolved") or "").lower() in ("true", "1"):
                     continue
 
@@ -422,15 +433,11 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                 except (ValueError, TypeError):
                     continue
 
-                comp = (row.get("competitor_type") or "player").lower()
-                tpk  = (row.get("team_person_key") or "").strip()
-                cat  = (row.get("division_category") or "").strip()
-
                 if comp == "team" and tpk:
                     if tpk in seen_teams:
                         continue
                     seen_teams.add(tpk)
-                    display = (row.get("team_display_name") or "").strip()
+                    display = team_display
                     if not display:
                         members = ddf[ddf["team_person_key"] == tpk]["person_canon"].tolist()
                         display = " / ".join(_display_name(m) for m in members if m)

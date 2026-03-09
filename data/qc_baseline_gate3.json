@@ -3,16 +3,16 @@
   "date": "2026-03-09",
   "persons_truth_count": 3456,
   "persons_unresolved_count": 76,
-  "identity_lock_version": "v38",
+  "identity_lock_version": "v39",
   "gate3_pass": true,
-  "notes": "Updated 2026-03-09 (v2.2.0): PT v35 (3456 rows, +4 new persons: Jean-Marie Letort, Slava Sidorin, Sergio Hernandez Santiago, Maude Landreville). PBP v38 (26339 rows, +183: 8 new divisions for 2016 Worlds recovered by Stage01 HYBRID merge fix — Open/Master/Women's Singles+Doubles Net + Open Singles Routines + Shred30). Stage01 HYBRID fix: when pre block has freestyle but is smaller than h2-structured content, merge instead of replace. Gate3 PASS=3456. ASS: 16403 rows. PF: 26339 rows. Placements_Unresolved: 376 rows. Canonical export: events 784, disciplines 3851, results 24576, participants 35861, persons 3456.",
+  "notes": "Updated 2026-03-09 (v2.2.0 final): PT v35 (3456 rows). PBP v39 (26312 rows, -27 from v38: removed 5 FREESTYLE sub-events 1982-1985). Stage2: 777 events, 0 errors, 8 warnings (-7 date_missing from FREESTYLE deletions). Parser fix: event 859787898 (Heart of Footbag 1997) now yields 37 placements via fixup_heart_of_footbag_1997(). 04B fixes: __NON_PERSON__ team display (1997 Worlds doubles now visible), is_team_division majority vote. Gate3 PASS=3456. ASS: 16403 rows. PF: 26312 rows. Placements_Unresolved: 376 rows. Canonical export: events 777, disciplines 3839, results 24560, participants 35825, persons 3456.",
   "gate3_pass_count": 3456,
   "persons_truth_file": "Persons_Truth_Final_v35.csv",
   "persons_truth_rows": 3456,
   "persons_unresolved_file": "Persons_Unresolved_Organized_v27.csv",
   "persons_unresolved_rows": 76,
   "analytics_safe_surface_rows": 16403,
-  "placements_flat_rows": 26339,
+  "placements_flat_rows": 26312,
   "placements_unresolved_rows": 376,
-  "index_rows": 784
+  "index_rows": 777
 }

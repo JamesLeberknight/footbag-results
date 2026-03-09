@@ -327,6 +327,12 @@ EVENT_PARSING_RULES = {
     "857874500": {
         "pre_parse_fixup": "two_column_oregon_1997",
     },
+    # 1997 Heart of Footbag - results use ALL-CAPS ordinals without separator:
+    #   "1ST James Deans"  "2ND Forest Schrodt"  etc.
+    #   Division headers are plain ALL-CAPS lines with no colon/dash.
+    "859787898": {
+        "pre_parse_fixup": "heart_of_footbag_1997",
+    },
     # 2000 NZ Footbag Championships - results use up to 3-column tabular layout
     # e.g. "Under 13 Singles            Open Mens Singles           Open Womens Singles"
     #      "1. Jonathan Bartlett (24)   1. Steve Ramsey (407)       1. Hannah Whiteman (28)"
@@ -335,6 +341,42 @@ EVENT_PARSING_RULES = {
         "pre_parse_fixup": "nz_champs_2000",
     },
 }
+
+def fixup_heart_of_footbag_1997(text: str) -> str:
+    """
+    Convert ALL-CAPS ordinal format used by event 859787898 (1997 Heart of Footbag).
+    Source lines look like:
+        BEGINNERS SINGLES
+        1ST James Deans
+        2ND Forest Schrodt
+    Converts to standard "N. Name" format:
+        BEGINNERS SINGLES:
+        1. James Deans
+        2. Forest Schrodt
+    """
+    # Drop noise header
+    text = re.sub(r"^EVENTS:\s*$", "", text, flags=re.MULTILINE | re.IGNORECASE)
+    # Convert plain ALL-CAPS division names (no colon/dash) to "Name:" form
+    # A division header here is an ALL-CAPS line that contains a DIVISION_KEYWORD
+    # and is NOT an ordinal line.
+    def _add_colon(m):
+        line = m.group(0).rstrip()
+        return line + ":"
+    text = re.sub(
+        r"^(?!(\d{1,2}(ST|ND|RD|TH)\b))[A-Z][A-Z \']+$",
+        _add_colon,
+        text,
+        flags=re.MULTILINE,
+    )
+    # Convert "1ST Name" / "2ND Name" / "3RD Name" / "4TH Name" → "1. Name"
+    text = re.sub(
+        r"^(\d{1,2})(ST|ND|RD|TH)\s+",
+        lambda m: f"{m.group(1)}. ",
+        text,
+        flags=re.MULTILINE | re.IGNORECASE,
+    )
+    return text
+
 
 def fixup_ordinal_inline_divisions(text: str) -> str:
     """
@@ -2809,6 +2851,8 @@ def parse_results_text(results_text: str, event_id: str, event_type: str = None)
         results_text = fixup_two_column_oregon_1997(results_text)
     elif pre_parse_fixup == "nz_champs_2000":
         results_text = fixup_nz_champs_2000(results_text)
+    elif pre_parse_fixup == "heart_of_footbag_1997":
+        results_text = fixup_heart_of_footbag_1997(results_text)
 
     # Track whether we're in a seeding section (should skip these entries)
     in_seeding_section = False
