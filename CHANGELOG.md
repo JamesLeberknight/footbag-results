@@ -4,6 +4,45 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [v2.1.1] — Parser fixes, multi-column pre layout, event_type field
+**Release date:** 2026-03-08
+
+### Changes
+
+#### Parser fixes
+- **Multi-column `<pre>` layout** (NZ Champs 2000, event 947196813): new
+  `fixup_nz_champs_2000()` pre-parse fixup handles up to 3 side-by-side
+  columns separated by 6+ spaces. Infers column boundaries from header rows,
+  routes each column as an independent stream, handles wrapped entries and
+  short-line overflow via last-place heuristic, prepends section prefix
+  (Consecutive / Net / Freestyle) to disambiguate shared division names.
+  Result: 3 divisions / 11 placements → 15 divisions / 52 placements.
+- **`'womens'` added to `valid_starts`** in `looks_like_division_header()`:
+  bare "WOMENS" (no apostrophe) was not recognised as a valid division header
+  start word, silently dropping "WOMENS INTERMEDIATE SINGLES NET RESULTS" at
+  Worlds 2000 (event 941418343). Fixed: 4 placements now correctly attributed
+  to `Womens Intermediate Singles Net` rather than merged into `Womens Singles
+  Net`. Corpus-wide impact: exactly 2 lines changed behaviour, both correctly.
+
+#### Canonical CSV export — `event_type` field
+- **`events.csv` now includes `event_type`** (net / mixed / freestyle / worlds
+  / golf / social), sourced from the stage-2 `event_type` column.
+  Distribution: 316 net, 255 mixed, 165 freestyle, 27 worlds, 11 golf,
+  10 social.
+
+#### Coverage overrides
+- **Western Regionals 1998** (event 876356874): added 3 `COVERAGE_FLAG_OVERRIDES`
+  entries — `Mixed Doubles Freestyle` → sparse, `Women's Open Doubles Freestyle`
+  → sparse, `Open Doubles Freestyle` → partial.
+
+#### Counts updated (post-rebuild)
+- `event_disciplines.csv`: 3,781 → 3,795 rows
+- `event_results.csv`: 24,069 → 24,116 rows
+- `event_result_participants.csv`: 34,854 → 34,893 rows
+- Stage-2 placements: 26,975 total; `place_large_gap` INFO instances: 52 → 46
+
+---
+
 ## [v2.1.0] — Identity fixes, coverage overrides, canonical CSV export
 **Release date:** 2026-03-08
 

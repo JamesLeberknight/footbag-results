@@ -59,6 +59,7 @@ def _border_bottom(color="BBBBBB") -> Border:
     return Border(bottom=Side(style="thin", color=color))
 
 FILL_BANNER   = _fill("1F4E79")   # dark navy  — event banner
+FILL_BANNER_WORLDS = _fill("7D4607")  # deep amber — Worlds event banner
 FILL_META     = _fill("EBF3FB")   # pale blue  — location / host / date
 FILL_PLAYERS  = _fill("F5F5F5")   # near-white — players count
 FILL_DIV      = _fill("E2E2E2")   # light grey — division header
@@ -66,6 +67,7 @@ FILL_GOLD     = _fill("FFF3CC")   # soft gold  — 1st place
 FILL_SILVER   = _fill("F0F0F0")   # near-white — 2nd place
 FILL_BRONZE   = _fill("FDEBD0")   # pale orange— 3rd place
 FILL_WHITE    = _fill("FFFFFF")
+FILL_ALT      = _fill("F7FAFD")   # very pale blue — alternate data rows
 FILL_HDR      = _fill("1F4E79")   # sheet header row
 FILL_HON_BAP  = _fill("FFF8E1")   # BAP honour row tint
 FILL_HON_FBHOF= _fill("E8F5E9")   # FBHOF honour row tint
@@ -424,6 +426,8 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
 
             entries    = []
             seen_teams: set = set()
+            # True only when the division was designed for teams (some rows have competitor_type="team")
+            is_team_division = (ddf["competitor_type"].str.lower() == "team").any()
 
             for _, row in ddf.iterrows():
                 person = (row.get("person_canon") or "").strip()
@@ -451,8 +455,8 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                         display = " / ".join(_display_name(m) for m in members if m)
                 else:
                     display = _display_name(person)
-                    # Solo entry in a doubles division — partner not recorded
-                    if "double" in div_canon.lower():
+                    # Solo entry in a true doubles division — partner not recorded
+                    if is_team_division:
                         display = f"{display} / ?"
 
                 entries.append((place_int, display, cat))
@@ -504,20 +508,18 @@ def compute_leaderboards(pbp: pd.DataFrame) -> pd.DataFrame:
 
 
 def compute_leaderboards_by_cat(pbp: pd.DataFrame) -> dict:
-    """Wins per person per division_category."""
+    """Wins and podiums per person per division_category."""
     df = pbp.copy()
     df = df[~df["person_unresolved"].str.lower().isin(("true", "1"))]
     df = df[~df["person_canon"].str.strip().isin(["", "__NON_PERSON__"])]
     df["_place"] = pd.to_numeric(df["place"], errors="coerce")
-    wins = df[df["_place"] == 1]
     by_cat = {}
-    for cat, cdf in wins.groupby("division_category"):
-        by_cat[cat] = (
-            cdf.groupby("person_canon").size()
-               .rename("wins")
-               .sort_values(ascending=False)
-               .reset_index()
-        )
+    for cat, cdf in df.groupby("division_category"):
+        wins    = cdf[cdf["_place"] == 1].groupby("person_canon").size().rename("wins")
+        podiums = cdf[cdf["_place"] <= 3].groupby("person_canon").size().rename("podiums")
+        merged  = pd.concat([wins, podiums], axis=1).fillna(0).astype(int)
+        merged  = merged.sort_values("wins", ascending=False).reset_index()
+        by_cat[cat] = merged
     return by_cat
 
 
@@ -723,19 +725,38 @@ def build_honours_sheet(wb: Workbook, honours: dict,
 def build_summary(wb: Workbook, events: dict, event_placements: dict,
                   stats: pd.DataFrame, pbp: pd.DataFrame):
     ws = wb.create_sheet("Summary")
-    ws.column_dimensions["A"].width = 32
-    ws.column_dimensions["B"].width = 20
+    ws.column_dimensions["A"].width = 28
+    ws.column_dimensions["B"].width = 14
     ws.column_dimensions["C"].width =  4
-    ws.column_dimensions["D"].width = 10
-    ws.column_dimensions["E"].width = 10
-    ws.column_dimensions["F"].width = 10
+    ws.column_dimensions["D"].width = 42
+    ws.column_dimensions["E"].width =  7
+    ws.column_dimensions["F"].width =  8
 
-    ws.merge_cells("A1:F1")
-    _c(ws, 1, 1, "Footbag Historical Results Archive",
-       font=FONT_TITLE, align=ALIGN_CENTER)
+    N_COLS = 6
+    def _merge_title(row, text, font):
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=N_COLS)
+        c = ws.cell(row=row, column=1, value=text)
+        c.font = font
+        c.alignment = Alignment(vertical="center")
+        ws.row_dimensions[row].height = 22 if font.size >= 14 else 16
+
+    # Title
+    _merge_title(1, "Footbag Historical Results Archive", FONT_TITLE)
+
+    # ── About ─────────────────────────────────────────────────────────────────
+    _merge_title(3, "About", FONT_SECTION)
+    ws.merge_cells(start_row=4, start_column=1, end_row=4, end_column=N_COLS)
+    about = ws.cell(row=4, column=1,
+        value="A historical archive of competitive footbag results reconstructed from "
+              "the Footbag.org website and curated identity records. Coverage is "
+              "comprehensive from 1997 onward; pre-1997 data is partial. All player "
+              "identities are human-verified.")
+    about.font = FONT_SMALL
+    about.alignment = Alignment(wrap_text=True, vertical="top")
+    ws.row_dimensions[4].height = 36
 
     # ── Dataset overview ──────────────────────────────────────────────────────
-    _c(ws, 3, 1, "Dataset Overview", font=FONT_SECTION)
+    _merge_title(6, "Dataset Overview", FONT_SECTION)
 
     n_events     = len(events)
     n_placements = sum(len(v) for ep in event_placements.values() for v in ep.values())
@@ -743,79 +764,101 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
     years        = sorted({ev["year"] for ev in events.values() if ev["year"]})
     yr_range     = f"{years[0]}–{years[-1]}" if years else "?"
 
-    for r, (label, value) in enumerate([
+    for row_i, (label, value) in enumerate([
         ("Events",         f"{n_events:,}"),
         ("Years covered",  yr_range),
         ("Placements",     f"{n_placements:,}"),
         ("Unique players", f"{n_players:,}" if isinstance(n_players, int) else n_players),
-    ], start=4):
-        _c(ws, r, 1, label, font=FONT_SUBHEAD)
-        _c(ws, r, 2, value, font=FONT_NORMAL)
+    ], start=7):
+        _c(ws, row_i, 1, label, font=FONT_SUBHEAD)
+        _c(ws, row_i, 2, value, font=FONT_NORMAL)
 
-    # ── Data note ────────────────────────────────────────────────────────────
-    note_row = 9
-    _c(ws, note_row, 1, "Note", font=FONT_SUBHEAD)
-    _c(ws, note_row + 1, 1,
-       "Results data is incomplete for early years (pre-1997). "
-       "Coverage improves significantly from 1997 onward.",
-       font=FONT_SMALL)
+    # ── Largest events ────────────────────────────────────────────────────────
+    _merge_title(12, "Largest Events", FONT_SECTION)
+    _c(ws, 13, 1, "Event",   font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    _c(ws, 13, 2, "Year",    font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    _c(ws, 13, 3, "Players", font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    ws.row_dimensions[13].height = 13
 
-    # ── Leaderboards ─────────────────────────────────────────────────────────
-    lb_row = 12
-    _c(ws, lb_row, 1, "Leaderboards", font=FONT_SECTION)
-    lb_row += 1
+    event_sizes = []
+    for eid, ep in event_placements.items():
+        n = sum(len(v) for v in ep.values())
+        ev = events.get(eid, {})
+        event_sizes.append((ev.get("event_name", eid), ev.get("year", 0), n))
+    top_events = sorted(event_sizes, key=lambda x: x[2], reverse=True)[:15]
 
-    def _write_lb(ws, start_row, col, title, df_in, val_col, val_label, n=10):
-        _c(ws, start_row, col,   title,     font=FONT_SUBHEAD)
-        _c(ws, start_row, col+1, val_label, font=FONT_SUBHEAD)
-        r = start_row + 1
-        try:
-            top = (df_in[["person_canon", val_col]].copy()
-                   .assign(**{val_col: pd.to_numeric(df_in[val_col], errors="coerce")})
-                   .dropna(subset=[val_col])
-                   .nlargest(n, val_col))
-            for _, row in top.iterrows():
-                ws.cell(row=r, column=col,   value=_display_name(row["person_canon"]))
-                ws.cell(row=r, column=col+1, value=int(row[val_col]))
-                r += 1
-        except Exception:
-            ws.cell(row=r, column=col, value="(unavailable)")
-        return r + 1
+    for i, (name, year, n) in enumerate(top_events):
+        fill = FILL_ALT if i % 2 else FILL_WHITE
+        r = 14 + i
+        for ci, val in [(1, name), (2, year or ""), (3, n)]:
+            c = ws.cell(row=r, column=ci, value=val)
+            c.font = Font(size=9)
+            c.fill = fill
+        ws.row_dimensions[r].height = 13
 
-    if not stats.empty:
-        lb_row = _write_lb(ws, lb_row, 1, "Most Wins",        stats, "wins",       "Wins")
-        lb_row = _write_lb(ws, lb_row, 1, "Most Podiums",     stats, "podiums",    "Podiums")
-        lb_row = _write_lb(ws, lb_row, 1, "Most Appearances", stats, "events",     "Events")
-        _write_lb(ws, lb_row, 1,           "Longest Careers", stats, "career_span", "Years")
+    # ── Navigate this workbook ────────────────────────────────────────────────
+    guide_start = 30
+    _merge_title(guide_start, "Navigate this Workbook", FONT_SECTION)
+    _c(ws, guide_start + 1, 1, "Sheet",       font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    _c(ws, guide_start + 1, 2, "Description", font=Font(bold=True, size=9, color="FFFFFF"), fill=FILL_HDR)
+    ws.merge_cells(start_row=guide_start + 1, start_column=2,
+                   end_row=guide_start + 1,   end_column=N_COLS)
+    ws.row_dimensions[guide_start + 1].height = 13
+
+    sheet_guide = [
+        ("Summary",        "This page — dataset overview, largest events, and navigation guide"),
+        ("Records",        "All-time and category leaderboards (top 15 players)"),
+        ("Consecutives",   "Consecutive kicks records, world records, and milestone firsts"),
+        ("Index",          "Full list of all events with dates, locations, and coverage flags"),
+        ("Player Stats",   "Career statistics and honours (BAP ★ / FBHOF ☆) for each player"),
+        ("Player Results", "Full placement history searchable by player name"),
+        ("Year sheets",    "All events and division results for each year (1980–2026)"),
+    ]
+    for i, (sheet, desc) in enumerate(sheet_guide):
+        fill = FILL_ALT if i % 2 else FILL_WHITE
+        r = guide_start + 2 + i
+        name_cell = ws.cell(row=r, column=1, value=sheet)
+        name_cell.font = Font(bold=True, size=9)
+        name_cell.fill = fill
+        desc_cell = ws.cell(row=r, column=2, value=desc)
+        desc_cell.font = Font(size=9)
+        desc_cell.fill = fill
+        ws.merge_cells(start_row=r, start_column=2, end_row=r, end_column=N_COLS)
+        ws.row_dimensions[r].height = 13
 
 
 # ── Records sheet ─────────────────────────────────────────────────────────────
 
 def build_records(wb: Workbook, stats: pd.DataFrame, cat_stats: dict,
-                  events: dict, event_placements: dict,
                   honours: dict):
     ws = wb.create_sheet("Records")
     ws.column_dimensions["A"].width = 32
-    ws.column_dimensions["B"].width = 12
+    ws.column_dimensions["B"].width = 10
     ws.column_dimensions["C"].width =  4
     ws.column_dimensions["D"].width = 32
-    ws.column_dimensions["E"].width = 12
+    ws.column_dimensions["E"].width = 10
     ws.column_dimensions["F"].width =  4
 
     _c(ws, 1, 1, "Records", font=FONT_TITLE)
 
-    def _write_lb(ws, row, col, title, df_in, name_col, val_col, val_label, n=15):
+    def _write_lb(row, col, title, df_in, val_col, val_label, n=15):
         _c(ws, row, col,   title,     font=FONT_SUBHEAD, border=_border_top())
         _c(ws, row, col+1, val_label, font=FONT_SUBHEAD, border=_border_top())
         r = row + 1
         try:
-            top = (df_in[[name_col, val_col]].copy()
+            top = (df_in[["person_canon", val_col]].copy()
                    .assign(**{val_col: pd.to_numeric(df_in[val_col], errors="coerce")})
                    .dropna(subset=[val_col])
                    .nlargest(n, val_col))
-            for _, row_data in top.iterrows():
-                ws.cell(row=r, column=col,   value=_display_name(str(row_data[name_col])))
-                ws.cell(row=r, column=col+1, value=int(row_data[val_col]))
+            for i, (_, row_data) in enumerate(top.iterrows()):
+                fill = FILL_ALT if i % 2 else FILL_WHITE
+                name_val = _display_name(str(row_data["person_canon"]))
+                num_val  = int(row_data[val_col])
+                nc = ws.cell(row=r, column=col,   value=name_val)
+                vc = ws.cell(row=r, column=col+1, value=num_val)
+                nc.font = Font(size=9); nc.fill = fill
+                vc.font = Font(size=9); vc.fill = fill
+                vc.alignment = Alignment(horizontal="right")
                 r += 1
         except Exception:
             ws.cell(row=r, column=col, value="(unavailable)")
@@ -824,35 +867,140 @@ def build_records(wb: Workbook, stats: pd.DataFrame, cat_stats: dict,
     # ── Column A/B: all-time records ──────────────────────────────────────────
     r = 3
     if not stats.empty:
-        r = _write_lb(ws, r, 1, "Most Wins — All Time",    stats, "person_canon", "wins",        "Wins")
-        r = _write_lb(ws, r, 1, "Most Podium Finishes",    stats, "person_canon", "podiums",     "Podiums")
-        r = _write_lb(ws, r, 1, "Most Events Competed",    stats, "person_canon", "events",      "Events")
-        r = _write_lb(ws, r, 1, "Longest Careers (years)", stats, "person_canon", "career_span", "Span")
+        r = _write_lb(r, 1, "Most Wins — All Time",    stats, "wins",        "Wins")
+        r = _write_lb(r, 1, "Most Podium Finishes",    stats, "podiums",     "Podiums")
+        r = _write_lb(r, 1, "Longest Careers (years)", stats, "career_span", "Years")
 
-    # ── Column D/E: by division category ─────────────────────────────────────
-    cat_labels = {"freestyle": "Freestyle Wins", "net": "Net Wins", "golf": "Golf Wins"}
+    # ── Column D/E: by category — wins then podiums ───────────────────────────
+    cat_order = [
+        ("freestyle", "Freestyle Wins",    "wins"),
+        ("freestyle", "Freestyle Podiums", "podiums"),
+        ("net",       "Net Wins",          "wins"),
+        ("net",       "Net Podiums",       "podiums"),
+        ("golf",      "Golf Wins",         "wins"),
+    ]
     rc = 3
-    for cat, label in cat_labels.items():
-        if cat in cat_stats and not cat_stats[cat].empty:
-            rc = _write_lb(ws, rc, 4, label, cat_stats[cat], "person_canon", "wins", "Wins")
+    for cat, label, col_key in cat_order:
+        if cat in cat_stats and not cat_stats[cat].empty and col_key in cat_stats[cat].columns:
+            rc = _write_lb(rc, 4, label, cat_stats[cat], col_key, col_key.capitalize())
 
-    # Largest events
-    event_sizes = []
-    for eid, ep in event_placements.items():
-        n = sum(len(v) for v in ep.values())
-        ev = events.get(eid, {})
-        event_sizes.append((ev.get("event_name", eid), ev.get("year", 0), n))
-    top_events = sorted(event_sizes, key=lambda x: x[2], reverse=True)[:15]
 
-    rc2 = rc + 1
-    _c(ws, rc2, 4, "Largest Events", font=FONT_SUBHEAD, border=_border_top())
-    _c(ws, rc2, 5, "Players",        font=FONT_SUBHEAD, border=_border_top())
-    rc2 += 1
-    for name, year, n in top_events:
-        ws.cell(row=rc2, column=4, value=f"{name} ({year})")
-        ws.cell(row=rc2, column=5, value=n)
-        rc2 += 1
 
+# ── Consecutives Records sheet ────────────────────────────────────────────────
+
+def _load_consecutives_records(path: Path) -> list[dict]:
+    """Load inputs/consecutives_records.csv; return list of row dicts sorted by sort_order."""
+    if not path.exists():
+        return []
+    with open(path, newline="", encoding="utf-8") as fh:
+        rows = list(csv.DictReader(fh))
+    for r in rows:
+        try:
+            r["_sort"] = int(r.get("sort_order") or 0)
+        except ValueError:
+            r["_sort"] = 0
+    rows.sort(key=lambda r: r["_sort"])
+    return rows
+
+
+def build_consecutives_records(wb: Workbook, records: list[dict]):
+    if not records:
+        return
+
+    ws = wb.create_sheet("Consecutives")
+
+    # Column widths (A–J)
+    col_widths = [6, 5, 26, 22, 22, 10, 36, 13, 36, 30]
+    col_labels = ["Year", "Rank", "Division", "Person / Team",
+                  "Partner", "Score", "Note", "Event Date", "Event Name", "Location"]
+    n_cols = len(col_widths)
+    last_col_ltr = get_column_letter(n_cols)
+
+    for i, w in enumerate(col_widths, 1):
+        ws.column_dimensions[get_column_letter(i)].width = w
+
+    FILL_SUBSEC = _fill("D6E4F0")   # light blue for subsection headers
+    FILL_COLHDR = _fill("EBF3FB")   # pale blue for column header row
+
+    def _banner(row, text, fill, font):
+        cell = ws.cell(row=row, column=1, value=text)
+        cell.font  = font
+        cell.fill  = fill
+        cell.alignment = Alignment(horizontal="left", vertical="center",
+                                   indent=1, wrap_text=False)
+        ws.row_dimensions[row].height = 18
+        ws.merge_cells(start_row=row, start_column=1,
+                       end_row=row, end_column=n_cols)
+
+    def _col_headers(row):
+        for ci, label in enumerate(col_labels, 1):
+            c = ws.cell(row=row, column=ci, value=label)
+            c.font      = Font(bold=True, size=8, color="FFFFFF")
+            c.fill      = FILL_HDR
+            c.alignment = Alignment(horizontal="left", vertical="center")
+        ws.row_dimensions[row].height = 13
+
+    # Title row
+    ws.row_dimensions[1].height = 22
+    cell = ws.cell(row=1, column=1, value="Consecutive Kicks Records")
+    cell.font      = FONT_TITLE
+    cell.alignment = Alignment(vertical="center")
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=n_cols)
+
+    r = 3
+
+    # Group by section, then subsection (order preserved from sort_order)
+    from itertools import groupby
+    for section, sec_rows in groupby(records, key=lambda x: x["section"]):
+        sec_rows = list(sec_rows)
+        _banner(r, section, FILL_BANNER, FONT_BANNER)
+        r += 1
+
+        for subsection, sub_rows in groupby(sec_rows, key=lambda x: x["subsection"]):
+            sub_rows = list(sub_rows)
+            _banner(r, subsection, FILL_SUBSEC,
+                    Font(bold=True, size=10, color="1F4E79"))
+            r += 1
+            _col_headers(r)
+            r += 1
+
+            for i, row_data in enumerate(sub_rows):
+                fill = FILL_ALT if i % 2 else FILL_WHITE
+
+                year    = row_data.get("year", "")
+                rank    = row_data.get("rank", "")
+                div     = row_data.get("division", "")
+                person  = row_data.get("person_or_team", "")
+                partner = row_data.get("partner", "")
+                raw_score = row_data.get("score", "")
+                note    = row_data.get("note", "")
+                edate   = row_data.get("event_date", "")
+                ename   = row_data.get("event_name", "")
+                loc     = row_data.get("location", "")
+
+                try:
+                    score_val = int(raw_score) if raw_score else None
+                except ValueError:
+                    score_val = raw_score or None
+
+                values = [year, rank, div, person, partner,
+                          score_val, note, edate, ename, loc]
+
+                for ci, val in enumerate(values, 1):
+                    c = ws.cell(row=r, column=ci, value=val or None)
+                    c.fill = fill
+                    c.font = Font(size=9)
+                    c.alignment = Alignment(vertical="top", wrap_text=(ci in (7, 9, 10)))
+                    if ci == 6 and isinstance(val, int):  # Score: right-align, bold
+                        c.font      = Font(size=9, bold=True)
+                        c.alignment = Alignment(horizontal="right", vertical="top")
+
+                ws.row_dimensions[r].height = 14
+                r += 1
+
+        r += 1   # blank row between sections
+
+    ws.freeze_panes = "A3"
 
 
 # ── Index sheet ───────────────────────────────────────────────────────────────
@@ -1051,8 +1199,9 @@ _R_HOST    = 3   # Host club  (italic per spec)
 _R_DATE    = 4   # Date
 _R_PLAYERS = 5   # Players count
 _R_EVTYPE  = 6   # Event type
-_R_BLANK   = 7   # Spacer
-_R_DATA    = 8   # First division / placement row
+_R_EID     = 7   # Legacy event ID
+_R_BLANK   = 8   # Spacer
+_R_DATA    = 9   # First division / placement row
 
 _ROW_LABELS = {
     _R_NAME:    "Event",
@@ -1061,6 +1210,7 @@ _ROW_LABELS = {
     _R_DATE:    "Date",
     _R_PLAYERS: "Players",
     _R_EVTYPE:  "Event Type",
+    _R_EID:     "Event ID",
 }
 
 
@@ -1088,12 +1238,15 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
             max_content = max(max_content, len(str(val)))
         _c(ws, r, col, val, font=font, fill=fill, align=align)
 
-    _write(_R_NAME,    ev["event_name"],                FONT_BANNER,  FILL_BANNER, ALIGN_WRAP)
+    is_worlds   = ev.get("event_type", "") == "worlds"
+    banner_fill = FILL_BANNER_WORLDS if is_worlds else FILL_BANNER
+    _write(_R_NAME,    ev["event_name"],                FONT_BANNER,  banner_fill, ALIGN_WRAP)
     _write(_R_LOC,     ev["location"] or "—",           FONT_META,    FILL_META)
     _write(_R_HOST,    ev["host_club"] or "",            FONT_HOST,    FILL_META)
     _write(_R_DATE,    ev["date"] or "",                 FONT_META,    FILL_META)
     _write(_R_PLAYERS, f"Players: {n_players}",         FONT_PLAYERS, FILL_PLAYERS)
     _write(_R_EVTYPE,  ev.get("event_type") or "",      FONT_META,    FILL_META)
+    _write(_R_EID,     ev.get("event_id")  or "",      FONT_ROW_LBL, FILL_META)
 
     row = _R_DATA
 
@@ -1196,6 +1349,7 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
     ws.row_dimensions[_R_DATE].height    = 15
     ws.row_dimensions[_R_PLAYERS].height = 15
     ws.row_dimensions[_R_EVTYPE].height  = 15
+    ws.row_dimensions[_R_EID].height    = 13
 
     # ── Auto-width per event column (min COL_W_MIN, cap at 60) ───────────────
     for col_idx, max_w in col_max_widths.items():
@@ -1255,10 +1409,13 @@ def main():
     wb = Workbook()
     wb.remove(wb.active)
 
-    # Sheet order: Summary, Records, [Index placeholder],
-    #              Players, Player Results, year sheets
+    cons_records = _load_consecutives_records(INPUT_DIR / "consecutives_records.csv")
+
+    # Sheet order: Summary, Records, Consecutives, [Index placeholder],
+    #              Player Stats, Player Results, year sheets
     build_summary(wb, s2_events, event_placements, stats, pbp)
-    build_records(wb, stats, cat_stats, s2_events, event_placements, honours)
+    build_records(wb, stats, cat_stats, honours)
+    build_consecutives_records(wb, cons_records)
 
     # Index placeholder — correct content added after year sheets are built
     idx_placeholder = wb.create_sheet("Index")
@@ -1285,7 +1442,7 @@ def main():
     # (Summary=0, Records=1, Index=2, …)
     wb.remove(idx_placeholder)
     build_index_real(wb, s2_events, event_placements, all_event_col_map,
-                     insert_at=2, event_coverage=event_coverage)
+                     insert_at=3, event_coverage=event_coverage)
 
     # ── Save ──────────────────────────────────────────────────────────────────
     print(f"Saving {XLSX}…")

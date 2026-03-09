@@ -83,9 +83,9 @@ Verify after completion:
 
 **Stage 05:**
 - [ ] `out/canonical/events.csv` — 784 rows
-- [ ] `out/canonical/event_disciplines.csv` — 3,781 rows
-- [ ] `out/canonical/event_results.csv` — 24,069 rows
-- [ ] `out/canonical/event_result_participants.csv` — 34,854 rows
+- [ ] `out/canonical/event_disciplines.csv` — 3,795 rows
+- [ ] `out/canonical/event_results.csv` — 24,116 rows
+- [ ] `out/canonical/event_result_participants.csv` — 34,893 rows
 - [ ] `out/canonical/persons.csv` — 3,452 rows
 - [ ] All 4 key uniqueness checks: PASS
 

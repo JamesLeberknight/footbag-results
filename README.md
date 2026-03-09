@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — v2.1.0
+# Footbag Results Pipeline — v2.1.1
 
 Deterministic pipeline for reconstructing and archiving historical Footbag results.
 
@@ -141,14 +141,15 @@ All outputs go into `out/` (gitignored — never committed).
 
 ### Canonical relational export (`out/canonical/`)
 
-Ground-truth normalized CSVs intended for database import:
+Ground-truth normalized CSVs produced by stage 05 (`pipeline/05_export_canonical_csv.py`),
+intended for database import or external consumption:
 
 | File | Rows | Description |
 |---|---|---|
-| `events.csv` | 784 | One row per event |
-| `event_disciplines.csv` | 3,781 | One row per discipline within an event |
-| `event_results.csv` | 24,069 | One row per placement slot |
-| `event_result_participants.csv` | 34,854 | One row per participant |
+| `events.csv` | 784 | One row per event; includes `event_type` (net/mixed/freestyle/worlds/golf/social) |
+| `event_disciplines.csv` | 3,795 | One row per discipline within an event |
+| `event_results.csv` | 24,116 | One row per placement slot |
+| `event_result_participants.csv` | 34,893 | One row per participant |
 | `persons.csv` | 3,452 | Canonical persons with aliases and legacy IDs |
 
 Natural keys:

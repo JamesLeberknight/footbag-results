@@ -63,6 +63,11 @@ legacy/
 scripts/
 
 ############################
+# Pipeline seed / experimental scripts (not part of release pipeline)
+############################
+pipeline/06_build_mvfp_seed.py
+
+############################
 # Root-level scratch / one-off QC scripts and data files
 ############################
 qc_*.py
