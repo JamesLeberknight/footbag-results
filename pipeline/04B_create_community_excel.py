@@ -214,6 +214,34 @@ def _split_location(loc: str):
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
+def _load_event_field_overrides() -> dict:
+    """Load location/host_club overrides from events_overrides.jsonl."""
+    path = REPO / "overrides" / "events_overrides.jsonl"
+    overrides: dict[str, dict] = {}
+    if not path.exists():
+        return overrides
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            eid = str(obj.get("event_id", "")).strip()
+            if not eid:
+                continue
+            entry = {}
+            if "location" in obj:
+                entry["location"] = obj["location"]
+            if "host_club" in obj:
+                entry["host_club"] = obj["host_club"]
+            if entry:
+                overrides.setdefault(eid, {}).update(entry)
+    return overrides
+
+
 def load_stage2_events() -> dict:
     """
     Load stage2_canonical_events.csv.
@@ -221,6 +249,7 @@ def load_stage2_events() -> dict:
                               div_order: [division_canon ...]}
     """
     path = OUT_DIR / "stage2_canonical_events.csv"
+    field_overrides = _load_event_field_overrides()
     events = {}
     with open(path, newline="", encoding="utf-8", errors="replace") as fh:
         for row in csv.DictReader(fh):
@@ -237,7 +266,8 @@ def load_stage2_events() -> dict:
                     div_order.append(dc)
                     seen.add(dc)
 
-            loc = (row.get("location") or "").strip()
+            fo = field_overrides.get(eid, {})
+            loc = fo.get("location") or (row.get("location") or "").strip()
             city, country = _split_location(loc)
             events[eid] = {
                 "event_id":   eid,
@@ -247,7 +277,7 @@ def load_stage2_events() -> dict:
                 "location":   loc,
                 "city":       city,
                 "country":    country,
-                "host_club":  (row.get("host_club") or "").strip(),
+                "host_club":  fo.get("host_club") or (row.get("host_club") or "").strip(),
                 "event_type": (row.get("event_type") or "").strip(),
                 "div_order":  div_order,
             }
