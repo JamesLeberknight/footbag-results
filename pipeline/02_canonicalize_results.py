@@ -193,6 +193,13 @@ JUNK_EVENTS_TO_EXCLUDE = {
     "2001983004",  # 1983 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001983003)
     "2001984002",  # 1984 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001984001)
     "2001985002",  # 1985 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001985001)
+    # Mirror events with no real results — division structure / schedule text / future events
+    # parsed as placements; confirmed by manual mirror inspection 2026-03-10
+    "860944937",   # 1997 Mountain Dew Kansas Footbag Open — only division listing, no placements
+    "1106561176",  # 2005 Aachen Indoor Open 05 — all first names/nicknames only (Nils, Sean, Flo,
+                   # Andy, Phipsn, etc.) — unresolvable, no useful identity data
+    "1189657133",  # 2007 New Years Footbag Jam '07 — schedule text ("10 AM to 4PM…") parsed as results
+    "1737312020",  # 2025 Canadian Closed — future event, no results posted
 }
 
 # Event name overrides for placeholder/template names
@@ -556,6 +563,12 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
     },
     "2001985001": {
         "file":    "legacy_data/event_results/2001985001.txt",
+        "replace": True,
+    },
+    # Inline format caused all placements to collapse to 1 garbage row;
+    # replaced with clean legacy file 2026-03-10.
+    "1408070192": {
+        "file":    "legacy_data/event_results/1408070192.txt",
         "replace": True,
     },
 }
