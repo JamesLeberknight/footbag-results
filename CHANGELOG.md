@@ -4,6 +4,47 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [v2.5.0] — Identity fix, pool+finals batch repair, known_issues cleanup
+**Release date:** 2026-03-10
+
+### Changes
+
+#### Identity curation
+- **PT v36 → v37 / PBP v51 → v52**: Tu Vu / Tuan Vu identity merge corrected —
+  these are the same person. SSC division name merge fix (tool 58). PT now 3,455
+  rows; Gate3 PASS = 3,456.
+
+#### Pool+finals batch fix (22 events)
+- **PBP v52 → v55**: 22 pool+finals events where competitive results were
+  merged with seeding/pool-round data. For each event, extracted final standings
+  from the mirror's "Manually Entered Results" section (verified clean pre-block)
+  and rebuilt from stage-2 placements using PT alias lookup.
+  - v52 → v53: 2001 Worlds pool+finals (21 divisions restored)
+  - v53 → v54: 2 garbled-label events (Colorado Shred Symposium 2003, 2010 US Open Net)
+  - v54 → v55: 22 events across 1997–2023 (pool round data replaced with
+    final standings; +180 net rows; 26,392 → 26,572 rows)
+
+#### Data quality (known_issues)
+- **known_issues 239 → 48**: Systematic reduction from 239 data-quality flags
+  to 48 retained entries.
+  - Removed 60 events identified as legitimate tournament bracket ties
+    (scattered dups at non-reset positions, all count=2)
+  - Removed 29 events with dups only in noise/skill-contest divisions
+    (Sick 3, Shred 30, Circle Contest, Golf, Request Contest, etc.)
+  - Removed 38 events with standard bracket-elimination tie patterns
+  - Removed 22 events fixed by the pool+finals batch fix above
+  - Removed 10 events in this release: 7 all-noise or clean-in-PBP;
+    3 real bracket/tournament ties
+
+#### Counts (current)
+- Stage-2 events: 778; placements: ~27,945
+- `out/canonical/events.csv`: 778 rows
+- `out/canonical/persons.csv`: 3,455 rows
+- `Placements_ByPerson_v55.csv`: 26,572 rows
+- known_issues: 48 events (10 severe, 22 moderate, 16 minor)
+
+---
+
 ## [v2.1.1] — Parser fixes, multi-column pre layout, event_type field
 **Release date:** 2026-03-08
 

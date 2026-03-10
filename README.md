@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — v2.4.0
+# Footbag Results Pipeline — v2.5.0
 
 Deterministic pipeline for reconstructing and archiving historical Footbag results.
 
