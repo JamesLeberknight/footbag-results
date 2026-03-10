@@ -1,253 +1,243 @@
 event_id,severity,note
-1021665982,severe,division results merged in source data
-1036298726,severe,division results merged in source data
-1042821772,severe,division results merged in source data
-1049457912,severe,division results merged in source data
-1064330873,severe,division results merged in source data
-1064849293,severe,division results merged in source data
-1069929277,severe,division results merged in source data
-1089373321,severe,division results merged in source data
-1102576153,severe,division results merged in source data
-1103724325,severe,division results merged in source data
-1105087209,severe,division results merged in source data
-1107290435,severe,division results merged in source data
-1125936037,severe,division results merged in source data
-1135116604,severe,division results merged in source data
-1137942486,severe,division results merged in source data
-1148374547,severe,division results merged in source data
-1163784775,severe,division results merged in source data
-1182542776,severe,division results merged in source data
-1183729267,severe,division results merged in source data
-1189345008,severe,division results merged in source data
-1194517448,severe,division results merged in source data
-1199106237,severe,division results merged in source data
-1219405634,severe,division results merged in source data
-1226679678,severe,division results merged in source data
-1235149093,severe,division results merged in source data
-1235653935,severe,division results merged in source data
-1251990500,severe,division results merged in source data
-1252110023,severe,division results merged in source data
-1255957016,severe,division results merged in source data
-1265745512,severe,division results merged in source data
-1268407783,severe,division results merged in source data
-1269266785,severe,division results merged in source data
-1270631935,severe,division results merged in source data
-1278603677,severe,division results merged in source data
-1288096032,severe,division results merged in source data
-1293877677,severe,division results merged in source data
-1293877917,severe,division results merged in source data
-1297811412,severe,division results merged in source data
-1318673467,severe,division results merged in source data
-1323272493,severe,division results merged in source data
-1328094862,severe,division results merged in source data
-1331667371,severe,division results merged in source data
-1336988107,severe,division results merged in source data
-1344593549,severe,division results merged in source data
-1361207019,severe,division results merged in source data
-1376036018,severe,division results merged in source data
-1391189882,severe,division results merged in source data
-1417735560,severe,division results merged in source data
-1449259560,severe,division results merged in source data
-1471686537,severe,division results merged in source data
-1485863923,severe,division results merged in source data
-1487797845,severe,division results merged in source data
-1518200935,severe,division results merged in source data
-1519215398,severe,division results merged in source data
-1547415984,severe,division results merged in source data
-1646387871,severe,division results merged in source data
-1646855336,severe,division results merged in source data
-1678957450,severe,division results merged in source data
-1694170899,severe,division results merged in source data
-1706036811,severe,division results merged in source data
-1727756195,severe,division results merged in source data
-857874500,severe,division results merged in source data
-876336655,severe,division results merged in source data
-876356874,severe,division results merged in source data
-909186885,severe,division results merged in source data
-910551956,severe,division results merged in source data
-919703711,severe,division results merged in source data
-980969461,severe,division results merged in source data
-991285803,severe,division results merged in source data
-1001076203,moderate,division results merged in source data
-1001942070,moderate,division results merged in source data
-1011291051,moderate,division results merged in source data
-1012638214,moderate,division results merged in source data
-1016457376,moderate,division results merged in source data
-1018812342,moderate,division results merged in source data
-1028218784,moderate,division results merged in source data
-1030830356,moderate,division results merged in source data
-1039550946,moderate,division results merged in source data
-1044624680,moderate,division results merged in source data
-1070954568,moderate,division results merged in source data
-1080138513,moderate,division results merged in source data
-1090569022,moderate,division results merged in source data
-1092073845,moderate,division results merged in source data
-1096318324,moderate,division results merged in source data
-1096695238,moderate,division results merged in source data
-1097686137,moderate,division results merged in source data
-1103297805,moderate,division results merged in source data
-1114277529,moderate,division results merged in source data
-1137937282,moderate,division results merged in source data
-1138601883,moderate,division results merged in source data
-1143155263,moderate,division results merged in source data
-1149763452,moderate,division results merged in source data
-1158263300,moderate,division results merged in source data
-1161871029,moderate,division results merged in source data
-1173606489,moderate,division results merged in source data
-1176318174,moderate,division results merged in source data
-1177512537,moderate,division results merged in source data
-1179679872,moderate,division results merged in source data
-1185458086,moderate,division results merged in source data
-1185556078,moderate,division results merged in source data
-1189467124,moderate,division results merged in source data
-1193783964,moderate,division results merged in source data
-1201811757,moderate,division results merged in source data
-1203604560,moderate,division results merged in source data
-1204009603,moderate,division results merged in source data
-1208345952,moderate,division results merged in source data
-1208408135,moderate,division results merged in source data
-1212769063,moderate,division results merged in source data
-1220466807,moderate,division results merged in source data
-1222687523,moderate,division results merged in source data
-1224962900,moderate,division results merged in source data
-1228946926,moderate,division results merged in source data
-1231286017,moderate,division results merged in source data
-1231432184,moderate,division results merged in source data
-1233299407,moderate,division results merged in source data
-1241031822,moderate,division results merged in source data
-1245404642,moderate,division results merged in source data
-1245432804,moderate,division results merged in source data
-1248864536,moderate,division results merged in source data
-1252451527,moderate,division results merged in source data
-1254829577,moderate,division results merged in source data
-1256202918,moderate,division results merged in source data
-1260368810,moderate,division results merged in source data
-1262288759,moderate,division results merged in source data
-1269111845,moderate,division results merged in source data
-1284588517,moderate,division results merged in source data
-1285506605,moderate,division results merged in source data
-1286381206,moderate,division results merged in source data
-1290861524,moderate,division results merged in source data
-1294262550,moderate,division results merged in source data
-1298627369,moderate,division results merged in source data
-1299532552,moderate,division results merged in source data
-1301958487,moderate,division results merged in source data
-1305581560,moderate,division results merged in source data
-1314229545,moderate,division results merged in source data
-1314323534,moderate,division results merged in source data
-1316280393,moderate,division results merged in source data
-1330902233,moderate,division results merged in source data
-1335148163,moderate,division results merged in source data
-1337617980,moderate,division results merged in source data
-1357206898,moderate,division results merged in source data
-1360305756,moderate,division results merged in source data
-1371821574,moderate,division results merged in source data
-1374570632,moderate,division results merged in source data
-1379414806,moderate,division results merged in source data
-1386623061,moderate,division results merged in source data
-1389338303,moderate,division results merged in source data
-1389730147,moderate,division results merged in source data
-1394742347,moderate,division results merged in source data
-1405875596,moderate,division results merged in source data
-1406219099,moderate,division results merged in source data
-1439332196,moderate,division results merged in source data
-1467142686,moderate,division results merged in source data
-1473853257,moderate,division results merged in source data
-1502929111,moderate,division results merged in source data
-1531284609,moderate,division results merged in source data
-1552865692,moderate,division results merged in source data
-1566532030,moderate,division results merged in source data
-1567551985,moderate,division results merged in source data
-1600984774,moderate,division results merged in source data
-1634665636,moderate,division results merged in source data
-1668541701,moderate,division results merged in source data
-1713276656,moderate,division results merged in source data
-1721320739,moderate,division results merged in source data
-857875120,moderate,division results merged in source data
-857876870,moderate,division results merged in source data
-857879540,moderate,division results merged in source data
-857880054,moderate,division results merged in source data
-859400929,moderate,division results merged in source data
-859923755,moderate,division results merged in source data
-912467534,moderate,division results merged in source data
-916193231,moderate,division results merged in source data
-931840905,moderate,division results merged in source data
-937727262,moderate,division results merged in source data
-937854594,moderate,division results merged in source data
-947026077,moderate,division results merged in source data
-948198763,moderate,division results merged in source data
-949991621,moderate,division results merged in source data
-952906680,moderate,division results merged in source data
-959353403,moderate,division results merged in source data
-961626997,moderate,division results merged in source data
-972427576,moderate,division results merged in source data
-979334083,moderate,division results merged in source data
-980502839,moderate,division results merged in source data
-981560223,moderate,division results merged in source data
-988434364,moderate,division results merged in source data
-996293200,moderate,division results merged in source data
-999985344,moderate,division results merged in source data
-1011556608,minor,division results merged in source data
-1019193491,minor,division results merged in source data
-1036653244,minor,division results merged in source data
-1044952105,minor,division results merged in source data
-1058877971,minor,division results merged in source data
-1068406344,minor,division results merged in source data
-1070734498,minor,division results merged in source data
-1102443443,minor,division results merged in source data
-1111735438,minor,division results merged in source data
-1127155729,minor,division results merged in source data
-1131659634,minor,division results merged in source data
-1133888413,minor,division results merged in source data
-1137347261,minor,division results merged in source data
-1146843672,minor,division results merged in source data
-1148241486,minor,division results merged in source data
-1160579826,minor,division results merged in source data
-1161888703,minor,division results merged in source data
-1166622628,minor,division results merged in source data
-1172931308,minor,division results merged in source data
-1176650845,minor,division results merged in source data
-1176844933,minor,division results merged in source data
-1195773772,minor,division results merged in source data
-1200725314,minor,division results merged in source data
-1204006435,minor,division results merged in source data
-1206161350,minor,division results merged in source data
-1216058526,minor,division results merged in source data
-1216742033,minor,division results merged in source data
-1226378339,minor,division results merged in source data
-1237771561,minor,division results merged in source data
-1239721441,minor,division results merged in source data
-1240469006,minor,division results merged in source data
-1242210886,minor,division results merged in source data
-1267199851,minor,division results merged in source data
-1267718326,minor,division results merged in source data
-1282912320,minor,division results merged in source data
-1286644859,minor,division results merged in source data
-1293878155,minor,division results merged in source data
-1300316952,minor,division results merged in source data
-1301837216,minor,division results merged in source data
-1321869570,minor,division results merged in source data
-1337327565,minor,division results merged in source data
-1346948712,minor,division results merged in source data
-1353223688,minor,division results merged in source data
-1358271250,minor,division results merged in source data
-1366375326,minor,division results merged in source data
-1389613723,minor,division results merged in source data
-1401113913,minor,division results merged in source data
-1415986036,minor,division results merged in source data
-1527557123,minor,division results merged in source data
-1537994275,minor,division results merged in source data
-1568692191,minor,division results merged in source data
-1645621833,minor,division results merged in source data
-1667566506,minor,division results merged in source data
-1700920831,minor,division results merged in source data
-1759558836,minor,division results merged in source data
-859787898,minor,division results merged in source data
-883135865,minor,division results merged in source data
-884112176,minor,division results merged in source data
-892446131,minor,division results merged in source data
-901349509,minor,division results merged in source data
-948943299,minor,division results merged in source data
-955745735,minor,division results merged in source data
-974683678,minor,division results merged in source data
-989875090,minor,division results merged in source data
+1021665982,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Novice"")"
+1036298726,severe,"division labels garbled in PBP; stage2 has correct data under different names (""Big 3 Round 2"", ""Women's Shred :30"")"
+1042821772,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Freestyle 33 Player"", ""Open Doubles Freestyle 6 Teams"", ""Open Singles Freestyle 38 Player"" + 1 more)"
+1049457912,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open Singles"")"
+1064330873,severe,"division results merged (""Doubles Net Open"", ""Singles Net Open"", 4 dup pairs)"
+1064849293,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Double Net"", ""Open Shred"", ""Open Single"" + 1 more)"
+1069929277,severe,"pool+finals results merged (6 divisions, 17 dup pairs, 143 affected rows)"
+1089373321,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Doubles Net"", ""Open Singles Freestyle"" + 1 more)"
+1102576153,severe,"pool+finals results merged (3 divisions, 16 dup pairs, 82 affected rows)"
+1103724325,severe,"division results merged (""Doubles Net"", ""Routine"", ""Singles Net"", 8 dup pairs)"
+1105087209,severe,"division results merged (""Open Doubles Net"", ""Open Singles Routines"", ""Women's Singles Routines"", 6 dup pairs)"
+1107290435,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")"
+1125936037,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Double Net"", ""Open Singles Freestyle"")"
+1135116604,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Doubles Net"", ""Intermediate Singles Freestyle"", ""Intermediate Singles Net"" + 6 more)"
+1137942486,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Golf"", ""Open Singles Freestyle"" + 1 more)"
+1148374547,severe,"division results merged (""Double Net"", ""Freestyle"", ""Single Net"", 6 dup pairs)"
+1163784775,severe,"pool+finals results merged (9 divisions, 26 dup pairs, 171 affected rows)"
+1182542776,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open Doubles"", ""Open Singles"")"
+1183729267,severe,"pool+finals results merged (3 divisions, 14 dup pairs, 50 affected rows)"
+1189345008,severe,"pool+finals results merged (3 divisions, 10 dup pairs, 41 affected rows)"
+1194517448,severe,"pool+finals results merged (4 divisions, 16 dup pairs, 120 affected rows)"
+1199106237,severe,"division results merged (""Open Golf"", ""Open Singles Freestyle"", ""Request Contest"", 7 dup pairs)"
+1219405634,severe,"pool+finals results merged (4 divisions, 17 dup pairs, 79 affected rows)"
+1226679678,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Doubles Net"")"
+1235149093,severe,"division results merged (""Initial Seeding Open Doubles Net"", 5 dup pairs)"
+1235653935,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Freestyle"")"
+1251990500,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Circle Contest"", ""Open Singles Routines"")"
+1252110023,severe,"Open/Intermediate results merged under unlabelled divisions (""Circle"", ""Doubles"", ""Intermediate"" + 2 more)"
+1255957016,severe,"division results merged (""Open Freestyle"", ""Singles Net"", 9 dup pairs)"
+1265745512,severe,"pool+finals results merged (4 divisions, 15 dup pairs, 101 affected rows)"
+1268407783,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Novice"")"
+1269266785,severe,"pool+finals results merged (3 divisions, 12 dup pairs, 56 affected rows)"
+1270631935,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Singles Net"")"
+1278603677,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Circle Contest"", ""Open Singles Routines"")"
+1288096032,severe,"multiple divisions merged (4 affected: ""Circle Contest"", ""Footbag Golf"", ""Open Singles Freestyle"" + 1 more)"
+1293877677,severe,"pool+finals results merged (10 divisions, 34 dup pairs, 224 affected rows)"
+1293877917,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Circle Contest"", ""Open Shred 30"" + 1 more)"
+1297811412,severe,"pool+finals results merged (4 divisions, 21 dup pairs, 88 affected rows)"
+1318673467,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Routines"")"
+1323272493,severe,"pool+finals results merged (8 divisions, 28 dup pairs, 132 affected rows)"
+1328094862,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Net"", ""Open Singles Routines"")"
+1331667371,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Net"")"
+1336988107,severe,"pool+finals results merged (2 divisions, 13 dup pairs, 35 affected rows)"
+1344593549,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Circle Contest"", ""Open Austrian Freestyle Routines"", ""Open Circle Contest"" + 1 more)"
+1361207019,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Circle Contest"", ""Open Sick 3-Trick"" + 1 more)"
+1376036018,severe,"pool+finals results merged (5 divisions, 16 dup pairs, 84 affected rows)"
+1391189882,severe,"pool+finals results merged (8 divisions, 15 dup pairs, 88 affected rows)"
+1417735560,severe,"pool+finals results merged (5 divisions, 14 dup pairs, 121 affected rows)"
+1449259560,severe,"pool+finals results merged (8 divisions, 68 dup pairs, 172 affected rows)"
+1471686537,severe,"division results merged (""2-Square"", ""Masters Doubles Net"", ""Women's Singles Net"", 5 dup pairs)"
+1485863923,severe,"pool+finals results merged (6 divisions, 16 dup pairs, 69 affected rows)"
+1487797845,severe,"division results merged (""Mixed Doubles Net"", ""Open Routines"", 7 dup pairs)"
+1518200935,severe,"pool+finals results merged (2 divisions, 12 dup pairs, 35 affected rows)"
+1519215398,severe,"pool+finals results merged (5 divisions, 19 dup pairs, 78 affected rows)"
+1547415984,severe,"pool+finals results merged (4 divisions, 19 dup pairs, 121 affected rows)"
+1646387871,severe,"minor: 2 duplicate place(s) in ""Freestyle Battles"""
+1646855336,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Singles Net"")"
+1678957450,severe,"division results merged (""Circle Contest"", ""Women's Singles Net"", 9 dup pairs)"
+1694170899,severe,"pool+finals results merged (4 divisions, 17 dup pairs, 63 affected rows)"
+1706036811,severe,"pool+finals results merged (6 divisions, 15 dup pairs, 86 affected rows)"
+1727756195,severe,"division results merged (""Open Golf"", ""Open Sick3"", ""Request"", 8 dup pairs)"
+857874500,severe,"pool+finals results merged (5 divisions, 17 dup pairs, 36 affected rows)"
+876336655,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Mixed Doubles"", ""Open Singles"")"
+876356874,severe,"pool+finals results merged (6 divisions, 15 dup pairs, 100 affected rows)"
+910551956,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Novice Doubles Net"", ""Open Doubles Net"" + 3 more)"
+919703711,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Singles"")"
+980969461,severe,"pool+finals results merged (7 divisions, 18 dup pairs, 147 affected rows)"
+991285803,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")"
+1001076203,moderate,"division results merged (""Double"", ""Men's Singles"", ""Single"", 3 dup pairs)"
+1001942070,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open"")"
+1011291051,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")"
+1012638214,moderate,"minor: 1 duplicate place(s) in ""Women's Doubles Net"""
+1016457376,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Shred 30"")"
+1018812342,moderate,"minor: 3 duplicate place(s) in ""Girl's Freestyle"""
+1028218784,moderate,"division results merged (""Intermediate Golf"", ""Pro Golf"", ""Pro One Minute Consecutives"", 4 dup pairs)"
+1030830356,moderate,"multiple divisions merged (4 affected: ""Open Double Net"", ""Open Shred"", ""Open Single Net"" + 1 more)"
+1039550946,moderate,"minor: 1 duplicate place(s) in ""Open Singles Net"""
+1080138513,moderate,"division results merged (""Dimwalk>Double Legover>Smudge"", ""Singles Net"", 2 dup pairs)"
+1090569022,moderate,"division results merged (""Double Net"", ""Simple Net"", 5 dup pairs)"
+1092073845,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Freestyle"", ""Open Freestyle"")"
+1096318324,moderate,"pool+finals results merged (2 divisions, 11 dup pairs, 29 affected rows)"
+1097686137,moderate,"minor: 1 duplicate place(s) in ""Men: Open Singles Freestyle"""
+1103297805,moderate,"division results merged (""Double Net"", ""Sick 3"", ""Simple Net"", 3 dup pairs)"
+1114277529,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Freestyle"", ""Open Freestyle"")"
+1137937282,moderate,"division results merged (""Net"", ""Rutina Intermediate"", ""Sick 3"", 9 dup pairs)"
+1138601883,moderate,"division results merged (""Shred 30"", ""Sick 1"", ""Sick 3"", 9 dup pairs)"
+1143155263,moderate,"minor: 3 duplicate place(s) in ""Open Sick 3"""
+1149763452,moderate,"division results merged (""Open Singles Freestyle"", ""Sick 3"", 6 dup pairs)"
+1158263300,moderate,"division results merged (""Open Freestyle"", ""Women Freestyle"", 5 dup pairs)"
+1161871029,moderate,"division results merged (""Circle Contest"", ""Open Freestyle"", 3 dup pairs)"
+1173606489,moderate,"minor: 1 duplicate place(s) in ""Singles Net 27.5.2007"""
+1176318174,moderate,"minor: 1 duplicate place(s) in """"B"" Division Doubles Net"""
+1177512537,moderate,"division results merged (""Singles Freestyle"", 5 dup pairs)"
+1179679872,moderate,"division results merged (""Footbag Net Doubles"", ""Footbag Net Single"", 8 dup pairs)"
+1185458086,moderate,"minor: 3 duplicate place(s) in ""Open Golf"""
+1185556078,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Freestyle"")"
+1189467124,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")"
+1193783964,moderate,"minor: 2 duplicate place(s) in ""Open Shred 30"""
+1201811757,moderate,"minor: 1 duplicate place(s) in ""Doubles"""
+1203604560,moderate,"minor: 3 duplicate place(s) in ""Mini-Net / Foot-C"""
+1204009603,moderate,"minor: 1 duplicate place(s) in ""Open Singles"""
+1208345952,moderate,"minor: 1 duplicate place(s) in ""Open Singles Net"""
+1212769063,moderate,"minor: 2 duplicate place(s) in ""Circle Contest"""
+1220466807,moderate,"pool+finals results merged (2 divisions, 10 dup pairs, 25 affected rows)"
+1222687523,moderate,"division results merged (""Open Singles Freestyle"", ""Women Singles Freestyle"", 3 dup pairs)"
+1224962900,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Freestyle"")"
+1228946926,moderate,"division results merged (""Open Routine"", ""Sick 3"", 4 dup pairs)"
+1231286017,moderate,"minor: 1 duplicate place(s) in ""Open Singles Net: 8 Players"""
+1231432184,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Freestyle"")"
+1233299407,moderate,"minor: 3 duplicate place(s) in ""Women's Circle"""
+1241031822,moderate,"division results merged (""Circle"", ""Routine"", 4 dup pairs)"
+1245404642,moderate,"division results merged (""Open Circle Contest"", ""Open Singles Routines"", ""Women's Singles Routines"", 3 dup pairs)"
+1245432804,moderate,"minor: 1 duplicate place(s) in ""Open Men Freestyle Routines"""
+1248864536,moderate,"minor: 3 duplicate place(s) in ""Open Golf"""
+1252451527,moderate,"minor: 1 duplicate place(s) in ""Pro Singles Net"""
+1254829577,moderate,"division results merged (""Circle Competition"", ""Open Singles Net"", 2 dup pairs)"
+1256202918,moderate,"division results merged (""Circle Contest"", ""Open Routines"", 3 dup pairs)"
+1260368810,moderate,"minor: 3 duplicate place(s) in ""Results Pro Image Cash Golf"""
+1262288759,moderate,"division labels garbled in PBP; stage2 has correct data under different names (""Intermediate Doubles:"", ""Intermediate Singles:"")"
+1269111845,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Net"")"
+1284588517,moderate,"minor: 2 duplicate place(s) in ""Open Circle Contest"""
+1285506605,moderate,"minor: 3 duplicate place(s) in ""Routines"""
+1290861524,moderate,"minor: 1 duplicate place(s) in ""Doubles Net"""
+1294262550,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Routines"")"
+1298627369,moderate,"minor: 3 duplicate place(s) in ""Open Footbag Golf"""
+1299532552,moderate,"minor: 1 duplicate place(s) in ""Intermediate Singles"""
+1301958487,moderate,"minor: 1 duplicate place(s) in ""Open Rippin' Run"""
+1305581560,moderate,"division results merged (""Singles Net"", 9 dup pairs)"
+1314229545,moderate,"minor: 1 duplicate place(s) in ""Golf"""
+1314323534,moderate,"division results merged (""Footbag Freestyle."", ""Shred 30"", 3 dup pairs)"
+1316280393,moderate,"division results merged (""Circle Contest"", ""Open Routines"", 5 dup pairs)"
+1330902233,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Net"")"
+1335148163,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Routines"")"
+1337617980,moderate,"division results merged (""Request"", ""Routine"", 5 dup pairs)"
+1357206898,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Routines"")"
+1360305756,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Routines"")"
+1371821574,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Freestyle Challenge"")"
+1374570632,moderate,"division results merged (""Circle"", ""Routines"", 3 dup pairs)"
+1379414806,moderate,"minor: 2 duplicate place(s) in ""Routines"""
+1386623061,moderate,"minor: 2 duplicate place(s) in ""Open Circle Contest"""
+1389338303,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Routines"")"
+1389730147,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Routines"")"
+1394742347,moderate,"minor: 1 duplicate place(s) in ""Open Singles Net"""
+1405875596,moderate,"minor: 1 duplicate place(s) in ""Intermediate Singles Net"""
+1406219099,moderate,"division results merged (""Shred 30"", ""Sick 3"", 7 dup pairs)"
+1439332196,moderate,"division results merged (""Request Contest"", ""Sick 3"", 6 dup pairs)"
+1467142686,moderate,"division results merged (""Open Circle Contest"", ""Request Contest"", 5 dup pairs)"
+1473853257,moderate,"division results merged (""Doubles Kicking"", ""Footbag Golf"", 5 dup pairs)"
+1502929111,moderate,"minor: 1 duplicate place(s) in ""Open Circle"""
+1531284609,moderate,"minor: 2 duplicate place(s) in ""Open Battles"""
+1552865692,moderate,"minor: 1 duplicate place(s) in ""Open Freestyle Circle Contest"""
+1566532030,moderate,"division results merged (""2-Square"", ""Freestyle Battles"", 3 dup pairs)"
+1567551985,moderate,"minor: 3 duplicate place(s) in ""Sick 3"""
+1600984774,moderate,"division results merged (""Circle"", ""Open Doubles Net"", ""Sick3"", 6 dup pairs)"
+1634665636,moderate,"minor: 2 duplicate place(s) in ""Request"""
+1668541701,moderate,"minor: 1 duplicate place(s) in ""Open Singles Golf"""
+1713276656,moderate,"minor: 1 duplicate place(s) in ""Open Singles"""
+1721320739,moderate,"minor: 1 duplicate place(s) in ""Open Freestyle Battles"""
+857875120,moderate,"minor: 2 duplicate place(s) in ""Novice Doubles Net"""
+857876870,moderate,"division results merged (""Doubles Golf"", ""Open Doubles Net"", 6 dup pairs)"
+857879540,moderate,"division results merged (""Doubles Net"", ""Singles Net"", 6 dup pairs)"
+857880054,moderate,"minor: 3 duplicate place(s) in ""Open Singles Net"""
+859400929,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Doubles Net"", ""Open Doubles Net"", ""Open Singles Net"")"
+859923755,moderate,"minor: 1 duplicate place(s) in ""Intermediate Doubles"""
+912467534,moderate,"division results merged (""Open Doubles Net 10 Teams"", ""Open Singles Net 17 Entrants"", ""Women's Singles Net"", 4 dup pairs)"
+916193231,moderate,"minor: 1 duplicate place(s) in ""Open Mixte Doubles Net"""
+931840905,moderate,"Open/Intermediate results merged under unlabelled divisions (""Novice Golf"", ""Novice Overall"", ""Open Overall"")"
+937727262,moderate,"division results merged (""Doubles Net"", ""Grand Masters Division: :-)"", ""Mixed Net"", 7 dup pairs)"
+937854594,moderate,"division results merged (""Doubles Net"", ""Singles Net"", 8 dup pairs)"
+947026077,moderate,"division results merged (""Doubles Net"", ""Freestyle"", ""Singles Net"", 9 dup pairs)"
+948198763,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Freestyle"", ""Open Women's Freestyle"")"
+949991621,moderate,"minor: 1 duplicate place(s) in ""Open Freestyle Shred"""
+952906680,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open - Double"", ""Open - Simple"")"
+959353403,moderate,"minor: 1 duplicate place(s) in ""Beginners Consecutives:"""
+961626997,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")"
+972427576,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Doubles Net"", ""Open Singles Net"")"
+979334083,moderate,"minor: 2 duplicate place(s) in ""Open Singles Freestyle"""
+980502839,moderate,"minor: 3 duplicate place(s) in ""Intermediate Doubles Net"""
+981560223,moderate,"division results merged (""Mens Open Freestyle"", 6 dup pairs)"
+988434364,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Freestyle"", ""Open Golf"", ""Open Singles Net"")"
+996293200,moderate,"minor: 3 duplicate place(s) in ""Doubles Freestyle"""
+999985344,moderate,"division results merged (""Footbag Freestyle Overall"", ""Footbag Net Estonia"", 9 dup pairs)"
+1011556608,minor,"minor: 1 duplicate place(s) in ""Ladies Freestyle"""
+1019193491,minor,"minor: 1 duplicate place(s) in ""Intermediate Freestyle"""
+1036653244,minor,"minor: 3 duplicate place(s) in ""Intermediate 30 Second Shred"""
+1044952105,minor,"minor: 1 duplicate place(s) in ""Open Doubles Net"""
+1058877971,minor,"minor: 3 duplicate place(s) in ""Open"""
+1068406344,minor,"minor: 1 duplicate place(s) in ""Sick 3"""
+1070734498,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Freestyle"")"
+1102443443,minor,"minor: 1 duplicate place(s) in ""Open Big One"""
+1127155729,minor,"minor: 3 duplicate place(s) in ""Open Double Freestyle"""
+1131659634,minor,"minor: 2 duplicate place(s) in ""Open Mixed Doubles"""
+1137347261,minor,"minor: 1 duplicate place(s) in ""Double Spinning Clipper>Scorpions Tail>Whirlwind"""
+1146843672,minor,"minor: 2 duplicate place(s) in ""Open Singles Freestyle"""
+1148241486,minor,"minor: 2 duplicate place(s) in ""Open Rippin' Run"""
+1160579826,minor,"minor: 1 duplicate place(s) in ""Mini Net"""
+1161888703,minor,"division results merged (""[U]Open Circle Competition[/U]"", ""[U]Sick One[/U]"", 5 dup pairs)"
+1166622628,minor,"minor: 1 duplicate place(s) in ""Open Singles Routines"""
+1172931308,minor,"minor: 3 duplicate place(s) in ""Intermediate Circle Contest"""
+1176650845,minor,"division results merged (""Freestyle Routines Finals"", 4 dup pairs)"
+1176844933,minor,"minor: 2 duplicate place(s) in ""Open Golf"""
+1195773772,minor,"minor: 3 duplicate place(s) in ""Circle Contest"""
+1200725314,minor,"minor: 2 duplicate place(s) in ""Open Singles Freestyle"""
+1204006435,minor,"minor: 1 duplicate place(s) in ""Open Doubles"""
+1206161350,minor,"minor: 3 duplicate place(s) in ""Request Contest"""
+1216058526,minor,"minor: 1 duplicate place(s) in ""Masters Singles Net- Prizes"""
+1216742033,minor,"minor: 1 duplicate place(s) in ""Singles Net"""
+1226378339,minor,"minor: 1 duplicate place(s) in ""Open Doubles Net"""
+1237771561,minor,"minor: 1 duplicate place(s) in ""Open Circle Contest"""
+1239721441,minor,"minor: 3 duplicate place(s) in ""Circle Contest"""
+1240469006,minor,"minor: 1 duplicate place(s) in ""Open Singles Net"""
+1242210886,minor,"minor: 1 duplicate place(s) in ""Open Singles Net"""
+1267199851,minor,"division results merged (""Footbag Golf"", ""Intermediate Circle Contest"", 5 dup pairs)"
+1267718326,minor,"minor: 3 duplicate place(s) in ""Doubles"""
+1282912320,minor,"minor: 1 duplicate place(s) in ""Open 2 Square"""
+1286644859,minor,"minor: 2 duplicate place(s) in ""Open Singles Freestyle"""
+1293878155,minor,"minor: 1 duplicate place(s) in ""Open Sick 3-Trick"""
+1300316952,minor,"minor: 1 duplicate place(s) in ""Open Doubles Net"""
+1301837216,minor,"minor: 3 duplicate place(s) in ""Open Singles Net"""
+1321869570,minor,"minor: 2 duplicate place(s) in ""Open Freestyle"""
+1337327565,minor,"minor: 2 duplicate place(s) in ""Simple"""
+1346948712,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Freestyle Circle"")"
+1353223688,minor,"minor: 1 duplicate place(s) in ""Circle Contest"""
+1358271250,minor,"minor: 2 duplicate place(s) in ""Open Circle Contest"""
+1366375326,minor,"division results merged (""Request Contest"", 5 dup pairs)"
+1389613723,minor,"minor: 1 duplicate place(s) in ""Intermediate Singles Routines"""
+1401113913,minor,"minor: 1 duplicate place(s) in ""Open Doubles Net"""
+1415986036,minor,"division results merged (""Request"", ""Sick 3"", 5 dup pairs)"
+1527557123,minor,"minor: 3 duplicate place(s) in ""Open Doubles"""
+1537994275,minor,"minor: 3 duplicate place(s) in ""Open Doubles"""
+1568692191,minor,"minor: 2 duplicate place(s) in ""Open Doubles Net"""
+1667566506,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Singles Net"")"
+1700920831,minor,"division results merged (""Singles Net"", 4 dup pairs)"
+1759558836,minor,"minor: 1 duplicate place(s) in ""Singles Result"""
+859787898,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")"
+883135865,minor,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Singles Net"")"
+892446131,minor,"minor: 1 duplicate place(s) in ""Intermediate"""
+901349509,minor,"division results merged (""Juggle Golf"", ""Unsanctioned Late-Night Fire-Bag Net"", 2 dup pairs)"
+948943299,minor,"minor: 1 duplicate place(s) in ""Doubles Net"""
+955745735,minor,"minor: 3 duplicate place(s) in ""Doubles Footbag Net"""
+974683678,minor,"minor: 1 duplicate place(s) in ""Intermediate Shred"""
+989875090,minor,"minor: 2 duplicate place(s) in ""30 Second Shred"""
