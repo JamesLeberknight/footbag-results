@@ -1020,15 +1020,32 @@ def build_consecutives_records(wb: Workbook, records: list[dict]):
 
 # ── Known issues ──────────────────────────────────────────────────────────────
 
-def load_known_issues() -> dict[str, str]:
-    """Return dict event_id → note from overrides/known_issues.csv."""
+def load_known_issues() -> dict[str, dict]:
+    """Return dict event_id → {severity, note} from overrides/known_issues.csv."""
     result = {}
     if not KNOWN_ISSUES_CSV.exists():
         return result
     with open(KNOWN_ISSUES_CSV, newline="", encoding="utf-8") as fh:
         for row in csv.DictReader(fh):
-            result[row["event_id"]] = row["note"]
+            result[row["event_id"]] = {
+                "severity": row.get("severity", "minor"),
+                "note":     row["note"],
+            }
     return result
+
+# Row background colours for Index sheet (traffic-light)
+_ROW_FILL = {
+    None:       ("F0FFF0", "E8F5E9"),  # no issue  — green tones (even/odd)
+    "minor":    ("FFFDE7", "FFF9C4"),  # minor     — pale yellow
+    "moderate": ("FFF3E0", "FFE0B2"),  # moderate  — pale orange
+    "severe":   ("FFEBEE", "FFCDD2"),  # severe    — pale red
+}
+# Note text colours
+_NOTE_COLOR = {
+    "minor":    "997700",
+    "moderate": "CC5500",
+    "severe":   "CC0000",
+}
 
 
 # ── Index sheet ───────────────────────────────────────────────────────────────
@@ -1074,10 +1091,12 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
             cov_cell = ws.cell(row=row_idx, column=8, value=flag)
             cov_cell.font = Font(italic=True, size=9, color="CC0000")
 
-        issue = (known_issues or {}).get(str(eid))
+        issue   = (known_issues or {}).get(str(eid))
+        severity = issue["severity"] if issue else None
         if issue:
-            note_cell = ws.cell(row=row_idx, column=9, value=issue)
-            note_cell.font = Font(italic=True, size=9, color="996600")
+            note_cell = ws.cell(row=row_idx, column=9, value=issue["note"])
+            note_cell.font = Font(italic=True, size=9,
+                                  color=_NOTE_COLOR.get(severity, "996600"))
 
         cell = ws.cell(row=row_idx, column=2, value=ev["event_name"])
         if eid in event_col_map:
@@ -1088,11 +1107,13 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
         else:
             cell.font = FONT_NORMAL
 
-        if row_idx % 2 == 0:
-            for c in range(1, 10):
-                cell_obj = ws.cell(row=row_idx, column=c)
-                if cell_obj.fill.fgColor.rgb in ("00000000", "FFFFFFFF"):
-                    cell_obj.fill = _fill("F7F9FC")
+        # Row background: traffic-light by severity (even/odd variants)
+        row_fills = _ROW_FILL[severity]
+        fill_hex  = row_fills[row_idx % 2]
+        for c in range(1, 10):
+            cell_obj = ws.cell(row=row_idx, column=c)
+            if cell_obj.fill.fgColor.rgb in ("00000000", "FFFFFFFF"):
+                cell_obj.fill = _fill(fill_hex)
 
 
 # ── Player Stats sheet ────────────────────────────────────────────────────────
