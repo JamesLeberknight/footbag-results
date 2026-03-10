@@ -466,6 +466,13 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                     if not display:
                         members = ddf[ddf["team_person_key"] == tpk]["person_canon"].tolist()
                         display = " / ".join(_display_name(m) for m in members if m)
+                elif comp == "team" and team_display:
+                    # team_person_key missing (built before partners reached PT threshold);
+                    # use stored team_display_name directly; dedup on display string.
+                    if team_display in seen_teams:
+                        continue
+                    seen_teams.add(team_display)
+                    display = team_display
                 else:
                     display = _display_name(person)
                     # Solo entry in a true doubles division — partner not recorded
