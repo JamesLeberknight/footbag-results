@@ -42,6 +42,7 @@ REPO      = Path(__file__).resolve().parent.parent
 OUT_DIR   = REPO / "out"
 INPUT_DIR = REPO / "inputs"
 XLSX      = REPO / "Footbag_Results_Community.xlsx"
+KNOWN_ISSUES_CSV = REPO / "overrides" / "known_issues.csv"
 
 
 # ── Date sorting ──────────────────────────────────────────────────────────────
@@ -823,7 +824,7 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
         ("Summary",        "This page — dataset overview, largest events, and navigation guide"),
         ("Records",        "All-time and category leaderboards (top 15 players)"),
         ("Consecutives",   "Consecutive kicks records, world records, and milestone firsts"),
-        ("Index",          "Full list of all events with dates, locations, and coverage flags"),
+        ("Index",          "Full list of all events with dates, locations, coverage flags, and data quality notes"),
         ("Player Stats",   "Career statistics for each player"),
         ("Player Results", "Full placement history searchable by player name"),
         ("Year sheets",    "All events and division results for each year (1980–2026)"),
@@ -1017,11 +1018,25 @@ def build_consecutives_records(wb: Workbook, records: list[dict]):
     ws.freeze_panes = "A3"
 
 
+# ── Known issues ──────────────────────────────────────────────────────────────
+
+def load_known_issues() -> dict[str, str]:
+    """Return dict event_id → note from overrides/known_issues.csv."""
+    result = {}
+    if not KNOWN_ISSUES_CSV.exists():
+        return result
+    with open(KNOWN_ISSUES_CSV, newline="", encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            result[row["event_id"]] = row["note"]
+    return result
+
+
 # ── Index sheet ───────────────────────────────────────────────────────────────
 
 def build_index_real(wb: Workbook, events: dict, event_placements: dict,
                      event_col_map: dict, insert_at: int,
-                     event_coverage: dict = None):
+                     event_coverage: dict = None,
+                     known_issues: dict = None):
     """Build the Index sheet with hyperlinks and insert at the correct position."""
     ws = wb.create_sheet("Index")
     wb.move_sheet("Index", offset=-(len(wb.sheetnames) - 1 - insert_at))
@@ -1029,8 +1044,8 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
     ws.freeze_panes = "A2"
 
     hdrs   = ["Year", "Event", "City / Region", "Country", "Host Club",
-              "Divisions", "Players", "Coverage"]
-    widths = [7, 48, 32, 12, 30, 11, 10, 12]
+              "Divisions", "Players", "Coverage", "Data Notes"]
+    widths = [7, 48, 32, 12, 30, 11, 10, 12, 30]
     for c, (h, w) in enumerate(zip(hdrs, widths), start=1):
         _c(ws, 1, c, h, font=FONT_HDR, fill=FILL_HDR, align=ALIGN_CENTER)
         ws.column_dimensions[get_column_letter(c)].width = w
@@ -1059,6 +1074,11 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
             cov_cell = ws.cell(row=row_idx, column=8, value=flag)
             cov_cell.font = Font(italic=True, size=9, color="CC0000")
 
+        issue = (known_issues or {}).get(str(eid))
+        if issue:
+            note_cell = ws.cell(row=row_idx, column=9, value=issue)
+            note_cell.font = Font(italic=True, size=9, color="996600")
+
         cell = ws.cell(row=row_idx, column=2, value=ev["event_name"])
         if eid in event_col_map:
             sheet_name, col_letter = event_col_map[eid]
@@ -1069,7 +1089,7 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
             cell.font = FONT_NORMAL
 
         if row_idx % 2 == 0:
-            for c in range(1, 9):
+            for c in range(1, 10):
                 cell_obj = ws.cell(row=row_idx, column=c)
                 if cell_obj.fill.fgColor.rgb in ("00000000", "FFFFFFFF"):
                     cell_obj.fill = _fill("F7F9FC")
@@ -1392,6 +1412,7 @@ def main():
     print("Building event placements…")
     event_placements = build_event_placements(pf, s2_events)
     event_coverage   = compute_event_coverage(pf)
+    known_issues     = load_known_issues()
 
     print("Computing leaderboards…")
     stats     = compute_leaderboards(pbp)
@@ -1441,7 +1462,8 @@ def main():
     # (Summary=0, Records=1, Index=2, …)
     wb.remove(idx_placeholder)
     build_index_real(wb, s2_events, event_placements, all_event_col_map,
-                     insert_at=3, event_coverage=event_coverage)
+                     insert_at=3, event_coverage=event_coverage,
+                     known_issues=known_issues)
 
     # ── Save ──────────────────────────────────────────────────────────────────
     print(f"Saving {XLSX}…")
