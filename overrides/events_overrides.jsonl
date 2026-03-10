@@ -67,7 +67,7 @@
 {"event_id": "2001982001", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
 {"event_id": "2001982002", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
 {"event_id": "2001983001", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
-{"event_id": "2001983002", "host_club": "NHSA", "source": "research.2026-03", "confidence": "high"}
+{"event_id": "2001983002", "host_club": "WFA", "source": "manual_override", "confidence": "high"}
 {"event_id": "2001983003", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
 {"event_id": "2001983004", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
 {"event_id": "2001984001", "host_club": "WFA", "source": "research.2026-03", "confidence": "high"}
