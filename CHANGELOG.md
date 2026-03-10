@@ -35,13 +35,15 @@ All notable changes to this project are documented in this file.
   - Removed 22 events fixed by the pool+finals batch fix above
   - Removed 10 events in this release: 7 all-noise or clean-in-PBP;
     3 real bracket/tournament ties
+  - Added 5 newly confirmed pool+finals merge events (1016457376,
+    1265745512, 1294262550, 1301837216, 1331667371)
 
 #### Counts (current)
-- Stage-2 events: 778; placements: ~27,945
-- `out/canonical/events.csv`: 778 rows
+- Stage-2 events: 774; placements: ~27,945
+- `out/canonical/events.csv`: 774 rows
 - `out/canonical/persons.csv`: 3,455 rows
 - `Placements_ByPerson_v55.csv`: 26,572 rows
-- known_issues: 48 events (10 severe, 22 moderate, 16 minor)
+- known_issues: 53 events (10 severe, 26 moderate, 17 minor)
 
 ---
 
