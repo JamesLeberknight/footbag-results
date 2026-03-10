@@ -189,6 +189,42 @@ def _display_name(s: str) -> str:
     return s
 
 
+_WEEKDAYS = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"}
+_COUNTRIES = {
+    "czech republic", "germany", "france", "poland", "switzerland", "venezuela",
+    "colombia", "slovakia", "austria", "sweden", "finland", "usa", "canada",
+    "australia", "spain", "russia", "brazil", "argentina", "mexico", "netherlands",
+    "belgium", "norway", "denmark", "hungary", "ukraine", "czech",
+}
+_RE_BBU = re.compile(r"\[/?U\]", re.I)
+_RE_STAR = re.compile(r"^\*+\s*")
+_RE_TRAIL_DASH = re.compile(r"\s*-\s*$")
+
+
+def _clean_div(s: str) -> str:
+    """Strip workbook-visible markup from division names."""
+    s = (s or "").strip()
+    s = _RE_STAR.sub("", s)           # leading ***
+    s = _RE_BBU.sub("", s)            # [U] / [/U] BBCode
+    s = _RE_TRAIL_DASH.sub("", s)     # trailing " -" or "-"
+    return s.strip()
+
+
+def _clean_team_display(s: str) -> str:
+    """Remove weekday-token or country-token contamination from team display names."""
+    s = (s or "").strip()
+    if "/" not in s:
+        return s
+    parts = [p.strip() for p in s.split("/", 1)]
+    cleaned = []
+    for p in parts:
+        if p.lower() in _WEEKDAYS or p.lower() in _COUNTRIES:
+            cleaned.append("[?]")
+        else:
+            cleaned.append(p)
+    return " / ".join(cleaned)
+
+
 def _norm_name(s: str) -> str:
     """Lowercase + strip diacritics for fuzzy matching.
     Handles Polish ł, Norwegian ø, Icelandic ð, etc. that don't NFD-decompose."""
@@ -448,7 +484,7 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
         div_placements: dict = {}
 
         for div_canon, ddf in edf.groupby("division_canon"):
-            div_canon = div_canon.rstrip(":").strip()
+            div_canon = _clean_div(div_canon.rstrip(":").strip())
             ddf = ddf.copy()
             ddf["_place"] = pd.to_numeric(ddf["place"], errors="coerce")
             ddf = ddf.sort_values(["_place", "team_person_key", "person_canon"],
@@ -472,7 +508,7 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                 comp         = (row.get("competitor_type") or "player").lower()
                 tpk          = (row.get("team_person_key") or "").strip()
                 cat          = (row.get("division_category") or "").strip()
-                team_display = (row.get("team_display_name") or "").strip()
+                team_display = _clean_team_display((row.get("team_display_name") or "").strip())
 
                 if not person or person == "__NON_PERSON__":
                     # Allow team entries whose display name is fully populated
@@ -1126,13 +1162,20 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
         ws.cell(row=row_idx, column=7, value=n_p)
 
         flag = (event_coverage or {}).get(str(eid), "complete")
-        if flag in ("partial", "sparse"):
+        if n_d == 0:
+            # Metadata-only: event in Index but no competitive results available
+            cov_cell = ws.cell(row=row_idx, column=8, value="no results")
+            cov_cell.font = Font(italic=True, size=9, color="888888")
+        elif flag in ("partial", "sparse"):
             cov_cell = ws.cell(row=row_idx, column=8, value=flag)
             cov_cell.font = Font(italic=True, size=9, color="CC0000")
 
         issue   = (known_issues or {}).get(str(eid))
         severity = issue["severity"] if issue else None
-        if issue:
+        if n_d == 0 and not issue:
+            note_cell = ws.cell(row=row_idx, column=9, value="No competitive results available")
+            note_cell.font = Font(italic=True, size=9, color="888888")
+        elif issue:
             note_cell = ws.cell(row=row_idx, column=9, value=issue["note"])
             note_cell.font = Font(italic=True, size=9,
                                   color=_NOTE_COLOR.get(severity, "996600"))
@@ -1271,7 +1314,7 @@ def build_player_results(wb: Workbook, pf: pd.DataFrame, events: dict):
         ws.cell(row=row_idx, column=1, value=ev.get("year") or _to_int(row.get("year")))
         ws.cell(row=row_idx, column=2, value=ev.get("event_name") or eid)
         ws.cell(row=row_idx, column=3, value=ev.get("location", ""))
-        ws.cell(row=row_idx, column=4, value=row.get("division_canon", "").rstrip(":").strip())
+        ws.cell(row=row_idx, column=4, value=_clean_div(row.get("division_canon", "").rstrip(":").strip()))
         ws.cell(row=row_idx, column=5, value=row.get("division_category", ""))
         ws.cell(row=row_idx, column=6, value=place_val)
         ws.cell(row=row_idx, column=7, value=_display_name(person))
@@ -1362,6 +1405,7 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
         row += 1
 
         for div_name, entries in cat_to_divs[cat]:
+            div_name = _clean_div(div_name)
             # Division header: bold, light-grey, top border
             _c(ws, row, col, div_name,
                font=FONT_DIV, fill=FILL_DIV, border=_border_top(), align=ALIGN_TOP)
