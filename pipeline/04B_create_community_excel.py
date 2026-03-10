@@ -824,7 +824,7 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
         ("Records",        "All-time and category leaderboards (top 15 players)"),
         ("Consecutives",   "Consecutive kicks records, world records, and milestone firsts"),
         ("Index",          "Full list of all events with dates, locations, and coverage flags"),
-        ("Player Stats",   "Career statistics and honours (BAP ★ / FBHOF ☆) for each player"),
+        ("Player Stats",   "Career statistics for each player"),
         ("Player Results", "Full placement history searchable by player name"),
         ("Year sheets",    "All events and division results for each year (1980–2026)"),
     ]

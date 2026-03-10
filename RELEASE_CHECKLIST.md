@@ -13,7 +13,7 @@ Confirm `inputs/identity_lock/` contains exactly:
 |---|---|---|
 | `Persons_Truth_Final_v36.csv` | v36 | 3,455 |
 | `Persons_Unresolved_Organized_v28.csv` | v28 | 82 |
-| `Placements_ByPerson_v45.csv` | v45 | 26,394 |
+| `Placements_ByPerson_v46.csv` | v46 | 26,394 |
 
 These files are human-verified and immutable for this release.
 

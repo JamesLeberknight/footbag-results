@@ -93,7 +93,7 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 inputs/identity_lock/
     Persons_Truth_Final_v36.csv          # 3,455 canonical persons
     Persons_Unresolved_Organized_v28.csv # 82 unresolved entries
-    Placements_ByPerson_v45.csv          # 26,394 identity-locked placements
+    Placements_ByPerson_v46.csv          # 26,394 identity-locked placements
 ```
 
 These are human-verified and treated as immutable for this release.
@@ -261,7 +261,7 @@ Current identity baseline:
 |---|---|---|
 | `Persons_Truth_Final` | v36 | 3,455 |
 | `Persons_Unresolved_Organized` | v28 | 82 |
-| `Placements_ByPerson` | v45 | 26,394 |
+| `Placements_ByPerson` | v46 | 26,394 |
 
 ---
 
@@ -293,7 +293,7 @@ Current identity baseline:
 │   ├── identity_lock/                # Authoritative identity artifacts
 │   │   ├── Persons_Truth_Final_v36.csv
 │   │   ├── Persons_Unresolved_Organized_v28.csv
-│   │   └── Placements_ByPerson_v45.csv
+│   │   └── Placements_ByPerson_v46.csv
 │   ├── location_canon_full_final.csv # Canonical location display strings
 │   ├── consecutives_records.csv      # Consecutives world records reference data
 │   ├── bap_data.csv                  # BAP honours data
