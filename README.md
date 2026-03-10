@@ -91,7 +91,7 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 
 ```
 inputs/identity_lock/
-    Persons_Truth_Final_v35.csv          # 3,456 canonical persons
+    Persons_Truth_Final_v36.csv          # 3,455 canonical persons
     Persons_Unresolved_Organized_v28.csv # 82 unresolved entries
     Placements_ByPerson_v43.csv          # 26,416 identity-locked placements
 ```
@@ -122,10 +122,11 @@ Parses raw data into canonical stage-2 events.
 |---|---|---|
 | 01 | `pipeline/01_parse_mirror.py` | Parse HTML mirror → raw stage-1 placements |
 | 01b | `pipeline/01b_import_old_results.py` | Import legacy results from `inputs/OLD_RESULTS.txt` |
+| 01b1 | `pipeline/01b1_merge_consecutives.py` | Merge consecutives reference data |
 | 01c | `pipeline/01c_merge_stage1.py` | Merge mirror + legacy into unified stage-1 |
 | 02 | `pipeline/02_canonicalize_results.py` | Normalize events, divisions, placements → `out/stage2_canonical_events.csv` |
 
-**Output:** `out/stage2_canonical_events.csv` — 784 events.
+**Output:** `out/stage2_canonical_events.csv` — 774 events.
 
 ### Release Mode (stages 02p5–05)
 
@@ -138,6 +139,7 @@ Requires `out/stage2_canonical_events.csv` (run rebuild first, or obtain from a 
 
 | Stage | Script | Description |
 |---|---|---|
+| 01b1 | `pipeline/01b1_merge_consecutives.py` | Merge consecutives reference data (also run in release) |
 | 02p5 | `pipeline/02p5_player_token_cleanup.py` | Apply identity lock → `Placements_Flat.csv`, `Placements_ByPerson.csv` |
 | 03 | `pipeline/03_build_excel.py` | Canonical Excel workbook (`Footbag_Results_Canonical.xlsx`) |
 | 04 | `pipeline/04_build_analytics.py` | Analytics surfaces, person stats, coverage, lock sentinel |
@@ -169,6 +171,7 @@ All outputs go into `out/` (gitignored — never committed).
 | `out/Placements_Flat.csv` | 26,416 | All placements, identity-locked |
 | `out/Placements_ByPerson.csv` | 26,416 | Placements joined to person identity |
 | `out/Persons_Truth.csv` | 3,455 | Active identity truth (copy of v36 source) |
+
 | `out/Persons_Unresolved.csv` | ~402 | Persons without resolved identity |
 | `out/Placements_Unresolved.csv` | ~376 | Placements for unresolved persons |
 | `out/persons_truth.lock` | — | SHA-256 sentinel proving identity immutability |
@@ -177,9 +180,9 @@ All outputs go into `out/` (gitignored — never committed).
 
 | File | Rows | Description |
 |---|---|---|
-| `out/Analytics_Safe_Surface.csv` | 16,242 | Coverage-filtered, identity-locked analytics rows |
-| `out/Coverage_ByEventDivision.csv` | 3,682 | Coverage flag per (event, division) |
-| `out/Coverage_GapPriority.csv` | 436 | Prioritized list of coverage gaps |
+| `out/Analytics_Safe_Surface.csv` | 16,487 | Coverage-filtered, identity-locked analytics rows |
+| `out/Coverage_ByEventDivision.csv` | 3,710 | Coverage flag per (event, division) |
+| `out/Coverage_GapPriority.csv` | 441 | Prioritized list of coverage gaps |
 
 ### Canonical relational export (`out/canonical/`)
 
@@ -188,10 +191,10 @@ intended for database import or external consumption:
 
 | File | Rows | Description |
 |---|---|---|
-| `events.csv` | 784 | One row per event; includes `event_type` (net/mixed/freestyle/worlds/golf/social) |
-| `event_disciplines.csv` | 3,851 | One row per discipline within an event |
-| `event_results.csv` | 24,576 | One row per placement slot |
-| `event_result_participants.csv` | 35,861 | One row per participant |
+| `events.csv` | 774 | One row per event; includes `event_type` (net/mixed/freestyle/worlds/golf/social) |
+| `event_disciplines.csv` | 3,918 | One row per discipline within an event |
+| `event_results.csv` | 24,933 | One row per placement slot |
+| `event_result_participants.csv` | 36,073 | One row per participant |
 | `persons.csv` | 3,456 | Canonical persons with aliases and legacy IDs |
 
 Natural keys:
@@ -231,10 +234,10 @@ SHA-256 hashes of all three identity lock inputs, proving immutability.
 
 | Metric | Value |
 |---|---|
-| Events | 784 |
+| Events | 774 |
 | Year range | 1980–2026 |
-| Placements (identity-locked) | 26,339 |
-| Persons (canonical) | 3,456 |
+| Placements (identity-locked) | 26,416 |
+| Persons (canonical) | 3,455 |
 | Gate3 PASS | 3,456 |
 
 Coverage is dense from 1997 onward (the primary Footbag.org mirror).
@@ -256,9 +259,9 @@ Current identity baseline:
 
 | Artifact | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final` | v35 | 3,456 |
-| `Persons_Unresolved_Organized` | v27 | 76 |
-| `Placements_ByPerson` | v38 | 26,339 |
+| `Persons_Truth_Final` | v36 | 3,455 |
+| `Persons_Unresolved_Organized` | v28 | 82 |
+| `Placements_ByPerson` | v43 | 26,416 |
 
 ---
 
@@ -272,6 +275,7 @@ Current identity baseline:
 ├── pipeline/
 │   ├── 01_parse_mirror.py            # Rebuild: parse HTML mirror
 │   ├── 01b_import_old_results.py     # Rebuild: import legacy results
+│   ├── 01b1_merge_consecutives.py    # Rebuild+Release: merge consecutives data
 │   ├── 01c_merge_stage1.py           # Rebuild: merge stage-1 sources
 │   ├── 02_canonicalize_results.py    # Rebuild: produce stage-2 events
 │   ├── 02p5_player_token_cleanup.py  # Release: apply identity lock
@@ -287,9 +291,9 @@ Current identity baseline:
 │   └── ...                           # Identity curation and patch tools
 ├── inputs/
 │   ├── identity_lock/                # Authoritative identity artifacts
-│   │   ├── Persons_Truth_Final_v34.csv
-│   │   ├── Persons_Unresolved_Organized_v27.csv
-│   │   └── Placements_ByPerson_v37.csv
+│   │   ├── Persons_Truth_Final_v36.csv
+│   │   ├── Persons_Unresolved_Organized_v28.csv
+│   │   └── Placements_ByPerson_v43.csv
 │   ├── location_canon_full_final.csv # Canonical location display strings
 │   ├── bap_data.csv                  # BAP honours data
 │   ├── fbhof_data.csv                # FBHOF honours data
