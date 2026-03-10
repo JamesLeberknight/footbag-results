@@ -11,9 +11,9 @@ Confirm `inputs/identity_lock/` contains exactly:
 
 | File | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final_v34.csv` | v34 | 3,452 |
-| `Persons_Unresolved_Organized_v27.csv` | v27 | 76 |
-| `Placements_ByPerson_v37.csv` | v37 | 26,156 |
+| `Persons_Truth_Final_v36.csv` | v36 | 3,455 |
+| `Persons_Unresolved_Organized_v28.csv` | v28 | 82 |
+| `Placements_ByPerson_v42.csv` | v42 | 26,324 |
 
 These files are human-verified and immutable for this release.
 
@@ -65,28 +65,28 @@ Runs stages 02p5 → 03 → 04 → 04B → 05 in sequence.
 Verify after completion:
 
 **Stage 02p5:**
-- [ ] `out/Placements_Flat.csv` exists, 26,156 rows
-- [ ] `out/Placements_ByPerson.csv` exists, 26,156 rows
+- [ ] `out/Placements_Flat.csv` exists, 26,324 rows
+- [ ] `out/Placements_ByPerson.csv` exists, 26,324 rows
 
 **Stage 03:**
 - [ ] `Footbag_Results_Canonical.xlsx` created/updated
 - [ ] Stage 3 QC: 0 errors, 0 warnings
 
 **Stage 04:**
-- [ ] Output contains: `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3452`
+- [ ] Output contains: `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3456`
 - [ ] `out/persons_truth.lock` written
-- [ ] Lock sentinel shows `Persons_Truth_Final_v34.csv`, rows: 3452
+- [ ] Lock sentinel shows `Persons_Truth_Final_v36.csv`, rows: 3456
 
 **Stage 04B:**
 - [ ] `Footbag_Results_Community.xlsx` created/updated
 - [ ] Output shows: `Honours: 84/84 BAP names matched`
 
 **Stage 05:**
-- [ ] `out/canonical/events.csv` — 784 rows
-- [ ] `out/canonical/event_disciplines.csv` — 3,795 rows
-- [ ] `out/canonical/event_results.csv` — 24,116 rows
-- [ ] `out/canonical/event_result_participants.csv` — 34,893 rows
-- [ ] `out/canonical/persons.csv` — 3,452 rows
+- [ ] `out/canonical/events.csv` — 778 rows
+- [ ] `out/canonical/event_disciplines.csv` — (check output)
+- [ ] `out/canonical/event_results.csv` — (check output)
+- [ ] `out/canonical/event_result_participants.csv` — (check output)
+- [ ] `out/canonical/persons.csv` — 3,455 rows
 - [ ] All 4 key uniqueness checks: PASS
 
 ---

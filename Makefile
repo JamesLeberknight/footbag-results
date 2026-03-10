@@ -13,15 +13,17 @@ setup:
 rebuild:
 	$(PYTHON) pipeline/01_parse_mirror.py
 	$(PYTHON) pipeline/01b_import_old_results.py
+	$(PYTHON) pipeline/01b1_merge_consecutives.py
 	$(PYTHON) pipeline/01c_merge_stage1.py
 	$(PYTHON) pipeline/02_canonicalize_results.py
 
 ## Release Mode: identity-locked canonical outputs + workbook
 ## Requires: out/stage2_canonical_events.csv (run 'make rebuild' first)
 release:
+	$(PYTHON) pipeline/01b1_merge_consecutives.py
 	$(PYTHON) pipeline/02p5_player_token_cleanup.py \
-	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v37.csv \
-	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v34.csv \
+	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v42.csv \
+	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v36.csv \
 	  --out_dir out
 	$(PYTHON) pipeline/03_build_excel.py
 	$(PYTHON) pipeline/04_build_analytics.py

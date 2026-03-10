@@ -71,6 +71,9 @@ do_rebuild() {
     step "Stage 01b: import legacy results"
     "$PYTHON" pipeline/01b_import_old_results.py
 
+    step "Stage 01b1: merge consecutives reference data"
+    "$PYTHON" pipeline/01b1_merge_consecutives.py
+
     step "Stage 01c: merge stage-1 sources"
     "$PYTHON" pipeline/01c_merge_stage1.py
 
@@ -85,9 +88,12 @@ do_release() {
     require_venv
     require_stage2
 
+    step "Stage 01b1: merge consecutives reference data"
+    "$PYTHON" pipeline/01b1_merge_consecutives.py
+
     step "Stage 02p5: apply identity lock"
     "$PYTHON" pipeline/02p5_player_token_cleanup.py \
-        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v40.csv \
+        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v42.csv \
         --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v36.csv \
         --out_dir                      out
 
