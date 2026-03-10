@@ -85,3 +85,8 @@
 {"event_id": "1572864719", "host_club": "Hradec Kralove Footbag Club", "source": "research.2026-03", "confidence": "high"}
 {"event_id": "1695501837", "host_club": "Hradec Kralove Footbag Club", "source": "research.2026-03", "confidence": "high"}
 {"confidence": "high", "event_id": "886044392", "location": "Vancouver, B.C., Canada", "source": "manual"}
+{"event_id": "1245199707", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
+{"event_id": "1270518636", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
+{"event_id": "1310408325", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
+{"event_id": "892446131", "event_type": "net", "source": "manual", "reason": "no golf division present, misclassified"}
+{"event_id": "990905420", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}

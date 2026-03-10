@@ -237,6 +237,8 @@ def _load_event_field_overrides() -> dict:
                 entry["location"] = obj["location"]
             if "host_club" in obj:
                 entry["host_club"] = obj["host_club"]
+            if "event_type" in obj:
+                entry["event_type"] = obj["event_type"]
             if entry:
                 overrides.setdefault(eid, {}).update(entry)
     return overrides
@@ -278,7 +280,7 @@ def load_stage2_events() -> dict:
                 "city":       city,
                 "country":    country,
                 "host_club":  fo.get("host_club") or (row.get("host_club") or "").strip(),
-                "event_type": (row.get("event_type") or "").strip(),
+                "event_type": fo.get("event_type") or (row.get("event_type") or "").strip(),
                 "div_order":  div_order,
             }
     return events
