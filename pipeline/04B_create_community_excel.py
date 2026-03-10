@@ -23,6 +23,7 @@ Output:
 
 import csv
 import json
+import re
 import sys
 import unicodedata
 from collections import defaultdict, OrderedDict
@@ -41,6 +42,29 @@ REPO      = Path(__file__).resolve().parent.parent
 OUT_DIR   = REPO / "out"
 INPUT_DIR = REPO / "inputs"
 XLSX      = REPO / "Footbag_Results_Community.xlsx"
+
+
+# ── Date sorting ──────────────────────────────────────────────────────────────
+
+_MONTH_NUM = {
+    "january": 1, "february": 2, "march": 3, "april": 4,
+    "may": 5, "june": 6, "july": 7, "august": 8,
+    "september": 9, "october": 10, "november": 11, "december": 12,
+}
+
+def _date_sort_key(date_str: str, eid: str) -> tuple:
+    """Return (month, day, event_id) for sorting within a year.
+
+    Parses text dates like 'September 29, 2001' or 'November 9-11, 2001'.
+    Events with missing or unparseable dates sort last (month=13).
+    """
+    m = re.match(r"([A-Za-z]+)\s+(\d+)", (date_str or "").strip())
+    if m:
+        month = _MONTH_NUM.get(m.group(1).lower(), 13)
+        day   = int(m.group(2))
+    else:
+        month, day = 13, 0
+    return (month, day, eid)
 
 
 # ── Palette & styles ──────────────────────────────────────────────────────────
@@ -1013,7 +1037,8 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
 
     all_eids = sorted(
         events.keys(),
-        key=lambda eid: (events[eid]["year"], events[eid].get("date", eid)),
+        key=lambda eid: (events[eid]["year"],
+                         _date_sort_key(events[eid].get("date", ""), eid)),
     )
 
     for row_idx, eid in enumerate(all_eids, start=2):
@@ -1314,7 +1339,7 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
 
     sorted_eids = sorted(
         eids,
-        key=lambda eid: (events[eid].get("date", ""), eid),
+        key=lambda eid: _date_sort_key(events[eid].get("date", ""), eid),
     )
 
     event_col_map: dict = {}
