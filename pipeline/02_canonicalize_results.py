@@ -571,6 +571,12 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1408070192.txt",
         "replace": True,
     },
+    # 2v2 consecutive-line format caused doubles partners to be dropped; p5 (Antoine
+    # The Rocks-Godin) also missing from stage2 parse. Fixed 2026-03-10.
+    "1664206719": {
+        "file":    "legacy_data/event_results/1664206719.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {

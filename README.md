@@ -93,7 +93,7 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 inputs/identity_lock/
     Persons_Truth_Final_v35.csv          # 3,456 canonical persons
     Persons_Unresolved_Organized_v28.csv # 82 unresolved entries
-    Placements_ByPerson_v42.csv          # 26,324 identity-locked placements
+    Placements_ByPerson_v43.csv          # 26,416 identity-locked placements
 ```
 
 These are human-verified and treated as immutable for this release.
@@ -166,8 +166,8 @@ All outputs go into `out/` (gitignored — never committed).
 
 | File | Rows | Description |
 |---|---|---|
-| `out/Placements_Flat.csv` | 26,324 | All placements, identity-locked |
-| `out/Placements_ByPerson.csv` | 26,324 | Placements joined to person identity |
+| `out/Placements_Flat.csv` | 26,416 | All placements, identity-locked |
+| `out/Placements_ByPerson.csv` | 26,416 | Placements joined to person identity |
 | `out/Persons_Truth.csv` | 3,455 | Active identity truth (copy of v36 source) |
 | `out/Persons_Unresolved.csv` | ~402 | Persons without resolved identity |
 | `out/Placements_Unresolved.csv` | ~376 | Placements for unresolved persons |
