@@ -13,7 +13,7 @@ Confirm `inputs/identity_lock/` contains exactly:
 |---|---|---|
 | `Persons_Truth_Final_v37.csv` | v37 | 3,455 |
 | `Persons_Unresolved_Organized_v28.csv` | v28 | 82 |
-| `Placements_ByPerson_v54.csv` | v54 | 26,392 |
+| `Placements_ByPerson_v55.csv` | v55 | 26,572 |
 
 These files are human-verified and immutable for this release.
 
@@ -65,8 +65,8 @@ Runs stages 02p5 → 03 → 04 → 04B → 05 in sequence.
 Verify after completion:
 
 **Stage 02p5:**
-- [ ] `out/Placements_Flat.csv` exists, 26,396 rows
-- [ ] `out/Placements_ByPerson.csv` exists, 26,396 rows
+- [ ] `out/Placements_Flat.csv` exists, 26,572 rows
+- [ ] `out/Placements_ByPerson.csv` exists, 26,572 rows
 
 **Stage 03:**
 - [ ] `Footbag_Results_Canonical.xlsx` created/updated

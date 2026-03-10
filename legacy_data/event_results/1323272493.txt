@@ -1,0 +1,396 @@
+# event_id: 1323272493
+# 2012 33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS
+# Source: mirror "Manually Entered Results" section (final standings only)
+
+--- NET RESULTS ---
+
+Open Doubles Net
+
+1. Florian Goetze / Yves Kreil (Germany)
+2. Karim Daouk / Grischa Tellenbach (Switzerland / France)
+3. Oskari Forst�n / Jani Markkanen (Finland)
+4. Ben Alston / Walt Houston
+5. Janne Uusitalo / Matti Pohjola
+6. Tuomas K�rki / Jukka Peltola
+7. Francois Pelletier / JF Lemieux
+8. Emmanuel Bouchard / PT Lovern
+9. Arthur Ledain / Luc Legault
+10. Jack Harris / Jeremy Mirken
+11. Greg Lima / Antonio Fritsch
+12. Wojciech Jamski / Wiktor Debski
+13. Eurik Lindner / Markus Kaspczak
+14. Uli Haase / Andreas Wolff
+15. Tuan Vu / Carlos Marquez
+16. Manuel Kruse / Simon Voss
+17. Alex Bartsch / Chris L�w
+18. Amaya Straeten / Justin Eichenlaub
+19. Tammo Rockel / Phil Lessard
+20. Roberto da Silva / Victor Lezama
+21. Hakan Hellberg / Guillaume Degat
+22. Jairo Lagos / Darwins Mora
+23. Stephan Tailleur / Yves Archambault
+24. Oscar Loreto / Eduardo Martniez
+25. Vincent Rousseau / Marc Brunet
+26. Johannes Korff / Faris Barakat
+27. Nelson Castro / Diego Chavez Diaz
+28. Jyri Ilama / Janne Villikka
+29. Stefan Nold /Simon Rollmann
+30. Renato Z�lli / Yves Mingard
+31. Michal Klimczak / Micha Rog
+32. Robin P�chel / Steve Kuntze
+33. Piotr Koscielny / Marcin Staron
+34. Luka Weyler-Lavall�e / Carl-Antoine Boulay
+35. Quentin Isackson / Julien Coblence
+36. Damian Budzik / Ville Laakso
+37. Chris Bock / David Kaufmann
+38. Rafal Andryka / Wojciech Ignaczak
+39. Maciej Samborowski / Jakub Grabarczyk
+40. Jani Lirkki / Felix Ostwaldt
+41. Stephan Rautenberg / Ulrike H�ssler
+42. Boris Ollivier Belouin / Arkady Lobankov
+
+
+Open Singles Net
+
+1. Florian Goetze (Germany)
+2. Jean-Francois Lemieux (Canada)
+3. Tuomas K�rki (Finland)
+4. Daouk, Karim	        CH
+5. Pohjola, Matti	FI
+6. Houston, Walt	US
+7. Lima, Greg	        FR
+8. Kreil, Yves	        DE
+9. Ledain, Arthur	FR
+10. Alston, Ben	        US
+11. L�w, Chris	        DE
+12. Lezama, Victor	VE
+13. Rockel, Tammo	DE
+14. Harris, Jack	US
+15. Depatie-Pelletier, Francois	CA
+16. Forsten, Oskari	FI
+17. Degat, Guillaume	FR
+18. Da Silva, Roberto	VE
+19. Fritsch, Antonio	DE
+20. Debski, Wiktor	PL
+21. Marquez, Carlos	VE
+22. Mingard, Yves	CH
+23. Diaz, Diego	        VE
+24. Mora, Darwins	VE
+25. Tellenbach, Grischa	FR
+26. Isackson, Quentin	FR
+27. Weyler-Lavall�e, Luka	CA
+28. Jamski, Wojciech	PL
+29. Lessard, Philippe	CA
+30. Lagos, Jairo	VE
+31. Kruse, Manuel	DE
+32. Voss, Simon	        DE
+33. Martinez, Eduardo	VE
+34. Hellberg, Hakan	SE
+35. Lindner, Eurik	DE
+36. Rousseau, Vincent	FR
+37. Korff, Johannes	DE
+38. Barakat, Faris	DE
+39. Staron, Marcin	PL
+40. Vu, Tuan	        US
+41. Castro, Nelson	VE
+42. Z�lli, Renato	CH
+43. Bock, Christian	HR
+44. Lirkki, Jani	FI
+45. Ostwaldt, Felix	DE
+46. Loreto, Oscar	VE
+47. Samborowski, Maciej	PL
+48. Tailleur, St�phane	CA
+49. Budzik, Damian	PL
+50. Nold, Stefan	DE
+51. Klimczak, Micha	PL
+52. Kaufmann, David	DE
+53. Boulay, Carl-Antoine	CA
+54. Rollmann, Simon	DE
+55. Brunet, Marc	FR
+56. Koscielny, Piotrek	PL
+57. Rautenberg, Stephan	DE
+58. Laakso, Ville	FI
+59. Andryka, Rafal	PL
+60. Kuntze, Steve	DE
+61. P�chel, Robin	DE
+61. Ignaczak, Wojciech	PL
+63. Rog, Michal	        PL
+64. Lobankov, Arkady	RU
+65. Hartmann, Ingo	DE
+66. Ollivier, Boris	FR
+67. Grabarczyk, Jakub	PL
+68. Coblence, Julien	FR
+69. Hejra, Pavel	CZ
+
+
+Mixed Doubles Net
+
+1. Florian Goetze / Kerstin Anhuth (Germany)
+2. Fran�ois Depatie-Pelletier / Marilyn Demuy (Canada)
+3. Karim Daouk / Shirine Daouk (Switzerland)
+4. PT Lovern / Jody Welch
+5. Arthur ledain / Helena Schlichting
+6. Janne Uusitalo / Piia Tantarim�ki
+7. Yves Kreil / Yulia Tikhomirova
+8. Jack Harris / Julie Symons
+9. Wiktor Debski / Gosia Deska
+10. Simon Voss / Katharina Probst
+11. Roberto da Silva / Ivaneidy Zambrano
+12. Damian Budzik / Moka Szymankiewicz
+13. Victor Lezama / Sophie Andrey
+14. Stephan Rautenberg / Ulrike H�ssler
+15. Gabriel Salgado / Tabea Fetz
+
+
+Women's Doubles Net
+
+1. Julie Symons / Jody Welch (USA)
+2. Marilyn Demuy / Julia Tikhomirova (Canada / Russia)
+3. Kerstin Anhuth / Piia Tantarim�ki (Germany / Finland)
+4. Helena Schlichting / Shirine Daouk
+5. Katharina Probst / Sophie Andrey
+6. Gosia Debska / Moka Szymankiewicz
+7. Ivaneidy Zambrano / Ulrike H��ler
+
+
+Women's Singles Net
+
+1. Marilyn Demuy (Canada)
+2. Piia Tantarim�ki (Finland)
+3. Kerstin Anhuth (Germany)
+4. Tikhomirova, Julia (RU)
+5. Schlichting, Helena (DE)
+6. Probst, Katharina (CH)
+7. Zambrano Torres, Ivaneidy (VE)
+8. Ulrike H�ssler (DE)
+9. Andrey, Sophie (CH)
+10. Gosia Debska (PL)
+11. Moka Szymankiewicz (PL)
+
+
+Master's Doubles Net
+
+1. Yves Archambault / Tuan Vu (Canada / USA)
+2. Alex Bartsch / Andreas Wolff (Germany)
+3. Marc Brunet / Vincent Rousseau (France)
+4. Amaya Straeten / Stephane Tailleur (Germany / Canada)
+5. Faris Barakat / Helena Schlichting (Germany)
+5. Christian Bock / Theodore Fritsch (Germany / USA)
+5. Moises Curie / Diego Chavez Diaz (Venezuela)
+5. Hakan Hellberg / Magnus Hellberg (Sweden)
+
+
+Master's Singles Net
+
+1. Tuan Vu (USA)
+2. Yves Archambault (Canada)
+3. Faris Barakat (Germany)
+4. Hakan Hellberg (Sweden)
+5. Christian Bock (Germany)
+6. Stephane Tailleur (Canada)
+7. Vincent Rousseau (France)
+8. Magnus Hellberg (Sweden)
+9. Diego Chavez Diaz (Venezuela)
+9. Marc Brunet (France)
+9. Moises Curie (Venezuela)
+
+
+Intermediate Doubles Net
+
+1. Michael Lamberjohann / Brett Milliken (Germany / USA)
+2. Alexey Antipov / Andrey Laptev (Russia)
+3. Gabriel Salgado / Gaudenz Scherer (Switzerland)
+4. Moises Curie / Daniel Stalmach (Venezuela / Poland)
+5. Tabea Fetz / Theodore Fritsch (Switzerland / USA)
+5. Maciej Pietrzycki / Przemys Pietrzycki (Poland)
+5. Ingo Hartmann / Jari John (Germany)
+5. Mikhail Mukhortykh / Unknown Freestyler (Russia)
+
+
+Intermediate Singles Net
+
+1. Brett Milliken (USA)
+2. Theodore Fritsch (USA)
+3. Andrey Laptev (Russia)
+4. Moises Curie (Venezuela)
+5. Alexey Antipov (Russia)
+6. Daniel Stalmach (Poland)
+7. Przemys Pietrzycki (Poland)
+8. Mikhail Mukhortykh (Russia)
+
+
+--- FREESTYLE RESULTS ---
+
+Open Freestyle Rou�tines:
+1. Jan Weber
+2. Milan Benda
+3. Aleksi Airi�nen
+4. Vaclav Klouda
+5. Marcin Bujko
+6. Damian Giel�nicki
+7. Rafał Kaleta
+8. Rene Ruhr
+
+Women?s Freestyle Rou�tines:
+1. Tina Aeberli
+2. Hanna Mick�iewicz
+3. Tanja Salakka
+4. Syl�wia Kocyk
+5. Mal�go�rzata Oledzka
+6. Dorota Woj�ta�siuk
+7. Car�o�line Birch
+7. Katha�rina Probst
+
+Mixed Dou�bles Rou�tines:
+1. Mał�gorzata Dęb�ska / Wik�tor Dęb�ski
+2. Mał�gorzata Olędzka / Tomasz Ostrowski
+3. Dorota Woj�ta�siuk / Damian Gielnicki
+
+Open Dou�bles Rou�tines:
+1. Michał Ostrowski / Tomasz Ostrowski
+2. Tomas Tucek / Mar�tin Sladek
+3. Wik�tor Dęb�ski / Mał�gorzata Dęb�ska
+4. Jan Struz / Pavel Cer�veny
+5. Dustin Rhodes / Brian Sherrill
+
+Inter�me�di�ate Rou�tines:
+1. Kon�rad Chlebny
+2. Patryk Ten�derenda
+3. Jakub Moś�ciszewski
+4. Gau�denz Scherer
+5. Tabea Fetz
+6. Julian Sinnl
+7. Theodore Fritsch
+
+Open Cir�cle Con�test:
+1. Milan Benda
+2. Jan Weber
+3. Damian Giel�nicki
+4. Aleksi Airi�nen
+5. Ken Somoli�nos
+5. Marcin Bujko
+5. Toni Paakko�nen
+5. Rene Ruhr
+9. Rafał Kaleta
+9. Mar�iusz Wilk
+9.Christopher Schillem
+9. Maciej Niczy�poruk
+13. Bar�tosz Bubula
+13. San�teri Karvi�nen
+13. Jakob Wag�ner
+13. Krzysztof Sob�tka
+17. Brian Sher�rill
+17. Alexan�der Tren�ner
+17. Jin�dra Smola
+17. Jakub Grabar�czyk
+17. Tuo�mas Riisalo
+17. Tuukka Antikainen
+17. Lauri Airi�nen
+21. Paweł Ścier�ski
+21. Dustin Rhodes
+21. Alex Dworet�zky
+21. Jeff Mudd
+21. Taishi Ishida
+21. David Castillo Tibocha
+21. Arka�diusz Stanek
+21. Michał Ostrowski
+30. Tomas Konecny
+30. Michael Lam�ber�jo�hann
+30. Prze�mysław Pietrzy�cki
+30. Ilya Ser�nov
+30. Andreas Nawrath
+
+Open Shred 30:
+1. Aleksi Airi�nen 255,93
+2. Milan Benda 244,12
+3. Damian Giel�nicki 221,12
+4. Jan Weber 215,42
+5. Toni Paakko�nen 203,46
+6. Bar�tosz Bubula 203,29
+7. Marcin Bujko 194,13
+8. Math�ias Blau 185,4
+9. Jakob Wag�ner 129,56
+10. Lauri Airi�nen 129
+11. Jin�dra Smola   178,29
+12. Maciej Niczy�poruk   172,34
+13. Mar�iusz Wilk   170,69
+14. Dustin Rhodes   169,12
+15. San�teri Karvi�nen   168,30
+16. Taishi Ishida   165,60
+17. Alexan�der Tren�ner   161,57
+18. Tuukka Antikainen   157,16
+19. Paweł Rożek   154,20
+20. Rene Ruhr   152,75
+21. Tuo�mas Riisalo   151,38
+22. Arka�diusz Stanek   149,70
+23. Jonathan Schei�der   145,45
+24. Brian Sher�ill   139,26
+25. Michał Ostrowski   135,17
+26. Alex Dworet�zky   125,23
+27. David Castillo Tibocha   123,53
+28. Paweł Ścier�ski   114,08
+29. Ilija Ser�nov     95,00
+30. Tomas Konecny     91,92
+31. Krzysztof Sob�tka     82,35
+
+Women?s Shred 30:
+1. Tina Aeberli 191,79
+2. Hanna Mick�iewicz 106,85
+3. Tanja Salakka 101,20
+4. Syl�wia Kocyk 68,00
+5. Mał�gorzata Olędzka 59,07
+6. Car�o�line Birch 49,87
+
+Women?s Cir�cle Con�test:
+1. Tina Aeberli
+2. Hanna Mick�iewicz
+3. Tanja Salakka
+4. Syl�wia Kocyk
+5. Mał�gorzata Olędzka
+5. Car�o�line Birch
+6. Dorota Woj�ta�siuk
+6. Katha�rina Probst
+
+Request Contest
+
+1. Milan Benda
+2. Lauri Airinen
+3. Marciej Niczyporuk
+4. Damian Gielnicki
+5. Jakob Wagner
+5. Bartosz Bubula
+5. Jindra Smola
+8. Aleksi Airinen
+8. Anssi Sundberg
+8. Arkadiusz Stanek
+8. Tomasz Ostrowski
+12. Krzysztof Sob�tka
+13. Christopher Schillem
+13. Tuukka Antikainen
+13. Santeri Karvinen
+13. Alexander Trenner
+13. David Castillo Tibocha
+18. Paweł Rożek
+18. Rafał Kaleta
+20. Przemysław Pietrzycki
+20. Renato Zuli
+20. Rene Ruhr
+23. Mathias Schmidt
+23. Ilja Sernov
+25. Michał Ostrowski
+25. Konrad Chlebny
+25. Paweł Ścierski
+28. Jan Struz
+28. Taishi Ishida
+28. Jan Brekle
+31. Sylwia Kocyk
+31. Patryk Tenderenda
+31. Jakub Mościszewski
+31. Dustin Rhodes
+31. Jeff Mudd
+36. Dorota Wojtasiuk
+36. Tomas Konecny
+38. Małgorzata Olędzka
+38. Caroline Birch
+38. Armin Moayad
+41. Julian Sinl

@@ -1,0 +1,71 @@
+# event_id: 1220466807
+# 2008 East Coast Footbag Championships
+# Source: mirror "Manually Entered Results" section (final standings only)
+
+open
+    intermediate
+
+
+singles net:
+1. Jamie Lepley
+2. Erroll Stryker
+3. Dan Greer
+4. Anthony Intemann
+5. Greg Neumann
+6. Kevin Fura
+7. Jim Hankins
+8. Vincent Bradley (withdrew)
+
+doubles net:
+1. Jamie Lepley & Dan Greer
+2. Erroll Stryker & Greg Neumann
+3. Anthony Intemann & Vincent Bradley
+4. Jim Hankins & Benjamin Kellman
+
+singles routines freestyle:
+1. Ken Somolinos
+2. Gordon Scott Bevier
+3. Mike Toolan
+4. Dan Greer
+5. Benjamin Kellman
+6. Jonathan Schneider
+
+circle freestyle:
+1. Gordon Scott Bevier
+2. Ken Somolinos
+3. Mike Toolan
+4. Jon Schneider
+5.
+6.
+
+
+
+
+singles net:
+1. Ted Fritsch
+2. Mark Hunsberger
+3. Jack Lentz
+4. Matt Evans
+5. Phil Norrod
+6. Jason Bohlin
+7. Dan Johnson
+8. Mark Daniels
+9. Andrew Bohlin
+
+doubles net:
+1. Ted Fritsch & Mark Hunsberger
+2. Jack Lentz & Phil Norrod
+3.
+4. 
+5. Adrienne Dukes & Charlie Dukes
+6. Barrett Neimeth & Dan Johnson
+
+singles routines:
+1. Matt Evans
+2. Ted Fritsch
+3. Andrew Bohlin
+(more info soon)
+
+circle:
+1. Andrew Bohlin
+(more info soon)

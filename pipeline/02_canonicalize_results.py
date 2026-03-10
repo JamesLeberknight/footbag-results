@@ -583,6 +583,121 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1664206719.txt",
         "replace": True,
     },
+    # ---- pool+finals merged events: final standings from mirror "Manually Entered Results" ----
+    # 2004 25th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (6 divs, 17 dup pairs)
+    "1069929277": {
+        "file":    "legacy_data/event_results/1069929277.txt",
+        "replace": True,
+    },
+    # 2004 3rd Annual Seattle Juggling and Footbag Festival — pool+finals merged (2 divs, 11 dup pairs)
+    "1096318324": {
+        "file":    "legacy_data/event_results/1096318324.txt",
+        "replace": True,
+    },
+    # 2005 26th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (3 divs, 16 dup pairs)
+    "1102576153": {
+        "file":    "legacy_data/event_results/1102576153.txt",
+        "replace": True,
+    },
+    # 2007 IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (9 divs, 26 dup pairs)
+    "1163784775": {
+        "file":    "legacy_data/event_results/1163784775.txt",
+        "replace": True,
+    },
+    # 9e Open de France de Footbag 2007 — pool+finals merged (3 divs, 14 dup pairs)
+    "1183729267": {
+        "file":    "legacy_data/event_results/1183729267.txt",
+        "replace": True,
+    },
+    # 2008 IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (4 divs, 16 dup pairs)
+    "1194517448": {
+        "file":    "legacy_data/event_results/1194517448.txt",
+        "replace": True,
+    },
+    # 8th Annual Polish Footbag Championships 2008 — pool+finals merged (4 divs, 17 dup pairs)
+    "1219405634": {
+        "file":    "legacy_data/event_results/1219405634.txt",
+        "replace": True,
+    },
+    # East Coast Footbag Championships 2008 — manual section also contains pool data; reverted.
+    # "1220466807": override removed 2026-03-10 (manual section also pool+finals merged)
+    # 31st IFPA WORLD FOOTBAG CHAMPIONSHIPS 2010 — pool+finals merged (4 divs, 15 dup pairs)
+    "1265745512": {
+        "file":    "legacy_data/event_results/1265745512.txt",
+        "replace": True,
+    },
+    # Slovak-Czech Footbag Championships 2009 — pool+finals merged (3 divs, 12 dup pairs)
+    "1269266785": {
+        "file":    "legacy_data/event_results/1269266785.txt",
+        "replace": True,
+    },
+    # 32nd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2011 — pool+finals merged (10 divs, 34 dup pairs)
+    "1293877677": {
+        "file":    "legacy_data/event_results/1293877677.txt",
+        "replace": True,
+    },
+    # 33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2012 — pool+finals merged (4 divs, 21 dup pairs)
+    "1297811412": {
+        "file":    "legacy_data/event_results/1297811412.txt",
+        "replace": True,
+    },
+    # 34th IFPA WORLD FOOTBAG CHAMPIONSHIPS 2013 — pool+finals merged (8 divs, 28 dup pairs)
+    "1323272493": {
+        "file":    "legacy_data/event_results/1323272493.txt",
+        "replace": True,
+    },
+    # 12th Annual Polish Footbag Championships 2012 — pool+finals merged (2 divs, 13 dup pairs)
+    "1336988107": {
+        "file":    "legacy_data/event_results/1336988107.txt",
+        "replace": True,
+    },
+    # 15th Annual Polish Footbag Championships 2015 — pool+finals merged (5 divs, 16 dup pairs)
+    "1376036018": {
+        "file":    "legacy_data/event_results/1376036018.txt",
+        "replace": True,
+    },
+    # 2015/2016/2018 Worlds — manual section only has unofficial Request Contest; reverted.
+    # "1391189882", "1417735560", "1449259560": overrides removed 2026-03-10
+    # 40th IFPA WORLD FOOTBAG CHAMPIONSHIPS 2019 — pool+finals merged (6 divs, 16 dup pairs)
+    "1485863923": {
+        "file":    "legacy_data/event_results/1485863923.txt",
+        "replace": True,
+    },
+    # 41st Annual Polish Footbag Championships 2021 — pool+finals merged (2 divs, 12 dup pairs)
+    "1518200935": {
+        "file":    "legacy_data/event_results/1518200935.txt",
+        "replace": True,
+    },
+    # 42nd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2021 — pool+finals merged (5 divs, 19 dup pairs)
+    "1519215398": {
+        "file":    "legacy_data/event_results/1519215398.txt",
+        "replace": True,
+    },
+    # 44th IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023 — pool+finals merged (4 divs, 19 dup pairs)
+    "1547415984": {
+        "file":    "legacy_data/event_results/1547415984.txt",
+        "replace": True,
+    },
+    # Wroclaw Footbag Open 2019 — pool+finals merged (4 divs, 17 dup pairs)
+    "1694170899": {
+        "file":    "legacy_data/event_results/1694170899.txt",
+        "replace": True,
+    },
+    # 43rd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2022 — pool+finals merged (6 divs, 15 dup pairs)
+    "1706036811": {
+        "file":    "legacy_data/event_results/1706036811.txt",
+        "replace": True,
+    },
+    # University of Oregon Footbag Tournament 1997 — pool+finals merged (5 divs, 17 dup pairs)
+    "857874500": {
+        "file":    "legacy_data/event_results/857874500.txt",
+        "replace": True,
+    },
+    # 1998 WhoWhere Western Regionals — pool+finals merged (6 divs, 15 dup pairs)
+    "876356874": {
+        "file":    "legacy_data/event_results/876356874.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {

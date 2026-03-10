@@ -88,5 +88,5 @@
 {"event_id": "1245199707", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
 {"event_id": "1270518636", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
 {"event_id": "1310408325", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
-{"event_id": "892446131", "event_type": "net", "source": "manual", "reason": "no golf division present, misclassified"}
+{"event_id": "892446131", "event_type": "mixed", "source": "manual", "reason": "golf event with sideline/consecutives discipline"}
 {"event_id": "990905420", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
