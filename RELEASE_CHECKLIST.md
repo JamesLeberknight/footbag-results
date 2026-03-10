@@ -11,9 +11,9 @@ Confirm `inputs/identity_lock/` contains exactly:
 
 | File | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final_v36.csv` | v36 | 3,455 |
+| `Persons_Truth_Final_v37.csv` | v37 | 3,455 |
 | `Persons_Unresolved_Organized_v28.csv` | v28 | 82 |
-| `Placements_ByPerson_v51.csv` | v51 | 26,396 |
+| `Placements_ByPerson_v52.csv` | v52 | 26,396 |
 
 These files are human-verified and immutable for this release.
 
@@ -75,7 +75,7 @@ Verify after completion:
 **Stage 04:**
 - [ ] Output contains: `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3456`
 - [ ] `out/persons_truth.lock` written
-- [ ] Lock sentinel shows `Persons_Truth_Final_v36.csv`, rows: 3456
+- [ ] Lock sentinel shows `Persons_Truth_Final_v37.csv`, rows: 3456
 
 **Stage 04B:**
 - [ ] `Footbag_Results_Community.xlsx` created/updated
