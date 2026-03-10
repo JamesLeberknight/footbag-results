@@ -879,7 +879,7 @@ def build_records(wb: Workbook, stats: pd.DataFrame, cat_stats: dict,
 # ── Consecutives Records sheet ────────────────────────────────────────────────
 
 def _load_consecutives_records(path: Path) -> list[dict]:
-    """Load inputs/consecutives_records.csv; return list of row dicts sorted by sort_order."""
+    """Load out/consecutives_combined.csv; return list of row dicts sorted by sort_order."""
     if not path.exists():
         return []
     with open(path, newline="", encoding="utf-8") as fh:
@@ -1383,7 +1383,7 @@ def main():
     wb = Workbook()
     wb.remove(wb.active)
 
-    cons_records = _load_consecutives_records(INPUT_DIR / "consecutives_records.csv")
+    cons_records = _load_consecutives_records(OUT_DIR / "consecutives_combined.csv")
 
     # Sheet order: Summary, Records, Consecutives, [Index placeholder],
     #              Player Stats, Player Results, year sheets
