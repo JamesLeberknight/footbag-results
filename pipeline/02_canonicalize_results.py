@@ -303,6 +303,12 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1035277529.txt",
         "replace": True,
     },
+    # 2001 World Footbag Championships — mirror has pool+finals merged (7 divs, 147 rows).
+    # "Manually Entered Results" section contains complete final standings; used here.
+    "980969461": {
+        "file":    "legacy_data/event_results/980969461.txt",
+        "replace": True,
+    },
     # German Footbag Open 2004 — division headers lacked colons; stage2 misattributed
     # placements and dropped 9 entries. All 10 divisions, 39 placements.
     "1079444598": {

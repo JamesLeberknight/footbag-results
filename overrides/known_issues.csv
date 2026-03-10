@@ -65,7 +65,6 @@ event_id,severity,note
 876356874,severe,"pool+finals results merged (6 divisions, 15 dup pairs, 100 affected rows)"
 910551956,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Novice Doubles Net"", ""Open Doubles Net"" + 3 more)"
 919703711,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Singles"")"
-980969461,severe,"pool+finals results merged (7 divisions, 18 dup pairs, 147 affected rows)"
 991285803,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")"
 1001076203,moderate,"division results merged (""Double"", ""Men's Singles"", ""Single"", 3 dup pairs)"
 1001942070,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open"")"
