@@ -1,6 +1,5 @@
 event_id,severity,note
 1021665982,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Novice"")"
-1036298726,severe,"division labels garbled in PBP; stage2 has correct data under different names (""Big 3 Round 2"", ""Women's Shred :30"")"
 1042821772,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Freestyle 33 Player"", ""Open Doubles Freestyle 6 Teams"", ""Open Singles Freestyle 38 Player"" + 1 more)"
 1049457912,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open Singles"")"
 1064330873,severe,"division results merged (""Doubles Net Open"", ""Singles Net Open"", 4 dup pairs)"
@@ -116,7 +115,6 @@ event_id,severity,note
 1254829577,moderate,"division results merged (""Circle Competition"", ""Open Singles Net"", 2 dup pairs)"
 1256202918,moderate,"division results merged (""Circle Contest"", ""Open Routines"", 3 dup pairs)"
 1260368810,moderate,"minor: 3 duplicate place(s) in ""Results Pro Image Cash Golf"""
-1262288759,moderate,"division labels garbled in PBP; stage2 has correct data under different names (""Intermediate Doubles:"", ""Intermediate Singles:"")"
 1269111845,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Net"")"
 1284588517,moderate,"minor: 2 duplicate place(s) in ""Open Circle Contest"""
 1285506605,moderate,"minor: 3 duplicate place(s) in ""Routines"""
