@@ -295,6 +295,7 @@ Current identity baseline:
 │   │   ├── Persons_Unresolved_Organized_v28.csv
 │   │   └── Placements_ByPerson_v43.csv
 │   ├── location_canon_full_final.csv # Canonical location display strings
+│   ├── consecutives_records.csv      # Consecutives world records reference data
 │   ├── bap_data.csv                  # BAP honours data
 │   ├── fbhof_data.csv                # FBHOF honours data
 │   └── OLD_RESULTS.txt               # Legacy results (pre-mirror)
