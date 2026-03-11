@@ -93,8 +93,8 @@ do_release() {
 
     step "Stage 02p5: apply identity lock"
     "$PYTHON" pipeline/02p5_player_token_cleanup.py \
-        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v56.csv \
-        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v38.csv \
+        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v57.csv \
+        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v39.csv \
         --out_dir                      out
 
     step "Stage 03: build canonical Excel workbook"

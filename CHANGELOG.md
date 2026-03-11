@@ -4,6 +4,50 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [v2.7.0] — Reviewer round 2: identity cleanup, Records removed, BAP Name, div fixes
+**Release date:** 2026-03-10
+
+### Changes
+
+#### Identity curation
+- **PT v38 → v39 / PBP v56 → v57**: Removed two PT entries that were concatenated
+  team names (mis-parsed doubles results stored as individuals):
+  - `57cde887` "Grischa Tellenbach Vincent Rousseau" → reclassified as `__NON_PERSON__`
+    team entry (event 1177512537 Doubles Net p=1)
+  - `a1e7bdfd` "Grischa Tellenbach Damian Budzik" → reclassified as `__NON_PERSON__`
+    team entry (event 1235653935 Open Doubles Net p=9)
+  PT: 3,454 → 3,452 rows. Gate3 PASS = 3,456 (unchanged).
+
+#### Data fix (event 1069791565)
+- **5e Open de France 2004**: Division names had ` ? ` encoding artifacts in PBP
+  (e.g., "Open Freestyle ? Routines"). Fixed to ` - ` in PBP v57. 21 rows updated.
+
+#### Community workbook (04B)
+- **Player Stats header**: "Nickname" → "BAP Name". BAP nickname only, never other aliases.
+- **Records tab removed**: Deleted per reviewer feedback (leaderboard sheet was
+  misleadingly named and redundant with Player Stats).
+- **`_clean_div()`**: ` ? ` artifact now renders as ` - ` not a space.
+
+#### Regression set status
+| Event | Status |
+|---|---|
+| 937727262 | Known issue (severe) — pool+finals merge, documented |
+| 937854594 | Fixed in v2.6.0 ✓ |
+| 947026077 | Known issue (moderate) — pool+finals merge, documented |
+| 989875090 | Clean — noise-only divisions |
+| 984694623 | Clean — freestyle-only event |
+| 990626988 | Clean — single division |
+| 996293200 | Known issue (minor) — documented |
+| 1035277529 | Fixed — RESULTS_FILE_OVERRIDE (2003 Worlds) |
+| 1069791565 | Fixed — division `?` names corrected ✓ |
+| 1096318324 | Fixed — RESULTS_FILE_OVERRIDE (Seattle Juggling) |
+
+#### Counts (current)
+- `Persons_Truth_Final_v39.csv`: 3,452 rows
+- `Placements_ByPerson_v57.csv`: 26,572 rows
+
+---
+
 ## [v2.6.0] — Reviewer feedback fixes: player count, wording, display cleanup, Edison merge, 937854594 fix
 **Release date:** 2026-03-10
 

@@ -199,7 +199,7 @@ _COUNTRIES = {
 _RE_BBU = re.compile(r"\[/?U\]", re.I)
 _RE_STAR = re.compile(r"^\*+\s*")
 _RE_TRAIL_DASH = re.compile(r"\s*-\s*$")
-_RE_QUESTION_SEP = re.compile(r"\s+\?\s+")  # encoding artifact " ? " in div names
+_RE_QUESTION_SEP = re.compile(r"\s+\?\s+")  # encoding artifact " ? " in div names → " - "
 _RE_ANNOTATION_TAIL = re.compile(r"\s*\(([^)]+)\)\s*$")  # trailing (annotation)
 
 
@@ -209,7 +209,7 @@ def _clean_div(s: str) -> str:
     s = _RE_STAR.sub("", s)           # leading ***
     s = _RE_BBU.sub("", s)            # [U] / [/U] BBCode
     s = _RE_TRAIL_DASH.sub("", s)     # trailing " -" or "-"
-    s = _RE_QUESTION_SEP.sub(" ", s)  # " ? " encoding artifact → space
+    s = _RE_QUESTION_SEP.sub(" - ", s)  # " ? " encoding artifact → " - "
     return s.strip()
 
 
@@ -927,7 +927,6 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
 
     sheet_guide = [
         ("Summary",        "This page — dataset overview, largest events, and navigation guide"),
-        ("Records",        "All-time and category leaderboards (top 15 players)"),
         ("Consecutives",   "Consecutive kicks records, world records, and milestone firsts"),
         ("Index",          "Full list of all events with dates, locations, coverage flags, and data quality notes"),
         ("Player Stats",   "Career statistics for each player (based on incomplete data set — gaps and errors exist)"),
@@ -1239,7 +1238,7 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
     ws = wb.create_sheet("Player Stats")
     ws.freeze_panes = "A2"
 
-    hdrs   = ["Player", "Nickname", "Wins", "Podiums", "Placements", "Events",
+    hdrs   = ["Player", "BAP Name", "Wins", "Podiums", "Placements", "Events",
               "Legacy ID"]
     widths = [32, 18, 8, 8, 12, 8, 10]
 
@@ -1565,10 +1564,10 @@ def main():
 
     cons_records = _load_consecutives_records(OUT_DIR / "consecutives_combined.csv")
 
-    # Sheet order: Summary, Records, Consecutives, [Index placeholder],
+    # Sheet order: Summary, Consecutives, [Index placeholder],
     #              Player Stats, Player Results, year sheets
+    # (Records tab removed per reviewer feedback — leaderboards redundant with Player Stats)
     build_summary(wb, s2_events, event_placements, stats, pbp)
-    build_records(wb, stats, cat_stats, honours)
     build_consecutives_records(wb, cons_records)
 
     # Index placeholder — correct content added after year sheets are built
