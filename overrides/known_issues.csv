@@ -51,3 +51,6 @@ event_id,severity,note
 1759558836,minor,"minor: 1 duplicate place(s) in ""Singles Result"""
 948943299,minor,"minor: 1 duplicate place(s) in ""Doubles Net"""
 955745735,minor,"minor: 3 duplicate place(s) in ""Doubles Footbag Net"""
+959353403,minor,Unknown division contains noise entries; trailing-colon division name causes mismatch (SOURCE_PARTIAL: source coverage limited)
+984694623,moderate,"Stage2 has 20 placements vs PBP 8; old parse with city-as-teammate artifacts; identity incomplete (SOURCE_PARTIAL: historical event, limited source fidelity)"
+1366240051,moderate,"9 of 12 doubles teams unresolved; South American identity gap; partial coverage expected (SOURCE_PARTIAL: regional event, incomplete identity resolution)"
