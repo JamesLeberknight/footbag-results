@@ -4,6 +4,51 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [v2.6.0] — Reviewer feedback fixes: player count, wording, display cleanup, Edison merge, 937854594 fix
+**Release date:** 2026-03-10
+
+### Changes
+
+#### Identity curation
+- **PT v37 → v38 / PBP v55 → v56**: Merged duplicate Edison Alejandro Rodriguez
+  Betancur entries — `5934e79b` (no accent) was a spurious NEW_PERSON_v28 duplicate
+  of `5813a6cb` (with accent). PT now 3,454 rows; Gate3 PASS = 3,456 (unchanged).
+
+#### Data fix (event 937854594)
+- **Turku Tournee 1999**: Intermediate and Pro divisions were conflated into bare
+  "Singles Net" / "Doubles Net" because the parser saw two "Singles Net" headers
+  without sport-level context. Added `RESULTS_FILE_OVERRIDE` + legacy data file;
+  PBP v56 updated with proper division names: "Intermediate Singles Net",
+  "Intermediate Doubles Net", "Pro Singles Net", "Pro Doubles Net". Removed from
+  known_issues (was "moderate — division results merged").
+
+#### Community workbook (04B)
+- **Player count**: Index "Players" column now counts actual participants (doubles
+  teams = 2 players, not 1 entry). Year sheet and Summary "Largest Events" table
+  also corrected.
+- **Summary wording**: Added "not perfect, as there are gaps and known data quality
+  issues throughout" to the About paragraph.
+- **Sheet guide**: Player Stats and Player Results descriptions now note "based on
+  incomplete data set".
+- **`_clean_div()`**: Strip ` ? ` encoding artifacts from division names.
+- **`_clean_team_display()`**: First-letter capitalize each team member name; strip
+  trailing annotation parentheticals with 5+ chars and a space.
+- **Leaderboard filter**: Exclude team-composite `person_canon` values (containing
+  " / ") from Player Stats leaderboards — removes "Anthony Intemann / Greg Nice
+  Neumann" spurious combined entry.
+- **Location overrides** (4 events): 933115858 → "Boulder, Colorado, USA";
+  980969461 → "San Francisco Bay Area, California, USA"; 912467534 →
+  "Portland, Oregon, USA"; 1034985978 → "Vancouver, B.C., Canada".
+
+#### Counts (current)
+- Stage-2 events: 774; placements: ~27,945
+- `out/canonical/events.csv`: 774 rows
+- `out/canonical/persons.csv`: 3,454 rows
+- `Placements_ByPerson_v56.csv`: 26,572 rows
+- known_issues: 52 events (10 severe, 26 moderate, 16 minor)
+
+---
+
 ## [v2.5.0] — Identity fix, pool+finals batch repair, known_issues cleanup
 **Release date:** 2026-03-10
 

@@ -90,3 +90,7 @@
 {"event_id": "1310408325", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
 {"event_id": "892446131", "event_type": "mixed", "source": "manual", "reason": "golf event with sideline/consecutives discipline"}
 {"event_id": "990905420", "event_type": "mixed", "source": "manual", "reason": "golf+net tournament, not pure golf"}
+{"event_id": "933115858", "location": "Boulder, Colorado, USA", "source": "manual", "confidence": "high", "reason": "source HTML has mangled location string 'Campus) Boulder...'"}
+{"event_id": "980969461", "location": "San Francisco Bay Area, California, USA", "source": "manual", "confidence": "high"}
+{"event_id": "912467534", "location": "Portland, Oregon, USA", "source": "manual", "confidence": "high"}
+{"event_id": "1034985978", "location": "Vancouver, B.C., Canada", "source": "manual", "confidence": "high"}

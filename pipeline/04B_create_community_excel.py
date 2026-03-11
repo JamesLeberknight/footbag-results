@@ -199,19 +199,36 @@ _COUNTRIES = {
 _RE_BBU = re.compile(r"\[/?U\]", re.I)
 _RE_STAR = re.compile(r"^\*+\s*")
 _RE_TRAIL_DASH = re.compile(r"\s*-\s*$")
+_RE_QUESTION_SEP = re.compile(r"\s+\?\s+")  # encoding artifact " ? " in div names
+_RE_ANNOTATION_TAIL = re.compile(r"\s*\(([^)]+)\)\s*$")  # trailing (annotation)
 
 
 def _clean_div(s: str) -> str:
-    """Strip workbook-visible markup from division names."""
+    """Strip workbook-visible markup and encoding artifacts from division names."""
     s = (s or "").strip()
     s = _RE_STAR.sub("", s)           # leading ***
     s = _RE_BBU.sub("", s)            # [U] / [/U] BBCode
     s = _RE_TRAIL_DASH.sub("", s)     # trailing " -" or "-"
+    s = _RE_QUESTION_SEP.sub(" ", s)  # " ? " encoding artifact → space
     return s.strip()
 
 
+def _strip_annotation_tail(p: str) -> str:
+    """Remove trailing parenthetical annotations (not short codes like '(BC)')."""
+    while True:
+        m = _RE_ANNOTATION_TAIL.search(p)
+        if not m:
+            break
+        content = m.group(1)
+        if len(content) > 4 and " " in content:
+            p = p[: m.start()].rstrip()
+        else:
+            break
+    return p
+
+
 def _clean_team_display(s: str) -> str:
-    """Remove weekday-token or country-token contamination from team display names."""
+    """Clean team display names: remove noise tokens, capitalize, strip annotation tails."""
     s = (s or "").strip()
     if "/" not in s:
         return s
@@ -221,8 +238,17 @@ def _clean_team_display(s: str) -> str:
         if p.lower() in _WEEKDAYS or p.lower() in _COUNTRIES:
             cleaned.append("[?]")
         else:
+            p = _strip_annotation_tail(p)
+            # Capitalize first letter (fixes "david Butcher" → "David Butcher")
+            if p and p[0].islower():
+                p = p[0].upper() + p[1:]
             cleaned.append(p)
     return " / ".join(cleaned)
+
+
+def _count_participants(ep: dict) -> int:
+    """Count actual participants: each doubles team (display contains ' / ') counts as 2."""
+    return sum(2 if " / " in disp else 1 for v in ep.values() for (_, disp, _) in v)
 
 
 def _norm_name(s: str) -> str:
@@ -574,6 +600,8 @@ def compute_leaderboards(pbp: pd.DataFrame) -> pd.DataFrame:
     df = df[~df["person_unresolved"].str.lower().isin(("true", "1"))]
     df = df[df["person_canon"].str.strip() != ""]
     df = df[df["person_canon"].str.strip() != "__NON_PERSON__"]
+    # Exclude team-composite person_canon values (team name stored in person_canon — PBP data bug)
+    df = df[~df["person_canon"].str.contains("/", na=False)]
     df["_place"] = pd.to_numeric(df["place"], errors="coerce")
     df["_year"]  = pd.to_numeric(df["year"],  errors="coerce")
 
@@ -600,6 +628,7 @@ def compute_leaderboards_by_cat(pbp: pd.DataFrame) -> dict:
     df = pbp.copy()
     df = df[~df["person_unresolved"].str.lower().isin(("true", "1"))]
     df = df[~df["person_canon"].str.strip().isin(["", "__NON_PERSON__"])]
+    df = df[~df["person_canon"].str.contains("/", na=False)]
     df["_place"] = pd.to_numeric(df["place"], errors="coerce")
     by_cat = {}
     for cat, cdf in df.groupby("division_category"):
@@ -837,8 +866,9 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
     about = ws.cell(row=4, column=1,
         value="A historical archive of competitive footbag results reconstructed from "
               "the Footbag.org website and curated identity records. Coverage is "
-              "comprehensive from 1997 onward; pre-1997 data is partial. All player "
-              "identities are human-verified.")
+              "comprehensive from 1997 onward; pre-1997 data is partial — and the data "
+              "is not perfect, as there are gaps and known data quality issues throughout. "
+              "All player identities are human-verified.")
     about.font = FONT_SMALL
     about.alignment = Alignment(wrap_text=True, vertical="top")
     ws.row_dimensions[4].height = 36
@@ -871,7 +901,7 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
 
     event_sizes = []
     for eid, ep in event_placements.items():
-        n = sum(len(v) for v in ep.values())
+        n = _count_participants(ep)
         ev = events.get(eid, {})
         event_sizes.append((ev.get("event_name", eid), ev.get("year", 0),
                             ev.get("location", ""), n))
@@ -900,8 +930,8 @@ def build_summary(wb: Workbook, events: dict, event_placements: dict,
         ("Records",        "All-time and category leaderboards (top 15 players)"),
         ("Consecutives",   "Consecutive kicks records, world records, and milestone firsts"),
         ("Index",          "Full list of all events with dates, locations, coverage flags, and data quality notes"),
-        ("Player Stats",   "Career statistics for each player"),
-        ("Player Results", "Full placement history searchable by player name"),
+        ("Player Stats",   "Career statistics for each player (based on incomplete data set — gaps and errors exist)"),
+        ("Player Results", "Full placement history searchable by player name (based on incomplete data set)"),
         ("Year sheets",    "All events and division results for each year (1980–2026)"),
     ]
     for i, (sheet, desc) in enumerate(sheet_guide):
@@ -1151,7 +1181,7 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
     for row_idx, eid in enumerate(all_eids, start=2):
         ev  = events[eid]
         ep  = event_placements.get(eid, {})
-        n_p = sum(len(v) for v in ep.values())
+        n_p = _count_participants(ep)
         n_d = len(ep)
 
         ws.cell(row=row_idx, column=1, value=ev["year"] or "?")
@@ -1364,7 +1394,7 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
     Returns (last_row_written, max_content_length).
     Divisions are grouped by category (NET / FREESTYLE / GOLF / SIDELINE / OTHER).
     """
-    n_players   = sum(len(v) for v in placements.values())
+    n_players   = _count_participants(placements)
     max_content = max(len(ev.get("event_name", "")), 24)
 
     def _write(r, val, font, fill, align=ALIGN_TOP):

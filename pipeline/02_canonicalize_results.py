@@ -688,6 +688,13 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1706036811.txt",
         "replace": True,
     },
+    # Turku Tournee 1999 — Intermediate and Pro divisions conflated into bare "Singles/Doubles Net"
+    # because the parser saw two "Singles Net" headers without sport-level context.
+    # "Manually Entered Results" section has correct separation; used here.
+    "937854594": {
+        "file":    "legacy_data/event_results/937854594.txt",
+        "replace": True,
+    },
     # University of Oregon Footbag Tournament 1997 — pool+finals merged (5 divs, 17 dup pairs)
     "857874500": {
         "file":    "legacy_data/event_results/857874500.txt",
