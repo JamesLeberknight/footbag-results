@@ -4,6 +4,69 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [v2.9.0] — PBP v60, complete MEDIUM review, canonical freeze
+**Release date:** 2026-03-11
+
+### Changes
+
+#### Placements (PBP v59 → v60)
+- **+72 unresolved rows** added across 10 events where stage2 had divisions absent from PBP
+  (parser improvements since original PBP lock had recovered these divisions):
+  - 1005667143, 1025084282, 1158263300, 1179679872, 1216058526,
+    1678957450, 859923755, 876591529, 886044392, 892446131
+- New rows: `person_id=''`, `person_unresolved='1'`, names preserved as parsed
+- Gate3 PASS = 3,446 (unchanged — unresolved rows do not affect Gate3)
+
+#### Review tooling (tools 50–52, 60)
+- `tools/50_build_review_packet.py`: 6 reconciliation flags + quarantine flow; generates
+  Queue_HIGH_ONLY / Queue_HIGH_MEDIUM_MISMATCH / Queue_MEDIUM_REVIEW xlsx files
+- `tools/52_build_inspector_mirror_truth.py`: side-by-side HTML inspector with MEDIUM queue fallback
+- `tools/60_migrate_pbp_v59_to_v60.py`: migration script used to produce v60
+- `pipeline/parser_patterns.json`: 6 documented recurring parser patterns
+
+#### MEDIUM review — 73 events classified
+- **Final heat distribution:** HIGH=0, MEDIUM=70, LOW=233, CLEAN=450, QUARANTINED=21
+- **Dispositions applied** (70 active MEDIUM events):
+  - ACCEPT: 42 (OVERRIDE_OK ×20, METADATA_OVERRIDE ×6, minor dup-place ×11, cosmetic div diff ×5)
+  - SOURCE_PARTIAL: 23 (merged divisions, pool+finals, South American identity gaps)
+  - DEFER: 5 (pending identity alias work or future PBP migration)
+- **Quarantine:** 21 events total (3 added from MEDIUM: 959353403, 984694623, 1366240051)
+
+#### Data documentation
+- `overrides/known_issues.csv`: 52 → 55 rows (3 new SOURCE_PARTIAL events)
+- `README.md`: updated placements count (26,572 → 26,644), added coverage limitations note
+- Canonical freeze manifest: `out/canonical_freeze/FREEZE_MANIFEST.txt` (SHA256 hashes)
+
+#### Counts (current)
+- `Persons_Truth_Final_v41.csv`: 3,446 rows
+- `Placements_ByPerson_v60.csv`: 26,644 rows
+- Gate3 PASS: 3,446
+
+---
+
+## [v2.8.0] — Identity cleanup: 6 concatenated team names removed from PT
+**Release date:** 2026-03-11
+
+### Changes
+
+#### Identity curation
+- **PT v39 → v41 / PBP v57 → v59**: Removed 6 PT entries that were concatenated
+  doubles team names incorrectly stored as individual persons:
+  - `826a0e03` "Yves Kreil Antonio Fritsch" → `__NON_PERSON__` (ev 1235653935 Open Doubles Net p=4)
+  - `df8dad09` "Eurik Lindner Markus Kaspczak" → `__NON_PERSON__` (ev 1235653935 Open Doubles Net p=8)
+  - `115c774a` "Chis Löw Hannes Daniel" → `__NON_PERSON__` (ev 1235653935 Open Doubles Net p=3)
+  - `77db77da` "David Martin Jeremy Guilbaud" → `__NON_PERSON__` (ev 1241011525 Open Doubles Net p=15)
+  - `0982e26c` "Doug Toth Chris Cleaver" → `__NON_PERSON__` (ev 859923755 Novice Doubles p=2)
+  - `9c955cf4` "Medina Carlos Palencia Sain" → `__NON_PERSON__` (ev 1366240051 Doubles Open p=11)
+  PT: 3,452 → 3,446 rows. Gate3 PASS = 3,446.
+
+#### Counts (current)
+- `Persons_Truth_Final_v41.csv`: 3,446 rows
+- `Placements_ByPerson_v59.csv`: 26,572 rows
+- Gate3 PASS: 3,446
+
+---
+
 ## [v2.7.0] — Reviewer round 2: identity cleanup, Records removed, BAP Name, div fixes
 **Release date:** 2026-03-10
 
