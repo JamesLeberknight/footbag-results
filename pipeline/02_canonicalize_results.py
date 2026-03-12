@@ -216,33 +216,38 @@ LOCATION_OVERRIDES = {
     # === Broken source events (SQL errors, 9 total) ===
     "1023993464": "Hershey, Pennsylvania, USA",         # Funtastik Summer Classic (always Hershey)
     "1030642331": "Seattle, Washington, USA",           # Seattle Juggling and Footbag Festival
-    "1099545007": "New Zealand",                        # Seapa NZ Footbag Nationals 2005
+    "1099545007": "Auckland, Auckland, New Zealand",    # Seapa NZ Footbag Nationals 2005
     "1151949245": "Edmonton, Alberta, Canada",          # ShrEdmonton 2006
     "1278991986": "Vancouver, British Columbia, Canada",# 23rd Annual Vancouver Open
-    "1299244521": "Warsaw, Poland",                     # Warsaw Footbag Open 2011
-    "860082052": "Texas, USA",                          # Texas State Footbag Championships
-    "941066992": "California, USA",                     # Western Regional (always California)
-    "959094047": "Switzerland",                         # Battle of the Year Switzerland
+    "1299244521": "Warsaw, Masovian, Poland",           # Warsaw Footbag Open 2011
+    "860082052": "Austin, Texas, United States",        # Texas State Footbag Championships
+    "941066992": "San Francisco, California, United States", # Western Regional
+    "959094047": "Zurich, Zurich, Switzerland",         # Battle of the Year Switzerland
     # Decision: 2026-02 - Verbose/multi-sentence locations simplified
-    "1076748214": "St. Louis, Missouri, USA",           # Was: St. Matthias Church St. Louis...
-    "937366766": "Mt. Prospect, IL, USA",               # Was: Meadows Park, Mt. Prospect...
-    "1008128589": "Boulder, Colorado, USA",             # Was: Day 1... Day 2... (multi-venue)
-    "1326725476": "Mérida, Venezuela",                  # Was: Cancha Techada de la FCU... (verbose Spanish)
-    "1458170459": "Paris, France",                      # Was: Gymnase Caillaux. Paris 75013...
+    "1076748214": "St. Louis, Missouri, United States", # Was: St. Matthias Church St. Louis...
+    "937366766": "Mt. Prospect, Illinois, United States", # Was: Meadows Park, Mt. Prospect...
+    "1008128589": "Boulder, Colorado, United States",   # Was: Day 1... Day 2... (multi-venue)
+    "1326725476": "Mérida, Mérida, Venezuela",          # Was: Cancha Techada de la FCU... (verbose Spanish)
+    "1458170459": "Paris, Île-de-France, France",       # Was: Gymnase Caillaux. Paris 75013...
     # Decision: 2026-02 - Long locations (>100 chars) simplified
-    "1072202155": "Oakland, California, USA",           # The Green Cup - multi-venue
-    "1102227996": "Oakland, California, USA",           # The Green Cup - multi-venue Oakland/SF
-    "1109356644": "Harrisburg, Pennsylvania, USA",      # Funtastik - Morrison Park alias
-    "1143172220": "Somerville, New Jersey, USA",        # Jersey Spike & Shred
-    "1149881200": "Harrisburg, Pennsylvania, USA",      # Funtastik - multi-day venues
-    "1180708622": "Silver Spring, Maryland, USA",       # East Coast Championships
-    "1252451527": "Harrisburg, Pennsylvania, USA",      # Funtastik - Morrison Park alias
-    "1295120951": "Oakland, California, USA",           # Green Cup - multi-venue
-    "1297909685": "Caracas, Venezuela",                 # 2da Copa Ciencias
-    "1301675662": "Caracas, Venezuela",                 # 2da Copa Venezuela - UCV
-    "1330833781": "Caracas, Venezuela",                 # 3ra Copa Ciencias-UCV
+    "1035042753": "Hochwald, Solothurn, Switzerland",   # SwissJam No. 6 1/2 — venue TBA, Hochwald
+    "1059060870": "Salem, Oregon, United States",       # Hall of Fame East/West (primary West venue)
+    "1064245646": "Fribourg, Fribourg, Switzerland",    # Swissjam — Regina Mundi venue in Fribourg
+    "1072202155": "Oakland, California, United States", # The Green Cup - multi-venue
+    "1102227996": "Oakland, California, United States", # The Green Cup - multi-venue (primary: Oakland)
+    "1131659634": "Oakland, California, United States", # 2006 Green Cup - multi-venue Oakland/SF
+    "1109356644": "Harrisburg, Pennsylvania, United States", # Funtastik - Morrison Park alias
+    "1113844078": "Baška Voda, Split-Dalmatia, Croatia", # Footbag Camp Croatia 2005 (not CZ)
+    "1143172220": "Somerville, New Jersey, United States", # Jersey Spike & Shred
+    "1149881200": "Harrisburg, Pennsylvania, United States", # Funtastik - multi-day venues
+    "1180708622": "Silver Spring, Maryland, United States", # East Coast Championships
+    "1252451527": "Harrisburg, Pennsylvania, United States", # Funtastik - Morrison Park alias
+    "1295120951": "Oakland, California, United States", # Green Cup - multi-venue
+    "1297909685": "Caracas, Capital District, Venezuela", # 2da Copa Ciencias
+    "1301675662": "Caracas, Capital District, Venezuela", # 2da Copa Venezuela - UCV
+    "1330833781": "Caracas, Capital District, Venezuela", # 3ra Copa Ciencias-UCV
     "1361239920": "San Cristóbal, Táchira, Venezuela",  # FOOTCAMP 2013
-    "1362598500": "Montréal, Québec, Canada",           # Akisphere - multi-park
+    "1362598500": "Montréal, Quebec, Canada",           # Akisphere - multi-park
     "1378928859": "San Cristóbal, Táchira, Venezuela",  # 5º Copa Táchira
 }
 
