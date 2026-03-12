@@ -2150,6 +2150,8 @@ def canonicalize_division(division_raw: str) -> str:
     # Fix encoding corruption: "?" or U+FFFD used as placeholder for lost accented chars
     # 1. Possessive apostrophe: "Women?s" / "Master?S" → "Women's" / "Master's"
     div = re.sub(r"(\w)[?\ufffd][Ss]\b", r"\1's", div)
+    # 1b. "Womenìs" / "Masterìs": U+00EC (i with grave) used as corrupted apostrophe
+    div = re.sub(r"(\w)\u00ECs\b", r"\1's", div)
     # 2. Space-surrounded "?" used as dash: "30 Second Shred ? Open" → "30 Second Shred - Open"
     div = re.sub(r'\s[?\ufffd]\s', ' - ', div)
     # 3. Known multilingual level/gender words with corrupted accented char
@@ -2226,6 +2228,10 @@ def clean_player_name(name: str) -> str:
         return name
 
     original = name
+
+    # Pre-rule: Fix apostrophe corruption before any other processing
+    # "O?Brien" → "O'Brien": Irish/Celtic names where apostrophe was lost as "?"
+    name = re.sub(r"\bO\?([A-Z][a-z])", r"O'\1", name)
 
     # Pre-rule: Strip "tie " / "tie: " prefix from tied-place entries
     # e.g. "tie Michael Lopez" → "Michael Lopez", "Tie: Jeff Wells" → "Jeff Wells"
