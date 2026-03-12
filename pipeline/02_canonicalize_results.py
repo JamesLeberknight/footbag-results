@@ -688,6 +688,20 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1706036811.txt",
         "replace": True,
     },
+    # 14th Bembel Cup 2024 — source uses tab-separated two-column format; parser concatenated
+    # each pair of names as a single player in "Open Singles Freestyle". Actual division is
+    # "Open Doubles Net" (confirmed by mirror <pre> block listing "Open Double Net").
+    "1706536250": {
+        "file":    "legacy_data/event_results/1706536250.txt",
+        "replace": True,
+    },
+    # 42nd IFPA Worlds 2023 — source has two "Women's Singles Net" blocks; the second
+    # is Women's Doubles Net (team results), mislabeled by organizer. Parser merged both
+    # into one division causing 9 duplicate pairs. Fix: rename second block correctly.
+    "1678957450": {
+        "file":    "legacy_data/event_results/1678957450.txt",
+        "replace": True,
+    },
     # Turku Tournee 1999 — Intermediate and Pro divisions conflated into bare "Singles/Doubles Net"
     # because the parser saw two "Singles Net" headers without sport-level context.
     # "Manually Entered Results" section has correct separation; used here.

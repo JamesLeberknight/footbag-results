@@ -15,7 +15,6 @@ event_id,year,event_name,reason,review_stage,notes
 1301837216,2011,The King of the Hill 2011 (presented by Aki Québec),COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Open Singles Net (2 dup pairs).
 1331667371,2012,Paris Net Battle 2,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Open Singles Net (8 dup pairs).
 1537994275,2018,2o Torneo Nacional de Footbag,SOURCE_PARTIAL,HIGH_QUARANTINED,3 duplicate places in Open Doubles. South American event with partial source coverage.
-1678957450,2023,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Circle Contest / Women's Singles Net (9 dup pairs). Battles division added via PBP v60 candidate.
 1160579826,2006,CommALaMaison Contest 3,SOURCE_PARTIAL,HIGH_QUARANTINED,1 duplicate place in Mini Net. Contest-format event with non-standard placement structure.
 959353403,2000,2000 Southeast Idaho Footbag Championships,SOURCE_PARTIAL,HIGH_QUARANTINED,Unknown division contains noise; trailing-colon division name mismatch; source coverage limited. Added to known_issues after MEDIUM review.
 984694623,2001,1st Montreal Summer Freestyle Challenge,SOURCE_PARTIAL,HIGH_QUARANTINED,Old parse with city-as-teammate artifacts; PBP has 8/20 stage2 rows; identity incomplete. Historical event with limited source fidelity.

@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — v2.8.0
+# Footbag Results Pipeline — v2.10.1
 
 Deterministic pipeline for reconstructing and archiving historical Footbag results.
 
@@ -91,9 +91,9 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 
 ```
 inputs/identity_lock/
-    Persons_Truth_Final_v41.csv          # 3,446 canonical persons
+    Persons_Truth_Final_v42.csv          # 3,441 canonical persons
     Persons_Unresolved_Organized_v28.csv # 82 unresolved entries
-    Placements_ByPerson_v59.csv          # 26,572 identity-locked placements
+    Placements_ByPerson_v62.csv          # 27,154 identity-locked placements
 ```
 
 These are human-verified and treated as immutable for this release.
@@ -168,9 +168,9 @@ All outputs go into `out/` (gitignored — never committed).
 
 | File | Rows | Description |
 |---|---|---|
-| `out/Placements_Flat.csv` | 26,572 | All placements, identity-locked |
-| `out/Placements_ByPerson.csv` | 26,572 | Placements joined to person identity |
-| `out/Persons_Truth.csv` | 3,446 | Active identity truth (copy of v41 source) |
+| `out/Placements_Flat.csv` | 27,154 | All placements, identity-locked |
+| `out/Placements_ByPerson.csv` | 27,154 | Placements joined to person identity |
+| `out/Persons_Truth.csv` | 3,441 | Active identity truth (copy of v42 source) |
 
 | `out/Persons_Unresolved.csv` | ~402 | Persons without resolved identity |
 | `out/Placements_Unresolved.csv` | ~376 | Placements for unresolved persons |
@@ -195,7 +195,7 @@ intended for database import or external consumption:
 | `event_disciplines.csv` | 3,918 | One row per discipline within an event |
 | `event_results.csv` | 24,933 | One row per placement slot |
 | `event_result_participants.csv` | 36,073 | One row per participant |
-| `persons.csv` | 3,446 | Canonical persons with aliases and legacy IDs |
+| `persons.csv` | 3,441 | Canonical persons with aliases and legacy IDs |
 
 Natural keys:
 - `events`: `event_key`
@@ -236,10 +236,10 @@ SHA-256 hashes of all three identity lock inputs, proving immutability.
 |---|---|
 | Events | 774 |
 | Year range | 1980–2026 |
-| Placements (identity-locked) | 26,644 |
-| Persons (canonical) | 3,446 |
-| Gate3 PASS | 3,446 |
-| Known-issue events | 55 |
+| Placements (identity-locked) | 27,154 |
+| Persons (canonical) | 3,441 |
+| Gate3 PASS | 3,441 |
+| Known-issue events | 54 |
 
 Coverage is comprehensive from 1997 onward (the primary Footbag.org mirror)
 but is not perfect. Pre-1997 data comes from historical records: 1980–1986
@@ -250,7 +250,7 @@ Some events contain merged divisions or incomplete standings due to how
 results were originally published on Footbag.org (pool-plus-finals combined,
 Open/Intermediate divisions merged under a single label, or only top
 finishers listed). These limitations are documented in
-`overrides/known_issues.csv` (55 events, severity: minor / moderate / severe)
+`overrides/known_issues.csv` (54 events, severity: minor / moderate / severe)
 and are not data errors — they reflect the fidelity of the original source.
 
 21 events are quarantined in `inputs/review_quarantine_events.csv` because
@@ -272,9 +272,9 @@ Current identity baseline:
 
 | Artifact | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final` | v41 | 3,446 |
+| `Persons_Truth_Final` | v42 | 3,441 |
 | `Persons_Unresolved_Organized` | v28 | 82 |
-| `Placements_ByPerson` | v59 | 26,572 |
+| `Placements_ByPerson` | v62 | 27,154 |
 
 ---
 
@@ -304,9 +304,9 @@ Current identity baseline:
 │   └── ...                           # Identity curation and patch tools
 ├── inputs/
 │   ├── identity_lock/                # Authoritative identity artifacts
-│   │   ├── Persons_Truth_Final_v41.csv
+│   │   ├── Persons_Truth_Final_v42.csv
 │   │   ├── Persons_Unresolved_Organized_v28.csv
-│   │   └── Placements_ByPerson_v59.csv
+│   │   └── Placements_ByPerson_v62.csv
 │   ├── location_canon_full_final.csv # Canonical location display strings
 │   ├── consecutives_records.csv      # Consecutives world records reference data
 │   ├── bap_data.csv                  # BAP honours data

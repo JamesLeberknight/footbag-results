@@ -4,6 +4,78 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [v2.10.1] — Source coverage patch PBP v61→v62; Worlds 2023 + Bembel Cup 2024 fixes
+**Release date:** 2026-03-12
+
+### Changes
+
+#### Placements (PBP v61 → v62)
+- **+510 placement rows** (27,154 total) via `tools/56_patch_pbp_v61_to_v62.py`
+- SOURCE_COVERAGE_PASS: 0 BLOCKER_GENUINE after patch (was 100 pairs)
+- 37 stale v61 rows excluded (replaced by corrected data for 2 events)
+- 547 new rows generated across 100 target (event, division) pairs
+
+#### Event data fixes
+- **Worlds 2023** (event 1678957450, dequarantined): organizer had mislabeled the Women's
+  Doubles Net results block as a second "Women's Singles Net" section. RESULTS_FILE_OVERRIDE
+  renames it correctly. Removed from `review_quarantine_events.csv` and `known_issues.csv`.
+  V61_STALE_ROWS clears corrupted Circle Contest, Women's Singles Net, Women's Doubles Net
+  rows; FORCE_PATCH injects corrected data.
+- **Bembel Cup 2024** (event 1706536250): source uses tab-separated two-column doubles format;
+  parser had concatenated both columns as Open Singles Freestyle. RESULTS_FILE_OVERRIDE
+  restores correct 12-team Open Doubles Net results.
+
+#### New source-coverage tooling
+- `tools/54_source_coverage_qc.py`: compare stage2 vs Placements_Flat; classify as
+  BLOCKER_GENUINE / BLOCKER_DRIFT / PARTIAL / JUSTIFIED / OK; exits 1 if BLOCKER_GENUINE > 0
+- `tools/55_encoding_scan.py`: scan canonical outputs for encoding anomalies
+- `tools/56_patch_pbp_v61_to_v62.py`: targeted PBP patch with V61_STALE_ROWS + FORCE_PATCH
+  support for events with wrong (not just absent) v61 data
+
+#### Counts (current)
+- `Placements_ByPerson_v62.csv`: 27,154 rows
+- Known-issue events: 54 (Worlds 2023 removed)
+- Quarantined events: 20
+
+---
+
+## [v2.10.0] — Identity merges via member ID matching, member ID enrichment
+**Release date:** 2026-03-12
+
+### Changes
+
+#### Identity (PT v41 → v42, PBP v60 → v61)
+- **5 confirmed duplicate pairs merged** discovered via footbag.org member ID / alias matching:
+  - Anthony Mehok → Tony Mehok
+  - Henry Rautio → Heikki Rautio
+  - Jacob Hall → Jakob Hall
+  - Johnny Leys → John Leys
+  - Laurence DuMont → Lawrence Dumont
+- Losing persons become verified aliases; 3 PBP placements redirected (v60 → v61)
+- **5 ADD_ALIAS entries** added to `person_aliases.csv`:
+  Bryan S. Nelson, Errol H. Stryker, Forrester Winterburn,
+  Jonathan F. Araquistain, Nathan Oates
+- Gate3 PASS: 3,446 → **3,441**
+
+#### New enrichment tools (54–57)
+- `tools/54_member_id_extraction.py`: live footbag.org member ID lookup with alias/handle matching
+- `tools/55_metadata_enrichment.py`: recover missing event dates from live pages
+- `tools/56_member_alias_suggestions.py`: post-process ALIAS_MATCH hits to suggest new aliases
+  and flag potential PT merges
+- `tools/57_merge_alias_patch.py`: apply confirmed merge decisions to PT / PBP / aliases
+
+#### Pipeline fixes
+- **04B**: Basque Country normalised to Spain in community Excel and canonical CSV
+- **04B**: `event_metadata_overrides.csv` — 148 recovered event dates applied
+- **05**: Member IDs from enrichment file populate `legacyid` column in `persons.csv`
+
+#### Counts (current)
+- `Persons_Truth_Final_v42.csv`: 3,441 rows
+- `Placements_ByPerson_v61.csv`: 26,644 rows
+- Gate3 PASS: 3,441
+
+---
+
 ## [v2.9.0] — PBP v60, complete MEDIUM review, canonical freeze
 **Release date:** 2026-03-11
 

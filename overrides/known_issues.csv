@@ -7,7 +7,6 @@ event_id,severity,note
 1417735560,severe,"pool+finals results merged (5 divisions, 14 dup pairs, 121 affected rows)"
 1449259560,severe,"pool+finals results merged (8 divisions, 68 dup pairs, 172 affected rows)"
 1487797845,severe,"division results merged (""Mixed Doubles Net"", ""Open Routines"", 7 dup pairs)"
-1678957450,severe,"division results merged (""Circle Contest"", ""Women's Singles Net"", 9 dup pairs)"
 910551956,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Novice Doubles Net"", ""Open Doubles Net"" + 3 more)"
 1001942070,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open"")"
 1018812342,moderate,"minor: 3 duplicate place(s) in ""Girl's Freestyle"""

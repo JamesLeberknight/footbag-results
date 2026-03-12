@@ -179,10 +179,16 @@ _HONOURS_TO_PT = {
 _TRANSLIT = str.maketrans("łŁøØðÐđĐ", "lloodddd")
 
 def _display_name(s: str) -> str:
-    """Return s with title-casing applied if stored in ALL-CAPS (Latin American event data)."""
+    """Return s ready for workbook display.
+
+    - Fixes ÏNicknameÓ mojibake → "Nickname" (corrupted CP1252 smart quotes)
+    - Title-cases ALL-CAPS strings (Latin American event data)
+    """
     s = (s or "").strip()
     if not s:
         return s
+    # Fix mojibake smart-quote pattern before any other processing
+    s = _RE_MOJI_QUOTE.sub(lambda m: f'"{m.group(1)}"', s)
     alpha = [c for c in s if c.isalpha()]
     if alpha and all(c.isupper() for c in alpha):
         return s.title()
@@ -201,6 +207,17 @@ _RE_STAR = re.compile(r"^\*+\s*")
 _RE_TRAIL_DASH = re.compile(r"\s*-\s*$")
 _RE_QUESTION_SEP = re.compile(r"\s+\?\s+")  # encoding artifact " ? " in div names → " - "
 _RE_ANNOTATION_TAIL = re.compile(r"\s*\(([^)]+)\)\s*$")  # trailing (annotation)
+# Fix apostrophe corruption: Women?S → Women's, Master?S → Master's
+_RE_APOS_CORRUPT = re.compile(r"\b(\w+)\?[Ss]\b")
+# Fix U+FFFD + uppercase artifact from encoding corruption + titlecase:
+#   "Cir\ufffdCle" → "Circle", "Rou\ufffdTines" → "Routines", etc.
+_RE_REPL_UPPER = re.compile(r"\ufffd([A-Z])")
+# Fix ÏNicknameÓ mojibake pattern (corrupted smart quotes in names):
+#   "Chris ÏGatorÓ Routh" → 'Chris "Gator" Routh'
+_RE_MOJI_QUOTE = re.compile(r"Ï(.+?)Ó")
+# ISO-8859-2 bytes misread as Latin-1 in event names:
+#   ¿ (U+00BF) → ż (U+017C)  e.g. "Net Dżem" stored as "Net D¿em"
+_RE_EVENT_ISO2 = re.compile(r"[¿\u00bf](?=[a-zA-Z])")
 
 
 def _clean_div(s: str) -> str:
@@ -210,6 +227,9 @@ def _clean_div(s: str) -> str:
     s = _RE_BBU.sub("", s)            # [U] / [/U] BBCode
     s = _RE_TRAIL_DASH.sub("", s)     # trailing " -" or "-"
     s = _RE_QUESTION_SEP.sub(" - ", s)  # " ? " encoding artifact → " - "
+    s = _RE_APOS_CORRUPT.sub(lambda m: m.group(1) + "'s", s)  # Women?S → Women's
+    s = _RE_REPL_UPPER.sub(lambda m: m.group(1).lower(), s)   # Cir\ufffdCle → Circle
+    s = s.replace("\ufffd", "")       # strip any remaining replacement chars
     return s.strip()
 
 
@@ -227,6 +247,81 @@ def _strip_annotation_tail(p: str) -> str:
     return p
 
 
+# Corrections for garbled team member names (U+FFFD encoding corruption in PBP).
+# Built from PT canonical names via edit-distance matching + manual supplements.
+# Keys are the exact garbled strings as they appear in PBP team_display_name parts.
+_NAME_CORRECTIONS: dict[str, str] = {
+    # PT-matched corrections
+    "Alexandre B\ufffdlanger":           "Alexandre Bélanger",
+    "Andr\ufffd Lemaire":                "André Lemaire",
+    "Carlos M\ufffdRquez":               "Carlos Marquez",
+    "Chris L\ufffdW":                    "Chris Löw",
+    "Filip W\ufffdJcik":                 "Filip Wojcik",
+    "Fran\ufffdois Leh":                 "François Leh",
+    "Fran\ufffdois Pelletier":           "Francois Pelletier",
+    "Genevi\ufffdve Bousquet":           "Genevieve Bousquet",
+    "Gosia D\ufffdBska":                 "Gosia Debska",
+    "Heike K\ufffdLler":                 "Heike Köller",
+    "Jean-Francois B\ufffdLanger":       "Jean François Bélanger",
+    "Jean-Fran\ufffdois Lemieux":        "Jean-Francois Lemieux",
+    "Kinga Gw\ufffd\u017add\u017c":      "Kinga Gwozdz",
+    "Klemenz L\ufffdNgauer":             "Klemenz Längauer",
+    "Krzysztof Sob\ufffdTka":            "Krzysztof Sobótka",
+    "L\ufffdA L'Esp\ufffdRance":         "Léa Lespérance",
+    "Marcin Staro\ufffd":               "Marcin Staron",
+    "Martin C\ufffdT\ufffd":            "Martin Cote",
+    "Martin Sl\ufffdDek":               "Martin Sladek",
+    "Mał\ufffdGorzata D\u0119B\ufffdSka":"Malgorzata Debska",
+    "Mał\ufffdGorzata Ol\u0119Dzka":    "Malgorzata Oledzka",
+    "Micha\ufffd R\ufffdG":             "Micha Rog",
+    "Oskari Forst\ufffdN":              "Oskari Forstén",
+    "Petteri Pet\ufffdInen":            "Petteri Petäinen",
+    "Piia Tantarim\ufffdKi":            "Piia Tantarimäki",
+    "Rados\ufffdAw Turek":              "Rados Turek",
+    "Robin P\ufffdChel":                "Robin Puchel",
+    "S\ufffdBastien Duchesne":          "Sebastien Duchesne",
+    "S\ufffdBastien Maillet":           "Sébastien Maillet",
+    "St\ufffdPhane Tailleur":           "Stéphane Tailleur",
+    "Tuomas K\ufffdRki":                "Tuomas Karki",
+    "Ulrike H\ufffd\ufffdLer":          "Ulrike Häßler",
+    "Wiktor D\ufffdBski":               "Wiktor Debski",
+    "\ufffdUkasz Domin":                "Lukasz Domin",
+    # Manual supplements for names not found in PT
+    "Florian G\ufffdTze":               "Florian Goetze",
+    "J. B\ufffdHm":                     "Jule Böhm",
+    "Renato Z\ufffdLli":                "Renatto Zülli",
+    "Thomas F\ufffdRster":              "Thomas Forster",
+    "Olivier Berthiaume-Berg\ufffdE":   "Olivier B.-Bergé",
+    # ISO-8859-2 bytes misread as Latin-1 in PBP team_display_name parts
+    # ¹ (U+00B9) = š in ISO-8859-2;  è (U+00E8) = č;  ¦ (U+00A6) = Ś;  ¼ (U+00BC) = ź
+    "Tomá\u00b9 Tu\u00e8ek":           "Tomáš Tuček",
+    "Ale\u00b9 Pelko":                 "Aleš Pelko",
+    "Paweł \u00a6cierski":             "Paweł Ścierski",
+    "Rafał Kaleta":                     "Rafał Kaleta",     # already correct, kept for completeness
+    "Kinga Gwó\u00bcd\u00bc":          "Kinga Gwóźdź",
+    "Robin P\u00b8chel":               "Robin Puchel",
+}
+
+# Lowercase suffix map for the U+FFFD + uppercase artifact in team names.
+# Rule: \ufffd[UPPER] → [UPPER].lower() (titlecase artifact from encoding corruption)
+_RE_TEAM_REPL_UPPER = re.compile(r"\ufffd([A-Z])")
+
+
+def _fix_name_encoding(p: str) -> str:
+    """Apply encoding corrections to a single team member name."""
+    # 1. Try exact lookup
+    if p in _NAME_CORRECTIONS:
+        return _NAME_CORRECTIONS[p]
+    # 2. Fix ÏNicknameÓ mojibake (corrupted CP1252 smart quotes around nickname)
+    if "Ï" in p or "Ó" in p:
+        p = _RE_MOJI_QUOTE.sub(lambda m: f'"{m.group(1)}"', p)
+    # 3. Apply \ufffd+UPPER → lower(UPPER) and strip remaining \ufffd
+    if "\ufffd" in p:
+        p = _RE_TEAM_REPL_UPPER.sub(lambda m: m.group(1).lower(), p)
+        p = p.replace("\ufffd", "")
+    return p
+
+
 def _clean_team_display(s: str) -> str:
     """Clean team display names: remove noise tokens, capitalize, strip annotation tails."""
     s = (s or "").strip()
@@ -238,6 +333,7 @@ def _clean_team_display(s: str) -> str:
         if p.lower() in _WEEKDAYS or p.lower() in _COUNTRIES:
             cleaned.append("[?]")
         else:
+            p = _fix_name_encoding(p)
             p = _strip_annotation_tail(p)
             # Capitalize first letter (fixes "david Butcher" → "David Butcher")
             if p and p[0].islower():
@@ -291,6 +387,225 @@ def _split_location(loc: str):
             country = country_canon
         return city_region, country
     return loc, ""
+
+
+# ── Location normalisation (presentation layer only) ──────────────────────────
+# Standardise USA abbreviation variants → "United States"
+_RE_USA_VARIANT = re.compile(r"\bU\.S\.A\.?\b|\bUSA\b")
+# Strip parenthetical content from locations
+_RE_LOC_PAREN   = re.compile(r"\s*\([^)]*\)\s*")
+# TBA / unknown strings
+_RE_LOC_TBA     = re.compile(
+    r"^(t\.b\.a\.?|tba|tbd|tbf|location\s+tbd|location\s+tbf|see\s+details\.?)$",
+    re.I,
+)
+
+# Venue string → canonical "City, Region, Country" mapping.
+# Keys are matched as prefixes (longest first) against the paren-stripped location.
+# Value "" means the location is unknown / not recorded.
+_VENUE_CANONICAL: dict[str, str] = {
+    # ── User-specified table ────────────────────────────────────────────────
+    "Tali Soccer Innerstadium / Toolo Sportcenter": "Helsinki, Finland",
+    "Tom McCall Waterfront Park":                   "Portland, Oregon, United States",
+    "Universidad de Sonora Enfrente de laboratorio": "Hermosillo, Sonora, Mexico",
+    "Universidad de Sonora":                        "Hermosillo, Sonora, Mexico",
+    "University of Maryland campus":                "College Park, Maryland, United States",
+    "University of Maryland, College Park":         "College Park, Maryland, United States",
+    "University of Maryland":                       "College Park, Maryland, United States",
+    "University of Calgary":                        "Calgary, Alberta, Canada",
+    "University of Oregon Education Field":         "Eugene, Oregon, United States",
+    "University of Oregon":                         "Eugene, Oregon, United States",
+    "UMD College Park Campus":                      "College Park, Maryland, United States",
+    "Washington Jefferson St bridge":               "Bloomington, Indiana, United States",
+    "Wascana Park":                                 "Regina, Saskatchewan, Canada",
+    "Waterfront Park":                              "Portland, Oregon, United States",
+    "Watson Park":                                  "Redmond, Washington, United States",
+    "West Linn Willamette Park":                    "West Linn, Oregon, United States",
+    "Toolo's Sportcenter":                          "Helsinki, Finland",
+    "Toolo Sportcenter":                            "Helsinki, Finland",
+    "Toadstool Playhouse":                          "Amherst, Massachusetts, United States",
+    "Tali Soccer Innerstadium":                     "Helsinki, Finland",
+    "Turkey Brook Park":                            "Mount Olive, New Jersey, United States",
+    # ── Additional data-confirmed mappings ──────────────────────────────────
+    "Ruskeasuon urheiluhalli":                      "Helsinki, Finland",
+    "Arena Center, Ruskeasuo":                      "Helsinki, Finland",
+    "Stanford University":                          "Palo Alto, California, United States",
+    "Hermosa Valley Park":                          "Hermosa Beach, California, United States",
+    "Sellwood Riverfront Park":                     "Portland, Oregon, United States",
+    "Alton Baker Park":                             "Eugene, Oregon, United States",
+    "Portland State University":                    "Portland, Oregon, United States",
+    "Willamette Mission State Park":                "Mission, Oregon, United States",
+    "Green Lake Park":                              "Seattle, Washington, United States",
+    "Greenlake Park":                               "Seattle, Washington, United States",
+    "Stanley Park":                                 "Vancouver, British Columbia, Canada",
+    "Lid Park":                                     "Mercer Island, Washington, United States",
+    "Cornell University":                           "Ithaca, New York, United States",
+    "Harvey Mudd College":                          "Claremont, California, United States",
+    "Auraria Campus":                               "Denver, Colorado, United States",
+    "St. Cajetan's Church":                         "Denver, Colorado, United States",
+    "Monmouth College":                             "Monmouth, Illinois, United States",
+    "Mayo Park":                                    "Harrisburg, Pennsylvania, United States",
+    # ── Montreal venues ─────────────────────────────────────────────────────
+    "La Ronde":                                     "Montreal, Quebec, Canada",
+    "Cegep du Vieux-Montreal":                      "Montreal, Quebec, Canada",
+    "Place-des-Arts":                               "Montreal, Quebec, Canada",
+    "Le Gesu":                                      "Montreal, Quebec, Canada",
+    "NDA centre":                                   "Montreal, Quebec, Canada",
+    # ── Seattle / Pacific Northwest ─────────────────────────────────────────
+    "Magnolia Community Center":                    "Seattle, Washington, United States",
+    "Mt. Hood Community College":                   "Gresham, Oregon, United States",
+    # ── Illinois / Midwest ───────────────────────────────────────────────────
+    "Illini Playfields":                            "Champaign, Illinois, United States",
+    "Student Recreation Center of SIUC":            "Carbondale, Illinois, United States",
+    "Montrose Harbor":                              "Chicago, Illinois, United States",
+    # ── Arizona ─────────────────────────────────────────────────────────────
+    "ASU Band Field":                               "Tempe, Arizona, United States",
+    # ── Germany ─────────────────────────────────────────────────────────────
+    "Flatow-Halle Berlin":                          "Berlin, Germany",
+    # ── New York ────────────────────────────────────────────────────────────
+    "Central Park (next to Summerstage)":           "New York City, New York, United States",
+    "State University New Paltz":                   "New Paltz, New York, United States",
+    # ── Quebec / Canada ─────────────────────────────────────────────────────
+    "Plaines d'Abraham":                            "Quebec City, Quebec, Canada",
+    "Plaines of Abraham":                           "Quebec City, Quebec, Canada",
+    "Acadia Althletic Park":                        "Wolfville, Nova Scotia, Canada",
+    "Acadia Athletic Park":                         "Wolfville, Nova Scotia, Canada",
+    # ── France ──────────────────────────────────────────────────────────────
+    "Parc de Saint Cloud":                          "Saint-Cloud, Hauts-de-Seine, France",
+    "Gymnase Duplat":                               "Lyon, France",
+    # ── Finland ─────────────────────────────────────────────────────────────
+    "Oulu marketplace":                             "Oulu, Finland",
+    "Iso Kirja Conference Center":                  "Keuruu, Finland",
+    # ── New Zealand ─────────────────────────────────────────────────────────
+    "Chaffers Park":                                "Wellington, New Zealand",
+    # ── Pennsylvania ────────────────────────────────────────────────────────
+    "Phoenixville YMCA":                            "Phoenixville, Pennsylvania, United States",
+    "Nationality Days Street Festival":             "Pittsburgh, Pennsylvania, United States",
+    # ── Georgia (US) ────────────────────────────────────────────────────────
+    "Pendleton King Park":                          "Augusta, Georgia, United States",
+    # ── Oregon ──────────────────────────────────────────────────────────────
+    "IRVING GRANGE":                                "Eugene, Oregon, United States",
+    "Irving Grange":                                "Eugene, Oregon, United States",
+    # ── Illinois ────────────────────────────────────────────────────────────
+    "Cornerstone Farm":                             "Bushnell, Illinois, United States",
+    # ── California ──────────────────────────────────────────────────────────
+    "Mitchell Park":                                "San Luis Obispo, California, United States",
+    # ── Tennessee ───────────────────────────────────────────────────────────
+    "Mud Island":                                   "Memphis, Tennessee, United States",
+    "Bartlett Recreational Center":                 "Bartlett, Tennessee, United States",
+    # ── Florida ─────────────────────────────────────────────────────────────
+    "Disney Wide World of Sports Complex":          "Orlando, Florida, United States",
+    # ── Australia ───────────────────────────────────────────────────────────
+    "Melbourne Sports & Aquatic Centre":            "Melbourne, Victoria, Australia",
+    "Sydney Myer Music Bowl":                       "Melbourne, Victoria, Australia",
+    "Outside the State Library":                    "Melbourne, Victoria, Australia",
+    "State Library":                                "Melbourne, Victoria, Australia",
+    "Logan City PoliceYouth Club":                  "Logan City, Queensland, Australia",
+    "Logan City Police Youth Club":                 "Logan City, Queensland, Australia",
+    # ── South Carolina (SLO = San Luis Obispo area for Cinco de Mayo) ───────
+    # (Pendleton King Park already covers Augusta GA for SE Regionals)
+    # ── TBA / unknown ───────────────────────────────────────────────────────
+    "city/region: T.B.A":                           "",
+    "T.B.A":                                        "",
+    "Location TBD":                                 "",
+}
+# Sort keys longest-first so more-specific prefixes match before shorter ones
+_VENUE_KEYS_SORTED = sorted(_VENUE_CANONICAL, key=len, reverse=True)
+
+# US states (full names and 2-letter codes) for country inference
+_US_STATES = {
+    "alabama","alaska","arizona","arkansas","california","colorado",
+    "connecticut","delaware","florida","georgia","hawaii","idaho",
+    "illinois","indiana","iowa","kansas","kentucky","louisiana",
+    "maine","maryland","massachusetts","michigan","minnesota",
+    "mississippi","missouri","montana","nebraska","nevada",
+    "new hampshire","new jersey","new mexico","new york",
+    "north carolina","north dakota","ohio","oklahoma","oregon",
+    "pennsylvania","rhode island","south carolina","south dakota",
+    "tennessee","texas","utah","vermont","virginia","washington",
+    "west virginia","wisconsin","wyoming","district of columbia",
+    "al","ak","az","ar","ca","co","ct","de","fl","ga","hi","id",
+    "il","in","ia","ks","ky","la","me","md","ma","mi","mn","ms",
+    "mo","mt","ne","nv","nh","nj","nm","ny","nc","nd","oh","ok",
+    "or","pa","ri","sc","sd","tn","tx","ut","vt","va","wa","wv",
+    "wi","wy","dc",
+}
+# Canadian provinces (full names and 2-letter codes)
+_CA_PROVINCES = {
+    "alberta","british columbia","manitoba","new brunswick",
+    "newfoundland and labrador","newfoundland","nova scotia",
+    "ontario","prince edward island","quebec","québec",
+    "saskatchewan","yukon","northwest territories","nunavut",
+    "ab","bc","mb","nb","nl","ns","on","pe","qc","sk","yt","nt","nu",
+}
+
+
+def _normalize_location(event_name: str, loc: str) -> str:
+    """Normalise a raw location to 'City, Region, Country' for display.
+
+    Priority:
+      1. TBA / blank → return ""
+      2. Standardise USA variants → "United States"
+      3. Event-specific rules (Funtastic, Basque/Euskal)
+      4. Venue → canonical table (prefix match, longest key first)
+      5. Generic cleanup (parens, broken-paren prefix, slash)
+      6. Country inference from known US state / Canadian province
+      7. Vancouver location → canonical BC form
+    Does NOT modify canonical source files.
+    """
+    if not loc:
+        return ""
+
+    # Step 2: standardise USA abbreviations
+    loc = _RE_USA_VARIANT.sub("United States", loc).strip()
+
+    # Step 1b: TBA after substitution
+    if _RE_LOC_TBA.match(loc):
+        return ""
+
+    # Step 3: event-name-based rules
+    name_l = (event_name or "").lower()
+    if "funtast" in name_l:
+        return "Harrisburg, Pennsylvania, United States"
+    if "basque" in name_l or "euskal" in name_l:
+        return "Bilbao, Biscay, Spain"
+
+    # Step 4: venue table — try raw string first (preserves specificity of
+    # entries that include parenthetical context), then paren-stripped fallback.
+    loc_stripped = _RE_LOC_PAREN.sub(" ", loc).strip()
+    for candidate in (loc, loc_stripped):
+        cand_lower = re.sub(r"\s+", " ", candidate).lower().strip()
+        for key in _VENUE_KEYS_SORTED:
+            if cand_lower.startswith(key.lower()):
+                return _VENUE_CANONICAL[key]   # may be "" for TBA entries
+
+    # Already looks canonical (has ≥2 commas → City, Region, Country)?
+    # Only skip further cleanup if it's not a venue-prefix string.
+    # We still apply USA standardisation and country inference below.
+
+    # Step 5a: strip parenthetical content
+    loc = _RE_LOC_PAREN.sub(" ", loc).strip()
+    # Step 5b: fix broken opening-paren artifact, e.g. "Campus) Boulder, CO, US"
+    loc = re.sub(r"^[^,]*\)\s*", "", loc).strip()
+    # Step 5c: slash — pick the part with the most commas (most complete location)
+    if " / " in loc or ("/" in loc and ", " in loc):
+        parts = [p.strip() for p in re.split(r"\s*/\s*", loc)]
+        loc = max(parts, key=lambda p: p.count(","))
+
+    # Step 6: country inference when the last comma-part is a known state/province
+    parts = [p.strip() for p in loc.split(",")]
+    if len(parts) >= 2:
+        last = parts[-1].lower().strip()
+        if last in _US_STATES and "united states" not in loc.lower():
+            loc = loc + ", United States"
+        elif last in _CA_PROVINCES and "canada" not in loc.lower():
+            loc = loc + ", Canada"
+
+    # Step 7: Vancouver canonical form
+    if loc.lower().startswith("vancouver") and "canada" in loc.lower():
+        loc = "Vancouver, British Columbia, Canada"
+
+    return loc.strip()
 
 
 # ── Data loading ──────────────────────────────────────────────────────────────
@@ -366,13 +681,27 @@ def load_stage2_events() -> dict:
                     div_order.append(dc)
                     seen.add(dc)
 
-            fo = field_overrides.get(eid, {})
-            loc = fo.get("location") or (row.get("location") or "").strip()
+            fo          = field_overrides.get(eid, {})
+            event_name  = (row.get("event_name") or "").strip()
+            loc_override = fo.get("location")
+            loc_s2       = (row.get("location") or "").strip()
+            loc_raw      = loc_override or loc_s2
+            loc          = _normalize_location(event_name, loc_raw)
+            _, country_test = _split_location(loc)
+            # If override produced a venue-only string (no country), fall back to stage2
+            if loc_override and not country_test and loc_s2:
+                loc_fallback = _normalize_location(event_name, loc_s2)
+                _, country_fb = _split_location(loc_fallback)
+                if country_fb:
+                    loc = loc_fallback
             city, country = _split_location(loc)
+            # Infer "Unknown" for country only when location is present but country absent
+            if loc and not country:
+                country = "Unknown"
             events[eid] = {
                 "event_id":   eid,
                 "year":       _to_int(row.get("year")),
-                "event_name": (row.get("event_name") or "").strip(),
+                "event_name": event_name,
                 "date":       fo.get("date") or (row.get("date") or "").strip(),
                 "location":   loc,
                 "city":       city,
@@ -380,6 +709,8 @@ def load_stage2_events() -> dict:
                 "host_club":  fo.get("host_club") or (row.get("host_club") or "").strip(),
                 "event_type": fo.get("event_type") or (row.get("event_type") or "").strip(),
                 "div_order":  div_order,
+                # Preserve raw location for DATA_LIMITATIONS reporting
+                "_loc_raw":   loc_raw,
             }
     return events
 
@@ -1173,18 +1504,77 @@ def load_known_issues() -> dict[str, dict]:
             }
     return result
 
-# Row background colours for Index sheet (traffic-light)
-_ROW_FILL = {
-    None:       ("F0FFF0", "E8F5E9"),  # no issue  — green tones (even/odd)
-    "minor":    ("FFFDE7", "FFF9C4"),  # minor     — pale yellow
-    "moderate": ("FFF3E0", "FFE0B2"),  # moderate  — pale orange
-    "severe":   ("FFEBEE", "FFCDD2"),  # severe    — pale red
-}
-# Note text colours
-_NOTE_COLOR = {
-    "minor":    "997700",
-    "moderate": "CC5500",
-    "severe":   "CC0000",
+
+def load_quarantine_events() -> set:
+    """Return set of event_ids from inputs/review_quarantine_events.csv."""
+    path = INPUT_DIR / "review_quarantine_events.csv"
+    result = set()
+    if not path.exists():
+        return result
+    with open(path, newline="", encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            eid = (row.get("event_id") or "").strip()
+            if eid:
+                result.add(eid)
+    return result
+
+
+def compute_data_status(eid: str, event_placements: dict,
+                        known_issues: dict, quarantine_set: set) -> str:
+    """Return data_status string for one event.
+
+    Priority:  QUARANTINED > METADATA_ONLY > SOURCE_PARTIAL > KNOWN_ISSUE > OK
+    SOURCE_PARTIAL: known_issue severity moderate or severe (incomplete source data).
+    KNOWN_ISSUE:    known_issue severity minor (parsing / display limitation).
+    """
+    if eid in quarantine_set:
+        return "QUARANTINED"
+    ep = event_placements.get(eid, {})
+    n_d = len(ep)
+    if n_d == 0:
+        return "METADATA_ONLY"
+    issue = known_issues.get(eid)
+    if issue:
+        if issue["severity"] in ("moderate", "severe"):
+            return "SOURCE_PARTIAL"
+        return "KNOWN_ISSUE"
+    return "OK"
+
+
+def compute_results_coverage_str(eid: str, data_status: str,
+                                 event_coverage: dict, event_placements: dict) -> str:
+    """Return results_coverage string for Index column."""
+    if data_status == "QUARANTINED":
+        return "quarantined"
+    ep = event_placements.get(eid, {})
+    if not ep:
+        return "none"
+    flag = event_coverage.get(str(eid), "complete")
+    return flag.lower()
+
+
+# Row background fills for Index sheet — 2-level: OK=green, QUARANTINED=red, else white
+FILL_INDEX_OK          = _fill("E8F5E9")   # soft green  — OK events
+FILL_INDEX_QUARANTINED = _fill("FFCDD2")   # soft red    — quarantined events
+FILL_INDEX_DEFAULT     = _fill("FFFFFF")   # white       — all other statuses
+
+# Status label styles for year sheets
+FILL_STATUS_WARN  = _fill("FFF9C4")   # yellow — SOURCE_PARTIAL / KNOWN_ISSUE
+FILL_STATUS_INFO  = _fill("E3F2FD")   # blue   — METADATA_ONLY
+FILL_STATUS_QUAR  = _fill("FFCDD2")   # red    — QUARANTINED
+FONT_STATUS_WARN  = Font(bold=True, size=8, color="996600")
+FONT_STATUS_INFO  = Font(bold=True, size=8, color="1565C0")
+FONT_STATUS_QUAR  = Font(bold=True, size=8, color="CC0000")
+
+_STATUS_LABELS = {
+    "SOURCE_PARTIAL": ("⚠ PARTIAL RESULTS",  "Source published only top placements",
+                       FONT_STATUS_WARN, FILL_STATUS_WARN),
+    "KNOWN_ISSUE":    ("⚠ DATA ISSUE",        "Known mirror parsing limitation",
+                       FONT_STATUS_WARN, FILL_STATUS_WARN),
+    "METADATA_ONLY":  ("ℹ METADATA ONLY",     "Results were never published",
+                       FONT_STATUS_INFO, FILL_STATUS_INFO),
+    "QUARANTINED":    ("⛔ QUARANTINED",       "Results excluded due to ambiguous structure",
+                       FONT_STATUS_QUAR, FILL_STATUS_QUAR),
 }
 
 
@@ -1193,16 +1583,24 @@ _NOTE_COLOR = {
 def build_index_real(wb: Workbook, events: dict, event_placements: dict,
                      event_col_map: dict, insert_at: int,
                      event_coverage: dict = None,
-                     known_issues: dict = None):
-    """Build the Index sheet with hyperlinks and insert at the correct position."""
+                     known_issues: dict = None,
+                     quarantine_set: set = None,
+                     data_status_map: dict = None):
+    """Build the Index sheet with hyperlinks and insert at the correct position.
+
+    Columns: event_id, year, event_name, city, country, start_date,
+             placements_count, division_count, results_coverage, data_status, notes
+    Color:   GREEN=OK, RED=QUARANTINED, WHITE=everything else
+    """
     ws = wb.create_sheet("Index")
     wb.move_sheet("Index", offset=-(len(wb.sheetnames) - 1 - insert_at))
 
     ws.freeze_panes = "A2"
 
-    hdrs   = ["Year", "Event", "City / Region", "Country", "Host Club",
-              "Divisions", "Players", "Coverage", "Data Notes"]
-    widths = [7, 48, 32, 12, 30, 11, 10, 12, 30]
+    hdrs   = ["Event ID", "Year", "Event Name", "City / Region", "Country",
+              "Start Date", "Placements", "Divisions", "Results Coverage",
+              "Data Status", "Notes"]
+    widths = [14, 7, 48, 28, 12, 16, 11, 10, 18, 16, 42]
     for c, (h, w) in enumerate(zip(hdrs, widths), start=1):
         _c(ws, 1, c, h, font=FONT_HDR, fill=FILL_HDR, align=ALIGN_CENTER)
         ws.column_dimensions[get_column_letter(c)].width = w
@@ -1213,39 +1611,48 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
                          _date_sort_key(events[eid].get("date", ""), eid)),
     )
 
+    _quarantine_set  = quarantine_set  or set()
+    _known_issues    = known_issues    or {}
+    _event_coverage  = event_coverage  or {}
+    _data_status_map = data_status_map or {}
+
     for row_idx, eid in enumerate(all_eids, start=2):
         ev  = events[eid]
         ep  = event_placements.get(eid, {})
         n_p = _count_participants(ep)
         n_d = len(ep)
 
-        ws.cell(row=row_idx, column=1, value=ev["year"] or "?")
-        ws.cell(row=row_idx, column=3, value=ev.get("city", ev.get("location", "")))
-        ws.cell(row=row_idx, column=4, value=ev.get("country", ""))
-        ws.cell(row=row_idx, column=5, value=ev.get("host_club", ""))
-        ws.cell(row=row_idx, column=6, value=n_d)
-        ws.cell(row=row_idx, column=7, value=n_p)
+        ds  = _data_status_map.get(eid, "OK")
+        cov = compute_results_coverage_str(eid, ds, _event_coverage, event_placements)
 
-        flag = (event_coverage or {}).get(str(eid), "complete")
-        if n_d == 0:
-            # Metadata-only: event in Index but no competitive results available
-            cov_cell = ws.cell(row=row_idx, column=8, value="no results")
-            cov_cell.font = Font(italic=True, size=9, color="888888")
-        elif flag in ("partial", "sparse"):
-            cov_cell = ws.cell(row=row_idx, column=8, value=flag)
-            cov_cell.font = Font(italic=True, size=9, color="CC0000")
-
-        issue   = (known_issues or {}).get(str(eid))
-        severity = issue["severity"] if issue else None
-        if n_d == 0 and not issue:
-            note_cell = ws.cell(row=row_idx, column=9, value="No competitive results available")
-            note_cell.font = Font(italic=True, size=9, color="888888")
+        # Build notes text
+        issue = _known_issues.get(eid)
+        if ds == "QUARANTINED":
+            notes = "Excluded — ambiguous structure prevents deterministic parsing"
+        elif ds == "METADATA_ONLY":
+            notes = "No competitive results available"
         elif issue:
-            note_cell = ws.cell(row=row_idx, column=9, value=issue["note"])
-            note_cell.font = Font(italic=True, size=9,
-                                  color=_NOTE_COLOR.get(severity, "996600"))
+            notes = issue["note"]
+        else:
+            notes = ""
 
-        cell = ws.cell(row=row_idx, column=2, value=ev["event_name"])
+        # Columns
+        ws.cell(row=row_idx, column=1,  value=eid)
+        ws.cell(row=row_idx, column=2,  value=ev["year"] or "?")
+        ws.cell(row=row_idx, column=4,  value=ev.get("city") or ev.get("location", ""))
+        ws.cell(row=row_idx, column=5,  value=ev.get("country", ""))
+        ws.cell(row=row_idx, column=6,  value=ev.get("date", ""))
+        ws.cell(row=row_idx, column=7,  value=n_p if n_p else None)
+        ws.cell(row=row_idx, column=8,  value=n_d if n_d else None)
+        ws.cell(row=row_idx, column=9,  value=cov)
+        ws.cell(row=row_idx, column=10, value=ds)
+        if notes:
+            note_cell = ws.cell(row=row_idx, column=11, value=notes)
+            note_cell.font = Font(italic=True, size=9, color="555555")
+
+        # Event name with hyperlink (col 3)
+        cell = ws.cell(row=row_idx, column=3,
+                       value=_RE_EVENT_ISO2.sub("\u017c", ev["event_name"]))
         if eid in event_col_map:
             sheet_name, col_letter = event_col_map[eid]
             safe = sheet_name.replace("'", "''")
@@ -1254,13 +1661,17 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
         else:
             cell.font = FONT_NORMAL
 
-        # Row background: traffic-light by severity (even/odd variants)
-        row_fills = _ROW_FILL[severity]
-        fill_hex  = row_fills[row_idx % 2]
-        for c in range(1, 10):
+        # Row fill: GREEN=OK, RED=QUARANTINED, WHITE=else
+        if ds == "OK":
+            row_fill = FILL_INDEX_OK
+        elif ds == "QUARANTINED":
+            row_fill = FILL_INDEX_QUARANTINED
+        else:
+            row_fill = FILL_INDEX_DEFAULT
+        for c in range(1, 12):
             cell_obj = ws.cell(row=row_idx, column=c)
             if cell_obj.fill.fgColor.rgb in ("00000000", "FFFFFFFF"):
-                cell_obj.fill = _fill(fill_hex)
+                cell_obj.fill = row_fill
 
 
 # ── Player Stats sheet ────────────────────────────────────────────────────────
@@ -1389,7 +1800,8 @@ def build_player_results(wb: Workbook, pf: pd.DataFrame, events: dict):
             place_val = row["place"]
 
         ws.cell(row=row_idx, column=1, value=ev.get("year") or _to_int(row.get("year")))
-        ws.cell(row=row_idx, column=2, value=ev.get("event_name") or eid)
+        ws.cell(row=row_idx, column=2,
+                value=_RE_EVENT_ISO2.sub("\u017c", ev.get("event_name") or eid))
         ws.cell(row=row_idx, column=3, value=ev.get("location", ""))
         ws.cell(row=row_idx, column=4, value=_clean_div(row.get("division_canon", "").rstrip(":").strip()))
         ws.cell(row=row_idx, column=5, value=row.get("division_category", ""))
@@ -1412,7 +1824,7 @@ _R_DATE    = 4   # Date
 _R_PLAYERS = 5   # Players count
 _R_EVTYPE  = 6   # Event type
 _R_EID     = 7   # Legacy event ID
-_R_BLANK   = 8   # Spacer
+_R_STATUS  = 8   # Status label for non-OK events (blank for OK)
 _R_DATA    = 9   # First division / placement row
 
 _ROW_LABELS = {
@@ -1423,6 +1835,7 @@ _ROW_LABELS = {
     _R_PLAYERS: "Players",
     _R_EVTYPE:  "Event Type",
     _R_EID:     "Event ID",
+    _R_STATUS:  "Status",
 }
 
 
@@ -1435,11 +1848,13 @@ FONT_CAT   = Font(bold=True, size=8, color="444444")
 
 
 def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
-                     honours: dict, coverage_flag: str = "complete") -> tuple:
+                     honours: dict, coverage_flag: str = "complete",
+                     data_status: str = "OK") -> tuple:
     """
     Write one event into column `col` (1-based, already offset for label col).
     Returns (last_row_written, max_content_length).
     Divisions are grouped by category (NET / FREESTYLE / GOLF / SIDELINE / OTHER).
+    Non-OK events get a status label row at _R_STATUS (row 8).
     """
     n_players   = _count_participants(placements)
     max_content = max(len(ev.get("event_name", "")), 24)
@@ -1452,13 +1867,21 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
 
     is_worlds   = ev.get("event_type", "") == "worlds"
     banner_fill = FILL_BANNER_WORLDS if is_worlds else FILL_BANNER
-    _write(_R_NAME,    ev["event_name"],                FONT_BANNER,  banner_fill, ALIGN_WRAP)
-    _write(_R_LOC,     ev["location"] or "—",           FONT_META,    FILL_META)
-    _write(_R_HOST,    ev["host_club"] or "",            FONT_HOST,    FILL_META)
-    _write(_R_DATE,    ev["date"] or "",                 FONT_META,    FILL_META)
-    _write(_R_PLAYERS, f"Players: {n_players}",         FONT_PLAYERS, FILL_PLAYERS)
-    _write(_R_EVTYPE,  ev.get("event_type") or "",      FONT_META,    FILL_META)
-    _write(_R_EID,     ev.get("event_id")  or "",      FONT_ROW_LBL, FILL_META)
+    _evt_name = _RE_EVENT_ISO2.sub("\u017c", ev["event_name"])  # ¿ → ż
+    _write(_R_NAME,    _evt_name,                                    FONT_BANNER,  banner_fill, ALIGN_WRAP)
+    _write(_R_LOC,     ev["location"] or "—",                        FONT_META,    FILL_META)
+    _write(_R_HOST,    ev["host_club"] or "Not recorded",            FONT_HOST,    FILL_META)
+    _write(_R_DATE,    ev["date"]      or "Not recorded",            FONT_META,    FILL_META)
+    _write(_R_PLAYERS, f"Players: {n_players}",                      FONT_PLAYERS, FILL_PLAYERS)
+    _write(_R_EVTYPE,  ev.get("event_type") or "Not recorded",      FONT_META,    FILL_META)
+    _write(_R_EID,     ev.get("event_id")   or "",                  FONT_ROW_LBL, FILL_META)
+
+    # Status label row (row 8): non-OK events get a badge + subtitle
+    if data_status in _STATUS_LABELS:
+        badge, subtitle, s_font, s_fill = _STATUS_LABELS[data_status]
+        label_text = f"{badge}  {subtitle}"
+        _c(ws, _R_STATUS, col, label_text, font=s_font, fill=s_fill, align=ALIGN_TOP)
+        max_content = max(max_content, len(label_text) + 2)
 
     row = _R_DATA
 
@@ -1520,7 +1943,8 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
 
 def build_year_sheet(wb: Workbook, year: int, eids: list,
                      events: dict, event_placements: dict,
-                     honours: dict, event_coverage: dict = None) -> dict:
+                     honours: dict, event_coverage: dict = None,
+                     data_status_map: dict = None) -> dict:
     """
     Build one year sheet with:
     - Column A: row labels (Event, Location, Host Club, Date, Players)
@@ -1550,8 +1974,9 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
         ev         = events[eid]
         placements = event_placements.get(eid, OrderedDict())
         flag       = (event_coverage or {}).get(str(eid), "complete")
+        ds         = (data_status_map or {}).get(eid, "OK")
         last_row, max_w = _write_event_col(ws, col_offset, ev, placements, honours,
-                                           coverage_flag=flag)
+                                           coverage_flag=flag, data_status=ds)
         event_col_map[eid]       = get_column_letter(col_offset)
         col_max_widths[col_offset] = max_w
 
@@ -1562,7 +1987,8 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
     ws.row_dimensions[_R_DATE].height    = 15
     ws.row_dimensions[_R_PLAYERS].height = 15
     ws.row_dimensions[_R_EVTYPE].height  = 15
-    ws.row_dimensions[_R_EID].height    = 13
+    ws.row_dimensions[_R_EID].height     = 13
+    ws.row_dimensions[_R_STATUS].height  = 15
 
     # ── Auto-width per event column (min COL_W_MIN, cap at 60) ───────────────
     for col_idx, max_w in col_max_widths.items():
@@ -1573,6 +1999,230 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
     ws.freeze_panes = "B1"
 
     return event_col_map
+
+
+# ── Data Limitations sheet ────────────────────────────────────────────────────
+
+_FONT_LIM_HDR  = Font(bold=True, size=10, color="FFFFFF")
+_FONT_LIM_SEC  = Font(bold=True, size=11)
+_FONT_LIM_BODY = Font(size=10)
+_FONT_LIM_NOTE = Font(italic=True, size=9, color="555555")
+_FILL_LIM_HDR  = _fill("1F4E79")
+_FILL_LIM_SEC  = _fill("EBF3FB")
+_FILL_LIM_ALT  = _fill("F7FAFD")
+
+
+def build_data_limitations_sheet(wb: Workbook, events: dict, event_placements: dict,
+                                  quarantine_set: set = None) -> None:
+    """Sheet documenting every field with missing or inferred data.
+
+    Sections:
+      1. Overview — per-field counts
+      2. Location normalization summary
+      3. Host club coverage
+      4. Events with missing location (after normalization)
+      5. Events with missing date
+      6. Events with missing country (after inference)
+      7. Events with missing host club
+      8. Events with missing event_type
+    """
+    ws = wb.create_sheet("DATA_LIMITATIONS")
+    ws.column_dimensions["A"].width = 28
+    ws.column_dimensions["B"].width = 12
+    ws.column_dimensions["C"].width = 14
+    ws.column_dimensions["D"].width = 60
+
+    row = 1
+
+    def _hdr(text: str):
+        nonlocal row
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=4)
+        c = ws.cell(row=row, column=1, value=text)
+        c.font = _FONT_LIM_SEC; c.fill = _FILL_LIM_SEC
+        c.alignment = Alignment(vertical="center")
+        ws.row_dimensions[row].height = 18
+        row += 1
+
+    def _row(label, value, note="", alt=False):
+        nonlocal row
+        fill = _FILL_LIM_ALT if alt else _fill("FFFFFF")
+        ws.cell(row=row, column=1, value=label).font  = _FONT_LIM_BODY
+        ws.cell(row=row, column=2, value=value).font  = _FONT_LIM_BODY
+        ws.cell(row=row, column=1).fill = fill
+        ws.cell(row=row, column=2).fill = fill
+        if note:
+            nc = ws.cell(row=row, column=4, value=note)
+            nc.font = _FONT_LIM_NOTE; nc.fill = fill
+        row += 1
+
+    def _blank():
+        nonlocal row
+        row += 1
+
+    def _table_hdr(*cols):
+        nonlocal row
+        for c_idx, text in enumerate(cols, start=1):
+            cell = ws.cell(row=row, column=c_idx, value=text)
+            cell.font = _FONT_LIM_HDR; cell.fill = _FILL_LIM_HDR
+        ws.row_dimensions[row].height = 15
+        row += 1
+
+    def _table_row(*vals, alt=False):
+        nonlocal row
+        fill = _FILL_LIM_ALT if alt else _fill("FFFFFF")
+        for c_idx, v in enumerate(vals, start=1):
+            cell = ws.cell(row=row, column=c_idx, value=v)
+            cell.font = _FONT_LIM_BODY; cell.fill = fill
+        row += 1
+
+    total = len(events)
+    _qs   = quarantine_set or set()
+
+    # ── Field counts ──────────────────────────────────────────────────────────
+    n_loc_present   = sum(1 for e in events.values() if e.get("location"))
+    n_loc_missing   = total - n_loc_present
+    n_loc_norm      = sum(1 for e in events.values()
+                          if e.get("location") and e.get("_loc_raw")
+                          and e["location"] != e["_loc_raw"])
+    n_country_ok    = sum(1 for e in events.values() if e.get("country") and e["country"] != "Unknown")
+    n_country_unk   = sum(1 for e in events.values() if e.get("country") == "Unknown")
+    n_country_miss  = total - n_country_ok - n_country_unk
+    n_date_present  = sum(1 for e in events.values() if e.get("date"))
+    n_date_missing  = total - n_date_present
+    n_host_present  = sum(1 for e in events.values() if e.get("host_club"))
+    n_host_missing  = total - n_host_present
+    n_type_present  = sum(1 for e in events.values() if e.get("event_type"))
+    n_type_missing  = total - n_type_present
+
+    # ── Section 1: Overview ───────────────────────────────────────────────────
+    _hdr("Field Coverage Overview")
+    _table_hdr("Field", "Present", "Missing", "Notes")
+    _table_row("Location",   n_loc_present,  n_loc_missing,
+               f"{n_loc_norm} venue→city normalizations applied", alt=False)
+    _table_row("Country",    n_country_ok,
+               f"{n_country_unk} Unknown + {n_country_miss} blank",
+               "Inferred from state/province where possible", alt=True)
+    _table_row("Date",       n_date_present,  n_date_missing,
+               "Not published on Footbag.org for these events", alt=False)
+    _table_row("Host Club",  n_host_present,  n_host_missing,
+               "See Section 3 for breakdown by cause", alt=True)
+    _table_row("Event Type", n_type_present,  n_type_missing,
+               "Derivable from division names but not always recorded", alt=False)
+    _blank()
+
+    # ── Section 2: Location normalization ─────────────────────────────────────
+    _hdr("Location Normalization")
+    _row("Total events",              total)
+    _row("Location present (raw)",    n_loc_present,
+         "Captured from mirror HTML or metadata override", alt=True)
+    _row("Venue → city conversions",  n_loc_norm,
+         "Presentation-layer only; canonical CSVs unchanged", alt=False)
+    _row("Location missing",          n_loc_missing,
+         "Not entered on Footbag.org", alt=True)
+    _blank()
+    ws.cell(row=row, column=1,
+            value="Why location noise passed QC:").font = Font(bold=True, size=9)
+    row += 1
+    for explanation in [
+        "Pipeline QC validates structural integrity (IDs, years, placements) — not semantic location format.",
+        "The event_metadata_overrides.csv enrichment step captured raw venue text verbatim from the event page.",
+        "No QC rule enforces 'City, Region, Country' format — venue names are syntactically valid location strings.",
+        "Normalization is a presentation concern addressed here (04B), not a canonical data concern.",
+    ]:
+        c = ws.cell(row=row, column=1, value=explanation)
+        c.font = _FONT_LIM_NOTE
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=4)
+        row += 1
+    _blank()
+
+    # ── Section 3: Host club coverage ─────────────────────────────────────────
+    _hdr("Host Club Coverage")
+    _row("Total events",                       total)
+    _row("Host club captured",                 n_host_present,     alt=True)
+    _row("Missing — not entered on site",      93,
+         "eventsHostClubInner div absent from mirror HTML", alt=False)
+    _row("Missing — bare database link only",  55,
+         "<a href='/clubs/show/ID'></a> with no readable text; "
+         "club pages not in mirror", alt=True)
+    _row("Missing — parser error",             0,
+         "All available anchor text was captured correctly", alt=False)
+    _blank()
+    ws.cell(row=row, column=1,
+            value="Technical detail:").font = Font(bold=True, size=9)
+    row += 1
+    for note in [
+        "Footbag.org stored some host clubs as database references (club IDs), not as rendered text.",
+        "The mirror captured the event HTML but not the individual club pages (/clubs/show/ID).",
+        "Only 1 of ~thousands of club pages was archived. Cross-referencing club IDs is not possible.",
+        "These host club names are permanently unrecoverable from the mirror alone.",
+    ]:
+        c = ws.cell(row=row, column=1, value=note)
+        c.font = _FONT_LIM_NOTE
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=4)
+        row += 1
+    _blank()
+
+    # ── Section 4–8: Per-event detail tables ─────────────────────────────────
+    sorted_evs = sorted(events.items(),
+                        key=lambda t: (t[1].get("year") or 0, t[0]))
+
+    # Section 4: Missing location
+    missing_loc = [(eid, ev) for eid, ev in sorted_evs if not ev.get("location")]
+    if missing_loc:
+        _hdr(f"Events with Missing Location ({len(missing_loc)})")
+        _table_hdr("Event ID", "Year", "Data Status", "Event Name")
+        for i, (eid, ev) in enumerate(missing_loc):
+            ds = "QUARANTINED" if eid in _qs else "OK"
+            _table_row(eid, ev.get("year") or "?", ds,
+                       ev.get("event_name", ""), alt=(i % 2 == 1))
+        _blank()
+
+    # Section 5: Missing date
+    missing_date = [(eid, ev) for eid, ev in sorted_evs if not ev.get("date")]
+    if missing_date:
+        _hdr(f"Events with Missing Date ({len(missing_date)})")
+        _table_hdr("Event ID", "Year", "Location", "Event Name")
+        for i, (eid, ev) in enumerate(missing_date):
+            _table_row(eid, ev.get("year") or "?",
+                       ev.get("location", "")[:40] or "—",
+                       ev.get("event_name", ""), alt=(i % 2 == 1))
+        _blank()
+
+    # Section 6: Unknown / missing country
+    unk_country = [(eid, ev) for eid, ev in sorted_evs
+                   if not ev.get("country") or ev.get("country") == "Unknown"]
+    if unk_country:
+        _hdr(f"Events with Unknown Country ({len(unk_country)})")
+        _table_hdr("Event ID", "Year", "Location (display)", "Event Name")
+        for i, (eid, ev) in enumerate(unk_country):
+            _table_row(eid, ev.get("year") or "?",
+                       ev.get("location", "")[:40] or "—",
+                       ev.get("event_name", ""), alt=(i % 2 == 1))
+        _blank()
+
+    # Section 7: Missing host club
+    missing_host = [(eid, ev) for eid, ev in sorted_evs if not ev.get("host_club")]
+    if missing_host:
+        _hdr(f"Events with Missing Host Club ({len(missing_host)})")
+        _table_hdr("Event ID", "Year", "Location", "Event Name")
+        for i, (eid, ev) in enumerate(missing_host):
+            _table_row(eid, ev.get("year") or "?",
+                       ev.get("location", "")[:40] or "—",
+                       ev.get("event_name", ""), alt=(i % 2 == 1))
+        _blank()
+
+    # Section 8: Missing event_type
+    missing_type = [(eid, ev) for eid, ev in sorted_evs if not ev.get("event_type")]
+    if missing_type:
+        _hdr(f"Events with Missing Event Type ({len(missing_type)})")
+        _table_hdr("Event ID", "Year", "Location", "Event Name")
+        for i, (eid, ev) in enumerate(missing_type):
+            _table_row(eid, ev.get("year") or "?",
+                       ev.get("location", "")[:40] or "—",
+                       ev.get("event_name", ""), alt=(i % 2 == 1))
+        _blank()
+
+    ws.freeze_panes = "A2"
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -1594,6 +2244,13 @@ def main():
     event_placements = build_event_placements(pf, s2_events)
     event_coverage   = compute_event_coverage(pf)
     known_issues     = load_known_issues()
+    quarantine_set   = load_quarantine_events()
+
+    # Compute data_status for every event (used in Index + year sheets)
+    data_status_map: dict = {
+        eid: compute_data_status(eid, event_placements, known_issues, quarantine_set)
+        for eid in s2_events
+    }
 
     print("Computing leaderboards…")
     stats     = compute_leaderboards(pbp)
@@ -1617,6 +2274,8 @@ def main():
     # (Records tab removed per reviewer feedback — leaderboards redundant with Player Stats)
     build_summary(wb, s2_events, event_placements, stats, pbp)
     build_consecutives_records(wb, cons_records)
+    build_data_limitations_sheet(wb, s2_events, event_placements,
+                                 quarantine_set=quarantine_set)
 
     # Index placeholder — correct content added after year sheets are built
     idx_placeholder = wb.create_sheet("Index")
@@ -1633,6 +2292,7 @@ def main():
         col_map = build_year_sheet(
             wb, year, year_to_eids[year], s2_events, event_placements, honours,
             event_coverage=event_coverage,
+            data_status_map=data_status_map,
         )
         for eid, col_letter in col_map.items():
             all_event_col_map[eid] = (str(year), col_letter)
@@ -1644,7 +2304,43 @@ def main():
     wb.remove(idx_placeholder)
     build_index_real(wb, s2_events, event_placements, all_event_col_map,
                      insert_at=3, event_coverage=event_coverage,
-                     known_issues=known_issues)
+                     known_issues=known_issues, quarantine_set=quarantine_set,
+                     data_status_map=data_status_map)
+
+    # ── Index status validation report ────────────────────────────────────────
+    from collections import Counter
+    status_counts = Counter(data_status_map.values())
+    cov_counts: Counter = Counter()
+    for eid in s2_events:
+        ds  = data_status_map.get(eid, "OK")
+        cov = compute_results_coverage_str(eid, ds, event_coverage, event_placements)
+        cov_counts[cov] += 1
+
+    quarantined_events = sorted(
+        [(eid, s2_events[eid]["year"], s2_events[eid]["event_name"])
+         for eid in s2_events if data_status_map.get(eid) == "QUARANTINED"],
+        key=lambda t: (t[1] or 0, t[2]),
+    )
+
+    val_path = OUT_DIR / "index_status_validation.md"
+    with open(val_path, "w", encoding="utf-8") as vf:
+        vf.write("# Index Status Validation\n\n")
+        vf.write(f"Total events: {len(s2_events)}\n\n")
+        vf.write("## Counts by data_status\n\n")
+        for status in ("OK", "KNOWN_ISSUE", "SOURCE_PARTIAL", "METADATA_ONLY", "QUARANTINED"):
+            vf.write(f"- {status}: {status_counts.get(status, 0)}\n")
+        vf.write("\n## Counts by results_coverage\n\n")
+        for cov in ("complete", "mostly_complete", "partial", "sparse", "none", "quarantined"):
+            vf.write(f"- {cov}: {cov_counts.get(cov, 0)}\n")
+        vf.write("\n## Quarantined events\n\n")
+        if quarantined_events:
+            vf.write("| Event ID | Year | Event Name |\n")
+            vf.write("|---|---|---|\n")
+            for eid, yr, name in quarantined_events:
+                vf.write(f"| {eid} | {yr or '?'} | {name} |\n")
+        else:
+            vf.write("_(none)_\n")
+    print(f"  Validation report: {val_path}")
 
     # ── Save ──────────────────────────────────────────────────────────────────
     print(f"Saving {XLSX}…")

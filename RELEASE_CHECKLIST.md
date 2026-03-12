@@ -11,9 +11,9 @@ Confirm `inputs/identity_lock/` contains exactly:
 
 | File | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final_v41.csv` | v41 | 3,446 |
+| `Persons_Truth_Final_v42.csv` | v42 | 3,441 |
 | `Persons_Unresolved_Organized_v28.csv` | v28 | 82 |
-| `Placements_ByPerson_v60.csv` | v60 | 26,644 |
+| `Placements_ByPerson_v61.csv` | v61 | 26,644 |
 
 These files are human-verified and immutable for this release.
 
@@ -68,14 +68,15 @@ Verify after completion:
 - [ ] `out/Placements_Flat.csv` exists, 26,644 rows
 - [ ] `out/Placements_ByPerson.csv` exists, 26,644 rows
 
+
 **Stage 03:**
 - [ ] `Footbag_Results_Canonical.xlsx` created/updated
 - [ ] Stage 3 QC: 0 errors, 0 warnings
 
 **Stage 04:**
-- [ ] Output contains: `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3446`
+- [ ] Output contains: `[Gate3] PASS: COUNT(person_id) == COUNT(person_canon) = 3441`
 - [ ] `out/persons_truth.lock` written
-- [ ] Lock sentinel shows `Persons_Truth_Final_v41.csv`, rows: 3446
+- [ ] Lock sentinel shows `Persons_Truth_Final_v42.csv`, rows: 3441
 
 **Stage 04B:**
 - [ ] `Footbag_Results_Community.xlsx` created/updated
@@ -86,7 +87,7 @@ Verify after completion:
 - [ ] `out/canonical/event_disciplines.csv` — (check output)
 - [ ] `out/canonical/event_results.csv` — (check output)
 - [ ] `out/canonical/event_result_participants.csv` — (check output)
-- [ ] `out/canonical/persons.csv` — 3,456 rows
+- [ ] `out/canonical/persons.csv` — 3,441 rows
 - [ ] All 4 key uniqueness checks: PASS
 
 ---
