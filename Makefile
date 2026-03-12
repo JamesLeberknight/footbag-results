@@ -22,8 +22,8 @@ rebuild:
 release:
 	$(PYTHON) pipeline/01b1_merge_consecutives.py
 	$(PYTHON) pipeline/02p5_player_token_cleanup.py \
-	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v60.csv \
-	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v41.csv \
+	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v61.csv \
+	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v42.csv \
 	  --out_dir out
 	$(PYTHON) pipeline/03_build_excel.py
 	$(PYTHON) pipeline/04_build_analytics.py

@@ -113,6 +113,20 @@ def parse_date_range(s: str) -> tuple[str, str]:
     return "", ""
 
 
+# Regions that are NOT countries — map to (canonical_country, canonical_region)
+_REGION_NOT_COUNTRY: dict[str, tuple[str, str]] = {
+    "basque country": ("Spain", "Basque Country"),
+    "euskadi":        ("Spain", "Basque Country"),
+    "pais vasco":     ("Spain", "Basque Country"),
+    "catalonia":      ("Spain", "Catalonia"),
+    "cataluña":       ("Spain", "Catalonia"),
+    "scotland":       ("United Kingdom", "Scotland"),
+    "wales":          ("United Kingdom", "Wales"),
+    "england":        ("United Kingdom", "England"),
+    "northern ireland": ("United Kingdom", "Northern Ireland"),
+}
+
+
 def parse_location(location: str) -> tuple[str, str, str]:
     """
     Best-effort parse of a raw location string into (city, region, country).
@@ -122,6 +136,11 @@ def parse_location(location: str) -> tuple[str, str, str]:
       "Region, Country"            → ("", "Region", "Country")
       "City, Country"              → ("City", "", "Country")   (when last part is known country-like)
       "Country"                    → ("", "", "Country")
+
+    Post-processing:
+      Any part that matches _REGION_NOT_COUNTRY is replaced with the canonical
+      country, and the region is set to the canonical region name.
+      e.g. "Bizkaia, Basque Country" → city="Bizkaia", region="Basque Country", country="Spain"
     """
     if not location:
         return "", "", ""
@@ -130,12 +149,32 @@ def parse_location(location: str) -> tuple[str, str, str]:
     location = location.split("/")[0].strip()
     parts = [p.strip() for p in location.split(",") if p.strip()]
     if len(parts) >= 3:
-        return parts[0], parts[1], parts[-1]
-    if len(parts) == 2:
-        return parts[0], "", parts[1]
-    if len(parts) == 1:
-        return "", "", parts[0]
-    return "", "", ""
+        city, region, country = parts[0], parts[1], parts[-1]
+    elif len(parts) == 2:
+        city, region, country = parts[0], "", parts[1]
+    elif len(parts) == 1:
+        city, region, country = "", "", parts[0]
+    else:
+        return "", "", ""
+
+    # Normalise: if country is actually a sub-national region, fix it
+    country_lc = country.lower().strip()
+    if country_lc in _REGION_NOT_COUNTRY:
+        canonical_country, canonical_region = _REGION_NOT_COUNTRY[country_lc]
+        # preserve any existing region from the string; fall back to canonical region
+        region = region or canonical_region
+        if not region:
+            region = canonical_region
+        country = canonical_country
+
+    # Also check if city itself is a known region-not-country (e.g. "Country, Spain")
+    city_lc = city.lower().strip()
+    if city_lc in _REGION_NOT_COUNTRY and not region:
+        canonical_country, canonical_region = _REGION_NOT_COUNTRY[city_lc]
+        region = canonical_region
+        city = ""
+
+    return city, region, country
 
 
 def derive_status(placements_count: int, coverage_flags: list[str]) -> str:

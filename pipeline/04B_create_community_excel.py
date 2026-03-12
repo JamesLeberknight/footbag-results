@@ -266,43 +266,79 @@ def _to_int(v) -> int:
         return 0
 
 
+_REGION_NOT_COUNTRY = {
+    "basque country": "Spain",
+    "euskadi": "Spain",
+    "pais vasco": "Spain",
+    "catalonia": "Spain",
+    "cataluña": "Spain",
+    "scotland": "United Kingdom",
+    "wales": "United Kingdom",
+    "england": "United Kingdom",
+    "northern ireland": "United Kingdom",
+}
+
+
 def _split_location(loc: str):
     """'City, State, Country' → (city_region, country)"""
     parts = [p.strip() for p in loc.split(",")]
     if len(parts) >= 2:
-        return ", ".join(parts[:-1]), parts[-1]
+        city_region = ", ".join(parts[:-1])
+        country = parts[-1]
+        # Normalise sub-national regions mistakenly used as country
+        country_canon = _REGION_NOT_COUNTRY.get(country.lower().strip())
+        if country_canon:
+            country = country_canon
+        return city_region, country
     return loc, ""
 
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
 def _load_event_field_overrides() -> dict:
-    """Load location/host_club overrides from events_overrides.jsonl."""
-    path = REPO / "overrides" / "events_overrides.jsonl"
+    """Load location/host_club overrides from events_overrides.jsonl and
+    overrides/event_metadata_overrides.csv (enrichment from live fetch)."""
     overrides: dict[str, dict] = {}
-    if not path.exists():
-        return overrides
-    with open(path, encoding="utf-8") as fh:
-        for line in fh:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                obj = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            eid = str(obj.get("event_id", "")).strip()
-            if not eid:
-                continue
-            entry = {}
-            if "location" in obj:
-                entry["location"] = obj["location"]
-            if "host_club" in obj:
-                entry["host_club"] = obj["host_club"]
-            if "event_type" in obj:
-                entry["event_type"] = obj["event_type"]
-            if entry:
-                overrides.setdefault(eid, {}).update(entry)
+
+    # Source 1: hand-curated JSONL
+    jsonl_path = REPO / "overrides" / "events_overrides.jsonl"
+    if jsonl_path.exists():
+        with open(jsonl_path, encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    obj = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                eid = str(obj.get("event_id", "")).strip()
+                if not eid:
+                    continue
+                entry = {}
+                for field in ("location", "host_club", "event_type"):
+                    if field in obj:
+                        entry[field] = obj[field]
+                if entry:
+                    overrides.setdefault(eid, {}).update(entry)
+
+    # Source 2: live-fetched enrichment CSV (host_club, date, location)
+    csv_path = REPO / "overrides" / "event_metadata_overrides.csv"
+    if csv_path.exists():
+        import csv as _csv
+        with open(csv_path, encoding="utf-8") as fh:
+            for row in _csv.DictReader(fh):
+                eid = str(row.get("event_id", "")).strip()
+                if not eid:
+                    continue
+                entry = {}
+                for field in ("host_club", "date", "location"):
+                    val = (row.get(field) or "").strip()
+                    if val:
+                        entry[field] = val
+                if entry:
+                    overrides.setdefault(eid, {}).update(entry)
+
     return overrides
 
 
@@ -337,7 +373,7 @@ def load_stage2_events() -> dict:
                 "event_id":   eid,
                 "year":       _to_int(row.get("year")),
                 "event_name": (row.get("event_name") or "").strip(),
-                "date":       (row.get("date") or "").strip(),
+                "date":       fo.get("date") or (row.get("date") or "").strip(),
                 "location":   loc,
                 "city":       city,
                 "country":    country,
@@ -1249,13 +1285,25 @@ def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
     if stats.empty:
         return
 
-    # Build legacyid lookup from Persons_Truth
+    # Build legacyid lookup: PT (human-verified) + live enrichment (54_member_id_extraction)
     legacyid_map: dict = {}
     if persons_df is not None and "legacyid" in persons_df.columns:
         for _, pr in persons_df.iterrows():
             lid = pr.get("legacyid", "")
             if lid:
-                legacyid_map[pr["person_canon"]] = lid
+                legacyid_map[pr["person_canon"]] = str(lid)
+
+    # Supplement with live-fetched member IDs (does not overwrite human-verified)
+    _mid_enrichment = REPO / "out" / "member_id_enrichment" / "member_id_assignments.csv"
+    if _mid_enrichment.exists():
+        import csv as _csv
+        with open(_mid_enrichment, encoding="utf-8") as _fh:
+            for _row in _csv.DictReader(_fh):
+                _pc  = _row.get("person_canon", "").strip()
+                _mid = _row.get("member_id", "").strip()
+                _method = _row.get("match_method", "")
+                if _pc and _mid and _pc not in legacyid_map:
+                    legacyid_map[_pc] = _mid
 
     df = stats.sort_values("person_canon").reset_index(drop=True)
 
