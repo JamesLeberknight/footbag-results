@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — v2.10.1
+# Footbag Results Pipeline — v2.11.0
 
 Deterministic pipeline for reconstructing and archiving historical Footbag results.
 
@@ -93,7 +93,7 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 inputs/identity_lock/
     Persons_Truth_Final_v42.csv          # 3,441 canonical persons
     Persons_Unresolved_Organized_v28.csv # 82 unresolved entries
-    Placements_ByPerson_v62.csv          # 27,154 identity-locked placements
+    Placements_ByPerson_v63.csv          # 28,513 identity-locked placements
 ```
 
 These are human-verified and treated as immutable for this release.
@@ -168,8 +168,8 @@ All outputs go into `out/` (gitignored — never committed).
 
 | File | Rows | Description |
 |---|---|---|
-| `out/Placements_Flat.csv` | 27,154 | All placements, identity-locked |
-| `out/Placements_ByPerson.csv` | 27,154 | Placements joined to person identity |
+| `out/Placements_Flat.csv` | 28,513 | All placements, identity-locked |
+| `out/Placements_ByPerson.csv` | 28,513 | Placements joined to person identity |
 | `out/Persons_Truth.csv` | 3,441 | Active identity truth (copy of v42 source) |
 
 | `out/Persons_Unresolved.csv` | ~402 | Persons without resolved identity |
@@ -236,7 +236,7 @@ SHA-256 hashes of all three identity lock inputs, proving immutability.
 |---|---|
 | Events | 774 |
 | Year range | 1980–2026 |
-| Placements (identity-locked) | 27,154 |
+| Placements (identity-locked) | 28,513 |
 | Persons (canonical) | 3,441 |
 | Gate3 PASS | 3,441 |
 | Known-issue events | 54 |
@@ -274,7 +274,7 @@ Current identity baseline:
 |---|---|---|
 | `Persons_Truth_Final` | v42 | 3,441 |
 | `Persons_Unresolved_Organized` | v28 | 82 |
-| `Placements_ByPerson` | v62 | 27,154 |
+| `Placements_ByPerson` | v63 | 28,513 |
 
 ---
 

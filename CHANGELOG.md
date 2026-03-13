@@ -4,6 +4,62 @@ All notable changes to this project are documented in this file.
 
 ---
 
+## [v2.11.0] — Results fidelity fix + location normalization + community workbook rebuild
+**Release date:** 2026-03-12
+
+### Summary
+
+This release enforces the Results Fidelity principle: no placement may be
+dropped due to identity resolution failure. PBP v63 restores 887 previously
+dropped placements across 213 events. Location fields are normalized across
+all 774 events. The community workbook is fully rebuilt with clean formatting,
+correct statistics, and all placements visible in year sheets.
+
+### Changes
+
+#### Data — Placements (PBP v62 → v63)
+- **+1,359 rows** (27,154 → 28,513 total) via `tools/57_patch_pbp_v62_to_v63.py`
+- Restores **887 previously dropped placements** across 213 events
+- Root cause: earlier PBP versions silently omitted unresolved single-name tokens
+  and partially-covered divisions; only BLOCKER_GENUINE divisions were patched in v62
+- All restored rows assigned `person_id = __NON_PERSON__`, `person_unresolved = 1`
+- Example: Bulgarian Footbag Open 2025 Singles Net places 6–9 now in canonical data
+- PARTIAL restorations: 735 rows; NEW_DIV restorations: 624 rows
+
+#### Data — Location Normalization
+- New `out/canonical/events_normalized.csv` produced by `tools/location_normalize.py`
+- 140 events with corrected location fields across 5 fix categories:
+  country abbreviations (7), region abbreviations (2), Basque → Bizkaia (22),
+  duplicate city/region cleared (107), venue name stripped from city (1)
+- Street addresses removed from country field for 4 events
+
+#### Community Workbook (v11)
+- Year sheets rebuilt from PBP v63 — all placements visible including unresolved
+- ALL-CAPS player names normalized per-segment (PETR FUCIK → Petr Fucik)
+- Category section headers title-cased (NET → Net, FREESTYLE → Freestyle)
+- Location display: US/Canada → City, State; all others → City only
+- Duplicate place entries removed (team entry preferred over redundant solo entry)
+- `/ ?` suffix removed where partner is unknown
+- STATISTICS sheet: corrected counts, Montreal/Montréal deduplicated,
+  Global reclassified as Multi-country / Online
+
+#### Pipeline contract updated (CLAUDE.md v1.1)
+- **Results Fidelity** principle added (§1.8)
+- Location normalization rules documented (§6)
+- Stage 04B updated to reflect that year sheets now show all placements
+- Current canonical state table added (§11)
+
+#### New tools
+- `tools/57_patch_pbp_v62_to_v63.py`
+- `tools/build_final_workbook_v11.py`
+- `tools/compute_statistics_v2.py`
+- `tools/final_dataset_verification.py`
+- `tools/final_presentation_sync_qc.py`
+- `tools/final_publication_validation.py`
+- `tools/location_audit.py`, `tools/location_normalize.py`, `tools/location_display_audit.py`
+
+---
+
 ## [v2.10.1] — Source coverage patch PBP v61→v62; Worlds 2023 + Bembel Cup 2024 fixes
 **Release date:** 2026-03-12
 
