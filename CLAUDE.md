@@ -50,7 +50,7 @@ Release builds rely on:
 inputs/identity_lock/
   Persons_Truth_Final_v42.csv       (3,441 persons)
   Persons_Unresolved_Organized_v28.csv  (82 rows)
-  Placements_ByPerson_v63.csv       (28,513 rows)
+  Placements_ByPerson_v64.csv       (28,511 rows)
 ```
 
 These files are treated as ground truth.
@@ -68,6 +68,13 @@ Identity truth is not recomputed in release mode.
 
 ### PBP version history
 
+- v63 → v64 (2026-03-13): Targeted data quality fixes for 5 events.
+  979816633: stripped leading ") " from 4 doubles entries.
+  979089216: stripped "between " prefix from Logan Dethman team row; fixed caps.
+  1195677906: restored Jakob/Matthias/André (Circle Competition) from __NON_PERSON__.
+  1369141018: removed 2 "()" phantom partner rows; cleaned team_display_name.
+  1727756195: Open Golf group2 renumbered 1-7 → 4-10; division_raw set to "Open Golf".
+  Net: 28,513 → 28,511 rows (2 phantom rows removed).
 - v62 → v63 (2026-03-12): Added 1,359 rows restoring 887 dropped placements across
   213 events. Previous versions silently omitted unresolved single-name tokens.
   v63 enforces the Results Fidelity principle: all stage2 placements present in PBP.
@@ -298,7 +305,7 @@ Reproducibility is mandatory.
 |---|---|---|
 | Persons_Truth_Final | v42 | 3,441 persons |
 | Persons_Unresolved_Organized | v28 | 82 rows |
-| Placements_ByPerson | v63 | 28,513 rows |
+| Placements_ByPerson | v64 | 28,511 rows |
 | Placements_Flat | — | 28,513 rows |
 | Stage2 events | — | 774 events |
 | Quarantined events | — | 20 |
