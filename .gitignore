@@ -97,3 +97,17 @@ baselines/
 githib-pswd.txt
 *_progress.json
 05_make_intermediate_release_v2.py
+
+############################
+# Freestyle report (narrative doc, not pipeline artifact)
+############################
+FREESTYLE_EVOLUTION_REPORT.md
+
+############################
+# One-off analysis / audit tools (not part of release pipeline)
+############################
+tools/audit_excel_workbooks.py
+tools/compute_statistics.py
+tools/event_comparison_viewer.py
+tools/location_normalization_check.py
+tools/location_post_audit.py

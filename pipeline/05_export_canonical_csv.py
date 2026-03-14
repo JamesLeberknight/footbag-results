@@ -16,7 +16,7 @@ Outputs (in out/canonical/):
   event_disciplines.csv         — one row per discipline within an event
   event_results.csv             — one row per placement slot (deduped across ties)
   event_result_participants.csv — one row per participant in a placement slot
-  persons.csv                   — canonical person export
+  persons.csv                   — canonical person export (extended: stats, honors, freestyle)
 
 Natural keys:
   events:              event_key
@@ -252,27 +252,74 @@ with open(OUT / "stage2_canonical_events.csv", newline="", encoding="utf-8") as 
 print(f"  {len(stage2_rows):,} events")
 
 
-# ── Generate event_key slugs (with collision detection) ───────────────────────
+# ── Generate event_key slugs (human-readable, collision-safe) ─────────────────
 
-slug_to_eids: dict[str, list[str]] = defaultdict(list)
+def normalize_country(country: str) -> str:
+    c = slugify(country).replace("_", "-")
+    mapping = {
+        "united-states": "usa",
+        "usa":            "usa",
+        "us":             "usa",
+        "u-s-a":          "usa",
+        "u-s":            "usa",
+        "united-kingdom": "uk",
+        "great-britain":  "uk",
+    }
+    return mapping.get(c, c or "unknown-country")
+
+
+def normalize_descriptor(event_name: str) -> str:
+    n = (event_name or "").lower().strip()
+    rules = [
+        (r"\b(world|worlds|world championship|world championships|ifpa world)\b", "worlds"),
+        (r"\b(us open|u\.s\. open|u s open)\b",                                  "us-open"),
+        (r"\beuropean championship|\beuropean championships|\beuros?\b",           "euros"),
+        (r"\basian championship|\basian championships|\basia\b",                   "asia"),
+        (r"\bcanadian championship|\bcanadian championships|\bcanada\b",           "canada"),
+        (r"\bnational championship|\bnational championships|\bnationals?\b",       "nationals"),
+        (r"\bfootbag open\b|\bopen\b",                                             "open"),
+        (r"\bchampionship\b|\bchampionships\b",                                    "championships"),
+    ]
+    for pattern, label in rules:
+        if re.search(pattern, n):
+            return label
+    stop = {"the", "and", "of", "footbag", "freestyle", "net",
+            "championship", "championships"}
+    words = [w for w in slugify(event_name).replace("_", "-").split("-") if w]
+    useful = [w for w in words if w not in stop]
+    return "-".join(useful[:3]) if useful else "event"
+
+
+def make_candidate_event_key(year: str, event_name: str, city: str, country: str) -> str:
+    year_slug    = (year or "unknown-year").strip()
+    descriptor   = normalize_descriptor(event_name)
+    city_slug    = slugify(city).replace("_", "-") or "unknown-city"
+    country_slug = normalize_country(country)
+    return f"{year_slug}-{descriptor}-{city_slug}-{country_slug}"
+
+
+candidate_to_eids: dict[str, list[str]] = defaultdict(list)
+candidate_map:     dict[str, str]       = {}
+
 for row in stage2_rows:
-    year  = row["year"] or "unknown"
-    slug  = slugify(row["event_name"]) if row["event_name"] else row["event_id"]
-    candidate = f"event_{year}_{slug}"
-    slug_to_eids[candidate].append(row["event_id"])
+    eid  = row["event_id"]
+    year = row["year"] or "unknown-year"
+    city, _region, country = parse_location(row.get("location", "") or "")
+    candidate = make_candidate_event_key(year, row.get("event_name", ""), city, country)
+    candidate_map[eid] = candidate
+    candidate_to_eids[candidate].append(eid)
 
-event_key_map: dict[str, str] = {}  # event_id → event_key
-for candidate, eids in slug_to_eids.items():
+event_key_map: dict[str, str] = {}
+for candidate, eids in candidate_to_eids.items():
     if len(eids) == 1:
         event_key_map[eids[0]] = candidate
     else:
-        # Disambiguate: append last 4 digits of event_id
         for eid in eids:
-            event_key_map[eid] = f"{candidate}_{eid[-4:]}"
+            event_key_map[eid] = f"{candidate}-{eid}"
 
-collisions = sum(1 for eids in slug_to_eids.values() if len(eids) > 1)
+collisions = sum(1 for eids in candidate_to_eids.values() if len(eids) > 1)
 if collisions:
-    print(f"  NOTE: {collisions} slug collision group(s) disambiguated with event_id suffix")
+    print(f"  NOTE: {collisions} event-key collision group(s) disambiguated with legacy_event_id suffix")
 
 
 # ── Build output rows ─────────────────────────────────────────────────────────
@@ -416,17 +463,212 @@ for row in sorted_rows:
                 })
 
 
-# ── persons.csv ───────────────────────────────────────────────────────────────
+# ── persons.csv — extended ────────────────────────────────────────────────────
 
+# Build event_id → country map from stage2 location
+_eid_country: dict[str, str] = {}
+for _r in stage2_rows:
+    _loc = _r.get("location", "")
+    _, _, _cntry = parse_location(_loc)
+    if _cntry:
+        _eid_country[_r["event_id"]] = _cntry
+
+# Load PBP for per-person stats
+print("Loading Placements_ByPerson.csv for person stats...")
+from collections import Counter
+_pbp_stats: dict[str, dict] = {}   # person_id → stats dict
+with open(OUT / "Placements_ByPerson.csv", newline="", encoding="utf-8") as _f:
+    for _row in csv.DictReader(_f):
+        _pid = _row.get("person_id", "").strip()
+        if not _pid or _pid in ("__NON_PERSON__",):
+            continue
+        _eid  = _row["event_id"]
+        _yr   = _row.get("year", "")
+        _cntry = _eid_country.get(_eid, "")
+        if _pid not in _pbp_stats:
+            _pbp_stats[_pid] = {
+                "years": set(), "event_ids": set(),
+                "placement_count": 0, "countries": Counter(),
+            }
+        s = _pbp_stats[_pid]
+        s["placement_count"] += 1
+        s["event_ids"].add(_eid)
+        if _yr:
+            try:
+                s["years"].add(int(_yr))
+            except ValueError:
+                pass
+        if _cntry:
+            s["countries"][_cntry] += 1
+print(f"  {len(_pbp_stats):,} persons with placements")
+
+# BAP / FBHOF matching helpers (mirrors build_final_workbook_v12 logic)
+def _honor_norm(s: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", s.lower())
+
+_HONOR_OVERRIDES: dict[str, str] = {
+    "ken shults":               "Kenneth Shults",
+    "kenny shults":             "Kenneth Shults",
+    "vasek klouda":             "Václav Klouda",
+    "vaclav (vasek) klouda":    "Václav Klouda",
+    "tina aberli":              "Tina Aeberli",
+    "eli piltz":                "Eliott Piltz Galán",
+    "eliott piltz galan":       "Eliott Piltz Galán",
+    "evanne lamarch":           "Evanne Lemarche",
+    "evanne lamarche":          "Evanne Lemarche",
+    "arek dzudzinski":          "Arkadiusz Dudzinski",
+    "martin cote":              "Martin Côté",
+    "sebastien duchesne":       "Sébastien Duchesne",
+    "sebastien duschesne":      "Sébastien Duchesne",
+    "lon smith":                "Lon Skyler Smith",
+    "lon skyler smith":         "Lon Skyler Smith",
+    "ales zelinka":             "Aleš Zelinka",
+    "jere vainikka":            "Jere Väinikkä",
+    "tuomas karki":             "Tuomas Kärki",
+    "rafal kaleta":             "Rafał Kaleta",
+    "pawel nowak":              "Paweł Nowak",
+    "jakub mosciszewski":       "Jakub Mościszewski",
+    "dominik simku":            "Dominik Šimků",
+    "honza weber":              "Jan Weber",
+    "genevieve bousquet":       "Geneviève Bousquet",
+    "becca english-ross":       "Becca English",
+    "pt lovern":                "P.T. Lovern",
+    "p.t. lovern":              "P.T. Lovern",
+    "kendall kic":              "Kendall KIC",
+    "wiktor debski":            "Wiktor Dębski",
+    "florian gotze":            "Florian Götze",
+    "chantelle laurent":        "Chantelle Laurent",
+}
+
+# Build norm → person_id lookup from PT
+_norm_to_pid: dict[str, str] = {}
+_norm_to_canon: dict[str, str] = {}
+for _r in pt_rows:
+    _pc  = _r["person_canon"]
+    _pid = _r["effective_person_id"]
+    _k   = _honor_norm(_pc)
+    _norm_to_pid[_k]   = _pid
+    _norm_to_canon[_k] = _pc
+    _nk = _r.get("norm_key", "").strip()
+    if _nk:
+        _norm_to_pid[_nk]   = _pid
+        _norm_to_canon[_nk] = _pc
+
+def _resolve_honor(raw_name: str) -> str | None:
+    """Returns person_id or None."""
+    key = _honor_norm(raw_name)
+    canon = _HONOR_OVERRIDES.get(key.replace("", "").strip()) or _HONOR_OVERRIDES.get(raw_name.lower().strip())
+    if not canon:
+        # Try direct key lookup
+        if key in _norm_to_canon:
+            canon = _norm_to_canon[key]
+    if canon:
+        return _norm_to_pid.get(_honor_norm(canon))
+    return None
+
+# Rebuild using override-first approach
+def _match_honor(raw_name: str) -> str | None:
+    key = _honor_norm(raw_name)
+    override_canon = _HONOR_OVERRIDES.get(raw_name.lower().strip())
+    if override_canon:
+        return _norm_to_pid.get(_honor_norm(override_canon))
+    if key in _norm_to_pid:
+        return _norm_to_pid[key]
+    return None
+
+# Load BAP
+print("Loading BAP data...")
+_bap_by_pid: dict[str, dict] = {}
+_bap_csv = ROOT / "inputs" / "bap_data_updated.csv"
+if _bap_csv.exists():
+    with open(_bap_csv, newline="", encoding="utf-8") as _f:
+        for _i, _row in enumerate(csv.DictReader(_f), start=1):
+            _raw = _row.get("name", "").strip()
+            _yr  = _row.get("year_inducted", "").strip()
+            _nick = _row.get("nickname", "").strip()
+            _pid = _match_honor(_raw)
+            if _pid:
+                _bap_by_pid[_pid] = {
+                    "bap_member": 1,
+                    "bap_nickname": _nick,
+                    "bap_induction_year": _yr,
+                }
+print(f"  {len(_bap_by_pid):,} BAP members matched")
+
+# Load FBHOF
+print("Loading FBHOF data...")
+_fbhof_by_pid: dict[str, dict] = {}
+_fbhof_csv = ROOT / "inputs" / "fbhof_data_updated.csv"
+if _fbhof_csv.exists():
+    with open(_fbhof_csv, newline="", encoding="utf-8") as _f:
+        for _row in csv.DictReader(_f):
+            _raw = _row.get("name", "").strip()
+            _yr  = _row.get("year_inducted", "").strip()
+            _pid = _match_honor(_raw)
+            if _pid:
+                _fbhof_by_pid[_pid] = {
+                    "fbhof_member": 1,
+                    "fbhof_induction_year": _yr if _yr.lower() != "unknown" else "",
+                }
+print(f"  {len(_fbhof_by_pid):,} FBHOF members matched")
+
+# Load freestyle difficulty profiles
+print("Loading freestyle analytics...")
+_difficulty_by_pid: dict[str, dict] = {}
+_diff_csv = OUT / "noise_aggregates" / "player_difficulty_profiles.csv"
+if _diff_csv.exists():
+    with open(_diff_csv, newline="", encoding="utf-8") as _f:
+        for _row in csv.DictReader(_f):
+            _pid = _row.get("person_id", "").strip()
+            if _pid:
+                _difficulty_by_pid[_pid] = _row
+
+_diversity_by_pid: dict[str, dict] = {}
+_div_csv = OUT / "noise_aggregates" / "player_diversity_profiles.csv"
+if _div_csv.exists():
+    with open(_div_csv, newline="", encoding="utf-8") as _f:
+        for _row in csv.DictReader(_f):
+            _pid = _row.get("person_id", "").strip()
+            if _pid:
+                _diversity_by_pid[_pid] = _row
+print(f"  {len(_difficulty_by_pid):,} difficulty profiles, {len(_diversity_by_pid):,} diversity profiles")
+
+# Build persons_out
 persons_out: list[dict] = []
 for row in sorted(pt_rows, key=lambda r: r["person_canon"]):
+    pid   = row["effective_person_id"]
+    stats = _pbp_stats.get(pid, {})
+    years = sorted(stats.get("years", []))
+    countries = stats.get("countries", Counter())
+    top_country = countries.most_common(1)[0][0] if countries else ""
+
+    diff  = _difficulty_by_pid.get(pid, {})
+    divrs = _diversity_by_pid.get(pid, {})
+    bap   = _bap_by_pid.get(pid, {})
+    fbhof = _fbhof_by_pid.get(pid, {})
+
+    top_tricks = [t.strip() for t in divrs.get("top_tricks", "").split("|") if t.strip()]
+
     persons_out.append({
-        "person_id":        row["effective_person_id"],
-        "person_canon":     row["person_canon"],
-        "aliases":          row.get("aliases_presentable", "") or "",
-        "legacy_member_id": row.get("legacyid", "") or "",
-        "notes":            row.get("notes", "") or "",
-        "source":           row.get("source", "") or "",
+        "person_id":                  pid,
+        "person_name":                row["person_canon"],
+        "country":                    top_country,
+        "first_year":                 years[0]  if years else "",
+        "last_year":                  years[-1] if years else "",
+        "event_count":                len(stats.get("event_ids", set())),
+        "placement_count":            stats.get("placement_count", 0),
+        "bap_member":                 bap.get("bap_member", 0),
+        "bap_nickname":               bap.get("bap_nickname", ""),
+        "bap_induction_year":         bap.get("bap_induction_year", ""),
+        "fbhof_member":               fbhof.get("fbhof_member", 0),
+        "fbhof_induction_year":       fbhof.get("fbhof_induction_year", ""),
+        "freestyle_sequences":        diff.get("chains_total", ""),
+        "freestyle_max_add":          diff.get("max_sequence_add", ""),
+        "freestyle_unique_tricks":    divrs.get("unique_tricks", ""),
+        "freestyle_diversity_ratio":  divrs.get("diversity_ratio", ""),
+        "signature_trick_1":          top_tricks[0] if len(top_tricks) > 0 else "",
+        "signature_trick_2":          top_tricks[1] if len(top_tricks) > 1 else "",
+        "signature_trick_3":          top_tricks[2] if len(top_tricks) > 2 else "",
     })
 
 
@@ -461,7 +703,15 @@ write_csv(
 )
 write_csv(
     CANONICAL / "persons.csv",
-    ["person_id", "person_canon", "aliases", "legacy_member_id", "notes", "source"],
+    [
+        "person_id", "person_name", "country",
+        "first_year", "last_year", "event_count", "placement_count",
+        "bap_member", "bap_nickname", "bap_induction_year",
+        "fbhof_member", "fbhof_induction_year",
+        "freestyle_sequences", "freestyle_max_add",
+        "freestyle_unique_tricks", "freestyle_diversity_ratio",
+        "signature_trick_1", "signature_trick_2", "signature_trick_3",
+    ],
     persons_out,
 )
 

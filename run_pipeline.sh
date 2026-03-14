@@ -104,7 +104,7 @@ do_release() {
     "$PYTHON" pipeline/04_build_analytics.py
 
     step "Stage 04B: build community Excel workbook"
-    "$PYTHON" pipeline/04B_create_community_excel.py
+    "$PYTHON" tools/build_final_workbook_v12.py
 
     step "Stage 05: export relational CSV files"
     "$PYTHON" pipeline/05_export_canonical_csv.py

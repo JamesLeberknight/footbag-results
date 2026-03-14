@@ -1,10 +1,59 @@
 # CLAUDE.md
-## Footbag Results Pipeline — Canonical Contract (v1.1)
+## Footbag Results Pipeline — Canonical Contract (v1.2)
 
 This document defines the architectural contract and philosophical constraints
 for the Footbag historical results pipeline.
 
 It is authoritative for pipeline behavior.
+
+---
+
+# 0. Project Output Contract
+
+The pipeline produces two deliverable artifacts.
+
+## Deliverable A — Community Workbook
+
+A public spreadsheet intended for the footbag community containing:
+
+- yearly event results
+- summary statistics
+- player summaries
+- historical consecutive records
+- a technical appendix with freestyle analytics
+
+Freestyle analytics exist only in the FREESTYLE INSIGHTS sheet and must not alter historical results.
+
+## Deliverable B — Canonical Relational Dataset
+
+A normalized set of CSV tables representing the historical archive in relational form.
+These tables are intended for database creation and future applications.
+
+## Non-Deliverables
+
+The following artifacts exist only for validation and development support:
+
+- diagnostic spreadsheets
+- QC audit reports
+- intermediate pipeline outputs
+- experimental analysis surfaces
+
+These must never be treated as final project outputs.
+
+---
+
+# 0.1 Freestyle Analytics Policy
+
+Freestyle analytics provide technical insight into the evolution of freestyle play but are strictly supplementary.
+
+Rules:
+
+- They appear only in the FREESTYLE INSIGHTS sheet.
+- They must not modify historical results.
+- They must not alter player rankings or placement statistics.
+- They exist purely as analytical commentary on the dataset.
+
+The historical competition record always remains the authoritative dataset.
 
 ---
 
@@ -100,7 +149,7 @@ Characteristics:
   - `out/Persons_Unresolved.csv`
   - `out/persons_truth.lock`
   - `out/canonical/events_normalized.csv`
-  - `Footbag_Results_Community_FINAL_v9.xlsx` (community workbook)
+  - `Footbag_Results_Community_FINAL_v12.xlsx` (community workbook)
 
 Release mode is the only mode required for archival reproduction.
 
@@ -152,9 +201,11 @@ Stage 04 must never alter canonical identity rows.
 
 ## Stage 04B / Community Workbook Builder
 - Produces the community-facing Excel workbook.
-- Script: `tools/build_final_workbook_v9.py` (current canonical builder).
+- Script: `tools/build_final_workbook_v12.py` (current canonical builder).
 - Reads: `out/Placements_ByPerson.csv`, `out/stage2_canonical_events.csv`,
   `out/Persons_Truth.csv`, `out/canonical/events_normalized.csv`.
+  Freestyle analytics inputs (from `out/noise_aggregates/`) are used for the
+  FREESTYLE INSIGHTS sheet only.
 - **Year sheets display ALL placements including unresolved/non-person entries.**
   Unresolved names are shown as-is using the `person_canon` token (cleaned).
   This was changed from earlier behavior which filtered these rows.
@@ -170,10 +221,27 @@ STATISTICS
 EVENT INDEX
 PLAYER SUMMARY
 CONSECUTIVE RECORDS
+FREESTYLE INSIGHTS
 1980, 1981, 1982, ...
 2025
 2026   (present, retained)
 ```
+
+### FREESTYLE INSIGHTS sheet
+
+Supplementary sheet summarising trick-sequence analytics from the freestyle
+corpus. Contains six compact tables:
+
+1. **Difficulty by Year** — chains, avg_sequence_add, max_sequence_add per year
+2. **Hardest Documented Sequence** — single-row highlight (Greg Solis 2008, 22 ADD)
+3. **Backbone Tricks of Freestyle** — top tricks by mentions with ADD, players, events
+4. **Top Tricks by Mentions** — broader trick frequency table
+5. **Most Common Trick Transitions** — top trick-pair transitions (A → B)
+6. **Trick Innovation Timeline** — first/last year seen per trick
+
+This sheet is a technical appendix. Freestyle analytics must not appear in
+PLAYER SUMMARY, STATISTICS, or any year sheet. The primary purpose of the
+workbook is historical results archival.
 
 ---
 
@@ -309,7 +377,7 @@ Reproducibility is mandatory.
 | Placements_Flat | — | 28,513 rows |
 | Stage2 events | — | 774 events |
 | Quarantined events | — | 20 |
-| Community workbook | v9 | Footbag_Results_Community_FINAL_v9.xlsx |
+| Community workbook | v12 | Footbag_Results_Community_FINAL_v12.xlsx |
 
 ---
 

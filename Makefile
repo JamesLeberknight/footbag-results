@@ -27,7 +27,7 @@ release:
 	  --out_dir out
 	$(PYTHON) pipeline/03_build_excel.py
 	$(PYTHON) pipeline/04_build_analytics.py
-	$(PYTHON) pipeline/04B_create_community_excel.py
+	$(PYTHON) tools/build_final_workbook_v12.py
 	$(PYTHON) pipeline/05_export_canonical_csv.py
 
 ## QC: master checks + post-release integrity + schema/logic audit
