@@ -1085,6 +1085,362 @@ def copy_sheet_to(src_ws, dst_ws, *, standardise_year_cols: bool = False):
                 dst_ws.column_dimensions[col_letter].width = width
 
 
+# ── Year sheet builder ────────────────────────────────────────────────────────
+
+CANONICAL_EVENTS_CSV = os.path.join(BASE_DIR, "out", "canonical", "events.csv")
+
+# Styles
+_YR_FILL_BANNER  = PatternFill("solid", fgColor="1F3864")
+_YR_FILL_WORLDS  = PatternFill("solid", fgColor="2E4057")
+_YR_FILL_META    = PatternFill("solid", fgColor="F2F2F2")
+_YR_FILL_LABEL   = PatternFill("solid", fgColor="E4E4E4")
+_YR_FILL_CAT     = PatternFill("solid", fgColor="CCCCCC")
+_YR_FILL_DIV     = PatternFill("solid", fgColor="E2E2E2")
+_YR_FILL_GOLD    = PatternFill("solid", fgColor="FFF3CC")
+_YR_FILL_SILVER  = PatternFill("solid", fgColor="F0F0F0")
+_YR_FILL_BRONZE  = PatternFill("solid", fgColor="FDEBD0")
+_YR_FILL_PLACE   = PatternFill(fill_type=None)
+_YR_FILL_QUAR    = PatternFill("solid", fgColor="FFCDD2")
+
+_YR_FONT_BANNER  = Font(bold=True, size=11, color="FFFFFF")
+_YR_FONT_META    = Font(size=9, color="555555")
+_YR_FONT_LABEL   = Font(bold=True, size=9)
+_YR_FONT_CAT     = Font(bold=True, size=8, color="333333")
+_YR_FONT_DIV     = Font(bold=True, size=9)
+_YR_FONT_PODIUM  = Font(bold=True, size=10)
+_YR_FONT_PLACE   = Font(size=10)
+_YR_FONT_STATUS  = Font(bold=True, size=9, color="B71C1C")
+
+_YR_ALIGN_TOP    = Alignment(vertical="top", wrap_text=False)
+_YR_ALIGN_WRAP   = Alignment(vertical="top", wrap_text=True)
+_YR_ALIGN_RIGHT  = Alignment(horizontal="right", vertical="top", wrap_text=False)
+
+# Fixed row positions in each event column
+_YR_R_NAME    = 1
+_YR_R_LOC     = 2
+_YR_R_HOST    = 3
+_YR_R_DATE    = 4
+_YR_R_PLAYERS = 5
+_YR_R_TYPE    = 6
+_YR_R_EID     = 7
+_YR_R_STATUS  = 8
+_YR_R_DATA    = 9
+
+_YR_ROW_LABELS = {
+    _YR_R_NAME:    "Event",
+    _YR_R_LOC:     "Location",
+    _YR_R_HOST:    "Host Club",
+    _YR_R_DATE:    "Date",
+    _YR_R_PLAYERS: "Players",
+    _YR_R_TYPE:    "Event Type",
+    _YR_R_EID:     "Event ID",
+    _YR_R_STATUS:  "Status",
+}
+
+_YR_CAT_ORDER  = ["net", "freestyle", "golf", "sideline", "unknown"]
+_YR_CAT_LABELS = {
+    "net": "NET", "freestyle": "FREESTYLE", "golf": "GOLF",
+    "sideline": "SIDELINE", "unknown": "OTHER",
+}
+_YR_MEDALS = {1: "🥇", 2: "🥈", 3: "🥉"}
+
+_YR_COL_W_LABEL = 10
+_YR_COL_W_MIN   = 22
+
+
+def load_events_for_year_sheets() -> dict:
+    """
+    Returns dict: legacy_event_id → event metadata dict.
+    Uses out/canonical/events.csv for normalized location and all metadata.
+    """
+    result: dict = {}
+    if not os.path.exists(CANONICAL_EVENTS_CSV):
+        print(f"  WARNING: {CANONICAL_EVENTS_CSV} not found — year sheets will be empty")
+        return result
+    for r in load_csv(CANONICAL_EVENTS_CSV):
+        eid = r.get("legacy_event_id", "").strip()
+        if not eid:
+            continue
+        city    = r.get("city", "").strip()
+        region  = r.get("region", "").strip()
+        country = r.get("country", "").strip()
+        # Location display: US/Canada → "City, State"; other → "City, Country"
+        if city and country in ("United States", "Canada") and region:
+            loc = f"{city}, {region}"
+        elif city and country:
+            loc = f"{city}, {country}"
+        elif country:
+            loc = country
+        else:
+            loc = ""
+        # Date: prefer start_date, fall back to year
+        start = r.get("start_date", "").strip()
+        end   = r.get("end_date", "").strip()
+        if start and end and end != start:
+            date_str = f"{start} – {end}"
+        elif start:
+            date_str = start
+        else:
+            date_str = r.get("year", "").strip()
+        result[eid] = {
+            "event_id":   eid,
+            "event_name": r.get("event_name", "").strip(),
+            "year":       r.get("year", "").strip(),
+            "date":       date_str,
+            "location":   loc,
+            "country":    country,
+            "host_club":  r.get("host_club", "").strip(),
+            "event_type": r.get("event_type", "").strip(),
+        }
+    return result
+
+
+def load_quarantine_set() -> set:
+    if not os.path.exists(QUARANTINE_CSV):
+        return set()
+    qs: set = set()
+    with open(QUARANTINE_CSV, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            eid = r.get("event_id", "").strip()
+            if eid:
+                qs.add(eid)
+    return qs
+
+
+def build_placements_for_year_sheets(pf_rows: list[dict]) -> dict:
+    """
+    Returns dict: event_id → {division_canon: [(place_int, display_name, category)]}.
+
+    Includes resolved and unresolved persons. Skips __NON_PERSON__ singletons
+    (but keeps doubles rows that have a full team_display_name).
+    Deduplicates doubles by team_person_key.
+    """
+    by_event: dict = defaultdict(list)
+    for r in pf_rows:
+        eid = str(r.get("event_id", "")).strip()
+        if eid:
+            by_event[eid].append(r)
+
+    result: dict = {}
+    for eid, rows in by_event.items():
+        by_div: dict = defaultdict(list)
+        for r in rows:
+            dc = (r.get("division_canon") or "").strip() or "Unknown"
+            by_div[dc].append(r)
+
+        div_result: dict = {}
+        for dc, div_rows in by_div.items():
+            def _place_key(r):
+                try:
+                    return int(float(r.get("place") or 99999))
+                except (ValueError, TypeError):
+                    return 99999
+
+            div_rows = sorted(div_rows, key=_place_key)
+            entries: list = []
+            seen_teams: set = set()
+
+            for r in div_rows:
+                person  = (r.get("person_canon") or "").strip()
+                comp    = (r.get("competitor_type") or "player").lower()
+                tpk     = (r.get("team_person_key") or "").strip()
+                cat     = (r.get("division_category") or "unknown").strip()
+                team_d  = (r.get("team_display_name") or "").strip()
+
+                # Skip __NON_PERSON__ singletons; keep doubles with a full display name
+                if person == "__NON_PERSON__":
+                    if not (comp == "team" and tpk and team_d
+                            and not team_d.rstrip().endswith("/ ?")):
+                        continue
+
+                if not person and not team_d:
+                    continue
+
+                try:
+                    place_int = int(float(r.get("place") or 0))
+                except (ValueError, TypeError):
+                    continue
+
+                # Deduplicate doubles by team_person_key
+                if comp == "team" and tpk:
+                    if tpk in seen_teams:
+                        continue
+                    seen_teams.add(tpk)
+                    display = team_d or person
+                else:
+                    display = person
+
+                entries.append((place_int, display, cat))
+
+            if entries:
+                div_result[dc] = entries
+
+        if div_result:
+            result[eid] = div_result
+
+    return result
+
+
+def _yr_c(ws, row: int, col: int, value=None, *,
+          font=None, fill=None, align=None) -> None:
+    cell = ws.cell(row=row, column=col)
+    cell.value = value
+    if font:
+        cell.font = font
+    if fill:
+        cell.fill = fill
+    if align:
+        cell.alignment = align
+
+
+def _write_year_event_col(ws, col: int, ev: dict, placements: dict,
+                           is_quarantined: bool) -> tuple[int, int]:
+    """
+    Write one event into column `col`. Returns (last_row_written, max_content_len).
+    """
+    max_w = max(len(ev.get("event_name", "")), 24)
+
+    def _w(r, val, font, fill, align=_YR_ALIGN_TOP):
+        nonlocal max_w
+        if val:
+            max_w = max(max_w, len(str(val)))
+        _yr_c(ws, r, col, val, font=font, fill=fill, align=align)
+
+    is_worlds  = ev.get("event_type", "") == "worlds"
+    ban_fill   = _YR_FILL_WORLDS if is_worlds else _YR_FILL_BANNER
+
+    _w(_YR_R_NAME,    ev.get("event_name") or "",                  _YR_FONT_BANNER, ban_fill, _YR_ALIGN_WRAP)
+    _w(_YR_R_LOC,     ev.get("location")   or "—",                 _YR_FONT_META,   _YR_FILL_META)
+    _w(_YR_R_HOST,    ev.get("host_club")  or "Not recorded",      _YR_FONT_META,   _YR_FILL_META)
+    _w(_YR_R_DATE,    ev.get("date")       or "Not recorded",      _YR_FONT_META,   _YR_FILL_META)
+
+    n_players = sum(len(v) for v in placements.values()) if placements else 0
+    _w(_YR_R_PLAYERS, f"Players: {n_players}",                     _YR_FONT_META,   _YR_FILL_META)
+    _w(_YR_R_TYPE,    ev.get("event_type") or "—",                 _YR_FONT_META,   _YR_FILL_META)
+    _w(_YR_R_EID,     ev.get("event_id")  or "",                   _YR_FONT_META,   _YR_FILL_META)
+
+    if is_quarantined:
+        label = "⛔ QUARANTINED — results may be incomplete or ambiguous"
+        _yr_c(ws, _YR_R_STATUS, col, label,
+              font=_YR_FONT_STATUS, fill=_YR_FILL_QUAR, align=_YR_ALIGN_TOP)
+        max_w = max(max_w, len(label))
+
+    row = _YR_R_DATA
+
+    if not placements:
+        _yr_c(ws, row, col, "No parseable results",
+              font=_YR_FONT_META, fill=_YR_FILL_PLACE, align=_YR_ALIGN_TOP)
+        return row, max_w
+
+    # Group divisions by category, preserving dict insertion order within each
+    cat_to_divs: dict = {}
+    for div_name, entries in placements.items():
+        if not entries:
+            continue
+        cat = entries[0][2] or "unknown"
+        cat_to_divs.setdefault(cat, []).append((div_name, entries))
+
+    for cat in _YR_CAT_ORDER:
+        if cat not in cat_to_divs:
+            continue
+        cat_label = _YR_CAT_LABELS.get(cat, "OTHER")
+        _yr_c(ws, row, col, cat_label,
+              font=_YR_FONT_CAT, fill=_YR_FILL_CAT, align=_YR_ALIGN_TOP)
+        max_w = max(max_w, len(cat_label) + 2)
+        row += 1
+
+        for div_name, entries in cat_to_divs[cat]:
+            _yr_c(ws, row, col, div_name,
+                  font=_YR_FONT_DIV, fill=_YR_FILL_DIV, align=_YR_ALIGN_TOP)
+            max_w = max(max_w, len(div_name) + 2)
+            row += 1
+
+            for place_int, display, _ in entries:
+                medal = _YR_MEDALS.get(place_int, "")
+                text  = f"{medal} {place_int:>3}  {display}" if medal else f"    {place_int:>3}  {display}"
+
+                if place_int == 1:
+                    fill, font = _YR_FILL_GOLD,   _YR_FONT_PODIUM
+                elif place_int == 2:
+                    fill, font = _YR_FILL_SILVER, _YR_FONT_PODIUM
+                elif place_int == 3:
+                    fill, font = _YR_FILL_BRONZE, _YR_FONT_PODIUM
+                else:
+                    fill, font = _YR_FILL_PLACE,  _YR_FONT_PLACE
+
+                _yr_c(ws, row, col, text, font=font, fill=fill, align=_YR_ALIGN_TOP)
+                max_w = max(max_w, len(text) + 2)
+                row += 1
+
+            row += 1  # blank row between divisions
+
+    return row - 1, max_w
+
+
+def build_all_year_sheets(wb: Workbook, pf_rows: list[dict],
+                           events: dict, quarantine_set: set) -> None:
+    """
+    Build all year sheets directly from Placements_Flat.
+    Quarantined events are included and marked with ⛔.
+    """
+    print("\nBuilding year sheets from canonical data...")
+    placements_by_event = build_placements_for_year_sheets(pf_rows)
+
+    # Group events by year — include quarantined events even if no placements
+    year_to_eids: dict = defaultdict(list)
+    for eid, ev in events.items():
+        yr = str(ev.get("year", "")).strip()
+        if not yr or not yr.isdigit():
+            continue
+        if eid in placements_by_event or eid in quarantine_set:
+            year_to_eids[yr].append(eid)
+
+    total_events = sum(len(v) for v in year_to_eids.values())
+    print(f"  {len(year_to_eids)} year sheets, {total_events} events total")
+
+    for yr in sorted(year_to_eids.keys(), key=int):
+        eids = sorted(
+            year_to_eids[yr],
+            key=lambda eid: events[eid].get("date", "") or "",
+        )
+        ws = wb.create_sheet(title=yr)
+
+        # Column A: row labels
+        ws.column_dimensions["A"].width = _YR_COL_W_LABEL
+        for row_num, label in _YR_ROW_LABELS.items():
+            _yr_c(ws, row_num, 1, label,
+                  font=_YR_FONT_LABEL, fill=_YR_FILL_LABEL, align=_YR_ALIGN_RIGHT)
+
+        col_max_widths: dict = {}
+        for col_offset, eid in enumerate(eids, start=2):
+            ev         = events[eid]
+            placements = placements_by_event.get(eid, {})
+            is_quar    = eid in quarantine_set
+            _, max_w   = _write_year_event_col(ws, col_offset, ev, placements, is_quar)
+            col_max_widths[col_offset] = max_w
+
+        # Row heights
+        ws.row_dimensions[_YR_R_NAME].height    = 36
+        ws.row_dimensions[_YR_R_LOC].height     = 15
+        ws.row_dimensions[_YR_R_HOST].height    = 15
+        ws.row_dimensions[_YR_R_DATE].height    = 15
+        ws.row_dimensions[_YR_R_PLAYERS].height = 15
+        ws.row_dimensions[_YR_R_TYPE].height    = 15
+        ws.row_dimensions[_YR_R_EID].height     = 13
+        ws.row_dimensions[_YR_R_STATUS].height  = 15
+
+        # Auto column widths
+        for col_idx, max_w in col_max_widths.items():
+            ltr = get_column_letter(col_idx)
+            ws.column_dimensions[ltr].width = max(min(max_w + 4, 60), _YR_COL_W_MIN)
+
+        ws.freeze_panes = "B1"
+
+        qcount = sum(1 for e in eids if e in quarantine_set)
+        qnote  = f" ({qcount} quarantined)" if qcount else ""
+        print(f"  {yr}: {len(eids)} events{qnote}")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 FRONT_SHEETS_COPY = {
@@ -1106,6 +1462,11 @@ def main():
     pf_rows = load_csv(PF_CSV)
     print(f"  Persons Truth: {len(pt_rows)} rows")
     print(f"  Placements Flat: {len(pf_rows)} rows")
+
+    print("\nLoading year-sheet data...")
+    yr_events      = load_events_for_year_sheets()
+    yr_quarantine  = load_quarantine_set()
+    print(f"  {len(yr_events)} events, {len(yr_quarantine)} quarantined")
 
     print("\nCreating output workbook...")
     out_wb = Workbook()
@@ -1139,14 +1500,8 @@ def main():
     print("\nBuilding FREESTYLE INSIGHTS sheet...")
     build_freestyle_insights(out_wb)
 
-    # Copy all year sheets from v11
-    for sheet_name in src_wb.sheetnames:
-        if not sheet_name.isdigit():
-            continue
-        print(f"  Copying {sheet_name}...", end="", flush=True)
-        dst_ws = out_wb.create_sheet(sheet_name)
-        copy_sheet_to(src_wb[sheet_name], dst_ws, standardise_year_cols=True)
-        print(" done")
+    # Build all year sheets directly from Placements_Flat (includes quarantined events)
+    build_all_year_sheets(out_wb, pf_rows, yr_events, yr_quarantine)
 
     # Final sheet order check
     sheets = out_wb.sheetnames
