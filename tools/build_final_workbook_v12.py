@@ -22,14 +22,12 @@ Derivation:
   most_common_trick ← player_diversity_profiles.csv   top_tricks (first)
 """
 
-import copy
 import csv
 import os
 import sys
 import unicodedata
 from collections import Counter, defaultdict
 
-import openpyxl
 from openpyxl import Workbook
 from openpyxl.formatting.rule import ColorScaleRule
 from openpyxl.styles import Alignment, Font, PatternFill
@@ -41,7 +39,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 
-SOURCE_V11       = os.path.join(BASE_DIR, "Footbag_Results_Community_FINAL_v11.xlsx")
 OUTPUT_PATH      = os.path.join(BASE_DIR, "Footbag_Results_Community_FINAL_v12.xlsx")
 
 PF_CSV           = os.path.join(BASE_DIR, "out", "Placements_Flat.csv")
@@ -565,24 +562,18 @@ def build_statistics(wb: Workbook, pf_rows: list[dict], pt_rows: list[dict]) -> 
 # ── PLAYER SUMMARY ────────────────────────────────────────────────────────────
 
 PLAYER_SUMMARY_HEADERS = [
-    "Player",
+    "Player", "BAP Nickname",
     "Wins", "Podiums", "Placements", "Events",
-    "Years Active",
-    "BAP", "FBHOF",
-    "Freestyle Chains", "Max ADD", "Distinct Tricks", "Top Trick",
     "Legacy ID",
 ]
 
-PLAYER_COL_WIDTHS = [32, 5, 7, 10, 6, 12, 14, 12, 16, 8, 15, 20, 10]
+PLAYER_COL_WIDTHS = [32, 20, 5, 7, 10, 6, 10]
 
 
 def build_player_summary(wb: Workbook,
                          pt_rows: list[dict],
                          placement_stats: dict[str, dict],
-                         bap_map: dict[str, dict],
-                         fbhof_map: dict[str, dict],
-                         difficulty_map: dict[str, dict],
-                         diversity_map: dict[str, str]) -> None:
+                         bap_map: dict[str, dict]) -> None:
     if "PLAYER SUMMARY" in wb.sheetnames:
         idx = wb.sheetnames.index("PLAYER SUMMARY")
         del wb["PLAYER SUMMARY"]
@@ -613,51 +604,20 @@ def build_player_summary(wb: Workbook,
         if not stats:
             continue  # skip persons with no placements
 
-        ya     = years_active_str(stats)
-        bap    = bap_label(bap_map[pc])    if pc in bap_map    else None
-        fbhof  = fbhof_label(fbhof_map[pc]) if pc in fbhof_map else None
-
-        diff = difficulty_map.get(pid, {})
-        chains = diff.get("chains_total")
-        max_add = diff.get("max_sequence_add")
-        n_tricks = diff.get("n_distinct_tricks")
-        top_trick = diversity_map.get(pid)
-
-        # Format numerics
-        chains   = int(chains)   if chains   and str(chains)   != "nan" else None
-        max_add  = float(max_add) if max_add  and str(max_add)  != "nan" else None
-        n_tricks = int(n_tricks) if n_tricks and str(n_tricks) != "nan" else None
-
-        # Highlight BAP/FBHOF rows
-        if pc in bap_map and pc in fbhof_map:
-            row_fill = FILL_BOTH
-        elif pc in fbhof_map:
-            row_fill = FILL_HOF
-        elif pc in bap_map:
-            row_fill = FILL_BAP
-        else:
-            row_fill = None
+        bap_nick    = bap_map[pc].get("nickname") if pc in bap_map else None
 
         values = [
             pc,
+            bap_nick,
             stats.get("wins"),
             stats.get("podiums"),
             stats.get("placements"),
             stats.get("events"),
-            ya or None,
-            bap,
-            fbhof,
-            chains,
-            max_add,
-            n_tricks,
-            top_trick,
             lid,
         ]
         for col, v in enumerate(values, 1):
             align = ALIGN_RIGHT if isinstance(v, (int, float)) else ALIGN_LEFT
-            cell = _w(ws, row, col, v, font=FONT_DATA, align=align)
-            if row_fill:
-                cell.fill = row_fill
+            _w(ws, row, col, v, font=FONT_DATA, align=align)
         row += 1
         n_written += 1
 
@@ -789,9 +749,7 @@ def build_freestyle_insights(wb: Workbook) -> None:
     diversity   = load_csv(DIVERSITY_CSV)
     trick_node  = load_csv(TRICK_NODE_CSV)
 
-    if not any([trick_freq, transitions, seq_diff]):
-        print("  FREESTYLE INSIGHTS: skipped (no analytics CSVs found)")
-        return
+    data_missing = not any([trick_freq, transitions, seq_diff])
 
     if "FREESTYLE INSIGHTS" in wb.sheetnames:
         del wb["FREESTYLE INSIGHTS"]
@@ -803,6 +761,22 @@ def build_freestyle_insights(wb: Workbook) -> None:
     else:
         idx = len(wb.sheetnames)
     ws = wb.create_sheet("FREESTYLE INSIGHTS", idx)
+
+    if data_missing:
+        ws.column_dimensions["A"].width = 80
+        msg = ws.cell(row=2, column=1)
+        msg.value = (
+            "Freestyle analytics not available. "
+            "Run tools/09_compute_difficulty_analytics.py, "
+            "10_compute_extended_analytics.py, and "
+            "11_build_transition_network.py to generate the required data, "
+            "then rebuild this workbook."
+        )
+        msg.font      = Font(italic=True, size=11, color="888888")
+        msg.alignment = Alignment(wrap_text=True, vertical="top")
+        ws.row_dimensions[2].height = 40
+        print("  FREESTYLE INSIGHTS: placeholder written (analytics CSVs not found)")
+        return
 
     # ── Styles ────────────────────────────────────────────────────────────────
     _thin    = Side(style="thin")
@@ -1038,51 +1012,300 @@ def _floatv(r: dict, key: str) -> float | None:
         return None
 
 
-# ── Sheet copy utilities (unchanged from v11) ─────────────────────────────────
+# ── DATA NOTES sheet ──────────────────────────────────────────────────────────
 
-def copy_cell(src_cell, dst_cell):
-    dst_cell.value = src_cell.value
-    if src_cell.has_style:
-        for attr in ("font", "fill", "alignment", "border", "number_format"):
-            try:
-                val = getattr(src_cell, attr)
-                setattr(dst_cell, attr,
-                        copy.copy(val) if attr != "number_format" else val)
-            except Exception:
-                pass
-    if src_cell.hyperlink:
-        try:
-            dst_cell.hyperlink = copy.copy(src_cell.hyperlink)
-        except Exception:
-            pass
+QUARANTINE_CSV_FULL = os.path.join(BASE_DIR, "inputs", "review_quarantine_events.csv")
+
+def build_data_notes(wb: Workbook) -> None:
+    """Build DATA NOTES sheet natively from known_issues.csv and review_quarantine_events.csv."""
+    if "DATA NOTES" in wb.sheetnames:
+        idx = wb.sheetnames.index("DATA NOTES")
+        del wb["DATA NOTES"]
+        ws = wb.create_sheet("DATA NOTES", idx)
+    else:
+        ws = wb.create_sheet("DATA NOTES")
+
+    FONT_TITLE_DN  = Font(bold=True, size=14)
+    FONT_SECTION_DN = Font(bold=True, size=12)
+    FONT_SUBHDR_DN  = Font(bold=True, size=11)
+    FONT_BODY_DN    = Font(size=11)
+    FONT_LABEL_DN   = Font(bold=True, size=11)
+    FILL_SECTION_DN = _fill("D9E1F2")
+    FILL_SUBSEC_DN  = _fill("EDF2FB")
+    ALIGN_TOP_WRAP  = Alignment(wrap_text=True, vertical="top")
+    ALIGN_TOP_L     = Alignment(vertical="top")
+
+    ws.column_dimensions["A"].width = 22
+    ws.column_dimensions["B"].width = 90
+
+    row = 1
+
+    def title(text):
+        nonlocal row
+        c = ws.cell(row=row, column=1, value=text)
+        c.font = FONT_TITLE_DN
+        ws.row_dimensions[row].height = 22
+        row += 1
+
+    def section(text):
+        nonlocal row
+        row += 1
+        c = ws.cell(row=row, column=1, value=text)
+        c.font = FONT_SECTION_DN
+        c.fill = FILL_SECTION_DN
+        ws.row_dimensions[row].height = 18
+        row += 1
+
+    def subhdr(text):
+        nonlocal row
+        c = ws.cell(row=row, column=1, value=text)
+        c.font = FONT_SUBHDR_DN
+        c.fill = FILL_SUBSEC_DN
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=2)
+        ws.row_dimensions[row].height = 16
+        row += 1
+
+    def body(text):
+        nonlocal row
+        c = ws.cell(row=row, column=1, value=text)
+        c.font = FONT_BODY_DN
+        c.alignment = ALIGN_TOP_WRAP
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=2)
+        ws.row_dimensions[row].height = 30
+        row += 1
+
+    def kv(label, value):
+        nonlocal row
+        a = ws.cell(row=row, column=1, value=label)
+        a.font = FONT_LABEL_DN
+        a.alignment = ALIGN_TOP_L
+        b = ws.cell(row=row, column=2, value=value)
+        b.font = FONT_BODY_DN
+        b.alignment = ALIGN_TOP_WRAP
+        ws.row_dimensions[row].height = max(15, min(60, len(str(value or "")) // 3))
+        row += 1
+
+    def blank():
+        nonlocal row
+        row += 1
+
+    # ── Content ──────────────────────────────────────────────────────────────
+    title("Data Notes — Source Limitations and Data Quality")
+
+    section("Source Coverage")
+    body("This dataset is reconstructed primarily from the Footbag.org website archive. "
+         "Coverage is comprehensive from 1997 onward. Earlier periods are partial.")
+    kv("1980–1986", "Partial — top-3 finishers only for most divisions (NHSA World Championships).")
+    kv("1987–1989", "No coverage — no archival source available.")
+    kv("1990–1991", "Partial — limited results from early WFPA records.")
+    kv("1992–1996", "No coverage — pre-Footbag.org era with no digital archive.")
+    kv("1997–2025", "Comprehensive — sourced from the Footbag.org mirror. "
+                    "Some events have partial standings (see Known-Issue Events below).")
+    kv("2026",      "Included — season in progress at time of publication.")
+
+    section("Data Quality Limitations")
+    body("Player statistics (wins, podiums, placements) are computed from this incomplete record. "
+         "Treat all career counts as lower bounds — they reflect documented results only.")
+    kv("Missing dates",          "Approximately 13 events have no date in the source. "
+                                  "They are placed in their correct year.")
+    kv("Host club coverage",     "Host club information is absent for many events. "
+                                  "Only events where it appeared in the original source are populated.")
+    kv("Location normalization", "Locations are standardised to City, Region, Country format. "
+                                  "Some remote or rural events have approximate locations.")
+    kv("Character encoding",     "99 U+FFFD replacement characters appear in player names where the "
+                                  "original HTML archive suffered encoding loss (primarily accented "
+                                  "characters in French, Finnish, German, Polish, and Czech names). "
+                                  "These cannot be recovered without the original source pages.")
+    kv("Division merging",       "Some events combined Open and Intermediate divisions, or pool + "
+                                  "final standings, under a single heading on Footbag.org. These are "
+                                  "preserved as-is; the merged division name is documented in the "
+                                  "Event Index sheet.")
+    kv("Partial standings",      "For some events the source only published top-3 or top-5 finishers. "
+                                  "These are marked 'partial' in the Event Index.")
+    kv("Quarantined events",     "21 events have structural issues (complex competition formats, "
+                                  "duplicate results, or irreconcilable source data) that make "
+                                  "deterministic parsing impossible. They appear in the Event Index "
+                                  "highlighted in red but are excluded from all statistics.")
+    kv("Player identity",        "All player identities are human-verified. 82 competitors remain "
+                                  "'unresolved' — their names appear in the source but cannot be "
+                                  "confidently matched to a canonical person. They are excluded from "
+                                  "Player Summary statistics.")
+
+    # ── Known-Issue Events ────────────────────────────────────────────────────
+    # Load events to get names + years
+    events_for_notes: dict = {}
+    if os.path.exists(EVENTS_CSV):
+        for r in load_csv(EVENTS_CSV):
+            events_for_notes[r.get("event_id", "")] = r
+
+    ki_rows: list[dict] = []
+    if os.path.exists(KNOWN_ISSUES_CSV):
+        ki_rows = load_csv(KNOWN_ISSUES_CSV)
+
+    section(f"Known-Issue Events ({len(ki_rows)} events — minor, moderate, or severe source limitations)")
+    body("These events are included in the dataset but have documented data quality issues. "
+         "The severity reflects impact on standings accuracy: minor = incomplete positions; "
+         "moderate = merged divisions; severe = unreliable standings.")
+
+    if ki_rows:
+        hdrs = ["Year", "Event", "Severity", "Note"]
+        widths_ki = [6, 46, 10, 46]
+        for col_i, (h, w) in enumerate(zip(hdrs, widths_ki), start=1):
+            c = ws.cell(row=row, column=col_i, value=h)
+            c.font = FONT_SUBHDR_DN
+            c.fill = FILL_SUBSEC_DN
+            ws.column_dimensions[get_column_letter(col_i)].width = w
+        row += 1
+        for ki in sorted(ki_rows, key=lambda r: (events_for_notes.get(r.get("event_id",""), {}).get("year","9999"),
+                                                   r.get("event_id",""))):
+            eid = ki.get("event_id", "")
+            ev  = events_for_notes.get(eid, {})
+            yr  = ev.get("year") or ""
+            nm  = ev.get("event_name") or eid
+            ws.cell(row=row, column=1, value=yr).font = FONT_BODY_DN
+            ws.cell(row=row, column=2, value=nm).font = FONT_BODY_DN
+            ws.cell(row=row, column=3, value=ki.get("severity","")).font = FONT_BODY_DN
+            c = ws.cell(row=row, column=4, value=ki.get("note",""))
+            c.font = FONT_BODY_DN
+            c.alignment = ALIGN_TOP_WRAP
+            ws.row_dimensions[row].height = 14
+            row += 1
+        # Restore main col widths after table (table used all 4)
+        ws.column_dimensions["A"].width = 22
+        ws.column_dimensions["B"].width = 90
+
+    # ── Quarantined Events ────────────────────────────────────────────────────
+    quar_rows: list[dict] = []
+    if os.path.exists(QUARANTINE_CSV_FULL):
+        quar_rows = load_csv(QUARANTINE_CSV_FULL)
+
+    section(f"Quarantined Events ({len(quar_rows)} events — excluded from results)")
+
+    if quar_rows:
+        hdrs_q = ["Year", "Event", "Reason"]
+        widths_q = [6, 56, 36]
+        for col_i, (h, w) in enumerate(zip(hdrs_q, widths_q), start=1):
+            c = ws.cell(row=row, column=col_i, value=h)
+            c.font = FONT_SUBHDR_DN
+            c.fill = FILL_SUBSEC_DN
+            ws.column_dimensions[get_column_letter(col_i)].width = w
+        row += 1
+        for qr in sorted(quar_rows, key=lambda r: (r.get("year",""), r.get("event_name",""))):
+            ws.cell(row=row, column=1, value=qr.get("year","")).font = FONT_BODY_DN
+            c = ws.cell(row=row, column=2, value=qr.get("event_name",""))
+            c.font = FONT_BODY_DN
+            ws.cell(row=row, column=3, value=qr.get("reason","")).font = FONT_BODY_DN
+            ws.row_dimensions[row].height = 14
+            row += 1
+        ws.column_dimensions["A"].width = 22
+        ws.column_dimensions["B"].width = 90
+
+    print(f"  DATA NOTES: {row - 1} rows written")
 
 
-def copy_sheet_to(src_ws, dst_ws, *, standardise_year_cols: bool = False):
-    for col_letter, col_dim in src_ws.column_dimensions.items():
-        dst_ws.column_dimensions[col_letter].width  = col_dim.width or 8.43
-        dst_ws.column_dimensions[col_letter].hidden = col_dim.hidden
-    for row_num, row_dim in src_ws.row_dimensions.items():
-        dst_ws.row_dimensions[row_num].height = row_dim.height or 15
-    for row in src_ws.iter_rows():
-        for cell in row:
-            copy_cell(cell, dst_ws.cell(row=cell.row, column=cell.column))
-    for merge_range in src_ws.merged_cells.ranges:
-        try:
-            dst_ws.merge_cells(str(merge_range))
-        except Exception:
-            pass
-    if src_ws.freeze_panes:
-        dst_ws.freeze_panes = src_ws.freeze_panes
-    if src_ws.auto_filter.ref:
-        dst_ws.auto_filter.ref = src_ws.auto_filter.ref
+# ── CONSECUTIVE RECORDS sheet ─────────────────────────────────────────────────
 
-    if standardise_year_cols:
-        # Standardise column widths for year sheets only
-        # A=place(4), B=player(34), C=team(18), D=division/notes(22)
-        _YEAR_WIDTHS = {"A": 5, "B": 34, "C": 18, "D": 22}
-        for col_letter, width in _YEAR_WIDTHS.items():
-            if col_letter in dst_ws.column_dimensions:
-                dst_ws.column_dimensions[col_letter].width = width
+CONSECUTIVES_CSV = os.path.join(BASE_DIR, "out", "consecutives_combined.csv")
+
+def build_consecutive_records(wb: Workbook) -> None:
+    """Build CONSECUTIVE RECORDS sheet from out/consecutives_combined.csv."""
+    if "CONSECUTIVE RECORDS" in wb.sheetnames:
+        idx = wb.sheetnames.index("CONSECUTIVE RECORDS")
+        del wb["CONSECUTIVE RECORDS"]
+        ws = wb.create_sheet("CONSECUTIVE RECORDS", idx)
+    else:
+        ws = wb.create_sheet("CONSECUTIVE RECORDS")
+
+    if not os.path.exists(CONSECUTIVES_CSV):
+        ws.cell(row=1, column=1, value="Consecutive records data not available.")
+        ws.cell(row=1, column=1).font = Font(italic=True, color="888888")
+        print("  CONSECUTIVE RECORDS: data file missing — placeholder written")
+        return
+
+    rows = load_csv(CONSECUTIVES_CSV)
+
+    FONT_TITLE_CR   = Font(bold=True, size=14)
+    FONT_SECTION_CR = Font(bold=True, size=12)
+    FONT_SUBSEC_CR  = Font(bold=True, size=11)
+    FONT_HDR_CR     = Font(bold=True, size=10)
+    FONT_DATA_CR    = Font(size=10)
+    FILL_SECTION_CR = _fill("D9E1F2")
+    FILL_SUBSEC_CR  = _fill("EDF2FB")
+    FILL_HDR_CR     = _fill("F2F2F2")
+    ALIGN_L         = Alignment(horizontal="left", vertical="top")
+    ALIGN_R         = Alignment(horizontal="right", vertical="top")
+
+    COL_HEADERS = ["Year", "Rank", "Division", "Person / Team", "Partner",
+                   "Score", "Note", "Event Date", "Event Name", "Location"]
+    COL_KEYS    = ["year", "rank", "division", "person_or_team", "partner",
+                   "score", "note", "event_date", "event_name", "location"]
+    COL_WIDTHS  = [6, 6, 20, 28, 20, 10, 28, 13, 40, 28]
+
+    for col_i, w in enumerate(COL_WIDTHS, start=1):
+        ws.column_dimensions[get_column_letter(col_i)].width = w
+
+    cur_row = 1
+
+    # Title
+    c = ws.cell(row=cur_row, column=1, value="Consecutive Kicks Records")
+    c.font = FONT_TITLE_CR
+    ws.row_dimensions[cur_row].height = 22
+    cur_row += 2
+
+    cur_section    = None
+    cur_subsection = None
+
+    for r in sorted(rows, key=lambda x: (x.get("section",""), int(x.get("sort_order",0) or 0))):
+        sec    = r.get("section", "")
+        subsec = r.get("subsection", "")
+
+        # Section header
+        if sec != cur_section:
+            cur_row += 1
+            c = ws.cell(row=cur_row, column=1, value=sec)
+            c.font = FONT_SECTION_CR
+            c.fill = FILL_SECTION_CR
+            ws.merge_cells(start_row=cur_row, start_column=1, end_row=cur_row, end_column=len(COL_HEADERS))
+            ws.row_dimensions[cur_row].height = 18
+            cur_row += 1
+            cur_section    = sec
+            cur_subsection = None  # force subsection re-emit
+
+        # Subsection header
+        if subsec != cur_subsection:
+            c = ws.cell(row=cur_row, column=1, value=subsec)
+            c.font = FONT_SUBSEC_CR
+            c.fill = FILL_SUBSEC_CR
+            ws.merge_cells(start_row=cur_row, start_column=1, end_row=cur_row, end_column=len(COL_HEADERS))
+            ws.row_dimensions[cur_row].height = 16
+            cur_row += 1
+
+            # Column headers
+            for col_i, h in enumerate(COL_HEADERS, start=1):
+                c = ws.cell(row=cur_row, column=col_i, value=h)
+                c.font = FONT_HDR_CR
+                c.fill = FILL_HDR_CR
+            ws.row_dimensions[cur_row].height = 14
+            cur_row += 1
+            cur_subsection = subsec
+
+        # Data row
+        for col_i, key in enumerate(COL_KEYS, start=1):
+            val = r.get(key) or None
+            if val and key == "score":
+                try:
+                    val = int(val)
+                except (ValueError, TypeError):
+                    pass
+            align = ALIGN_R if key in ("score", "rank", "year") else ALIGN_L
+            c = ws.cell(row=cur_row, column=col_i, value=val)
+            c.font = FONT_DATA_CR
+            c.alignment = align
+        ws.row_dimensions[cur_row].height = 14
+        cur_row += 1
+
+    ws.freeze_panes = "A2"
+    print(f"  CONSECUTIVE RECORDS: {len(rows)} records written")
 
 
 # ── Year sheet builder ────────────────────────────────────────────────────────
@@ -1378,10 +1601,13 @@ def _write_year_event_col(ws, col: int, ev: dict, placements: dict,
 
 
 def build_all_year_sheets(wb: Workbook, pf_rows: list[dict],
-                           events: dict, quarantine_set: set) -> None:
+                           events: dict, quarantine_set: set) -> tuple[dict, dict]:
     """
     Build all year sheets directly from Placements_Flat.
     Quarantined events are included and marked with ⛔.
+    Returns (event_col_map, placements_by_event):
+      event_col_map:      {event_id: (sheet_name, col_letter)} for INDEX hyperlinks.
+      placements_by_event: {event_id: {division: [(place, display, cat)]}}
     """
     print("\nBuilding year sheets from canonical data...")
     placements_by_event = build_placements_for_year_sheets(pf_rows)
@@ -1397,6 +1623,8 @@ def build_all_year_sheets(wb: Workbook, pf_rows: list[dict],
 
     total_events = sum(len(v) for v in year_to_eids.values())
     print(f"  {len(year_to_eids)} year sheets, {total_events} events total")
+
+    event_col_map: dict = {}   # eid → (sheet_name, col_letter)
 
     for yr in sorted(year_to_eids.keys(), key=int):
         eids = sorted(
@@ -1418,6 +1646,7 @@ def build_all_year_sheets(wb: Workbook, pf_rows: list[dict],
             is_quar    = eid in quarantine_set
             _, max_w   = _write_year_event_col(ws, col_offset, ev, placements, is_quar)
             col_max_widths[col_offset] = max_w
+            event_col_map[eid] = (yr, get_column_letter(col_offset))
 
         # Row heights
         ws.row_dimensions[_YR_R_NAME].height    = 36
@@ -1440,6 +1669,155 @@ def build_all_year_sheets(wb: Workbook, pf_rows: list[dict],
         qnote  = f" ({qcount} quarantined)" if qcount else ""
         print(f"  {yr}: {len(eids)} events{qnote}")
 
+    return event_col_map, placements_by_event
+
+
+# ── EVENT INDEX builder ───────────────────────────────────────────────────────
+
+KNOWN_ISSUES_CSV = os.path.join(BASE_DIR, "overrides", "known_issues.csv")
+COVERAGE_CSV     = os.path.join(BASE_DIR, "out", "Coverage_ByEventDivision.csv")
+
+_IDX_FILL_OK   = PatternFill("solid", fgColor="E8F5E9")   # soft green
+_IDX_FILL_QUAR = PatternFill("solid", fgColor="FFCDD2")   # soft red
+_IDX_FILL_HDR  = PatternFill("solid", fgColor="1F3864")
+_IDX_FONT_HDR  = Font(bold=True, size=10, color="FFFFFF")
+_IDX_FONT_LINK = Font(size=10, color="1155CC", underline="single")
+_IDX_FONT_NORM = Font(size=10)
+_IDX_FONT_NOTE = Font(italic=True, size=9, color="666666")
+_IDX_ALIGN_CTR = Alignment(horizontal="center", vertical="top")
+_IDX_ALIGN_L   = Alignment(horizontal="left",   vertical="top")
+
+_FLAG_RANK = {"complete": 0, "partial": 1, "sparse": 2, "none": 3}
+
+
+def load_known_issues() -> dict:
+    """Returns {event_id: {severity, note}}."""
+    result: dict = {}
+    if not os.path.exists(KNOWN_ISSUES_CSV):
+        return result
+    for r in load_csv(KNOWN_ISSUES_CSV):
+        eid = r.get("event_id", "").strip()
+        if eid:
+            result[eid] = {"severity": r.get("severity", ""), "note": r.get("note", "")}
+    return result
+
+
+def load_coverage_by_event() -> dict:
+    """Returns {event_id: worst_coverage_flag}."""
+    result: dict = {}
+    if not os.path.exists(COVERAGE_CSV):
+        return result
+    for r in load_csv(COVERAGE_CSV):
+        eid  = str(r.get("event_id", "")).strip()
+        flag = r.get("coverage_flag", "complete").strip().lower()
+        if eid:
+            prev = result.get(eid, "complete")
+            if _FLAG_RANK.get(flag, 0) > _FLAG_RANK.get(prev, 0):
+                result[eid] = flag
+    return result
+
+
+def build_event_index(wb: Workbook,
+                      events: dict,
+                      placements_by_event: dict,
+                      quarantine_set: set,
+                      known_issues: dict,
+                      coverage_by_event: dict,
+                      event_col_map: dict) -> None:
+    """
+    Build EVENT INDEX sheet with one row per event, sorted by year then date.
+    Event names are hyperlinked to their column in the corresponding year sheet.
+    Quarantined rows are red; OK rows are green.
+    Replaces the copy from v11 if it exists.
+    """
+    if "EVENT INDEX" in wb.sheetnames:
+        idx_pos = wb.sheetnames.index("EVENT INDEX")
+        del wb["EVENT INDEX"]
+    else:
+        idx_pos = 3   # after DATA NOTES, STATISTICS
+
+    ws = wb.create_sheet("EVENT INDEX", idx_pos)
+    ws.freeze_panes = "A2"
+
+    cols   = ["Event ID", "Year", "Event Name", "City / Region", "Country",
+              "Start Date", "Placements", "Divisions", "Coverage",
+              "Status", "Notes"]
+    widths = [14, 6, 48, 28, 18, 13, 11, 10, 12, 16, 48]
+
+    for c, (h, w) in enumerate(zip(cols, widths), start=1):
+        cell = ws.cell(row=1, column=c, value=h)
+        cell.font      = _IDX_FONT_HDR
+        cell.fill      = _IDX_FILL_HDR
+        cell.alignment = _IDX_ALIGN_CTR
+        ws.column_dimensions[get_column_letter(c)].width = w
+
+    all_eids = sorted(
+        events.keys(),
+        key=lambda e: (events[e].get("year", "9999"),
+                       events[e].get("date", "") or ""),
+    )
+
+    for row_idx, eid in enumerate(all_eids, start=2):
+        ev  = events[eid]
+        ep  = placements_by_event.get(eid, {})
+        n_p = sum(len(v) for v in ep.values())
+        n_d = len(ep)
+
+        is_quar  = eid in quarantine_set
+        issue    = known_issues.get(eid)
+        cov_flag = coverage_by_event.get(eid, "complete" if n_p else "none")
+
+        if is_quar:
+            status = "QUARANTINED"
+            notes  = "Excluded — ambiguous structure prevents deterministic parsing"
+        elif n_p == 0:
+            status = "NO_RESULTS"
+            notes  = "No competitive results in dataset"
+        elif issue:
+            status = f"KNOWN_ISSUE ({issue['severity']})"
+            notes  = issue["note"]
+        else:
+            status = "OK"
+            notes  = ""
+
+        # City display: US/Canada keep region, others just city
+        city    = ev.get("location", "").split(",")[0].strip() if ev.get("location") else ""
+        country = ev.get("country", "")
+
+        values = [eid, ev.get("year", ""), None,  # col 3 = event name (written below)
+                  city, country,
+                  ev.get("date", ""),
+                  n_p or None, n_d or None,
+                  cov_flag, status, notes or None]
+
+        for c, val in enumerate(values, start=1):
+            if c == 3:
+                continue
+            cell = ws.cell(row=row_idx, column=c, value=val)
+            cell.font      = _IDX_FONT_NORM
+            cell.alignment = _IDX_ALIGN_L
+            if c == 11 and val:   # notes italic
+                cell.font = _IDX_FONT_NOTE
+
+        # Event name with hyperlink to year sheet column
+        name_cell = ws.cell(row=row_idx, column=3, value=ev.get("event_name", ""))
+        if eid in event_col_map:
+            sheet_name, col_letter = event_col_map[eid]
+            safe = sheet_name.replace("'", "''")
+            name_cell.hyperlink = f"#'{safe}'!{col_letter}1"
+            name_cell.font      = _IDX_FONT_LINK
+        else:
+            name_cell.font = _IDX_FONT_NORM
+        name_cell.alignment = _IDX_ALIGN_L
+
+        # Row fill
+        row_fill = _IDX_FILL_QUAR if is_quar else (_IDX_FILL_OK if status == "OK" else None)
+        if row_fill:
+            for c in range(1, len(cols) + 1):
+                ws.cell(row=row_idx, column=c).fill = row_fill
+
+    print(f"  EVENT INDEX: {len(all_eids)} rows")
+
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -1453,15 +1831,15 @@ SHEETS_REBUILT = {"README", "STATISTICS", "FREESTYLE INSIGHTS"}
 
 def main():
 
-    print(f"\nOpening source workbook: {os.path.basename(SOURCE_V11)}")
-    src_wb = openpyxl.load_workbook(SOURCE_V11)
-    print(f"  Sheets: {src_wb.sheetnames[:6]} ...")
-
     print("\nLoading canonical data...")
     pt_rows, canon_by_norm = load_persons_truth()
     pf_rows = load_csv(PF_CSV)
     print(f"  Persons Truth: {len(pt_rows)} rows")
     print(f"  Placements Flat: {len(pf_rows)} rows")
+
+    print("\nLoading honors + stats data...")
+    placement_stats  = build_placement_stats(pf_rows)
+    bap_map          = load_bap(canon_by_norm)
 
     print("\nLoading year-sheet data...")
     yr_events      = load_events_for_year_sheets()
@@ -1472,36 +1850,43 @@ def main():
     out_wb = Workbook()
     out_wb.remove(out_wb.active)
 
-    # Build README first (position 0)
+    # Build front sheets in order
     print("\nBuilding README sheet...")
     build_readme(out_wb)
 
-    # Copy DATA NOTES from v11
-    for sheet_name in ("DATA NOTES",):
-        if sheet_name in src_wb.sheetnames:
-            print(f"  Copying {sheet_name}...", end="", flush=True)
-            dst_ws = out_wb.create_sheet(sheet_name)
-            copy_sheet_to(src_wb[sheet_name], dst_ws)
-            print(" done")
+    print("\nBuilding DATA NOTES sheet...")
+    build_data_notes(out_wb)
 
-    # Build STATISTICS (after DATA NOTES)
     print("\nBuilding STATISTICS sheet...")
     build_statistics(out_wb, pf_rows, pt_rows)
 
-    # Copy EVENT INDEX, PLAYER SUMMARY, CONSECUTIVE RECORDS from v11
-    for sheet_name in ("EVENT INDEX", "PLAYER SUMMARY", "CONSECUTIVE RECORDS"):
-        if sheet_name in src_wb.sheetnames:
-            print(f"  Copying {sheet_name}...", end="", flush=True)
-            dst_ws = out_wb.create_sheet(sheet_name)
-            copy_sheet_to(src_wb[sheet_name], dst_ws)
-            print(" done")
+    print("\nBuilding PLAYER SUMMARY sheet...")
+    build_player_summary(out_wb, pt_rows, placement_stats, bap_map)
 
-    # Build FREESTYLE INSIGHTS after CONSECUTIVE RECORDS
+    print("\nBuilding CONSECUTIVE RECORDS sheet...")
+    build_consecutive_records(out_wb)
+
     print("\nBuilding FREESTYLE INSIGHTS sheet...")
     build_freestyle_insights(out_wb)
 
     # Build all year sheets directly from Placements_Flat (includes quarantined events)
-    build_all_year_sheets(out_wb, pf_rows, yr_events, yr_quarantine)
+    event_col_map, placements_by_event = build_all_year_sheets(
+        out_wb, pf_rows, yr_events, yr_quarantine
+    )
+
+    # Build EVENT INDEX natively (must come after year sheets so hyperlinks resolve)
+    print("\nBuilding EVENT INDEX sheet...")
+    known_issues      = load_known_issues()
+    coverage_by_event = load_coverage_by_event()
+    # Pre-position: insert placeholder before first year sheet
+    first_year = next((s for s in out_wb.sheetnames if s.isdigit()), None)
+    if first_year:
+        year_idx = out_wb.sheetnames.index(first_year)
+        out_wb.create_sheet("EVENT INDEX", year_idx)
+    build_event_index(
+        out_wb, yr_events, placements_by_event,
+        yr_quarantine, known_issues, coverage_by_event, event_col_map
+    )
 
     # Final sheet order check
     sheets = out_wb.sheetnames
