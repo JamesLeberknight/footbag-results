@@ -11,7 +11,7 @@ Inputs (all in out/):
   Coverage_ByEventDivision.csv  — coverage flags per (event, division)
   Persons_Truth.csv             — canonical person records
 
-Outputs (in out/canonical/):
+Outputs (in ~/projects/footbag-platform/legacy_data/event_results/canonical_input/):
   events.csv                    — one row per event
   event_disciplines.csv         — one row per discipline within an event
   event_results.csv             — one row per placement slot (deduped across ties)
@@ -43,7 +43,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT  = ROOT / "out"
-CANONICAL = OUT / "canonical"
+CANONICAL = Path("~/projects/footbag-platform/legacy_data/event_results/canonical_input").expanduser()
 
 csv.field_size_limit(10_000_000)
 
