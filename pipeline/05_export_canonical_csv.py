@@ -50,6 +50,21 @@ csv.field_size_limit(10_000_000)
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
+def clean_display_str(s: str) -> str:
+    """Strip invisible/garbage Unicode from display strings.
+
+    - U+00AD (soft hyphen): zero-width formatting char from HTML &shy; — strip silently.
+    - U+FFFD (replacement char): appears when source had &shy; that was mis-decoded.
+      When followed by an uppercase letter (e.g. Rou\ufffdTines), lowercase that letter
+      so "RouTines" → "Routines".
+    """
+    # U+FFFD followed by uppercase → lowercase that letter
+    s = re.sub(r"\ufffd([A-Z])", lambda m: m.group(1).lower(), s)
+    # Strip any remaining U+FFFD or U+00AD
+    s = s.replace("\ufffd", "").replace("\u00ad", "")
+    return s
+
+
 def slugify(text: str) -> str:
     """Lowercase, ASCII-safe slug. Collapses non-alphanumeric runs to underscores."""
     s = text.lower().strip()
@@ -405,7 +420,7 @@ for row in sorted_rows:
         disciplines_out.append({
             "event_key":           event_key,
             "discipline_key":      discipline_key,
-            "discipline_name":     div,
+            "discipline_name":     clean_display_str(div),
             "discipline_category": div_cat,
             "team_type":           team_type,
             "sort_order":          sort_order,
@@ -445,7 +460,7 @@ for row in sorted_rows:
                     "discipline_key":    discipline_key,
                     "placement":         place,
                     "participant_order": part_counter[result_key],
-                    "display_name":      p1_name,
+                    "display_name":      clean_display_str(p1_name),
                     "person_id":         resolve_person_id(p1_id, p1_name),
                     "notes":             "",
                 })
@@ -457,7 +472,7 @@ for row in sorted_rows:
                     "discipline_key":    discipline_key,
                     "placement":         place,
                     "participant_order": part_counter[result_key],
-                    "display_name":      p2_name,
+                    "display_name":      clean_display_str(p2_name),
                     "person_id":         resolve_person_id(p2_id, p2_name),
                     "notes":             "",
                 })
