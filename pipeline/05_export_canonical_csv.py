@@ -232,6 +232,27 @@ with open(OUT / "Persons_Truth.csv", newline="", encoding="utf-8") as f:
                 names_to_person[n] = pid
 print(f"  {len(pt_rows):,} persons, {len(token_to_person):,} tokens, {len(names_to_person):,} names indexed")
 
+# player_ids_seen lookup (for persons.csv export)
+pt_player_ids: dict[str, str] = {}    # effective_person_id → pipe-sep player_ids_seen
+for row in pt_rows:
+    pt_player_ids[row["effective_person_id"]] = row["player_ids_seen"]
+
+# ── Load member_id assignments ─────────────────────────────────────────────────
+
+print("Loading member_id_assignments.csv...")
+_member_id_csv = ROOT / "out" / "member_id_enrichment" / "member_id_assignments.csv"
+member_id_map: dict[str, str] = {}   # effective_person_id → footbag.org member_id
+if _member_id_csv.exists():
+    with open(_member_id_csv, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            pid = row.get("effective_person_id", "").strip()
+            mid = row.get("member_id", "").strip()
+            if pid and mid:
+                member_id_map[pid] = mid
+    print(f"  {len(member_id_map):,} persons with member_id")
+else:
+    print(f"  (member_id_assignments.csv not found — skipping)")
+
 
 def resolve_person_id(player_id: str | None, player_name: str) -> str:
     """
@@ -257,6 +278,24 @@ with open(OUT / "Coverage_ByEventDivision.csv", newline="", encoding="utf-8") as
     for row in csv.DictReader(f):
         coverage[(row["event_id"], row["division_canon"])] = row["coverage_flag"]
 print(f"  {len(coverage):,} (event, division) coverage flags")
+
+
+# ── Load events_normalized for curated location / metadata overrides ──────────
+# Keyed by legacy_event_id. New events not yet in this file fall back to
+# parse_location() automatically — no manual step required for new data.
+
+print("Loading events_normalized.csv...")
+_norm_csv = OUT / "canonical" / "events_normalized.csv"
+events_normalized: dict[str, dict] = {}   # legacy_event_id → row
+if _norm_csv.exists():
+    with open(_norm_csv, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            eid = row.get("legacy_event_id", "").strip()
+            if eid:
+                events_normalized[eid] = row
+    print(f"  {len(events_normalized):,} events with normalized location/metadata")
+else:
+    print(f"  (events_normalized.csv not found — all locations will be auto-parsed)")
 
 
 # ── Load Stage2 ───────────────────────────────────────────────────────────────
@@ -355,10 +394,27 @@ for row in sorted_rows:
     event_key  = event_key_map[eid]
     year       = row["year"] or ""
     event_name = row["event_name"] or ""
-    location   = row.get("location", "") or ""
-    city, region, country = parse_location(location)
     start_date, end_date = parse_date_range(row.get("date", "") or "")
     pj = json.loads(row.get("placements_json", "[]"))
+
+    # Location: use curated events_normalized data when available; fall back to
+    # auto-parsing stage2 location string (covers new events not yet curated).
+    _norm = events_normalized.get(eid)
+    if _norm:
+        city       = _norm.get("city", "")    or ""
+        region     = _norm.get("region", "")  or ""
+        country    = _norm.get("country", "") or ""
+        host_club  = _norm.get("host_club", "") or row.get("host_club", "") or ""
+        event_type = _norm.get("event_type", "") or row.get("event_type", "") or ""
+        # Prefer curated dates when stage2 has none
+        if not start_date:
+            start_date = _norm.get("start_date", "") or ""
+            end_date   = _norm.get("end_date",   "") or ""
+    else:
+        location   = row.get("location", "") or ""
+        city, region, country = parse_location(location)
+        host_club  = row.get("host_club", "") or ""
+        event_type = row.get("event_type", "") or ""
 
     # Ordered unique divisions (preserving first-appearance order from parsed results)
     seen_divs: list[str] = []
@@ -382,10 +438,10 @@ for row in sorted_rows:
         "city":            city,
         "region":          region,
         "country":         country,
-        "host_club":       row.get("host_club", "") or "",
-        "event_type":      row.get("event_type", "") or "",
+        "host_club":       host_club,
+        "event_type":      event_type,
         "status":          derive_status(len(pj), cov_flags),
-        "notes":           "",
+        "notes":           _norm.get("notes", "") if _norm else "",
         "source":          "mirror",
     })
 
@@ -667,6 +723,8 @@ for row in sorted(pt_rows, key=lambda r: r["person_canon"]):
     persons_out.append({
         "person_id":                  pid,
         "person_name":                row["person_canon"],
+        "member_id":                  member_id_map.get(pid, ""),
+        "player_ids":                 pt_player_ids.get(pid, ""),
         "country":                    top_country,
         "first_year":                 years[0]  if years else "",
         "last_year":                  years[-1] if years else "",
@@ -719,8 +777,8 @@ write_csv(
 write_csv(
     CANONICAL / "persons.csv",
     [
-        "person_id", "person_name", "country",
-        "first_year", "last_year", "event_count", "placement_count",
+        "person_id", "person_name", "member_id", "player_ids",
+        "country", "first_year", "last_year", "event_count", "placement_count",
         "bap_member", "bap_nickname", "bap_induction_year",
         "fbhof_member", "fbhof_induction_year",
         "freestyle_sequences", "freestyle_max_add",

@@ -99,7 +99,7 @@ Release builds rely on:
 inputs/identity_lock/
   Persons_Truth_Final_v42.csv       (3,441 persons)
   Persons_Unresolved_Organized_v28.csv  (82 rows)
-  Placements_ByPerson_v66.csv       (28,510 rows)
+  Placements_ByPerson_v67.csv       (28,515 rows)
 ```
 
 These files are treated as ground truth.
@@ -117,6 +117,10 @@ Identity truth is not recomputed in release mode.
 
 ### PBP version history
 
+- v66 → v67 (2026-03-16): Restored 5 missing placements in event 1386623061
+  (U.S. Open 2014): Intermediate Singles Net p1/p2 (Steve Femmel, Joey Vu) and
+  Open Singles Net p1/p2/p3 (Kenneth Shults, Genevieve Bousquet, Chris Young).
+  Net: 28,510 → 28,515 rows.
 - v65 → v66 (2026-03-14): Resolved 19 phantom "()" partner rows to real person names
   across 8 events (1301837824, 1314328055, 1348929718, 1357101984, 1361239371,
   1368559562, 1378821205, 1420195881, 1421069713, 1423020874, 1425372477).
@@ -379,8 +383,8 @@ Reproducibility is mandatory.
 |---|---|---|
 | Persons_Truth_Final | v42 | 3,441 persons |
 | Persons_Unresolved_Organized | v28 | 82 rows |
-| Placements_ByPerson | v66 | 28,510 rows |
-| Placements_Flat | — | 28,510 rows |
+| Placements_ByPerson | v67 | 28,515 rows |
+| Placements_Flat | — | 28,515 rows |
 | Stage2 events | — | 774 events |
 | Quarantined events | — | 20 |
 | Community workbook | v13 | Footbag_Results_Community_FINAL_v13.xlsx |

@@ -745,6 +745,14 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1267996189.txt",
         "replace": True,
     },
+    # 3rd Annual Windy City Cup 2010 — two fixes:
+    # (1) Doubles p1 "Emmanuel Bouchard and PT Lovern (2 years in a row!)" dropped by
+    #     narrative filter; (2) Intermediates division grouped under Doubles due to
+    #     interstitial paragraph breaking division detection.
+    "1267718326": {
+        "file":    "legacy_data/event_results/1267718326.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
