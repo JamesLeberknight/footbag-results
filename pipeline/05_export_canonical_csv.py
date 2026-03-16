@@ -43,7 +43,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT  = ROOT / "out"
-CANONICAL = Path("~/FOOTBAG_DATA/out/canonical").expanduser()
+CANONICAL = OUT / "canonical"
 
 csv.field_size_limit(10_000_000)
 

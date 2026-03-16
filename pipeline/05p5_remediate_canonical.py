@@ -19,7 +19,7 @@ Keep-doubles override:
   to prevent specific disciplines from being remapped to singles even at density 1.0.
   These will instead receive a ghost __UNKNOWN_PARTNER__ partner row.
 
-Input/output: ~/FOOTBAG_DATA/out/canonical/
+Input/output: out/canonical/ (repo-relative)
 """
 
 import csv
@@ -27,8 +27,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-CANONICAL = Path("~/FOOTBAG_DATA/out/canonical").expanduser()
 ROOT      = Path(__file__).resolve().parents[1]
+CANONICAL = ROOT / "out" / "canonical"
 OVERRIDES = ROOT / "inputs" / "keep_doubles_overrides.csv"
 
 csv.field_size_limit(10 * 1024 * 1024)
