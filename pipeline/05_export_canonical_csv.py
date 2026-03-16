@@ -285,7 +285,7 @@ print(f"  {len(coverage):,} (event, division) coverage flags")
 # parse_location() automatically — no manual step required for new data.
 
 print("Loading events_normalized.csv...")
-_norm_csv = OUT / "canonical" / "events_normalized.csv"
+_norm_csv = ROOT / "inputs" / "events_normalized.csv"
 events_normalized: dict[str, dict] = {}   # legacy_event_id → row
 if _norm_csv.exists():
     with open(_norm_csv, newline="", encoding="utf-8") as f:

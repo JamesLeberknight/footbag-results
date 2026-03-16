@@ -47,7 +47,7 @@ OUTPUT_PATH      = os.path.join(BASE_DIR, "Footbag_Results_Community_FINAL_v13.x
 
 PF_CSV           = os.path.join(BASE_DIR, "out", "Placements_Flat.csv")
 PT_CSV           = os.path.join(BASE_DIR, "out", "Persons_Truth.csv")
-EVENTS_CSV       = os.path.join(BASE_DIR, "out", "canonical", "events_normalized.csv")
+EVENTS_CSV       = os.path.join(BASE_DIR, "inputs", "events_normalized.csv")
 QUARANTINE_CSV   = os.path.join(BASE_DIR, "inputs", "review_quarantine_events.csv")
 
 BAP_CSV          = os.path.join(BASE_DIR, "inputs", "bap_data_updated.csv")
@@ -1332,7 +1332,7 @@ def build_consecutive_records(wb: Workbook) -> None:
 
 # ── Year sheet builder ────────────────────────────────────────────────────────
 
-CANONICAL_EVENTS_CSV = os.path.join(BASE_DIR, "out", "canonical", "events_normalized.csv")
+CANONICAL_EVENTS_CSV = os.path.join(BASE_DIR, "inputs", "events_normalized.csv")
 
 # Styles
 _YR_FILL_BANNER  = PatternFill("solid", fgColor="1F3864")
