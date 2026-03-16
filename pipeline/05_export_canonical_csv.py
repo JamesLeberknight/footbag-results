@@ -535,6 +535,20 @@ for row in sorted_rows:
     placement_counter:  dict[tuple[str, str, str], int] = defaultdict(int)
     seen_participants:  set[tuple[str, str, str, str]]   = set()
 
+    _UUID_RE = re.compile(
+        r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', re.I
+    )
+
+    def _clean_pid(pid: str, name: str) -> str:
+        """Return a valid UUID person_id, or "" if malformed/unresolvable."""
+        if not pid or pid == "__NON_PERSON__":
+            return ""
+        if _UUID_RE.match(pid):
+            return pid
+        # Malformed (pipe-separated composite key, truncated |? token, etc.)
+        # Try to re-resolve from the canonical name via PT.
+        return resolve_person_id(None, name) or ""
+
     for pbp_row in event_pbp:
         div = pbp_row.get("division_canon") or ""
         if not div:
@@ -549,19 +563,22 @@ for row in sorted_rows:
         person_id   = pbp_row.get("person_id", "") or ""
         person_name = pbp_row.get("person_canon", "") or ""
         tpk         = pbp_row.get("team_person_key", "") or ""
+        tdm         = pbp_row.get("team_display_name", "") or ""
         is_doubles  = div_meta.get(div, {}).get("team_type") == "doubles"
+        result_key  = (event_key, disc_key, place)
 
-        # Deduplicate: prefer the resolved row; skip the unresolved duplicate.
-        dedup_key = (event_key, disc_key, place, person_name)
-        if dedup_key in seen_participants:
-            continue
-        seen_participants.add(dedup_key)
-
-        # __NON_PERSON__ is a PBP sentinel — not a real UUID; map to empty
-        if person_id == "__NON_PERSON__":
-            person_id = ""
-
-        result_key = (event_key, disc_key, place)
+        # Expand __NON_PERSON__ team aggregate rows.
+        # PBP stores unresolved doubles teams as one row:
+        #   person_canon="__NON_PERSON__", team_display_name="Name1 / Name2"
+        # Expand into individual participant entries by splitting on " / ".
+        if person_name == "__NON_PERSON__":
+            if tdm:
+                members = [m.strip() for m in tdm.split(" / ") if m.strip()]
+            else:
+                members = [person_name]   # preserve as __NON_PERSON__ placeholder
+            entries = [(m, resolve_person_id(None, m) or "", "") for m in members]
+        else:
+            entries = [(person_name, _clean_pid(person_id, person_name), tpk)]
 
         # event_results.csv — one row per placement slot
         if result_key not in emitted_results:
@@ -575,25 +592,29 @@ for row in sorted_rows:
             })
             emitted_results.add(result_key)
 
-        # event_result_participants.csv
-        if is_doubles:
-            # Sequential order within placement slot (team grouping via team_person_key)
-            placement_counter[result_key] += 1
-            participant_order = str(placement_counter[result_key])
-        else:
-            # Singles (incl. tied): always order=1
-            participant_order = "1"
+        # event_result_participants.csv — one row per resolved individual
+        for (m_name, m_pid, m_tpk) in entries:
+            dedup_key = (event_key, disc_key, place, m_name)
+            if dedup_key in seen_participants:
+                continue
+            seen_participants.add(dedup_key)
 
-        participants_out.append({
-            "event_key":         event_key,
-            "discipline_key":    disc_key,
-            "placement":         place,
-            "participant_order": participant_order,
-            "display_name":      clean_display_str(person_name),
-            "person_id":         person_id,
-            "team_person_key":   tpk,
-            "notes":             "",
-        })
+            if is_doubles:
+                placement_counter[result_key] += 1
+                participant_order = str(placement_counter[result_key])
+            else:
+                participant_order = "1"
+
+            participants_out.append({
+                "event_key":         event_key,
+                "discipline_key":    disc_key,
+                "placement":         place,
+                "participant_order": participant_order,
+                "display_name":      clean_display_str(m_name),
+                "person_id":         m_pid,
+                "team_person_key":   m_tpk,
+                "notes":             "",
+            })
 
 
 # ── persons.csv — extended ────────────────────────────────────────────────────
