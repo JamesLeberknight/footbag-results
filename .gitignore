@@ -1,7 +1,29 @@
 ############################
 # Pipeline outputs (generated — never commit)
+# out/ contents are ignored individually so out/canonical/ can be committed
 ############################
-out/
+out/*.csv
+out/*.json
+out/*.jsonl
+out/*.html
+out/*.md
+out/*.lock
+out/audit/
+out/backfill_candidates.csv
+out/backfill_resolutions.csv
+out/encoding_corruption_report.csv
+out/final_validation/
+out/final_verification/
+out/member_id_enrichment/
+out/mvfp_seed/
+out/noise_aggregates/
+out/noise_features/
+out/old_results_import_audit.jsonl
+out/qc/
+out/qc_reports/
+out/review/
+out/stage2_canonical_events.csv
+out/stage2_players.csv
 index.csv
 index_raw.csv
 
