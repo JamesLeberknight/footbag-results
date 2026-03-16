@@ -99,7 +99,7 @@ Release builds rely on:
 inputs/identity_lock/
   Persons_Truth_Final_v42.csv       (3,441 persons)
   Persons_Unresolved_Organized_v28.csv  (82 rows)
-  Placements_ByPerson_v64.csv       (28,511 rows)
+  Placements_ByPerson_v66.csv       (28,510 rows)
 ```
 
 These files are treated as ground truth.
@@ -117,6 +117,12 @@ Identity truth is not recomputed in release mode.
 
 ### PBP version history
 
+- v65 → v66 (2026-03-14): Resolved 19 phantom "()" partner rows to real person names
+  across 8 events (1301837824, 1314328055, 1348929718, 1357101984, 1361239371,
+  1368559562, 1378821205, 1420195881, 1421069713, 1423020874, 1425372477).
+  Net: 28,510 rows (row count unchanged; content corrected).
+- v64 → v65 (2026-03-14): Removed 1 spurious row — Ivan Cuende event 1657486956
+  with empty division_raw. Net: 28,511 → 28,510 rows.
 - v63 → v64 (2026-03-13): Targeted data quality fixes for 5 events.
   979816633: stripped leading ") " from 4 doubles entries.
   979089216: stripped "between " prefix from Logan Dethman team row; fixed caps.
@@ -367,17 +373,17 @@ Reproducibility is mandatory.
 
 ---
 
-# 11. Current Canonical State (as of 2026-03-12)
+# 11. Current Canonical State (as of 2026-03-15)
 
 | Artifact | Version | Count |
 |---|---|---|
 | Persons_Truth_Final | v42 | 3,441 persons |
 | Persons_Unresolved_Organized | v28 | 82 rows |
-| Placements_ByPerson | v64 | 28,511 rows |
-| Placements_Flat | — | 28,513 rows |
+| Placements_ByPerson | v66 | 28,510 rows |
+| Placements_Flat | — | 28,510 rows |
 | Stage2 events | — | 774 events |
 | Quarantined events | — | 20 |
-| Community workbook | v12 | Footbag_Results_Community_FINAL_v12.xlsx |
+| Community workbook | v13 | Footbag_Results_Community_FINAL_v13.xlsx |
 
 ---
 

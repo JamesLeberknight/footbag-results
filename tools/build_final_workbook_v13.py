@@ -52,6 +52,7 @@ QUARANTINE_CSV   = os.path.join(BASE_DIR, "inputs", "review_quarantine_events.cs
 
 BAP_CSV          = os.path.join(BASE_DIR, "inputs", "bap_data_updated.csv")
 FBHOF_CSV        = os.path.join(BASE_DIR, "inputs", "fbhof_data_updated.csv")
+MEMBER_IDS_CSV   = os.path.join(BASE_DIR, "out", "member_id_enrichment", "member_id_assignments.csv")
 
 DIFFICULTY_CSV   = os.path.join(BASE_DIR, "out", "noise_aggregates", "player_difficulty_profiles.csv")
 DIVERSITY_CSV    = os.path.join(BASE_DIR, "out", "noise_aggregates", "player_diversity_profiles.csv")
@@ -255,6 +256,27 @@ def years_active_str(s: dict) -> str:
     if yf and yl:
         return str(yf) if yf == yl else f"{yf}\u2013{yl}"
     return ""
+
+
+# ── Member ID loading ─────────────────────────────────────────────────────────
+
+def load_member_ids() -> dict[str, str]:
+    """
+    Returns {effective_person_id: member_id} from member_id_assignments.csv.
+    Falls back to empty dict if the file doesn't exist.
+    """
+    if not os.path.exists(MEMBER_IDS_CSV):
+        print(f"  [WARN] member_id_assignments.csv not found, legacy IDs will be PT-only")
+        return {}
+    result = {}
+    with open(MEMBER_IDS_CSV, encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            pid = r.get("effective_person_id", "").strip()
+            mid = r.get("member_id", "").strip()
+            if pid and mid:
+                result[pid] = mid
+    print(f"  Member ID assignments: {len(result)} entries loaded")
+    return result
 
 
 # ── Honors loading ────────────────────────────────────────────────────────────
@@ -577,7 +599,8 @@ PLAYER_COL_WIDTHS = [32, 20, 5, 7, 10, 6, 10]
 def build_player_summary(wb: Workbook,
                          pt_rows: list[dict],
                          placement_stats: dict[str, dict],
-                         bap_map: dict[str, dict]) -> None:
+                         bap_map: dict[str, dict],
+                         member_id_map: dict[str, str] | None = None) -> None:
     if "PLAYER SUMMARY" in wb.sheetnames:
         idx = wb.sheetnames.index("PLAYER SUMMARY")
         del wb["PLAYER SUMMARY"]
@@ -602,7 +625,7 @@ def build_player_summary(wb: Workbook,
     for r in persons:
         pid   = r.get("effective_person_id", "")
         pc    = r.get("person_canon", "")
-        lid   = r.get("legacyid", "") or None
+        lid   = r.get("legacyid", "") or (member_id_map.get(pid) if member_id_map else None) or None
 
         stats = placement_stats.get(pid, {})
         if not stats:
@@ -1909,6 +1932,7 @@ def main():
     print("\nLoading honors + stats data...")
     placement_stats  = build_placement_stats(pf_rows)
     bap_map          = load_bap(canon_by_norm)
+    member_id_map    = load_member_ids()
 
     print("\nLoading year-sheet data...")
     yr_events      = load_events_for_year_sheets()
@@ -1930,7 +1954,7 @@ def main():
     build_statistics(out_wb, pf_rows, pt_rows)
 
     print("\nBuilding PLAYER SUMMARY sheet...")
-    build_player_summary(out_wb, pt_rows, placement_stats, bap_map)
+    build_player_summary(out_wb, pt_rows, placement_stats, bap_map, member_id_map)
 
     print("\nBuilding CONSECUTIVE RECORDS sheet...")
     build_consecutive_records(out_wb)

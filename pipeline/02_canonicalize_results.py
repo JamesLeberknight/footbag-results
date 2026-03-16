@@ -724,6 +724,14 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/876356874.txt",
         "replace": True,
     },
+    # 2007 Windchill / L'Hivernal 2007 — Intermediate Doubles entry 1 uses bare dash
+    # as team separator ("Luka-Jean François Bélanger") but "Luka" is a mononym so the
+    # bare-dash rule (requiring both sides to be multi-word) fails to split it.
+    # Legacy file uses spaced dashes and "&" separators throughout.
+    "1170456736": {
+        "file":    "legacy_data/event_results/1170456736.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
