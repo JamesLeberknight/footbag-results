@@ -2679,6 +2679,11 @@ def clean_player_name(name: str) -> str:
     # e.g. ". Emmanuel Bouchard" → "Emmanuel Bouchard", ", Scott Behmer" → "Scott Behmer"
     name = re.sub(r'^[.,]\s*', '', name).strip()
 
+    # Rule 60b: Strip orphaned ordinal suffix left when digit is stripped before name
+    # e.g. "nd= Adrian Dick" → "Adrian Dick" (from source "2nd= Adrian Dick")
+    # Handles st= / nd= / rd= / th= with optional spaces/equals
+    name = re.sub(r'^(?:st|nd|rd|th)[=:\s]+', '', name, flags=re.IGNORECASE).strip()
+
     # Rule 61: Strip " -> trick" annotation (Finnish/European Sick 3 format)
     # e.g. "Legbeater -> Vortex" → "" (whole thing is trick list, caller discards empty)
     # e.g. player2 side: gets cleaned away so only player1 is stored
@@ -2770,13 +2775,13 @@ def split_entry(entry: str, is_doubles: bool = False) -> tuple[str, Optional[str
     # Strip common prefixes that shouldn't affect team detection
     # e.g., "tie : Name1 & Name2", "(tie) Name1 / Name2", "3rd place - Name1 / Name2"
     entry_clean = re.sub(
-        r'^(\(\s*tie\s*\)[.\-:\s]*|tie\s*[.:\-]?\s*|\d+\s*[.)\-:]?\s*(st|nd|rd|th)?\s*place\s*[-:]?)\s*',
+        r'^(\(\s*tie\s*\)[.\-:\s]*|tie\s*[.:\-]?\s*|\d+\s*[.)\-:=]?\s*(st|nd|rd|th)?\s*place\s*[-:]?)\s*',
         '', entry, flags=re.IGNORECASE
     ).strip()
 
-    # Strip ordinals WITHOUT "place" keyword: "2nd ", "3rd ", "4. ", etc.
+    # Strip ordinals WITHOUT "place" keyword: "2nd ", "3rd ", "4. ", "2nd= ", etc.
     # This handles entries like "2nd Martin Cote/ ..." that don't have the word "place"
-    entry_clean = re.sub(r'^\d+\s*[.)\-:]?\s*(st|nd|rd|th)?\s+', '', entry_clean).strip()
+    entry_clean = re.sub(r'^\d+\s*[.)\-:=]?\s*(st|nd|rd|th)?\s*[=]?\s*', '', entry_clean).strip()
 
     # Strip "d " or "d\t" prefix from ordinal parsing corruption
     entry_clean = re.sub(r'^[dD]\s+', '', entry_clean).strip()
