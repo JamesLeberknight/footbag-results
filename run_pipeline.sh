@@ -104,13 +104,16 @@ do_release() {
     "$PYTHON" pipeline/04_build_analytics.py
 
     step "Stage 04B: build community Excel workbook"
-    "$PYTHON" tools/build_final_workbook_v12.py
+    "$PYTHON" tools/build_final_workbook_v13.py
 
     step "Stage 05: export relational CSV files"
     "$PYTHON" pipeline/05_export_canonical_csv.py
 
+    step "Stage 05p5: remediate canonical CSVs"
+    "$PYTHON" pipeline/05p5_remediate_canonical.py
+
     echo
-    echo "Release complete. Outputs written to out/"
+    echo "Release complete. Outputs written to out/ and ~/FOOTBAG_DATA/out/canonical/"
 }
 
 do_qc() {

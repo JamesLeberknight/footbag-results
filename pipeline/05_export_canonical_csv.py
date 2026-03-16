@@ -690,7 +690,7 @@ for row in sorted(pt_rows, key=lambda r: r["person_canon"]):
 # ── Write outputs ─────────────────────────────────────────────────────────────
 
 print(f"\nWriting canonical CSVs to {CANONICAL} ...")
-CANONICAL.mkdir(exist_ok=True)
+CANONICAL.mkdir(parents=True, exist_ok=True)
 
 write_csv(
     CANONICAL / "events.csv",
