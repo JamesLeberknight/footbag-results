@@ -613,13 +613,8 @@ def build_player_summary(wb: Workbook,
 
     # Build rows: one per real person who has at least one placement
     persons = [r for r in pt_rows if is_real_person(r)]
-    # Sort: most placements first, then alphabetically
-    def _sort_key(r):
-        pid   = r.get("effective_person_id", "")
-        stats = placement_stats.get(pid, {})
-        return (-stats.get("placements", 0), r.get("person_canon", "").lower())
-
-    persons.sort(key=_sort_key)
+    # Sort: alphabetically by name
+    persons.sort(key=lambda r: r.get("person_canon", "").lower())
 
     n_written = 0
     for r in persons:
