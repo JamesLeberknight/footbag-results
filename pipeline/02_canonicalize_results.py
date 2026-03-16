@@ -732,6 +732,19 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1170456736.txt",
         "replace": True,
     },
+    # Urban Komba Footbag Open 2010 — Bulgarian organizer format:
+    #   Singles: "Name - Nickname (Club)" parsed as doubles team (wrong).
+    #   Doubles: two-line continuation format; parser captures only first player.
+    # Legacy file corrects singles entries and re-pairs doubles with & separator.
+    "1262631137": {
+        "file":    "legacy_data/event_results/1262631137.txt",
+        "replace": True,
+    },
+    # Footbag again in the Zara 2010 — identical format to 1262631137 (same organizer).
+    "1267996189": {
+        "file":    "legacy_data/event_results/1267996189.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
