@@ -2675,9 +2675,10 @@ def clean_player_name(name: str) -> str:
     name = re.sub(r'\s*\.{2,}\s*$', '', name).strip()
     name = name.rstrip('…').strip()
 
-    # Rule 60: Strip leading period or comma (ordinal parsing artifact)
-    # e.g. ". Emmanuel Bouchard" → "Emmanuel Bouchard", ", Scott Behmer" → "Scott Behmer"
-    name = re.sub(r'^[.,]\s*', '', name).strip()
+    # Rule 60: Strip leading period, comma, or closing paren (ordinal parsing artifacts)
+    # e.g. ". Emmanuel Bouchard" → "Emmanuel Bouchard", ") Jan Struzh" → "Jan Struzh"
+    # Source format "1.) Name" leaves ".) Name" after digit stripping → both chars removed
+    name = re.sub(r'^[.,)]+\s*', '', name).strip()
 
     # Rule 60b: Strip orphaned ordinal suffix left when digit is stripped before name
     # e.g. "nd= Adrian Dick" → "Adrian Dick" (from source "2nd= Adrian Dick")
@@ -2782,6 +2783,10 @@ def split_entry(entry: str, is_doubles: bool = False) -> tuple[str, Optional[str
     # Strip ordinals WITHOUT "place" keyword: "2nd ", "3rd ", "4. ", "2nd= ", etc.
     # This handles entries like "2nd Martin Cote/ ..." that don't have the word "place"
     entry_clean = re.sub(r'^\d+\s*[.)\-:=]?\s*(st|nd|rd|th)?\s*[=]?\s*', '', entry_clean).strip()
+
+    # Strip leading punctuation artifacts left after ordinal digit removal
+    # e.g. ".) Kiss + Gyáni" → "Kiss + Gyáni" (from "1.) Kiss + Gyáni" after "1" stripped)
+    entry_clean = re.sub(r'^[.)\s]+(?=[A-Za-zÀ-ÿ\u0100-\u017F"\'(])', '', entry_clean).strip()
 
     # Strip "d " or "d\t" prefix from ordinal parsing corruption
     entry_clean = re.sub(r'^[dD]\s+', '', entry_clean).strip()
