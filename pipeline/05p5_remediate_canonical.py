@@ -82,16 +82,18 @@ print("\n[Fix 1+2] Identity sync & regex cleaning...")
 
 person_name_map = {r["person_id"]: r["person_name"] for r in persons}
 
-_RE_DAY_PREFIX   = re.compile(r"^[A-Za-z]+:\s*\d+\.\s*")   # "Saturday: 1. "
-_RE_SCORE_SUFFIX = re.compile(r"\s+\d+\.\d+.*$")            # " 9.20 9.20 1"
+_RE_DAY_PREFIX   = re.compile(r"^[A-Za-z]+:\s*\d+\.\s*")         # "Saturday: 1. "
+_RE_SCORE_SUFFIX = re.compile(r"\s+\d+\.\d+.*$")                  # " 9.20 9.20 1"
 _RE_ORDINAL      = re.compile(r"^\d+(?:st|nd|rd|th)?[.):\-]?\s+", re.IGNORECASE)
 _RE_PAREN        = re.compile(r"\s*\([^)]*\)\s*$")
+_RE_TIE_LABEL    = re.compile(r"\(tie\)", re.IGNORECASE)           # "(tie)" annotation
 _RE_SPACES       = re.compile(r"\s{2,}")
 
 def clean_unresolved(name: str) -> str:
     name = _RE_DAY_PREFIX.sub("", name)
     name = _RE_SCORE_SUFFIX.sub("", name)
     name = _RE_ORDINAL.sub("", name)
+    name = _RE_TIE_LABEL.sub("", name)
     name = _RE_PAREN.sub("", name)
     name = _RE_SPACES.sub(" ", name).strip()
     return name
