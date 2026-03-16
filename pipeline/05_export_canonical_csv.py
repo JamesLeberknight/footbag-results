@@ -36,9 +36,8 @@ Notes on unresolved persons:
   display_name set to the raw name from stage2.
 """
 import csv
-import json
 import re
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -376,6 +375,52 @@ if collisions:
     print(f"  NOTE: {collisions} event-key collision group(s) disambiguated with legacy_event_id suffix")
 
 
+# ── Load PBP — authoritative source for participant/discipline data ────────────
+# Replaces reading placements_json from stage2. PBP is the identity-locked gold
+# standard: canonical person names, __NON_PERSON__ markers, all manual patches.
+# stage2 is used only for event metadata (name, date) and event_key generation.
+
+print("Loading Placements_ByPerson.csv (authoritative participant source)...")
+
+# event_id → country for person stats; prefer curated events_normalized location
+_eid_country: dict[str, str] = {}
+for _r in stage2_rows:
+    _n     = events_normalized.get(_r["event_id"])
+    _cntry = (_n.get("country", "") if _n else "") or ""
+    if not _cntry:
+        _, _, _cntry = parse_location(_r.get("location", "") or "")
+    if _cntry:
+        _eid_country[_r["event_id"]] = _cntry
+
+pbp_by_event: dict[str, list[dict]] = defaultdict(list)
+_pbp_stats:   dict[str, dict]       = {}
+
+with open(OUT / "Placements_ByPerson.csv", newline="", encoding="utf-8") as _f:
+    for _row in csv.DictReader(_f):
+        _eid = _row["event_id"]
+        pbp_by_event[_eid].append(_row)
+        _pid = (_row.get("person_id") or "").strip()
+        if _pid and _pid != "__NON_PERSON__":
+            _yr    = _row.get("year", "")
+            _cntry = _eid_country.get(_eid, "")
+            if _pid not in _pbp_stats:
+                _pbp_stats[_pid] = {
+                    "years": set(), "event_ids": set(),
+                    "placement_count": 0, "countries": Counter(),
+                }
+            _s = _pbp_stats[_pid]
+            _s["placement_count"] += 1
+            _s["event_ids"].add(_eid)
+            if _yr:
+                try:   _s["years"].add(int(_yr))
+                except ValueError: pass
+            if _cntry:
+                _s["countries"][_cntry] += 1
+
+_pbp_total = sum(len(v) for v in pbp_by_event.values())
+print(f"  {_pbp_total:,} placement rows, {len(pbp_by_event):,} events covered")
+
+
 # ── Build output rows ─────────────────────────────────────────────────────────
 
 events_out:       list[dict] = []
@@ -395,10 +440,8 @@ for row in sorted_rows:
     year       = row["year"] or ""
     event_name = row["event_name"] or ""
     start_date, end_date = parse_date_range(row.get("date", "") or "")
-    pj = json.loads(row.get("placements_json", "[]"))
 
-    # Location: use curated events_normalized data when available; fall back to
-    # auto-parsing stage2 location string (covers new events not yet curated).
+    # Location: curated events_normalized → fall back to stage2 parse
     _norm = events_normalized.get(eid)
     if _norm:
         city       = _norm.get("city", "")    or ""
@@ -406,7 +449,6 @@ for row in sorted_rows:
         country    = _norm.get("country", "") or ""
         host_club  = _norm.get("host_club", "") or row.get("host_club", "") or ""
         event_type = _norm.get("event_type", "") or row.get("event_type", "") or ""
-        # Prefer curated dates when stage2 has none
         if not start_date:
             start_date = _norm.get("start_date", "") or ""
             end_date   = _norm.get("end_date",   "") or ""
@@ -416,15 +458,25 @@ for row in sorted_rows:
         host_club  = row.get("host_club", "") or ""
         event_type = row.get("event_type", "") or ""
 
-    # Ordered unique divisions (preserving first-appearance order from parsed results)
-    seen_divs: list[str] = []
-    for p in pj:
-        d = p["division_canon"]
-        if d not in seen_divs:
-            seen_divs.append(d)
+    # ── PBP rows for this event (authoritative: names, IDs, structure) ────────
+    event_pbp = pbp_by_event.get(eid, [])
 
-    # Discipline-level coverage flags
-    cov_flags = [coverage.get((eid, d), "") for d in seen_divs]
+    # Ordered unique divisions from PBP; derive team_type from competitor_type
+    seen_divs: list[str]       = []
+    div_meta:  dict[str, dict] = {}
+    for pbp_row in event_pbp:
+        div = pbp_row.get("division_canon") or ""
+        if not div:
+            continue
+        if div not in seen_divs:
+            seen_divs.append(div)
+            div_meta[div] = {
+                "div_cat":  pbp_row.get("division_category", "") or "",
+                "team_type": "singles",
+                "cov_flag":  pbp_row.get("coverage_flag", "") or "",
+            }
+        if pbp_row.get("competitor_type", "player") == "team":
+            div_meta[div]["team_type"] = "doubles"
 
     # ── events.csv ────────────────────────────────────────────────────────────
     events_out.append({
@@ -440,137 +492,112 @@ for row in sorted_rows:
         "country":         country,
         "host_club":       host_club,
         "event_type":      event_type,
-        "status":          derive_status(len(pj), cov_flags),
+        "status":          derive_status(len(event_pbp), []),
         "notes":           _norm.get("notes", "") if _norm else "",
         "source":          "mirror",
     })
 
-    # Discipline-key collision detection within this event
-    disc_slug_seen: dict[str, int] = {}  # slug → count (for suffix disambiguation)
-
-    # participant_order counter per (event_key, discipline_key, placement)
-    part_counter: dict[tuple[str, str, str], int] = defaultdict(int)
-
-    # Result dedup: emit one event_results row per (event_key, disc_key, place)
-    emitted_results: set[tuple[str, str, str]] = set()
-
-    for sort_order, div in enumerate(seen_divs, start=1):
-        # ── Discipline key (event-scoped) ────────────────────────────────────
+    # Discipline-key slugs — collision-safe within each event
+    disc_slug_seen:  dict[str, int] = {}
+    div_to_disc_key: dict[str, str] = {}
+    for div in seen_divs:
         base_slug = slugify(div)
         if base_slug in disc_slug_seen:
             disc_slug_seen[base_slug] += 1
-            discipline_key = f"{base_slug}_{disc_slug_seen[base_slug]}"
+            disc_key = f"{base_slug}_{disc_slug_seen[base_slug]}"
         else:
             disc_slug_seen[base_slug] = 1
-            discipline_key = base_slug
+            disc_key = base_slug
+        div_to_disc_key[div] = disc_key
 
-        div_placements = [p for p in pj if p["division_canon"] == div]
-        if not div_placements:
-            continue
-
-        div_cat   = div_placements[0].get("division_category", "") or ""
-        team_type = infer_team_type(div)
-        cov_flag  = coverage.get((eid, div), "")
-
-        # ── event_disciplines.csv ─────────────────────────────────────────────
+    # ── event_disciplines.csv ─────────────────────────────────────────────────
+    for sort_order, div in enumerate(seen_divs, start=1):
+        meta = div_meta[div]
         disciplines_out.append({
             "event_key":           event_key,
-            "discipline_key":      discipline_key,
+            "discipline_key":      div_to_disc_key[div],
             "discipline_name":     clean_display_str(div),
-            "discipline_category": div_cat,
-            "team_type":           team_type,
+            "discipline_category": meta["div_cat"],
+            "team_type":           meta["team_type"],
             "sort_order":          sort_order,
-            "coverage_flag":       cov_flag,
+            "coverage_flag":       meta["cov_flag"],
             "notes":               "",
         })
 
-        for p in div_placements:
-            place = str(p.get("place", ""))
-            if not place:
-                continue
+    # ── event_results + event_result_participants ─────────────────────────────
+    # participant_order:
+    #   Singles  → always "1"  (tied singles = multiple rows all at order=1)
+    #   Doubles  → sequential within each placement slot (1, 2, 3, 4…)
+    #              team_person_key included so consumers can reconstruct teams
+    # Dedup: skip rows where the same (disc_key, place, person_name) has already
+    #        been emitted — PBP occasionally has resolved+unresolved duplicates.
+    emitted_results:    set[tuple[str, str, str]]       = set()
+    placement_counter:  dict[tuple[str, str, str], int] = defaultdict(int)
+    seen_participants:  set[tuple[str, str, str, str]]   = set()
 
-            result_key = (event_key, discipline_key, place)
+    for pbp_row in event_pbp:
+        div = pbp_row.get("division_canon") or ""
+        if not div:
+            continue
+        disc_key = div_to_disc_key.get(div, "")
+        if not disc_key:
+            continue
+        place = str(pbp_row.get("place", "")).strip()
+        if not place:
+            continue
 
-            # ── event_results.csv (one row per placement slot) ────────────────
-            if result_key not in emitted_results:
-                results_out.append({
-                    "event_key":      event_key,
-                    "discipline_key": discipline_key,
-                    "placement":      place,
-                    "score_text":     "",
-                    "notes":          "",
-                    "source":         "",
-                })
-                emitted_results.add(result_key)
+        person_id   = pbp_row.get("person_id", "") or ""
+        person_name = pbp_row.get("person_canon", "") or ""
+        tpk         = pbp_row.get("team_person_key", "") or ""
+        is_doubles  = div_meta.get(div, {}).get("team_type") == "doubles"
 
-            # ── event_result_participants.csv ─────────────────────────────────
-            p1_name = p.get("player1_name", "") or ""
-            p1_id   = p.get("player1_id") or None
-            p2_name = p.get("player2_name", "") or ""
-            p2_id   = p.get("player2_id") or None
+        # Deduplicate: prefer the resolved row; skip the unresolved duplicate.
+        dedup_key = (event_key, disc_key, place, person_name)
+        if dedup_key in seen_participants:
+            continue
+        seen_participants.add(dedup_key)
 
-            if p1_name:
-                part_counter[result_key] += 1
-                participants_out.append({
-                    "event_key":         event_key,
-                    "discipline_key":    discipline_key,
-                    "placement":         place,
-                    "participant_order": part_counter[result_key],
-                    "display_name":      clean_display_str(p1_name),
-                    "person_id":         resolve_person_id(p1_id, p1_name),
-                    "notes":             "",
-                })
+        # __NON_PERSON__ is a PBP sentinel — not a real UUID; map to empty
+        if person_id == "__NON_PERSON__":
+            person_id = ""
 
-            if p2_name:
-                part_counter[result_key] += 1
-                participants_out.append({
-                    "event_key":         event_key,
-                    "discipline_key":    discipline_key,
-                    "placement":         place,
-                    "participant_order": part_counter[result_key],
-                    "display_name":      clean_display_str(p2_name),
-                    "person_id":         resolve_person_id(p2_id, p2_name),
-                    "notes":             "",
-                })
+        result_key = (event_key, disc_key, place)
+
+        # event_results.csv — one row per placement slot
+        if result_key not in emitted_results:
+            results_out.append({
+                "event_key":      event_key,
+                "discipline_key": disc_key,
+                "placement":      place,
+                "score_text":     "",
+                "notes":          "",
+                "source":         "",
+            })
+            emitted_results.add(result_key)
+
+        # event_result_participants.csv
+        if is_doubles:
+            # Sequential order within placement slot (team grouping via team_person_key)
+            placement_counter[result_key] += 1
+            participant_order = str(placement_counter[result_key])
+        else:
+            # Singles (incl. tied): always order=1
+            participant_order = "1"
+
+        participants_out.append({
+            "event_key":         event_key,
+            "discipline_key":    disc_key,
+            "placement":         place,
+            "participant_order": participant_order,
+            "display_name":      clean_display_str(person_name),
+            "person_id":         person_id,
+            "team_person_key":   tpk,
+            "notes":             "",
+        })
 
 
 # ── persons.csv — extended ────────────────────────────────────────────────────
-
-# Build event_id → country map from stage2 location
-_eid_country: dict[str, str] = {}
-for _r in stage2_rows:
-    _loc = _r.get("location", "")
-    _, _, _cntry = parse_location(_loc)
-    if _cntry:
-        _eid_country[_r["event_id"]] = _cntry
-
-# Load PBP for per-person stats
-print("Loading Placements_ByPerson.csv for person stats...")
-from collections import Counter
-_pbp_stats: dict[str, dict] = {}   # person_id → stats dict
-with open(OUT / "Placements_ByPerson.csv", newline="", encoding="utf-8") as _f:
-    for _row in csv.DictReader(_f):
-        _pid = _row.get("person_id", "").strip()
-        if not _pid or _pid in ("__NON_PERSON__",):
-            continue
-        _eid  = _row["event_id"]
-        _yr   = _row.get("year", "")
-        _cntry = _eid_country.get(_eid, "")
-        if _pid not in _pbp_stats:
-            _pbp_stats[_pid] = {
-                "years": set(), "event_ids": set(),
-                "placement_count": 0, "countries": Counter(),
-            }
-        s = _pbp_stats[_pid]
-        s["placement_count"] += 1
-        s["event_ids"].add(_eid)
-        if _yr:
-            try:
-                s["years"].add(int(_yr))
-            except ValueError:
-                pass
-        if _cntry:
-            s["countries"][_cntry] += 1
+# _pbp_stats and _eid_country already built during PBP load above.
 print(f"  {len(_pbp_stats):,} persons with placements")
 
 # BAP / FBHOF matching helpers (mirrors build_final_workbook_v12 logic)
@@ -771,7 +798,7 @@ write_csv(
 write_csv(
     CANONICAL / "event_result_participants.csv",
     ["event_key", "discipline_key", "placement", "participant_order",
-     "display_name", "person_id", "notes"],
+     "display_name", "person_id", "team_person_key", "notes"],
     participants_out,
 )
 write_csv(
@@ -814,12 +841,24 @@ if len(result_keys) != len(set(result_keys)):
 else:
     print("✓  event_results:    all (event_key, discipline_key, placement) keys unique")
 
-if len(part_keys) != len(set(part_keys)):
-    dups = len(part_keys) - len(set(part_keys))
-    print(f"ERROR: {dups} duplicate participant keys in event_result_participants.csv")
+# Participant key uniqueness: singles ties intentionally share participant_order=1.
+# Only flag duplicates in doubles disciplines (those are always structural errors).
+singles_disc_keys = {
+    (r["event_key"], r["discipline_key"])
+    for r in disciplines_out if r["team_type"] == "singles"
+}
+doubles_part_keys = [
+    k for k in part_keys
+    if (k[0], k[1]) not in singles_disc_keys
+]
+singles_ties = len(part_keys) - len(set(part_keys))
+doubles_dups = len(doubles_part_keys) - len(set(doubles_part_keys))
+if doubles_dups:
+    print(f"ERROR: {doubles_dups} duplicate participant keys in doubles disciplines")
     errors += 1
 else:
-    print("✓  event_result_participants: all (event_key, discipline_key, placement, participant_order) keys unique")
+    print(f"✓  event_result_participants: doubles keys unique; "
+          f"{singles_ties:,} singles-tie duplicates (expected, order=1 for all tied)")
 
 if len(disc_keys) != len(set(disc_keys)):
     dups = len(disc_keys) - len(set(disc_keys))
