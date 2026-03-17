@@ -96,7 +96,7 @@ do_release() {
 
     step "Stage 02p5: apply identity lock"
     "$PYTHON" pipeline/02p5_player_token_cleanup.py \
-        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v69.csv \
+        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v70.csv \
         --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v43.csv \
         --out_dir                      out
 

@@ -784,6 +784,14 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1158263300.txt",
         "replace": True,
     },
+    # California State Footbag Championships 1997 — tabular RESULTS/SEED/PARTNERS format
+    # was not recognized by parser. Doubles divisions all mangled (last-name split on comma,
+    # "SUPREME EXHAULTED RULER" meta-ranking parsed as division). All divisions manually
+    # normalized to standard format; "Supreme Exhaulted Ruler" overall ranking omitted.
+    "859923755": {
+        "file":    "legacy_data/event_results/859923755.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
