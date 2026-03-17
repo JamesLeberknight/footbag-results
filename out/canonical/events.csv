@@ -1,11 +1,27 @@
 event_key,legacy_event_id,year,event_name,event_slug,start_date,end_date,city,region,country,host_club,event_type,status,notes,source
+1980-worlds-oregon-city-oregon,9905304,1980,1980 World Footbag Championships,1980_world_footbag_championships,,,Oregon City,,Oregon,,worlds,completed,,mirror
+1980-worlds-memphis-tennessee,9928572,1980,1980 World Footbag Championships,1980_world_footbag_championships,,,Memphis,,Tennessee,,worlds,completed,,mirror
 1980-worlds-oregon-city-usa,2001980001,1980,World Championships 1980 (NHSA),world_championships_1980_nhsa,,,Oregon City,Oregon,United States,NHSA,net,completed,,mirror
+1981-worlds-rohnert-park-california,9966902,1981,1981 World Footbag Championships,1981_world_footbag_championships,,,Rohnert Park,,California,,worlds,completed,,mirror
+1981-worlds-portland-oregon,9992129,1981,1981 World Footbag Championships,1981_world_footbag_championships,,,Portland,,Oregon,,worlds,completed,,mirror
 1981-worlds-oregon-city-usa,2001981001,1981,World Championships 1981 (NHSA),world_championships_1981_nhsa,,,Oregon City,Oregon,United States,NHSA,net,completed,,mirror
+1982-worlds-san-diego-california,9901155,1982,1982 World Footbag Championships,1982_world_footbag_championships,,,San Diego,,California,,worlds,completed,,mirror
+1982-worlds-golden-colorado,9998504,1982,1982 World Footbag Championships,1982_world_footbag_championships,,,Golden,,Colorado,,worlds,completed,,mirror
 1982-worlds-oregon-city-usa,2001982001,1982,World Championships 1982 (NHSA),world_championships_1982_nhsa,,,Oregon City,Oregon,United States,NHSA,mixed,completed,,mirror
+1982-worlds-unknown-city-portland-or,9921901,1982,World Footbag Championships,world_footbag_championships,,,,,Portland OR,,worlds,completed,,mirror
+1983-worlds-golden-colorado,9904297,1983,1983 World Footbag Championships,1983_world_footbag_championships,,,Golden,,Colorado,,worlds,completed,,mirror
+1983-secret-underground-jam-unknown-city-unknown-country,9934528,1983,Secret Underground Jam,secret_underground_jam,,,,,,,freestyle,completed,,mirror
 1983-worlds-boulder-usa-2001983001,2001983001,1983,World Championships 1983 (NHSA),world_championships_1983_nhsa,,,Boulder,Colorado,United States,NHSA,mixed,completed,,mirror
 1983-worlds-boulder-usa-2001983002,2001983002,1983,World Championships 1983 (WFA),world_championships_1983_wfa,,,Boulder,Colorado,United States,WFA,mixed,completed,,mirror
+1984-worlds-golden-colorado,9924417,1984,1984 World Footbag Championships,1984_world_footbag_championships,,,Golden,,Colorado,,worlds,completed,,mirror
 1984-worlds-boulder-usa,2001984001,1984,World Championships 1984,world_championships_1984,,,Boulder,Colorado,United States,WFA,mixed,completed,,mirror
+1985-1985-holiday-classic-san-diego-california,9984533,1985,1985 Holiday Classic,1985_holiday_classic,,,San Diego,,California,,freestyle,completed,,mirror
 1985-championships-long-branch-usa,1043096425,1985,East Coast Championships - 3rd Annual - 1985,east_coast_championships_3rd_annual_1985,1985-09-14,1985-09-15,Long Branch,New Jersey,United States,,mixed,completed,,mirror
+1985-floodbag-finals-vancouver-washington,9972848,1985,Floodbag Finals,floodbag_finals,,,Vancouver,,Washington,,net,completed,,mirror
+1985-open-boulder-colorado,9918278,1985,Greatest Lakes Footbag Open,greatest_lakes_footbag_open,,,Boulder,,Colorado,,net,completed,,mirror
+1985-st-valentines-day-fort-collins-colorado,9958186,1985,St. Valentines Day Footbag Massacre,st_valentines_day_footbag_massacre,,,Fort Collins,,Colorado,,mixed,completed,,mirror
+1985-wfa-rocky-mountain-kansas-city-missouri,9980521,1985,WFA Rocky Mountain Regionals,wfa_rocky_mountain_regionals,,,Kansas City,,Missouri,,freestyle,completed,,mirror
+1985-nationals-chicago-illinois,9940469,1985,Western National Indoor Footbag Freestyle Championship,western_national_indoor_footbag_freestyle_championship,,,Chicago,,Illinois,,mixed,completed,,mirror
 1985-worlds-golden-usa,2001985001,1985,World Championships 1985,world_championships_1985,,,Golden,Colorado,United States,WFA,mixed,completed,,mirror
 1986-championships-long-branch-usa,1057126024,1986,East Coast Footbag Championships - 4th Annual - 1986,east_coast_footbag_championships_4th_annual_1986,1986-09-30,1986-09-30,Long Branch,New Jersey,United States,,mixed,completed,,mirror
 1990-championships-beachwood-usa,1057175925,1990,East Coast Footbag Championships - 8th Annual - 1990,east_coast_footbag_championships_8th_annual_1990,1990-08-31,1990-08-31,Beachwood,New Jersey,United States,,mixed,completed,,mirror

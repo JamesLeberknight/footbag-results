@@ -5,8 +5,6 @@ event_id,year,event_name,reason,review_stage,notes
 857880054,1997,Bedford (Australia) Indoor Footbag Championships,SOURCE_PARTIAL,HIGH_QUARANTINED,3 duplicate places in Open Singles Net. 1997 historical event with limited source fidelity.
 910551956,1999,1999 Western Regional Footbag Championships,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Open/Intermediate results merged under unlabelled divisions (Intermediate Singles Net / Novice Doubles). Stage2 also parsed noise header as division.
 947026077,2000,The 2nd Annual Philly Open Footbag Championships,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Doubles Net / Freestyle / Singles Net (9 dup pairs).
-1265745512,2010,31st IFPA WORLD FOOTBAG CHAMPIONSHIPS,SOURCE_PARTIAL,HIGH_QUARANTINED,1 duplicate place in Intermediate Singles Net. Worlds 2010 minor source data defect.
-1568692191,2019,MedeJam de Footbag 2019,SOURCE_PARTIAL,HIGH_QUARANTINED,2 duplicate places in Open Doubles Net. South American event with partial source coverage.
 1114277529,2005,Czech Footbag Championships,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Open/Intermediate results merged under unlabelled divisions (Intermediate Freestyle / Open Freestyle). PBP has more divisions than stage2.
 1127155729,2005,Zocha Jam 2005,SOURCE_PARTIAL,HIGH_QUARANTINED,3 duplicate places in Open Double Freestyle. PBP has more divisions than stage2 (older source captured more).
 1158263300,2006,Zocha Jam 2006,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Open Freestyle / Women Freestyle (5 dup pairs). PBP has more divisions than stage2.
@@ -15,7 +13,6 @@ event_id,year,event_name,reason,review_stage,notes
 1301837216,2011,The King of the Hill 2011 (presented by Aki Québec),COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Open Singles Net (2 dup pairs).
 1331667371,2012,Paris Net Battle 2,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Open Singles Net (8 dup pairs).
 1537994275,2018,2o Torneo Nacional de Footbag,SOURCE_PARTIAL,HIGH_QUARANTINED,3 duplicate places in Open Doubles. South American event with partial source coverage.
-1160579826,2006,CommALaMaison Contest 3,SOURCE_PARTIAL,HIGH_QUARANTINED,1 duplicate place in Mini Net. Contest-format event with non-standard placement structure.
 959353403,2000,2000 Southeast Idaho Footbag Championships,SOURCE_PARTIAL,HIGH_QUARANTINED,Unknown division contains noise; trailing-colon division name mismatch; source coverage limited. Added to known_issues after MEDIUM review.
 984694623,2001,1st Montreal Summer Freestyle Challenge,SOURCE_PARTIAL,HIGH_QUARANTINED,Old parse with city-as-teammate artifacts; PBP has 8/20 stage2 rows; identity incomplete. Historical event with limited source fidelity.
 1366240051,2013,4ta. Copa Ciencias,SOURCE_PARTIAL,HIGH_QUARANTINED,9/12 doubles teams unresolved; South American identity gap; partial coverage expected. Added to known_issues after MEDIUM review.

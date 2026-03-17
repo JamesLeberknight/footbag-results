@@ -461,22 +461,48 @@ for row in sorted_rows:
     # ── PBP rows for this event (authoritative: names, IDs, structure) ────────
     event_pbp = pbp_by_event.get(eid, [])
 
-    # Ordered unique divisions from PBP; derive team_type from competitor_type
+    # When PBP has no rows for this event (e.g. pre-mirror magazine events),
+    # fall back to stage2 placements_json so their results appear in canonical CSVs.
+    stage2_placements: list[dict] = []
+    if not event_pbp:
+        import json as _json
+        _pj_raw = row.get("placements_json") or "[]"
+        try:
+            stage2_placements = _json.loads(_pj_raw)
+        except Exception:
+            stage2_placements = []
+
+    # Ordered unique divisions from PBP (or stage2 fallback)
     seen_divs: list[str]       = []
     div_meta:  dict[str, dict] = {}
-    for pbp_row in event_pbp:
-        div = pbp_row.get("division_canon") or ""
-        if not div:
-            continue
-        if div not in seen_divs:
-            seen_divs.append(div)
-            div_meta[div] = {
-                "div_cat":  pbp_row.get("division_category", "") or "",
-                "team_type": "singles",
-                "cov_flag":  pbp_row.get("coverage_flag", "") or "",
-            }
-        if pbp_row.get("competitor_type", "player") == "team":
-            div_meta[div]["team_type"] = "doubles"
+    if event_pbp:
+        for pbp_row in event_pbp:
+            div = pbp_row.get("division_canon") or ""
+            if not div:
+                continue
+            if div not in seen_divs:
+                seen_divs.append(div)
+                div_meta[div] = {
+                    "div_cat":  pbp_row.get("division_category", "") or "",
+                    "team_type": "singles",
+                    "cov_flag":  pbp_row.get("coverage_flag", "") or "",
+                }
+            if pbp_row.get("competitor_type", "player") == "team":
+                div_meta[div]["team_type"] = "doubles"
+    else:
+        for s2p in stage2_placements:
+            div = s2p.get("division_canon") or ""
+            if not div:
+                continue
+            if div not in seen_divs:
+                seen_divs.append(div)
+                div_meta[div] = {
+                    "div_cat":  s2p.get("division_category", "") or "",
+                    "team_type": "singles",
+                    "cov_flag":  "sparse",   # pre-mirror: coverage unknown
+                }
+            if s2p.get("competitor_type", "") == "team":
+                div_meta[div]["team_type"] = "doubles"
 
     # ── events.csv ────────────────────────────────────────────────────────────
     events_out.append({
@@ -492,9 +518,9 @@ for row in sorted_rows:
         "country":         country,
         "host_club":       host_club,
         "event_type":      event_type,
-        "status":          derive_status(len(event_pbp), []),
+        "status":          derive_status(len(event_pbp) or len(stage2_placements), []),
         "notes":           _norm.get("notes", "") if _norm else "",
-        "source":          "mirror",
+        "source":          row.get("source_layer", "mirror"),
     })
 
     # Discipline-key slugs — collision-safe within each event
@@ -549,36 +575,57 @@ for row in sorted_rows:
         # Try to re-resolve from the canonical name via PT.
         return resolve_person_id(None, name) or ""
 
-    for pbp_row in event_pbp:
-        div = pbp_row.get("division_canon") or ""
+    # Iterate over PBP rows (authoritative) or stage2 placements (fallback)
+    _placement_source = event_pbp if event_pbp else stage2_placements
+    for _src_row in _placement_source:
+        if event_pbp:
+            div = _src_row.get("division_canon") or ""
+        else:
+            div = _src_row.get("division_canon") or ""
         if not div:
             continue
         disc_key = div_to_disc_key.get(div, "")
         if not disc_key:
             continue
-        place = str(pbp_row.get("place", "")).strip()
-        if not place:
+        place = str(_src_row.get("place", "")).strip()
+        if not place or place == "0":
             continue
 
-        person_id   = pbp_row.get("person_id", "") or ""
-        person_name = pbp_row.get("person_canon", "") or ""
-        tpk         = pbp_row.get("team_person_key", "") or ""
-        tdm         = pbp_row.get("team_display_name", "") or ""
         is_doubles  = div_meta.get(div, {}).get("team_type") == "doubles"
         result_key  = (event_key, disc_key, place)
 
-        # Expand __NON_PERSON__ team aggregate rows.
-        # PBP stores unresolved doubles teams as one row:
-        #   person_canon="__NON_PERSON__", team_display_name="Name1 / Name2"
-        # Expand into individual participant entries by splitting on " / ".
-        if person_name == "__NON_PERSON__":
-            if tdm:
-                members = [m.strip() for m in tdm.split(" / ") if m.strip()]
+        if event_pbp:
+            person_id   = _src_row.get("person_id", "") or ""
+            person_name = _src_row.get("person_canon", "") or ""
+            tpk         = _src_row.get("team_person_key", "") or ""
+            tdm         = _src_row.get("team_display_name", "") or ""
+            # Expand __NON_PERSON__ team aggregate rows.
+            # PBP stores unresolved doubles teams as one row:
+            #   person_canon="__NON_PERSON__", team_display_name="Name1 / Name2"
+            # Expand into individual participant entries by splitting on " / ".
+            if person_name == "__NON_PERSON__":
+                if tdm:
+                    members = [m.strip() for m in tdm.split(" / ") if m.strip()]
+                else:
+                    members = [person_name]   # preserve as __NON_PERSON__ placeholder
+                entries = [(m, resolve_person_id(None, m) or "", "") for m in members]
             else:
-                members = [person_name]   # preserve as __NON_PERSON__ placeholder
-            entries = [(m, resolve_person_id(None, m) or "", "") for m in members]
+                entries = [(person_name, _clean_pid(person_id, person_name), tpk)]
         else:
-            entries = [(person_name, _clean_pid(person_id, person_name), tpk)]
+            # Stage2 fallback: resolve person_ids from PT by player name/token
+            p1 = (_src_row.get("player1_name") or "").strip()
+            p2 = (_src_row.get("player2_name") or "").strip()
+            p1_token = (_src_row.get("player1_id") or "").strip()
+            p2_token = (_src_row.get("player2_id") or "").strip()
+            if p1 and p2:
+                entries = [
+                    (p1, resolve_person_id(p1_token, p1) or "", ""),
+                    (p2, resolve_person_id(p2_token, p2) or "", ""),
+                ]
+            elif p1:
+                entries = [(p1, resolve_person_id(p1_token, p1) or "", "")]
+            else:
+                continue
 
         # event_results.csv — one row per placement slot
         if result_key not in emitted_results:

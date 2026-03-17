@@ -32,7 +32,7 @@ from collections import defaultdict
 
 import pandas as pd
 from openpyxl.utils import get_column_letter
-from openpyxl.styles import Alignment, Font
+from openpyxl.styles import Alignment, Font, PatternFill
 
 OUT_DIR = REPO_ROOT / "out"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -65,6 +65,10 @@ _ASCII_PRE_MAP: dict[str, str] = {
     "\ufffd": "?",   # replacement character
 }
 _ASCII_PRE_TABLE = str.maketrans(_ASCII_PRE_MAP)
+
+# Quarantine event styling (archival workbook)
+QUARANTINE_FILL = PatternFill(start_color="F2F2F2", end_color="F2F2F2", fill_type="solid")
+QUARANTINE_FONT = Font(italic=True, color="767676")
 
 
 def _to_ascii(s: str) -> str:
@@ -421,7 +425,11 @@ def format_results_from_placements(placements: list[dict], players_by_id: Option
 
             entries.sort(key=sort_key)
 
-            out_lines.append(f"--- {div.upper()} ---")
+            s_ref = (entries[0].get("source_ref", "") or "").strip() if entries else ""
+            header = f"--- {div.upper()} ---"
+            if s_ref:
+                header += f" (Source: {s_ref})"
+            out_lines.append(header)
 
             # Deduplicate: skip (place, name) combos already output (source data can have dupes)
             seen_line_key = set()
@@ -454,30 +462,24 @@ def format_results_from_placements(placements: list[dict], players_by_id: Option
 
 
 def _build_name_line(placement: dict, players_by_id: Optional[dict] = None) -> str:
-    """Build display name from placement dict, preferring Stage 2.5 cleaned names."""
-
+    """Build display name using modern column names (person_id, person_canon)."""
     def _lookup_clean(which: str) -> str:
-        import re
         if which == "player1":
-            pid = placement.get("player1_id") or placement.get("player_id") or placement.get("player1_player_id") or ""
-            raw = (placement.get("player1_name") or "").strip()
+            # Check every possible ID/Name column name used in the various pipeline stages
+            pid = placement.get("person_id") or placement.get("player_id") or placement.get("player1_id") or ""
+            raw = placement.get("person_canon") or placement.get("player_name_clean") or placement.get("player1_name") or ""
         else:
-            pid = placement.get("player2_id") or placement.get("player2_player_id") or ""
-            raw = (placement.get("player2_name") or "").strip()
+            pid = placement.get("player2_id") or ""
+            raw = placement.get("player2_name") or ""
+
+        # If we have a canonical mapping from our truth file, use it
         if players_by_id and pid and pid in players_by_id:
-            clean = (players_by_id[pid].get("player_name_clean") or "").strip()
-            return clean or raw
-        # Fallback (display-only): strip common slop when player_id is missing
-        s = re.sub(r'^\s*(?:\*\-|\*|&)\s*', '', raw)
-        s = re.sub(r'\s*-\s*scratch\b.*$', '', s, flags=re.IGNORECASE)
-        s = re.sub(r'\s{2,}', ' ', s).strip(" ,.-")
-        return s
+            return (players_by_id[pid].get('player_name_clean') or raw).strip()
+        return str(raw).strip()
 
     p1 = _lookup_clean("player1")
     p2 = _lookup_clean("player2")
-    if p2:
-        return f"{p1} / {p2}".strip()
-    return p1
+    return f"{p1} / {p2}".strip(" /") if p2 else p1
 
 
 # ------------------------------------------------------------
@@ -621,6 +623,8 @@ def write_excel(
     players_df: Optional[pd.DataFrame] = None,
     placements_flat_df: Optional[pd.DataFrame] = None,
     unresolved_df: Optional[pd.DataFrame] = None,
+    events_df: Optional[pd.DataFrame] = None,
+    results_map: Optional[dict] = None,
 ) -> None:
     """
     Archive workbook writer (matches Footbag_Results_Canonical.xlsx layout):
@@ -628,6 +632,8 @@ def write_excel(
     - Columns are event_id
     - Rows are fixed labels (Tournament Name, Date, Location, ...)
     - Results are generated from placements (canonical), not copied raw
+    - If events_df is provided, sheets are grouped by year from events_df and
+      per-event placement counts come from placements_flat_df filtered by event_id.
     """
     players_by_id = build_players_by_id(players_df)
 
@@ -635,13 +641,14 @@ def write_excel(
         """Return location display string from event record."""
         return rec.get("location") or ""
 
-    # Build results map from placements (use cleaned player names when available)
-    results_map = {}
-    for rec in records:
-        eid = rec.get("event_id")
-        if eid:
-            placements = rec.get("placements", [])
-            results_map[str(eid)] = format_results_from_placements(placements, players_by_id)
+    # Use pre-built results_map when provided (e.g. from flat placements); else build from records
+    if results_map is None:
+        results_map = {}
+        for rec in records:
+            eid = rec.get("event_id")
+            if eid:
+                placements = rec.get("placements", [])
+                results_map[str(eid)] = format_results_from_placements(placements, players_by_id)
 
     # Fixed row labels (index) to match the example workbook
     row_labels = [
@@ -651,6 +658,8 @@ def write_excel(
         "Event Type",
         "Host Club",
         "Results",
+        "Source Ref",
+        "Ver",
     ]
 
     # Sort key for event IDs
@@ -666,17 +675,38 @@ def write_excel(
         eid = str(rec.get("event_id", ""))
         return (date_tuple[0], date_tuple[1], date_tuple[2], _eid_sort_key(eid))
 
-    # Group records by year
+    # Group by year: from events_df when provided, otherwise from records
     by_year = {}
     unknown_year = []
-    for rec in records:
-        year = rec.get("year")
-        if year is not None:
-            if year not in by_year:
-                by_year[year] = []
-            by_year[year].append(rec)
-        else:
-            unknown_year.append(rec)
+    records_by_eid = {str(rec.get("event_id", "")): rec for rec in records if rec.get("event_id")}
+
+    if events_df is not None and not events_df.empty and "year" in events_df.columns:
+        for year, group in events_df.groupby("year"):
+            try:
+                year_val = int(float(year)) if pd.notna(year) and str(year).strip() else None
+            except (ValueError, TypeError):
+                year_val = None
+            year_records_list = []
+            for _, event in group.iterrows():
+                eid = str(event.get("event_id", ""))
+                if not eid:
+                    continue
+                rec = records_by_eid.get(eid)
+                if rec is not None:
+                    year_records_list.append(rec)
+            if year_val is not None:
+                by_year[year_val] = year_records_list
+            else:
+                unknown_year.extend(year_records_list)
+    else:
+        for rec in records:
+            year = rec.get("year")
+            if year is not None:
+                if year not in by_year:
+                    by_year[year] = []
+                by_year[year].append(rec)
+            else:
+                unknown_year.append(rec)
 
     event_locator = {}  # event_id(str) -> (sheet_name(str), col_idx(int))
 
@@ -699,13 +729,17 @@ def write_excel(
 
                 # Use integer event_id as column header to avoid Excel apostrophe prefix
                 col_key = int(eid) if eid.isdigit() else eid
+                source_ref = rec.get("source_ref", "") or ""
+                ver_level = str(rec.get("verification_level", "2"))
                 data[col_key] = [
                     sanitize_string(rec.get("event_name") or ""),
-                    display_date(rec.get("date") or "", y),
+                    display_date(rec.get("date") if pd.notna(rec.get("date")) else "", y),
                     sanitize_string(_loc(eid, rec)),
                     sanitize_string(rec.get("event_type") or ""),
                     sanitize_string(rec.get("host_club") or ""),
                     sanitize_string(results_map.get(eid) or ""),
+                    sanitize_string(source_ref),
+                    ver_level,
                 ]
 
             df_year = pd.DataFrame(data, index=row_labels)
@@ -732,6 +766,14 @@ def write_excel(
                 a = copy(cell.alignment)
                 a.wrap_text = True
                 cell.alignment = a
+            # Apply quarantine styling to event columns where status is 'quarantine'
+            for col_idx, eid in enumerate(eids, start=2):
+                rec = next((r for r in year_records if str(r.get("event_id")) == eid), None)
+                if rec and rec.get("status") == "quarantine":
+                    for row_idx in range(3, 3 + len(row_labels)):
+                        cell = worksheet.cell(row=row_idx, column=col_idx)
+                        cell.fill = QUARANTINE_FILL
+                        cell.font = QUARANTINE_FONT
             # Freeze: banner + event-ID header row visible; col A (labels) visible
             worksheet.freeze_panes = "B3"
 
@@ -750,6 +792,8 @@ def write_excel(
 
                 # Use integer event_id as column header to avoid Excel apostrophe prefix
                 col_key = int(eid) if eid.isdigit() else eid
+                source_ref = rec.get("source_ref", "") or ""
+                ver_level = str(rec.get("verification_level", "2"))
                 data[col_key] = [
                     sanitize_string(rec.get("event_name") or ""),
                     display_date(rec.get("date") or "", None),
@@ -757,6 +801,8 @@ def write_excel(
                     sanitize_string(rec.get("event_type") or ""),
                     sanitize_string(rec.get("host_club") or ""),
                     sanitize_string(results_map.get(eid) or ""),
+                    sanitize_string(source_ref),
+                    ver_level,
                 ]
 
             df_unk = pd.DataFrame(data, index=row_labels)
@@ -771,6 +817,14 @@ def write_excel(
                 a = copy(cell.alignment)
                 a.wrap_text = True
                 cell.alignment = a
+            # Apply quarantine styling to event columns where status is 'quarantine'
+            for col_idx, eid in enumerate(eids, start=2):
+                rec = next((r for r in unknown_year if str(r.get("event_id")) == eid), None)
+                if rec and rec.get("status") == "quarantine":
+                    for row_idx in range(2, 2 + len(row_labels)):
+                        cell = worksheet.cell(row=row_idx, column=col_idx)
+                        cell.fill = QUARANTINE_FILL
+                        cell.font = QUARANTINE_FONT
 
         # Build Index sheet: one row per event with hyperlinks
         index_data = []
@@ -865,19 +919,39 @@ def write_excel(
 
         # Build Summary sheet: rollups and health metrics
         total_events = len(records)
-        total_placements = sum(len(rec.get("placements", [])) for rec in records)
-        
-        years_with_events = [rec.get("year") for rec in records if rec.get("year") is not None]
+        if events_df is not None and "year" in events_df.columns and placements_flat_df is not None and not placements_flat_df.empty:
+            total_placements = len(placements_flat_df)
+            years_with_events = []
+            year_stats = defaultdict(lambda: {"events": 0, "placements": 0})
+            for year, group in events_df.groupby("year"):
+                try:
+                    year_val = int(float(year)) if pd.notna(year) and str(year).strip() else None
+                except (ValueError, TypeError):
+                    year_val = None
+                if year_val is not None:
+                    years_with_events.append(year_val)
+                for _, event in group.iterrows():
+                    eid = str(event.get("event_id", ""))
+                    if not eid:
+                        continue
+                    if year_val is not None:
+                        year_stats[year_val]["events"] += 1
+                    this_event_placements = placements_flat_df[placements_flat_df["event_id"] == eid]
+                    placement_count = len(this_event_placements)
+                    if year_val is not None:
+                        year_stats[year_val]["placements"] += placement_count
+        else:
+            total_placements = sum(len(rec.get("placements", [])) for rec in records)
+            years_with_events = [rec.get("year") for rec in records if rec.get("year") is not None]
+            year_stats = defaultdict(lambda: {"events": 0, "placements": 0})
+            for rec in records:
+                year = rec.get("year")
+                if year is not None:
+                    year_stats[year]["events"] += 1
+                    year_stats[year]["placements"] += len(rec.get("placements", []))
+
         year_min = min(years_with_events) if years_with_events else None
         year_max = max(years_with_events) if years_with_events else None
-        
-        # Year table: year, events, placements
-        year_stats = defaultdict(lambda: {"events": 0, "placements": 0})
-        for rec in records:
-            year = rec.get("year")
-            if year is not None:
-                year_stats[year]["events"] += 1
-                year_stats[year]["placements"] += len(rec.get("placements", []))
         
         pf_rows = len(placements_flat_df) if placements_flat_df is not None else 0
         pf_resolved = (
@@ -1616,29 +1690,43 @@ def main():
         print("Run 02_canonicalize_results.py first.")
         return
 
-    print(f"Reading: {in_csv}")
-    records = read_stage2_csv(in_csv)
-
-    # Build results_map for Stage 3 QC (use cleaned player names when available)
-    players_by_id = build_players_by_id(players_df)
-    results_map = {}
-    for rec in records:
-        eid = rec.get("event_id")
-        if eid:
-            placements = rec.get("placements", [])
-            results_map[str(eid)] = format_results_from_placements(placements, players_by_id)
-
-    # Placements_Flat must exist (person_id-enriched from 02p5); do not overwrite
+    # 1. Load the two different datasets
+    events_df = pd.read_csv(in_csv)
     placements_flat_csv = OUT_DIR / "Placements_Flat.csv"
     if not placements_flat_csv.exists():
         print(f"ERROR: Missing required {placements_flat_csv}. Run 02p5 to generate it.", file=sys.stderr)
         return
+    placements_df = pd.read_csv(placements_flat_csv)
 
-    df_placements_flat = pd.read_csv(placements_flat_csv)
-    print(f"Loaded {placements_flat_csv} ({len(df_placements_flat)} rows)")
+    # 2. Ensure IDs are the same type (both strings)
+    events_df["event_id"] = events_df["event_id"].astype(str)
+    placements_df["event_id"] = placements_df["event_id"].astype(str)
 
-    print(f"Writing Excel with {len(records)} events...")
-    write_excel(out_xlsx, records, players_df=players_df, placements_flat_df=df_placements_flat, unresolved_df=df_unresolved)
+    # 1. Ensure we only have ONE record per event for the Excel columns
+    events_df = events_df.drop_duplicates(subset=["event_id"]).copy()
+    records = events_df.to_dict("records")
+    print(f"Verified: Writing {len(records)} unique events to Excel.")
+    print(f"Loaded {placements_flat_csv} ({len(placements_df)} rows)")
+
+    # 2. Pre-build the results blobs from the FLAT placements file
+    # This solves the "0 placements" issue
+    players_by_id = build_players_by_id(players_df)
+    results_map = {}
+    if not placements_df.empty:
+        print(f"Grouping {len(placements_df)} placements into events...")
+        for eid, group in placements_df.groupby("event_id"):
+            results_map[str(eid)] = format_results_from_placements(group.to_dict("records"), players_by_id)
+
+    # 3. Pass the corrected data to the writer
+    write_excel(
+        out_xlsx,
+        records,
+        players_df=players_df,
+        placements_flat_df=placements_df,
+        unresolved_df=df_unresolved,
+        events_df=events_df,
+        results_map=results_map,
+    )
 
     # Run Stage 3 QC on Excel workbook data
     if USE_MASTER_QC:

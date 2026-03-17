@@ -2176,6 +2176,9 @@ def canonicalize_division(division_raw: str) -> str:
     if not division_raw:
         return "Unknown"
     div = division_raw
+    # Strip "Division: " prefix produced by magazine/01b2 inline format
+    if div.lower().startswith("division: "):
+        div = div[len("division: "):]
     # Fix encoding corruption: "?" or U+FFFD used as placeholder for lost accented chars
     # 1. Possessive apostrophe: "Women?s" / "Master?S" → "Women's" / "Master's"
     div = re.sub(r"(\w)[?\ufffd][Ss]\b", r"\1's", div)
@@ -4858,9 +4861,12 @@ def check_location(rec: dict) -> list[QCIssue]:
     )
 
     if is_broken_or_unknown:
+        # Pre-mirror era (year < 1990): no location is expected — downgrade to WARN
+        _year_val = rec.get("year", "")
+        _is_pre_mirror = str(_year_val).isdigit() and int(_year_val) < 1990
         issues.append(QCIssue(
             check_id="location_broken_source" if is_known_broken else "location_missing",
-            severity=("WARN" if str(event_id).startswith("200198") else "ERROR"),
+            severity=("WARN" if str(event_id).startswith("200198") or _is_pre_mirror else "ERROR"),
             event_id=str(event_id),
             field="location",
             message="known broken source (SQL error in HTML)" if is_known_broken else "location is missing or empty",
@@ -4964,9 +4970,11 @@ def check_date(rec: dict) -> list[QCIssue]:
     date_str = rec.get("date", "")
     event_type = rec.get("event_type", "")
 
-    # Required if worlds
+    # Required if worlds (only for mirror-era events; pre-1990 historical events have no dates)
     if event_type and event_type.lower() == "worlds":
-        if not date_str or not date_str.strip():
+        _year_val = rec.get("year", "")
+        _year_int = int(_year_val) if str(_year_val).isdigit() else 9999
+        if _year_int >= 1990 and (not date_str or not date_str.strip()):
             issues.append(QCIssue(
                 check_id="date_missing_worlds",
                 severity="ERROR",
@@ -5336,6 +5344,10 @@ def check_expected_divisions(rec: dict) -> list[QCIssue]:
     for required_cat in expected.get("required", []):
         if required_cat not in categories_present:
             if event_type == "worlds" and required_cat == "net":
+                # Pre-mirror era Worlds (pre-1990) had different division structures — skip.
+                _year_val = rec.get("year", "")
+                if str(_year_val).isdigit() and int(_year_val) < 1990:
+                    continue
                 # Only ERROR if raw page strongly signals net content but we extracted/classified none.
                 raw = (
                     rec.get("results_block_raw")
@@ -5397,6 +5409,10 @@ def check_expected_divisions(rec: dict) -> list[QCIssue]:
     for expected_cat in expected.get("expected", []):
         if expected_cat not in categories_present:
             if event_type == "worlds" and expected_cat == "freestyle":
+                # Pre-mirror era Worlds (pre-1990) had different division structures — skip.
+                _year_val = rec.get("year", "")
+                if str(_year_val).isdigit() and int(_year_val) < 1990:
+                    continue
                 if str(event_id) in WORLDS_KNOWN_EXTERNAL_RESULTS:
                     pass  # Known data gap — suppress warning
                 else:
@@ -5752,6 +5768,10 @@ def check_worlds_per_year(records: list[dict]) -> list[QCIssue]:
 
     for year, event_ids in worlds_by_year.items():
         if len(event_ids) > 1:
+            # Pre-mirror era (year < 1990): multiple source records for same event are expected
+            _year_int = int(year) if str(year).isdigit() else 9999
+            if _year_int < 1990:
+                continue
             issues.append(QCIssue(
                 check_id="worlds_multiple_per_year",
                 severity="ERROR",

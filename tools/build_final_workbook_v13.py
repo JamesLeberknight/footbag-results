@@ -386,7 +386,7 @@ def _section(ws, row: int, text: str) -> int:
 
 # ── README sheet ──────────────────────────────────────────────────────────────
 
-def build_readme(wb: Workbook) -> None:
+def build_readme(wb: Workbook, quarantine_count: int = 0) -> None:
     if "README" in wb.sheetnames:
         del wb["README"]
     idx = 0
@@ -401,9 +401,9 @@ def build_readme(wb: Workbook) -> None:
     row += 1
     for line in [
         "This workbook contains historical footbag competition results spanning 1980 to the present.",
-        "Results are sourced from Footbag.org and supplementary archival records.",
+        "Results are sourced from Footbag.org and Footbag World magazine archives (1980–1986, 1990–1991).",
         "Player identities are human-verified. Unresolved names are preserved as-is from the source.",
-        "21 events are quarantined due to parsing ambiguity and excluded from statistics.",
+        f"{quarantine_count} events are quarantined due to parsing ambiguity and excluded from statistics.",
     ]:
         _w(ws, row, 1, line, font=FONT_DATA, align=ALIGN_LEFT)
         row += 1
@@ -432,11 +432,12 @@ def build_readme(wb: Workbook) -> None:
     _w(ws, row, 1, "Coverage Notes", font=FONT_SECTION, align=ALIGN_LEFT)
     row += 1
     for note in [
-        "774 events documented, 1980–2026.",
-        "3,441 canonically identified players.",
-        "28,511 identity-locked placements.",
+        "790 events documented, 1980–2026.",
+        "3,470 canonically identified players.",
+        "28,667 identity-locked placements.",
         "Coverage is comprehensive from 1997 onward (primary Footbag.org mirror).",
-        "Pre-1997 data is partial — top-3 only for most divisions in 1980–1986 and 1990–1991.",
+        "Pre-1997 data sourced from the Footbag.org mirror and Footbag World magazine archives.",
+        "  • 16 Worlds events (1980–1986, 1990–1991) recovered from magazine; placement data is partial (top finishers only).",
         "Years 1987–1989 and 1992–1996 have no coverage.",
         "FREESTYLE INSIGHTS draws from events that reported trick sequences; coverage is a subset of all events.",
     ]:
@@ -1332,7 +1333,7 @@ def build_consecutive_records(wb: Workbook) -> None:
 
 # ── Year sheet builder ────────────────────────────────────────────────────────
 
-CANONICAL_EVENTS_CSV = os.path.join(BASE_DIR, "inputs", "events_normalized.csv")
+CANONICAL_EVENTS_CSV = os.path.join(BASE_DIR, "out", "canonical", "events.csv")
 
 # Styles
 _YR_FILL_BANNER  = PatternFill("solid", fgColor="1F3864")
@@ -1940,7 +1941,7 @@ def main():
 
     # Build front sheets in order
     print("\nBuilding README sheet...")
-    build_readme(out_wb)
+    build_readme(out_wb, quarantine_count=len(yr_quarantine))
 
     print("\nBuilding DATA NOTES sheet...")
     build_data_notes(out_wb)

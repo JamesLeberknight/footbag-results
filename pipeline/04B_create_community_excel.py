@@ -711,6 +711,10 @@ def load_stage2_events() -> dict:
                 "div_order":  div_order,
                 # Preserve raw location for DATA_LIMITATIONS reporting
                 "_loc_raw":   loc_raw,
+                # Source / verification (when present in stage2 CSV)
+                "source_layer":      (row.get("source_layer") or "").strip() or "mirror",
+                "verification_level": (row.get("verification_level") or "").strip() or "2",
+                "source_ref":         (row.get("source_ref") or "").strip(),
             }
     return events
 
@@ -940,7 +944,8 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                     if is_team_division:
                         display = f"{display} / ?"
 
-                entries.append((place_int, display, cat))
+                s_ref = (row.get("source_ref") or "").strip()
+                entries.append((place_int, display, cat, s_ref))
 
             if entries:
                 div_placements[div_canon] = entries
@@ -1674,6 +1679,31 @@ def build_index_real(wb: Workbook, events: dict, event_placements: dict,
                 cell_obj.fill = row_fill
 
 
+def build_lost_archives_sheet(wb: Workbook, events: dict, data_status_map: dict) -> None:
+    """Appendix sheet listing quarantined events — call to action for community to recover data."""
+    ws_archive = wb.create_sheet("Lost Archives")
+    hdrs = ["Year", "Event Name", "Known Details", "Source Reference"]
+    for c, h in enumerate(hdrs, start=1):
+        _c(ws_archive, 1, c, h, font=FONT_HDR, fill=FILL_HDR)
+    for col, w in enumerate([8, 48, 24, 32], start=1):
+        ws_archive.column_dimensions[get_column_letter(col)].width = w
+
+    ghost_eids = sorted(
+        [eid for eid in events if data_status_map.get(eid) == "QUARANTINED"],
+        key=lambda eid: (events[eid].get("year") or 0, events[eid].get("event_name", "")),
+    )
+    for eid in ghost_eids:
+        ev = events[eid]
+        ws_archive.append([
+            ev.get("year"),
+            _RE_EVENT_ISO2.sub("\u017c", ev.get("event_name", "")),
+            "Missing location/date",
+            ev.get("source_ref") or "Magazine Archive",
+        ])
+    if ghost_eids:
+        ws_archive.freeze_panes = "A2"
+
+
 # ── Player Stats sheet ────────────────────────────────────────────────────────
 
 def build_player_stats(wb: Workbook, stats: pd.DataFrame, honours: dict,
@@ -1821,17 +1851,21 @@ _R_NAME    = 1   # Event name
 _R_LOC     = 2   # Location
 _R_HOST    = 3   # Host club  (italic per spec)
 _R_DATE    = 4   # Date
-_R_PLAYERS = 5   # Players count
-_R_EVTYPE  = 6   # Event type
-_R_EID     = 7   # Legacy event ID
-_R_STATUS  = 8   # Status label for non-OK events (blank for OK)
-_R_DATA    = 9   # First division / placement row
+_R_SOURCE  = 5   # Source (mirror / magazine / etc.)
+_R_VER     = 6   # Verification level
+_R_PLAYERS = 7   # Players count
+_R_EVTYPE  = 8   # Event type
+_R_EID     = 9   # Legacy event ID
+_R_STATUS  = 10  # Status label for non-OK events (blank for OK)
+_R_DATA    = 11  # First division / placement row
 
 _ROW_LABELS = {
     _R_NAME:    "Event",
     _R_LOC:     "Location",
     _R_HOST:    "Host Club",
     _R_DATE:    "Date",
+    _R_SOURCE:  "Source",
+    _R_VER:     "Ver",
     _R_PLAYERS: "Players",
     _R_EVTYPE:  "Event Type",
     _R_EID:     "Event ID",
@@ -1872,11 +1906,13 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
     _write(_R_LOC,     ev["location"] or "—",                        FONT_META,    FILL_META)
     _write(_R_HOST,    ev["host_club"] or "Not recorded",            FONT_HOST,    FILL_META)
     _write(_R_DATE,    ev["date"]      or "Not recorded",            FONT_META,    FILL_META)
+    _write(_R_SOURCE,  ev.get("source_layer", "mirror"),             FONT_META,    FILL_META)
+    _write(_R_VER,     str(ev.get("verification_level", "2")),        FONT_META,    FILL_META)
     _write(_R_PLAYERS, f"Players: {n_players}",                      FONT_PLAYERS, FILL_PLAYERS)
     _write(_R_EVTYPE,  ev.get("event_type") or "Not recorded",      FONT_META,    FILL_META)
     _write(_R_EID,     ev.get("event_id")   or "",                  FONT_ROW_LBL, FILL_META)
 
-    # Status label row (row 8): non-OK events get a badge + subtitle
+    # Status label row: non-OK events get a badge + subtitle
     if data_status in _STATUS_LABELS:
         badge, subtitle, s_font, s_fill = _STATUS_LABELS[data_status]
         label_text = f"{badge}  {subtitle}"
@@ -1905,14 +1941,17 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
         row += 1
 
         for div_name, entries in cat_to_divs[cat]:
-            div_name = _clean_div(div_name)
+            div_name_clean = _clean_div(div_name)
+            s_ref = (entries[0][3] if entries and len(entries[0]) > 3 else "") or ""
+            display_name = f"{div_name_clean} (Ref: {s_ref})" if s_ref else div_name_clean
             # Division header: bold, light-grey, top border
-            _c(ws, row, col, div_name,
+            _c(ws, row, col, display_name,
                font=FONT_DIV, fill=FILL_DIV, border=_border_top(), align=ALIGN_TOP)
-            max_content = max(max_content, len(div_name) + 2)
+            max_content = max(max_content, len(display_name) + 2)
             row += 1
 
-            for place_int, display, _ in entries:
+            for entry in entries:
+                place_int, display, _ = entry[0], entry[1], entry[2]
                 medal = MEDALS.get(place_int, "")
 
                 # Build display text:  🥇 1  Name
@@ -1985,6 +2024,8 @@ def build_year_sheet(wb: Workbook, year: int, eids: list,
     ws.row_dimensions[_R_LOC].height     = 15
     ws.row_dimensions[_R_HOST].height    = 15
     ws.row_dimensions[_R_DATE].height    = 15
+    ws.row_dimensions[_R_SOURCE].height  = 15
+    ws.row_dimensions[_R_VER].height     = 15
     ws.row_dimensions[_R_PLAYERS].height = 15
     ws.row_dimensions[_R_EVTYPE].height  = 15
     ws.row_dimensions[_R_EID].height     = 13
@@ -2306,6 +2347,9 @@ def main():
                      insert_at=3, event_coverage=event_coverage,
                      known_issues=known_issues, quarantine_set=quarantine_set,
                      data_status_map=data_status_map)
+
+    # ── Lost Archives appendix (quarantined events) ───────────────────────────
+    build_lost_archives_sheet(wb, s2_events, data_status_map)
 
     # ── Index status validation report ────────────────────────────────────────
     from collections import Counter

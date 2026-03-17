@@ -675,6 +675,7 @@ def reorder_sheets(wb) -> None:
         "Divisions_Normalized",
         "Division_Stats",
         "Person_Stats",
+        "Player_Stats",
         "PersonStats_ByDivCat",
         "Placements_ByPerson",
         "Persons_Unresolved",
@@ -2542,6 +2543,37 @@ def main() -> int:
     pf = pd.read_csv(pf_csv)
     pf_raw_count = len(pf)
 
+    # --- Event Status Map: official vs research-only (Statistical Gate) ---
+    events_csv = out_dir / "stage2_canonical_events.csv"
+    events_df = pd.read_csv(events_csv, dtype=str).fillna("") if events_csv.exists() else pd.DataFrame()
+    if events_df.empty:
+        official_event_ids = pf["event_id"].astype(str).str.strip().unique()
+        print(f"[04] Statistical Gate: no events file; using all {len(official_event_ids)} events from placements.")
+    elif "status" in events_df.columns and "verification_level" in events_df.columns:
+        events_df["event_id"] = events_df["event_id"].astype(str).str.strip()
+        vl = pd.to_numeric(events_df["verification_level"], errors="coerce").fillna(0)
+        official_event_ids = events_df[
+            (events_df["status"].astype(str).str.strip().str.lower() == "verified") & (vl >= 2)
+        ]["event_id"].unique()
+        print(f"[04] Statistical Gate: {len(official_event_ids)} official events vs {len(events_df)} total records.")
+    else:
+        # Fallback: try canonical events (legacy_event_id, status)
+        canon_events_path = out_dir / "canonical" / "events.csv"
+        if canon_events_path.exists():
+            canon_events = pd.read_csv(canon_events_path, dtype=str).fillna("")
+            if "status" in canon_events.columns and "legacy_event_id" in canon_events.columns:
+                _official_statuses = {"verified", "completed"}
+                official_event_ids = canon_events[
+                    canon_events["status"].astype(str).str.strip().str.lower().isin(_official_statuses)
+                ]["legacy_event_id"].astype(str).str.strip().unique()
+                print(f"[04] Statistical Gate: {len(official_event_ids)} official events (from canonical/events.csv) vs {len(canon_events)} total.")
+            else:
+                official_event_ids = pf["event_id"].astype(str).str.strip().unique()
+                print(f"[04] Statistical Gate: canonical events missing status/legacy_event_id; using all {len(official_event_ids)} events.")
+        else:
+            official_event_ids = pf["event_id"].astype(str).str.strip().unique()
+            print(f"[04] Statistical Gate: stage2 has no status/verification_level; using all {len(official_event_ids)} events.")
+
     # --- Gate 1 enforcement: exclude rejected / unpresentable rows from analytics ---
     _rej_path = out_dir / "Placements_ByPerson_Rejected.csv"
     _exc_path = out_dir / "qc" / "excluded_results_rows_unpresentable.csv"
@@ -2623,12 +2655,15 @@ def main() -> int:
 
     per = per_all[per_all.apply(is_person_row, axis=1)].copy()
 
+    # Analytics use only official events (Statistical Gate)
+    per_official = per[per["event_id"].astype(str).str.strip().isin(official_event_ids)].copy()
+
     _complete_flags = {"complete", "mostly_complete"}
     _cov_keys = (cov_df[cov_df["coverage_flag"].isin(_complete_flags)]
                  [["event_id", "division_canon"]].drop_duplicates())
-    per_covered = per.merge(_cov_keys, on=["event_id", "division_canon"], how="inner")
+    per_covered = per_official.merge(_cov_keys, on=["event_id", "division_canon"], how="inner")
     person_stats = build_person_stats(per_covered)
-    player_stats = build_player_stats(per)
+    player_stats = build_player_stats(per_official)
     division_stats = build_division_stats(pf, out_dir)
     person_by_cat = build_person_stats_by_div_category(per_covered)
     top_unmapped_people, top_unmapped_noise = build_top_unmapped_names(pf)
@@ -2955,8 +2990,14 @@ def main() -> int:
         persons_unresolved_df = persons_unresolved_df[cols]
     sheets.append(("Persons_Unresolved", persons_unresolved_df))
     sheets.append(("Placements_Unresolved", placements_unresolved_df))
+    # Stats sheets: label columns as "Official" so researchers know they match official events only
+    _official_rename = {"events_competed": "Official Starts", "wins": "Official Wins", "podiums": "Podiums"}
     if len(person_stats) > 0:
-        sheets.append(("Person_Stats", person_stats))
+        ps_export = person_stats.rename(columns={**_official_rename, "person_canon": "Person Name"})
+        sheets.append(("Person_Stats", ps_export))
+    if len(player_stats) > 0:
+        pl_export = player_stats.rename(columns={**_official_rename, "player_name": "Person Name"})
+        sheets.append(("Player_Stats", pl_export))
     if len(person_by_cat) > 0:
         sheets.append(("PersonStats_ByDivCat", person_by_cat))
     sheets.append(("Division_Stats", division_stats))

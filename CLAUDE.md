@@ -97,9 +97,9 @@ Release builds rely on:
 
 ```
 inputs/identity_lock/
-  Persons_Truth_Final_v42.csv       (3,441 persons)
+  Persons_Truth_Final_v43.csv       (3,470 persons)
   Persons_Unresolved_Organized_v28.csv  (82 rows)
-  Placements_ByPerson_v67.csv       (28,515 rows)
+  Placements_ByPerson_v68.csv       (28,667 rows)
 ```
 
 These files are treated as ground truth.
@@ -116,6 +116,12 @@ They must satisfy:
 Identity truth is not recomputed in release mode.
 
 ### PBP version history
+
+- v67 → v68 (2026-03-16): Added 152 magazine placements covering 16 pre-mirror era
+  Worlds events (1980–1986, 1990–1991). 99 resolved to existing PT persons (incl.
+  Tricia Sullivan → Tricia George maiden-name match). 52 rows assigned to 29 new
+  PT persons added as part of PT v43 (pre-mirror era competitors). 1 __NON_PERSON__
+  (London England location artifact). Net: 28,515 → 28,667 rows.
 
 - v66 → v67 (2026-03-16): Restored 5 missing placements in event 1386623061
   (U.S. Open 2014): Intermediate Singles Net p1/p2 (Steve Femmel, Joey Vu) and
@@ -377,14 +383,14 @@ Reproducibility is mandatory.
 
 ---
 
-# 11. Current Canonical State (as of 2026-03-15)
+# 11. Current Canonical State (as of 2026-03-16)
 
 | Artifact | Version | Count |
 |---|---|---|
-| Persons_Truth_Final | v42 | 3,441 persons |
+| Persons_Truth_Final | v43 | 3,470 persons |
 | Persons_Unresolved_Organized | v28 | 82 rows |
-| Placements_ByPerson | v67 | 28,515 rows |
-| Placements_Flat | — | 28,515 rows |
+| Placements_ByPerson | v68 | 28,667 rows |
+| Placements_Flat | — | 28,667 rows |
 | Stage2 events | — | 774 events |
 | Quarantined events | — | 20 |
 | Community workbook | v13 | Footbag_Results_Community_FINAL_v13.xlsx |
