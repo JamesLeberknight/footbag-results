@@ -474,9 +474,14 @@ for row in sorted_rows:
         except Exception:
             stage2_placements = []
 
-    # Ordered unique divisions from PBP (or stage2 fallback)
+    # Ordered unique divisions from PBP (or stage2 fallback).
+    # team_type uses majority vote: a division is "doubles" only when MORE THAN
+    # half its rows have competitor_type="team".  A single stray team row in a
+    # circle-contest or shred event must not flip the whole division to doubles.
     seen_divs: list[str]       = []
     div_meta:  dict[str, dict] = {}
+    _div_type_counts: dict[str, Counter] = defaultdict(Counter)
+
     if event_pbp:
         for pbp_row in event_pbp:
             div = pbp_row.get("division_canon") or ""
@@ -489,7 +494,12 @@ for row in sorted_rows:
                     "team_type": "singles",
                     "cov_flag":  pbp_row.get("coverage_flag", "") or "",
                 }
-            if pbp_row.get("competitor_type", "player") == "team":
+            ct = pbp_row.get("competitor_type", "player") or "player"
+            _div_type_counts[div][ct] += 1
+        # Apply majority vote
+        for div in seen_divs:
+            tc = _div_type_counts[div]
+            if tc.get("team", 0) > tc.get("player", 0):
                 div_meta[div]["team_type"] = "doubles"
     else:
         for s2p in stage2_placements:
@@ -503,7 +513,11 @@ for row in sorted_rows:
                     "team_type": "singles",
                     "cov_flag":  "sparse",   # pre-mirror: coverage unknown
                 }
-            if s2p.get("competitor_type", "") == "team":
+            ct = s2p.get("competitor_type", "") or "player"
+            _div_type_counts[div][ct] += 1
+        for div in seen_divs:
+            tc = _div_type_counts[div]
+            if tc.get("team", 0) > tc.get("player", 0):
                 div_meta[div]["team_type"] = "doubles"
 
     # ── events.csv ────────────────────────────────────────────────────────────
@@ -666,9 +680,21 @@ for row in sorted_rows:
             })
 
 
+# ── Compute person stats from participants_out (self-consistent with ERP) ─────
+# Count from the canonical participants table itself rather than from the
+# intermediate PBP load, so persons.csv stats always match event_result_participants.
+_part_event_count:  dict[str, set]  = defaultdict(set)
+_part_place_count:  dict[str, int]  = defaultdict(int)
+for _pr in participants_out:
+    _pid = _pr.get("person_id", "").strip()
+    _nm  = _pr.get("display_name", "")
+    if not _pid or _nm == "__UNKNOWN_PARTNER__":
+        continue
+    _part_event_count[_pid].add(_pr["event_key"])
+    _part_place_count[_pid] += 1
+
 # ── persons.csv — extended ────────────────────────────────────────────────────
-# _pbp_stats and _eid_country already built during PBP load above.
-print(f"  {len(_pbp_stats):,} persons with placements")
+print(f"  {len(_part_place_count):,} persons with placements (from participants_out)")
 
 # BAP / FBHOF matching helpers (mirrors build_final_workbook_v12 logic)
 def _honor_norm(s: str) -> str:
@@ -805,8 +831,8 @@ print(f"  {len(_difficulty_by_pid):,} difficulty profiles, {len(_diversity_by_pi
 persons_out: list[dict] = []
 for row in sorted(pt_rows, key=lambda r: r["person_canon"]):
     pid   = row["effective_person_id"]
+    # Country derived from PBP stats (unchanged — only used for display)
     stats = _pbp_stats.get(pid, {})
-    years = sorted(stats.get("years", []))
     countries = stats.get("countries", Counter())
     top_country = countries.most_common(1)[0][0] if countries else ""
 
@@ -823,10 +849,9 @@ for row in sorted(pt_rows, key=lambda r: r["person_canon"]):
         "member_id":                  member_id_map.get(pid, ""),
         "player_ids":                 pt_player_ids.get(pid, ""),
         "country":                    top_country,
-        "first_year":                 years[0]  if years else "",
-        "last_year":                  years[-1] if years else "",
-        "event_count":                len(stats.get("event_ids", set())),
-        "placement_count":            stats.get("placement_count", 0),
+        # event_count and placement_count from canonical participants table (self-consistent)
+        "event_count":                len(_part_event_count.get(pid, set())),
+        "placement_count":            _part_place_count.get(pid, 0),
         "bap_member":                 bap.get("bap_member", 0),
         "bap_nickname":               bap.get("bap_nickname", ""),
         "bap_induction_year":         bap.get("bap_induction_year", ""),
@@ -875,7 +900,7 @@ write_csv(
     CANONICAL / "persons.csv",
     [
         "person_id", "person_name", "member_id", "player_ids",
-        "country", "first_year", "last_year", "event_count", "placement_count",
+        "country", "event_count", "placement_count",
         "bap_member", "bap_nickname", "bap_induction_year",
         "fbhof_member", "fbhof_induction_year",
         "freestyle_sequences", "freestyle_max_add",
