@@ -30,6 +30,7 @@ index_raw.csv
 ############################
 # Mirror (distribute via GitHub Release — not committed)
 ############################
+mirror
 mirror/
 mirror_full/
 mirror_out/
@@ -77,6 +78,8 @@ footbag_venv/
 .DS_Store
 Thumbs.db
 *:Zone.Identifier
+*.lnk
+*.py1
 
 ############################
 # Legacy / archived scripts (not pipeline)
@@ -98,6 +101,18 @@ qc_spreadsheet_gate.py
 alias-candidates.txt
 host_clubs.csv
 location_canon_full_final.csv
+validate_*.py
+
+############################
+# Scratch inputs (intermediate files placed in inputs/ by mistake)
+############################
+inputs/persons_truth.csv
+inputs/persons_truth_merged.csv
+
+############################
+# Canonical freeze snapshots (local dev artifact)
+############################
+out/canonical_freeze/
 
 ############################
 # Miscellaneous dev artifacts

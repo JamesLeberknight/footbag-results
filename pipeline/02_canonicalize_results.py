@@ -771,6 +771,19 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1200725314.txt",
         "replace": True,
     },
+    # Zocha Jam 2005 — second "Open double Freestyle" block (after Open Single Net) is
+    # actually Open Doubles Net. Source HTML reused the same division header name.
+    "1127155729": {
+        "file":    "legacy_data/event_results/1127155729.txt",
+        "replace": True,
+    },
+    # Zocha Jam 2006 — "Interdmediate" (typo) not recognized as division header,
+    # causing Intermediate Freestyle results to merge into Women Freestyle.
+    # Also "Most Rippin Run" lacked keyword coverage. Fixed division names in legacy file.
+    "1158263300": {
+        "file":    "legacy_data/event_results/1158263300.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {

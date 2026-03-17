@@ -110,9 +110,9 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 
 ```
 inputs/identity_lock/
-    Persons_Truth_Final_v42.csv          # 3,441 canonical persons
+    Persons_Truth_Final_v43.csv          # 3,470 canonical persons
     Persons_Unresolved_Organized_v28.csv # 82 unresolved entries
-    Placements_ByPerson_v64.csv          # 28,511 identity-locked placements
+    Placements_ByPerson_v69.csv          # 28,677 identity-locked placements
 ```
 
 These are human-verified and treated as immutable for this release.
@@ -277,11 +277,11 @@ SHA-256 hashes of all three identity lock inputs, proving immutability.
 
 | Metric | Value |
 |---|---|
-| Events | 774 |
+| Events | 790 |
 | Year range | 1980–2026 |
-| Placements (identity-locked) | 28,513 |
-| Persons (canonical) | 3,441 |
-| Gate3 PASS | 3,441 |
+| Placements (identity-locked) | 28,677 |
+| Persons (canonical) | 3,470 |
+| Gate3 PASS | 3,470 |
 | Known-issue events | 54 |
 
 Coverage is comprehensive from 1997 onward (the primary Footbag.org mirror)
@@ -296,7 +296,7 @@ finishers listed). These limitations are documented in
 `overrides/known_issues.csv` (54 events, severity: minor / moderate / severe)
 and are not data errors — they reflect the fidelity of the original source.
 
-21 events are quarantined in `inputs/review_quarantine_events.csv` because
+11 events are quarantined in `inputs/review_quarantine_events.csv` because
 their source structure makes deterministic parsing impossible without
 authoritative external data. They are preserved in the dataset but excluded
 from the active review queue.
@@ -315,9 +315,9 @@ Current identity baseline:
 
 | Artifact | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final` | v42 | 3,441 |
+| `Persons_Truth_Final` | v43 | 3,470 |
 | `Persons_Unresolved_Organized` | v28 | 82 |
-| `Placements_ByPerson` | v64 | 28,511 |
+| `Placements_ByPerson` | v69 | 28,677 |
 
 ---
 
@@ -351,13 +351,15 @@ Current identity baseline:
 │   └── ...                               # Identity curation and patch tools
 ├── inputs/
 │   ├── identity_lock/                # Authoritative identity artifacts
-│   │   ├── Persons_Truth_Final_v42.csv
+│   │   ├── Persons_Truth_Final_v43.csv
 │   │   ├── Persons_Unresolved_Organized_v28.csv
-│   │   └── Placements_ByPerson_v64.csv
+│   │   └── Placements_ByPerson_v69.csv
 │   ├── location_canon_full_final.csv # Canonical location display strings
 │   ├── consecutives_records.csv      # Consecutives world records reference data
 │   ├── bap_data.csv                  # BAP honours data
 │   ├── fbhof_data.csv                # FBHOF honours data
+│   ├── person_country_overrides.csv  # Manual nationality corrections
+│   ├── review_quarantine_events.csv  # 11 events excluded from canonical build
 │   └── OLD_RESULTS.txt               # Legacy results (pre-mirror)
 ├── legacy_data/
 │   └── event_results/                # Per-event result overrides

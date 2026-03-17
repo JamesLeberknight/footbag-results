@@ -422,6 +422,15 @@ with open(OUT / "Placements_ByPerson.csv", newline="", encoding="utf-8") as _f:
 _pbp_total = sum(len(v) for v in pbp_by_event.values())
 print(f"  {_pbp_total:,} placement rows, {len(pbp_by_event):,} events covered")
 
+# person-level country overrides (nationality corrections where event-location heuristic is wrong)
+_COUNTRY_OVERRIDES_PATH = ROOT / "inputs" / "person_country_overrides.csv"
+_person_country_overrides: dict[str, str] = {}
+if _COUNTRY_OVERRIDES_PATH.exists():
+    with open(_COUNTRY_OVERRIDES_PATH, newline="", encoding="utf-8") as _f:
+        for _r in csv.DictReader(_f):
+            _person_country_overrides[_r["person_id"].strip()] = _r["country"].strip()
+    print(f"  Loaded {len(_person_country_overrides)} person country override(s)")
+
 
 # ── Build output rows ─────────────────────────────────────────────────────────
 
@@ -834,7 +843,10 @@ for row in sorted(pt_rows, key=lambda r: r["person_canon"]):
     # Country derived from PBP stats (unchanged — only used for display)
     stats = _pbp_stats.get(pid, {})
     countries = stats.get("countries", Counter())
-    top_country = countries.most_common(1)[0][0] if countries else ""
+    top_country = _person_country_overrides.get(pid) or (countries.most_common(1)[0][0] if countries else "")
+    _years_set = stats.get("years", set())
+    first_year = str(min(_years_set)) if _years_set else ""
+    last_year  = str(max(_years_set)) if _years_set else ""
 
     diff  = _difficulty_by_pid.get(pid, {})
     divrs = _diversity_by_pid.get(pid, {})
@@ -849,6 +861,8 @@ for row in sorted(pt_rows, key=lambda r: r["person_canon"]):
         "member_id":                  member_id_map.get(pid, ""),
         "player_ids":                 pt_player_ids.get(pid, ""),
         "country":                    top_country,
+        "first_year":                 first_year,
+        "last_year":                  last_year,
         # event_count and placement_count from canonical participants table (self-consistent)
         "event_count":                len(_part_event_count.get(pid, set())),
         "placement_count":            _part_place_count.get(pid, 0),
@@ -900,7 +914,7 @@ write_csv(
     CANONICAL / "persons.csv",
     [
         "person_id", "person_name", "member_id", "player_ids",
-        "country", "event_count", "placement_count",
+        "country", "first_year", "last_year", "event_count", "placement_count",
         "bap_member", "bap_nickname", "bap_induction_year",
         "fbhof_member", "fbhof_induction_year",
         "freestyle_sequences", "freestyle_max_add",

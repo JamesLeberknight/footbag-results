@@ -99,7 +99,7 @@ Release builds rely on:
 inputs/identity_lock/
   Persons_Truth_Final_v43.csv       (3,470 persons)
   Persons_Unresolved_Organized_v28.csv  (82 rows)
-  Placements_ByPerson_v68.csv       (28,667 rows)
+  Placements_ByPerson_v69.csv       (28,677 rows)
 ```
 
 These files are treated as ground truth.
@@ -116,6 +116,15 @@ They must satisfy:
 Identity truth is not recomputed in release mode.
 
 ### PBP version history
+
+- v68 → v69 (2026-03-17): Fixed Zocha Jam 2005 (1127155729) and Zocha Jam 2006
+  (1158263300) quarantined events. Zocha 2005: renamed 5 "Open Double Freestyle"
+  team rows to "Open Doubles Net" (second source block was Net, not Freestyle).
+  Zocha 2006: moved Piotr Kurt/Kacper Kudyniuk/Michal Miszkiel from "Women
+  Freestyle" → "Intermediate Freestyle"; moved Vaclav Klouda/Szymon Kalwak/Kamil
+  Wysocki from "Women Freestyle" → "Shred30" (replacing 3 unresolved duplicates);
+  added 3 new "Most Rippin Run" rows (Vaclav Klouda/Damian Gielnicki/Wiktor
+  Debski). Both events removed from quarantine. Net: 28,677 rows (unchanged).
 
 - v67 → v68 (2026-03-16): Added 152 magazine placements covering 16 pre-mirror era
   Worlds events (1980–1986, 1990–1991). 99 resolved to existing PT persons (incl.
@@ -383,16 +392,16 @@ Reproducibility is mandatory.
 
 ---
 
-# 11. Current Canonical State (as of 2026-03-16)
+# 11. Current Canonical State (as of 2026-03-17)
 
 | Artifact | Version | Count |
 |---|---|---|
 | Persons_Truth_Final | v43 | 3,470 persons |
 | Persons_Unresolved_Organized | v28 | 82 rows |
-| Placements_ByPerson | v68 | 28,667 rows |
-| Placements_Flat | — | 28,667 rows |
-| Stage2 events | — | 774 events |
-| Quarantined events | — | 20 |
+| Placements_ByPerson | v69 | 28,677 rows |
+| Placements_Flat | — | 28,677 rows |
+| Stage2 events | — | 790 events |
+| Quarantined events | — | 11 |
 | Community workbook | v13 | Footbag_Results_Community_FINAL_v13.xlsx |
 
 ---
