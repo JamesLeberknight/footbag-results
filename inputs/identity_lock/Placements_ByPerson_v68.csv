@@ -12763,11 +12763,8 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1294262550,2011,Open Doubles Net,net,30,team,,9dd1729e-cd7f-5412-93ee-f08166e75fc7|e3de11aa-d25a-509d-ba0f-11b14f609cb6,__NON_PERSON__,David Rambaud / Mael Le Gall,complete,,,
 1294262550,2011,Open Routines,freestyle,1,player,0b3204c8-7e99-586e-aeb2-4186d0901fe3,,Milan Benda,,mostly_complete,,milan benda,
 1294262550,2011,Open Routines,freestyle,2,player,7c74c3f5-dc54-5e47-8365-e84497f4c943,,Aleksi Airinen,,mostly_complete,,aleksi airlinen,
-1294262550,2011,Open Routines,freestyle,2,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,mostly_complete,,jindrich smola,
 1294262550,2011,Open Routines,freestyle,3,player,34f17114-99b7-5320-b4ed-10a6813859ac,,Jay Boychuk,,mostly_complete,,jay boychuk,
-1294262550,2011,Open Routines,freestyle,3,player,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,,Jindrich Smola,,mostly_complete,,jindrich smola,
 1294262550,2011,Open Routines,freestyle,4,player,7c74c3f5-dc54-5e47-8365-e84497f4c943,,Aleksi Airinen,,mostly_complete,,aleksi airlinen,
-1294262550,2011,Open Routines,freestyle,4,player,82c36f56-236f-4496-826b-cf59a6fcc4ed,,Rafal Kaleta,,mostly_complete,,rafal kaleta,
 1294262550,2011,Open Routines,freestyle,5,player,8e2c07e2-aeb8-5325-be31-ffcc452944ec,,Mikko Lepisto,,mostly_complete,,mikko lepisto,
 1294262550,2011,Open Routines,freestyle,6,player,da3fbe76-ba2d-51ee-a019-97e7ba93089a,,Michal Ostrowski,,mostly_complete,,michal ostrowski,
 1294262550,2011,Open Routines,freestyle,8,player,82c36f56-236f-4496-826b-cf59a6fcc4ed,,Rafal Kaleta,,mostly_complete,,rafal kaleta,
@@ -13480,10 +13477,8 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1301837216,2011,Open Singles Net,net,2,player,c86e3f98-1abf-59a0-bd1a-2dcb61f7e241,,Luc Legeault,,complete,,luc legeault,
 1301837216,2011,Open Singles Net,net,3,player,c312c02d-8a8c-5c73-8b68-65fc9e3fa453,,Benjamin Rochon,,complete,,benjamin rochon,
 1301837216,2011,Open Singles Net,net,3,player,c86e3f98-1abf-59a0-bd1a-2dcb61f7e241,,Luc Legeault,,complete,,luc legeault,
-1301837216,2011,Open Singles Net,net,3,player,,,__NON_PERSON__,,complete,True,__non_person__,
 1301837216,2011,Open Singles Net,net,4,player,6d50650f-7f41-5484-894f-74986085f48b,,Martin Cote,,complete,,martin cote,
 1301837216,2011,Open Singles Net,net,5,player,87216aed-3048-50f7-8c54-d7e9e7bb52f3,,Philippe Lessard,,complete,,phillip lessard,
-1301837216,2011,Open Singles Net,net,5,player,,,__NON_PERSON__,,complete,True,__non_person__,
 1301837216,2011,Open Singles Net,net,6,player,fea99a91-ae13-5cb1-b87f-3c352783dc2e,,Genevieve Bousquet,,complete,,genevieve bousquet,
 1301837216,2011,Open Singles Net,net,7,player,0295db32-9628-5fdd-9420-212a8adc5b6d,,Stéphane Tailleur,,complete,,stephane tailleur,
 1301837216,2011,Open Singles Net,net,8,player,8fdea8f1-79bd-51a1-ab3f-04270d90e5af,,Ianek Regimbald,,complete,,ianeck regimbald,
@@ -14843,41 +14838,6 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1330902233,2012,Open Singles Routines,freestyle,4,player,58bb3c4a-1a60-537d-ba4e-55de294abd8c,,Dustin Rhodes,,complete,,dustin rhodes,
 1330902233,2012,Open Singles Routines,freestyle,5,player,34f17114-99b7-5320-b4ed-10a6813859ac,,Jay Boychuk,,complete,,jay boychuk,
 1330902233,2012,Open Singles Routines,freestyle,6,player,43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,,Chris Dean,,complete,,chris dean,
-1331667371,2012,Open Singles Net,net,1,player,ab966624-6643-5dea-b165-67e66af402f9,,Florian Goetze,,complete,,florian goetze,
-1331667371,2012,Open Singles Net,net,2,player,c7a23f15-f2ed-5f2b-ac50-bb1adb185475,,Greg Lima,,complete,,greg lima,
-1331667371,2012,Open Singles Net,net,2,player,eb025239-b9ab-5cef-9307-7639f88a225a,,Karim Daouk,,complete,,karim daouk,
-1331667371,2012,Open Singles Net,net,3,player,c7a23f15-f2ed-5f2b-ac50-bb1adb185475,,Greg Lima,,complete,,greg lima,
-1331667371,2012,Open Singles Net,net,3,player,184a06bb-be96-5120-9a7c-1676f2b01a2a,,Jean-Francois Lemieux,,complete,,jf lemieux,
-1331667371,2012,Open Singles Net,net,4,player,184a06bb-be96-5120-9a7c-1676f2b01a2a,,Jean-Francois Lemieux,,complete,,jf lemieux,
-1331667371,2012,Open Singles Net,net,4,player,eb025239-b9ab-5cef-9307-7639f88a225a,,Karim Daouk,,complete,,karim daouk,
-1331667371,2012,Open Singles Net,net,5,player,ec1d5118-cd4b-591f-a84a-04bbe20868bc,,Grischa Tellenbach,,complete,,grischa tellenbach,
-1331667371,2012,Open Singles Net,net,5,player,628bd3b2-335d-5fdb-bad2-b794d74ede90,,Janne Uusitalo,,complete,,janne uusitalo,
-1331667371,2012,Open Singles Net,net,6,player,e528ca88-e462-5870-bd7f-45fb49bfbcfc,,Arthur Ledain,,complete,,arthur ledain aka tutur,
-1331667371,2012,Open Singles Net,net,6,player,42492045-f1bf-5183-82c0-fedee3941a1e,,Olivier Baillon,,complete,,olivier baillon,
-1331667371,2012,Open Singles Net,net,7,player,bef7e11c-8b9c-5187-ae6e-665cba7f9825,,Jaka Stare,,complete,,jaka stare,
-1331667371,2012,Open Singles Net,net,7,player,a9518594-35d9-53cd-8e8d-a7bc4de94236,,Sébastien Maillet,,complete,,sebastien maillet,
-1331667371,2012,Open Singles Net,net,8,player,fbf52ca9-ba84-50bc-bce9-0244718c18e7,,Lino Landau,,complete,,lino landau,
-1331667371,2012,Open Singles Net,net,8,player,1ef51b9d-a795-592e-8d0c-46184f784bf4,,Phillip Schaefer,,complete,,phillip schaefer,
-1331667371,2012,Open Singles Net,net,9,player,bef7e11c-8b9c-5187-ae6e-665cba7f9825,,Jaka Stare,,complete,,jaka stare,
-1331667371,2012,Open Singles Net,net,9,player,7d094f73-d2d9-5f99-9b73-6593696c90ef,,Quentin Isackson,,complete,,quentin isackson,
-1331667371,2012,Open Singles Net,net,10,player,fc767e35-5ca6-5aec-9080-269c6846e7fb,,Eurik Lindner,,complete,,eurik liundner,
-1331667371,2012,Open Singles Net,net,10,player,b5c82731-ff37-5170-86a5-f744afe4d154,,Vincent Rousseau,,complete,,vincent rousseau,
-1331667371,2012,Open Singles Net,net,11,player,ec1d5118-cd4b-591f-a84a-04bbe20868bc,,Grischa Tellenbach,,complete,,grischa tellenbach,
-1331667371,2012,Open Singles Net,net,11,player,73961edb-d45f-5638-9401-1a0de345da6f,,Renatto Zülli,,complete,,renatto zulli,
-1331667371,2012,Open Singles Net,net,12,player,5c103cca-ceb2-58e0-9152-a384f5572e0d,,Ugo Montironi,,complete,,ugo montironi,
-1331667371,2012,Open Singles Net,net,12,player,b5c82731-ff37-5170-86a5-f744afe4d154,,Vincent Rousseau,,complete,,vincent rousseau,
-1331667371,2012,Open Singles Net,net,13,player,698fd3e8-a756-5c8e-bfdc-127a68fb6a58,,Arnaud Saniez,,complete,,arnaud saniez,
-1331667371,2012,Open Singles Net,net,13,player,5efb87ee-f6be-5136-8670-00c79a799d6a,,Sébastien Lefay,,complete,,sebastien lefay,
-1331667371,2012,Open Singles Net,net,14,player,7d094f73-d2d9-5f99-9b73-6593696c90ef,,Quentin Isackson,,complete,,quentin isackson,
-1331667371,2012,Open Singles Net,net,15,player,364e1aea-f13b-5acd-af86-a5dd002c5f67,,Milan Ardalic,,complete,,milan ardalic,
-1331667371,2012,Open Singles Net,net,16,player,2f3d1d48-2e06-57f0-bca0-5211c668f88f,,Julien Appolonio,,complete,,julien appolonio,
-1331667371,2012,Open Singles Net,net,17,player,42f12ca1-5286-55bd-8c7b-873a5f914069,,Julien Coblence,,complete,,julien coblence,
-1331667371,2012,Open Singles Net,net,18,player,7150e55f-c6bd-5d27-a08b-9617313cac5e,,Boris Ollivier,,complete,,boris ollivier,
-1331667371,2012,Open Singles Net,net,19,player,73961edb-d45f-5638-9401-1a0de345da6f,,Renatto Zülli,,complete,,renatto zulli,
-1331667371,2012,Open Singles Net,net,20,player,3e3269dc-9c8f-5a7d-a113-922c71054fdb,,Felix Ostwaldt,,complete,,felix ostwaldt,
-1331667371,2012,Open Singles Net,net,21,player,d2a69779-e080-590f-b59f-5af7ae6a2414,,Radoslav Rusev,,complete,,radoslav rusev,
-1331667371,2012,Open Singles Net,net,22,player,2eaccb7b-430c-5678-b982-9415b20b24cf,,Miquel Clemente,,complete,,miquel clemente,
-1331667371,2012,Open Singles Net,net,22,player,,,__NON_PERSON__,,complete,True,players competed in 7 pools,
 1333483324,2012,Open Doubles Net,net,1,team,,628bd3b2-335d-5fdb-bad2-b794d74ede90|ddffefad-c620-55ab-b1bc-ca01939671c6,__NON_PERSON__,Matti Pohjola / Janne Uusitalo,complete,,,
 1333483324,2012,Open Doubles Net,net,2,team,,99c34237-0b11-5547-975b-038ff70b8b13|bd8f51fb-7188-58b6-96ef-720edd7c8a61,__NON_PERSON__,Oskari Forstén / Jani Säntti,complete,,,
 1333483324,2012,Open Doubles Net,net,3,team,,75ffbeae-598c-5593-8e64-b3163c809b9c|e7937047-c7f1-5739-bb84-aceb23c17dd7,__NON_PERSON__,Jukka Peltola / Tuomas Kärki,complete,,,
@@ -28665,3 +28625,51 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 9998504,1982,Team Freestyle,freestyle,1,team,8f420eba-d663-5f06-b0f4-b62bf7550f80,639ff2bf97b4,John Stalberger,John Stalberger / Mike Marshall,sparse,,john stalberger,
 9998504,1982,Team Freestyle,freestyle,1,team,1381939c-35d0-5941-ae91-ca262b6fc482,639ff2bf97b4,Mike Marshall,John Stalberger / Mike Marshall,sparse,,mike marshall,
 9998504,1982,Womens Singles,net,1,player,2dc2f297-a742-537a-9423-675f0bdb2c03,,Cindy Marshall,,sparse,,cindy marshall,
+1331667371,2012,Open Singles Net,net,1,player,ab966624-6643-5dea-b165-67e66af402f9,,Florian Goetze,,complete,,florian goetze,Open Singles Net
+1331667371,2012,Open Singles Net,net,2,player,eb025239-b9ab-5cef-9307-7639f88a225a,,Karim Daouk,,complete,,karim daouk,Open Singles Net
+1331667371,2012,Open Singles Net,net,3,player,c7a23f15-f2ed-5f2b-ac50-bb1adb185475,,Greg Lima,,complete,,greg lima,Open Singles Net
+1331667371,2012,Open Singles Net,net,4,player,184a06bb-be96-5120-9a7c-1676f2b01a2a,,Jean-Francois Lemieux,,complete,,jean-francois lemieux,Open Singles Net
+1331667371,2012,Open Singles Net,net,5,player,628bd3b2-335d-5fdb-bad2-b794d74ede90,,Janne Uusitalo,,complete,,janne uusitalo,Open Singles Net
+1331667371,2012,Open Singles Net,net,6,player,e528ca88-e462-5870-bd7f-45fb49bfbcfc,,Arthur Ledain,,complete,,arthur ledain,Open Singles Net
+1331667371,2012,Open Singles Net,net,7,player,,,Sebastien Maillet,,complete,1,sebastien maillet,Open Singles Net
+1331667371,2012,Open Singles Net,net,8,player,fbf52ca9-ba84-50bc-bce9-0244718c18e7,,Lino Landau,,complete,,lino landau,Open Singles Net
+1331667371,2012,Open Singles Net,net,9,player,bef7e11c-8b9c-5187-ae6e-665cba7f9825,,Jaka Stare,,complete,,jaka stare,Open Singles Net
+1331667371,2012,Open Singles Net,net,10,player,fc767e35-5ca6-5aec-9080-269c6846e7fb,,Eurik Lindner,,complete,,eurik lindner,Open Singles Net
+1331667371,2012,Open Singles Net,net,11,player,ec1d5118-cd4b-591f-a84a-04bbe20868bc,,Grischa Tellenbach,,complete,,grischa tellenbach,Open Singles Net
+1331667371,2012,Open Singles Net,net,12,player,b5c82731-ff37-5170-86a5-f744afe4d154,,Vincent Rousseau,,complete,,vincent rousseau,Open Singles Net
+1331667371,2012,Open Singles Net,net,13,player,,,Sebastien Lefay,,complete,1,sebastien lefay,Open Singles Net
+1331667371,2012,Open Singles Net,net,14,player,7d094f73-d2d9-5f99-9b73-6593696c90ef,,Quentin Isackson,,complete,,quentin isackson,Open Singles Net
+1331667371,2012,Open Singles Net,net,15,player,364e1aea-f13b-5acd-af86-a5dd002c5f67,,Milan Ardalic,,complete,,milan ardalic,Open Singles Net
+1331667371,2012,Open Singles Net,net,16,player,,,Julien Apollonio,,complete,1,julien apollonio,Open Singles Net
+1331667371,2012,Open Singles Net,net,17,player,42f12ca1-5286-55bd-8c7b-873a5f914069,,Julien Coblence,,complete,,julien coblence,Open Singles Net
+1331667371,2012,Open Singles Net,net,18,player,,,Boris Belouin,,complete,1,boris belouin,Open Singles Net
+1331667371,2012,Open Singles Net,net,19,player,73961edb-d45f-5638-9401-1a0de345da6f,,Renatto Zülli,,complete,,renatto zülli,Open Singles Net
+1331667371,2012,Open Singles Net,net,20,player,3e3269dc-9c8f-5a7d-a113-922c71054fdb,,Felix Ostwaldt,,complete,,felix ostwaldt,Open Singles Net
+1331667371,2012,Open Singles Net,net,21,player,d2a69779-e080-590f-b59f-5af7ae6a2414,,Radoslav Rusev,,complete,,radoslav rusev,Open Singles Net
+1331667371,2012,Open Singles Net,net,22,player,2eaccb7b-430c-5678-b982-9415b20b24cf,,Miquel Clemente,,complete,,miquel clemente,Open Singles Net
+1331667371,2012,Open Doubles Net,net,1,team,ab966624-6643-5dea-b165-67e66af402f9,f188b5109ea3,Florian Goetze,Florian Goetze / Janne Uusitalo,complete,,florian goetze,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,1,team,628bd3b2-335d-5fdb-bad2-b794d74ede90,f188b5109ea3,Janne Uusitalo,Florian Goetze / Janne Uusitalo,complete,,janne uusitalo,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,2,team,c7a23f15-f2ed-5f2b-ac50-bb1adb185475,90d24bad6b1d,Greg Lima,Greg Lima / Arthur Ledain,complete,,greg lima,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,2,team,e528ca88-e462-5870-bd7f-45fb49bfbcfc,90d24bad6b1d,Arthur Ledain,Greg Lima / Arthur Ledain,complete,,arthur ledain,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,3,team,184a06bb-be96-5120-9a7c-1676f2b01a2a,a6c313989dbf,Jean-Francois Lemieux,Jean-Francois Lemieux / Sebastien Maillet,complete,,jean-francois lemieux,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,3,team,,a6c313989dbf,Sebastien Maillet,Jean-Francois Lemieux / Sebastien Maillet,complete,1,sebastien maillet,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,4,team,eb025239-b9ab-5cef-9307-7639f88a225a,a997338ede72,Karim Daouk,Karim Daouk / Miquel Clemente,complete,,karim daouk,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,4,team,2eaccb7b-430c-5678-b982-9415b20b24cf,a997338ede72,Miquel Clemente,Karim Daouk / Miquel Clemente,complete,,miquel clemente,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,5,team,ec1d5118-cd4b-591f-a84a-04bbe20868bc,0b8203912a6f,Grischa Tellenbach,Grischa Tellenbach / Lino Landau,complete,,grischa tellenbach,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,5,team,fbf52ca9-ba84-50bc-bce9-0244718c18e7,0b8203912a6f,Lino Landau,Grischa Tellenbach / Lino Landau,complete,,lino landau,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,6,team,42492045-f1bf-5183-82c0-fedee3941a1e,ece9cbe8c65b,Olivier Baillon,Olivier Baillon / Sebastien Lefay,complete,,olivier baillon,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,6,team,,ece9cbe8c65b,Sebastien Lefay,Olivier Baillon / Sebastien Lefay,complete,1,sebastien lefay,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,7,team,bef7e11c-8b9c-5187-ae6e-665cba7f9825,98906056576a,Jaka Stare,Jaka Stare / Milan Ardalic,complete,,jaka stare,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,7,team,364e1aea-f13b-5acd-af86-a5dd002c5f67,98906056576a,Milan Ardalic,Jaka Stare / Milan Ardalic,complete,,milan ardalic,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,8,team,1ef51b9d-a795-592e-8d0c-46184f784bf4,85e65a51ccd0,Phillip Schaefer,Phillip Schaefer / Eurik Lindner,complete,,phillip schaefer,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,8,team,fc767e35-5ca6-5aec-9080-269c6846e7fb,85e65a51ccd0,Eurik Lindner,Phillip Schaefer / Eurik Lindner,complete,,eurik lindner,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,9,team,7d094f73-d2d9-5f99-9b73-6593696c90ef,00c8dfcc9fd4,Quentin Isackson,Quentin Isackson / Julien Coblence,complete,,quentin isackson,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,9,team,42f12ca1-5286-55bd-8c7b-873a5f914069,00c8dfcc9fd4,Julien Coblence,Quentin Isackson / Julien Coblence,complete,,julien coblence,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,10,team,b5c82731-ff37-5170-86a5-f744afe4d154,debdb36dc921,Vincent Rousseau,Vincent Rousseau / Radoslav Rusev,complete,,vincent rousseau,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,10,team,d2a69779-e080-590f-b59f-5af7ae6a2414,debdb36dc921,Radoslav Rusev,Vincent Rousseau / Radoslav Rusev,complete,,radoslav rusev,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,11,team,73961edb-d45f-5638-9401-1a0de345da6f,bc701801f533,Renatto Zülli,Renatto Zülli / Julien Apollonio,complete,,renatto zülli,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,11,team,,bc701801f533,Julien Apollonio,Renatto Zülli / Julien Apollonio,complete,1,julien apollonio,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,12,team,5c103cca-ceb2-58e0-9152-a384f5572e0d,430651d5e251,Ugo Montironi,Ugo Montironi / Felix Ostwaldt,complete,,ugo montironi,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,12,team,3e3269dc-9c8f-5a7d-a113-922c71054fdb,430651d5e251,Felix Ostwaldt,Ugo Montironi / Felix Ostwaldt,complete,,felix ostwaldt,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,13,team,698fd3e8-a756-5c8e-bfdc-127a68fb6a58,e538bac85e79,Arnaud Saniez,Arnaud Saniez / Boris Belouin,complete,,arnaud saniez,Open Doubles Net
+1331667371,2012,Open Doubles Net,net,13,team,,e538bac85e79,Boris Belouin,Arnaud Saniez / Boris Belouin,complete,1,boris belouin,Open Doubles Net

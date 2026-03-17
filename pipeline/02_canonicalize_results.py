@@ -753,6 +753,18 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1267718326.txt",
         "replace": True,
     },
+    # King of the Hill 2011 — seeding+finals merged in OSN (2 dup pairs).
+    # Final standings are p1-p9; seeding block appended p2/p3 in reverse order.
+    "1301837216": {
+        "file":    "legacy_data/event_results/1301837216.txt",
+        "replace": True,
+    },
+    # Paris Net Battle 2 2012 — singles+doubles bracket entries merged in OSN (8 dup pairs).
+    # Final OSN standings (22 players) and ODN (13 teams) recovered from mirror.
+    "1331667371": {
+        "file":    "legacy_data/event_results/1331667371.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
