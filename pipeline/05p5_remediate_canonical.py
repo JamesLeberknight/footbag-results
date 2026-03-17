@@ -10,7 +10,9 @@ Fixes (in order):
   2. Regex Deep-Clean     — strip ordinals, scores, parentheticals for unresolved rows
   3. Singles Density Check— remap doubles→singles when participant density = 1.0
                             unless the discipline appears in keep_doubles_overrides.csv
-  4. Tie Enforcement      — force participant_order=1 for all singles disciplines
+  4. (removed)            — was "force participant_order=1 for singles"; stage 05 now
+                            emits sequential participant_order for all disciplines, making
+                            (event_key, discipline_key, placement, participant_order) unique
   5. Ghost Partnering     — for doubles disciplines still missing a partner slot,
                             insert __UNKNOWN_PARTNER__ at participant_order=2
 
@@ -162,24 +164,12 @@ for row in disciplines:
 print(f"  Remapped to singles: {remapped}")
 print(f"  Kept doubles (override): {kept_double}")
 
-# ── Fix 4: Tie Enforcement ────────────────────────────────────────────────────
+# ── Fix 4: (removed) ──────────────────────────────────────────────────────────
+# Stage 05 now emits sequential participant_order for all disciplines (singles
+# and doubles alike), so (event_key, discipline_key, placement, participant_order)
+# is always a unique key.  No post-processing needed here.
 
-print("\n[Fix 4] Tie enforcement (participant_order → 1 for singles)...")
-
-singles_keys = {
-    (r["event_key"], r["discipline_key"])
-    for r in disciplines
-    if r["team_type"] == "singles"
-}
-
-tie_fixes = 0
-for row in participants:
-    k = (row["event_key"], row["discipline_key"])
-    if k in singles_keys and int(row["participant_order"]) > 1:
-        row["participant_order"] = "1"
-        tie_fixes += 1
-
-print(f"  Fixed: {tie_fixes:,} row(s)")
+tie_fixes = 0  # keep variable for report formatting
 
 # ── Fix 5: Ghost Partnering ───────────────────────────────────────────────────
 # For doubles disciplines (including keep_doubles overrides) where a placement

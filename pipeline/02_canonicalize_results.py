@@ -765,6 +765,12 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1331667371.txt",
         "replace": True,
     },
+    # SoCali Jam 2008 — social event with 3 informal contest formats (Big 3, Big 1, Rippin Run).
+    # Trick annotations were being parsed as player names (e.g. "Ben Skaggs whirlygig").
+    "1200725314": {
+        "file":    "legacy_data/event_results/1200725314.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {

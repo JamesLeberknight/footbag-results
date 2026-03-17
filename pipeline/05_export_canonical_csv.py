@@ -26,10 +26,12 @@ Natural keys:
 
 Notes on ties:
   When multiple players/teams share a placement number, they all map to the same
-  event_results row. participant_order increments sequentially across all participants
-  at that placement slot (e.g., two tied singles players → orders 1,2; two tied
-  doubles teams → orders 1,2,3,4). The DB loader can reconstruct team membership
-  using the team_type field from event_disciplines.csv.
+  event_results row. participant_order increments sequentially across ALL participants
+  at that placement slot regardless of team_type (e.g., two tied singles players →
+  orders 1,2; two tied doubles teams → orders 1,2,3,4). The composite key
+  (event_key, discipline_key, placement, participant_order) is always unique.
+  The DB loader can reconstruct team membership using team_person_key (partners share
+  the same key) and the team_type field from event_disciplines.csv.
 
 Notes on unresolved persons:
   Participants without a person_id in Persons_Truth appear with person_id="" and
@@ -552,9 +554,12 @@ for row in sorted_rows:
 
     # ── event_results + event_result_participants ─────────────────────────────
     # participant_order:
-    #   Singles  → always "1"  (tied singles = multiple rows all at order=1)
-    #   Doubles  → sequential within each placement slot (1, 2, 3, 4…)
-    #              team_person_key included so consumers can reconstruct teams
+    #   Sequential across all participants at a given (event, discipline, placement)
+    #   slot for both singles and doubles. This ensures the composite key
+    #   (event_key, discipline_key, placement, participant_order) is always unique.
+    #   - Singles tie: two players tied at 1st get orders 1, 2 (placement=1 for both)
+    #   - Doubles tie: two tied teams → players get orders 1, 2, 3, 4
+    #     (team_person_key groups partners; consumers group by tpk to reconstruct teams)
     # Dedup: skip rows where the same (disc_key, place, person_name) has already
     #        been emitted — PBP occasionally has resolved+unresolved duplicates.
     emitted_results:    set[tuple[str, str, str]]       = set()
@@ -646,11 +651,8 @@ for row in sorted_rows:
                 continue
             seen_participants.add(dedup_key)
 
-            if is_doubles:
-                placement_counter[result_key] += 1
-                participant_order = str(placement_counter[result_key])
-            else:
-                participant_order = "1"
+            placement_counter[result_key] += 1
+            participant_order = str(placement_counter[result_key])
 
             participants_out.append({
                 "event_key":         event_key,
@@ -909,24 +911,14 @@ if len(result_keys) != len(set(result_keys)):
 else:
     print("✓  event_results:    all (event_key, discipline_key, placement) keys unique")
 
-# Participant key uniqueness: singles ties intentionally share participant_order=1.
-# Only flag duplicates in doubles disciplines (those are always structural errors).
-singles_disc_keys = {
-    (r["event_key"], r["discipline_key"])
-    for r in disciplines_out if r["team_type"] == "singles"
-}
-doubles_part_keys = [
-    k for k in part_keys
-    if (k[0], k[1]) not in singles_disc_keys
-]
-singles_ties = len(part_keys) - len(set(part_keys))
-doubles_dups = len(doubles_part_keys) - len(set(doubles_part_keys))
-if doubles_dups:
-    print(f"ERROR: {doubles_dups} duplicate participant keys in doubles disciplines")
+# Participant key uniqueness: all participant keys should be unique (participant_order
+# is now sequential for all disciplines including singles ties).
+all_part_dups = len(part_keys) - len(set(part_keys))
+if all_part_dups:
+    print(f"ERROR: {all_part_dups} duplicate (event, discipline, placement, participant_order) keys")
     errors += 1
 else:
-    print(f"✓  event_result_participants: doubles keys unique; "
-          f"{singles_ties:,} singles-tie duplicates (expected, order=1 for all tied)")
+    print("✓  event_result_participants: all (event_key, discipline_key, placement, participant_order) keys unique")
 
 if len(disc_keys) != len(set(disc_keys)):
     dups = len(disc_keys) - len(set(disc_keys))

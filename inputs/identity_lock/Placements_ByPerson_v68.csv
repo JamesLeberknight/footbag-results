@@ -7693,13 +7693,16 @@ event_id,year,division_canon,division_category,place,competitor_type,person_id,t
 1200325415,2008,Ten,freestyle,1,player,457cdaa2-3ec3-5aed-b340-708420125d7c,,Will Digges,,complete,,will digges,
 1200325415,2008,Ten,freestyle,2,player,5be2b09c-95ab-54d9-b7ce-49b8cd156855,,Tom Mosher,,complete,,tom mosher,
 1200325415,2008,Ten,freestyle,3,player,34f17114-99b7-5320-b4ed-10a6813859ac,,Jay Boychuk,,complete,,jay boychuk,
-1200725314,2008,Open Singles Freestyle,freestyle,1,player,be7a8e7f-f052-5c31-b27b-47d4fee9a265,,Evan Gatesman,,complete,,evan gatesman,
-1200725314,2008,Open Singles Freestyle,freestyle,2,player,f825bd42-5056-55c5-8a4c-ba0788615e01,,Ben Skaggs,,complete,,ben skaggs,
-1200725314,2008,Open Singles Freestyle,freestyle,2,player,666a999f-ca5c-5d15-97f4-27abeb8ac5af,,Scott Behmer,,complete,,scott behmer,
-1200725314,2008,Open Singles Freestyle,freestyle,3,player,f825bd42-5056-55c5-8a4c-ba0788615e01,,Ben Skaggs,,complete,,ben skaggs,
-1200725314,2008,Open Singles Freestyle,freestyle,3,player,58bb3c4a-1a60-537d-ba4e-55de294abd8c,,Dustin Rhodes,,complete,,dustin rhodes,
-1200725314,2008,Open Singles Freestyle,freestyle,3,player,416e8b3a-f738-5d7f-8e22-89a74a41e538,,Peter Holoien,,complete,,peter holoien paradon swirl,
-1200725314,2008,Open Singles Freestyle,freestyle,4,player,58bb3c4a-1a60-537d-ba4e-55de294abd8c,,Dustin Rhodes,,complete,,dustin rhodes,
+1200725314,2008,Open Singles Freestyle,freestyle,1,player,be7a8e7f-f052-5c31-b27b-47d4fee9a265,,Evan Gatesman,,complete,,evan gatesman,Big 3
+1200725314,2008,Open Singles Freestyle,freestyle,2,player,f825bd42-5056-55c5-8a4c-ba0788615e01,,Ben Skaggs,,complete,,ben skaggs,Big 3
+1200725314,2008,Open Singles Freestyle,freestyle,3,player,58bb3c4a-1a60-537d-ba4e-55de294abd8c,,Dustin Rhodes,,complete,,dustin rhodes,Big 3
+1200725314,2008,Open Singles Freestyle,freestyle,1,player,be7a8e7f-f052-5c31-b27b-47d4fee9a265,,Evan Gatesman,,complete,,evan gatesman,Big 1
+1200725314,2008,Open Singles Freestyle,freestyle,2,player,f825bd42-5056-55c5-8a4c-ba0788615e01,,Ben Skaggs,,complete,,ben skaggs,Big 1
+1200725314,2008,Open Singles Freestyle,freestyle,3,player,416e8b3a-f738-5d7f-8e22-89a74a41e538,,Peter Holoien,,complete,,peter holoien,Big 1
+1200725314,2008,Open Singles Freestyle,freestyle,1,player,be7a8e7f-f052-5c31-b27b-47d4fee9a265,,Evan Gatesman,,complete,,evan gatesman,Rippin Run
+1200725314,2008,Open Singles Freestyle,freestyle,2,player,666a999f-ca5c-5d15-97f4-27abeb8ac5af,,Scott Behmer,,complete,,scott behmer,Rippin Run
+1200725314,2008,Open Singles Freestyle,freestyle,3,player,f825bd42-5056-55c5-8a4c-ba0788615e01,,Ben Skaggs,,complete,,ben skaggs,Rippin Run
+1200725314,2008,Open Singles Freestyle,freestyle,4,player,58bb3c4a-1a60-537d-ba4e-55de294abd8c,,Dustin Rhodes,,complete,,dustin rhodes,Rippin Run
 1201396433,2008,Open Circle Contest,freestyle,1,player,16aae952-d265-5e4d-81b8-5474f6c43802,,Jorden Moir,,complete,,jorden moir,
 1201396433,2008,Open Circle Contest,freestyle,2,player,d1aace44-cd92-5b85-9ed1-fe4afb2cd502,,Ken Somolinos,,complete,,ken somolinos,
 1201396433,2008,Open Circle Contest,freestyle,3,player,2c16c43d-6111-5231-b813-23f20f6ba7a3,,Jonathan Schneider,,complete,,jonathan schneider,

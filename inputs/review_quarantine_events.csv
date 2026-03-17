@@ -8,7 +8,6 @@ event_id,year,event_name,reason,review_stage,notes
 1114277529,2005,Czech Footbag Championships,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Open/Intermediate results merged under unlabelled divisions (Intermediate Freestyle / Open Freestyle). PBP has more divisions than stage2.
 1127155729,2005,Zocha Jam 2005,SOURCE_PARTIAL,HIGH_QUARANTINED,3 duplicate places in Open Double Freestyle. PBP has more divisions than stage2 (older source captured more).
 1158263300,2006,Zocha Jam 2006,COMPLEX_COMPETITION_FORMAT,HIGH_QUARANTINED,Division results merged: Open Freestyle / Women Freestyle (5 dup pairs). PBP has more divisions than stage2.
-1200725314,2008,SoCali Jam 08,OVERRIDE_CONFLICT,HIGH_QUARANTINED,Override present but stage2 division count diverges from PBP. No known_issue documented — needs investigation before resolving.
 1537994275,2018,2o Torneo Nacional de Footbag,SOURCE_PARTIAL,HIGH_QUARANTINED,3 duplicate places in Open Doubles. South American event with partial source coverage.
 959353403,2000,2000 Southeast Idaho Footbag Championships,SOURCE_PARTIAL,HIGH_QUARANTINED,Unknown division contains noise; trailing-colon division name mismatch; source coverage limited. Added to known_issues after MEDIUM review.
 984694623,2001,1st Montreal Summer Freestyle Challenge,SOURCE_PARTIAL,HIGH_QUARANTINED,Old parse with city-as-teammate artifacts; PBP has 8/20 stage2 rows; identity incomplete. Historical event with limited source fidelity.
