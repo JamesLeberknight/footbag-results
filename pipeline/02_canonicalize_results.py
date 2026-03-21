@@ -293,6 +293,28 @@ EVENT_TYPE_OVERRIDES = {
 # "replace": False → prepend file content to existing results_raw (supplement).
 # Paths are relative to the repository root.
 RESULTS_FILE_OVERRIDES: dict[str, dict] = {
+    # 1999 Western Regional Footbag Championships — mirror data correct but
+    # stage2 merged multi-day Novice Doubles Net into one division and preserved
+    # name typos (Tuan→Tu Vu, Seibert→Siebert, Jimmy→Jim Caveney, Brian→Bryan Fournier).
+    # Legacy file corrects names and splits Novice Doubles Net into Saturday/Sunday/Monday.
+    "910551956": {
+        "file":    "legacy_data/event_results/910551956.txt",
+        "replace": True,
+    },
+    # 2001 Frankfurt Footbag Open — results in HTML <ol><li> format; parser captured
+    # only the first <li> (p1) for each division. Legacy file provides full standings:
+    # Ladies Open Freestyle (3 players) and Gents Open Freestyle (8 players).
+    "1000071985": {
+        "file":    "legacy_data/event_results/1000071985.txt",
+        "replace": True,
+    },
+    # First Annual Arica Open (2000) — stage2 produced mixed old/new format team rows
+    # and spurious player rows in Doubles Net (ties at p1/p2/p3 where none exist).
+    # Legacy file provides clean 3-team Doubles Net (no ties) + correct Singles Net.
+    "948943299": {
+        "file":    "legacy_data/event_results/948943299.txt",
+        "replace": True,
+    },
     # 1999 World Footbag Championships — full results live at
     # http://www.footbag.org/worlds99/results/results.html but were not in the mirror.
     # Recovered 2026-03-07 via direct HTTP fetch; all 19 divisions, 197 placements.
@@ -576,6 +598,49 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/2001985001.txt",
         "replace": True,
     },
+    # ── Magazine ingestion (01d_ingest_magazine_data.py) ─────────────────────
+    # 1985 events — existing stage2 stubs, now have complete legacy results
+    "9980521": {"file": "legacy_data/event_results/9980521.txt", "replace": True},
+    "9984533": {"file": "legacy_data/event_results/9984533.txt", "replace": True},
+    "9918278": {"file": "legacy_data/event_results/9918278.txt", "replace": True},
+    "9958186": {"file": "legacy_data/event_results/9958186.txt", "replace": True},
+    "9972848": {"file": "legacy_data/event_results/9972848.txt", "replace": True},
+    "9940469": {"file": "legacy_data/event_results/9940469.txt", "replace": True},
+    # Existing mirror Worlds 1980-1984 — augmented with FBW-ARCHIVE divisions
+    "9928572": {"file": "legacy_data/event_results/9928572.txt", "replace": True},
+    "9992129": {"file": "legacy_data/event_results/9992129.txt", "replace": True},
+    "9998504": {"file": "legacy_data/event_results/9998504.txt", "replace": True},
+    "9904297": {"file": "legacy_data/event_results/9904297.txt", "replace": True},
+    "9924417": {"file": "legacy_data/event_results/9924417.txt", "replace": True},
+    # Secret Underground Jam 1983
+    "9934528": {"file": "legacy_data/event_results/9934528.txt", "replace": True},
+    # New pre-mirror synthetic events
+    "2001980002": {"file": "legacy_data/event_results/2001980002.txt", "replace": True},
+    "2001980003": {"file": "legacy_data/event_results/2001980003.txt", "replace": True},
+    "2001981003": {"file": "legacy_data/event_results/2001981003.txt", "replace": True},
+    "2001981004": {"file": "legacy_data/event_results/2001981004.txt", "replace": True},
+    "2001982003": {"file": "legacy_data/event_results/2001982003.txt", "replace": True},
+    "2001982004": {"file": "legacy_data/event_results/2001982004.txt", "replace": True},
+    "2001982005": {"file": "legacy_data/event_results/2001982005.txt", "replace": True},
+    "2001983005": {"file": "legacy_data/event_results/2001983005.txt", "replace": True},
+    "2001984003": {"file": "legacy_data/event_results/2001984003.txt", "replace": True},
+    "2001984004": {"file": "legacy_data/event_results/2001984004.txt", "replace": True},
+    "2001985004": {"file": "legacy_data/event_results/2001985004.txt", "replace": True},
+    "2001985005": {"file": "legacy_data/event_results/2001985005.txt", "replace": True},
+    "2001986003": {"file": "legacy_data/event_results/2001986003.txt", "replace": True},
+    "2001986004": {"file": "legacy_data/event_results/2001986004.txt", "replace": True},
+    "2001987001": {"file": "legacy_data/event_results/2001987001.txt", "replace": True},
+    "2001987002": {"file": "legacy_data/event_results/2001987002.txt", "replace": True},
+    "2001987003": {"file": "legacy_data/event_results/2001987003.txt", "replace": True},
+    "2001988001": {"file": "legacy_data/event_results/2001988001.txt", "replace": True},
+    "2001989001": {"file": "legacy_data/event_results/2001989001.txt", "replace": True},
+    "2001990001": {"file": "legacy_data/event_results/2001990001.txt", "replace": True},
+    "2001991001": {"file": "legacy_data/event_results/2001991001.txt", "replace": True},
+    "2001992001": {"file": "legacy_data/event_results/2001992001.txt", "replace": True},
+    "2001994001": {"file": "legacy_data/event_results/2001994001.txt", "replace": True},
+    "2001995001": {"file": "legacy_data/event_results/2001995001.txt", "replace": True},
+    "2001995002": {"file": "legacy_data/event_results/2001995002.txt", "replace": True},
+    # ── End magazine ingestion ────────────────────────────────────────────────
     # Inline format caused all placements to collapse to 1 garbage row;
     # replaced with clean legacy file 2026-03-10.
     "1408070192": {
@@ -792,6 +857,36 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/859923755.txt",
         "replace": True,
     },
+    # 5th Annual Finnish Footbag Championships 2001 — "Name - City" format caused city
+    # to be parsed as doubles partner in all singles/freestyle divisions (parser sees " - "
+    # as a team separator). 54 artifact team rows removed. Pro Doubles Net p4 display
+    # name fixed (Juha-Matti Rytilahti/Janne Uusitalo — "Juha" was being truncated).
+    "1001076315": {
+        "file":    "legacy_data/event_results/1001076315.txt",
+        "replace": True,
+    },
+    # 1st Montreal Summer Freestyle Challenge 2001 — "Name, City, Province" format caused
+    # city/province to be parsed as teammates in Intermediate and Open Freestyle divisions.
+    # Open Sick 10 also missed entirely. Stage2 captured 8/23. All 23 recovered.
+    "984694623": {
+        "file":    "legacy_data/event_results/984694623.txt",
+        "replace": True,
+    },
+    # L'Hivernal Windchill Tournament 2001 — "(City, Province)" format caused city to be
+    # parsed as doubles partner in singles/freestyle divisions. "T2." tied-place prefix
+    # dropped p2 (Desgens/Kolodenchuk) in Routines Intermediate Freestyle. Phat Combo
+    # Contest Winner (Yacine Merzouk) was missing. All 62 rows recovered.
+    "972427576": {
+        "file":    "legacy_data/event_results/972427576.txt",
+        "replace": True,
+    },
+    # Montreal International Footbag Net Championships 2001 — unlabeled section after
+    # Open Singles p19 (Benoit Guillemette p1, Ted Fritch p2) relabeled as Intermediate
+    # Singles. Old-format team rows + spurious player rows cleaned up for Open Doubles.
+    "991285803": {
+        "file":    "legacy_data/event_results/991285803.txt",
+        "replace": True,
+    },
 }
 
 EVENT_PARSING_RULES = {
@@ -837,6 +932,15 @@ EVENT_PARSING_RULES = {
     # Fixup reconstructs each column as an independent division stream.
     "947196813": {
         "pre_parse_fixup": "nz_champs_2000",
+    },
+    # 2024 VI. Basque Tournament of Footbag Net — narrative match section contains
+    # round-date headers "9th january" and "11th of january" that the parser
+    # misread as placements 9 and 11.  The definitive final Classification section
+    # (p1–p6) follows immediately after the narrative and is correct.
+    # Fix: replace entirely with the clean Classification section only.
+    "1721817655": {
+        "file":    "legacy_data/event_results/1721817655.txt",
+        "replace": True,
     },
 }
 
@@ -1245,6 +1349,10 @@ _BAD_PHRASES = (
     "ADDS CONTACTS", "RATIO UNIQUES", "SCORE ADD",
     # Winner annotation
     "WINNER:",      # "Winner: Everybody." — commentary, not a person name
+    # Timed-format metadata lines leaked as player entries
+    "MINUTE TIMED", "MIN. TIMED", "MIN TIMED",
+    # Metadata field labels leaked as player entries
+    "CONTACT:", "LOCATION:", "VENUE:", "ORGANIZER:", "REGISTRATION:",
 )
 
 _TEAM_WORDS = ("TEAM", "FOOTBAG TEAM")  # very light
@@ -2916,6 +3024,16 @@ def split_entry(entry: str, is_doubles: bool = False) -> tuple[str, Optional[str
                 a_clean[:1].isupper() and b_clean[:1].isupper()):
             return a_clean, b_clean, "team"
 
+    # Try " ? " as team separator (French/European doubles events use "?" between player names)
+    # e.g., "Martin Cote ? Martin Graton" (1235653935 11th Euro)
+    # NOTE: also used in freestyle singles as "Name ? Trick" — only activate for doubles context
+    if is_doubles and ' ? ' in entry_clean:
+        parts = entry_clean.split(' ? ', 1)
+        a_clean = strip_trailing_score(parts[0].strip())
+        b_clean = strip_trailing_score(parts[1].strip())
+        if looks_like_name(a_clean) and looks_like_name(b_clean):
+            return a_clean, b_clean, "team"
+
     # Try "&" without surrounding spaces (e.g., "Matze Schmidt&Peter")
     if '&' in entry_clean and ' & ' not in entry_clean:
         parts = entry_clean.split('&', 1)
@@ -2964,9 +3082,9 @@ def split_entry(entry: str, is_doubles: bool = False) -> tuple[str, Optional[str
                         return p1, p2_clean, "team"
             return a_clean, b_clean, "team"
 
-    # "et" / "og" / "und" separator (French "and", Danish/Norwegian "og", German "und")
-    # Check for these connectives between two names
-    et_match = re.search(r'\s+(?:et|og|und)\s+', entry_clean, re.IGNORECASE)
+    # "et" / "og" / "und" / "y" separator (French "and", Danish/Norwegian "og", German "und",
+    # Spanish "y"). Requires both sides to start with a capital letter.
+    et_match = re.search(r'\s+(?:et|og|und|y)\s+', entry_clean, re.IGNORECASE)
     if et_match:
         a = entry_clean[:et_match.start()].strip()
         b = entry_clean[et_match.end():].strip()
@@ -3016,6 +3134,23 @@ def split_entry(entry: str, is_doubles: bool = False) -> tuple[str, Optional[str
                     and looks_like_name(left) and looks_like_name(right)
                     and not _digit_re.search(left) and not _digit_re.search(right)):
                 return strip_trailing_score(left), strip_trailing_score(right), "team"
+
+    # "Name (ST) Name" or "Name (ST) Name (ST)" — state/province code doubles pattern
+    # e.g., "John Smith (BC) Jane Doe (AB)" (event 886044392 Vancouver 1998)
+    # Only activate for doubles to avoid splitting "Paul (PT) Lovern" in singles.
+    # Also require the first name has at least 2 words before the state code.
+    if is_doubles:
+        _sc_re = re.compile(r'^(.+?\([A-Z]{2}\))\s+([A-Z].+)$')
+        sc_match = _sc_re.match(entry_clean)
+        if sc_match:
+            first_part = sc_match.group(1).strip()
+            # Name before the state code must have a space (i.e., "First Last", not "Paul")
+            name_before_code = re.sub(r'\s*\([A-Z]{2}\)\s*$', '', first_part).strip()
+            if ' ' in name_before_code:
+                a_clean = strip_trailing_score(first_part)
+                b_clean = strip_trailing_score(sc_match.group(2).strip())
+                if looks_like_name(a_clean) and looks_like_name(b_clean):
+                    return a_clean, b_clean, "team"
 
     # Comma-separated names (for multi-player entries like Circle Contest)
     # e.g., "Paweł Nowak, Paweł Ścierski, Krzysztof Sobótka, Sylwia Kocyk (Poland)"
@@ -4905,7 +5040,7 @@ def check_location(rec: dict) -> list[QCIssue]:
         _is_pre_mirror = str(_year_val).isdigit() and int(_year_val) < 1990
         issues.append(QCIssue(
             check_id="location_broken_source" if is_known_broken else "location_missing",
-            severity=("WARN" if str(event_id).startswith("200198") or _is_pre_mirror else "ERROR"),
+            severity=("WARN" if str(event_id).startswith("200") or _is_pre_mirror else "ERROR"),
             event_id=str(event_id),
             field="location",
             message="known broken source (SQL error in HTML)" if is_known_broken else "location is missing or empty",
@@ -6206,6 +6341,24 @@ def check_player_name_quality(rec: dict) -> list[QCIssue]:
                         example_value=player_name[:60],
                         context={"placement_index": i}
                     ))
+
+            # Month-name date contamination — "january", "of january", etc.
+            # These arise when round-date headers ("9th january") are parsed
+            # as placements.  A standalone month name is never a valid competitor.
+            if re.fullmatch(
+                r'(of\s+)?(january|february|march|april|may|june|july|august|'
+                r'september|october|november|december)',
+                player_name.strip(), re.IGNORECASE
+            ):
+                issues.append(QCIssue(
+                    check_id="player_has_month_name",
+                    severity="WARN",
+                    event_id=str(event_id),
+                    field="placements_json",
+                    message=f"Player name is a month/date fragment (date contamination): {player_name!r}",
+                    example_value=player_name[:60],
+                    context={"placement_index": i}
+                ))
 
             # Semicolons (multiple entries or move descriptions)
             if ';' in player_name:

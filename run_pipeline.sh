@@ -7,7 +7,8 @@
 # Modes:
 #   setup    — Create .venv, install dependencies, create out/ directory
 #   rebuild  — Parse HTML mirror → canonical stage-2 events (stages 01–02)
-#   release  — Apply identity lock → workbooks + canonical CSVs (stages 02p5–05)
+#   release  — Apply identity lock → workbooks + canonical CSVs (stages 02p5–05p5).
+#             Order: … 03 → 04 → 04B → 05 → 05p5  (community workbook before relational export).
 #   qc       — Run all QC checks (master, post-release, schema/logic)
 #   all      — Full pipeline: rebuild → release → qc  [default]
 #
@@ -96,17 +97,23 @@ do_release() {
 
     step "Stage 02p5: apply identity lock"
     "$PYTHON" pipeline/02p5_player_token_cleanup.py \
-        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v70.csv \
-        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v43.csv \
+        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v85.csv \
+        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v47.csv \
         --out_dir                      out
 
+# ADD HERE
+    step "Stage 02p6: structural cleanup (Kansas + artifact fixes)"
+    "$PYTHON" pipeline/02p6_structural_cleanup.py
+
+    # Release workbook / export order (do not reorder without cause):
+    #   04 analytics + lock  →  04B community workbook  →  05 canonical CSVs  →  05p5 remediation
     step "Stage 03: build canonical Excel workbook"
     "$PYTHON" pipeline/03_build_excel.py
 
     step "Stage 04: build analytics + coverage + lock sentinel"
     "$PYTHON" pipeline/04_build_analytics.py
 
-    step "Stage 04B: build community Excel workbook"
+    step "Stage 04B: build community Excel workbook (after 04, before 05)"
     "$PYTHON" tools/build_final_workbook_v13.py
 
     step "Stage 05: export relational CSV files"
@@ -114,6 +121,9 @@ do_release() {
 
     step "Stage 05p5: remediate canonical CSVs"
     "$PYTHON" pipeline/05p5_remediate_canonical.py
+
+    step "Update workbook event IDs to canonical slugs"
+    "$PYTHON" update_workbook_event_ids.py
 
     echo
     echo "Release complete. Outputs written to out/ and ~/FOOTBAG_DATA/out/canonical/"

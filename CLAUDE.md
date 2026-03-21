@@ -1,409 +1,274 @@
-# CLAUDE.md
-## Footbag Results Pipeline — Canonical Contract (v1.2)
-
-This document defines the architectural contract and philosophical constraints
-for the Footbag historical results pipeline.
-
-It is authoritative for pipeline behavior.
+# Footbag Results Pipeline — Canonical Contract (v4.0)
 
 ---
 
-# 0. Project Output Contract
+# 0. PURPOSE
 
-The pipeline produces two deliverable artifacts.
+The pipeline produces a **canonical historical dataset** of footbag competition results.
 
-## Deliverable A — Community Workbook
-
-A public spreadsheet intended for the footbag community containing:
-
-- yearly event results
-- summary statistics
-- player summaries
-- historical consecutive records
-- a technical appendix with freestyle analytics
-
-Freestyle analytics exist only in the FREESTYLE INSIGHTS sheet and must not alter historical results.
-
-## Deliverable B — Canonical Relational Dataset
-
-A normalized set of CSV tables representing the historical archive in relational form.
-These tables are intended for database creation and future applications.
-
-## Non-Deliverables
-
-The following artifacts exist only for validation and development support:
-
-- diagnostic spreadsheets
-- QC audit reports
-- intermediate pipeline outputs
-- experimental analysis surfaces
-
-These must never be treated as final project outputs.
-
----
-
-# 0.1 Freestyle Analytics Policy
-
-Freestyle analytics provide technical insight into the evolution of freestyle play but are strictly supplementary.
-
-Rules:
-
-- They appear only in the FREESTYLE INSIGHTS sheet.
-- They must not modify historical results.
-- They must not alter player rankings or placement statistics.
-- They exist purely as analytical commentary on the dataset.
-
-The historical competition record always remains the authoritative dataset.
-
----
-
-# 1. Core Principles (Non-Negotiable)
-
-1. Deterministic builds.
-2. No silent merges.
-3. No guessing without explicit tagging.
-4. One real person = one canonical person record.
-5. Garbage / non-person entities are preserved, not erased.
-6. Human-verified identity truth overrides all heuristics.
-7. Analytics depend ONLY on canonical identity outputs.
-8. **Results fidelity.** Competition results are primary data. Identity resolution
-   is enrichment. Failure to resolve a player identity must NOT remove placements.
-   Unresolved players are assigned `__NON_PERSON__` and retained in the dataset.
-
-This is an archival system, not an experiment.
-
----
-
-# 2. Identity Model
-
-## 2.1 player_id vs person_id
-
-- `player_id`
-  - Raw competitor token derived from source data.
-  - May represent real person, garbage, club, trick, or corrupted name.
-  - Must never be deleted silently.
-
-- `person_id`
-  - Represents a real human being.
-  - Assigned ONLY through human-verified identity artifacts.
-  - Never inferred heuristically in release mode.
-  - Unresolvable tokens receive `person_id = __NON_PERSON__` and are retained.
-
----
-
-## 2.2 Canonical Identity Artifacts (Authoritative Inputs)
-
-Release builds rely on:
+The PRIMARY output is:
 
 ```
-inputs/identity_lock/
-  Persons_Truth_Final_v43.csv       (3,470 persons)
-  Persons_Unresolved_Organized_v28.csv  (82 rows)
-  Placements_ByPerson_v69.csv       (28,677 rows)
+out/canonical/*.csv
 ```
 
-These files are treated as ground truth.
+The Excel workbook is a **derived artifact only**.
 
-They must satisfy:
-
-- Exactly one row per real human in Persons_Truth.
-- No collisions in person_canon.
-- All unresolved real humans appear in Persons_Unresolved.
-- All garbage explicitly classified (`__NON_PERSON__`).
-- **No competitor dropped.** Every stage2 placement must appear in PBP as either
-  a resolved person, an unresolved person, or `__NON_PERSON__`.
-
-Identity truth is not recomputed in release mode.
-
-### PBP version history
-
-- v68 → v69 (2026-03-17): Fixed Zocha Jam 2005 (1127155729) and Zocha Jam 2006
-  (1158263300) quarantined events. Zocha 2005: renamed 5 "Open Double Freestyle"
-  team rows to "Open Doubles Net" (second source block was Net, not Freestyle).
-  Zocha 2006: moved Piotr Kurt/Kacper Kudyniuk/Michal Miszkiel from "Women
-  Freestyle" → "Intermediate Freestyle"; moved Vaclav Klouda/Szymon Kalwak/Kamil
-  Wysocki from "Women Freestyle" → "Shred30" (replacing 3 unresolved duplicates);
-  added 3 new "Most Rippin Run" rows (Vaclav Klouda/Damian Gielnicki/Wiktor
-  Debski). Both events removed from quarantine. Net: 28,677 rows (unchanged).
-
-- v67 → v68 (2026-03-16): Added 152 magazine placements covering 16 pre-mirror era
-  Worlds events (1980–1986, 1990–1991). 99 resolved to existing PT persons (incl.
-  Tricia Sullivan → Tricia George maiden-name match). 52 rows assigned to 29 new
-  PT persons added as part of PT v43 (pre-mirror era competitors). 1 __NON_PERSON__
-  (London England location artifact). Net: 28,515 → 28,667 rows.
-
-- v66 → v67 (2026-03-16): Restored 5 missing placements in event 1386623061
-  (U.S. Open 2014): Intermediate Singles Net p1/p2 (Steve Femmel, Joey Vu) and
-  Open Singles Net p1/p2/p3 (Kenneth Shults, Genevieve Bousquet, Chris Young).
-  Net: 28,510 → 28,515 rows.
-- v65 → v66 (2026-03-14): Resolved 19 phantom "()" partner rows to real person names
-  across 8 events (1301837824, 1314328055, 1348929718, 1357101984, 1361239371,
-  1368559562, 1378821205, 1420195881, 1421069713, 1423020874, 1425372477).
-  Net: 28,510 rows (row count unchanged; content corrected).
-- v64 → v65 (2026-03-14): Removed 1 spurious row — Ivan Cuende event 1657486956
-  with empty division_raw. Net: 28,511 → 28,510 rows.
-- v63 → v64 (2026-03-13): Targeted data quality fixes for 5 events.
-  979816633: stripped leading ") " from 4 doubles entries.
-  979089216: stripped "between " prefix from Logan Dethman team row; fixed caps.
-  1195677906: restored Jakob/Matthias/André (Circle Competition) from __NON_PERSON__.
-  1369141018: removed 2 "()" phantom partner rows; cleaned team_display_name.
-  1727756195: Open Golf group2 renumbered 1-7 → 4-10; division_raw set to "Open Golf".
-  Net: 28,513 → 28,511 rows (2 phantom rows removed).
-- v62 → v63 (2026-03-12): Added 1,359 rows restoring 887 dropped placements across
-  213 events. Previous versions silently omitted unresolved single-name tokens.
-  v63 enforces the Results Fidelity principle: all stage2 placements present in PBP.
+A build is publishable ONLY if it passes the QC Gate.
 
 ---
 
-# 3. Pipeline Modes
+# 1. PRIMARY DELIVERABLE (AUTHORITATIVE)
 
-## 3.1 Release Mode (Canonical)
+Canonical relational dataset:
 
-Purpose:
-Produce the canonical, archival dataset and Excel workbook.
+* events.csv
+* event_disciplines.csv
+* event_results.csv
+* event_result_participants.csv
+* persons.csv
 
-Characteristics:
-- Consumes identity-lock artifacts.
-- Does not perform identity merges.
-- Does not generate alias suggestions.
-- Deterministic from a clean clone.
-- Produces:
-  - `out/Placements_Flat.csv`
-  - `out/Placements_ByPerson.csv`
-  - `out/Persons_Truth.csv`
-  - `out/Persons_Unresolved.csv`
-  - `out/persons_truth.lock`
-  - `out/canonical/events_normalized.csv`
-  - `Footbag_Results_Community_FINAL_v12.xlsx` (community workbook)
-
-Release mode is the only mode required for archival reproduction.
+These files define the dataset.
 
 ---
 
-## 3.2 Rebuild Mode (Research / Reconstruction)
+# 2. SECONDARY DELIVERABLE
 
-Purpose:
-Reconstruct placements from raw mirror data.
+Community workbook
 
-Characteristics:
-- Parses HTML mirror.
-- Produces canonicalized events.
-- Generates candidate identities.
-- May produce alias suggestions.
-- Does NOT establish canonical identity.
-
-Rebuild mode is exploratory.
-Release mode is authoritative.
+* Derived from canonical CSVs
+* Must NOT introduce or modify data
+* Must NOT be used for QC authority
 
 ---
 
-# 4. Stage Responsibilities
+# 3. CORE PRINCIPLES (NON-NEGOTIABLE)
 
-## Stage 01–02 (Rebuild Mode Only)
-- Parse mirror.
-- Normalize events.
-- Preserve raw tokens.
-- No identity merges.
-
-## Stage 02p5
-- Structural token cleanup.
-- In Release Mode:
-  - Generates `Placements_Flat.csv` and `Placements_ByPerson.csv` from the
-    authoritative PBP lock file. Pure pass-through — no filtering.
-
-## Stage 03
-- Build canonical workbook structure.
-- No identity mutations.
-
-## Stage 04
-- Apply identity lock artifacts.
-- Enforce coverage guarantees.
-- Generate analytics.
-- Write `persons_truth.lock`.
-- Finalize sheet ordering.
-
-Stage 04 must never alter canonical identity rows.
-
-## Stage 04B / Community Workbook Builder
-- Produces the community-facing Excel workbook.
-- Script: `tools/build_final_workbook_v12.py` (current canonical builder).
-- Reads: `out/Placements_ByPerson.csv`, `out/stage2_canonical_events.csv`,
-  `out/Persons_Truth.csv`, `out/canonical/events_normalized.csv`.
-  Freestyle analytics inputs (from `out/noise_aggregates/`) are used for the
-  FREESTYLE INSIGHTS sheet only.
-- **Year sheets display ALL placements including unresolved/non-person entries.**
-  Unresolved names are shown as-is using the `person_canon` token (cleaned).
-  This was changed from earlier behavior which filtered these rows.
-- Front sheets are rebuilt from canonical data, not copied from earlier workbooks.
-- No identity mutations. Read-only with respect to canonical identity.
-
-### Community workbook sheet order
-
-```
-README
-DATA NOTES
-STATISTICS
-EVENT INDEX
-PLAYER SUMMARY
-CONSECUTIVE RECORDS
-FREESTYLE INSIGHTS
-1980, 1981, 1982, ...
-2025
-2026   (present, retained)
-```
-
-### FREESTYLE INSIGHTS sheet
-
-Supplementary sheet summarising trick-sequence analytics from the freestyle
-corpus. Contains six compact tables:
-
-1. **Difficulty by Year** — chains, avg_sequence_add, max_sequence_add per year
-2. **Hardest Documented Sequence** — single-row highlight (Greg Solis 2008, 22 ADD)
-3. **Backbone Tricks of Freestyle** — top tricks by mentions with ADD, players, events
-4. **Top Tricks by Mentions** — broader trick frequency table
-5. **Most Common Trick Transitions** — top trick-pair transitions (A → B)
-6. **Trick Innovation Timeline** — first/last year seen per trick
-
-This sheet is a technical appendix. Freestyle analytics must not appear in
-PLAYER SUMMARY, STATISTICS, or any year sheet. The primary purpose of the
-workbook is historical results archival.
+1. Deterministic builds
+2. No silent mutation
+3. No guessing identities
+4. No dropped competitors
+5. Results fidelity is absolute
+6. Canonical CSVs are the source of truth
+7. Mirror-derived results are the highest-priority data
 
 ---
 
-# 5. Coverage Guarantees
+# 4. SOURCE PRIORITY POLICY
 
-Every placement competitor must map to exactly one of:
+## 4.1 Mirror-era results (CRITICAL)
 
-- `Persons_Truth`
-- `Persons_Unresolved`
-- `__NON_PERSON__`
+Mirror-derived results are authoritative.
 
-No row may be dropped silently.
-All exclusions must be auditable.
+The following are HARD FAIL:
 
-Enforcement: `tools/final_dataset_verification.py` compares stage2 source
-placements against PBP and reports any genuine gaps (BLOCKER_GENUINE).
-
----
-
-# 6. Location Normalization
-
-Canonical location data is stored in `out/canonical/events_normalized.csv`.
-Original pipeline `events.csv` is preserved; normalized version is the display source.
-
-## 6.1 Canonical storage format
-
-```
-city, region, country
-```
-
-Country is always written in full (United States, Canada, Spain, etc. — never USA, US, UK).
-
-## 6.2 Public workbook display rules
-
-**United States and Canada:**
-```
-City / State or Province column:  "City, State"     e.g. Rochester, New York
-Country column:                   "United States"
-```
-
-**All other countries:**
-```
-City / State or Province column:  "City"            e.g. Bilbao
-Country column:                   "Country"         e.g. Spain
-```
-
-Region is not displayed for non-US/CA events in the public workbook.
-
-## 6.3 Normalization rules applied
-
-- Country abbreviations expanded: USA → United States, B.C. → British Columbia, etc.
-- Basque events: region = Bizkaia (for Bilbao/Larrabetzu area)
-- Duplicate city = region: region field cleared (e.g. Stara Zagora, Stara Zagora → Stara Zagora)
-- Venue names stripped from city field (e.g. RIT Rochester → Rochester)
-- Street addresses never appear in location display fields
+* missing mirror placements
+* truncated mirror divisions
+* incorrect participant structure
+* malformed results from mirror parsing
+* loss of mirror data during canonicalization
 
 ---
 
-# 7. Identity Lock Sentinel
+## 4.2 Pre-1997 / Magazine / Legacy (SECONDARY)
 
-Release builds generate:
+Legacy recovery is valuable but not blocking unless it breaks structure.
+
+Allowed as WARN:
+
+* incomplete dates
+* partial coverage
+* missing metadata
+* unresolved identities
+* approximate reconstruction
+
+NOT allowed:
+
+* fabricated results
+* corrupted placements
+* structural inconsistencies
+
+---
+
+# 5. QC GATE (AUTHORITATIVE)
+
+A build is publishable ONLY if:
 
 ```
-out/persons_truth.lock
+QC_STATUS = PASS
 ```
 
-This file contains:
-- sha256 hashes of authoritative inputs
-- row counts
-- filenames
-- release timestamp
-
-This sentinel proves identity immutability for the release.
-
-**Note:** When upgrading PBP only (adding `__NON_PERSON__` rows, no PT/PU changes),
-the sentinel remains valid for PT and PU. Update the lock after any PBP patch.
+QC is evaluated on canonical CSVs AFTER Stage 05p5.
 
 ---
 
-# 8. Versioning Rules
+## 5.1 HARD FAIL CONDITIONS (must be zero)
 
-- Patch (v1.0.x):
-  - Documentation updates
-  - Refactors
-  - No data changes
+### EVENTS
 
-- Minor (v1.x.0):
-  - Additive analytics
-  - Location normalization updates
-  - PBP gap-fill patches (`__NON_PERSON__` additions only)
+* duplicate event_id
+* missing required fields
 
-- Major (v2.0.0):
-  - Any change to:
-    - Persons_Truth
-    - Persons_Unresolved
-    - Identity classification logic
+### EVENT_RESULTS
 
-Identity changes require a new release and full regeneration.
+* duplicate (event_id, discipline, place)
+* invalid placement structure
+* truncated mirror divisions
 
----
+### EVENT_RESULT_PARTICIPANTS
 
-# 9. What This System Is Not
+* singles ≠ 1 participant
+* doubles ≠ 2 participants
+* duplicate participant in placement
 
-- Not a dynamic alias resolution engine.
-- Not a speculative merge system.
-- Not an automated identity inference pipeline.
-- Not tolerant of silent data loss.
+### PERSONS
 
-It is a controlled archival reconstruction of historical data.
+* duplicate person_id
+* missing referenced person_id
 
----
+### CROSS-TABLE INTEGRITY
 
-# 10. Mental Model
+* orphan event_id
+* orphan result_id
+* orphan person_id
 
-Human truth > heuristics.
+### DATA PURITY
 
-Results fidelity > identity completeness.
+* non-person artifacts in participant fields
+* club/city contamination
+* malformed names
 
-Identity is locked.
-Ambiguity is preserved.
-Noise is explicit.
-Reproducibility is mandatory.
+### MIRROR FIDELITY
+
+* mirror placements missing from canonical dataset
+* mirror divisions missing or truncated
+* incorrect parsing of mirror results
 
 ---
 
-# 11. Current Canonical State (as of 2026-03-17)
+If ANY fail:
 
-| Artifact | Version | Count |
-|---|---|---|
-| Persons_Truth_Final | v43 | 3,470 persons |
-| Persons_Unresolved_Organized | v28 | 82 rows |
-| Placements_ByPerson | v69 | 28,677 rows |
-| Placements_Flat | — | 28,677 rows |
-| Stage2 events | — | 790 events |
-| Quarantined events | — | 11 |
-| Community workbook | v13 | Footbag_Results_Community_FINAL_v13.xlsx |
+```
+BUILD = INVALID
+```
 
 ---
 
-End of contract.
+## 5.2 WARNING CONDITIONS (allowed)
+
+* pre-1997 incomplete dates
+* partial legacy coverage
+* unresolved identities
+* mirror vs parsed minor mismatches (non-structural)
+* split doubles pairs (recoverable)
+
+Warnings must be documented.
+
+---
+
+## 5.3 INFO CONDITIONS
+
+* formatting issues
+* event key inconsistencies
+* cosmetic issues
+
+---
+
+## 5.4 QC EXECUTION CONTRACT
+
+Must run:
+
+```
+python tools/run_qc_gate.py
+```
+
+QC must evaluate canonical CSVs only.
+
+Workbook QC is secondary.
+
+---
+
+## 5.5 NO MANUAL OVERRIDES
+
+QC failures must NOT be ignored.
+
+Fix at:
+
+* parser
+* overrides
+* canonical inputs
+
+---
+## 5.6 DEVELOPMENT LOOP (IMPORTANT)
+
+During active development and pipeline refinement:
+
+- Temporary QC failures are allowed.
+- Structural changes to parsing or canonicalization may cause transient QC failures.
+- These failures must be resolved before completing the task.
+
+The required workflow is:
+
+    modify → rebuild → run QC → fix → repeat → PASS
+
+A task is NOT complete until QC_STATUS = PASS.
+
+QC_STATUS = PASS is required for:
+- release builds
+- publishable datasets
+- checkpoint commits
+
+But it is NOT required at every intermediate step during development.
+
+# 6. PIPELINE CONTRACT
+
+From run_pipeline.sh:
+
+```
+rebuild → release → qc
+```
+
+QC runs ONLY after canonical CSV generation.
+
+---
+
+# 7. STAGE RESPONSIBILITIES
+
+## Stage 01–02
+
+* Parse mirror
+* Preserve all tokens
+
+## Stage 02p5–02p6
+
+* Apply identity lock
+* Structural cleanup
+
+## Stage 03–04
+
+* Workbook + analytics (non-authoritative)
+
+## Stage 05
+
+* Export canonical CSVs (AUTHORITATIVE)
+
+## Stage 05p5
+
+* Final remediation
+
+No stage may violate QC constraints.
+
+---
+
+# 8. DEFINITION OF DONE
+
+The dataset is COMPLETE when:
+
+1. canonical CSVs exist
+2. QC gate returns PASS
+3. no hard-fail conditions exist
+4. mirror results are fully preserved
+
+---
+
+END OF CONTRACT

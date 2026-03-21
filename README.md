@@ -1,4 +1,4 @@
-# Footbag Results Pipeline — v2.12.0
+# Footbag Results Pipeline — v2.13.0
 
 ## Project Mission
 
@@ -110,9 +110,9 @@ Stage 01 (`01_parse_mirror.py`) expects `mirror/www.footbag.org/events/show/*/in
 
 ```
 inputs/identity_lock/
-    Persons_Truth_Final_v43.csv          # 3,470 canonical persons
+    Persons_Truth_Final_v47.csv          # 3,468 canonical persons
     Persons_Unresolved_Organized_v28.csv # 82 unresolved entries
-    Placements_ByPerson_v69.csv          # 28,677 identity-locked placements
+    Placements_ByPerson_v85.csv          # 27,980 identity-locked placements
 ```
 
 These are human-verified and treated as immutable for this release.
@@ -132,12 +132,14 @@ legacy_data/              # Per-event result overrides (1999, 2003 Worlds, etc.)
 |---|---|
 | 01 | Parse mirror HTML and legacy results files |
 | 02 | Canonicalize event metadata |
-| 02.5 | Resolve player identities |
-| 03 | Generate validated canonical datasets |
-| 04 | Produce community workbook |
+| 02.5 | Resolve player identities (identity lock in release) |
+| 03 | Canonical Excel workbook (`Footbag_Results_Canonical.xlsx`) |
+| 04 | Analytics, coverage, lock sentinel |
+| 04B | Community Excel workbook (public artifact) |
+| 05 | Relational CSV export to `out/canonical/` |
 
-Stage 03 outputs the canonical relational CSV dataset.
-Stage 04 generates the community-facing workbook.
+Stage **05** writes the canonical relational CSV dataset.  
+Stage **04B** runs **after** 04 and **before** 05 in `run_pipeline.sh release` (and aligned `make release`).
 
 ### Rebuild Mode (stages 01–02)
 
@@ -156,7 +158,7 @@ Parses raw data into canonical stage-2 events.
 | 01c | `pipeline/01c_merge_stage1.py` | Merge mirror + legacy into unified stage-1 |
 | 02 | `pipeline/02_canonicalize_results.py` | Normalize events, divisions, placements → `out/stage2_canonical_events.csv` |
 
-**Output:** `out/stage2_canonical_events.csv` — 774 events.
+**Output:** `out/stage2_canonical_events.csv` — 815 events.
 
 ### Release Mode (stages 02p5–05)
 
@@ -171,10 +173,14 @@ Requires `out/stage2_canonical_events.csv` (run rebuild first, or obtain from a 
 |---|---|---|
 | 01b1 | `pipeline/01b1_merge_consecutives.py` | Merge consecutives reference data (also run in release) |
 | 02p5 | `pipeline/02p5_player_token_cleanup.py` | Apply identity lock → `Placements_Flat.csv`, `Placements_ByPerson.csv` |
+| 02p6 | `pipeline/02p6_structural_cleanup.py` | Structural cleanup pass on placement CSVs |
 | 03 | `pipeline/03_build_excel.py` | Canonical Excel workbook (`Footbag_Results_Canonical.xlsx`) |
 | 04 | `pipeline/04_build_analytics.py` | Analytics surfaces, person stats, coverage, lock sentinel |
-| 04B | `pipeline/04B_create_community_excel.py` | Community Excel workbook (`Footbag_Results_Community.xlsx`) |
+| 04B | `tools/build_final_workbook_v13.py` | Community Excel workbook (`Footbag_Results_Community_FINAL_v13.xlsx`); runs **after 04**, **before 05** |
 | 05 | `pipeline/05_export_canonical_csv.py` | Relational CSV export to `out/canonical/` |
+| 05p5 | `pipeline/05p5_remediate_canonical.py` | Post-export canonical CSV remediation |
+
+`pipeline/04B_create_community_excel.py` is a legacy/alternate community builder; release uses **v13** above.
 
 ### QC
 
@@ -197,8 +203,7 @@ After successful execution the pipeline produces two primary outputs.
 ### 1. Community Workbook (Public Artifact)
 
 ```
-out/community/
-  Footbag_Results_Community_FINAL.xlsx
+Footbag_Results_Community_FINAL_v13.xlsx   # repo root (from Stage 04B)
 ```
 
 | Sheet | Contents |
@@ -233,17 +238,19 @@ out/canonical/
 
 | File | Rows | Description |
 |---|---|---|
-| `events.csv` | 774 | One row per event; includes `event_type` (net/mixed/freestyle/worlds/golf/social) |
-| `event_disciplines.csv` | 3,918 | One row per discipline within an event |
-| `event_results.csv` | 24,933 | One row per placement slot |
-| `event_result_participants.csv` | 36,073 | One row per participant |
-| `persons.csv` | 3,441 | Canonical persons with stats, honors, and freestyle analytics |
+| `events.csv` | 814 | One row per event; includes `event_type` (net/mixed/freestyle/worlds/golf/social) |
+| `event_disciplines.csv` | 4,036 | One row per discipline within an event |
+| `event_results.csv` | 26,661 | One row per placement slot |
+| `event_result_participants.csv` | 34,579 | One row per participant |
+| `persons.csv` | 3,468 | Canonical persons with stats, honors, and freestyle analytics |
 
 Natural keys:
 - `events`: `event_key`
 - `event_disciplines`: `(event_key, discipline_key)`
 - `event_results`: `(event_key, discipline_key, placement)`
 - `event_result_participants`: `(event_key, discipline_key, placement, participant_order)`
+
+`event_key` format: `{year}_{slug}` (e.g. `2003_eastregion`). When multiple events share the same year+slug, they receive deterministic ordinal suffixes: `_2`, `_3`, etc., sorted by date then event name.
 
 These files represent the normalized relational dataset intended for database creation, future website modernization, analytical applications, and external research. The canonical dataset is the authoritative machine-readable representation of the archive.
 
@@ -277,11 +284,11 @@ SHA-256 hashes of all three identity lock inputs, proving immutability.
 
 | Metric | Value |
 |---|---|
-| Events | 790 |
+| Events | 814 |
 | Year range | 1980–2026 |
-| Placements (identity-locked) | 28,677 |
-| Persons (canonical) | 3,470 |
-| Gate3 PASS | 3,470 |
+| Placements (identity-locked) | 27,980 |
+| Persons (canonical) | 3,468 |
+| Gate3 PASS | 3,468 |
 | Known-issue events | 54 |
 
 Coverage is comprehensive from 1997 onward (the primary Footbag.org mirror)
@@ -296,7 +303,7 @@ finishers listed). These limitations are documented in
 `overrides/known_issues.csv` (54 events, severity: minor / moderate / severe)
 and are not data errors — they reflect the fidelity of the original source.
 
-11 events are quarantined in `inputs/review_quarantine_events.csv` because
+9 events are quarantined in `inputs/review_quarantine_events.csv` because
 their source structure makes deterministic parsing impossible without
 authoritative external data. They are preserved in the dataset but excluded
 from the active review queue.
@@ -315,9 +322,9 @@ Current identity baseline:
 
 | Artifact | Version | Rows |
 |---|---|---|
-| `Persons_Truth_Final` | v43 | 3,470 |
+| `Persons_Truth_Final` | v47 | 3,468 |
 | `Persons_Unresolved_Organized` | v28 | 82 |
-| `Placements_ByPerson` | v69 | 28,677 |
+| `Placements_ByPerson` | v85 | 27,980 |
 
 ---
 
@@ -335,25 +342,27 @@ Current identity baseline:
 │   ├── 01c_merge_stage1.py           # Rebuild: merge stage-1 sources
 │   ├── 02_canonicalize_results.py    # Rebuild: produce stage-2 events
 │   ├── 02p5_player_token_cleanup.py  # Release: apply identity lock
+│   ├── 02p6_structural_cleanup.py      # Release: structural cleanup on placements CSVs
 │   ├── 03_build_excel.py             # Release: canonical Excel workbook
 │   ├── 04_build_analytics.py         # Release: analytics + lock sentinel
-│   ├── 04B_create_community_excel.py # Release: community Excel workbook (superseded by tools/build_final_workbook_v12.py)
-│   └── 05_export_canonical_csv.py    # Release: relational CSV export → out/canonical/
+│   ├── 04B_create_community_excel.py # Legacy/alternate community workbook (not used by default release)
+│   ├── 05_export_canonical_csv.py    # Release: relational CSV export → out/canonical/
+│   └── 05p5_remediate_canonical.py     # Release: remediate canonical CSVs
 ├── qc/
 │   └── qc_master.py                  # Stage-2 and stage-3 QC
 ├── tools/
 │   ├── 32_post_release_qc.py              # 6 post-release integrity checks
 │   ├── 33_schema_logic_qc.py              # 7 schema and logic checks
-│   ├── build_final_workbook_v12.py        # Community workbook builder (current canonical)
+│   ├── build_final_workbook_v13.py        # Community workbook builder (Stage 04B in release)
 │   ├── 09_compute_difficulty_analytics.py # Freestyle: difficulty + innovation timeline
 │   ├── 10_compute_extended_analytics.py   # Freestyle: diversity, modifier trends, transitions
 │   ├── 11_build_transition_network.py     # Freestyle: directed trick transition network
 │   └── ...                               # Identity curation and patch tools
 ├── inputs/
 │   ├── identity_lock/                # Authoritative identity artifacts
-│   │   ├── Persons_Truth_Final_v43.csv
+│   │   ├── Persons_Truth_Final_v47.csv
 │   │   ├── Persons_Unresolved_Organized_v28.csv
-│   │   └── Placements_ByPerson_v69.csv
+│   │   └── Placements_ByPerson_v85.csv
 │   ├── location_canon_full_final.csv # Canonical location display strings
 │   ├── consecutives_records.csv      # Consecutives world records reference data
 │   ├── bap_data.csv                  # BAP honours data

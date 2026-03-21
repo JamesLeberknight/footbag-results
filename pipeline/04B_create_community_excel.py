@@ -325,6 +325,9 @@ def _fix_name_encoding(p: str) -> str:
 def _clean_team_display(s: str) -> str:
     """Clean team display names: remove noise tokens, capitalize, strip annotation tails."""
     s = (s or "").strip()
+    s = s.replace(" + ", " / ")
+    s = _normalize_result_text(s)
+
     if "/" not in s:
         return s
     parts = [p.strip() for p in s.split("/", 1)]
@@ -342,9 +345,71 @@ def _clean_team_display(s: str) -> str:
     return " / ".join(cleaned)
 
 
+# ── Workbook presentation normalisation ──────────────────────────────────────
+
+DIVISION_DISPLAY_OVERRIDES = {
+    "Intrmediate Singles Net": "Intermediate Singles Net",
+}
+
+PLAYER_DISPLAY_OVERRIDES = {
+    "david Butcher": "David Butcher",
+    "Alexis Dechenes": "Alexis Deschenes",
+    "Alexis Deschene": "Alexis Deschenes",
+}
+
+def _format_event_date(date_str: str, fallback_year: int | str = "") -> str:
+    """
+    Prefer full event date string; fall back to year only if nothing better exists.
+    Leaves already-human-readable strings unchanged.
+    Examples:
+      'May 16-17, 1998' -> same
+      '2001-07-28 – 2001-08-03' -> same
+      '' -> fallback_year
+    """
+    s = (date_str or "").strip()
+    if s:
+        return s
+    return str(fallback_year or "")
+
+def _normalize_division_display(text: str) -> str:
+    if not isinstance(text, str):
+        return text
+    text = text.strip()
+    # Generic typo fix seen in some early event data.
+    text = text.replace("Intrmediate", "Intermediate")
+    return DIVISION_DISPLAY_OVERRIDES.get(text, text)
+
+def _normalize_result_text(text: str) -> str:
+    """
+    Workbook-display-only cleanup:
+    - normalize Hungarian-style team separator ' + ' -> ' / '
+    - apply known player display fixes
+    - normalize whitespace
+    """
+    if not isinstance(text, str):
+        return text
+
+    # Team separator only in result display strings
+    text = text.replace(" + ", " / ")
+
+    # Known display-name fixes
+    for bad, good in PLAYER_DISPLAY_OVERRIDES.items():
+        text = text.replace(bad, good)
+
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
 def _count_participants(ep: dict) -> int:
     """Count actual participants: each doubles team (display contains ' / ') counts as 2."""
-    return sum(2 if " / " in disp else 1 for v in ep.values() for (_, disp, _) in v)
+    # `build_event_placements()` entries are (place_int, display, cat, s_ref).
+    # Be tolerant to either 3- or 4-tuples to avoid fragile unpacking.
+    total = 0
+    for v in ep.values():
+        for entry in v:
+            disp = entry[1] if len(entry) > 1 else ""
+            total += 2 if " / " in (disp or "") else 1
+    return total
 
 
 def _norm_name(s: str) -> str:
@@ -702,7 +767,21 @@ def load_stage2_events() -> dict:
                 "event_id":   eid,
                 "year":       _to_int(row.get("year")),
                 "event_name": event_name,
-                "date":       fo.get("date") or (row.get("date") or "").strip(),
+                # Prefer full stage2 date strings when available.
+                # Some enrichment overrides contain only a year; if so,
+                # and stage2 has a fuller month/day-range, keep the fuller one.
+                "date": (
+                    (lambda ov_date, s2_date: (
+                        # If override is year-only but stage2 isn't, use stage2.
+                        s2_date
+                        if (ov_date and re.fullmatch(r"\d{4}", ov_date)
+                            and s2_date and not re.fullmatch(r"\d{4}", s2_date))
+                        else (ov_date or s2_date)
+                    ))(
+                        (fo.get("date") or "").strip(),
+                        (row.get("date") or "").strip(),
+                    )
+                ),
                 "location":   loc,
                 "city":       city,
                 "country":    country,
@@ -945,6 +1024,19 @@ def build_event_placements(pf: pd.DataFrame, events: dict) -> dict:
                         display = f"{display} / ?"
 
                 s_ref = (row.get("source_ref") or "").strip()
+
+                # Known presentation duplicate:
+                # Alan Cook appears at both place 1 and place 2 in the same
+                # Open Singles Net division for a specific early event.
+                # Keep place 1; suppress the duplicated place 2 row in the workbook.
+                if (
+                    eid in {"2001982001", "2001982005"} and
+                    div_canon == "Open Singles Net" and
+                    person == "Alan Cook" and
+                    place_int == 2
+                ):
+                    continue
+
                 entries.append((place_int, display, cat, s_ref))
 
             if entries:
@@ -1829,15 +1921,21 @@ def build_player_results(wb: Workbook, pf: pd.DataFrame, events: dict):
         except (ValueError, TypeError):
             place_val = row["place"]
 
+        person_disp = _display_name(_normalize_result_text(person))
+        partner_disp = _normalize_result_text(partner)
+
         ws.cell(row=row_idx, column=1, value=ev.get("year") or _to_int(row.get("year")))
         ws.cell(row=row_idx, column=2,
                 value=_RE_EVENT_ISO2.sub("\u017c", ev.get("event_name") or eid))
         ws.cell(row=row_idx, column=3, value=ev.get("location", ""))
-        ws.cell(row=row_idx, column=4, value=_clean_div(row.get("division_canon", "").rstrip(":").strip()))
+        div_disp = _normalize_division_display(
+            _clean_div(row.get("division_canon", "").rstrip(":").strip())
+        )
+        ws.cell(row=row_idx, column=4, value=div_disp)
         ws.cell(row=row_idx, column=5, value=row.get("division_category", ""))
         ws.cell(row=row_idx, column=6, value=place_val)
-        ws.cell(row=row_idx, column=7, value=_display_name(person))
-        ws.cell(row=row_idx, column=8, value=partner)
+        ws.cell(row=row_idx, column=7, value=person_disp)
+        ws.cell(row=row_idx, column=8, value=partner_disp)
         row_idx += 1
 
     ws.auto_filter.ref = f"A1:{get_column_letter(len(hdrs))}{row_idx - 1}"
@@ -1905,7 +2003,8 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
     _write(_R_NAME,    _evt_name,                                    FONT_BANNER,  banner_fill, ALIGN_WRAP)
     _write(_R_LOC,     ev["location"] or "—",                        FONT_META,    FILL_META)
     _write(_R_HOST,    ev["host_club"] or "Not recorded",            FONT_HOST,    FILL_META)
-    _write(_R_DATE,    ev["date"]      or "Not recorded",            FONT_META,    FILL_META)
+    date_val = _format_event_date(ev.get("date", ""), ev.get("year", ""))
+    _write(_R_DATE,    date_val,                                    FONT_META,    FILL_META)
     _write(_R_SOURCE,  ev.get("source_layer", "mirror"),             FONT_META,    FILL_META)
     _write(_R_VER,     str(ev.get("verification_level", "2")),        FONT_META,    FILL_META)
     _write(_R_PLAYERS, f"Players: {n_players}",                      FONT_PLAYERS, FILL_PLAYERS)
@@ -1941,9 +2040,11 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
         row += 1
 
         for div_name, entries in cat_to_divs[cat]:
-            div_name_clean = _clean_div(div_name)
+            div_title = _normalize_division_display(
+                _clean_div(div_name.rstrip(":").strip())
+            )
             s_ref = (entries[0][3] if entries and len(entries[0]) > 3 else "") or ""
-            display_name = f"{div_name_clean} (Ref: {s_ref})" if s_ref else div_name_clean
+            display_name = f"{div_title} (Ref: {s_ref})" if s_ref else div_title
             # Division header: bold, light-grey, top border
             _c(ws, row, col, display_name,
                font=FONT_DIV, fill=FILL_DIV, border=_border_top(), align=ALIGN_TOP)
@@ -1952,6 +2053,7 @@ def _write_event_col(ws, col: int, ev: dict, placements: OrderedDict,
 
             for entry in entries:
                 place_int, display, _ = entry[0], entry[1], entry[2]
+                display = _normalize_result_text(display)
                 medal = MEDALS.get(place_int, "")
 
                 # Build display text:  🥇 1  Name

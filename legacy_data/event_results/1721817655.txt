@@ -1,0 +1,14 @@
+# VI. Basque Tournament of Footbag Net (Individual) — 2024
+# Bilbao (Olabeaga / Santutxu), Basque Country
+# Source: footbag.org mirror — Classification section at bottom of results.
+# "9th january" and "11th of january" were round-date headers in the match
+# narrative; parser misread them as placements 9 and 11.
+# Fix: use only the definitive final Classification section.
+
+Open Singles Net
+1. Egoitz Campo
+2. Ander López
+3. Axel Pernett
+4. Jon Ander Gil
+5. Daniel Barrientos
+6. Maximo Kulachenok

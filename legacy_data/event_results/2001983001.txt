@@ -1,56 +1,40 @@
-# World Championships 1983 (NHSA)
-# Source: inputs/OLD_RESULTS.txt — 1980-1985 World Championships Results
-# Previously: inline multi-placement lines caused ordering errors.
-# Team Freestyle: 4-member teams; schema stores max 2 (first two names used).
-# event_id: 2001983001
+# 1983 World Footbag Championships
+# Golden, Colorado
+# Year: 1983
+# Source: FBW-ARCHIVE
 
-Singles Consecutive Kicks
-1. Andy Linder
-2. Jim Caveney
-3. Gary Lautt
+Singles Ultra
+1. Kenny Shults
 
-Women's Consecutive Kicks
-1. Nancy Reynolds
-2. Cheri Johnson
-3. Grace Faucette
+Doubles Ultra
+1. Garry Griggs & London England
 
-Intermediate Singles Net
-1. Jimmy Evans
+Womens Singles
+1. Tricia Sullivan
 
-Intermediate Doubles Net
-1. Steve Brown & Kevin Gaunce
+Womens Doubles
+1. Marie Elsner & Paula Elsner
 
-Singles Net
-1. Mag Hughes
-2. Ken Shults
-3. David Robinson
+Mixed Doubles
+1. Tricia Sullivan & David Robinson
 
-Doubles Net
-1. Mag Hughes & Bill Hayne
-2. Greg Cortopassi & Bruce Guettich
-3. David Robinson & Kevin Courtney
+Advanced Singles
+1. Garry Griggs
 
-Women's Singles Net
-1. Lori Jean Conover
-2. Nancy Reynolds
-3. Cheryl Hughes
+Advanced Doubles
+1. Ken Hamric & Andrew Williams
 
-Women's Doubles Net
-1. Lori Jean Conover & Cheryl Hughes
-2. Tricia George & Judy Grace
-3. Nancy Reynolds & Constance Constable
+Open Singles
+1. Jon Lind
 
-Mixed Doubles Net
-1. Lori Jean Conover & Bill Hayne
-2. Cheryl Hughes & Mag Hughes
-3. Tricia George & David Robinson
+Womens Freestyle
+1. Tricia Sullivan
 
-Singles Freestyle
-1. Ken Shults
-2. Andy Linder
-3. Jeff Johnson
+Open Team
+1. Scott Cleere & Bill Bethurum & Randy Nelson
 
-Team Freestyle
-1. Greg Cortopassi & Mag Hughes
-2. David Robinson & Kevin Courtney
-3. Jack Schoolcraft & Will Squire
+Open Singles Consecutive
+1. Jimmy Caveney
+
+Womens Doubles Consecutive
+1. Constance Reed & Marie Elsner

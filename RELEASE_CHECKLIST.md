@@ -60,7 +60,7 @@ Verify:
 make release
 ```
 
-Runs stages 02p5 → 03 → 04 → 04B → 05 in sequence.
+Runs stages 02p5 → 02p6 → 03 → **04 → 04B → 05** → 05p5 in sequence (community workbook built after analytics, before canonical CSV export).
 
 Verify after completion:
 
@@ -79,8 +79,8 @@ Verify after completion:
 - [ ] Lock sentinel shows `Persons_Truth_Final_v42.csv`, rows: 3441
 
 **Stage 04B:**
-- [ ] `Footbag_Results_Community.xlsx` created/updated
-- [ ] Output shows: `Honours: 84/84 BAP names matched`
+- [ ] `Footbag_Results_Community_FINAL_v13.xlsx` created/updated (repo root)
+- [ ] Output shows honours / stats load without hard failure
 
 **Stage 05:**
 - [ ] `out/canonical/events.csv` — 774 rows

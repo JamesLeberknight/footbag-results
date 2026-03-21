@@ -35,6 +35,17 @@ OVERRIDES = ROOT / "inputs" / "keep_doubles_overrides.csv"
 
 csv.field_size_limit(10 * 1024 * 1024)
 
+TARGET_EVENT = "1997_eugene_celebration"
+TARGET_DIV = "Doubles Golf"
+
+VALID_TEAMS = {
+    "Jim Fitzgerald / Jack Schoolcraft",
+    "Jeff Johnson / Steve Dusablon",
+    "Becca English-Ross / Dave Bernard",
+    "Brent Welch / Brandon Crum",
+    "Aaron Gregg / Bobby Heiney",
+}
+
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def load(name: str) -> tuple[list[dict], list[str]]:
@@ -112,6 +123,10 @@ for row in participants:
             names_from_master += 1
     elif not pid:
         cleaned = clean_unresolved(row["display_name"])
+        if not cleaned:
+            # Cleaning stripped the entire name (e.g. "()" → "").
+            # Use a meaningful sentinel rather than leaving blank.
+            cleaned = "__UNKNOWN_PARTNER__"
         if cleaned != row["display_name"]:
             row["display_name"] = cleaned
             names_regex_cleaned += 1
@@ -220,6 +235,224 @@ participants.sort(key=lambda r: (
 
 print(f"  Ghost rows inserted: {len(ghost_rows):,}")
 
+# ── Targeted Team Remediation ─────────────────────────────────────────────────
+# Keep only a known team whitelist for one specific event/division.
+
+print("\n[Targeted remediation] Filtering invalid teams for specific event/division...")
+
+target_discipline_keys = {
+    row["discipline_key"]
+    for row in disciplines
+    if row["event_key"] == TARGET_EVENT and row.get("discipline_name") == TARGET_DIV
+}
+
+valid_slots: set[tuple[str, str, str]] = set()
+if target_discipline_keys:
+    names_by_slot_order: dict[tuple[str, str, str], dict[int, str]] = defaultdict(dict)
+    for row in participants:
+        event_key = row["event_key"]
+        discipline_key = row["discipline_key"]
+        if event_key != TARGET_EVENT or discipline_key not in target_discipline_keys:
+            continue
+        slot = (event_key, discipline_key, row["placement"])
+        names_by_slot_order[slot][int(row["participant_order"])] = row["display_name"]
+
+    for slot, order_map in names_by_slot_order.items():
+        name_1 = order_map.get(1, "").strip()
+        name_2 = order_map.get(2, "").strip()
+        if not name_1 or not name_2:
+            continue
+        team_name = f"{name_1} / {name_2}"
+        if team_name in VALID_TEAMS:
+            valid_slots.add(slot)
+
+before_results = len(results)
+results = [
+    row for row in results
+    if (
+        row["event_key"] != TARGET_EVENT
+        or row["discipline_key"] not in target_discipline_keys
+        or (row["event_key"], row["discipline_key"], row["placement"]) in valid_slots
+    )
+]
+
+before_participants = len(participants)
+participants = [
+    row for row in participants
+    if (
+        row["event_key"] != TARGET_EVENT
+        or row["discipline_key"] not in target_discipline_keys
+        or (row["event_key"], row["discipline_key"], row["placement"]) in valid_slots
+    )
+]
+
+print(f"  Target discipline keys: {len(target_discipline_keys):,}")
+print(f"  Valid team slots kept:  {len(valid_slots):,}")
+print(f"  Results removed:        {before_results - len(results):,}")
+print(f"  Participants removed:   {before_participants - len(participants):,}")
+
+# ── Fix 6: Sequential Placement Normalization ─────────────────────────────────
+# For any discipline where a placement slot has the wrong number of participants
+# (>1 for singles, ≠2 for doubles), renumber all placements in that discipline
+# sequentially so each slot gets exactly the expected count.
+# Singles: each participant gets its own placement (1, 2, 3, ...).
+# Doubles: participants are grouped into consecutive pairs, each pair is a team
+# at one sequential placement.  Lone remainders get a ghost partner.
+# Preserves original placement in notes as "seq_from:<N>" when changed.
+
+print("\n[Fix 6] Sequential placement normalization...")
+
+team_type_lookup = {
+    (r["event_key"], r["discipline_key"]): r["team_type"]
+    for r in disciplines
+}
+
+# Build slot → rows mapping
+from collections import defaultdict as _dd
+
+slots_map: dict = _dd(list)
+for row in participants:
+    k = (row["event_key"], row["discipline_key"], row["placement"])
+    slots_map[k].append(row)
+
+# Identify which (event, disc) have violations
+disc_slots: dict = _dd(list)  # (ek, dk) → [(int_placement, rows)]
+for (ek, dk, pl), rows in slots_map.items():
+    disc_slots[(ek, dk)].append((int(pl), rows))
+
+# Sort each discipline's slots by original placement
+for k in disc_slots:
+    disc_slots[k].sort(key=lambda x: x[0])
+
+seq_normalized = 0
+normalized_groups = 0
+normalized_participants = 0
+new_participants_6: list = []
+new_results_map: dict = {}  # (ek, dk, pl_str) → result row
+
+# Pre-populate result map from existing results
+results_by_key: dict = {}
+for r in results:
+    results_by_key[(r["event_key"], r["discipline_key"], r["placement"])] = r
+
+for (ek, dk), place_groups in disc_slots.items():
+    tt = team_type_lookup.get((ek, dk), "singles")
+    expected = 2 if tt == "doubles" else 1
+
+    has_violation = any(len(rows) != expected for _, rows in place_groups)
+    if not has_violation:
+        # No change — copy all rows verbatim
+        for _, rows in place_groups:
+            for row in rows:
+                rk = (row["event_key"], row["discipline_key"], row["placement"])
+                new_participants_6.append(row)
+                if rk not in new_results_map:
+                    new_results_map[rk] = results_by_key.get(rk, {
+                        "event_key": ek, "discipline_key": dk,
+                        "placement": row["placement"],
+                        "score_text": "", "notes": "", "source": "",
+                    })
+        continue
+
+    normalized_groups += 1
+    normalized_participants += sum(len(rows) for _, rows in place_groups)
+
+    # Collect all participants for this discipline in order
+    all_rows: list = []
+    for _, rows in place_groups:
+        sorted_rows = sorted(rows, key=lambda r: int(r["participant_order"]))
+        all_rows.extend(sorted_rows)
+
+    if tt == "singles":
+        # Each participant → own sequential placement, participant_order = 1
+        next_place = 1
+        for row in all_rows:
+            orig = row["placement"]
+            new_row = dict(row)
+            new_row["placement"] = str(next_place)
+            new_row["participant_order"] = "1"
+            if orig != str(next_place):
+                note = f"seq_from:{orig}"
+                new_row["notes"] = (new_row["notes"] + ";" + note).lstrip(";")
+                seq_normalized += 1
+            rk = (ek, dk, str(next_place))
+            new_participants_6.append(new_row)
+            if rk not in new_results_map:
+                old_rk = (ek, dk, orig)
+                base = results_by_key.get(old_rk, {
+                    "event_key": ek, "discipline_key": dk, "placement": orig,
+                    "score_text": "", "notes": "", "source": "",
+                })
+                new_result = dict(base)
+                new_result["placement"] = str(next_place)
+                new_results_map[rk] = new_result
+            next_place += 1
+
+    else:  # doubles
+        # Group into teams of 2 (consecutive pairs), assign sequential placements
+        next_place = 1
+        i = 0
+        while i < len(all_rows):
+            pair = all_rows[i:i + 2]
+            i += 2
+            # If pair is short, pad with a ghost
+            if len(pair) == 1:
+                ghost = {
+                    "event_key": ek, "discipline_key": dk,
+                    "placement": str(next_place),
+                    "participant_order": "2",
+                    "display_name": "__UNKNOWN_PARTNER__",
+                    "person_id": "", "notes": "auto:ghost_partner",
+                }
+                pair.append(ghost)
+            orig = pair[0]["placement"]
+            rk = (ek, dk, str(next_place))
+            for order_idx, row in enumerate(pair, start=1):
+                new_row = dict(row)
+                new_row["placement"] = str(next_place)
+                new_row["participant_order"] = str(order_idx)
+                if orig != str(next_place):
+                    note = f"seq_from:{orig}"
+                    new_row["notes"] = (new_row["notes"] + ";" + note).lstrip(";")
+                    seq_normalized += 1
+                new_participants_6.append(new_row)
+            if rk not in new_results_map:
+                old_rk = (ek, dk, orig)
+                base = results_by_key.get(old_rk, {
+                    "event_key": ek, "discipline_key": dk, "placement": orig,
+                    "score_text": "", "notes": "", "source": "",
+                })
+                new_result = dict(base)
+                new_result["placement"] = str(next_place)
+                new_results_map[rk] = new_result
+            next_place += 1
+
+participants = new_participants_6
+
+# Rebuild results from normalized participants (one row per unique slot)
+used_result_keys = {
+    (r["event_key"], r["discipline_key"], r["placement"]) for r in participants
+}
+results = [v for k, v in new_results_map.items() if k in used_result_keys]
+
+# Re-sort participants
+participants.sort(key=lambda r: (
+    r["event_key"],
+    r["discipline_key"],
+    int(r["placement"]) if r["placement"].isdigit() else 0,
+    int(r["participant_order"]),
+))
+# Re-sort results
+results.sort(key=lambda r: (
+    r["event_key"],
+    r["discipline_key"],
+    int(r["placement"]) if r["placement"].isdigit() else 0,
+))
+
+print(f"  Participants renumbered: {seq_normalized:,}")
+print(f"[Fix 6] placement-normalized groups: {normalized_groups}")
+print(f"[Fix 6] placement-normalized participants: {normalized_participants}")
+
 # ── Save ──────────────────────────────────────────────────────────────────────
 
 print("\nSaving...")
@@ -264,6 +497,7 @@ print(f"""
 ║        Disciplines kept doubles          {kept_double:>6,} ║
 ║ Fix 4  Tie rows enforced (order→1)       {tie_fixes:>6,} ║
 ║ Fix 5  Ghost partner rows inserted       {len(ghost_rows):>6,} ║
+║ Fix 6  Participants renumbered (seq)     {seq_normalized:>6,} ║
 ╠══════════════════════════════════════════╣
 ║ Disciplines: singles {singles_count:<5} doubles {doubles_count:<5}       ║
 ║ Participants: resolved {resolved:<6} unresolved {unresolved:<5} ║

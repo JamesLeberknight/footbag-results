@@ -143,6 +143,7 @@ _HONOR_OVERRIDES: dict[str, str] = {
     "scott-mag hughes":         "Scott-Mag Hughes",
     "carol wedemeyer":          "Carol Wedemeyer",
     "cheryl aubin hughes":      "Cheryl Aubin Hughes",
+    "david leberknight":        "Dave Leberknight",
 }
 
 

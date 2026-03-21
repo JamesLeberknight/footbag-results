@@ -39,6 +39,7 @@ Notes on unresolved persons:
 """
 import csv
 import re
+import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -306,75 +307,366 @@ with open(OUT / "stage2_canonical_events.csv", newline="", encoding="utf-8") as 
     stage2_rows = list(csv.DictReader(f))
 print(f"  {len(stage2_rows):,} events")
 
+DROP_EVENT_IDS = {
+    "9921901",
+}
 
-# ── Generate event_key slugs (human-readable, collision-safe) ─────────────────
+EVENT_NAME_OVERRIDES = {
+    "2001982005": "World Footbag Championships",
+}
+
+stage2_rows = [r for r in stage2_rows if str(r["event_id"]) not in DROP_EVENT_IDS]
+
+
+# ── Generate canonical event_key slugs (event_<year>_<series_or_name>[_<place>]) ──
+
+# Optional exact overrides by legacy event_id
+# Use this for one-off cases where you want to pin the final canonical event_key.
+EVENT_KEY_OVERRIDES_BY_ID = {
+    # "941418343": "event_1999_worlds_palo_alto",
+    # "1487797845": "event_2012_eurochamp_prague",
+}
+
+# Optional recurring-series overrides by normalized event-name pattern.
+# These let you force stable canonical short names for known recurring events.
+EVENT_SERIES_OVERRIDES = [
+    # (regex_pattern, canonical_series_slug, place_policy)
+    # place_policy ∈ {"always_city", "never", "series_only", "maybe_city"}
+
+    (r"\bworld footbag championships?\b", "worlds", "always_city"),
+    (r"\bifpa worlds?\b", "worlds", "always_city"),
+    (r"\bu\.?s\.?\s*open\b", "usopen", "always_city"),
+    (r"\beuropean championships?\b", "eurochamp", "always_city"),
+    (r"\beuro(p|pean)?\b", "eurochamp", "always_city"),
+
+    (r"\bfuntastic\b", "funtastic", "never"),
+    (r"\bbeaver open\b", "beaver_open", "never"),
+    (r"\bheart of footbag\b", "heartoffootbag", "never"),
+    (r"\btexas state\b", "texas_state", "maybe_city"),
+    (r"\bfall (jam|party|classic)\b", "falljam", "maybe_city"),
+    (r"\bspring (jam|classic)\b", "springjam", "maybe_city"),
+    (r"\bfootbag (jam|open)\b", "footbagjam", "maybe_city"),
+    (r"\brussian series\b", "russian", "maybe_city"),
+    (r"\bfall footbag party\b|\bfall party\b", "fallparty", "maybe_city"),
+    (r"\bbasque\b", "basque", "maybe_city"),
+
+    (r"\beastern? region(als?)?\b", "eastregion", "series_only"),
+    (r"\bwestern? region(als?)?\b", "westregion", "series_only"),
+    (r"\bmountain region(als?)?\b", "mountainregion", "series_only"),
+
+    (r"\bfinnish\b", "finnish", "maybe_city"),
+    (r"\bemerald city\b", "emeraldcity", "never"),
+    (r"\blake erie\b", "lakeerie", "never"),
+    (r"\bakisphere\b", "akisphere", "never"),
+    (r"\bjfk\b", "jfk", "maybe_city"),
+]
 
 def normalize_country(country: str) -> str:
-    c = slugify(country).replace("_", "-")
+    c = slugify(country).replace("_", "")
     mapping = {
-        "united-states": "usa",
-        "usa":            "usa",
-        "us":             "usa",
-        "u-s-a":          "usa",
-        "u-s":            "usa",
-        "united-kingdom": "uk",
-        "great-britain":  "uk",
+        "unitedstates": "usa",
+        "usa": "usa",
+        "us": "usa",
+        "unitedkingdom": "uk",
+        "greatbritain": "uk",
     }
-    return mapping.get(c, c or "unknown-country")
+    return mapping.get(c, c or "")
 
 
-def normalize_descriptor(event_name: str) -> str:
+def clean_place_token(city: str) -> str:
+    """Shortest stable place token for slug use."""
+    normalized = unicodedata.normalize("NFKD", city or "").encode("ascii", "ignore").decode()
+    token = slugify(normalized)
+    # keep only first token for hashtag-style brevity unless city is multiword and needed
+    # common cases like "new_york" or "san_francisco" should remain intact
+    return token
+
+
+def _contains_any(text: str, patterns: list[str]) -> bool:
+    return any(re.search(p, text) for p in patterns)
+
+
+def canonical_series_slug(event_name: str) -> tuple[str, str]:
+    """
+    Return (series_slug, place_policy)
+
+    place_policy:
+      - "always_city"  -> include host city
+      - "never"        -> omit place
+      - "series_only"  -> omit place (regional series)
+      - "maybe_city"   -> include city only if needed for uniqueness
+    """
     n = (event_name or "").lower().strip()
-    rules = [
-        (r"\b(world|worlds|world championship|world championships|ifpa world)\b", "worlds"),
-        (r"\b(us open|u\.s\. open|u s open)\b",                                  "us-open"),
-        (r"\beuropean championship|\beuropean championships|\beuros?\b",           "euros"),
-        (r"\basian championship|\basian championships|\basia\b",                   "asia"),
-        (r"\bcanadian championship|\bcanadian championships|\bcanada\b",           "canada"),
-        (r"\bnational championship|\bnational championships|\bnationals?\b",       "nationals"),
-        (r"\bfootbag open\b|\bopen\b",                                             "open"),
-        (r"\bchampionship\b|\bchampionships\b",                                    "championships"),
-    ]
-    for pattern, label in rules:
+    n = re.sub(r"\b(singles|doubles|ffa|anniversary|sm|in)\b", "", n)
+    n = re.sub(r"\s+", " ", n).strip()
+
+    # 0) explicit recurring-series overrides first
+    for pattern, slug, policy in EVENT_SERIES_OVERRIDES:
         if re.search(pattern, n):
-            return label
-    stop = {"the", "and", "of", "footbag", "freestyle", "net",
-            "championship", "championships"}
-    words = [w for w in slugify(event_name).replace("_", "-").split("-") if w]
+            return slug, policy
+
+    # 1) default recurring majors / stable named events / fallback
+
+    # recurring global majors
+    if _contains_any(n, [
+        r"\bworld\b", r"\bworlds\b", r"\bworld championship\b", r"\bworld championships\b",
+        r"\bifpa world\b", r"\bworld footbag championships?\b"
+    ]):
+        return "worlds", "always_city"
+
+    if _contains_any(n, [
+        r"\bu\.?s\.?\s*open\b", r"\bus open\b"
+    ]):
+        return "usopen", "always_city"
+
+    if _contains_any(n, [
+        r"\beuropean championship\b", r"\beuropean championships\b",
+        r"\beuros\b", r"\beuros?\b", r"\beuropean open\b"
+    ]):
+        return "eurochamp", "always_city"
+
+    # stable named recurring events
+    stable_named = [
+        (["funtastic"], "funtastic", "never"),
+        (["beaver open", "beaver"], "beaver_open", "never"),
+        (["heart of footbag"], "heartoffootbag", "never"),
+        (["emerald city", "emeraldcity"], "emeraldcity", "never"),
+        (["lake erie", "lakeerie"], "lakeerie", "never"),
+        (["akisphere"], "akisphere", "never"),
+        (["jfk"], "jfk", "never"),
+        (["finnish open", "finnish championship", "finnish championships"], "finnish", "maybe_city"),
+    ]
+    for variants, slug, policy in stable_named:
+        if any(v in n for v in variants):
+            return slug, policy
+
+    # regional series
+    if _contains_any(n, [r"\beast(ern)? region", r"\beast regionals?\b", r"\beast coast\b"]):
+        return "eastregion", "series_only"
+    if _contains_any(n, [r"\bwest(ern)? region", r"\bwest regionals?\b", r"\bwestern regionals?\b"]):
+        return "westregion", "series_only"
+    if _contains_any(n, [r"\bmountain region", r"\bmountain regionals?\b", r"\bmountainregional\b"]):
+        return "mountainregion", "series_only"
+
+    # fallback: cleaned short event name
+    return fallback_short_event_name(event_name), "maybe_city"
+
+
+def fallback_short_event_name(event_name: str) -> str:
+    """
+    Shortest stable cleaned name for non-recurring or not-yet-mapped events.
+    Removes edition numbers, sponsor names, governing-body prefixes, filler words.
+    """
+    n = (event_name or "").lower().strip()
+
+    # strip common boilerplate
+    n = re.sub(r"\b\d+(st|nd|rd|th)\b", " ", n)         # edition numbers
+    n = re.sub(r"\b\d{4}\b", " ", n)                    # embedded years
+    n = re.sub(r"\bifpa\b", " ", n)
+    n = re.sub(r"\bworld footbag association\b", " ", n)
+    n = re.sub(r"\bwfa\b", " ", n)
+    n = re.sub(r"\binc\b|\bllc\b", " ", n)
+    n = re.sub(r"^\s*(?:\d+[a-z]{0,2}\b[\s\-_:/]*)+", " ", n)  # numeric-leading tokens
+    n = re.sub(r"\b(i|ii|iii|iv|v|vi|vii|viii|ix|x)\b", " ", n)
+    n = re.sub(r"\bstage\b", " ", n)
+    n = re.sub(r"\bseries\b", " ", n)
+    n = re.sub(
+        r"\b(united states|u\.?s\.?a?\.?|usa|us|canada|united kingdom|u\.?k\.?|uk)\b\s*$",
+        " ",
+        n,
+    )  # dangling country codes
+
+    # strip sponsor / filler / generic competition words
+    stop = {
+        "the", "and", "of", "footbag", "freestyle", "net",
+        "championship", "championships", "open", "classic",
+        "cup", "tournament", "jam", "festival", "annual",
+        "international", "regional", "regionals", "presented",
+        "sponsored", "by"
+    }
+
+    words = [w for w in slugify(n).split("_") if w]
     useful = [w for w in words if w not in stop]
-    return "-".join(useful[:3]) if useful else "event"
+
+    if not useful:
+        return "event"
+
+    # keep short, hashtag-like
+    return "_".join(useful[:3])
 
 
-def make_candidate_event_key(year: str, event_name: str, city: str, country: str) -> str:
-    year_slug    = (year or "unknown-year").strip()
-    descriptor   = normalize_descriptor(event_name)
-    city_slug    = slugify(city).replace("_", "-") or "unknown-city"
-    country_slug = normalize_country(country)
-    return f"{year_slug}-{descriptor}-{city_slug}-{country_slug}"
+def make_candidate_event_key(eid: str, year: str, event_name: str, city: str, country: str) -> str:
+    # exact pinned override wins first
+    if str(eid) in EVENT_KEY_OVERRIDES_BY_ID:
+        return EVENT_KEY_OVERRIDES_BY_ID[str(eid)]
+
+    year_slug = str(year or "unknown")[:4]
+    series_slug, place_policy = canonical_series_slug(event_name)
+    place_slug = clean_place_token(city)
+
+    base = f"{year_slug}_{series_slug}"
+
+    if place_policy == "always_city":
+        return f"{base}_{place_slug}" if place_slug else base
+
+    if place_policy in {"never", "series_only"}:
+        return base
+
+    # maybe_city handled later during collision resolution
+    return base
 
 
+# pass 1: generate base candidates
 candidate_to_eids: dict[str, list[str]] = defaultdict(list)
-candidate_map:     dict[str, str]       = {}
+event_meta_for_key: dict[str, tuple[str, str, str, str, str]] = {}  # (year, name, city, country, date)
+candidate_map: dict[str, str] = {}
 
 for row in stage2_rows:
-    eid  = row["event_id"]
-    year = row["year"] or "unknown-year"
+    eid = str(row["event_id"])
+    year = row["year"] or "unknown"
     city, _region, country = parse_location(row.get("location", "") or "")
-    candidate = make_candidate_event_key(year, row.get("event_name", ""), city, country)
+    event_name = EVENT_NAME_OVERRIDES.get(eid, row.get("event_name", "") or "")
+    date = str(row.get("date", "") or "")
+
+    candidate = make_candidate_event_key(eid, year, event_name, city, country)
     candidate_map[eid] = candidate
     candidate_to_eids[candidate].append(eid)
+    event_meta_for_key[eid] = (str(year), event_name, city, country, date)
 
+
+# pass 2: resolve collisions
 event_key_map: dict[str, str] = {}
+
 for candidate, eids in candidate_to_eids.items():
     if len(eids) == 1:
         event_key_map[eids[0]] = candidate
-    else:
-        for eid in eids:
-            event_key_map[eid] = f"{candidate}-{eid}"
+        continue
+
+    # only maybe_city events should get a city added here
+    with_city = {}
+    city_counts = Counter()
+
+    for eid in eids:
+        year, event_name, city, country, _date = event_meta_for_key[eid]
+        series_slug, place_policy = canonical_series_slug(event_name)
+        place_slug = clean_place_token(city)
+
+        # default: keep candidate as-is
+        city_key = candidate
+
+        # only maybe_city events should get a city added here
+        if place_policy == "maybe_city" and place_slug:
+            if not candidate.endswith(f"_{place_slug}"):
+                city_key = f"{candidate}_{place_slug}"
+
+        with_city[eid] = city_key
+        city_counts[city_key] += 1
+
+    unresolved = []
+    for eid in eids:
+        ck = with_city[eid]
+        if city_counts[ck] == 1:
+            event_key_map[eid] = ck
+        else:
+            unresolved.append(eid)
+
+    # final fallback: assign deterministic ordinal suffixes (_2, _3, …)
+    # instead of appending the raw legacy_event_id.
+    # Group the remaining unresolved eids by their city_key, then sort each
+    # group deterministically: (date_str, event_name_lower, eid) so that
+    # assignment is stable across rebuilds without exposing legacy IDs.
+    unresolved_by_ck: dict[str, list[str]] = defaultdict(list)
+    for eid in unresolved:
+        unresolved_by_ck[with_city[eid]].append(eid)
+
+    for ck, ck_eids in unresolved_by_ck.items():
+        ck_eids_sorted = sorted(
+            ck_eids,
+            key=lambda e: (
+                event_meta_for_key[e][4] or event_meta_for_key[e][0],  # date else year
+                event_meta_for_key[e][1].lower(),                       # event_name
+                e,                                                       # eid tie-break
+            ),
+        )
+        for idx, eid in enumerate(ck_eids_sorted):
+            # first event keeps the base key; subsequent events get _2, _3, …
+            event_key_map[eid] = ck if idx == 0 else f"{ck}_{idx + 1}"
 
 collisions = sum(1 for eids in candidate_to_eids.values() if len(eids) > 1)
+ordinal_fallbacks = sum(
+    1 for eid, key in event_key_map.items()
+    if key.rsplit("_", 1)[-1].isdigit() and not str(eid).endswith(key.rsplit("_", 1)[-1])
+)
 if collisions:
-    print(f"  NOTE: {collisions} event-key collision group(s) disambiguated with legacy_event_id suffix")
+    print(f"  NOTE: {collisions} event-key collision group(s) resolved with city and/or ordinal suffix (_2, _3, …)")
+    print(f"  NOTE: {ordinal_fallbacks} event(s) received an ordinal suffix")
+
+# ── Sanity audit for generated event_key values ───────────────────────────────
+
+def sanity_bucket(event_key: str) -> str:
+    if "_worlds_" in event_key or event_key.endswith("_worlds"):
+        return "worlds"
+    if "_usopen_" in event_key or event_key.endswith("_usopen"):
+        return "usopen"
+    if "_eurochamp_" in event_key or event_key.endswith("_eurochamp"):
+        return "eurochamp"
+    if "_funtastic" in event_key:
+        return "funtastic"
+    if "_beaver_open" in event_key:
+        return "beaver_open"
+    if "_heartoffootbag" in event_key:
+        return "heartoffootbag"
+    if "_eastregion" in event_key:
+        return "eastregion"
+    if "_westregion" in event_key:
+        return "westregion"
+    if "_mountainregion" in event_key:
+        return "mountainregion"
+    return "other"
+
+print("  Event-key sanity audit:")
+
+# show a few representative examples by bucket
+bucketed = defaultdict(list)
+for eid, ek in event_key_map.items():
+    bucketed[sanity_bucket(ek)].append((eid, ek))
+
+for bucket in [
+    "worlds", "usopen", "eurochamp",
+    "funtastic", "beaver_open", "heartoffootbag",
+    "eastregion", "westregion", "mountainregion",
+    "other"
+]:
+    items = bucketed.get(bucket, [])
+    if not items:
+        continue
+    print(f"    {bucket}: {len(items)}")
+    for eid, ek in sorted(items)[:5]:
+        print(f"      {eid} -> {ek}")
+
+# lightweight warnings
+bad_prefix = [ek for ek in event_key_map.values() if not re.fullmatch(r"event_\d{4}_[a-z0-9_]+", ek)]
+if bad_prefix:
+    print(f"  WARN: {len(bad_prefix)} event_key values do not match expected pattern event_<year>_<slug>[_<place>]")
+    for ek in bad_prefix[:10]:
+        print(f"    bad pattern: {ek}")
+
+too_long = [ek for ek in event_key_map.values() if len(ek) > 48]
+if too_long:
+    print(f"  WARN: {len(too_long)} event_key values exceed 48 chars (consider adding overrides)")
+    for ek in too_long[:10]:
+        print(f"    long: {ek}")
+
+legacy_suffix = [ek for ek in event_key_map.values() if re.search(r"_\d{6,}$", ek)]
+if legacy_suffix:
+    print(f"  NOTE: {len(legacy_suffix)} event_key values required legacy_event_id suffix fallback")
+    for ek in legacy_suffix[:10]:
+        print(f"    fallback: {ek}")
+
+print("  Recurring-series spot check:")
+for eid, ek in sorted(event_key_map.items()):
+    if any(tag in ek for tag in ["_worlds", "_usopen", "_eurochamp", "_eastregion", "_westregion", "_mountainregion", "_finnish"]):
+        print(f"    {eid} -> {ek}")
 
 
 # ── Load PBP — authoritative source for participant/discipline data ────────────
@@ -446,10 +738,10 @@ sorted_rows = sorted(
 )
 
 for row in sorted_rows:
-    eid        = row["event_id"]
+    eid        = str(row["event_id"])
     event_key  = event_key_map[eid]
     year       = row["year"] or ""
-    event_name = row["event_name"] or ""
+    event_name = EVENT_NAME_OVERRIDES.get(eid, row.get("event_name", "") or "")
     start_date, end_date = parse_date_range(row.get("date", "") or "")
 
     # Location: curated events_normalized → fall back to stage2 parse
@@ -798,20 +1090,22 @@ if _bap_csv.exists():
                 }
 print(f"  {len(_bap_by_pid):,} BAP members matched")
 
-# Load FBHOF
+# Load FBHOF — from inputs/hof.csv (has induction_year + explicit person_id mapping)
 print("Loading FBHOF data...")
 _fbhof_by_pid: dict[str, dict] = {}
-_fbhof_csv = ROOT / "inputs" / "fbhof_data_updated.csv"
+_fbhof_csv = ROOT / "inputs" / "hof.csv"
 if _fbhof_csv.exists():
     with open(_fbhof_csv, newline="", encoding="utf-8") as _f:
         for _row in csv.DictReader(_f):
-            _raw = _row.get("name", "").strip()
-            _yr  = _row.get("year_inducted", "").strip()
-            _pid = _match_honor(_raw)
+            _raw   = _row.get("full_name", "").strip()
+            _yr    = _row.get("induction_year", "").strip()
+            _pid_direct = _row.get("person_id", "").strip()
+            # Prefer the explicit person_id column; fall back to name matching
+            _pid = _pid_direct or _match_honor(_raw)
             if _pid:
                 _fbhof_by_pid[_pid] = {
                     "fbhof_member": 1,
-                    "fbhof_induction_year": _yr if _yr.lower() != "unknown" else "",
+                    "fbhof_induction_year": _yr if _yr else "",
                 }
 print(f"  {len(_fbhof_by_pid):,} FBHOF members matched")
 

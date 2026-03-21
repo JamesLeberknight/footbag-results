@@ -17,7 +17,7 @@ New PLAYER SUMMARY columns (appended after existing core columns):
 Derivation:
   years_active      ← min/max year in Placements_Flat per person
   honors_bap        ← bap_data_updated.csv  →  "BAP #N (YYYY)"
-  honors_fbhof      ← fbhof_data_updated.csv →  "FBHOF YYYY" or "FBHOF"
+  honors_fbhof      ← hof.csv  →  "FBHOF YYYY" or "FBHOF"
   freestyle_chains  ← player_difficulty_profiles.csv  chains_total
   max_sequence_add  ← player_difficulty_profiles.csv  max_sequence_add
   distinct_tricks   ← player_difficulty_profiles.csv  n_distinct_tricks
@@ -51,7 +51,7 @@ EVENTS_CSV       = os.path.join(BASE_DIR, "inputs", "events_normalized.csv")
 QUARANTINE_CSV   = os.path.join(BASE_DIR, "inputs", "review_quarantine_events.csv")
 
 BAP_CSV          = os.path.join(BASE_DIR, "inputs", "bap_data_updated.csv")
-FBHOF_CSV        = os.path.join(BASE_DIR, "inputs", "fbhof_data_updated.csv")
+FBHOF_CSV        = os.path.join(BASE_DIR, "inputs", "hof.csv")
 MEMBER_IDS_CSV   = os.path.join(BASE_DIR, "out", "member_id_enrichment", "member_id_assignments.csv")
 
 DIFFICULTY_CSV   = os.path.join(BASE_DIR, "out", "noise_aggregates", "player_difficulty_profiles.csv")
@@ -103,10 +103,14 @@ _HONOR_OVERRIDES: dict[str, str] = {
     "vasek klouda":             "Václav Klouda",
     "vaclav (vasek) klouda":    "Václav Klouda",
     "tina aberli":              "Tina Aeberli",
-    "eli piltz":                "Eliott Piltz Galán",
-    "eliott piltz galan":       "Eliott Piltz Galán",
-    "evanne lamarch":           "Evanne Lemarche",
-    "evanne lamarche":          "Evanne Lemarche",
+    "eli piltz":                "Eliot Piltz Galán",
+    "eliot piltz galan":        "Eliot Piltz Galán",
+    "eliott piltz galan":       "Eliot Piltz Galán",
+    "eliot galan":              "Eliot Piltz Galán",
+    "eliott galan":             "Eliot Piltz Galán",
+    "evanne lamarch":           "Evanne LaMarche",
+    "evanne lamarche":          "Evanne LaMarche",
+    "evanne lemarche":          "Evanne LaMarche",
     "arek dzudzinski":          "Arkadiusz Dudzinski",
     "martin cote":              "Martin Côté",
     "sebastien duchesne":       "Sébastien Duchesne",
@@ -134,8 +138,8 @@ _HONOR_OVERRIDES: dict[str, str] = {
     "lori jean conover":        "Lori Jean Conover",
     "jody badger welch":        "Jody Badger Welch",
     "genevieve bousquet":       "Geneviève Bousquet",
-    "becca english":            "Becca English",
-    "becca english-ross":       "Becca English",
+    "becca english":            "Becca English-Ross",
+    "becca english-ross":       "Becca English-Ross",
     "pt lovern":                "P.T. Lovern",
     "p.t. lovern":              "P.T. Lovern",
     "kendall kic":              "Kendall KIC",
@@ -145,6 +149,19 @@ _HONOR_OVERRIDES: dict[str, str] = {
     "florian gotze":            "Florian Götze",
     "grischa tellenbach":       "Grischa Tellenbach",
     "chantelle laurent":        "Chantelle Laurent",
+    # BAP name variants → PT canonical
+    "gordon scott bevier":      "Gordon Bevier",
+    "dave holton":              "David Holton",
+    "bryan fournier":           "Brian Fournier",
+    "olav piwowar":             "Olaf Piwowar",
+    "jindra smola":             "Jindrich Smola",
+    "rene ruhr":                "Rene Ruehr",
+    "nick polini":              "Nick Pollini",
+    "rafa kaleta":              "Rafal Kaleta",   # ł strips in norm()
+    "rafal kaleta":             "Rafal Kaleta",
+    "phillip morrison":         "Philip Morrison",
+    "johnny murphy":            "Jonathan Murphy",
+    "johnathon murphy":         "Jonathan Murphy",
 }
 
 
@@ -305,17 +322,25 @@ def load_bap(canon_by_norm: dict[str, str]) -> dict[str, dict]:
     return result
 
 
-def load_fbhof(canon_by_norm: dict[str, str]) -> dict[str, dict]:
+def load_fbhof(canon_by_norm: dict[str, str],
+               pid_to_canon: dict[str, str] | None = None) -> dict[str, dict]:
     """
     Returns {person_canon: {year_inducted}}
-    year_inducted may be "unknown".
+    Reads from inputs/hof.csv (full_name, induction_year, person_id columns).
+    Uses explicit person_id when available; falls back to name matching.
     """
     rows = load_csv(FBHOF_CSV)
     result: dict[str, dict] = {}
+    pid_map = pid_to_canon or {}
     for row in rows:
-        raw  = row.get("name", "").strip()
-        year = row.get("year_inducted", "").strip()
-        pc   = match_honor_name(raw, canon_by_norm)
+        raw  = row.get("full_name", "").strip()
+        year = row.get("induction_year", "").strip()
+        pid  = row.get("person_id", "").strip()
+        # Prefer direct person_id → canon lookup
+        if pid and pid in pid_map:
+            pc = pid_map[pid]
+        else:
+            pc = match_honor_name(raw, canon_by_norm)
         if pc:
             result[pc] = {"year_inducted": year, "raw_name": raw}
         else:
@@ -386,7 +411,9 @@ def _section(ws, row: int, text: str) -> int:
 
 # ── README sheet ──────────────────────────────────────────────────────────────
 
-def build_readme(wb: Workbook, quarantine_count: int = 0) -> None:
+def build_readme(wb: Workbook, quarantine_count: int = 0,
+                 event_count: int = 0, person_count: int = 0,
+                 placement_count: int = 0) -> None:
     if "README" in wb.sheetnames:
         del wb["README"]
     idx = 0
@@ -401,7 +428,7 @@ def build_readme(wb: Workbook, quarantine_count: int = 0) -> None:
     row += 1
     for line in [
         "This workbook contains historical footbag competition results spanning 1980 to the present.",
-        "Results are sourced from Footbag.org and Footbag World magazine archives (1980–1986, 1990–1991).",
+        "Results are sourced from the Footbag.org archive (1997–present) and Footbag World magazine (pre-1997 Worlds and major events).",
         "Player identities are human-verified. Unresolved names are preserved as-is from the source.",
         f"{quarantine_count} events are quarantined due to parsing ambiguity and excluded from statistics.",
     ]:
@@ -432,13 +459,15 @@ def build_readme(wb: Workbook, quarantine_count: int = 0) -> None:
     _w(ws, row, 1, "Coverage Notes", font=FONT_SECTION, align=ALIGN_LEFT)
     row += 1
     for note in [
-        "790 events documented, 1980–2026.",
-        "3,470 canonically identified players.",
-        "28,667 identity-locked placements.",
-        "Coverage is comprehensive from 1997 onward (primary Footbag.org mirror).",
-        "Pre-1997 data sourced from the Footbag.org mirror and Footbag World magazine archives.",
-        "  • 16 Worlds events (1980–1986, 1990–1991) recovered from magazine; placement data is partial (top finishers only).",
-        "Years 1987–1989 and 1992–1996 have no coverage.",
+        f"{event_count:,} events documented, 1980–2026.",
+        f"{person_count:,} canonically identified players.",
+        f"{placement_count:,} identity-locked placements.",
+        "Coverage is comprehensive from 1997 onward (primary Footbag.org archive).",
+        "Pre-1997 data (51 events) is sourced from the Footbag.org archive and Footbag World magazine.",
+        "  • 1980–1991: major Worlds and championship events; results are partial (top finishers only).",
+        "  • 1992, 1994, 1995: one to two events each, Footbag.org archive only.",
+        "  • 1993 and 1996 have no coverage.",
+        "Pre-1997 events have year-level precision only — specific dates are not available from the source.",
         "FREESTYLE INSIGHTS draws from events that reported trick sequences; coverage is a subset of all events.",
     ]:
         _w(ws, row, 1, "•  " + note, font=FONT_DATA, align=ALIGN_LEFT)
@@ -630,7 +659,7 @@ def build_player_summary(wb: Workbook,
         bap_nick    = bap_map[pc].get("nickname") if pc in bap_map else None
 
         values = [
-            pc,
+            _fix_encoding(pc),
             bap_nick,
             stats.get("wins"),
             stats.get("podiums"),
@@ -834,6 +863,26 @@ def build_freestyle_insights(wb: Workbook) -> None:
             _c(row, col, h, header=True)
         return row + 1
 
+    def _narrative(row: int, text: str, *, italic: bool = False) -> int:
+        """Write a full-width wrapped narrative paragraph."""
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=6)
+        cell = ws.cell(row=row, column=1)
+        cell.value = text
+        cell.font = Font(italic=italic, size=10, color="333333")
+        cell.alignment = Alignment(wrap_text=True, vertical="top", horizontal="left")
+        lines = max(2, len(text) // 90 + 1)
+        ws.row_dimensions[row].height = max(28, lines * 14)
+        return row + 1
+
+    def _section(row: int, text: str, *, color: str = "1F3864") -> int:
+        """Write a bold section heading."""
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=6)
+        cell = ws.cell(row=row, column=1)
+        cell.value = text
+        cell.font = Font(bold=True, size=12, color=color)
+        cell.alignment = Alignment(horizontal="left", vertical="top")
+        return row + 1
+
     # Column layout (shared across all stacked tables):
     #  A(1)=5   rank / era
     #  B(2)=28  trick / player / transition / era label
@@ -906,6 +955,17 @@ def build_freestyle_insights(wb: Workbook) -> None:
         _c(row, 5, _int(r, "n_players"))
         _c(row, 6, _int(r, "n_events"))
         row += 1
+    row += 1
+    row = _narrative(row,
+        "From a network perspective, freestyle sequences exhibit a clear directional structure. "
+        "Blurry whirl functions as the primary launch node, initiating high-difficulty sequences, "
+        "while whirl serves as the dominant attractor, acting as the most common resolution point. "
+        "This creates a highly asymmetric flow pattern in which sequences tend to begin with "
+        "high-complexity rotational entries and resolve into more stable, clipper-based terminations.")
+    row = _narrative(row,
+        "The most common two-trick structure — blurry whirl \u2192 whirl — represents an optimal "
+        "difficulty architecture, combining a high-ADD entry (5 ADD) with a stable resolution "
+        "(3 ADD), balancing risk and control.")
     row += 1
 
     # ═══════════════════════════════════════════════════════════════════════════
@@ -992,10 +1052,41 @@ def build_freestyle_insights(wb: Workbook) -> None:
         _c(row, 4, avg_add)
         row += 1
     row += 1
+    row = _narrative(row,
+        "This plateau suggests that freestyle did not continue to increase in raw technical "
+        "difficulty after the mid-2000s. Instead, progress shifted toward consistency, execution "
+        "quality, and the number of players capable of reaching the established ceiling, indicating "
+        "a transition from technical expansion to competitive depth.")
+    row = _narrative(row,
+        "In this mature phase, innovation occurs primarily through recombination of existing "
+        "components, rather than the introduction of fundamentally new trick structures.")
+    row += 1
+    row = _section(row, "European Dominance")
+    row = _narrative(row,
+        "The concentration of both podium finishes and high-difficulty sequence data among "
+        "European players indicates that the competitive center of freestyle shifted geographically "
+        "during this period. While early innovation was driven largely by North American players, "
+        "the post-2005 era is characterized by European dominance in both performance and "
+        "participation density.")
+    row += 1
 
     # ═══════════════════════════════════════════════════════════════════════════
     # TABLE 7: ADD Composition Examples
     # ═══════════════════════════════════════════════════════════════════════════
+    row = _section(row, "ADD System")
+    row = _narrative(row,
+        "Modifiers represent additional body mechanics layered onto base tricks — including "
+        "rotations (spinning, blurry), dexterities, and positional constraints (ducking, "
+        "symposium, paradox, atomic). These increase not only nominal ADD value but also the "
+        "timing precision, spatial coordination, and execution risk required within a single "
+        "set cycle. Difficulty therefore scales not linearly, but through the interaction of "
+        "multiple simultaneous constraints on body motion and control.")
+    row = _narrative(row,
+        "Some informal modifiers (e.g., quantum) have been proposed within the community but "
+        "were never standardized within the ADD system. As such, they are excluded from this "
+        "analysis to maintain consistency across the dataset.",
+        italic=True)
+    row += 1
     row = _title(row, "ADD Composition Examples")
     row = _hdr(row, (2, "Trick"), (3, "ADD"), (4, "Notes"))
     for trick, add, note in [
@@ -1010,6 +1101,47 @@ def build_freestyle_insights(wb: Workbook) -> None:
         _c(row, 3, add)
         _c(row, 4, note)
         row += 1
+    row += 1
+
+    # ═══════════════════════════════════════════════════════════════════════════
+    # SECTION: Limits of Freestyle Difficulty
+    # ═══════════════════════════════════════════════════════════════════════════
+    row = _section(row, "Limits of Freestyle Difficulty")
+    row = _narrative(row,
+        "Despite the theoretical openness of the ADD system, the dataset shows no sustained "
+        "increase in single-trick difficulty beyond 6 ADD. This suggests a practical ceiling "
+        "imposed by human biomechanics rather than scoring rules.")
+    row += 1
+    for bullet in [
+        "finite airtime within a single set",
+        "constraints on rotational speed and body positioning",
+        "increasing coordination complexity with stacked modifiers",
+        "the requirement for controlled stall completion",
+    ]:
+        ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=6)
+        cell = ws.cell(row=row, column=1)
+        cell.value = "\u2022  " + bullet
+        cell.font = Font(size=10, color="333333")
+        cell.alignment = Alignment(horizontal="left", vertical="top", indent=2)
+        row += 1
+    row += 1
+    row = _narrative(row,
+        "While higher ADD values (7+) may be theoretically possible, they appear to be extremely "
+        "rare and not reproducible in competitive conditions. The observed plateau therefore "
+        "reflects a physical boundary on achievable complexity.")
+    row += 1
+
+    # ═══════════════════════════════════════════════════════════════════════════
+    # CONCLUSION
+    # ═══════════════════════════════════════════════════════════════════════════
+    row = _section(row, "Conclusion")
+    row = _narrative(row,
+        "Freestyle footbag evolved through two distinct phases: an early period of rapid "
+        "innovation in which the core vocabulary was established, followed by a mature phase "
+        "in which that vocabulary was fully exploited. The stabilization of difficulty, combined "
+        "with increasing competitive depth and a geographic shift toward Europe, indicates that "
+        "the sport has reached a state of structural completeness, where progress is defined not "
+        "by new elements, but by the refinement and recombination of existing ones.")
 
     ws.freeze_panes = "A2"
     print(f"  FREESTYLE INSIGHTS sheet written ({row - 1} rows)")
@@ -1039,7 +1171,7 @@ def _floatv(r: dict, key: str) -> float | None:
 
 QUARANTINE_CSV_FULL = os.path.join(BASE_DIR, "inputs", "review_quarantine_events.csv")
 
-def build_data_notes(wb: Workbook) -> None:
+def build_data_notes(wb: Workbook, fffd_count: int = 0, quarantine_count: int = 0) -> None:
     """Build DATA NOTES sheet natively from known_issues.csv and review_quarantine_events.csv."""
     if "DATA NOTES" in wb.sheetnames:
         idx = wb.sheetnames.index("DATA NOTES")
@@ -1116,36 +1248,42 @@ def build_data_notes(wb: Workbook) -> None:
     title("Data Notes — Source Limitations and Data Quality")
 
     section("Source Coverage")
-    body("This dataset is reconstructed primarily from the Footbag.org website archive. "
-         "Coverage is comprehensive from 1997 onward. Earlier periods are partial.")
-    kv("1980–1986", "Partial — top-3 finishers only for most divisions (NHSA World Championships).")
-    kv("1987–1989", "No coverage — no archival source available.")
-    kv("1990–1991", "Partial — limited results from early WFPA records.")
-    kv("1992–1996", "No coverage — pre-Footbag.org era with no digital archive.")
-    kv("1997–2025", "Comprehensive — sourced from the Footbag.org mirror. "
+    body("This dataset is reconstructed from two primary sources: the Footbag.org website archive "
+         "(1997–present, comprehensive) and Footbag World magazine scans (pre-1997 Worlds and major "
+         "championship events). Coverage from 1997 onward is comprehensive. Earlier periods are partial.")
+    kv("1980–1986", "Partial — 5 to 10 events per year, primarily Worlds and regional championships. "
+                    "Results sourced from Footbag World magazine and the Footbag.org archive. "
+                    "Standings are typically top finishers only; complete fields are rarely available.")
+    kv("1987–1991", "Partial — limited to major events (Worlds, European Championships, major regional). "
+                    "1990–1991 results supplemented from Footbag World magazine.")
+    kv("1992–1996", "Sparse — 1992, 1994, and 1995 each have one or two events from the Footbag.org "
+                    "archive. 1993 and 1996 have no coverage.")
+    kv("1997–2025", "Comprehensive — sourced from the Footbag.org archive. "
                     "Some events have partial standings (see Known-Issue Events below).")
     kv("2026",      "Included — season in progress at time of publication.")
 
     section("Data Quality Limitations")
     body("Player statistics (wins, podiums, placements) are computed from this incomplete record. "
          "Treat all career counts as lower bounds — they reflect documented results only.")
-    kv("Missing dates",          "Approximately 13 events have no date in the source. "
-                                  "They are placed in their correct year.")
+    kv("Missing dates",          "47 pre-1997 events have year-level precision only — specific month/day "
+                                  "dates are not available from the source. These events are placed in "
+                                  "their correct year. Events from 1997 onward have full dates.")
     kv("Host club coverage",     "Host club information is absent for many events. "
                                   "Only events where it appeared in the original source are populated.")
     kv("Location normalization", "Locations are standardised to City, Region, Country format. "
                                   "Some remote or rural events have approximate locations.")
-    kv("Character encoding",     "99 U+FFFD replacement characters appear in player names where the "
-                                  "original HTML archive suffered encoding loss (primarily accented "
-                                  "characters in French, Finnish, German, Polish, and Czech names). "
-                                  "These cannot be recovered without the original source pages.")
+    kv("Character encoding",     f"{fffd_count} U+FFFD replacement characters were present in the "
+                                  "source data (primarily accented characters in French, Finnish, "
+                                  "German, Polish, and Czech names from HTML archive encoding loss). "
+                                  "Best-effort repair is applied at display time; residual cases "
+                                  "cannot be recovered without the original source pages.")
     kv("Division merging",       "Some events combined Open and Intermediate divisions, or pool + "
                                   "final standings, under a single heading on Footbag.org. These are "
                                   "preserved as-is; the merged division name is documented in the "
                                   "Event Index sheet.")
     kv("Partial standings",      "For some events the source only published top-3 or top-5 finishers. "
                                   "These are marked 'partial' in the Event Index.")
-    kv("Quarantined events",     "21 events have structural issues (complex competition formats, "
+    kv("Quarantined events",     f"{quarantine_count} events have structural issues (complex competition formats, "
                                   "duplicate results, or irreconcilable source data) that make "
                                   "deterministic parsing impossible. They appear in the Event Index "
                                   "highlighted in red but are excluded from all statistics.")
@@ -1419,13 +1557,27 @@ def load_events_for_year_sheets() -> dict:
             loc = country
         else:
             loc = ""
+        def _iso_to_dmy(x: str) -> str:
+            """
+            Convert ISO date (YYYY-MM-DD) → DD/MM/YYYY.
+            Leaves non-ISO inputs unchanged.
+            """
+            if not x:
+                return x
+            x = str(x).strip()
+            m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", x)
+            if not m:
+                return x
+            y, mo, d = m.groups()
+            return f"{d}/{mo}/{y}"
+
         # Date: prefer start_date, fall back to year
         start = r.get("start_date", "").strip()
         end   = r.get("end_date", "").strip()
         if start and end and end != start:
-            date_str = f"{start} – {end}"
+            date_str = f"{_iso_to_dmy(start)} – {_iso_to_dmy(end)}"
         elif start:
-            date_str = start
+            date_str = _iso_to_dmy(start)
         else:
             date_str = r.get("year", "").strip()
         result[eid] = {
@@ -1453,7 +1605,8 @@ def load_quarantine_set() -> set:
     return qs
 
 
-def build_placements_for_year_sheets(pf_rows: list[dict]) -> dict:
+def build_placements_for_year_sheets(pf_rows: list[dict],
+                                     canon_by_norm: dict[str, str] | None = None) -> dict:
     """
     Returns dict: event_id → {division_canon: [(place_int, display_name, category)]}.
 
@@ -1516,7 +1669,10 @@ def build_placements_for_year_sheets(pf_rows: list[dict]) -> dict:
                 else:
                     display = person
 
-                entries.append((place_int, _fix_display(display), cat))
+                fixed = _fix_display(display)
+                if canon_by_norm:
+                    fixed = _canonicalize_display(fixed, canon_by_norm)
+                entries.append((place_int, fixed, cat))
 
             if entries:
                 div_result[dc] = entries
@@ -1530,15 +1686,77 @@ def build_placements_for_year_sheets(pf_rows: list[dict]) -> dict:
 _EMPTY_PARTNER = re.compile(r'\s*/\s*\(\)|\(\)\s*/\s*')
 
 
+_ISO2_MAP = {
+    "\u00b9": "\u0161",   # ¹ → š
+    "\u00b8": "\u017e",   # ¸ → ž
+    "\u00a6": "\u015a",   # ¦ → Ś
+    "\u00bf": "\u017c",   # ¿ → ż
+    "\u00bc": "\u017a",   # ¼ → ź
+    "\u00e8": "\u010d",   # è → č
+    "\u00f2": "\u0142",   # ò → ł
+    "\u00b6": "\u015b",   # ¶ → ś
+}
+_RE_FFFD_UC   = re.compile(r"\ufffd([A-Z])")
+_RE_QS_APOS   = re.compile(r"\b(\w+)\?([Ss])\b")
+_RE_MOJI_Q    = re.compile(r"Ï(.+?)Ó")
+
+
+def _fix_encoding(s: str) -> str:
+    """Best-effort repair of known encoding corruptions in display strings."""
+    # ISO-8859-2 bytes misread as Latin-1
+    for bad, good in _ISO2_MAP.items():
+        s = s.replace(bad, good)
+    # Mojibake smart-quotes: ÏwordÓ → "word"
+    s = _RE_MOJI_Q.sub(lambda m: f'"{m.group(1)}"', s)
+    # Women?s → Women's
+    s = _RE_QS_APOS.sub(lambda m: m.group(1) + "'" + m.group(2).lower(), s)
+    # U+FFFD before uppercase: FranÿCois → François (best-effort lowercase)
+    s = _RE_FFFD_UC.sub(lambda m: m.group(1).lower(), s)
+    # Strip remaining replacement chars
+    s = s.replace("\ufffd", "")
+    return s
+
+
 def _fix_display(s: str) -> str:
     """
     Normalise a year-sheet display name for readability.
 
-    1. Title-case tokens that are entirely uppercase (e.g. "ANIBAL MONTES" →
+    1. Repair known encoding corruptions (ISO-8859-2, U+FFFD, QS_APOS, mojibake).
+    2. Title-case tokens that are entirely uppercase (e.g. "ANIBAL MONTES" →
        "Anibal Montes").  Mixed-case tokens are left untouched.
-    2. Strip "()" empty-partner placeholders (e.g. "Leanne Makcrow / ()" →
+    3. Strip "()" empty-partner placeholders (e.g. "Leanne Makcrow / ()" →
        "Leanne Makcrow").
     """
+    # Encoding repair first
+    s = _fix_encoding(s)
+
+    # Team separator normalisation for display strings:
+    #   "Kiss + Gyáni" → "Kiss / Gyáni"
+    # Accept variable whitespace (and NBSP) around "+".
+    s = s.replace("\u00a0", " ")
+
+    # Handle "?" as a team separator used in some legacy French sources
+    # E.g., "Team S. Thomas Sustrac ? Robinson Sustrac"
+    # Strip "Team " prefix and replace " ? " with " / "
+    if " ? " in s and " / " not in s:
+        s = re.sub(r"^Team\s+", "", s, flags=re.IGNORECASE)
+        s = s.replace(" ? ", " / ")
+
+    # Handle "First Last (STATE) First Last" unsplit doubles pair
+    # E.g., "Jim Fitzgerald (OR) Adam Hutchinson" → "Jim Fitzgerald / Adam Hutchinson"
+    # Guard: left side must have ≥2 words so "Paul (PT) Lovern" (nickname) is not split.
+    if " / " not in s:
+        _m = re.search(r"^(.+?)\s+\([A-Z]{2,3}\)\s+(.+)$", s)
+        if _m and len(_m.group(1).split()) >= 2:
+            s = f"{_m.group(1).strip()} / {_m.group(2).strip()}"
+
+    # Only convert "+" as team separator when the string does NOT already have
+    # a " / " separator.  If " / " is present, the "+" is part of a player's
+    # display name (e.g. "Michi+mr. Germany GER / [UNKNOWN PARTNER]") and must
+    # not be split again.
+    if " / " not in s:
+        s = re.sub(r"(\S)\s*\+\s*(\S)", r"\1 / \2", s)
+
     # Strip empty-partner placeholder
     s = _EMPTY_PARTNER.sub("", s).strip().rstrip("/").strip()
 
@@ -1557,6 +1775,26 @@ def _fix_display(s: str) -> str:
                 fixed_words.append(w)
         fixed_parts.append(" ".join(fixed_words))
     return " / ".join(fixed_parts)
+
+
+def _canonicalize_display(s: str, canon_by_norm: dict[str, str]) -> str:
+    """
+    Resolve each "/" -separated segment of a display name against Persons_Truth.
+
+    For each segment: normalize via _norm(), look up in canon_by_norm.
+    If found, replace with the canonical PT name.  Otherwise leave unchanged.
+    This fixes casing variants like "david Butcher" → "David Butcher" without
+    any hardcoded names or naive title-casing.
+    """
+    parts = s.split(" / ")
+    out = []
+    for part in parts:
+        key = _norm(part)
+        if key and key in canon_by_norm:
+            out.append(canon_by_norm[key])
+        else:
+            out.append(part)
+    return " / ".join(out)
 
 
 def _yr_c(ws, row: int, col: int, value=None, *,
@@ -1658,9 +1896,12 @@ def _write_year_event_col(ws, col: int, ev: dict, placements: dict,
             max_w = max(max_w, len(div_name) + 2)
             row += 1
 
+            _tie_places = {p for p, cnt in Counter(e[0] for e in entries).items() if cnt > 1}
+
             for place_int, display, _ in entries:
                 medal = _YR_MEDALS.get(place_int, "")
-                text  = f"{medal} {place_int:>3}  {display}" if medal else f"    {place_int:>3}  {display}"
+                _t = "T" if place_int in _tie_places else " "
+                text  = f"{medal} {place_int:>3}{_t} {display}" if medal else f"    {place_int:>3}{_t} {display}"
 
                 if place_int == 1:
                     fill, font = _YR_FILL_GOLD,   _YR_FONT_PODIUM
@@ -1681,7 +1922,8 @@ def _write_year_event_col(ws, col: int, ev: dict, placements: dict,
 
 
 def build_all_year_sheets(wb: Workbook, pf_rows: list[dict],
-                           events: dict, quarantine_set: set) -> tuple[dict, dict]:
+                           events: dict, quarantine_set: set,
+                           canon_by_norm: dict[str, str] | None = None) -> tuple[dict, dict]:
     """
     Build all year sheets directly from Placements_Flat.
     Quarantined events are included and marked with ⛔.
@@ -1690,7 +1932,7 @@ def build_all_year_sheets(wb: Workbook, pf_rows: list[dict],
       placements_by_event: {event_id: {division: [(place, display, cat)]}}
     """
     print("\nBuilding year sheets from canonical data...")
-    placements_by_event = build_placements_for_year_sheets(pf_rows)
+    placements_by_event = build_placements_for_year_sheets(pf_rows, canon_by_norm)
 
     # Group events by year — include quarantined events even if no placements
     year_to_eids: dict = defaultdict(list)
@@ -1940,11 +2182,24 @@ def main():
     out_wb.remove(out_wb.active)
 
     # Build front sheets in order
+    # Compute dynamic stats for README / DATA NOTES
+    _event_count     = len(yr_events)
+    _person_count    = sum(1 for r in pt_rows if is_real_person(r))
+    _placement_count = len(pf_rows)
+    _fffd_count      = sum(
+        v.count("\ufffd")
+        for r in pf_rows
+        for v in r.values()
+        if isinstance(v, str)
+    )
+
     print("\nBuilding README sheet...")
-    build_readme(out_wb, quarantine_count=len(yr_quarantine))
+    build_readme(out_wb, quarantine_count=len(yr_quarantine),
+                 event_count=_event_count, person_count=_person_count,
+                 placement_count=_placement_count)
 
     print("\nBuilding DATA NOTES sheet...")
-    build_data_notes(out_wb)
+    build_data_notes(out_wb, fffd_count=_fffd_count, quarantine_count=len(yr_quarantine))
 
     print("\nBuilding STATISTICS sheet...")
     build_statistics(out_wb, pf_rows, pt_rows)
@@ -1960,7 +2215,7 @@ def main():
 
     # Build all year sheets directly from Placements_Flat (includes quarantined events)
     event_col_map, placements_by_event = build_all_year_sheets(
-        out_wb, pf_rows, yr_events, yr_quarantine
+        out_wb, pf_rows, yr_events, yr_quarantine, canon_by_norm
     )
 
     # Build EVENT INDEX natively (must come after year sheets so hyperlinks resolve)

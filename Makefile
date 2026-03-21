@@ -19,16 +19,19 @@ rebuild:
 
 ## Release Mode: identity-locked canonical outputs + workbook
 ## Requires: out/stage2_canonical_events.csv (run 'make rebuild' first)
+## Order matches run_pipeline.sh: 04 → 04B → 05 → 05p5
 release:
 	$(PYTHON) pipeline/01b1_merge_consecutives.py
 	$(PYTHON) pipeline/02p5_player_token_cleanup.py \
-	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v67.csv \
-	  --persons_truth_csv inputs/identity_lock/Persons_Truth_Final_v42.csv \
-	  --out_dir out
+	  --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v78.csv \
+	  --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v44.csv \
+	  --out_dir                      out
+	$(PYTHON) pipeline/02p6_structural_cleanup.py
 	$(PYTHON) pipeline/03_build_excel.py
 	$(PYTHON) pipeline/04_build_analytics.py
-	$(PYTHON) tools/build_final_workbook_v12.py
+	$(PYTHON) tools/build_final_workbook_v13.py
 	$(PYTHON) pipeline/05_export_canonical_csv.py
+	$(PYTHON) pipeline/05p5_remediate_canonical.py
 
 ## QC: master checks + post-release integrity + schema/logic audit
 qc:

@@ -226,6 +226,35 @@ def check_person_integrity(pf: pd.DataFrame, pt: pd.DataFrame) -> int:
             f"{len(contradictory)} row(s) — contradictory sentinel"
         )
 
+    # 1e — Month-name date contamination
+    # A person_canon that is solely a month name (or "of <month>") is a parse
+    # artifact from round-date headers being misread as player placements.
+    # Root case: event 1721817655 "9th january" / "11th of january".
+    _MONTH_RE = re.compile(
+        r"^(of\s+)?(january|february|march|april|may|june|july|august|"
+        r"september|october|november|december)$",
+        re.IGNORECASE,
+    )
+    month_contamination = pf[
+        pf["person_canon"].fillna("").astype(str).str.strip().str.fullmatch(
+            r"(of\s+)?(january|february|march|april|may|june|july|august|"
+            r"september|october|november|december)",
+            case=False,
+        )
+    ]
+    if len(month_contamination) == 0:
+        _ok("No month-name date contamination in person_canon")
+    else:
+        for _, row in month_contamination.iterrows():
+            _error(
+                f"Month-name date fragment as person_canon: "
+                f"{row.get('person_canon', '?')!r} "
+                f"(event {row.get('event_id', '?')}, "
+                f"division {row.get('division_canon', '?')!r}, "
+                f"place {row.get('place', '?')})"
+            )
+            issues += 1
+
     return issues
 
 

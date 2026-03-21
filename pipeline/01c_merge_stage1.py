@@ -3,9 +3,10 @@
 01c_merge_stage1.py
 
 Deterministic, validated merge of Stage 1 raw events from multiple sources:
-- out/stage1_raw_events_mirror.csv (from 01_parse_mirror.py)
-- out/stage1_raw_events_old.csv    (from 01b_import_old_results.py)
-- out/stage1_raw_events_fbw.csv    (from 01b2_merge_FBW_Data.py)
+- out/stage1_raw_events_mirror.csv   (from 01_parse_mirror.py)
+- out/stage1_raw_events_old.csv      (from 01b_import_old_results.py)
+- out/stage1_raw_events_fbw.csv      (from 01b2_merge_FBW_Data.py)
+- out/stage1_raw_events_magazine.csv (from 01d_ingest_magazine_data.py)
 
 Policy:
 - Schema Uniformity: All input headers must match exactly.
@@ -53,7 +54,8 @@ def main():
     input_paths = [
         Path("out/stage1_raw_events_mirror.csv"),
         Path("out/stage1_raw_events_old.csv"),
-        Path("out/stage1_raw_events_fbw.csv") 
+        Path("out/stage1_raw_events_fbw.csv"),
+        Path("out/stage1_raw_events_magazine.csv"),
     ]
 
     all_rows: List[dict] = []
