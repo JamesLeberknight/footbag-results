@@ -97,3 +97,13 @@ early_data/review/debug/
 # !early_data/identity/
 # !early_data/docs/
 # !early_data/out/
+# images (ignore everywhere)
+*.jpg
+*.jpeg
+*.png
+*.tiff
+early_data/preprocessed_pages/
+early_data/raw_pages/
+*.pptx
+# Windows zone identifier junk
+*:Zone.Identifier
