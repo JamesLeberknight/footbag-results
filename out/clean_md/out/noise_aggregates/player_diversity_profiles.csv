@@ -1,0 +1,268 @@
+person_id,person_canon,unique_tricks,total_tricks,diversity_ratio,compound_tricks,modifier_tokens,top_tricks,year_first,year_last
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,30,63,0.476,22,8,legover | whirl | clipper | drifter | mirage,2008,2019
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,22,43,0.512,18,4,whirl | pixie | ducking | fog | blender,2004,2021
+2f3d1d48-2e06-57f0-bca0-5211c668f88f,Julien Appolonio,20,48,0.417,15,5,legover | whirl | ducking | symposium | paradox,2007,2007
+4451a36c-41ca-55ab-87f3-d364b6f485ee,Jan Honza Weber,20,42,0.476,14,6,pixie | swirl | legover | paradox | whirl,2008,2008
+78d0c91f-b1ec-572e-855b-a7d3f706f8b7,Stefan Siegert,19,39,0.487,14,5,swirl | blurry whirl | pixie | whirl | ripwalk,2005,2012
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,18,42,0.429,13,5,swirl | spinning | food processor | torque | whirl,2006,2015
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,16,30,0.533,12,4,torque | whirl | blurry whirl | blender | blurriest,2005,2007
+f52e0fe8-4eff-5532-9af4-14124f1e92ee,Matthias Lino Schmidt,16,17,0.941,11,5,swirl | paradox drifter | paradox | whirl | blurriest,2012,2013
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,14,46,0.304,6,8,swirl | spinning | torque | drifter | atomic,2006,2022
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,12,23,0.522,11,1,blurry whirl | fusion | whirl | eggbeater | torque,2007,2014
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,11,19,0.579,7,4,whirl | spinning | ducking butterfly | drifter | gyro,2004,2009
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,11,13,0.846,9,2,blurry whirl | butterfly | paradox whirl | dimwalk | clipper,2012,2018
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,10,22,0.455,8,2,swirl | fusion | pickup | paradox | whirl,2006,2016
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,10,18,0.556,7,3,ducking butterfly | pixie | legover | fog | blurry whirl,2014,2022
+2eaccb7b-430c-5678-b982-9415b20b24cf,Miquel Clemente,10,17,0.588,8,2,whirl | legover | pixie | drifter | blurry whirl,2008,2008
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,10,16,0.625,4,6,torque | eggbeater | ducking | atomic | mobius,2009,2018
+cb047679-c1ef-5ab8-8944-999ca66d1ea3,CARLOS RAMIREZ,10,14,0.714,8,2,pixie | ripwalk | mirage | eggbeater | barfly,2019,2019
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,10,13,0.769,6,4,fusion | swirl | whirl | fog | blurry whirl,2009,2012
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,9,18,0.5,7,2,drifter | torque | legover | atomic | pickup,2008,2022
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,9,14,0.643,7,2,symposium | dimwalk | mirage | blurry whirl | atomic,2006,2007
+b6e28eb4-9de6-52a6-bde7-4ffaaa488933,Christoph Alexander,9,13,0.692,8,1,dimwalk | butterfly | ducking | mirage | ducking butterfly,2021,2021
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,9,11,0.818,6,3,pixie | torque | stepping | mirage | osis,2007,2007
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,9,10,0.9,6,3,swirl | tomahawk | dimwalk | ripwalk | torque,2008,2014
+d31e8ab0-0924-5e2c-b3f8-560279e37c9a,Franck Rémy,9,10,0.9,7,2,whirl | stepping | eclipse | barfly | osis,2003,2006
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,8,21,0.381,5,3,blender | spinning | whirl | superfly | symposium,2004,2013
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,8,18,0.444,6,2,blurry whirl | food processor | mobius | spinning osis | pixie,2007,2018
+ee569024-9b98-5ae0-8f39-8f0a97d99dfa,Lasse Salmenhaara,8,14,0.571,6,2,blurry whirl | whirl | spinning whirl | pixie | blender,2001,2004
+862e03c6-8d7a-5d53-9571-016904a7b7b2,Gary Yao,8,12,0.667,6,2,ducking | legover | pixie | whirl | spinning butterfly,2021,2021
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,8,12,0.667,3,5,atomic | spinning | blurry whirl | symposium | ducking butterfly,2014,2021
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,8,8,1.0,6,2,blurry whirl | spinning | ducking | osis | dimwalk,2007,2007
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,7,15,0.467,4,3,pixie | swirl | eggbeater | blurry whirl | spinning,2012,2022
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,7,14,0.5,6,1,blurry whirl | ripwalk | whirl | paradox symposium eggbeater | stepping,2005,2007
+8a15006e-bc85-5621-bbe6-66090397b7d2,Przemyslaw Pietrzycki,7,13,0.538,4,3,whirl | torque | pixie | ducking butterfly | stepping,2017,2018
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,7,12,0.583,7,0,ripwalk | blurry whirl | blur | dimwalk | mirage,2006,2014
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,7,11,0.636,5,2,spinning | paradox blender | swirl | blazing | torque,2006,2013
+457cdaa2-3ec3-5aed-b340-708420125d7c,Will Digges,7,11,0.636,5,2,blurry whirl | swirl | blurriest | barraging | mirage,2006,2008
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,7,11,0.636,5,2,pixie | food processor | blurriest | blender | dimwalk,2006,2012
+fa005bba-9079-5b6a-9eec-592016d90f66,Greg Solis,7,10,0.7,7,0,butterfly | dimwalk | osis | swirl | whirl,2008,2008
+dfc35597-39c1-5425-8b94-6e24dbc24696,Cass Taylor,7,9,0.778,6,1,pixie | whirl | paradox whirl | butterfly | smear,2013,2021
+e5ae5d7c-8286-5afd-9fc9-1fd50a059ff2,Sam Potter,7,9,0.778,5,2,paradox torque | fog | butterfly | blazing | blender,2007,2007
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,7,8,0.875,5,2,food processor | paradox blender | torque | superfly | blender,2005,2013
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,7,8,0.875,6,1,mirage | atom smasher | pixie | blurry whirl | torque,2004,2015
+e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,7,8,0.875,5,2,butterfly | pixie | ducking clipper | dimwalk | mirage,2006,2007
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,7,7,1.0,5,2,spinning clipper | spinning whirl | legover | gyro | ducking osis,2013,2014
+2512e04d-9d40-5794-9807-5cbf616df0a6,Gielnicki Damian,7,7,1.0,5,2,spinning | dimwalk | swirl | pixie | blurriest,2007,2007
+62bce1c2-2033-51c8-825d-b43fd478ab82,Répási Csaba,7,7,1.0,6,1,paradox whirl | blurry whirl | spinning | dimwalk | whirl,2004,2004
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,6,11,0.545,4,2,whirl | pixie | blurriest | ducking | symposium whirl,2005,2018
+c29c4aa7-5b1e-54d1-9435-2a45edfd669c,Christopher Schillem,6,11,0.545,3,3,whirl | ducking | fusion | atomic | stepping,2011,2022
+16aae952-d265-5e4d-81b8-5474f6c43802,Jorden Moir,6,10,0.6,3,3,swirl | stepping | superfly | symposium | gyro,2007,2008
+ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,6,10,0.6,4,2,whirl | pixie | swirl | butterfly | drifter,2015,2021
+8fc44a4b-aa33-5106-8cc6-8f2303bf1b0e,Zac Jackson,6,9,0.667,5,1,ripwalk | mirage | pixie | ducking butterfly | paradox mirage,2007,2007
+32577a59-fe63-5834-9b4f-16f930fecfec,DANIEL CADAVID,6,8,0.75,5,1,dimwalk | whirl | spinning osis | osis | clipper,2021,2021
+6afe2e47-df47-5055-bba0-0aa2341d43e0,Max Boucoiran,6,8,0.75,4,2,ducking butterfly | spinning | butterfly | symposium | whirl,2003,2006
+c8aa0d72-fc62-5da2-94ab-b7eabd58ae19,Eric Chang,6,8,0.75,4,2,clipper | butterfly | legover | stepping | ducking,2006,2008
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,6,7,0.857,5,1,pickup | legover | blurriest | blurry whirl | butterfly,2015,2019
+2eb79ea1-9ae9-512a-83bc-3f4a351650f8,Motorov Pavel,6,7,0.857,4,2,blurry whirl | whirl | ducking butterfly | stepping | legover,2009,2009
+3de01059-2378-5f56-910f-08e61f3294a1,Roy Klein,6,7,0.857,4,2,pixie | ducking | legover | mirage | whirl,2015,2015
+4c4087a3-79f1-5d9a-bf12-ab7262d18014,Diego Velazquez,6,7,0.857,4,2,whirl | food processor | pixie | dimwalk | ducking,2012,2021
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,6,7,0.857,5,1,fusion | torque | food processor | eggbeater | atomic,2008,2012
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,6,7,0.857,3,3,symposium | eggbeater | atomic | dimwalk | mirage,2007,2007
+700e0ec0-94b9-5de3-b9a9-8d40a3645de3,Patrik Cerny,6,7,0.857,3,3,pixie | ducking | whirl | ducking clipper | spinning,2018,2021
+98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,6,7,0.857,2,4,whirl | spinning | ducking | atomic | swirl,2014,2015
+c1c401e4-2560-5f81-9f5b-8c866a93eb12,Cody Rushing,6,7,0.857,5,1,dimwalk | smear | swirl | blur | pixie,2008,2008
+d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,6,7,0.857,5,1,fog | parkwalk | blur | mirage | gyro,2000,2006
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,6,6,1.0,6,0,dimwalk | drifter | torque | swirl | whirl,2006,2009
+23462c9a-29d4-578f-9cfc-19d9ba086f45,Pavel Cerveny,6,6,1.0,5,1,symposium | flurry | swirl | paradox mirage | blur,2004,2004
+cef01455-9290-53a6-9fab-a9c9dad8fc34,Daryl Canady,6,6,1.0,4,2,ducking mirage | atom smasher | smear | symposium | ducking,2006,2006
+f07b9590-cb35-55ba-8277-3e9c15e177d0,Krystian Bubula,6,6,1.0,4,2,ducking butterfly | ripwalk | whirl | butterfly | symposium,2015,2015
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,5,9,0.556,4,1,food processor | blurry whirl | whirl | spinning | butterfly,2006,2008
+4e7d48ab-1639-5784-bf98-d936a3935489,Gray Chadwick,5,8,0.625,4,1,eggbeater | smear | symposium | ripwalk | blur,2006,2007
+ad54afe3-3f18-5862-87d1-4e02e4fbf9fd,Kevin Crowley,5,7,0.714,4,1,smear | blur | butterfly | pixie | food processor,2004,2007
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,5,7,0.714,4,1,butterfly | pixie | ripwalk | blur | paradox mirage,2001,2003
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,5,6,0.833,5,0,paradox whirl | superfly | spinning clipper | ducking clipper | barfly,2008,2014
+ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,5,6,0.833,4,1,mirage | legover | pixie | butterfly | osis,2005,2005
+ddf2f704-a4d2-5653-a82a-45987d37645c,Krzysztof Sobótka,5,6,0.833,3,2,swirl | pixie | stepping | dimwalk | torque,2011,2011
+162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,5,5,1.0,4,1,parkwalk | pixie | osis | paradox torque | whirl,2006,2007
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,5,5,1.0,5,0,paradox torque | blurry whirl | ducking butterfly | food processor | mobius,2006,2013
+5a81a6d9-0309-5dc5-aaac-38ef59d8d4ac,Cristopher Schillem,5,5,1.0,2,3,eggbeater | symposium | torque | stepping | ducking,2025,2025
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,5,5,1.0,4,1,legover | pixie | ducking osis | ripwalk | torque,2018,2022
+bd9a2c9a-1554-5238-929d-c876342007a3,Danny Petrick,5,5,1.0,4,1,ripwalk | butterfly | legover | pixie | whirl,2006,2006
+eb025239-b9ab-5cef-9307-7639f88a225a,Karim Daouk,5,5,1.0,4,1,food processor | paradox drifter | tomahawk | ducking | drifter,2005,2006
+f3627296-7396-580c-90ac-ad13b76da7b5,Matthew Kemmer,5,5,1.0,3,2,legover | swirl | whirl | gyro | tapping,2018,2019
+2c16c43d-6111-5231-b813-23f20f6ba7a3,Jonathan Schneider,4,12,0.333,4,0,swirl | ripwalk | spinning osis | torque,2002,2008
+82c36f56-236f-4496-826b-cf59a6fcc4ed,Rafal Kaleta,4,7,0.571,2,2,torque | paradox symposium torque | pixie | ducking,2010,2021
+92b231dc-2f96-5ab7-b33e-d9f70ae08d29,Markus Willoughby,4,7,0.571,3,1,blender | paradox | torque | osis,2001,2001
+23c6748c-39f8-5ecd-ae9c-c3d83c0bfec6,Luis Monhollon,4,6,0.667,1,3,paradox torque | spinning | ducking | gyro,2007,2010
+70f7b4f9-e8e3-5a08-b540-0924c68a4b20,Olaf Piwowar,4,6,0.667,4,0,food processor | fusion | torque | whirl,2009,2009
+aae53613-b61c-53cf-99ea-462a4e768430,Christophe Kabache,4,6,0.667,3,1,atom smasher | pixie | dimwalk | pickup,2021,2021
+05e1eec0-b3f1-5728-8ad2-831de4fc204f,Marco Hartig,4,5,0.8,2,2,stepping | paradox torque | pixie | whirl,2016,2025
+10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,4,5,0.8,3,1,superfly | drifter | stepping | mobius,2006,2006
+82d0f2bd-ed68-5ec2-a31d-47889d537613,James Risden,4,5,0.8,3,1,whirl | blurry whirl | eggbeater | pixie,2001,2001
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,4,5,0.8,4,0,barfly | swirl | paradox torque | blurry whirl,2014,2025
+a0bcdd4a-2d77-522f-8f5c-b74c30ade8d2,Thomas Sustrac,4,5,0.8,3,1,whirl | ducking mirage | paradox | blurriest,2007,2007
+fc3cfa03-7ddb-52e1-905b-d60f3b4a3616,Martin Nový,4,5,0.8,2,2,symposium | eggbeater | atomic | swirl,2005,2005
+00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,4,4,1.0,3,1,blurry whirl | butterfly | symposium | swirl,2009,2014
+0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,4,4,1.0,4,0,butterfly | ducking clipper | ripwalk | whirl,2006,2006
+0cddd9e7-73d7-57d8-a99a-1d401206165a,Nathan Bonslaver,4,4,1.0,3,1,blazing | barfly | torque | fog,2019,2019
+10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,4,4,1.0,3,1,eggbeater | blurry whirl | stepping | torque,2003,2015
+1fe9531c-8c55-5926-a2c0-74476e4f5768,Jon Lee,4,4,1.0,3,1,symposium | ripwalk | mirage | blur,2003,2003
+21154756-b8d4-512e-872a-c5b206fac8d3,Marcin Staron,4,4,1.0,4,0,blurriest | barfly | blur | torque,2009,2009
+2425d614-d376-5d98-b7fb-cb445d10792c,Dan Klokow,4,4,1.0,3,1,ducking butterfly | butterfly | pixie | blur,2001,2001
+34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,4,4,1.0,3,1,ripwalk | blurry whirl | mobius | pixie,2008,2009
+38c0f384-29fa-5cd9-b3e7-707e76e7aa9a,Andreas Hoffmann,4,4,1.0,4,0,ducking butterfly | butterfly | dimwalk | ducking osis,2009,2009
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,4,4,1.0,3,1,symposium whirl | paradox mirage | spinning | blur,2008,2008
+3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,4,4,1.0,3,1,legover | mirage | pixie | ducking osis,2005,2007
+4122d672-aba7-5e34-a94f-df9602413736,Jan Zimmermann,4,4,1.0,2,2,butterfly | stepping | mirage | pixie,2002,2002
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,4,4,1.0,3,1,spinning | mobius | torque | whirl,2006,2008
+60c41b2e-1175-5698-99b7-6e5ee25bec58,Daniel Meyer,4,4,1.0,3,1,dimwalk | legover | pixie | smear,2006,2006
+66c8ee00-cda8-5430-ba1c-ffb177198d18,Andrew Coleman,4,4,1.0,3,1,ducking butterfly | butterfly | mirage | pixie,2002,2002
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,4,4,1.0,4,0,spinning whirl | blurry whirl | blurriest | ripwalk,2007,2007
+77de2a9d-0785-5fea-bc31-e614ae622492,Benny Kellman,4,4,1.0,2,2,spinning clipper | spinning | clipper | paradox,2007,2007
+9a67acb8-d69e-565c-9a52-ca308a6babc0,Janis Thal,4,4,1.0,3,1,eggbeater | torque | atomic | whirl,2018,2018
+9dea6e25-e6ab-5aeb-9f47-1f36fcf88d94,Josh Gayhart,4,4,1.0,3,1,butterfly | pixie | fog | torque,2021,2021
+a3781ac2-c529-5316-b22b-2bdcfa67bb67,Damian Budzik,4,4,1.0,4,0,ripwalk | mirage | blender | whirl,2004,2005
+b0d9cc85-7974-55b2-918a-538fc48484e4,Saiid Shaheen,4,4,1.0,2,2,ducking butterfly | torque | pixie | gyro,2021,2021
+b1905548-0ada-590b-8d3b-3264d4e49e99,Santeri Karvinen,4,4,1.0,3,1,eggbeater | fusion | torque | pixie,2016,2016
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,4,4,1.0,4,0,blurry whirl | spinning whirl | butterfly | ripwalk,2019,2019
+ce7e0e5a-0d7f-542c-8d5d-fb4895184909,Max Kerkhoff,4,4,1.0,4,0,blurriest | blur | ripwalk | whirl,2004,2004
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,4,4,1.0,4,0,ducking butterfly | blender | torque | swirl,2009,2014
+ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,4,4,1.0,4,0,spinning clipper | ripwalk | spinning osis | paradox torque,2003,2004
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,3,9,0.333,3,0,blurry whirl | superfly | whirl,2009,2022
+226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,3,6,0.5,3,0,paradox mirage | blur | butterfly,2006,2010
+437d9bc1-f872-5687-9191-689dccedb6d0,Michal Biarda,3,6,0.5,1,2,pixie | legover | ducking,2009,2010
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,3,4,0.75,3,0,blurry whirl | paradox symposium whirl | whirl,2002,2003
+4d352728-74b6-51db-aa04-1cf6d24b7cc7,Damian Piechocki,3,4,0.75,2,1,blurry whirl | paradox blender | spinning,2005,2005
+6c5ddac5-178d-56b9-a514-ee66d1b24a16,Tony Whitney,3,4,0.75,3,0,whirl | dimwalk | smear,2007,2007
+743b3110-af5d-5b1d-a489-5f0ebece2abd,Alex Bernstein,3,4,0.75,3,0,whirl | spinning osis | blurry whirl,2008,2008
+8a740aac-66c5-5fe2-a482-2acd1d1cdc11,Lynton Stephens,3,4,0.75,2,1,pixie | ducking mirage | legover,2003,2003
+0d90bb3c-6c67-5057-9ac2-d85f9f94fa26,Alex Lopez,3,3,1.0,3,0,blender | mobius | whirl,2012,2012
+0f3711ce-8884-5d1c-a612-ac106a4864cf,John Fanuzzi,3,3,1.0,2,1,butterfly | ducking osis | pixie,2008,2008
+0f51c65d-c889-5354-8cb7-21bef31c04ca,Jake Milofsky,3,3,1.0,3,0,ducking butterfly | ripwalk | whirl,2002,2002
+126a7db1-2603-5589-848f-c0af515660a1,Johnathon Murphy,3,3,1.0,2,1,ripwalk | pixie | whirl,2003,2003
+17a27155-b5bc-5c72-ac90-602127a1ed24,Andy Nawrath,3,3,1.0,2,1,mobius | paradox torque | paradox,2025,2025
+17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,3,3,1.0,3,0,legover | mirage | butterfly,2007,2007
+1bfb569c-6400-5fbb-aca1-66b0cfb3abc3,Jacob Wren,3,3,1.0,2,1,spinning | ripwalk | whirl,2007,2007
+2863264e-bf65-5f88-aef4-0b89332b7a29,Hubert Godlewski,3,3,1.0,2,1,paradox blender | spinning | whirl,2005,2005
+2fe08509-fcb3-5ecd-8828-40411bc4a036,Wojciech Jamski,3,3,1.0,3,0,blurry whirl | superfly | swirl,2009,2009
+39dac0e1-9d56-515a-b0a9-2c64055c08e8,Ronny Schimmel,3,3,1.0,3,0,ducking mirage | clipper | mirage,2014,2014
+42cfb7b0-8f51-53ff-9721-f4ac4b909290,Brad Nelson,3,3,1.0,3,0,paradox blender | paradox torque | blurry whirl,2002,2002
+448d4c37-75f4-5396-bd2f-544dd0ab967c,Alex Verget,3,3,1.0,2,1,stepping | clipper | drifter,2006,2006
+49ad435e-3398-59da-985c-65ce0612bdd3,Jan Brekle,3,3,1.0,2,1,barfly | swirl | ducking,2012,2012
+4c3321eb-1528-530b-8f38-c42260d9af08,Donner Oleg,3,3,1.0,1,2,blurriest | tapping | pixie,2004,2004
+513c8bcf-4c53-5b90-8c71-a823c1f917a2,Stu Sapia,3,3,1.0,2,1,pickup | pixie | guay,2006,2006
+6814ebbf-d3d7-5489-b71b-9f4128847219,Cristoph Alexander,3,3,1.0,3,0,ducking clipper | clipper | whirl,2019,2019
+6e44e429-b91f-59b8-92f4-58a859a3c2f4,Jordan Chiu,3,3,1.0,3,0,blur | ducking butterfly | torque,2021,2021
+835fd269-0b77-57fe-9efc-cbdf4b567a8b,Andrey Dyakonov,3,3,1.0,2,1,blurriest | ducking | torque,2018,2018
+9f78fe69-1a0c-57be-a6eb-2c8e08f6ceac,Allen Sneed,3,3,1.0,3,0,ducking clipper | butterfly | pickup,2021,2021
+a2823c8b-27b9-5f22-95cd-58af9770f3a6,Josh Owens,3,3,1.0,2,1,ducking mirage | butterfly | pixie,2002,2002
+ac1ba46f-f0b2-522d-839c-6b342f20719f,Weber Honza,3,3,1.0,2,1,blender | pixie | fog,2004,2004
+ac5e2112-c6cb-58f1-869d-6f6f8a63d13b,John Mahood,3,3,1.0,2,1,clipper | atomic | whirl,2006,2006
+b3a275df-fe1c-58b4-967b-d0396cec4211,Dominik Šimků,3,3,1.0,2,1,food processor | spinning | blender,2018,2022
+ba572db5-f29d-52b3-aedb-ee41a49a9930,Paully O'Reilly,3,3,1.0,3,0,clipper | ripwalk | blur,2002,2002
+baab18da-920b-51d7-984d-688c23e82219,Nick Laroche,3,3,1.0,2,1,spinning whirl | eggbeater | blazing,2007,2007
+bd9edb36-ddd6-5fa8-b46f-aad4e708716d,Alexander Faber,3,3,1.0,2,1,spinning butterfly | ripwalk | gyro,2002,2002
+d31ec18e-4fa1-5538-8eac-b7d5fcab24c6,Hannia Mickiewicz,3,3,1.0,3,0,paradox whirl | dimwalk | ripwalk,2010,2010
+d53d0dae-9c1e-5773-a133-e42829b7a2ae,Chris Miller,3,3,1.0,3,0,ducking clipper | butterfly | mirage,2006,2006
+d5f5db2b-ce60-529e-a488-cf14e8dfdeee,Roman Huber,3,3,1.0,3,0,blender | torque | whirl,2018,2018
+da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,3,3,1.0,3,0,paradox drifter | paradox torque | paradox whirl,2002,2002
+e3d94c0b-8963-5e74-bc7c-5efb703a22b4,Christian Britting,3,3,1.0,3,0,dimwalk | atom smasher | whirl,2019,2019
+e49165b1-b378-5ac5-b92e-566abacd386f,Christian Mills,3,3,1.0,3,0,butterfly | ripwalk | osis,2003,2003
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,3,3,1.0,3,0,paradox torque | blurry whirl | osis,2002,2002
+ec487576-891e-5f91-8652-420c0930a1d1,François Perreault,3,3,1.0,2,1,ducking butterfly | pixie | whirl,2001,2001
+f4f5b8d0-c503-5ae5-8ce5-c5ff07d630c4,Bruce Li,3,3,1.0,3,0,drifter | atom smasher | mirage,2018,2018
+fa9c1c3c-795a-5514-aa34-078539dd60be,Yuito Watanuki,3,3,1.0,3,0,ducking butterfly | ducking osis | butterfly,2021,2021
+fee1cb85-f33e-525c-a1f1-7d7cf652d6d3,Michael Nielson,3,3,1.0,3,0,spinning clipper | dimwalk | smear,2006,2006
+b7d020fd-3376-5224-9aa6-d56ae56ad9cb,Taishi Ishida,2,4,0.5,2,0,blurry whirl | whirl,2014,2019
+10f0e26c-4ec9-5916-bc9b-ff587c0681d4,Eric Chan,2,3,0.667,1,1,rev whirl | stepping,2007,2007
+70f84b64-5ac5-5082-91ac-8ad71f54b127,Leimar Salas,2,3,0.667,2,0,ducking butterfly | ducking osis,2021,2021
+9ffd9877-c7d3-5bdb-a4d0-cc00e8225245,Kenny Perng,2,3,0.667,2,0,clipper | mirage,2006,2006
+a16f307e-68d5-5ad4-be8f-234aeefc45fc,Joel Roset,2,3,0.667,1,1,legover | pixie,2006,2006
+a737859a-35f6-51c8-9cd1-d5f54f88b8dd,Gosia Debska,2,3,0.667,2,0,butterfly | osis,2010,2010
+e34eef4f-ee11-5919-ba62-9db5d0489e83,Ivan Iakimenko,2,3,0.667,2,0,butterfly | mirage,2018,2018
+0a33a41b-8363-572e-90a0-39ae1e107ede,Arek Stanek,2,2,1.0,2,0,food processor | torque,2019,2019
+218b51ae-f5be-5230-bb26-10aa2981036c,Riku Ahola,2,2,1.0,1,1,symposium | swirl,2005,2005
+256ba155-76d2-5920-b2d6-04d6ff39fab6,DANIEL BOYLE,2,2,1.0,2,0,dimwalk | blur,2015,2015
+26098074-1c3e-5e3c-8c61-2b7eb8f32eda,Reid Strieller,2,2,1.0,0,2,spinning | paradox,2006,2006
+27906256-df7d-5101-8427-d2735d2bda7a,Pomanov Andrey,2,2,1.0,0,2,spinning | ducking,2009,2009
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,2,2,1.0,2,0,ducking butterfly | paradox mirage,2001,2001
+38c38c00-7c40-5136-b7d0-6e3c348aa396,John Hutchinson,2,2,1.0,2,0,mirage | torque,2003,2003
+3a35aed5-508b-5278-847d-8a49e80d7b6f,Tomek Ostrowski,2,2,1.0,2,0,torque | whirl,2005,2005
+40b58c8d-2350-5041-8600-e392b511e0bc,Carlos Terraza,2,2,1.0,1,1,pixie | whirl,2012,2012
+476887f6-85fc-57b7-a603-24eb701cc219,Willie Digges,2,2,1.0,2,0,blurriest | swirl,2006,2006
+495fbdce-986d-523e-9b01-f699a035c4ef,Tomasz Wróbel,2,2,1.0,2,0,dimwalk | ripwalk,2005,2005
+4ea3ca6a-daf2-5ea6-aa76-f521e7cac688,Augustin Tiffou,2,2,1.0,2,0,dimwalk | ripwalk,2006,2006
+5153f93f-1e75-5497-82c6-bf804faf6476,Anton Britting,2,2,1.0,2,0,whirl | mobius,2015,2019
+5258617b-2c26-5641-93e1-0296b3c9572a,Mitko Dimitrov,2,2,1.0,2,0,eggbeater | swirl,2018,2018
+54d24f68-96bf-5837-bdaa-02e3d0774e76,Jean Phillipe Labbé,2,2,1.0,1,1,symposium | whirl,2005,2005
+56ecef47-5ea7-5d81-8de8-3efb1e66c81b,Wojciech Ignaczak,2,2,1.0,2,0,butterfly | ripwalk,2004,2004
+5c134542-d0b3-55f2-8c4c-413ccb2e9d15,Ilja Mitrofanov,2,2,1.0,2,0,paradox whirl | blurry whirl,2005,2005
+5c162da2-c670-5845-a3d6-a2ed097eb59b,Søren Nøhr Thomsen,2,2,1.0,2,0,dimwalk | ripwalk,2006,2006
+5ff55ce6-2a42-5159-ab1a-5b997c194707,Nelson Monhollon,2,2,1.0,2,0,spinning osis | ripwalk,2006,2006
+6dd904b7-11c6-5d62-af34-dad61040e67e,Sebastien Duchesne,2,2,1.0,1,1,legover | paradox,2000,2000
+746cc216-852b-5788-bdf3-7b08b853664c,Mike Stokely,2,2,1.0,2,0,butterfly | mirage,2008,2008
+7c17dac5-be0b-5fc2-a537-2c8d02be9019,Tobias Larsen,2,2,1.0,2,0,dimwalk | blur,2006,2006
+7ed2abb4-f9f2-5432-9511-b62ce1a09957,Julian Sinnl,2,2,1.0,1,1,pixie | whirl,2015,2015
+8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,2,2,1.0,1,1,pixie | swirl,2004,2004
+816ccebb-84e4-551e-b7bb-d6517dd88e83,Asmus Helms,2,2,1.0,2,0,clipper | legover,2016,2016
+8b1e5ce1-b6be-58dd-90c3-02bafdb34ec6,Vašek Klouda,2,2,1.0,2,0,superfly | flurry,2004,2004
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,2,2,1.0,2,0,blurriest | flurry,2002,2002
+97d60d0e-3503-5814-8b1d-3fe6bb6bff86,Yacine Merzouk,2,2,1.0,1,1,legover | paradox,2000,2000
+97dfde65-956c-5842-994d-05a877c49182,Cale McCoy,2,2,1.0,0,2,ducking | pixie,2010,2010
+9ccb1c1b-89e0-5406-9e37-a287f34a84d8,Ben Schmaltz,2,2,1.0,1,1,symposium | swirl,2007,2007
+9d12fe41-0154-57a6-b312-5f3b46f621b5,Pavel Motorov,2,2,1.0,2,0,fusion | mirage,2012,2012
+a4299d6f-ea7b-54a5-9523-f16ba89259df,Matt Mclaren,2,2,1.0,2,0,dimwalk | swirl,2008,2008
+a9cb54c3-9f91-563a-a953-4de8dda05ffe,Aric McIntosh,2,2,1.0,1,1,stepping | clipper,2006,2006
+aa5f0e41-79db-5da1-a7dd-d47f3bd16cc2,Adrian Dick,2,2,1.0,2,0,swirl | blur,2001,2001
+abe227f2-b4d5-5baa-9f72-2b6dfa32036e,Artur Pichura,2,2,1.0,2,0,fusion | whirl,2012,2012
+ad56005f-3da3-5f45-99c3-a691e7e6773c,Julien Romiti,2,2,1.0,2,0,parkwalk | osis,2006,2006
+b274fbcc-9283-5e2e-9c68-704f3212796e,Yves Kreil,2,2,1.0,1,1,stepping | torque,2005,2005
+befb0f76-73f3-5021-bfa3-b62e1c6400bd,Piotr Czaja,2,2,1.0,2,0,superfly | whirl,2005,2005
+c0c07821-7fc4-588e-b60c-76a25347a9eb,David Gil,2,2,1.0,2,0,ducking butterfly | torque,2021,2021
+cb3bbcdd-5807-5fa1-a1a7-3367acf07b95,Ken Moller,2,2,1.0,2,0,legover | pickup,2021,2021
+cd863f34-51f1-52ff-b4a8-516d262e99eb,Radek Turek,2,2,1.0,1,1,ripwalk | pixie,2009,2016
+db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,2,2,1.0,1,1,pixie | whirl,2009,2009
+db9f32dc-4dab-560e-aa3f-0acfd32fcd7d,John Suderman,2,2,1.0,2,0,symposium whirl | butterfly,2013,2013
+de72051a-f92e-5e3c-b161-af9028b11492,Adam Greenwood,2,2,1.0,1,1,atomic | blur,2007,2007
+e66d59f6-6fb8-5ca7-b989-208de0ec0dc6,Eric Reiley,2,2,1.0,1,1,whirl | ducking,2003,2003
+ef2c88aa-ab9e-58d1-b4c9-1374e77859eb,Sebastian Ceballos,2,2,1.0,1,1,ducking | blur,2022,2022
+ef902cd4-83ed-574e-8fb6-06f76e2c2258,Liam Johnston,2,2,1.0,2,0,blurry whirl | whirl,2003,2003
+f334c26d-1895-5e09-a1dd-96735ae0389a,Takao Wakou,2,2,1.0,2,0,blurry whirl | whirl,2021,2021
+f825bd42-5056-55c5-8a4c-ba0788615e01,Ben Skaggs,2,2,1.0,2,0,paradox torque | whirl,2008,2008
+fc0e50ee-c392-5d00-a7f1-be70b324c749,Adam Cieszkiel,2,2,1.0,2,0,blurriest | whirl,2004,2004
+2387456b-26ab-5254-ad15-2c78d59c4c71,Siegert Stefan,1,2,0.5,1,0,legover,2004,2004
+542be6a9-3b5a-5374-961b-9de19c0def7a,Peter Irish,1,2,0.5,1,0,torque,2003,2003
+73f415ee-765e-55ec-bde1-247d6b97eba6,Ellis Piltz,1,2,0.5,1,0,whirl,2004,2004
+7afe03a1-08a3-5ea2-a884-f56589aeea38,Benjamin Benulis,1,2,0.5,1,0,mirage,2007,2007
+ab216b72-e80d-526e-ba50-e8dd93866623,Ricky Moran,1,2,0.5,1,0,whirl,2004,2004
+fae56cbd-e8c0-51a4-8f97-f61222a27d07,Shawnell Tolliver,1,2,0.5,1,0,double around the world,2008,2008
+00535124-269f-5de1-be41-94948cdae1c0,Ben Scarborough,1,1,1.0,1,0,osis,2002,2002
+0da84e00-c9f5-5d23-82b6-9ec1e759c74c,Jakub Worek,1,1,1.0,1,0,barfly,2017,2017
+0dd4fbff-3e80-5779-853a-4e9a4189878a,Ashley Danowski,1,1,1.0,1,0,blurry whirl,2008,2008
+1023877e-072b-55ae-be8f-f0cd7a7456dc,Maciek Bujko,1,1,1.0,1,0,torque,2010,2010
+153f48a3-6f39-583d-a39a-e791454234e8,Brett Ables,1,1,1.0,0,1,pixie,2002,2002
+172da5dd-ca4a-554e-8981-99993e295dd7,Stuart Roll,1,1,1.0,1,0,clipper,1997,1997
+205ca842-1055-506b-8c48-118afc6ae681,Verena Lenneis,1,1,1.0,1,0,food processor,2015,2015
+28f922a5-5d62-5473-b08e-3cd2ef6f74fe,Maciej Bujko,1,1,1.0,1,0,ripwalk,2018,2018
+3123701a-43bd-5273-8472-ba332dc67fed,JUAN BERNARDO PALACIOS LEMOS,1,1,1.0,1,0,legover,2012,2012
+3831ce06-a7b1-5b19-a3e4-e75bfad9dd1b,Olivier Gonelle,1,1,1.0,1,0,eclipse,2004,2004
+416e8b3a-f738-5d7f-8e22-89a74a41e538,Peter Holoien,1,1,1.0,1,0,swirl,2008,2008
+4466afbd-a8d2-59c8-a46b-1108c4f1ea10,Rob Creel,1,1,1.0,1,0,mirage,2008,2008
+44c23e21-b920-58a7-90d9-80dcf5d60093,Andrew Dunford,1,1,1.0,1,0,ripwalk,2007,2007
+4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,1,1,1.0,1,0,clipper,2007,2007
+5dd45023-8247-57f7-be12-df4702a96951,Tom Kotsakos,1,1,1.0,0,1,gyro,2010,2010
+5e7aee36-aee8-5e0f-8ba5-3e955de284f3,Timo Aarnio,1,1,1.0,1,0,butterfly,2001,2001
+6694222e-0569-530d-a4f2-c7b12aab7a93,Patryk Tenderenda,1,1,1.0,1,0,drifter,2012,2012
+6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,Tina Aeberli,1,1,1.0,1,0,swirl,2005,2005
+6f5650e6-0134-57af-8400-e9c3ce72e333,Steve Cline,1,1,1.0,1,0,paradox whirl,2008,2008
+74978bc4-6b20-544a-8fa1-cf37ec444c4f,Dexter Struz,1,1,1.0,1,0,whirl,2006,2006
+766ba8a6-f9b8-5be2-b501-6a034451d8ac,Aaron Orton,1,1,1.0,1,0,blender,2007,2007
+7a8314b4-2af9-584d-bd79-4af7a74d9c21,Jakub Mosciszewski,1,1,1.0,0,1,pixie,2022,2022
+7a8c8b83-9ae8-5b65-8f1f-6923058cc237,Dorota Wojtasiuk,1,1,1.0,0,1,pixie,2017,2017
+7a8ebf46-3df4-5114-9913-7154c9e52708,Pekka Raitio,1,1,1.0,1,0,blurry symposium whirl,2001,2001
+7e031708-3cc3-5262-bf0c-0fa9c10a67bc,Egorov Andrey,1,1,1.0,1,0,blurry whirl,2009,2009
+80b8a17d-8f44-5571-881e-cd86f3c5c49e,Jochen Bauer,1,1,1.0,1,0,ripwalk,2004,2004
+81a671cd-b6f6-5d6e-997e-21d885cf8ae8,Caro Bourgouin,1,1,1.0,1,0,paradox drifter,2008,2008
+9082387f-8ab5-5fc8-8017-e9d13731aeb8,Worek Jakub,1,1,1.0,1,0,eggbeater,2007,2007
+94439b1d-8eff-55ce-8c58-05cb5817dfb3,Chris Hall,1,1,1.0,1,0,butterfly,2006,2006
+9585ffd8-cc96-528e-ba4a-4211da8cef00,Rene Ruehr,1,1,1.0,1,0,paradox torque,2012,2012
+96456a6d-5895-58ab-8175-9408424e79d1,Brett Campbell,1,1,1.0,1,0,fog,2005,2005
+9e51cb21-c122-54b7-93a6-8f5a3b69365c,Dominik Knoll,1,1,1.0,1,0,whirl,2009,2009
+a30a44d6-6530-58da-acdf-d101c8749f76,Mike Sheridan,1,1,1.0,1,0,pickup,1999,1999
+a67698e9-2dd8-5853-b75a-3c6e535d7610,Red Fred Husted,1,1,1.0,1,0,ripwalk,2004,2004
+aefb17e0-f604-552c-8584-02e84b558563,Taku Miura,1,1,1.0,1,0,dimwalk,2021,2021
+bd1ac97c-6c20-5bcd-9fbd-f5279f4c22bf,Chris Seibert,1,1,1.0,0,1,atomic,2004,2004
+be0dcefe-ced0-5fe3-92c3-9083e1c384d0,Iain McKechnie,1,1,1.0,1,0,clipper,1997,1997
+e1b0b026-9914-5ebb-8321-fe835ac96c25,Scott Bevier,1,1,1.0,1,0,blurry whirl,2007,2007
+ff11acf4-ec1e-5574-b33d-febf3bbd0bf6,Scott Ellenberger,1,1,1.0,1,0,smear,2007,2007

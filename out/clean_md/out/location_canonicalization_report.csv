@@ -1,0 +1,498 @@
+event_id,event_name,original_location,normalized_location,reason
+1628596712,II. Basque Tournament of Footbag Net (Doubles),"Bilbao, Basque Country","Bilbao, Basque Country, Spain",country_fix: 'Basque Country' → 'Spain'
+1547720079,Open de France 2019,"Nantes, FRANCE","Nantes, Pays de la Loire, France",country_fix: 'FRANCE' → 'France'
+1562271704,Ohio Footbag Jam,"Ohio, United States","Columbus, Ohio, United States",normalised
+912467534,12th Annual U.S. Open Footbag Net Championships,"Oregon, United States","Portland, Oregon, United States",normalised
+1587822289,,(empty),"Online, Global, Global",province_as_city_fix
+1623054449,2021 IFPA Online World Footbag Freestyle Championships,(empty),"Online, Global, Global",province_as_city_fix
+1022992222,Shred Zero Summer Open 2002,"Alberta, Canada","Calgary, Alberta, Canada",province_as_city_fix
+1036653244,2003 Shred Zero Summer Open,"Alberta, Canada","Calgary, Alberta, Canada",province_as_city_fix
+1151949245,,"Alberta, Canada","Calgary, Alberta, Canada",province_as_city_fix
+1181021804,ShrEdmonton Freestyle Assembly 2007,"Alberta, Canada","Edmonton, Alberta, Canada",province_as_city_fix
+1208408135,ShrEdmonton Freestyle Assembly 2008,"Alberta, Canada","Edmonton, Alberta, Canada",province_as_city_fix
+857880054,Bedford (Australia) Indoor Footbag Championships,"Australia, Australia","Perth, Western Australia, Australia",province_as_city_fix
+857881519,11th Annual Vancouver Open (and Worlds Warm-Up),"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+886044392,12th Annual Vancouver Open Footbag Net Tournament,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+919703711,13th Annual Vancouver Open Footbag Net Tournament,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+941418343,WORLD FOOTBAG CHAMPIONSHIPS,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+990905420,Vancouver Open Footbag Tournament,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+1034985978,2003 Canadian Open Footbag Championships,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+1079664495,May Day '04,"B.C., Canada","Victoria, British Columbia, Canada",province_as_city_fix
+1180496320,20th Annual Vancouver Open Net Footbag Tournament,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+1245199707,22nd Annual Vancouver Open Footbag Tournament,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+1310408325,24th Annual Vancouver Open & Golf Tournament,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+1337309613,25th Annual Vancouver Open Footbag Championships,"B.C., Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+1278991986,,"Columbia, Canada","Vancouver, British Columbia, Canada",province_as_city_fix
+1124840254,The Hackrifice Open 2005,"Manitoba, Canada","Winnipeg, Manitoba, Canada",province_as_city_fix
+1156283186,The Hackrifice Open 2006,"Manitoba, Canada","Winnipeg, Manitoba, Canada",province_as_city_fix
+1188233129,The 9th Hackrifice Open 2007,"Manitoba, Canada","Winnipeg, Manitoba, Canada",province_as_city_fix
+1208064566,The 10th Annual Hackrifice Open Footbag Championship,"Manitoba, Canada","Winnipeg, Manitoba, Canada",province_as_city_fix
+1233718528,The 7th Australian National Footbag Championships,"NSW, Australia","Sydney, New South Wales, Australia",province_as_city_fix
+1238728089,2009 Winter Buce League,"NSW, Australia","Sydney, New South Wales, Australia",province_as_city_fix
+1234761224,Kick Volley 01,"Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+1267920908,KICK VOLLEY 02,"Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+1269111845,"The King of the Hill 2010, presented by Aki Québec","Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+1272817638,"The AkiSphere 2010, presented by AKIQ","Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+1287703732,Kick Volley 03,"Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+1301837216,"The King of the Hill 2011, presented by Aki Québec","Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+1301837824,"The AkiSphere 2011, presented by AKIQ","Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+1327693335,Kick Volley 04,"Quebec, Canada","Montréal, Quebec, Canada",province_as_city_fix
+987985282,,"Queensland, Australia","Townsville, Queensland, Australia",province_as_city_fix
+1025084282,1st Queensland Footbag Challenge,"Queensland, Australia","Logan City, Queensland, Australia",province_as_city_fix
+988325277,Saskatchewan Footbag Championships,"Saskatchewan, Canada","Regina, Saskatchewan, Canada",province_as_city_fix
+1032602594,Victorian Footbag Championships,"Victoria, Australia","Melbourne, Victoria, Australia",province_as_city_fix
+1061453080,Australian East Coast Regionals,"Victoria, Australia","Melbourne, Victoria, Australia",province_as_city_fix
+1121753561,2006 Australian Footbag Championships,"Victoria, Australia","Melbourne, Victoria, Australia",province_as_city_fix
+996293200,Australian Footbag Championships,"Wales, Australia","Sydney, New South Wales, Australia",province_as_city_fix
+1035817350,New South Wales Footbag Championships,"Wales, Australia","Sydney, New South Wales, Australia",province_as_city_fix
+1071060801,Aachen Indoor Open 2004,"Aachen, Germany","Aachen, North Rhine-Westphalia, Germany",region_added
+1106561176,,"Aachen, Germany","Aachen, North Rhine-Westphalia, Germany",region_added
+1179679872,German Footbag Championships 2007,"Aachen, Germany","Aachen, North Rhine-Westphalia, Germany",region_added
+1183654670,1st South American IFPA Footbag Championships,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1346947092,6o Suramericano de Footbag,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1346948712,1o Torneo Nacional de Footbag,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1399929003,2da Copa Bobston de Footbag Net individual,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1515176008,Copa Medellin De Footbag,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1527557123,Suramericano de Footbag Net y Freestyle,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1537994275,2o Torneo Nacional de Footbag,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1549597969,4ta Copa BoBston de Footbag 2019,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1568692191,MedeJam de Footbag 2019,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1730420667,5ta Copa Bobston de Footbag Net,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1760495074,6a Copa Bobston de Footbag,"Antioquia, Colombia","Medellín, Antioquia, Colombia",region_added
+1487797845,19th Annual IFPA European Footbag Championships,"Aranjuez, Spain","Aranjuez, Community of Madrid, Spain",region_added
+948943299,First Annual Arica Open,"Arica, Chile","Arica, Arica y Parinacota, Chile",region_added
+977260894,Second Annual Arica Open,"Arica, Chile","Arica, Arica y Parinacota, Chile",region_added
+1296449468,,"Atlantico, Colombia","Barranquilla, Atlántico, Colombia",region_added
+1378821205,Championnat de France de Footbag 2013,"Atlantique, France","Nantes, Loire-Atlantique, France",region_added
+1709496969,Open de France de Footbag 2024,"Atlantique, France","Nantes, Loire-Atlantique, France",region_added
+973573676,2nd Annual New Zealand Footbag Championships,"Auckland, New Zealand","Auckland, Auckland, New Zealand",region_added
+1011556608,FOOTJAM meets 3BORDERSCUP,"Basel, Switzerland","Basel, Basel-Stadt, Switzerland",region_added
+1004370976,Bootfägers Shred,"Basel-Stadt, Switzerland","Basel, Basel-Stadt, Switzerland",region_added
+917278465,EUROPEAN FOOTBAG OPEN,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+942013549,German Footbag Freestyle Battle 99,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1020262608,,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1094071528,1. Footbag- Net- Jam Berlin 04,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1100728799,FC Footstar's 7th Anniversary,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1161167528,German Footbag Championships 2006,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1195677906,FC Footstar's 10th anniversary,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1226679678,30th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1254662073,FC Footstar Berlin 12th Birthday Jam,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1282224512,12th Annual German Footbag Championships,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1319622692,14th FC Footstar anniversary,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1349043745,15 Years FC Footstar,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1377192359,15th Annual German Footbag Championships & Open,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1383076667,Sweet Six-Teen - Footstar B-Day 2014,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1420195881,17th FC Footstar anniversary,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1446571794,FC Footstar's 18th Anniversary,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1499025778,19th Annual German Footbag Championships 2017,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1566532030,German Footbag Open 2019,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1694868513,German Footbag Open 2023,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+1766004796,,"Berlin, Germany","Berlin, Berlin, Germany",region_added
+957778745,Footbag Meeting Bern,"Bern, Switzerland","Bern, Bern, Switzerland",region_added
+1248864536,Polish Footbag Championships 2009,"Bialystok, Poland","Białystok, Podlaskie, Poland",region_added
+1564005204,I. Ereaga Footbag Net Tournament (Doubles) 2019,"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1574365921,Basque Open Footbag Net Tournament (Doubles),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1584223469,II.Basque Tournament of Footbag (Net - Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1593340253,I.Bilbao Tournament (Doubles - Net),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1598616506,II. Basque Tournament of Footbag Net (Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1617902706,III.Basque Tournament of Footba Net (Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1634938934,II.Basque Open Footbag Net Tournament (Doubles),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1645621833,IV.Basque Tournament of Footbag Net (Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1653647467,I. Elorrieta Tournament of Footbag Net (Basque Country),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1657486956,II. Ereaga Tournament of Footbag Net,"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1669556651,III.Basque Tournament of Footbag Net (Doubles),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1677285621,V. Basque Tournament of Footbag Net (Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1690897570,IV.Basque Tournament of Footbag Net (Doubles),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1721817655,VI. Basque Tournament of Footbag Net (Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1721923932,V.Basque Tournament of Footbag Net (Doubles),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1728384115,I. Santutxu Tournament of Footbag (Net),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1742511366,VII.Basque Tournament of Footbag Net (Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1752525121,VI. Basque Tournament of Footbag Net (Doubles),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1765581778,II.Bilbao Tournament of Footbag (Individual),"Bizkaia, Basque Country","Bilbao, Basque Country, Spain",region_added
+1466942562,18th Annual German Footbag Open,"Bremen, Germany","Bremen, Bremen, Germany",region_added
+1379414806,Czech Footbag Championships,"Brno, Czech Republic","Brno, South Moravian, Czech Republic",region_added
+1401113913,16th Annual German Footbag Open,"Brsg., Germany","Freiburg, Baden-Württemberg, Germany",region_added
+979816633,1st Hungarian Footbag Cup,"Budapest, Hungary","Budapest, Budapest, Hungary",region_added
+1369141018,Burgas Summer Footbag Jam V,"Burgas, Bulgaria","Burgas, Burgas, Bulgaria",region_added
+1404123889,Burgas Summer Footbag Jam VI,"Burgas, Bulgaria","Burgas, Burgas, Bulgaria",region_added
+1695501837,Czech Footbag Championships 2023,"Byst, Czech Republic","Nová Bystřice, South Bohemian, Czech Republic",region_added
+1722339396,Czech Footbag champioships 2024,"Byst, Czech Republic","Nová Bystřice, South Bohemian, Czech Republic",region_added
+1745298933,Czech Footbag champioships 2025,"Byst, Czech Republic","Nová Bystřice, South Bohemian, Czech Republic",region_added
+1251952403,X-PRO Cup (Copa X-PRO),"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1286381206,2da. Copa X-PRO,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1286381599,4to Campeonato Suramericano de Footbag,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1297909685,2da Copa Ciencias,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1301675662,2da Copa Venezuela,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1330833781,3ra Copa Ciencias-UCV.,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1339389008,3ra Copa Venezuela,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1353380057,5ta Copa X-PRO,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1368559562,4ta Copa Venezuela,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1423020874,7ma Copa X-PRO,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1430582557,5ta Copa Venezuela,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1435784719,The Perpetual Flame Footbag Net Challenge,"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1733755410,Segunda 'Copa Perpetual Flame',"Caracas, Venezuela","Caracas, Capital District, Venezuela",region_added
+1148374547,Championnats de France 2006,"Carnon, France","Carnon-Plage, Occitanie, France",region_added
+1177512537,Championnats de France de Footbag,"Carnon, France","Carnon-Plage, Occitanie, France",region_added
+1052775366,Danish Footbag Open 03,"Copenhagen, Denmark","Copenhagen, Capital Region, Denmark",region_added
+1079605499,6th Annual IFPA European Footbag Championships,"Copenhagen, Denmark","Copenhagen, Capital Region, Denmark",region_added
+1157398732,Danish Footbag Championships 2006,"Copenhagen, Denmark","Copenhagen, Capital Region, Denmark",region_added
+1378666423,Danish Footbag Open,"Copenhagen, Denmark","Copenhagen, Capital Region, Denmark",region_added
+1417735560,36th IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Copenhagen, Denmark","Copenhagen, Capital Region, Denmark",region_added
+1566500647,I. Basque Tournament of Footbag Net (Individual),"Country, Spain","Larrabetzu, Basque Country, Spain",region_added
+1282647603,Net Orange Jam II (Net D¿em),"Cracow, Poland","Kraków, Lesser Poland, Poland",region_added
+1567551985,XIX Polish Footbag Championships - Krakow 2019,"Cracow, Poland","Kraków, Lesser Poland, Poland",region_added
+1258513500,IFPA South American Championships,"Cundinamarca, Colombia","Bogotá, Cundinamarca, Colombia",region_added
+1344933824,Acapulco Zocha Jam,"Dolnyslask, Poland","Wrocław, Lower Silesian, Poland",region_added
+1079444598,German Footbag Open 2004,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1094201584,Frankfurt Footbag Open 2004,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1102447093,,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1105353373,5 years Frankfurt Footbag e.V.,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1117746703,6th Frankfurt Footbag Open,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1135116604,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1225370942,Frankfurt Footbag Open - *Bembel Cup 2009*,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1260368810,Frankfurt Footbag 10th Anniversary Jam,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1325504349,Bembel Cup 2012,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1357642226,*Bembel Cup*,"Frankfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1290861524,Bembel Cup 2011: Gimbledon Championships,"Funkfurt, Germany","Frankfurt, Hesse, Germany",region_added
+1041241196,MECCA Footbag Cup,"Gyor, Hungary","Győr, Győr-Moson-Sopron, Hungary",region_added
+1068406344,2nd Annual MECCA Footbag Cup,"Gyor, Hungary","Győr, Győr-Moson-Sopron, Hungary",region_added
+1102788509,3rd Annual Sunshred Footbag Open (LIVE),"Gyor, Hungary","Győr, Győr-Moson-Sopron, Hungary",region_added
+1257621700,German Footbag Championships 2009,"Hamburg, Germany","Hamburg, Hamburg, Germany",region_added
+1263589392,FB-Golf-Hamburg,"Hamburg, Germany","Hamburg, Hamburg, Germany",region_added
+999985344,Estonian Footbag Championships,"Harjumaa, Estonia","Tallinn, Harju County, Estonia",region_added
+1079024287,Shercle Session #1,"Harjumaa, Estonia","Tallinn, Harju County, Estonia",region_added
+1109682847,Shercle Session #2,"Harjumaa, Estonia","Tallinn, Harju County, Estonia",region_added
+873922005,FOOTBAG SM 97 / Finnish Footbag Championships '97,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+899722892,Finnish Footbag Open 1998,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+913061034,Finnish Freestyle Festival '99,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+933870505,Finnish Footbag Open Championships 1999,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1005667143,Finnstyle Footbag JAM,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1019193491,Finnsta City Jam,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1027925383,Finnish Footbag Championships 2002,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1094123527,8th Annual Footbag Finnish Open 2004,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1102576153,26th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1226938152,Finnish Footbag Championships,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1244553505,Helsinki Open 2009,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1293877677,32nd IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1321368279,Finnish Footbag Championships,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1333483324,3rd biennial Helsinki Open Footbag Tournament,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1353223688,Finnish Footbag Open,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1363551565,4th annual Helsinki Open Footbag Tournament,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1374570632,17th Annual Finnish Footbag Open,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1413607134,18th Annual Finnish Footbag Open,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1436878168,19th Annual Finnish Footbag Open (FFA 20th anniversary special edition),"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1509295589,Finnish Freestyle Footbag Championships,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1576342966,Footbag Finnish Open,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1700920831,Finnish Footbag Open 2023,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1736265216,Footbag Finnish Open 2024,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1749326277,Footbag Finnish Open,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1401624489,5th annual Helsinki Open Footbag Tournament,"Helsinki, Finland","Helsinki, Uusimaa, Finland",region_added
+1001076203,3ème Open de France de Footbag,"Herault, France","Montpellier, Occitanie, France",region_added
+1003802417,II Torneo Hacky Sack,"Hermosillo, Mexico","Hermosillo, Sonora, Mexico",region_added
+1000071985,2001 Frankfurt Footbag Open,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1028800969,3. Frankfurt Footbag Open,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1042821772,European Footbag Championships 2003,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1064330873,4. Frankfurt Footbag Open,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1393501611,Bembel Cup 2014,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1418127354,Bembel Cup 2015 and 15 Years FrankfurtFootbag,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1444911632,17th Annual German Footbag Open,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1453384342,Bembel Cup 2016,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1460640850,18th Annual IFPA European Footbag Championships 2016,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1485520697,Bembel Cup 2017,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1526035381,Bembel Cup 2018 - 10th Anniversary,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1557144269,11th Bembel Cup 2019 - a jam with friends,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1677937557,13th Bembel Cup 2023,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1706536250,14th Bembel Cup 2024 - a jam with friends,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1740391168,25th IFPA European Footbag Championships 2025,"Hessen, Germany","Frankfurt, Hesse, Germany",region_added
+1572864719,19th Czech Footbag Net Championships,"Hradec Kralove, Czech Republic","Hradec Králové, Hradec Králové, Czech Republic",region_added
+1768955907,,"Ibaraki, Japan","Ibaraki, Ibaraki Prefecture, Japan",region_added
+1269266785,12th Annual IFPA European Footbag Championships - Brussels,"Ixelles, Belgium","Brussels, Brussels Capital Region, Belgium",region_added
+1646855336,22nd Annual IFPA European Footbag Championships,"Jaworzno, Poland","Jaworzno, Silesian, Poland",region_added
+1751568193,25th Polish Footbag Championships - Jaworzno 2025,"Jaworzno, Poland","Jaworzno, Silesian, Poland",region_added
+1083699966,JFK Net Battle,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1142360459,3rd Annual JFK Net Battle,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1173606489,4th Annual JFK Net Battle,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1180373807,Finnish Footbag Championships 2007,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1202118857,JFK March Mayhem,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1205552627,5th Annual JFK Net Battle,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1221506867,JFK Fall Fury,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1235504528,JFK March Mayhem,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1242210886,JFK Net Battle,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1269860787,March Mayhem 2010,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1280002674,Finnish Footbag Championships,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1298063977,April Assault!,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+1302802291,JFK Net Battle,"Jyvaskyla, Finland","Jyväskylä, Central Finland, Finland",region_added
+992517335,Keuruu Footbag Jam 2001,"Keuruu, Finland","Keuruu, Central Finland, Finland",region_added
+1298627369,13th Annual German Footbag Championships,"Kiel, Germany","Kiel, Schleswig-Holstein, Germany",region_added
+1024091202,III. Hungarian Footbag Festival,"Kiskunfelegyhaza, Hungary","Kiskunfélegyháza, Bács-Kiskun, Hungary",region_added
+1295262886,2011 Prague Open,"Kosice, Czech Republic","Prague, Prague, Czech Republic",region_added
+1473853257,Malopolska Footbag Championships 2016 // Mistrzostwa Ma³opolski w Zo¶kê 2016,"Krakow, Poland","Kraków, Lesser Poland, Poland",region_added
+1531284609,XVIII Polish Footbag Championships - Krakow 2018,"Krakow, Poland","Kraków, Lesser Poland, Poland",region_added
+1624971880,21st IFPA European Footbag Net Championships,"Krakow, Poland","Kraków, Lesser Poland, Poland",region_added
+1645025950,Cracow Net Jam 3,"Krakow, Poland","Kraków, Lesser Poland, Poland",region_added
+1646387871,41st IFPA WORLD FOOTBAG CHAMPIONSHIPS 2022,"Krakow, Poland","Kraków, Lesser Poland, Poland",region_added
+1697391704,23rd IFPA European Footbag Championships 2023,"Krakow, Poland","Kraków, Lesser Poland, Poland",region_added
+1727756195,24th Polish Footbag Championships - Krakow 2024,"Krakow, Poland","Kraków, Lesser Poland, Poland",region_added
+1286644859,Czech Footbag Championship 2010,"Kralove, Czech Republic","Hradec Králové, Hradec Králové, Czech Republic",region_added
+1595872698,Czech Footbag Championships,"Kralove, Czech Republic","Hradec Králové, Hradec Králové, Czech Republic",region_added
+1628024472,Czech Footbag Net Championships,"Kralove, Czech Republic","Hradec Králové, Hradec Králové, Czech Republic",region_added
+1649326445,Czech Footbag Championships 2022,"Kralove, Czech Republic","Hradec Králové, Hradec Králové, Czech Republic",region_added
+1518200935,20th Annual IFPA European Footbag Championships,"Kranj, Slovenia","Kranj, Upper Carniola, Slovenia",region_added
+1132511088,Finnish Footbag Championships 2005,"Kuopio, Finland","Kuopio, North Savo, Finland",region_added
+1329044785,JFK March Mayhem 2012,"Laani, Finland","Jyväskylä, Central Finland, Finland",region_added
+1358964427,JFK March Mayhem 2013,"Laani, Finland","Jyväskylä, Central Finland, Finland",region_added
+1137942486,8th Annual IFPA European Footbag Championships,"Lausanne, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1185556078,Austrian Footbag Championships 2007,"Linz, Austria","Linz, Upper Austria, Austria",region_added
+1344593549,IFPA Austrian Footbag Champs 2012,"Linz, Austria","Linz, Upper Austria, Austria",region_added
+1137937282,Czech Footbag Championships,"Litomerice, Czech Republic","Litoměřice, Ústí nad Labem, Czech Republic",region_added
+1305581560,French Footbag Championships 2011,"Loire-Atlantique, France","Nantes, Loire-Atlantique, France",region_added
+1347475695,Carnabal Footbag Contest,"Loire-Atlantique, France","Nantes, Loire-Atlantique, France",region_added
+1406219099,14th Annual Polish Footbag Championships 2014,"Lubaczow, Poland","Lubaczów, Subcarpathian, Poland",region_added
+1485863923,17th Annual Polish Footbag Championships,"Lublin, Poland","Lublin, Lublin, Poland",region_added
+1280907422,10th Swiss Footbag Championships,"Luzern, Switzerland","Lucerne, Lucerne, Switzerland",region_added
+1029347412,Woodstower: French Opening,"Lyon, France","Lyon, Auvergne-Rhône-Alpes, France",region_added
+1069791565,5th Annual Open de France,"Lyon, France","Lyon, Auvergne-Rhône-Alpes, France",region_added
+1103297805,2e Championnat de France de Footbag,"Lyon, France","Lyon, Auvergne-Rhône-Alpes, France",region_added
+1293877917,13th Annual IFPA European Footbag Championships,"Madrid, Spain","Madrid, Community of Madrid, Spain",region_added
+1185458086,Footbagmania 3007 - Polish Footbag Championships,"Malopolska, Poland","Kraków, Lesser Poland, Poland",region_added
+1212406878,French Footbag Championships 2008,"Marseille, France","Marseille, Provence-Alpes-Côte d'Azur, France",region_added
+1251990500,6th Annual Wilanow Footbag Open 2009,"Mazowieckie, Poland","Warsaw, Masovian, Poland",region_added
+1678957450,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,"Medellin, Colombia","Medellín, Antioquia, Colombia",region_added
+1271270281,*Bembel Cup 2010*,"Meer, Germany","Düsseldorf, North Rhine-Westphalia, Germany",region_added
+1284182261,1era COPA VENEZUELA,"Miranda, Venezuela","Caracas, Miranda, Venezuela",region_added
+1311699287,3ra Copa X-PRO,"Miranda, Venezuela","Caracas, Miranda, Venezuela",region_added
+1366240051,4ta. Copa Ciencias,"Miranda, Venezuela","Caracas, Miranda, Venezuela",region_added
+1699593640,8vo Suramericano Footbag Net 2023,"Miranda, Venezuela","Caracas, Miranda, Venezuela",region_added
+1713276656,1era Copa Footbag Net - Altos Mirandinos,"Miranda, Venezuela","Caracas, Miranda, Venezuela",region_added
+1030830356,4e Open de France de Footbag,"Montpellier, France","Montpellier, Occitanie, France",region_added
+1064849293,1st French Footbag Championships,"Montpellier, France","Montpellier, Occitanie, France",region_added
+1090569022,Montpellier Sunny Jam Open,"Montpellier, France","Montpellier, Occitanie, France",region_added
+1199106237,10th Annual IFPA European Footbag Championships,"Montpellier, France","Montpellier, Occitanie, France",region_added
+1277805979,French Footbag Championships 2010,"Montpellier, France","Montpellier, Occitanie, France",region_added
+1556306551,Akisphere 2019,"Montreal, Canada","Montréal, Quebec, Canada",region_added
+1081766954,Russian Open Footbag Series/ Stage 2,"Moscow, Russia","Moscow, Moscow, Russia",region_added
+1092044099,Russian Open Footbag Series/ Stage 4,"Moscow, Russia","Moscow, Moscow, Russia",region_added
+1093955766,"Russian Open Footbag Series/ Stage 5, Brooks Cup","Moscow, Russia","Moscow, Moscow, Russia",region_added
+1241031822,Frisbee Footbag Fest,"Moscow, Russia","Moscow, Moscow, Russia",region_added
+1362657553,15th Annual IFPA European Footbag Championships,"Moscow, Russia","Moscow, Moscow, Russia",region_added
+1097785506,Finnish Singles Net Footbag Championships 2004,"Naantali, Finland","Naantali, Southwest Finland, Finland",region_added
+1161871029,Finnish Footbag Championships 2006,"Naantali, Finland","Naantali, Southwest Finland, Finland",region_added
+1220519679,Finnish Footbag Singles Net Championships,"Naantali, Finland","Naantali, Southwest Finland, Finland",region_added
+1254829577,Finnish Footbag Championships,"Naantali, Finland","Naantali, Southwest Finland, Finland",region_added
+1287439208,Naantalin Seudun Mestaruuskilpailut,"Naantali, Finland","Naantali, Southwest Finland, Finland",region_added
+1241011525,2009 French Footbag Championships,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1335381794,French Footbag Championships 2012,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1432901754,Championnat de France de Footbag 2015,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1459426362,Championnat de France de Footbag 2016,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1497678985,Championnat de France de Footbag 2017,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1520596747,Championnat de France de footbag 2018,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1531311472,Open de France 2018,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1647508742,Open de France de Footbag 2022,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1741024635,44th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2025,"Nantes, France","Nantes, Pays de la Loire, France",region_added
+1245432804,Austrian Footbag Championships 2009,"Neustadt, Austria","Wiener Neustadt, Lower Austria, Austria",region_added
+1161888703,Cornell Footbag Jam,"New York, United States","Ithaca, New York, United States",region_added
+1301243982,Aachen Outdoor Open - The Rally Cup,"Nrw, Germany","Düsseldorf, North Rhine-Westphalia, Germany",region_added
+1328094862,14th Annual IFPA European Footbag Championships,"Nrw, Germany","Düsseldorf, North Rhine-Westphalia, Germany",region_added
+1392497284,3rd Czech Footbag Freestyle Meeting,"Ostrava, Czech Republic","Ostrava, Moravian-Silesian, Czech Republic",region_added
+961053916,Footbag Oulu-Open 2000,"Oulu, Finland","Oulu, North Ostrobothnia, Finland",region_added
+948198763,European Footbag Championships 2000,"Paris, France","Paris, Île-de-France, France",region_added
+1050745947,RNH Contest 2003,"Paris, France","Paris, Île-de-France, France",region_added
+1061921260,Pre Season Footbag Golf Open,"Paris, France","Paris, Île-de-France, France",region_added
+1069415266,"Party Golf @ ""Salon de l'Education""","Paris, France","Paris, Île-de-France, France",region_added
+1080138513,RNH Contest 2004,"Paris, France","Paris, Île-de-France, France",region_added
+1089373321,6e Open de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1103724325,RNH Contest 2005,"Paris, France","Paris, Île-de-France, France",region_added
+1113922209,,"Paris, France","Paris, Île-de-France, France",region_added
+1125936037,7e Open de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1134914723,RNH Contest 2006,"Paris, France","Paris, Île-de-France, France",region_added
+1143027870,Commalamaison Contest 2,"Paris, France","Paris, Île-de-France, France",region_added
+1149763452,8e OPEN de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1160579826,CommALaMaison Contest 3,"Paris, France","Paris, Île-de-France, France",region_added
+1166622628,RNH Contest 2007,"Paris, France","Paris, Île-de-France, France",region_added
+1183729267,9e Open de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1203604560,CommALaMaison Contest 2008,"Paris, France","Paris, Île-de-France, France",region_added
+1204904987,RNH Contest 2008,"Paris, France","Paris, Île-de-France, France",region_added
+1222687523,10e Open de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1235149093,RNH Contest 2009,"Paris, France","Paris, Île-de-France, France",region_added
+1256202918,11e Open de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1270631935,RNH Contest 2010,"Paris, France","Paris, Île-de-France, France",region_added
+1294262550,12e Open de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1300316952,Paris Net Battle 2011,"Paris, France","Paris, Île-de-France, France",region_added
+1320232300,RNH Contest 2011,"Paris, France","Paris, Île-de-France, France",region_added
+1331667371,Paris Net Battle 2,"Paris, France","Paris, Île-de-France, France",region_added
+1353085933,RNH Contest 2012,"Paris, France","Paris, Île-de-France, France",region_added
+1354752474,13e Open de France de Footbag,"Paris, France","Paris, Île-de-France, France",region_added
+1369864929,Paris Net Battle 3,"Paris, France","Paris, Île-de-France, France",region_added
+1391189882,35th IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Paris, France","Paris, Île-de-France, France",region_added
+1394621886,Paris Net Battle 2014,"Paris, France","Paris, Île-de-France, France",region_added
+1412859519,15th Anniversary of RNH Footbag (RNH Contest 2014),"Paris, France","Paris, Île-de-France, France",region_added
+1417000778,RNH Winter Contest 2014,"Paris, France","Paris, Île-de-France, France",region_added
+1458170459,RNH Contest 2016,"Paris, France","Paris, Île-de-France, France",region_added
+1486654923,RNH Contest,"Paris, France","Paris, Île-de-France, France",region_added
+1516978874,RNH Contest 2018,"Paris, France","Paris, Île-de-France, France",region_added
+1551207285,RNH Contest 2019,"Paris, France","Paris, Île-de-France, France",region_added
+1568961264,RNH Footbag 20th Anniversary,"Paris, France","Paris, Île-de-France, France",region_added
+1721038326,RNH Contest 2024,"Paris, France","Paris, Île-de-France, France",region_added
+1753997172,RNH Contest 2025,"Paris, France","Paris, Île-de-France, France",region_added
+1095965765,2nd Annual Piliscsaba Footbag Open,"Piliscsaba, Hungary","Piliscsaba, Pest, Hungary",region_added
+1297811412,11th Annual Polish Footbag Championships 2011,"Plonsk, Poland","Płońsk, Masovian, Poland",region_added
+1110562712,2005 Austrian Footbag & Disc Open,"Podersdorf, Austria","Podersdorf am See, Burgenland, Austria",region_added
+980502839,European Footbag Championships,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+1035277529,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+1092073845,Czech Championships 2004,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+1168634226,Todexon 8,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+1194517448,2008 IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+1196344513,Todexon 9,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+1293878155,Todexon 12,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+1389730147,Todexon 15,"Prague, Czech Republic","Prague, Prague, Czech Republic",region_added
+944242404,Todexon Cup Freestyle Tournament,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1018812342,Czech Footbag Championships,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1070734498,TODEXON 5,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1114277529,Czech Footbag Championships,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1228946926,Czech Footbag Championships,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1231432184,Todexon 10,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1255335697,Prague Net Open,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1262691385,Todexon 11,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1321869570,Todexon 13,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1326451143,Praha Open,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1357206898,Todexon 14,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1415986036,Todexon 16,"Praha, Czech Republic","Prague, Prague, Czech Republic",region_added
+1337617980,German Footbag Open (14th Annual German Footbag Championships),"Sachsen, Germany","Dresden, Saxony, Germany",region_added
+1076876907,Russian Open Footbag Series/ Stage 1,"Saint-Petersburg, Russia","Saint Petersburg, Saint Petersburg, Russia",region_added
+1192722292,Russian Footbag Freestyle Jam,"Saint-Petersburg, Russia","Saint Petersburg, Saint Petersburg, Russia",region_added
+1315451053,Memphicago Open,"Salem, United States","Salem, Illinois, United States",region_added
+1143195910,Hack Ski Sack,"Savoie, France","Chambéry, Auvergne-Rhône-Alpes, France",region_added
+1278603677,10th Annual Polish Footbag Championships 2010,"Silesia, Poland","Katowice, Silesian, Poland",region_added
+1439332196,XV IFPA Polish Footbag Championships,"Silesia, Poland","Katowice, Silesian, Poland",region_added
+1467142686,16th Annual Polish Footbag Championships,"Slaskie, Poland","Katowice, Silesian, Poland",region_added
+1417958417,17th Annual IFPA European Footbag Championships,"Sofia, Bulgaria","Sofia, Sofia-Grad, Bulgaria",region_added
+1519215398,39th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2018,"Sofia, Bulgaria","Sofia, Sofia-Grad, Bulgaria",region_added
+1139778550,Swedish Open Footbag Net,"Stockholm, Sweden","Stockholm, Stockholm County, Sweden",region_added
+1235653935,11th Annual IFPA European Footbag Championships - Strzelin,"Strzelin, Poland","Strzelin, Lower Silesian, Poland",region_added
+1366375326,WSF Stare Babice Footbag Jam 2013,"Suburb, Poland","Warsaw, Masovian, Poland",region_added
+1526583313,Refaski Cup 2018,"Tabor, Czech Republic","Tábor, South Bohemian, Czech Republic",region_added
+1635599636,Refaski Cup 2021,"Tabor, Czech Republic","Tábor, South Bohemian, Czech Republic",region_added
+1667566506,Refaski Cup 2022,"Tabor, Czech Republic","Tábor, South Bohemian, Czech Republic",region_added
+1699709080,Refaski Cup 2023 aneb JINDRA Kicks with us,"Tabor, Czech Republic","Tábor, South Bohemian, Czech Republic",region_added
+1728058298,Memorial Jindra Smoly - Refaski Cup 10,"Tabor, Czech Republic","Tábor, South Bohemian, Czech Republic",region_added
+1759558836,Memorial Jindry Smoly-Refaski cup 11,"Tabor, Czech Republic","Tábor, South Bohemian, Czech Republic",region_added
+1226205667,2nd IFPA South American Footbag Championships,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1267469140,Footcamp 2010,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1285989828,Footbag Táchira Cup (Copa Tachira),"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1301104070,Footcamp 2011,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1314323534,5to Campeonato Suramericano de Footbag,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1314328055,3ra Copa Táchira de Footbag,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1335761071,6to Torneo FootCamp,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1348929718,4ta Copa Táchira de Footbag,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1361239371,Copa San Sebastián,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1361239920,FOOTCAMP 2013,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1378928859,5º Copa Táchira,"Tachira, Venezuela","San Cristóbal, Táchira, Venezuela",region_added
+1449259560,37th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2016,"Trnava, Slovakia","Trnava, Trnava, Slovakia",region_added
+937854594,Turku Tournee 1999,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+955831740,Turku Open 2000,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+990512631,3rd annual Turku International Open Championships 2001 Finland,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1001076315,5th Annual Finnish Footbag Championships,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1050067583,Turku Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1063788560,Finnish Footbag Championships 2003,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1080896073,Turku Open 2004,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1109802420,6th Annual IFPA Turku Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1124035486,IFPA Sun City Spike,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1141576257,7th Annual Turku Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1177615498,8th Annual Turku Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1208345952,9th Annual Turku Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1240469006,Turku Open 2009,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1271275118,Turku Open 2010,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1302874713,Turku Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1335898356,Turku Open 2012,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1362915311,Turku Open Tuanament,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1389338303,16th Annual IFPA European Footbag Championships,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1431288258,Turku Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1449217972,2015 Finnish Footbag Championships in Singles Net,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1471407009,20th Annual Finnish Footbag Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1509295388,Finnish Footbag Net Championships,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1537521152,Footbag Finnish Open,"Turku, Finland","Turku, Southwest Finland, Finland",region_added
+1643478787,24th Annual Footbag Finnish Open,"Uusimaa, Finland","Helsinki, Uusimaa, Finland",region_added
+1745686591,Footbag Finnish Open 2024 - Singles Net,"Uusimaa, Finland","Helsinki, Uusimaa, Finland",region_added
+1245404642,6# Swiss Footbag Open,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1299019355,10 years Pieds à Gilles - 7th Swiss Footbag Open,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1370276202,Swiss Footbag Open & Championships,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1407335213,Swiss Footbag Open,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1438626750,Swiss Footbag Open,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1466891959,Swiss Footbag Open 2016,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1488957997,Swiss Footbag Open 2017,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1533246739,Swiss Footbag Open,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1565425638,Swiss Footbag Open 2022,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1709070838,Swiss Footbag Open 2024,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1740419380,Swiss Footbag Open 2025,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+1764237004,,"Vaud, Switzerland","Lausanne, Vaud, Switzerland",region_added
+996678489,Vienna Footbag Festival,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1154685554,9th Annual IFPA European Footbag Championships,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1284588517,Austrian Footbag Championships 2010,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1318673467,Austrian Footbag Championships 2011,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1382778441,Austrian Footbag Championships 2013,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1445178271,Austrian Footbag Championships 2015,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1473932659,Austrian Footbag Championships 2016,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1498568502,Austrian Footbag Championships 2017,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1536221908,Austrian Footbag Championships 2018,"Vienna, Austria","Vienna, Vienna, Austria",region_added
+1556730450,I. Basque Tournament of Footbag (Doubles),"Vizcaya, Basque Country","Bilbao, Basque Country, Spain",region_added
+1299244521,,"Warsaw, Poland","Warsaw, Masovian, Poland",region_added
+1323272493,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,"Warsaw, Poland","Warsaw, Masovian, Poland",region_added
+1189345008,5th Annual Wilanow Footbag Open 2007,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1219405634,8th Annual Polish Footbag Championships 2008,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1267199851,WSF Mistrzostwa Pragi w Grze w Zoske,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1282912320,7th Annual Wilanow Footbag Open 2010,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1316280393,8th Annual Wilanow Footbag Open 2011,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1338821785,Warsaw Footbag Open 2012,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1547415984,40th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2019,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1600984774,XX Polish Footbag Championships - Warsaw 2020,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1634665636,XXI Polish Footbag Championships - Warsaw 2021,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1668541701,XXII Polish Footbag Championships - Warsaw 2022,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+1694170899,XXIII Polish Footbag Championships - Warsaw 2023,"Warszawa, Poland","Warsaw, Masovian, Poland",region_added
+947196813,New Zealand Footbag Championships,"Wellington, New Zealand","Wellington, Wellington, New Zealand",region_added
+1038895913,Seapa NZ Freestyle Footbag Championships,"Wellington, New Zealand","Wellington, Wellington, New Zealand",region_added
+1099545007,,"Wellington, New Zealand","Wellington, Wellington, New Zealand",region_added
+1575361225,Austrian Footbag Championships + XMAS Jam 2019,"Wien, Austria","Vienna, Vienna, Austria",region_added
+990626988,Polish Footbag Competition,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1074511718,Swiat Zoski,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1090437706,Zocha Jam 2004,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1104851808,7th Annual IFPA European Footbag Championships,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1127155729,Zocha Jam 2005,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1158263300,Zocha Jam 2006,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1195773772,Zocha Jam 2007,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1224962900,Zocha Jam 2008,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1255957016,Zocha Jam 2009,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1288096032,Zocha Jam 2010,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1376036018,13th Annual Polish Footbag Championships 2013,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1461077179,Zocha Jam 2016,"Wroclaw, Poland","Wrocław, Lower Silesian, Poland",region_added
+1239721441,End of Winter Jam,"Wroclaw/Strzelin, Poland","Wrocław, Lower Silesian, Poland",region_added
+1102443443,Footbag Fiesta,"Zachodnio-pomorskie, Poland","Szczecin, West Pomeranian, Poland",region_added
+1126086921,Polish Footbag Championships 2005,"Zachodnio-pomorskie, Poland","Szczecin, West Pomeranian, Poland",region_added
+1260517364,Footbag Open Meeting,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1262631137,Urban Komba Footbag Open Footbag Jam,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1267996189,Footbag again in the Zara,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1393451254,bulgarian open footbag jam part 24,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1421069713,Bulgarian Open Footbag Jam,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1458125752,Bulgaria Footbag Open,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1487800738,Stara Zagora Footbag Jam 2017,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1499168069,Bulgarian Footbag Championships 2017,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1519233007,Bulgarian Footbag Championships 2018,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1614772897,Bulgarian Footbag Open 2021,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1673723574,Bulgarian Footbag Open 2023,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1692508794,Bulgarian Footbag Championships,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1711181388,Bulgarian Footbag Open 2024,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1711182054,24th IFPA European Footbag Championships,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1739036206,Bulgarian Footbag Open 2025,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1756448770,Bulgarian Footbag Championships 2025,"Zagora, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",region_added
+1050140930,German Footbag Open 2003,"Zeil, Germany","Zeil am Main, Bavaria, Germany",region_added
+959094047,,"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+980253113,Swiss Footbag Jam,"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+981560223,Swiss Footbag Championships (FootJam),"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+1068638122,,"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+1105087209,IFPA Swiss Footbag Open 2005: FootJam05,"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+1329132977,Swiss Footbag Championships 2012,"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+1371821574,Swiss Jam Zürich,"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+1389613723,Swiss Jam Zürich,"Zurich, Switzerland","Zurich, Zurich, Switzerland",region_added
+1336988107,12th Annual IFPA Polish Footbag Championships 2012,"dolnoslaskie, Poland","Wrocław, Lower Silesian, Poland",region_added
+1568289502,Bulgarian Footbag Open Vol.2,"Bulgaria, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",venue_or_region_in_city_field
+1580328152,Bulgarian Footbag Championships 2020,"Bulgaria, Bulgaria","Stara Zagora, Stara Zagora, Bulgaria",venue_or_region_in_city_field
+1097686137,Swiss Championships 2005,"Switzerland, Switzerland","Fribourg, Fribourg, Switzerland",venue_or_region_in_city_field

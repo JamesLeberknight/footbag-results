@@ -1,0 +1,3 @@
+event_id,year,event_name,line_no,line_raw,line_class,name_raw,person_id,person_canon,match_type,score_raw,score_value,score_type,extract_method,filter_reason
+1195585401,2008,The 2008 Green Cup Presented by Chaos,64,"1. Florian Goetze / Lisa McDaniel (El Cerrito, CA, USA) [Final: 15-13, 15-10]",result_score,Final,,,unresolved,15.0,15.0,reject,name_score_inline,score_classifier_reject
+1331667371,2012,Paris Net Battle 2,86,"16-14, 15-10). This was Karim?s 4?s finals in row in Paris since June",result_score,14,,,unresolved,10.0,10.0,reject,placement_line_tail_score,score_classifier_reject

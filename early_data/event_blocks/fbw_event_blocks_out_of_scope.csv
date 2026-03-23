@@ -1,0 +1,14 @@
+event_id,event_name_raw,year,date_raw,location_raw,source_file,source_type,exclude_pre1997
+10f8dadb52,1997 IFAB World Championships,1997,1997,,FBW_V07_N01_p037.jpg,FBW,TRUE
+c2e36a3bea,1998 IFAB World Championships,1998,1998,,FBW_V07_N02_p038.jpg,FBW,TRUE
+a553554351,1999 IFAB World Championships,1999,1999,,FBW_V07_N03_p039.jpg,FBW,TRUE
+a3483ebff3,2000 IFAB World Championships,2000,2000,,FBW_V07_N03_p040.jpg,FBW,TRUE
+5533f2fa88,2001 IFAB World Championships,2001,2001,,FBW_V07_N03_p041.jpg,FBW,TRUE
+bccea3178b,2002 IFAB World Championships,2002,2002,,FBW_V08_N01_p042.jpg,FBW,TRUE
+b49a1d0d4e,2003 IFAB World Championships,2003,2003,,FBW_V08_N02_p043.jpg,FBW,TRUE
+fda158d985,2004 IFAB World Championships,2004,2004,,FBW_V08_N02_p044.jpg,FBW,TRUE
+22fc67ecfb,2005 IFAB World Championships,2005,2005,,FBW_V08_N02_p045.jpg,FBW,TRUE
+927c187fd2,2011 World Footbag Championships,2011,2011,"Helsinki, Finland",FBW_V13_N01_p011.jpg,FBW,TRUE
+ecdc5118a6,2011 European Footbag Championships,2011,2011,"Prague, Czech Republic",FBW_V13_N02_p013.jpg,FBW,TRUE
+b6944e3db0,2012 World Footbag Championships,2012,2012,"Portland, Oregon",FBW_V14_N01_p014.jpg,FBW,TRUE
+4b02885089,2000 World Footbag Championships,2000,2000,"Vancouver, BC",IFAB_WORLDS_HISTORY_p053.jpg,IFAB,TRUE

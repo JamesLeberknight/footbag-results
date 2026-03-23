@@ -1,0 +1,435 @@
+event_id,year,source_path,source_url,source_file,source_layer,event_name_raw,date_raw,location_raw,host_club_raw,event_type_raw,results_block_raw,results_lines_n,has_results,html_parse_notes,html_warnings
+2001980001,1980,OLD_RESULTS.txt#L82-94,,OLD_RESULTS.txt,old_results,World Championships 1980 (NHSA),,,,net,"SINGLES CONSECUTIVE KICKS
+1. Ken Shults
+
+DOUBLES CONSECUTIVE KICKS
+1. Ken Shults / Mike Harding
+
+SINGLES NET
+1. John Stalberger
+2. Walt Mason
+3. Ken Shults
+
+DOUBLES NET
+1. John Stalberger / Max Smith
+2. Walt Mason / Mag Hughes
+
+UNKNOWN DIVISION
+1. Gale Bigler / Dave Frazier",8,True,importer:01b_import_old_results; source:OLD_RESULTS.txt; results:normalized_from_text; org:NHSA,placement_without_division: 3rd - Gale Bigler/Dave Frazier
+2001981001,1981,OLD_RESULTS.txt#L95-118,,OLD_RESULTS.txt,old_results,World Championships 1981 (NHSA),,,,net,"INTERMEDIATE SINGLES CONSECUTIVE KICKS
+1. Max Smith
+
+SINGLES CONSECUTIVE KICKS
+1. Gary Lautt
+
+WOMEN'S SINGLES CONSECUTIVE KICKS
+1. Kalia Klaban
+
+TEAM CONSECUTIVE KICKS
+1. Kalia Klaban / Gary Lautt / Jim Caveney
+
+INTERMEDIATESINGLES NET
+1. Mike Harding
+
+INTERMEDIATE DOUBLES NET
+1. Mike Harding / Mark Daniels
+
+SINGLES NET
+1. John Stalberger
+2. Ken Shults
+3. Dave Hill
+
+DOUBLES NET
+1. Mag Hughes / Bill Hayne
+2. John Stalberger / Max Smith
+
+UNKNOWN DIVISION
+1. Ken Shults / Walt Mason
+
+WOMEN'S DOUBLES NET
+1. Rita Buckley / Misty Helms
+2. unknown
+
+UNKNOWN DIVISION
+1. Lori Jean Conover / Jennifer Reese",15,True,importer:01b_import_old_results; source:OLD_RESULTS.txt; results:normalized_from_text; org:NHSA,placement_without_division: 3rd -Ken Shults/Walt Mason; implicit_division_reused: UNKNOWN DIVISION
+2001982001,1982,OLD_RESULTS.txt#L119-149,,OLD_RESULTS.txt,old_results,World Championships 1982 (NHSA),,,,mixed,"GOLF
+1. Mike Harding
+2. Ken Shults
+3. Greg Cortopassi
+
+SINGLES CONSECUTIVE KICKS
+1. Ken Shults
+
+UNKNOWN DIVISION
+1. Andy Linder, 3rd -Gary Lautt
+
+WOMEN'S DOUBLES NET
+1. Lori Jean Conover / Carolyn Ramondie
+
+UNKNOWN DIVISION
+1. Rita Buckley / Alex Frazier, 3rd -Cheryl Hughes / Karen Uppinghouse
+
+WOMEN'S SINGLES NET
+1. Cheryl Hughes
+2. Carolyn Ramondie
+3. Karen Gunther
+
+MIXED DOUBLES NET
+1. Alex Frazier / Mag Hughes
+2. Cheryl Hughes / Bill Hayne
+
+UNKNOWN DIVISION
+1. Rita Buckley / Greg Cortopassi
+
+SINGLES NET
+1. Ken Shults
+2. Bill Hayne
+3. Bruce Guettich
+
+DOUBLES NET
+1. Mag Hughes / Bill Hayne
+2. Ken Shults / Walt Mason
+
+UNKNOWN DIVISION
+1. Fred Kippley / Gary Preston
+
+INTERMEDIATESINGLES NET
+1. Steve Femmel
+
+FREESTYLE
+1. Greg Cortopassi / Bruce Guettich
+2. Gary Lautt
+
+UNKNOWN DIVISION
+1. Jack Schoolcraft / Reed Gray
+
+INTERMEDIATE FREESTYLE
+1. Bill Langbehn",24,True,importer:01b_import_old_results; source:OLD_RESULTS.txt; results:normalized_from_text; org:NHSA,"placement_without_division: 2nd -Andy Linder, 3rd -Gary Lautt; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION"
+2001983001,1983,OLD_RESULTS.txt#L150-182,,OLD_RESULTS.txt,old_results,World Championships 1983 (NHSA),,,,mixed,"SINGLES CONSECUTIVE KICKS
+1. Andy Linder
+
+UNKNOWN DIVISION
+1. Jim Caveney, 3rd -Gary Lautt
+
+WOMEN'S CONSECUTIVE KICKS
+1. Nancy Reynolds
+2. Cheri Johnson
+
+UNKNOWN DIVISION
+1. Grace Faucette
+
+WOMEN'S SINGLES NET
+1. Lori Jean Conover
+2. Nancy Reynolds
+3. Cheryl Hughes
+
+WOMEN'S DOUBLES NET
+1. Lori Jean Conover / Cheryl Hughes
+2. Tricia George / Judy Grace
+
+UNKNOWN DIVISION
+1. Nancy Reynolds / Constance Constable
+
+MIXED DOUBLES NET
+1. Lori Jean Conover / Bill Hayne
+2. Cheryl Hughes / Mag Hughes
+
+UNKNOWN DIVISION
+1. Tricia George / David Robinson
+
+SINGLES NET
+1. Mag Hughes
+2. Ken Shults
+3. David Robinson
+
+DOUBLES NET
+1. Mag Hughes / Bill Hayne
+2. Greg Cortopassi / Bruce Guettich
+
+UNKNOWN DIVISION
+1. David Robinson / Kevin Courtney
+
+INTERMEDIATESINGLES NET
+1. Jimmy Evans
+
+SINGLES FREESTYLE
+1. Ken Shults
+2. Andy Linder
+3. Jeff Johnson
+
+TEAM FREESTYLE
+1. Greg Cortopassi / Mag Hughes / Gary Lautt / Jim Caveney
+
+UNKNOWN DIVISION
+1. David Robinson / Kevin Courtney / Reed Gray / Jim Fitzgerald
+2. Jack Schoolcraft / Will Squire",27,True,importer:01b_import_old_results; source:OLD_RESULTS.txt; results:normalized_from_text; org:NHSA,"placement_without_division: 2nd -Jim Caveney, 3rd -Gary Lautt; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION"
+2001983002,1983,OLD_RESULTS.txt#L183-208,,OLD_RESULTS.txt,old_results,World Championships 1983 (WFA),,,,mixed,"SINGLES NET
+1. Ken Shults
+2. David Robinson
+3. Steve Femmel
+
+DOUBLES NET
+1. Ken Shults / Mike Harding
+2. David Robinson / Dave Hill
+
+UNKNOWN DIVISION
+1. Bob Swerdlick / Mike Puderbaugh
+
+WOMEN'S SINGLES NET
+1. Lori Jean Conover
+2. Nancy Reynolds
+3. Tricia George
+
+WOMEN'S DOUBLES NET
+1. Lori Jean Conover / Rita Buckley
+
+UNKNOWN DIVISION
+1. Tricia George / Shannon Aubin, 3rd - Karen Atgopian / Constance Constable
+
+MIXED DOUBLES NET
+1. Lori Jean Conover / Bruce Guettich
+
+UNKNOWN DIVISION
+1. Shannon Aubin / David Robinson, 3rd -Tricia George / Jim Fitzgerald
+
+SINGLES FREESTYLE
+1. Jack Schoolcraft
+2. Jim Caveney
+3. Bill Bethurum
+
+TEAM FREESTYLE
+1. Gary Lautt / Jim Caveney / Ken Shults
+
+UNKNOWN DIVISION
+1. David Robinson / Kevin Courtney / Reed Gray, 3rd -Jim Fitzgerald / Robert Conover
+
+SINGLES CONSECUTIVE KICKS
+1. Jack Schoolcraft
+
+GOLF
+1. Mike Harding
+2. Tim Prater
+3. Ken Shults",22,True,importer:01b_import_old_results; source:OLD_RESULTS.txt; results:normalized_from_text; org:WFA,placement_without_division: 3rd - Bob Swerdlick/Mike Puderbaugh; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: UNKNOWN DIVISION
+2001984001,1984,OLD_RESULTS.txt#L209-275,,OLD_RESULTS.txt,old_results,World Championships 1984,,,,mixed,"INTERMEDIATESINGLES NET
+1. Tom Akin
+
+WOMEN'S SINGLES NET
+1. Nancy Reynolds
+2. Tricia George
+3. Trudy Archdale
+
+WOMEN'S DOUBLES NET
+1. Nancy Reynolds / Tricia George
+
+UNKNOWN DIVISION
+1. Constance Constable / Jenny Davison
+2. Jodi Chandler / Shannon Storment
+
+WOMEN'S ULTRA SINGLES NET
+1. Nancy Reynolds
+2. Cheryl Hughes
+3. Tricia George
+
+WOMEN'S SINGLES CONSECUTIVE KICKS
+1. Jodi Chandler
+2. Tricia George
+
+UNKNOWN DIVISION
+1. Constance Constable
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Jodi Chandler / Tricia George
+2. Constance Constable / Vanessa Sabala
+3. Ruth Osterman / Vanessa Sabala
+
+WOMEN'S FREESTYLE
+1. Jodi Chandler / Tricia George
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Constance Constable / Suzanne Beauchemin
+2. Ruth Osterman / Vanessa Sabala / Jenny Davison
+
+WOMEN'S GOLF
+1. Tricia George
+2. Constance Constable
+3. Vanessa Sabala
+
+WOMEN'S OVERALL
+1. Tricia George
+
+MEN'S OVERALL
+1. Mag Hughes
+
+MIXED DOUBLES NET
+1. Tricia George / David Robinson
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Nancy Reynolds / Greg Cortopassi, 3rd -Cheryl Hughes / Mag Hughes
+
+GOLF
+1. Ken Shults
+2. Tim Mackey
+3. Torben Wigger
+
+ADVANCED SINGLES NET
+1. Mag Hughes
+2. David Robinson
+3. Ken Shults
+
+ADVANCED DOUBLES NET
+1. Mag Hughes / Bill Hayne
+2. Ken Shults / Mike Harding
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. David Robinson / Jim Caveney
+
+ULTRA SINGLES NET
+1. Ken Shults
+2. Mag Hughes
+3. David Robinson
+
+ULTRA DOUBLES NET
+1. Mag Hughes / Bill Hayne
+2. Kevin Coker / Steve Granzberg
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Scott Cleere / Bill Bethurum
+
+SINGLES FREESTYLE
+1. Andy Linder
+2. Ken Shults
+3. Jack Schoolcraft
+
+TEAM FREESTYLE
+1. Jack Schoolcraft / Jim Fitzgerald
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Mag Hughes / Gary Lautt / Jim Caveney, 3rd - Scott Cleere / Bill Bethurum
+
+SINGLES CONSECUTIVE KICKS
+1. Pat Castle
+2. Gary Lautt
+3. Andy Linder
+
+DOUBLES CONSECUTIVE KICKS
+1. Gary Lautt / Jim Caveney
+2. Andy Linder / Jimmy Evans
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Lee Guenther / Mike Mueller
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Gary Lautt / Jim Caveney
+2. Jodi Chandler / Jon Lind, 3rd -Mag Hughes / Greg Cortopassi",54,True,importer:01b_import_old_results; source:OLD_RESULTS.txt; results:normalized_from_text,"placement_without_division: 2nd -Constance Constable/Jenny Davison,; implicit_division_reused: UNKNOWN DIVISION; unparsed_placement_like_line: Women's Doubles One-Pass Consecutive Kicks 1st -Tricia George/Constance Constable,; implicit_division_reused: WOMEN'S DOUBLES CONSECUTIVE KICKS; implicit_division_reused: WOMEN'S DOUBLES CONSECUTIVE KICKS; implicit_division_reused: WOMEN'S DOUBLES CONSECUTIVE KICKS; implicit_division_reused: WOMEN'S DOUBLES CONSECUTIVE KICKS; implicit_division_reused: WOMEN'S DOUBLES CONSECUTIVE KICKS; implicit_division_reused: WOMEN'S DOUBLES CONSECUTIVE KICKS"
+2001985001,1985,OLD_RESULTS.txt#L276-337,,OLD_RESULTS.txt,old_results,World Championships 1985,,,,mixed,"WOMEN'S SINGLES CONSECUTIVE KICKS
+1. Tricia George
+
+UNKNOWN DIVISION
+1. Constance Constable, 3rd - Marie Elsner
+
+SINGLES CONSECUTIVE KICKS
+1. Andy Linder
+
+UNKNOWN DIVISION
+1. Pat Castle, 3rd - Fred Barnum
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Jodi Chandler / Marie Elsner
+2. Tricia George / Constance Constable, 3rd -Nancy Reynolds / Kendall KIC
+
+DOUBLES CONSECUTIVE KICKS
+1. Pat Castle / Jack Schoolcraft
+2. Chris Ott / Jeff Johnson
+
+WOMEN'S DOUBLES CONSECUTIVE KICKS
+1. Jon Lind / Dennis Ross
+
+WOMEN'S DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Tricia George / Constance Constable
+2. Jodi Chandler / Nancy Reynolds, 3rd - Suzanne Beauchemin / Linda Burt
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Jim Caveney / Bruce Guettich
+2. Mag Hughes / David Robinson, 3rd -Brent Welch / Bill Langbehn
+
+WOMEN'S GOLF
+1. Tricia George
+2. Linda Burt
+3. Trudy Archdale
+
+GOLF
+1. Ken Shults
+2. Chris Ott
+3. Evan Bozett
+
+WOMEN'S FREESTYLE
+1. Jodi Chandler / Tricia George
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Constance Constable / Kim Era, 3rd - Nancy Reynolds
+
+SINGLES FREESTYLE
+1. Ken Shults
+2. Dennis Ross
+3. Jack Schoolcraft
+
+TEAM FREESTYLE
+1. Jim Caveney / Bruce Guettich
+2. Scott Cleere / Bill Bethurum
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Brent Welch / Bill Langbehn
+
+INTERMEDIATESINGLES NET
+1. Mark Pistorio
+
+MIXED DOUBLES NET
+1. Tricia George / David Robinson
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Trudy Archdale / Bruce Guettich, 3rd -Constance Constable / Jim Caveney
+
+WOMEN'S SINGLES NET
+1. Tricia George
+2. Nancy Reynolds
+3. Trudy Archdale
+
+WOMEN'S DOUBLES NET
+1. Nancy Reynolds / Tricia George
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Trudy Archdale / Constance Constable, 3rd -Suzanne Beauchemin / Linda Burt
+
+ADVANCED SINGLES NET
+1. Gary Griggs
+2. Jimmy Evans
+3. Allan Petersen
+
+ADVANCED DOUBLES NET
+1. Jimmy Evans / Chris Ott
+2. Bruce Guettich / Andy Linder
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. Peter Shunny / John East
+
+ULTRA SINGLES NET
+1. Mag Hughes
+2. David Robinson
+3. Ken Shults
+
+ULTRA DOUBLES NET
+1. Ken Shults / Mike Harding
+2. Mag Hughes / Bill Hayne
+
+DOUBLES ONE-PASS CONSECUTIVE KICKS
+1. David Robinson / Jim Caveney
+
+MEN'S OVERALL
+1. Ken Shults
+2. Jim Caveney
+3. Bruce Guettich
+
+WOMEN'S OVERALL
+1. Tricia George
+2. Constance Constable
+3. Nancy Reynolds",53,True,importer:01b_import_old_results; source:OLD_RESULTS.txt; results:normalized_from_text,"placement_without_division: 2nd -Constance Constable, 3rd - Marie Elsner; implicit_division_reused: UNKNOWN DIVISION; implicit_division_reused: WOMEN'S DOUBLES CONSECUTIVE KICKS; implicit_division_reused: DOUBLES ONE-PASS CONSECUTIVE KICKS; implicit_division_reused: DOUBLES ONE-PASS CONSECUTIVE KICKS; implicit_division_reused: DOUBLES ONE-PASS CONSECUTIVE KICKS; implicit_division_reused: DOUBLES ONE-PASS CONSECUTIVE KICKS; implicit_division_reused: DOUBLES ONE-PASS CONSECUTIVE KICKS; implicit_division_reused: DOUBLES ONE-PASS CONSECUTIVE KICKS"

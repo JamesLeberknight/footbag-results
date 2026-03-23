@@ -1,0 +1,46 @@
+event_id,event_name_raw,source_file,source_type,canonical_event_id,group_id
+b34e90fe3d,1980 NHSA,OLD_RESULTS.txt,OLD_RESULTS,bb975bff1d,bb975bff1d
+005cf9782a,1980 Mike Marshall Memorial,UNKNOWN_p050.jpg,FBW,069f7909e7,069f7909e7
+a6acc8449b,1980 National Footbag Championships,UNKNOWN_p021.jpg,FBW,8396ba09ac,8396ba09ac
+6f31575047,1980 World Footbag Championships,IFAB_WORLDS_HISTORY_p050.jpg,IFAB,5c386b7dea,5c386b7dea
+db24e71377,1981 NHSA,OLD_RESULTS.txt,OLD_RESULTS,b9540daaab,b9540daaab
+2a8ad0dbe8,1981 Mike Marshall Memorial,UNKNOWN_p050.jpg,FBW,bc88796233,bc88796233
+278d51be6e,1981 World Footbag Championships,UNKNOWN_p021.jpg,FBW,af9e865ed5,af9e865ed5
+38240bb7ec,1982 NHSA National Championships,UNKNOWN_p050.jpg,FBW,1e36e7ca92,1e36e7ca92
+8da7cbe9c5,1982 NHSA,OLD_RESULTS.txt,OLD_RESULTS,1e36e7ca92,1e36e7ca92
+7242e1f63b,1982 Western Regionals,UNKNOWN_p022.jpg,FBW,e41e20722d,e41e20722d
+e28b8b3d20,1982 World Footbag Championships,FBW_V02_N01_p017.jpg,FBW,f771c4ef26,f771c4ef26
+ca3ebce8f1,1983 NHSA National Championships,UNKNOWN_p050.jpg,FBW,76498d51d2,76498d51d2
+30f5a76d81,1983 NHSA,OLD_RESULTS.txt,OLD_RESULTS,76498d51d2,76498d51d2
+524d5a426e,1983 Oregon State Championships,UNKNOWN_p050.jpg,FBW,0a43031545,0a43031545
+d7766289c6,1983 WFA National Championships,UNKNOWN_p050.jpg,FBW,00659874b9,00659874b9
+9bb67e459b,1983 WFA,OLD_RESULTS.txt,OLD_RESULTS,00659874b9,00659874b9
+9bfd1a7567,1983 World Footbag Championships,FBW_V03_N02_p021.jpg,FBW,76ff377548,76ff377548
+da1be2ed69,1984 European Footbag Championships,FBW_V04_N02_p024.jpg,FBW,77aa0f8390,77aa0f8390
+0585eab2a3,1984 WFA National Championships,UNKNOWN_p050.jpg,FBW,0e1499ab21,0e1499ab21
+1d123950c4,1984 WFA,OLD_RESULTS.txt,OLD_RESULTS,0e1499ab21,0e1499ab21
+dab11f565e,1984 World Footbag Championships,FBW_V04_N02_p024.jpg,FBW,6cd9e5b635,6cd9e5b635
+2c9dcb3eae,1984,OLD_RESULTS.txt,OLD_RESULTS,6cd9e5b635,6cd9e5b635
+a7e1c7efa7,1985 WFA National Championships,UNKNOWN_p050.jpg,FBW,1c74083104,1c74083104
+c3ee30e8d8,1985 WFA,OLD_RESULTS.txt,OLD_RESULTS,1c74083104,1c74083104
+4dacb9d585,1985 World Footbag Championships,FBW_V05_N02_p028.jpg,FBW,88ab188635,88ab188635
+1295f2ff68,1985,OLD_RESULTS.txt,OLD_RESULTS,88ab188635,88ab188635
+549ebc61ff,1986 WFA World Championships,FBW_V05_N01_p027.jpg,FBW,b4b6a194e2,b4b6a194e2
+52ee2f726b,1986 WFA,OLD_RESULTS.txt,OLD_RESULTS,b4b6a194e2,b4b6a194e2
+a31d11ed12,1986 World Footbag Championships,FBW_V06_N02_p033.jpg,FBW,dea8d6f019,dea8d6f019
+4a11e53de5,1987 European Footbag Championships,FBW_V07_N03_p040.jpg,FBW,e753e2a15c,e753e2a15c
+0178c65039,1987 WFA World Championships,FBW_V05_N01_p027.jpg,FBW,8667de3590,8667de3590
+2373ad3c27,1987 World Footbag Championships,FBW_V07_N01_p037.jpg,FBW,8a1c282011,8a1c282011
+9f5e7b1351,1988 U.S. National Footbag Championships,FBW_V08_N02_p044.jpg,FBW,7f20a87202,7f20a87202
+6455da4379,1988 WFA World Championships,FBW_V05_N02_p028.jpg,FBW,d272be24f7,d272be24f7
+a325895452,1988 World Footbag Championships,FBW_V08_N01_p042.jpg,FBW,1398fe01e4,1398fe01e4
+b96b9c63a4,1989 WFA World Championships,FBW_V05_N02_p029.jpg,FBW,334c632f6e,334c632f6e
+8c04e22a55,1989 World Footbag Championships,IFAB_WORLDS_HISTORY_p051.jpg,IFAB,6ce90a8f5d,6ce90a8f5d
+b7e7f86a9d,1990 WFA World Championships,FBW_V05_N02_p030.jpg,FBW,15782bd1d5,15782bd1d5
+4ba49ad48c,1991 WFA World Championships,FBW_V06_N01_p031.jpg,FBW,76340820ba,76340820ba
+0cd3989fa3,1992 WFA World Championships,FBW_V06_N01_p032.jpg,FBW,07e711d92a,07e711d92a
+392abf2112,1993 IFAB World Championships,FBW_V06_N02_p033.jpg,FBW,e04899bee1,e04899bee1
+dbe602bdaa,1994 IFAB World Championships,FBW_V06_N02_p034.jpg,FBW,b9d35c4646,b9d35c4646
+5e07d75304,1994 World Footbag Championships,IFAB_WORLDS_HISTORY_p052.jpg,IFAB,9bced09b82,9bced09b82
+1ab305536b,1995 IFAB World Championships,FBW_V06_N03_p035.jpg,FBW,1faddf6c05,1faddf6c05
+27ddc0dba1,1996 IFAB World Championships,FBW_V07_N01_p036.jpg,FBW,6dc440629d,6dc440629d

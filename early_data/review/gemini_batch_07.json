@@ -1,0 +1,154 @@
+[
+  {
+    "source_file": "FBW_V13_N01_p011.jpg",
+    "page_notes": "2011 World Footbag Championships results summary.",
+    "events": [
+      {
+        "event_name_raw": "2011 World Footbag Championships",
+        "date_raw": "2011",
+        "location_raw": "Helsinki, Finland",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Walt Houston", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Vasek Klouda", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Doubles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Steve Fennell/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Walt Houston/Justin Sexton", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V13_N02_p013.jpg",
+    "page_notes": "Regional and European event wrap-ups for 2011.",
+    "events": [
+      {
+        "event_name_raw": "2011 European Footbag Championships",
+        "date_raw": "2011",
+        "location_raw": "Prague, Czech Republic",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Vasek Klouda", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Jan Weber", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V14_N01_p014.jpg",
+    "page_notes": "2012 World Footbag Championships coverage.",
+    "events": [
+      {
+        "event_name_raw": "2012 World Footbag Championships",
+        "date_raw": "2012",
+        "location_raw": "Portland, Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Milan Benda", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Vasek Klouda", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Evan Gatesman", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "IFAB_WORLDS_HISTORY_p050.jpg",
+    "page_notes": "Historical reference: World Championships 1980-1985.",
+    "events": [
+      {
+        "event_name_raw": "1980 World Footbag Championships",
+        "date_raw": "1980",
+        "location_raw": "Portland, Oregon",
+        "source_page_notes": "Consolidated history view",
+        "divisions": [
+          {
+            "division_raw": "Open Singles",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "IFAB_WORLDS_HISTORY_p051.jpg",
+    "page_notes": "Historical reference: World Championships 1986-1991.",
+    "events": [
+      {
+        "event_name_raw": "1989 World Footbag Championships",
+        "date_raw": "1989",
+        "location_raw": "Golden, Colorado",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Ken Eldrick", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "IFAB_WORLDS_HISTORY_p052.jpg",
+    "page_notes": "Historical reference: World Championships 1992-1997.",
+    "events": [
+      {
+        "event_name_raw": "1994 World Footbag Championships",
+        "date_raw": "1994",
+        "location_raw": "Palo Alto, California",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "IFAB_WORLDS_HISTORY_p053.jpg",
+    "page_notes": "Historical reference: World Championships 1998-2003.",
+    "events": [
+      {
+        "event_name_raw": "2000 World Footbag Championships",
+        "date_raw": "2000",
+        "location_raw": "Vancouver, BC",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

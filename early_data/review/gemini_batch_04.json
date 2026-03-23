@@ -1,0 +1,98 @@
+[
+  {
+    "source_file": "UNKNOWN_p021.jpg",
+    "page_notes": "Contains '1980 National Championships' and '1981 World Championships' results.",
+    "events": [
+      {
+        "event_name_raw": "1980 National Footbag Championships",
+        "date_raw": "1980",
+        "location_raw": "Clackamas, Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "12,411", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Ken Eldrick", "team_raw": "", "score_raw": "10,214", "notes": "" }
+            ]
+          }
+        ]
+      },
+      {
+        "event_name_raw": "1981 World Footbag Championships",
+        "date_raw": "1981",
+        "location_raw": "Portland, Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "21,341", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Mike Marshall", "team_raw": "", "score_raw": "19,211", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "UNKNOWN_p022.jpg",
+    "page_notes": "Continuation of 1981 World Championships and 1982 Regional results.",
+    "events": [
+      {
+        "event_name_raw": "1982 Western Regionals",
+        "date_raw": "1982",
+        "location_raw": "Seattle, WA",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Doubles",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "John Stalberger/Mike Marshall", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "UNKNOWN_p050.jpg",
+    "page_notes": "Contains various 1980s rankings and local event summaries.",
+    "events": [
+      {
+        "event_name_raw": "1983 Oregon State Championships",
+        "date_raw": "1983",
+        "location_raw": "Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V02_N01_p017.jpg",
+    "page_notes": "Volume 2, No 1. Covers early 1980s circuit results.",
+    "events": [
+      {
+        "event_name_raw": "1982 World Footbag Championships",
+        "date_raw": "1982",
+        "location_raw": "Portland, Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

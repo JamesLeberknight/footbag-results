@@ -1,5 +1,7 @@
 # Footbag Results Dataset & Reconstruction Project
 
+**Current release: v2.15.0**
+
 ## Overview
 
 This repository contains a canonical, reproducible dataset of footbag competition results, along with tools for data extraction, normalization, quality control, and analysis.
@@ -133,20 +135,18 @@ Pre-1997 reconstruction follows a **separate workflow** and is not yet part of t
 
 ## Repository Structure (Simplified)
 
-## Repository Structure (Simplified)
+```
+pipeline/           # core pipeline scripts (stages 01–05p5)
+tools/              # QC, identity resolution, workbook builder, viewer, patch scripts
+qc/                 # per-check QC modules and master orchestrator
+inputs/             # curated source data and overrides
+  identity_lock/    # immutable lock snapshots (Persons_Truth, Placements_ByPerson)
+out/
+  canonical/        # AUTHORITATIVE output: events, results, participants, persons CSVs
+overrides/          # person aliases, event metadata overrides, known issues
+```
 
-
-legacy_data/event_results/
-canonical_input/ # canonical CSV inputs
-scripts/ # pipeline scripts
-seed/ # derived datasets
-outputs/ # final artifacts
-
-early_data/ # pre-1997 recovery (in progress)
-raw_fbw/ # raw magazine images
-preprocessed/ # rotated/cropped images
-extracted/ # extracted rows
-review/ # human QC layer
+The `mirror/` directory (raw HTML source) is **not committed** — it is distributed as a release asset (`mirror.tar.gz`) and must be extracted locally before running the rebuild stage.
 
 
 ---
@@ -201,7 +201,8 @@ Contributions are welcome, especially for:
 
 ## License
 
-[Add your license here]
+Dataset: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Pipeline code: MIT
 
 ---
 

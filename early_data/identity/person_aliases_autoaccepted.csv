@@ -1,0 +1,6 @@
+raw_name,matched_person_id,matched_person_name,reason,confidence
+Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,Billy/Bill standard nickname pair,HIGH
+Fred Kipley,8acf4e97-e1e8-50d7-8fd4-3a1d8ff4e731,Fred Kippley,Single missing 'p' — OCR/transcription error,HIGH
+Misty Helme,e85a6af9-3ac6-550d-8b35-045ec4886d06,Misty Helms,Missing terminal 's' — transcription error,HIGH
+Max Smith Jr.,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,Max Smith,"Identical person, suffix 'Jr.' only",HIGH
+Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,Single missing 't' — transcription error,HIGH

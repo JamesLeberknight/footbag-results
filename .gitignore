@@ -141,6 +141,22 @@ githib-pswd.txt
 FREESTYLE_EVOLUTION_REPORT.md
 
 ############################
+# early_data — image folders (large binary files; not committed)
+# CSV/doc/script files under early_data/ ARE tracked
+############################
+early_data/raw_pages/
+early_data/preprocessed_pages/
+
+############################
+# Root-level scratch files / unversioned dev artifacts
+############################
+CLAUDE_v4.md
+your.save
+freestyle_insights.csv
+event_1982_worlds/
+event_2012_usopen_portland_*/
+
+############################
 # One-off analysis / audit tools (not part of release pipeline)
 ############################
 tools/audit_excel_workbooks.py

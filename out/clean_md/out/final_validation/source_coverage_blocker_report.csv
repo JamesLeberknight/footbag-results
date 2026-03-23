@@ -1,0 +1,69 @@
+severity,event_id,year,event_name,division_canon,s2_places,pf_places,missing_places,root_cause
+BLOCKER_DRIFT,2001981001,1981,World Championships 1981 (NHSA),Intermediate Singles,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,2001981001,1981,World Championships 1981 (NHSA),Singles Consecutive,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,2001983001,1983,World Championships 1983 (NHSA),Mixed Doubles,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,2001983001,1983,World Championships 1983 (NHSA),Open Singles Consecutive,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,9940469,1985,Western National Indoor Footbag Freestyle Championship,Beginner Singles Consecutive,2,0,"1,2",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,859787898,1997,HEART OF FOOTBAG Freestyle Tournament,Shred Skills Contest Final Results,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,877061793,1998,U. S. Open Footbag Net Championships,Womenìs Singles Net 9 Entrants,5,0,"1,2,3,4,5",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1046985067,2003,2003 Steel City Footbag Open,Intermediate Shred 30,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1046985067,2003,2003 Steel City Footbag Open,Open Shred 30,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1050745947,2003,RNH Contest 2003,Shred 30,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1058378281,2003,Texas State Footbag Championships,Freestyle - Intermediate,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1061453080,2003,Australian East Coast Regionals,Consecutive Kicks,4,0,"1,2,3,4",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1076952530,2004,SOUF 2004 Southeastern Regional Footbag Championships,Shred30,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1080757998,2004,Space City Freestyle Jam 2004,Intermediate Shred 30,2,0,"1,2",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1080757998,2004,Space City Freestyle Jam 2004,Open Shred 30,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1094201584,2004,Frankfurt Footbag Open 2004,Open Doubles Net,4,0,"1,2,3,4",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1102788509,2005,3rd Annual Sunshred Footbag Open (LIVE),Open Freestyle Combo,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1103297805,2005,2e Championnat de France de Footbag,Open Sick 3,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1109356644,2005,Funtastik Summer Classic,Freestyle - Novice,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1134914723,2006,RNH Contest 2006,Mixed Doubles Net,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1134914723,2006,RNH Contest 2006,Open Doubles Net,11,0,"1,2,3,4,5,6,7,8,9,10,11",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1134914723,2006,RNH Contest 2006,Open Sick 3,4,0,"1,2,3,4",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1135116604,2006,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,Circle Contest,4,0,"1,2,3,4",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1149763452,2006,8e OPEN de France de Footbag,Shred 30,14,0,"1,2,3,4,5,6,7,8,9,10,11,12,13,14",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1149881200,2006,Funtastik Summer Classic Tournament and Festival,Freestyle - Novice,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1156283186,2006,The Hackrifice Open 2006,Intermediate Shred 30,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1156283186,2006,The Hackrifice Open 2006,Intermediate Sick 3,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1185458086,2007,Footbagmania 3007 - Polish Footbag Championships,Big One - Trick Competition,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1193783964,2008,U.S. Open Footbag Championships,Open Doubles Net,11,0,"1,2,3,4,5,6,7,8,9,10,11",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1193783964,2008,U.S. Open Footbag Championships,Open Singles Net,17,0,"1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1321869570,2012,Todexon 13,Open Shred:30,1,0,1,division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1321869570,2012,Todexon 13,Open Sick 3-Trick,8,0,"1,2,3,4,5,6,7,8",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1329132977,2012,Swiss Footbag Championships 2012,Open Doubles Net,13,0,"1,2,3,4,5,6,7,8,9,10,11,13,14",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1329132977,2012,Swiss Footbag Championships 2012,Open Shred:30,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1329132977,2012,Swiss Footbag Championships 2012,Open Singles Net,17,0,"1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1353223688,2012,Finnish Footbag Open,Open Circle Contest,5,0,"1,2,3,4,5",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1353223688,2012,Finnish Footbag Open,Open Shred:30,4,0,"1,2,3,4",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1354752474,2013,13e Open de France de Footbag,Intermediate Singles Routines,3,0,"1,2,3",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1354752474,2013,13e Open de France de Footbag,Open Mixed Doubles Net,8,0,"1,2,3,4,5,6,7,8",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1377192359,2013,15th Annual German Footbag Championships & Open,Open Doubles Net,15,0,"1,2,3,4,5,6,7,8,9,10,11,12,13,14,15",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1406219099,2014,14th Annual Polish Footbag Championships 2014,Open Shred:30,5,0,"1,2,3,4,5",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1406219099,2014,14th Annual Polish Footbag Championships 2014,Open Sick 3-Trick,6,0,"1,2,3,4,5,6",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1473932659,2016,Austrian Footbag Championships 2016,Open Circle Contest,4,0,"1,2,3,4",division_name_changed_since_pbp_was_built
+BLOCKER_DRIFT,1745686591,2025,Footbag Finnish Open 2024 - Singles Net,Open Singles Net,6,0,"1,2,3,4,5,6",division_name_changed_since_pbp_was_built
+PARTIAL,979089216,2001,First Annual Eugene Freestyle Freekout!!!,45 Second Shred,5,1,"1,2,3,4",some_places_not_in_identity_lock
+PARTIAL,979089216,2001,First Annual Eugene Freestyle Freekout!!!,Sick 10 Trick,4,1,"1,2,3",some_places_not_in_identity_lock
+PARTIAL,1046985067,2003,2003 Steel City Footbag Open,Intermediate Big 3,3,1,"1,3",some_places_not_in_identity_lock
+PARTIAL,1058378281,2003,Texas State Footbag Championships,Freestyle - 30 Second Shred,9,2,"3,4,5,6,7,8,9",some_places_not_in_identity_lock
+PARTIAL,1058378281,2003,Texas State Footbag Championships,Freestyle - Open,12,2,"1,2,3,4,5,6,7,8,11,12",some_places_not_in_identity_lock
+PARTIAL,1061453080,2003,Australian East Coast Regionals,Intermediate Sick 3,3,2,1,some_places_not_in_identity_lock
+PARTIAL,1079444598,2004,German Footbag Open 2004,Intermediate Singles Net,4,3,1,some_places_not_in_identity_lock
+PARTIAL,1079444598,2004,German Footbag Open 2004,Open Singles Net,4,3,3,some_places_not_in_identity_lock
+PARTIAL,1079605499,2004,6th Annual IFPA European Footbag Championships,Shred30,4,2,"1,3",some_places_not_in_identity_lock
+PARTIAL,1080757998,2004,Space City Freestyle Jam 2004,Open Sick 3,3,1,"2,3",some_places_not_in_identity_lock
+PARTIAL,1103297805,2005,2e Championnat de France de Footbag,Shred 30,8,1,"1,2,3,4,5,7,8",some_places_not_in_identity_lock
+PARTIAL,1134914723,2006,RNH Contest 2006,Open Singles Net,15,12,"1,2,3",some_places_not_in_identity_lock
+PARTIAL,1193783964,2008,U.S. Open Footbag Championships,Intermediate Doubles Net,6,1,"2,3,4,5,6",some_places_not_in_identity_lock
+PARTIAL,1193783964,2008,U.S. Open Footbag Championships,Intermediate Singles Net,13,1,"1,2,3,4,5,6,7,8,9,11,12,13",some_places_not_in_identity_lock
+PARTIAL,1262631137,2010,Urban Komba Footbag Open Footbag Jam,Open Net Singles,5,4,5,some_places_not_in_identity_lock
+PARTIAL,1265745512,2010,31st IFPA WORLD FOOTBAG CHAMPIONSHIPS,Intermediate Singles Net,11,10,11,some_places_not_in_identity_lock
+PARTIAL,1329132977,2012,Swiss Footbag Championships 2012,Open Circle Contest,6,1,"1,2,3,4,5",some_places_not_in_identity_lock
+PARTIAL,1354752474,2013,13e Open de France de Footbag,Open Circle Contest,4,1,"1,2,3",some_places_not_in_identity_lock
+PARTIAL,1354752474,2013,13e Open de France de Footbag,Open Shred:30,9,7,"2,3",some_places_not_in_identity_lock
+PARTIAL,1406219099,2014,14th Annual Polish Footbag Championships 2014,Open Circle Contest,4,2,"2,3",some_places_not_in_identity_lock
+PARTIAL,1568692191,2019,MedeJam de Footbag 2019,Sick 3,3,1,"2,3",some_places_not_in_identity_lock
+JUSTIFIED,1001942070,2001,Texas State Footbag Championships,30 Second Shred - Intermediate,3,1,"1,2",known_issue
+JUSTIFIED,1001942070,2001,Texas State Footbag Championships,30 Second Shred - Open,3,0,"1,2,3",known_issue
+JUSTIFIED,1158263300,2006,Zocha Jam 2006,Open Doubles Net,4,3,4,known_issue

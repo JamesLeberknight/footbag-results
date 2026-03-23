@@ -1,0 +1,115 @@
+[
+  {
+    "source_file": "FBW_V03_N02_p021.jpg",
+    "page_notes": "Contains results for the 1983 World Footbag Championships.",
+    "events": [
+      {
+        "event_name_raw": "1983 World Footbag Championships",
+        "date_raw": "1983",
+        "location_raw": "Portland, Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Ken Eldrick", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Doubles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "John Stalberger/Ken Eldrick", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V04_N02_p024.jpg",
+    "page_notes": "Contains results for the 1984 World Footbag Championships and 1984 European Championships.",
+    "events": [
+      {
+        "event_name_raw": "1984 World Footbag Championships",
+        "date_raw": "1984",
+        "location_raw": "Portland, Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Doug Little", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      },
+      {
+        "event_name_raw": "1984 European Footbag Championships",
+        "date_raw": "1984",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Jan-Olof Karlsson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V05_N02_p028.jpg",
+    "page_notes": "Contains results for the 1985 World Footbag Championships.",
+    "events": [
+      {
+        "event_name_raw": "1985 World Footbag Championships",
+        "date_raw": "1985",
+        "location_raw": "Portland, Oregon",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Doug Little", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V06_N02_p033.jpg",
+    "page_notes": "Contains results for the 1986 World Footbag Championships.",
+    "events": [
+      {
+        "event_name_raw": "1986 World Footbag Championships",
+        "date_raw": "1986",
+        "location_raw": "Golden, Colorado",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Ken Eldrick", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Doug Little", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

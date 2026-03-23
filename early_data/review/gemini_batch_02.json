@@ -1,0 +1,983 @@
+[
+  {
+    "source_file": "FBW_V05_N01_p027.jpg",
+    "page_notes": "Page contains historical results for 1986 and 1987 events.",
+    "events": [
+      {
+        "event_name_raw": "1986 WFA World Championships",
+        "date_raw": "1986",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Mag Hughes/Billy Hayne", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Jim Caveney/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Trudy Archdale", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Trudy Archdale/Bruce Guettich", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Constance Constable/Jim Caveney", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Scott Cleere", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Bruce Guettich/Greg Cortopassi", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Scott Cleere/Bill Bethurum", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Kim Era", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Pat Castle", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Fred Barnum", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Jeff Johnson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      },
+      {
+        "event_name_raw": "1987 WFA World Championships",
+        "date_raw": "1987",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Mag Hughes/Billy Hayne", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Kevin Courtney/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jim Caveney", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Mag Hughes", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Brent Welch", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Bruce Guettich/Greg Cortopassi", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Scott Cleere/Bill Bethurum", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Fred Barnum", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Chris Ott", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Jeff Johnson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V05_N02_p028.jpg",
+    "page_notes": "Page contains historical results for 1988 events.",
+    "events": [
+      {
+        "event_name_raw": "1988 WFA World Championships",
+        "date_raw": "1988",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Dave Robinson/Kevin Courtney", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Billy Hayne", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jim Caveney", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Kenny Shults", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Brent Welch", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Bruce Guettich/Greg Cortopassi", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Scott Cleere/Bill Bethurum", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Fred Barnum", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "John Lind", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Scott Cleere/Andy Linder", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V05_N02_p029.jpg",
+    "page_notes": "Page contains historical results for 1989 events.",
+    "events": [
+      {
+        "event_name_raw": "1989 WFA World Championships",
+        "date_raw": "1989",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Dave Robinson/Kevin Courtney", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Jim Fitzgerald", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Nancy Reynolds/Mag Hughes", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Greg Cortopassi", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Brent Welch", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Bruce Guettich/Greg Cortopassi", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Scott Cleere/Brent Welch", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "John Lind", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Greg Cortopassi", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V05_N02_p030.jpg",
+    "page_notes": "Page contains historical results for 1990 events.",
+    "events": [
+      {
+        "event_name_raw": "1990 WFA World Championships",
+        "date_raw": "1990",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Dave Robinson/Jim Fitzgerald", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Steve Fennell", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Nancy Reynolds/Mag Hughes", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Kenny Shults", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Kenny Shults", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Brent Welch", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Bruce Guettich/Greg Cortopassi", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Scott Cleere/Andy Linder", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "John Lind", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Rick Reese", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V06_N01_p031.jpg",
+    "page_notes": "Page contains historical results for 1991 events.",
+    "events": [
+      {
+        "event_name_raw": "1991 WFA World Championships",
+        "date_raw": "1991",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Brent Welch", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Dave Robinson/Jim Fitzgerald", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Steve Fennell", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Nancy Reynolds/Mag Hughes", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Kenny Shults", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Brent Welch", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Scott Cleere/Andy Linder", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Brent Welch/Bill Langbehn", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Rick Reese", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Ted Martens", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V06_N01_p032.jpg",
+    "page_notes": "Page contains historical results for 1992 events.",
+    "events": [
+      {
+        "event_name_raw": "1992 WFA World Championships",
+        "date_raw": "1992",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Dave Robinson/Jim Fitzgerald", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Steve Fennell", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Nancy Reynolds/Mag Hughes", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Kenny Shults", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Brent Welch", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Scott Cleere/Andy Linder", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Brent Welch/Bill Langbehn", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Ted Martens", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Rick Reese", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V06_N02_p033.jpg",
+    "page_notes": "Page contains historical results for 1993 events.",
+    "events": [
+      {
+        "event_name_raw": "1993 IFAB World Championships",
+        "date_raw": "1993",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Dave Robinson/Steve Fennell", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Jim Fitzgerald", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Nancy Reynolds/Mag Hughes", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Kenny Shults", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Torgeir Rygh", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Scott Cleere/Andy Linder", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Torgeir Rygh/Sindre Madsen", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Rick Reese", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Ted Martens", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V06_N02_p034.jpg",
+    "page_notes": "Page contains historical results for 1994 events.",
+    "events": [
+      {
+        "event_name_raw": "1994 IFAB World Championships",
+        "date_raw": "1994",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Dave Robinson/Steve Fennell", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Jim Fitzgerald", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Nancy Reynolds/Mag Hughes", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Kenny Shults", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Torgeir Rygh", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Scott Cleere/Andy Linder", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Brent Welch/Bill Langbehn", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Rick Reese", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Ted Martens", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V06_N03_p035.jpg",
+    "page_notes": "Page contains historical results for 1995 events.",
+    "events": [
+      {
+        "event_name_raw": "1995 IFAB World Championships",
+        "date_raw": "1995",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Men's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Overall",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Steve Fennell", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Mag Hughes", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Dave Robinson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Dave Robinson/Steve Fennell", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Kenny Shults/Mike Harding", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Mag Hughes/Jim Fitzgerald", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Sgls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Tricia George", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Jodi Sebastian", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Nancy Reynolds", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Women's Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Nancy Reynolds/Tricia George", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Constance Constable/Jodi Sebastian", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Suzanne Beauchemin/Linda Burt", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Mixed Dbls Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Tricia George/Dave Robinson", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Nancy Reynolds/Mag Hughes", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Linda Burt/Kenny Shults", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Jim Fitzgerald", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Dennis Ross", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Torgeir Rygh", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Team Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jim Fitzgerald/Jack Schoolcraft", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Scott Cleere/Andy Linder", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Brent Welch/Bill Langbehn", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Sgls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Andy Linder", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "Rick Reese", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "Ted Martens", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Dbls Consecutive",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "", "team_raw": "Jack Schoolcraft/Pat Castle", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "", "team_raw": "Jon Lind/Dennis Ross", "score_raw": "", "notes": "" },
+              { "placement_raw": "3", "placement_num": 3, "player_raw": "", "team_raw": "Chris Ott/Dave Robinson", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

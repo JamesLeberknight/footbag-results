@@ -1,0 +1,116 @@
+raw_name,person_id,person_canon,match_type,match_source,candidate_person_ids,confidence,notes
+Alex Frazier,1f2d14aa-31e7-5d1f-a338-9ae43af68af5,Alex Frazier,EXACT,person_canon,1f2d14aa-31e7-5d1f-a338-9ae43af68af5,HIGH,
+Allan Petersen,64472889-80b6-5457-a226-8aa66fa810fd,Allan Petersen,EXACT,person_canon,64472889-80b6-5457-a226-8aa66fa810fd,HIGH,
+Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,EXACT,person_canon,64a7a989-aa2c-5a58-b141-e8378be4a962,HIGH,
+Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,EXACT,person_canon,67af5b3f-6e16-530a-8841-409debf11fb0,HIGH,
+Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,EXACT,person_canon,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,HIGH,
+Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,EXACT,person_canon,40fa16ff-a418-5da9-914e-3a09e231f2a7,HIGH,
+Billy Hayne,,,NONE,,,LOW,possible PT match: Bill Hayne (92b0ee3b)
+Bob Swerdlick,4a680cee-eee2-5f29-9637-86075d66581c,Bob Swerdlick,EXACT,person_canon,4a680cee-eee2-5f29-9637-86075d66581c,HIGH,
+Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,EXACT,person_canon,95643c20-ec23-57a5-a742-5b44534ae959,HIGH,
+Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,EXACT,person_canon,886e5b99-bd46-5707-a490-a2e938b09a35,HIGH,
+Carolyn Ramondie,cbf84862-04b1-5408-9e43-49b9818ed9aa,Carolyn Ramondie,EXACT,person_canon,cbf84862-04b1-5408-9e43-49b9818ed9aa,HIGH,
+Cheri Johnson,5ed3846e-4212-5e19-84ff-19cc486e66db,Cheri Johnson,EXACT,person_canon,5ed3846e-4212-5e19-84ff-19cc486e66db,HIGH,
+Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,EXACT,person_canon,cfcef53f-670c-5721-b206-1ebe7d63987c,HIGH,
+Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,EXACT,person_canon,8959d778-41d3-554e-a831-6e1f73534b0f,HIGH,
+Colin Cowles,,,NONE,,,LOW,possible PT match: Colin Esplen (3b338f7a); Colin Hortigon (1a7a1b1a)
+Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,EXACT,person_canon,826201f8-2540-5663-9bbf-239e94ccee43,HIGH,
+Dave Frazier,d00d203f-ac71-5ec1-ad7f-497a8f024c50,Dave Frazier,EXACT,person_canon,d00d203f-ac71-5ec1-ad7f-497a8f024c50,HIGH,
+Dave Hill,5cb79fb4-ab20-558f-b4a2-e7206c9f22df,Dave Hill,EXACT,person_canon,5cb79fb4-ab20-558f-b4a2-e7206c9f22df,HIGH,
+Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,EXACT,person_canon,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,HIGH,
+David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,EXACT,person_canon,895b0608-34df-509a-853d-684ffa24e824,HIGH,
+Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,EXACT,person_canon,84641a6f-36d4-5857-af3f-827b1f57102f,HIGH,
+Doug Little,,,NONE,,,LOW,possible PT match: Ben Little (b1f1ebbc); Doug Epperson (f8d9d69d)
+Evan Bozett,7bbc620b-366a-5ffb-8bf3-0f9f3e9e8e0e,Evan Bozett,EXACT,person_canon,7bbc620b-366a-5ffb-8bf3-0f9f3e9e8e0e,HIGH,
+Fred Barnum,06e833ec-f06f-50fb-9c56-390ca839e23f,Fred Barnum,EXACT,person_canon,06e833ec-f06f-50fb-9c56-390ca839e23f,HIGH,
+Fred Kipley,,,NONE,,,LOW,possible PT match: Fred Barnum (06e833ec); Fred Kippley (8acf4e97)
+Fred Kippley,8acf4e97-e1e8-50d7-8fd4-3a1d8ff4e731,Fred Kippley,EXACT,person_canon,8acf4e97-e1e8-50d7-8fd4-3a1d8ff4e731,HIGH,
+Gale Bigler,f06dc40d-e92e-5784-9269-cf25a77b450e,Gale Bigler,EXACT,person_canon,f06dc40d-e92e-5784-9269-cf25a77b450e,HIGH,
+Gary Griggs,8b8c45bf-a622-55cd-bd2d-67f3b395873e,Gary Griggs,EXACT,person_canon,8b8c45bf-a622-55cd-bd2d-67f3b395873e,HIGH,
+Gary Laut,,,NONE,,,LOW,possible PT match: Gary Edge (e8c77b10); Gary Griggs (8b8c45bf)
+Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,EXACT,person_canon,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,HIGH,
+Gary Preston,472663b7-a356-59f4-8743-c5ad3fae999e,Gary Preston,EXACT,person_canon,472663b7-a356-59f4-8743-c5ad3fae999e,HIGH,
+Grace Faucette,5e9196f6-80e9-58e5-b152-822cd1fc1021,Grace Faucette,EXACT,person_canon,5e9196f6-80e9-58e5-b152-822cd1fc1021,HIGH,
+Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,EXACT,person_canon,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,HIGH,
+Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,EXACT,person_canon,b7c2a69b-7547-5ee6-936e-b675c748d131,HIGH,
+James Stallcup,,,NONE,,,LOW,possible PT match: Chris James (383f6f61); Greg James (caa90a96)
+Jan-Olof Karlsson,,,NONE,,,LOW,
+Jeff Johnson,76c8b933-3ec9-53e9-b2a7-a862b32704db,Jeff Johnson,EXACT,person_canon,76c8b933-3ec9-53e9-b2a7-a862b32704db,HIGH,
+Jennifer Reese,8d03383e-8e17-5065-a3ec-bae127aea67d,Jennifer Reese,EXACT,person_canon,8d03383e-8e17-5065-a3ec-bae127aea67d,HIGH,
+Jenny Davidson,,,NONE,,,LOW,possible PT match: Alex Davidson (5034c206); Scott Davidson (274d2f51)
+Jenny Davison,3f48caf5-14c9-59f1-8255-1db7ef2fd049,Jenny Davison,EXACT,person_canon,3f48caf5-14c9-59f1-8255-1db7ef2fd049,HIGH,
+Jim Caveney,,,NONE,,,LOW,possible PT match: Jimmy Caveney (df329352); Jim Cobb (6a237359)
+Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,EXACT,person_canon,b54020bc-1a1a-5d23-89e1-34617b3514fa,HIGH,
+Jimmy Evans,1df424ed-8425-5452-ac6a-f7abb11bb468,Jimmy Evans,EXACT,person_canon,1df424ed-8425-5452-ac6a-f7abb11bb468,HIGH,
+Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,EXACT,person_canon,4a06d35f-7a27-5347-8c06-3157385d71f6,HIGH,
+Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,EXACT,person_canon,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,HIGH,
+Jody Grace,,,NONE,,,LOW,possible PT match: Judy Grace (73728c19); Grace Carnebalino (128a0fc2)
+John East,f8bd392f-8e8a-5fd4-8ef1-006d2c3e1e0b,John East,EXACT,person_canon,f8bd392f-8e8a-5fd4-8ef1-006d2c3e1e0b,HIGH,
+John Lind,290ed496-1837-57fd-820d-a907ba6ea20b,John Lind,EXACT,person_canon,290ed496-1837-57fd-820d-a907ba6ea20b,HIGH,
+John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,EXACT,person_canon,8f420eba-d663-5f06-b0f4-b62bf7550f80,HIGH,
+Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,EXACT,person_canon,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,HIGH,
+Judy Grace,73728c19-e412-5006-aa48-1d2685a77f7e,Judy Grace,EXACT,person_canon,73728c19-e412-5006-aa48-1d2685a77f7e,HIGH,
+Kalia Klaban,0c681fd1-e4bf-54b3-a314-41da581ecb40,Kalia Klaban,EXACT,person_canon,0c681fd1-e4bf-54b3-a314-41da581ecb40,HIGH,
+Karen Atgopian,,,NONE,,,LOW,possible PT match: Karen Gunther (63327293); Karen Ingle (b131be1e)
+Karen Gunther,63327293-7bb9-5a45-a50a-e2a2167ba80e,Karen Gunther,EXACT,person_canon,63327293-7bb9-5a45-a50a-e2a2167ba80e,HIGH,
+Karen Uppinghouse,,,NONE,,,LOW,possible PT match: Karen Gunther (63327293); Karen Ingle (b131be1e)
+Karin Atogpian,,,NONE,,,LOW,
+Ken Eldrick,,,NONE,,,LOW,possible PT match: Ken Hamric (3991f932); Ken Moller (cb3bbcdd)
+Ken Shults,,,NONE,,,LOW,possible PT match: Drake Shults (85b19220); Elle Shults (17f1d5dd)
+Kendall KIC,ece72308-6a72-551f-866a-e348728ee455,Kendall KIC,EXACT,person_canon,ece72308-6a72-551f-866a-e348728ee455,HIGH,
+Kenny Shults,,,NONE,,,LOW,possible PT match: Drake Shults (85b19220); Elle Shults (17f1d5dd)
+Kevin Coker,9837d58a-0b5d-58cf-a565-dda9bde70bac,Kevin Coker,EXACT,person_canon,9837d58a-0b5d-58cf-a565-dda9bde70bac,HIGH,
+Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,EXACT,person_canon,eb40c6a6-7e80-5190-b77d-47a47735bc0b,HIGH,
+Kevin Gaunce,,,NONE,,,LOW,possible PT match: Randy Gaunce (e4fe6b86); Kevin Arins (10e01381)
+Kim Era,b76be9ba-0d58-5747-8ab1-11f3e3e5cc8d,Kim Era,EXACT,person_canon,b76be9ba-0d58-5747-8ab1-11f3e3e5cc8d,HIGH,
+Lee Guenther,4901847d-1c88-5fda-aca5-a24c19da90d9,Lee Guenther,EXACT,person_canon,4901847d-1c88-5fda-aca5-a24c19da90d9,HIGH,
+Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,EXACT,person_canon,669a3821-2547-5215-9edd-7965ff400e69,HIGH,
+Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,EXACT,person_canon,77f0f32d-98bf-5742-8228-4e06ac07bd9d,HIGH,
+Lori Jean Tarr,,,NONE,,,LOW,possible PT match: Luke Tarr (6d4ac083); Lori Jean Conover (77f0f32d)
+Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,EXACT,person_canon,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,HIGH,
+Marie Elsner,fdf8022e-1b76-57e0-a06b-b0fbe66e7f26,Marie Elsner,EXACT,person_canon,fdf8022e-1b76-57e0-a06b-b0fbe66e7f26,HIGH,
+Mark Daniels,33e83366-7b1e-5c4a-99a9-8eba0d3988ca,Mark Daniels,EXACT,person_canon,33e83366-7b1e-5c4a-99a9-8eba0d3988ca,HIGH,
+Mark Pistorio,6dd7483e-cc7e-53ca-8424-1f36838e8faa,Mark Pistorio,EXACT,person_canon,6dd7483e-cc7e-53ca-8424-1f36838e8faa,HIGH,
+Max Smith,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,Max Smith,EXACT,person_canon,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,HIGH,
+Max Smith Jr.,,,NONE,,,LOW,possible PT match: Max Smith (95fb4def); alex smith (d85d0353)
+Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,EXACT,person_canon,d75b5871-83c1-5284-b09d-a5eb5d4377dd,HIGH,
+Mike Marshall,1381939c-35d0-5941-ae91-ca262b6fc482,Mike Marshall,EXACT,person_canon,1381939c-35d0-5941-ae91-ca262b6fc482,HIGH,
+Mike Mueller,70e1582b-c009-508a-b3e1-11b184198b72,Mike Mueller,EXACT,person_canon,70e1582b-c009-508a-b3e1-11b184198b72,HIGH,
+Mike Puderbaugh,38df5c50-08d9-5706-90e5-464508ea0962,Mike Puderbaugh,EXACT,person_canon,38df5c50-08d9-5706-90e5-464508ea0962,HIGH,
+Misty Helme,,,NONE,,,LOW,possible PT match: Misty Helms (e85a6af9)
+Misty Helms,e85a6af9-3ac6-550d-8b35-045ec4886d06,Misty Helms,EXACT,person_canon,e85a6af9-3ac6-550d-8b35-045ec4886d06,HIGH,
+Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,EXACT,person_canon,eccb075a-3997-5288-a805-774d358f5656,HIGH,
+Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,EXACT,person_canon,fb644300-e5a4-51ca-962f-e59dad795b03,HIGH,
+Peter Shunny,5f056e75-0943-584d-8969-c6a2a03760f2,Peter Shunny,EXACT,person_canon,5f056e75-0943-584d-8969-c6a2a03760f2,HIGH,
+Randy Nelson,,,NONE,,,LOW,possible PT match: Brad Nelson (42cfb7b0); Brian Nelson (2f3b2fea)
+Randy Ross,,,NONE,,,LOW,possible PT match: Becca English Ross (93d75393); Dennis Ross (84641a6f)
+Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,EXACT,person_canon,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,HIGH,
+Rick Kaufman,8ca3812a-3df8-5cfe-9cff-a1df1963b8e6,Rick Kaufman,EXACT,person_canon,8ca3812a-3df8-5cfe-9cff-a1df1963b8e6,HIGH,
+Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,EXACT,person_canon,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,HIGH,
+Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,EXACT,person_canon,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,HIGH,
+Robert Conover,282ea81a-5815-5a15-9842-ee2ad6e2047e,Robert Conover,EXACT,person_canon,282ea81a-5815-5a15-9842-ee2ad6e2047e,HIGH,
+Ruth Osterman,a10fa54f-eadb-5842-8df1-fdca1920e7e7,Ruth Osterman,EXACT,person_canon,a10fa54f-eadb-5842-8df1-fdca1920e7e7,HIGH,
+Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,EXACT,person_canon,777d9449-6e41-5985-bb7d-cdaf8647ef9c,HIGH,
+Shannon Aubin,4667c817-96f6-5e6e-b3ab-46ecd390dc0e,Shannon Aubin,EXACT,person_canon,4667c817-96f6-5e6e-b3ab-46ecd390dc0e,HIGH,
+Shannon Storment,c04b0df1-3194-55ab-aa97-16adb45c25d3,Shannon Storment,EXACT,person_canon,c04b0df1-3194-55ab-aa97-16adb45c25d3,HIGH,
+Sindre Madsen,,,NONE,,,LOW,
+Steve Brown,,,NONE,,,LOW,possible PT match: Chris Brown (204a0648); Eric Brown (f3d2cb63)
+Steve Femmel,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,EXACT,person_canon,fb605451-fa41-5e6d-ad21-1b541b3fc82b,HIGH,
+Steve Fennell,,,NONE,,,LOW,possible PT match: Steve Blades (7e26d6c3); Steve Butler (ded074f2)
+Steve Granzberg,14941d8e-1763-5f1e-9daf-dc3c7fa97c96,Steve Granzberg,EXACT,person_canon,14941d8e-1763-5f1e-9daf-dc3c7fa97c96,HIGH,
+Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,EXACT,person_canon,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,HIGH,
+Ted Johnson,,,NONE,,,LOW,possible PT match: Andrew Johnson (2ada39d8); Ben Johnson (251d6d5f)
+Ted Martens,,,NONE,,,LOW,possible PT match: Matt Martens (7679b216); Ted Martin (3d1b24de)
+Tim Fitzgerald,,,NONE,,,LOW,possible PT match: Jim Fitzgerald (b54020bc); Jim Toes Fitzgerald (af0099f9)
+Tim Mackey,5e46bdbe-bbbb-5cca-aacb-d5edf9bf2540,Tim Mackey,EXACT,person_canon,5e46bdbe-bbbb-5cca-aacb-d5edf9bf2540,HIGH,
+Tim Prater,de9e5c5c-8b5b-5ced-b326-5d2048c7ab3c,Tim Prater,EXACT,person_canon,de9e5c5c-8b5b-5ced-b326-5d2048c7ab3c,HIGH,
+Tobin Wigger,,,NONE,,,LOW,possible PT match: Torbin Wigger (f38e2f8e)
+Tom Akin,f0156ba3-ee86-5eab-b884-99ba8719dd84,Tom Akin,EXACT,person_canon,f0156ba3-ee86-5eab-b884-99ba8719dd84,HIGH,
+Torben Wigger,,,NONE,,,LOW,possible PT match: Torbin Wigger (f38e2f8e); Torben Hansen (950f4664)
+Torgeir Rygh,,,NONE,,,LOW,
+Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,EXACT,person_canon,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,HIGH,
+Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,EXACT,person_canon,3b25f805-f97e-528c-915d-3647ecaa8914,HIGH,
+Vanessa Sabala,03ed9422-5152-5132-a181-7249637c824a,Vanessa Sabala,EXACT,person_canon,03ed9422-5152-5132-a181-7249637c824a,HIGH,
+Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,EXACT,person_canon,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,HIGH,
+Will Squire,a6ba539d-a3b1-5685-ba8f-f537731bc96d,Will Squire,EXACT,person_canon,a6ba539d-a3b1-5685-ba8f-f537731bc96d,HIGH,
+unknown,,,NONE,,,LOW,

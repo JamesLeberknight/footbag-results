@@ -1,0 +1,16 @@
+effective_person_id,person_canon,player_ids_seen,player_names_seen,aliases,alias_statuses,notes,source,person_canon_clean,person_canon_clean_reason,aliases_presentable,exclusion_reason,last_token,norm_key,legacyid,exclude_reason
+cafcd1b7-1e6c-54a2-befb-09e51f1f9813,Forra,44e90530-9285-5dde-bf6e-d952b3799262,Forra Logan HackStars,,,,overrides+data,Forra Logan HackStars,,,,hackstars,,,not_presentable_strict
+b7d34e83-8e42-5007-8c3a-0fab964e1160,Rorz,91848286-6b69-581f-8311-cedeecc82b68,Rorz Logan HackStars,,,,overrides+data,Rorz Logan HackStars,,,,hackstars,,,not_presentable_strict
+1e3e7a50-a52c-5a71-b94b-3342afd98c53,Morgan F,1e3e7a50-a52c-5a71-b94b-3342afd98c53,Morgan F,,,added by referential_closure v30,placements_registry,,,,,f,f,,not_presentable_strict
+239f6d2d-326e-5965-9629-28e910ed359f,Toni L.,239f6d2d-326e-5965-9629-28e910ed359f,Toni L.,,,added by referential_closure v30,placements_registry,,,,,l.,l.,,not_presentable_strict
+370faa2b-39c6-5696-9def-053c9e0bb8ed,Mat P,370faa2b-39c6-5696-9def-053c9e0bb8ed,Mat P,,,added by referential_closure v30,placements_registry,,,,,p,p,,not_presentable_strict
+4ec14783-9ed4-5651-a825-86397285ab40,Max S.M.,4ec14783-9ed4-5651-a825-86397285ab40,Max S.M.,,,added by referential_closure v30,placements_registry,,,,,s.m.,s.m.,,not_presentable_strict
+5298f8a5-1cc8-5873-870d-f83964e8503c,Omma T,5298f8a5-1cc8-5873-870d-f83964e8503c,Omma T,,,added by referential_closure v30,placements_registry,,,,,t,t,,not_presentable_strict
+6de1e9ce-89dd-5664-ae90-0f75bfdbb5f4,Andi N.,6de1e9ce-89dd-5664-ae90-0f75bfdbb5f4,Andi N.,,,added by referential_closure v30,placements_registry,,,,,n.,n.,,not_presentable_strict
+775b1aa9-1f18-5a84-8b92-57c693806da9,Lee S.,775b1aa9-1f18-5a84-8b92-57c693806da9,Lee S.,,,added by referential_closure v30,placements_registry,,,,,s.,s.,,not_presentable_strict
+7c43cf6e-7131-5b8a-a6da-593d2eaa3540,Jeremy S.,7c43cf6e-7131-5b8a-a6da-593d2eaa3540,Jeremy S.,,,added by referential_closure v30,placements_registry,,,,,s.,s.,,not_presentable_strict
+7d27180a-ad9d-5ef9-ab45-fdd21444eaca,Matt E.,7d27180a-ad9d-5ef9-ab45-fdd21444eaca,Matt E.,,,added by referential_closure v30,placements_registry,,,,,e.,e.,,not_presentable_strict
+99ae954b-4698-583f-bcb0-789cd5e8599b,Pascal T,99ae954b-4698-583f-bcb0-789cd5e8599b,Pascal T,,,added by referential_closure v30,placements_registry,,,,,t,t,,not_presentable_strict
+d3c8ebb4-8d08-5684-8f07-11c843e6c4f1,Scott K,d3c8ebb4-8d08-5684-8f07-11c843e6c4f1,Scott K,,,added by referential_closure v30,placements_registry,,,,,k,k,,not_presentable_strict
+da859b67-50c8-5341-8a49-c76f17b0ce72,Jared W.,da859b67-50c8-5341-8a49-c76f17b0ce72,Jared W.,,,added by referential_closure v30,placements_registry,,,,,w.,w.,,not_presentable_strict
+eed84f3b-135b-5604-b3ab-954258ad3ba5,Tre L.,eed84f3b-135b-5604-b3ab-954258ad3ba5,Tre L.,,,added by referential_closure v30,placements_registry,,,,,l.,l.,,not_presentable_strict

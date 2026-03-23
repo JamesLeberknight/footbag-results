@@ -1,0 +1,888 @@
+event_id,year,division,place,competitor_type,player_token,action,matched_pbp_div
+1001076203,2001,Double,1,team,Gobbish/Lionel Veluire(Thor le),PARTIAL_RESTORE,double
+1001076315,2001,Pro Freestyle,1,team,Jere Vainikka/Kuopio,PARTIAL_RESTORE,pro freestyle
+1001076315,2001,Pro Freestyle,2,team,Juha-Matti Rytilahti/Pelkosenniemi,PARTIAL_RESTORE,pro freestyle
+1001076315,2001,Pro Freestyle,3,team,Ilkka Malin/Helsinki,PARTIAL_RESTORE,pro freestyle
+1001076315,2001,Pro Freestyle,4,team,Mika Koistinen/Helsinki,PARTIAL_RESTORE,pro freestyle
+1001076315,2001,Pro Freestyle,5,team,Jere Linnanen/Espoo,PARTIAL_RESTORE,pro freestyle
+1001076315,2001,Pro Freestyle,6,team,Samuli Viitanen/Helsinki,PARTIAL_RESTORE,pro freestyle
+1001076315,2001,Pro Singles Net,1,team,Tuomas Kärki/Helsinki,PARTIAL_RESTORE,pro singles net
+1001076315,2001,Pro Singles Net,2,team,Jukka Peltola/Helsinki,PARTIAL_RESTORE,pro singles net
+1001076315,2001,Pro Singles Net,3,team,Jani Markkanen/Helsinki,PARTIAL_RESTORE,pro singles net
+1001076315,2001,Pro Singles Net,4,team,Janne Uusitalo/Pelkosenniemi,PARTIAL_RESTORE,pro singles net
+1001076315,2001,Pro Singles Net,5,team,Matti Pohjola/Naantali,PARTIAL_RESTORE,pro singles net
+1001076315,2001,Pro Singles Net,6,team,Aleksi Öhman/Helsinki,PARTIAL_RESTORE,pro singles net
+1001076315,2001,Intermediate Singles Net,1,team,Tuukka Antikainen/Jyväskylä,PARTIAL_RESTORE,intermediate singles net
+1001076315,2001,Intermediate Singles Net,2,team,Kari Uusitalo/Pelkosenniemi,PARTIAL_RESTORE,intermediate singles net
+1001076315,2001,Intermediate Singles Net,3,team,Jari Linnonmaa/Helsinki,PARTIAL_RESTORE,intermediate singles net
+1001076315,2001,Intermediate Singles Net,4,team,Olli Lehtola/Saunavaara,PARTIAL_RESTORE,intermediate singles net
+1001076315,2001,Intermediate Singles Net,5,team,Tim Livson/Helsinki,PARTIAL_RESTORE,intermediate singles net
+1001076315,2001,Intermediate Singles Net,6,team,Jyri Ilama/Helsinki,PARTIAL_RESTORE,intermediate singles net
+1001076315,2001,Intermediate Freestyle,1,team,Jaakko Inkinen/Hollola,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,2,team,Iisak Liukko/Jyväskylä,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,3,team,Teppo Harju/Jyväskylä,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,4,team,Sakarias Liukko/Vaajakoski,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,5,team,Mikko Poikonen/Keuruu,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,6,team,Tapio Karhunen/Turku,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,7,team,Pekka Raitio/Kerava,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,8,team,Henry Rautio/Halli,PARTIAL_RESTORE,intermediate freestyle
+1001076315,2001,Intermediate Freestyle,9,team,Teemu Ahlfors/Kellokoski,PARTIAL_RESTORE,intermediate freestyle
+1001942070,2001,30 Second Shred - Intermediate,3,player,Mike,PARTIAL_RESTORE,30 second shred intermediate
+1011556608,2002,Open Freestyle,2,player,Dexter,PARTIAL_RESTORE,open freestyle
+1012638214,2002,Open Singles Net,6,player,Chris (Mike) Ingle,PARTIAL_RESTORE,open singles net
+1012638214,2002,Open Singles Net,7,player,Paul (PT) Lovern,PARTIAL_RESTORE,open singles net
+1012638214,2002,Open Doubles Net,1,team,Paul (PT) Lovern/John Leys,PARTIAL_RESTORE,open doubles net
+1012638214,2002,Open Doubles Net,10,team,Edwin Veltman/Chris (Mike) Ingle,PARTIAL_RESTORE,open doubles net
+1013283071,2002,Women's Doubles Net,3,team,Geneviève Bousquet (Canada)/(),PARTIAL_RESTORE,women s doubles net
+1013283071,2002,Women's Doubles Net,6,team,Merry McCown (USA)/(),PARTIAL_RESTORE,women s doubles net
+1013283071,2002,Open Mixed Doubles Net,8,team,Emmanuel Bouchard (Canada)/(),PARTIAL_RESTORE,open mixed doubles net
+1016457376,2002,Novice,1,team,Mitch Carlsen (Augusta/GA),PARTIAL_RESTORE,novice
+1016457376,2002,Novice,2,team,Stephen Pride (Augusta/GA),PARTIAL_RESTORE,novice
+1016457376,2002,Novice,3,team,Sam Pride (Augusta/GA),PARTIAL_RESTORE,novice
+1016457376,2002,Novice,4,team,Todd Squires (North Augusta/SC),PARTIAL_RESTORE,novice
+1018812342,2002,Doubles Freestyle,5,team,Damian/Mateus (Wroclaw),PARTIAL_RESTORE,doubles freestyle
+1018812342,2002,Girl's Freestyle,1,team,Martin/Jan Huleja (Praha),PARTIAL_RESTORE,girl s freestyle
+1021665982,2002,Intermediate,5,team,JF/Stephane Comeau,PARTIAL_RESTORE,intermediate
+1025084282,2002,Intermediate 1Min 30 Sec,5,player,Simon,PARTIAL_RESTORE,intermediate 1min 30 sec
+1028233308,2002,Novice 3 Minute Consecutives,6,player,rh Place Chris Burkhart,PARTIAL_RESTORE,novice 3 minute consecutives
+1028800969,2002,Doubles Net Open,5,team,Tammo/Markus,PARTIAL_RESTORE,doubles net open
+1028800969,2002,Doubles Net Open,6,team,Aleksander/Faris Barakat,PARTIAL_RESTORE,doubles net open
+1028800969,2002,Doubles Net Open,6,team,Felix Golz/David,PARTIAL_RESTORE,doubles net open
+1028800969,2002,Doubles Net Open,8,team,"Sandro/Thorsten, Ole",PARTIAL_RESTORE,doubles net open
+1028800969,2002,Singles Net Open,9,team,Frank/Marcellus,PARTIAL_RESTORE,singles net open
+1029347412,2002,Sick 3,1,team,Samuel Hufschmid (Bootfägers/Basel),PARTIAL_RESTORE,sick 3
+1031334528,2003,Pro Freestyle- Single,1,player,Peter Irish $350 (drop on last trick),PARTIAL_RESTORE,pro freestyle single
+1031334528,2003,Pro Freestyle- Single,5,team,Calab Abraham $25/prize,PARTIAL_RESTORE,pro freestyle single
+1034985978,2003,Shred 30 Champion,2,team,Justin Dale (WA/USA),PARTIAL_RESTORE,shred 30 champion
+1034985978,2003,Shred 30 Champion,3,team,Ethan Husted (OR/USA),PARTIAL_RESTORE,shred 30 champion
+1038895913,2003,Unknown,5,player,Minute Timed Consecutives,PARTIAL_RESTORE,unknown
+1044952105,2003,Open Doubles Net,5,team,Maude Landreville/Gilles,PARTIAL_RESTORE,open doubles net
+1045628278,2003,Pro Shred30,2,team,"Jon Schneider/Bridgewater, NJ",PARTIAL_RESTORE,pro shred30
+1046985067,2003,Intermediate Big 3,2,player,Danny Greer,PARTIAL_RESTORE,intermediate big3
+1050067583,2003,Pro Doubles,1,team,Oskari Forstén/Matti Pohjola (pro net footbags),PARTIAL_RESTORE,pro doubles
+1050067583,2003,Pro Routines,1,player,Lasse Salmenhaara (Pro 32 sand),PARTIAL_RESTORE,pro routines
+1050067583,2003,Pro Sick 3,1,player,Felix Zenger (Pro 32 sand),PARTIAL_RESTORE,pro sick 3
+1050140930,2003,Open Singles Net,1,team,Patrick Schrickel/FC Footstar Berlin,PARTIAL_RESTORE,open singles net
+1050140930,2003,Open Singles Net,2,team,Florian Goetze/Frankfurt Footbag,PARTIAL_RESTORE,open singles net
+1050140930,2003,Intermediate Freestyle,2,team,Daniel Schuldes/Muenchen,PARTIAL_RESTORE,intermediate freestyle
+1050140930,2003,Intermediate Freestyle,3,team,Jochen Bauer/Amberg,PARTIAL_RESTORE,intermediate freestyle
+1050140930,2003,Women's Freestyle,2,team,Anne Busch/Cologne,PARTIAL_RESTORE,women s freestyle
+1052775366,2003,Open Double Net,1,team,Jakob/Jesper Hall,PARTIAL_RESTORE,open double net
+1052775366,2003,Open Double Net,2,team,Bjarne Everberg/Benny Leich,PARTIAL_RESTORE,open double net
+1052775366,2003,Open Double Net,3,team,Ole Snack/Ryan Mulroney,PARTIAL_RESTORE,open double net
+1052775366,2003,Open Double Net,4,team,Mikkel Frederiksen/Thomas Mortensen,PARTIAL_RESTORE,open double net
+1057126024,1986,Singles Consecutive,1,player,Rob McCloskey,PARTIAL_RESTORE,singles consecutive
+1057345914,1991,Intermediate Doubles Net,2,team,PJ/Sebastien Gomez,PARTIAL_RESTORE,intermediate doubles net
+1058378281,2003,Freestyle - 30 Second Shred,1,player,"Ellis Piltz, Montreal",PARTIAL_RESTORE,freestyle 30 second shred
+1058378281,2003,Freestyle - 30 Second Shred,2,player,"James Gilbert, Austin",PARTIAL_RESTORE,freestyle 30 second shred
+1058378281,2003,Freestyle - Open,9,team,Windsen Pan/Houston,PARTIAL_RESTORE,freestyle open
+1058378281,2003,Freestyle - Open,10,team,James Gilbert/Austin,PARTIAL_RESTORE,freestyle open
+1058378281,2003,Open Consecutives,2,player,Tina Lewis 521 (Women's 1st),PARTIAL_RESTORE,open consecutives
+1058378281,2003,Open Consecutives,3,player,Josh Bast,PARTIAL_RESTORE,open consecutives
+1061453080,2003,Intermediate Sick 3,2,player,Dyalan Govender,PARTIAL_RESTORE,intermediate sick trick
+1061453080,2003,Intermediate Sick 3,3,player,Ian Pritchard,PARTIAL_RESTORE,intermediate sick trick
+1061453080,2003,Intermediate Shred 30,1,player,Ian Pritchard,NEW_DIV_RESTORE,
+1061453080,2003,Intermediate Shred 30,2,player,Mark Roberts,NEW_DIV_RESTORE,
+1061453080,2003,Intermediate Shred 30,3,player,Scott K,NEW_DIV_RESTORE,
+1061453080,2003,Open Sick Trick,1,player,Brendan Erskine,NEW_DIV_RESTORE,
+1061453080,2003,Open Sick 3,1,player,Lynton Stephens,NEW_DIV_RESTORE,
+1061453080,2003,Open Sick 3,2,player,Dan Ednie,NEW_DIV_RESTORE,
+1061453080,2003,Open Sick 3,3,player,Jeremy O'Wheel,NEW_DIV_RESTORE,
+1069791565,2004,Singles Net,3,team,"Henning Goetzke (Frankfurt, D)/Jan Zimmermann (Zürich, CH)",PARTIAL_RESTORE,singles net
+1075781798,2004,Pro Doubles Net,4,team,S.Comeau/P. Lessard prize,PARTIAL_RESTORE,pro doubles net
+1075781798,2004,Pro Freestyle- Single,5,team,Greg Nelson $15/prize,PARTIAL_RESTORE,pro freestyle single
+1076876907,2004,Open Singles Freestyle,1,player,"Jere ""the smooth criminal"" Vainikka(Fin)50",PARTIAL_RESTORE,open singles freestyle
+1079444598,2004,Intermediate Singles Net,2,player,Michael Müller,PARTIAL_RESTORE,intermediate single net
+1079444598,2004,Intermediate Singles Net,3,player,Lisa Uebele,PARTIAL_RESTORE,intermediate single net
+1079444598,2004,Intermediate Singles Net,4,player,DJ Fuji,PARTIAL_RESTORE,intermediate single net
+1079444598,2004,Intermediate Doubles Net,2,team,Marcelus/Christian,PARTIAL_RESTORE,intermediate doubles net
+1079444598,2004,Open Singles Net,1,player,Andreas Wolff,PARTIAL_RESTORE,open single net
+1079444598,2004,Open Singles Net,2,player,Florian Goetze,PARTIAL_RESTORE,open single net
+1079444598,2004,Open Singles Net,4,player,Hannes Daniel,PARTIAL_RESTORE,open single net
+1079444598,2004,Shred,1,player,Honza Weber,PARTIAL_RESTORE,shred
+1079444598,2004,Shred,2,player,Dexter,PARTIAL_RESTORE,shred
+1079444598,2004,Sick 3,3,player,Jakob,PARTIAL_RESTORE,sick 3
+1079444598,2004,Intermediate Freestyle,4,player,Roy,PARTIAL_RESTORE,intermediate freestyle
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",1,player,Lenneis Verena,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",2,player,Boehm Jule,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",3,player,Mickiewicz Hanna,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",4,player,Thygesen Lise,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",5,player,Prihodko Oxana,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",6,player,Busch Anne,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",7,player,Locher Nora,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",8,player,Mader Nina,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",9,player,Nigisch Johanna,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",10,player,Liukko Ninni,NEW_DIV_RESTORE,
+1079605499,2004,"Womens Singles Freestyle [Very, Very Close (1-4)]",11,player,Siewczyk Lila,NEW_DIV_RESTORE,
+1079605499,2004,Shred30,4,player,Linnanen Jere,PARTIAL_RESTORE,womens shred30
+1079605499,2004,Shred30,2,team,Weber Honza (Alpine Legbeater/Fog - Pixie same Blender),PARTIAL_RESTORE,womens shred30
+1079605499,2004,Open Golf,7,player,Ulisse,PARTIAL_RESTORE,open golf
+1079605499,2004,Open Golf,10,player,Vinz,PARTIAL_RESTORE,open golf
+1080138513,2004,Shred 30,4,player,Grischa Tellenbach (RNH Footbag),PARTIAL_RESTORE,shred 30
+1080138513,2004,Shred 30,10,player,Cédric,PARTIAL_RESTORE,shred 30
+1080138513,2004,Sick 3,5,player,Jochen Bauer aka Doctor Jay (All),PARTIAL_RESTORE,sick 3
+1080138513,2004,Sick 3,6,player,Grischa Tellenbach (RNH Footbag),PARTIAL_RESTORE,sick 3
+1080138513,2004,Sick 3,7,player,Charles Dupuy aka Carlito (RNH Footbag),PARTIAL_RESTORE,sick 3
+1080138513,2004,Sick 3,8,player,Miquel Clemente (Icarus Footbag),PARTIAL_RESTORE,sick 3
+1080138513,2004,Sick 3,5,player,Pierre Bardeau,PARTIAL_RESTORE,sick 3
+1080757998,2004,Open Sick 3,1,player,Curtis Taylor,PARTIAL_RESTORE,open sick3
+1081766954,2004,Open Doubles Net,1,player,NiNo,PARTIAL_RESTORE,open doubles net
+1081766954,2004,Open Doubles Net,2,player,HIF,PARTIAL_RESTORE,open doubles net
+1081766954,2004,Open Doubles Net,3,player,Otrava,PARTIAL_RESTORE,open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,1,team,Tuomas Kärki 1. Tuomas Kärki/Olli Savolainen,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,2,team,Jukka Peltola 2. Oskari Forsten/Matti Pohjola,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,3,team,Oskari Forsten 3. Jani Markkanen/Jukka Peltola,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,4,team,Jaakko Inkinen 4. Juha-Matti Rytilahti/Janne Uusitalo,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,5,team,Jani Markkanen 5. Jyri Ilama/Otso Konttinen,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,6,team,Olli Savolainen 6. Jani Lirkki/Teppo Harju,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,7,team,Aleksi Öhman 7. Jarno Terho/Jaakko Lindström,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,8,team,Jani Lirkki 8. Tuukka Antikainen/Janne Pesonen,PARTIAL_RESTORE,open singles net open doubles net
+1083699966,2004,Open Singles Net Open Doubles Net,9,team,Tuukka Antikainen 9. Iisak Liukko/Sakarias Liukko,PARTIAL_RESTORE,open singles net open doubles net
+1089373321,2004,Golf,3,team,U-Nanim.Works (Pierrot/Fred),PARTIAL_RESTORE,golf
+1089373321,2004,Doubles Freestyle,2,team,Michal/Tomasz Ostrowski,PARTIAL_RESTORE,doubles freestyle
+1092044099,2004,Net Doubles,1,player,NiNo,PARTIAL_RESTORE,net doubles
+1092044099,2004,Net Doubles,4,player,HIF,PARTIAL_RESTORE,net doubles
+1092073845,2004,Shred 30,1,player,Vašek Klouda,NEW_DIV_RESTORE,
+1092073845,2004,Shred 30,2,player,Honza Weber,NEW_DIV_RESTORE,
+1092073845,2004,Shred 30,3,player,Aleš Zelinka,NEW_DIV_RESTORE,
+1092073845,2004,Doubles Net,2,team,Martin Huleja/Honza Huleja,PARTIAL_RESTORE,doubles net
+1092073845,2004,Doubles Net,3,team,Dexter Struž/Moglum Polák,PARTIAL_RESTORE,doubles net
+1094201584,2004,Open Freestyle,2,player,Stefan Siegert,PARTIAL_RESTORE,open freestyle
+1094201584,2004,Open Freestyle,5,player,Stefan Nold,PARTIAL_RESTORE,open freestyle
+1094201584,2004,Open Freestyle,7,player,Philipp Schafer,PARTIAL_RESTORE,open freestyle
+1094201584,2004,Open Net Fives,1,player,Matthias Lino Schmidt,NEW_DIV_RESTORE,
+1094201584,2004,Open Net Fives,2,player,Jakob Wagner,NEW_DIV_RESTORE,
+1094201584,2004,Open Net Fives,3,player,Jason,NEW_DIV_RESTORE,
+1094201584,2004,Open Net Fives,4,player,Felix Graf,NEW_DIV_RESTORE,
+1097785506,2004,Open Singles Net,14,player,Felix Zenger (intermediate),PARTIAL_RESTORE,open singles net
+1097785506,2004,Open Singles Net,15,player,Ilkka Malin (intermediate),PARTIAL_RESTORE,open singles net
+1102227996,2005,Open Doubles - For The Green Cup,9,team,Jack Harris/Patrick Keehan*( Advanced Champion),PARTIAL_RESTORE,open doubles for the green cup
+1102227996,2005,Open Singles,9,player,Kerry Chun (Advanced Champion),PARTIAL_RESTORE,open singles
+1103297805,2005,Open Shred 30,1,player,Arthur,NEW_DIV_RESTORE,
+1103297805,2005,Open Shred 30,2,player,Serge,NEW_DIV_RESTORE,
+1103297805,2005,Open Shred 30,3,player,Franck,NEW_DIV_RESTORE,
+1103297805,2005,Shred 30,6,player,Grischa,PARTIAL_RESTORE,shred 30 sec
+1103297805,2005,Sick 3,1,player,Zerg,PARTIAL_RESTORE,sick 3
+1103297805,2005,Sick 3,2,player,Fcky,PARTIAL_RESTORE,sick 3
+1105353373,2005,Net Jam,3,team,Christian Löwe/Hanneé Tiger,PARTIAL_RESTORE,net jam
+1107290435,2005,Open Doubles,1,team,Emmanuel Bouchard/Sébastien Verdy,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,2,team,Jean-François Lemieux/Benjamin Rochon,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,3,team,Alexandre Bélanger/Stéphane Comeau,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,4,team,Martin Côté/Robert Lavigne,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,5,team,Russell Arseneault/Dominique Soulard,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,6,team,Luc Legault/Phil Larose,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,7,team,Maude Landreville/Philippe Lessard,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,8,team,François Depatie/Pelletier- Gilles Demers,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,9,team,Pierre-Jacques Daigle/Stéphane Tailleur,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,10,team,Sérifo Desjardins/Christophe Spooner,PARTIAL_RESTORE,open doubles
+1107290435,2005,Open Doubles,11,team,Jonathan Éthier/Félix-Antoine Guérard,PARTIAL_RESTORE,open doubles
+1109802420,2005,Open Doubles Net,8,team,Eric Malmi/Tommi Terä (intermediate),PARTIAL_RESTORE,open doubles net
+1109802420,2005,Open Doubles Net,10,team,Jouni Niemelä/Sami Ruohonen (intermediate),PARTIAL_RESTORE,open doubles net
+1117746703,2005,Double Open Net,1,team,Andy Götze/Flo Wolff,PARTIAL_RESTORE,double open net
+1117746703,2005,Double Open Net,3,team,Phipson/his Watercarrier,PARTIAL_RESTORE,double open net
+1117746703,2005,Double Open Net,4,team,Ypsilonassin/Thomsenf und die 4. Dimension+,PARTIAL_RESTORE,double open net
+1117746703,2005,Double Open Net,5,team,Platz nur Gnitzen/Ü 30 Connection Gimbel Heimer,PARTIAL_RESTORE,double open net
+1117746703,2005,Single Net,6,player,Götzenjoe,PARTIAL_RESTORE,single net
+1124840254,2005,Open Sick 1,4,team,Kevin Regamy - Alpha Reactor/Pandemonium,PARTIAL_RESTORE,open sick 1
+1125936037,2005,Open Doubles Freestyle,5,team,Thomas/Robinson Sustrac,PARTIAL_RESTORE,open doubles freestyle
+1125936037,2005,Open Singles Freestyle,8,team,Dylan Fry/Wiktor Debski,PARTIAL_RESTORE,open singles freestyle
+1125936037,2005,Open Singles Freestyle,11,team,Manu Schmid/Charles Dupuy,PARTIAL_RESTORE,open singles freestyle
+1125936037,2005,Open Singles Freestyle,13,team,Philipp Schaefer/Fred Touzelet,PARTIAL_RESTORE,open singles freestyle
+1125936037,2005,Open Singles Freestyle,17,team,Silwan Daouk/David Hofstetter,PARTIAL_RESTORE,open singles freestyle
+1134914723,2006,Open Singles Net,4,player,Lino Landau,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,5,player,Fabien Riffaud,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,6,player,Eric Fonteneau,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,7,player,Vincent Rousseau,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,8,player,Arnaud Saniez,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,9,player,Marco Brunet,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,10,player,Mathieu,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,11,player,Mouss Kabbal,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,12,player,Lisa Amengual,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,13,player,Etienne Ruggeri,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,14,player,Helena Schlichting,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Singles Net,15,player,Thomas Sustrac,PARTIAL_RESTORE,women s singles net
+1134914723,2006,Open Shred 30,1,player,Serge Kaldany,NEW_DIV_RESTORE,
+1134914723,2006,Open Shred 30,2,player,Robinson Sustrac,NEW_DIV_RESTORE,
+1134914723,2006,Open Shred 30,3,player,Fred Touzelet,NEW_DIV_RESTORE,
+1134914723,2006,Open Shred 30,4,player,Grischa Tellenbach,NEW_DIV_RESTORE,
+1134914723,2006,Open Shred 30,5,player,Augustin Tiffaud,NEW_DIV_RESTORE,
+1134914723,2006,Open Shred 30,6,player,Thomas Sustrac,NEW_DIV_RESTORE,
+1134914723,2006,Mini Net,1,player,Franck Remy,PARTIAL_RESTORE,mini net
+1135116604,2006,Open Golf,8,player,Daniel,PARTIAL_RESTORE,open golf
+1137347261,2006,Open Sick 3,2,player,Evan Gatesman,PARTIAL_RESTORE,open sick 3
+1137347261,2006,Open Sick 3,3,player,Justin Dale,PARTIAL_RESTORE,open sick 3
+1137347261,2006,Open Sick 3,4,player,Ken Somolinos,PARTIAL_RESTORE,open sick 3
+1137347261,2006,Open Sick 3,5,player,Daryl Genz,PARTIAL_RESTORE,open sick 3
+1137347261,2006,Open Sick 3,2,player,Justin Dale,PARTIAL_RESTORE,open sick 3
+1137942486,2006,Open Doubles Net,21,team,Magnus/Hakan Hellberg,PARTIAL_RESTORE,open doubles net
+1137942486,2006,Open Doubles Net,22,player,Michi+mr. Germany GER,PARTIAL_RESTORE,open doubles net
+1137942486,2006,Open Singles Net,21,player,3rd of all pools,PARTIAL_RESTORE,open singles net
+1137942486,2006,Open Singles Net,31,player,4th of all pools,PARTIAL_RESTORE,open singles net
+1139778550,2006,Double Net,7,team,Patrik/Peter,PARTIAL_RESTORE,double net
+1143155263,2006,Intermediate Doubles Net,3,team,Dee/Arthur Bartlett,PARTIAL_RESTORE,intermediate doubles net
+1143155263,2006,Novice Doubles Net,3,team,Christopher/Dee,PARTIAL_RESTORE,novice doubles net
+1143155263,2006,Intermediate Sick 3,2,player,Kyle Hewitt,PARTIAL_RESTORE,intermediate sick 3
+1143172220,2006,Intermediate Doubles Net,3,team,Marc/Aaron Hunsberger,PARTIAL_RESTORE,intermediate doubles net
+1146789209,2006,Open Doubles Net,3,team,Phil Lessard/Francois,PARTIAL_RESTORE,open doubles net
+1148241486,2006,Open Sick 1,1,team,David Clavens/Nemesis,PARTIAL_RESTORE,open sick 1
+1148374547,2006,Freestyle,8,player,Julien,PARTIAL_RESTORE,freestyle
+1148374547,2006,Freestyle,10,player,Jeremy,PARTIAL_RESTORE,freestyle
+1148374547,2006,Freestyle,11,player,Raph,PARTIAL_RESTORE,freestyle
+1149881200,2006,Singles Net- Novice,2,player,David,PARTIAL_RESTORE,singles net novice
+1155788760,2006,Net Doubles,3,team,Elliott/Emily Johns,PARTIAL_RESTORE,net doubles
+1156283186,2006,Open Sick Trick,1,player,Kevin Regamey,NEW_DIV_RESTORE,
+1156283186,2006,Open Sick Trick,2,player,Byrin Wylie,NEW_DIV_RESTORE,
+1156283186,2006,Open Sick Trick,3,player,Andrew Grant,NEW_DIV_RESTORE,
+1156283186,2006,Open Sick Trick,4,player,Scott Ellenberger,NEW_DIV_RESTORE,
+1157398732,2006,Intermediate Routines,4,player,John,PARTIAL_RESTORE,intermediate routines
+1157398732,2006,Sick 3,3,player,Dexter Struz,PARTIAL_RESTORE,sick 3
+1157398732,2006,Sick 3,4,player,Jakob Wagner,PARTIAL_RESTORE,sick 3
+1157398732,2006,Sick 3,5,player,Tobias Larsen,PARTIAL_RESTORE,sick 3
+1157398732,2006,Sick 3,6,player,Søren Nøhr Thomsen,PARTIAL_RESTORE,sick 3
+1157398732,2006,Sick 3,7,player,Michael Nielsen,PARTIAL_RESTORE,sick 3
+1157398732,2006,Sick 3,8,player,Jasper Johansen,PARTIAL_RESTORE,sick 3
+1164845982,2007,Open Singles - Division A,12,player,Sage#^,PARTIAL_RESTORE,open singles division a
+1167422711,2007,Open Doubles Net,1,team,Cory Current/John Leys,PARTIAL_RESTORE,open doubles net
+1167422711,2007,Open Doubles Net,9,team,Robert Creel/Chris,PARTIAL_RESTORE,open doubles net
+1170456736,2007,Intermediate Singles,3,player,Luka,PARTIAL_RESTORE,intermediate singles
+1170456736,2007,Open Doubles,1,team,Robert Lavigne/Emmanuel Bouchard,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,2,team,Eric Wulff/John Leys,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,3,team,François Depatie Pelletier/Gilles Demers,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,4,team,Patrick Asswad/Samuel Cloutier,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,5,team,Luc Legault/Yves Archambault,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,6,team,Dominique Soulard/Russel Arsenault,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,7,team,Philippe Lessard/Grischa Tellenbach,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,8,team,Mario Vaillancourt/Martin Côté,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,9,team,Dominic O'Brien/Stéphane Tailleur,PARTIAL_RESTORE,open doubles
+1170456736,2007,Open Doubles,10,team,Tuan Vu/Philippe Larose,PARTIAL_RESTORE,open doubles
+1172931308,2007,4-Square,3,player,Kolo,PARTIAL_RESTORE,4 square
+1173467292,2007,Intermediate,4,team,Zeb Jackson/Blurry Whirl,PARTIAL_RESTORE,intermediate
+1173467292,2007,Open,3,team,Daryl Genz/Blurry Whirl>Pdx Torque>Pdx Mirage,PARTIAL_RESTORE,open
+1176318174,2007,Intermediate Big 3,2,player,Jake Wren,PARTIAL_RESTORE,intermediate big 3
+1176650845,2007,Open Double Net,5,team,Aaron/Mark Hunsberger,PARTIAL_RESTORE,open double net
+1177512537,2007,Team Freestyle,2,player,Team S. Thomas Sustrac ? Robinson Sustrac,PARTIAL_RESTORE,team freestyle
+1177512537,2007,Doubles Net,1,player,Grischa Tellenbach ? Vincent Rousseau,PARTIAL_RESTORE,doubles net
+1177512537,2007,Doubles Net,4,player,Team S. Thomas Sustrac ? Robinson Sustrac,PARTIAL_RESTORE,doubles net
+1181021804,2007,Inter Sick1,2,player,Denton Louis : butterfly,NEW_DIV_RESTORE,
+1182542776,2007,Intermediate Doubles,1,team,Ted Fritsch/Kirsten,PARTIAL_RESTORE,intermediate doubles
+1182542776,2007,Intermediate Doubles,2,team,Aaron/Mark Hunsberger,PARTIAL_RESTORE,intermediate doubles
+1191627566,2007,Intermediate Circle,3,player,"Mathieu Soucy, Montreal",PARTIAL_RESTORE,intermediate circle
+1191627566,2007,Open Circle,4,player,"Sebastien Duschesne, Montreal",PARTIAL_RESTORE,open circle
+1193783964,2008,Women's Sick 3,3,team,"Ashley/Caro (Tie, nothing hit)",PARTIAL_RESTORE,women s sick 3
+1193783964,2008,Intermediate Singles Net,10,player,Frederick,PARTIAL_RESTORE,intermediate singles net
+1193783964,2008,Intermediate Doubles Net,1,team,"Chris ""Shoes"" Hughes/Brett",PARTIAL_RESTORE,intermediate doubles net
+1195585401,2008,Open Singles,11,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,12,team,Tuan Vu/Alexander Smirnov (tie for 12th,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,15,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,16,team,Walt/Fancois Peltier,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,20,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,21,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,22,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,23,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,24,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,26,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,27,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,28,team,Randy Pace/Tim Tucker (tie for 28th,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,29,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,30,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,31,player,na,PARTIAL_RESTORE,open singles
+1195585401,2008,Open Singles,32,player,na,PARTIAL_RESTORE,open singles
+1195677906,2008,Doubles Net,1,team,Thomas/Yassin,PARTIAL_RESTORE,doubles net
+1195677906,2008,Doubles Net,2,team,Toni/Yves,PARTIAL_RESTORE,doubles net
+1203102773,2008,Golf,2,player,Twenty-one way tie,PARTIAL_RESTORE,golf
+1204009603,2008,Open Doubles,1,team,PT-Lovern/Emmanuel Bouchard,PARTIAL_RESTORE,open doubles
+1206161350,2008,Inter Circle,4,player,Sam,PARTIAL_RESTORE,inter circle
+1216058526,2008,Unknown,23,player,Annual,NEW_DIV_RESTORE,
+1216058526,2008,Pro Freestyle- Single,8,player,Drew,PARTIAL_RESTORE,pro freestyle single
+1216058526,2008,Amateur Doubles Net - Prizes,3,team,D. Johnson/A.Dukes,PARTIAL_RESTORE,amateur doubles net prizes
+1218721346,2008,Open Doubles Net,2,team,"Ken ""The Hammer"" Hamric/Memphis",PARTIAL_RESTORE,open doubles net
+1218721346,2008,Open Doubles Net,4,team,Zeke Ibardaloza/Chicago,PARTIAL_RESTORE,open doubles net
+1218721346,2008,Open Doubles Net,5,team,Tommy Whitworth/Chicago,PARTIAL_RESTORE,open doubles net
+1218721346,2008,Open Doubles Net,6,team,Cory Current/Chicago,PARTIAL_RESTORE,open doubles net
+1218721346,2008,Open Doubles Net,7,team,Scot Hansen/Chicago,PARTIAL_RESTORE,open doubles net
+1218721346,2008,Open Doubles Net,8,team,Mike Bellman/Thompsonville,PARTIAL_RESTORE,open doubles net
+1226378339,2009,Open Singles Net,7,team,Edwin Veltman/Scot Hansen,PARTIAL_RESTORE,open singles net
+1226378339,2009,Open Singles Net,9,team,Bryan Nelson/Jake DeClercq,PARTIAL_RESTORE,open singles net
+1228946926,2008,Open Routine,3,player,Dexter,PARTIAL_RESTORE,open routine
+1228946926,2008,Sick 3,8,player,Dexter,PARTIAL_RESTORE,sick 3
+1228946926,2008,Cfa Shred,9,player,Dexter,PARTIAL_RESTORE,cfa shred
+1231286017,2009,Mixed Doubles Net: 10 Teams,9,team,Jasper Shults/Catherine,PARTIAL_RESTORE,mixed doubles net 10 teams
+1231432184,2009,Open Singles Routines,1,player,Václav Klouda (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,2,player,Milan Benda (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,3,player,Marcin Bujko (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,4,player,Jorden Moir (Canada),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,5,player,Damian Gielnicki (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,6,player,Krystof Malér (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,7,player,Szymon Kalwak (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,8,player,Rafal Kaleta (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,9,player,Wiktor Debski (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,9,player,Dan Ednie (Australia),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,9,player,Tina Aeberli (Switzerland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,9,player,Olaf Piwowar (Canada),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,13,player,Tomasz Ostrowski (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,13,player,Michal Ostrowski (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,13,player,Jan Struz (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,13,player,Jind Smola (Czech republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,13,player,Jindra Smola (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,17,player,Alexander Trenner (Austria),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,17,player,Christoph Larndorfer (Austria),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,17,player,Tomas Solc (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,17,player,Karel Hák (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,21,player,Slava Sidorin (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,21,player,Pawel Cisek (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,21,player,Arek Hutnik (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,21,player,Marcin Staroñ (Poland),NEW_DIV_RESTORE,
+1231432184,2009,Open Singles Routines,24,player,Markus Hemmer (Germany),NEW_DIV_RESTORE,
+1231432184,2009,Women's Singles Routines,1,player,Tina Aeberli (Switzerland),NEW_DIV_RESTORE,
+1231432184,2009,Women's Singles Routines,2,player,Jana Riisalo (Czech Republic),NEW_DIV_RESTORE,
+1231432184,2009,Women's Singles Routines,3,player,Hanna Mickiewicz (Poland),NEW_DIV_RESTORE,
+1235653935,2009,Unknown,11,team,Annual IFPA European Footbag Championships/Strzelin,NEW_DIV_RESTORE,
+1235653935,2009,Open Doubles Net,3,player,Chis Löw ? Hannes Daniel,PARTIAL_RESTORE,open doubles net
+1235653935,2009,Open Doubles Net,4,player,Yves Kreil ? Antonio Fritsch,PARTIAL_RESTORE,open doubles net
+1235653935,2009,Open Doubles Net,8,player,Eurik Lindner ? Markus Kaspczak,PARTIAL_RESTORE,open doubles net
+1235653935,2009,Open Doubles Net,9,player,Grischa Tellenbach ? Damian Budzik,PARTIAL_RESTORE,open doubles net
+1235653935,2009,Open Shred:30 Final,2,player,"Marcin Bujko ? 243,87 (Góra)",PARTIAL_RESTORE,open shred 30 final
+1235653935,2009,Open Shred:30 Final,3,player,"Arkadiusz Dudziñski ? 208,13(S³upsk)",PARTIAL_RESTORE,open shred 30 final
+1241011525,2009,Open Doubles Net,15,player,David Martin Jeremy Guilbaud,PARTIAL_RESTORE,open doubles net
+1244553505,2009,Doubles Net,7,team,Piia Tantarimäki/Oxana,PARTIAL_RESTORE,doubles net
+1244553505,2009,Singles Net,5,team,Janne Pesonen/Tuukka Antikainen,PARTIAL_RESTORE,singles net
+1245793403,2009,Pro Doubles Net,1,team,Greer/C Cleaver,PARTIAL_RESTORE,pro doubles net
+1245793403,2009,Doubles Net- Intermediate,2,team,J Lentz/Martin,PARTIAL_RESTORE,doubles net intermediate
+1250478677,2009,2-Square,8,player,PP,PARTIAL_RESTORE,2 square
+1252451527,2010,Pro Doubles Net,5,team,T Vu/J,PARTIAL_RESTORE,pro doubles net
+1252451527,2010,Doubles Net- Intermediate,3,team,Johnson/P Duran,PARTIAL_RESTORE,doubles net intermediate
+1257621700,2009,Open Singles Net,1,player,Florian Götze (Frankfurt),PARTIAL_RESTORE,open singles net
+1257621700,2009,Open Singles Net,2,player,Andi Wolff (Frankfurt),PARTIAL_RESTORE,open singles net
+1257621700,2009,Open Freetyle,3,player,Stefan Siegert (Frankenberg),PARTIAL_RESTORE,open freetyle
+1257621700,2009,Interm. Double Net,2,team,Jan/Robin,PARTIAL_RESTORE,interm double net
+1258513500,2009,Open Net Singles,22,player,Héctor,PARTIAL_RESTORE,open net singles
+1260368810,2010,Results Pro Image Cash Golf,7,player,Stuff himself,PARTIAL_RESTORE,results pro image cash golf
+1260368810,2010,Results Pro Image Cash Golf,11,player,KV,PARTIAL_RESTORE,results pro image cash golf
+1260517364,2009,Open Net Singles,1,team,Rosen Rusev/Kyrta (Urban Komba Footbag),PARTIAL_RESTORE,open net singles
+1262631137,2010,Open Net Singles,1,team,Rosen Rusev/Kyrta (Urban Komba Footbag),PARTIAL_RESTORE,open net singles
+1262631137,2010,Open Net Singles,3,team,Stoian/Conkata (Animals),PARTIAL_RESTORE,open net singles
+1264098849,2010,Singles,2,player,Franki Pelletier,PARTIAL_RESTORE,singles
+1267996189,2010,Open Net Singles,1,team,Rosen Rusev/Kyrta (Urban Komba Footbag),PARTIAL_RESTORE,open net singles
+1267996189,2010,Open Net Singles,3,team,Stoian/Conkata (Animals),PARTIAL_RESTORE,open net singles
+1268445253,2010,Open Doubles Net,1,team,Patti/Flo,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,2,team,PT/Manu,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,3,team,Gilles/Frank,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,5,team,Luc/Eric,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,6,team,Gen/Lisa,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,7,team,Yves/Dom,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,8,team,Alexis/Tuan,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,9,team,Edwin/Diego,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,10,team,JF/Luka,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,11,team,Carlos/Victor,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,12,team,Fletcher/Oliver,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,13,team,Josh/Jake,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,14,team,Dan/EJ,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,15,team,Lisa/Kirsten,PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Doubles Net,16,team,Phil/Seb (scratch),PARTIAL_RESTORE,open doubles net
+1268445253,2010,Open Singles Net,1,player,John,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,2,player,Jer,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,3,player,Jack,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,4,player,Alexis(scratch),NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,5,player,Gilles,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,6,player,Diego,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,7,player,Luc,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,8,player,Phil,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,9,player,Yves,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,10,player,Dom,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,11,player,Vic,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,12,player,Carlos,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,13,player,Frank,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,14,player,Seb,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,15,player,Edwin,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,16,player,Gen,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,17,player,Olivier,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,18,player,JF,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,19,player,Luka,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,20,player,Kirsten,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,21,player,Dan,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,22,player,Jake,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,23,player,Fletch,NEW_DIV_RESTORE,
+1268445253,2010,Open Singles Net,24,player,Josh,NEW_DIV_RESTORE,
+1268445253,2010,Mixed Doubles Net,1,team,Flo/Kirsten,NEW_DIV_RESTORE,
+1268445253,2010,Mixed Doubles Net,2,team,Gen/Luc,NEW_DIV_RESTORE,
+1280907422,2010,Footbag-Net Doubles,4,team,Ulysse Cazzato/Jakob,PARTIAL_RESTORE,footbag net doubles
+1282647603,2010,Open Single Net,11,team,Tomasz Kocio³kowski (Warszawa)/scratch,PARTIAL_RESTORE,open single net
+1285506605,2010,Routines,1,team,Evan Gatesman/Highest level,PARTIAL_RESTORE,routines
+1285506605,2010,Routines,2,team,Tom Kotsakos :-p/Highest level,PARTIAL_RESTORE,routines
+1285506605,2010,Routines,3,team,Dante Diotallevi/Highest level,PARTIAL_RESTORE,routines
+1286381599,2010,Open Singles,21,team,Goncalves/José Ángel,PARTIAL_RESTORE,open singles
+1286381599,2010,Intermediate Singles,14,player,Jhoan,PARTIAL_RESTORE,intermediate singles
+1286381599,2010,Intermediate Doubles,1,team,Juan Diaz/Ronald Añez,PARTIAL_RESTORE,intermediate doubles
+1286381599,2010,Intermediate Doubles,2,team,Carlos Maldonado/Jorge Ramirez,PARTIAL_RESTORE,intermediate doubles
+1286381599,2010,Intermediate Doubles,3,team,Jhon Orace/Andreina Peña,PARTIAL_RESTORE,intermediate doubles
+1286381599,2010,Intermediate Doubles,5,team,Astrid Archila/Yalis Iasenzaniro,PARTIAL_RESTORE,intermediate doubles
+1286381599,2010,Intermediate Doubles,6,team,Carlos Blaumann/Ivaneidy Zambrano,PARTIAL_RESTORE,intermediate doubles
+1286644859,2010,Net Singles,2,player,Dexter,PARTIAL_RESTORE,net singles
+1287439208,2010,Open Doubles Net,1,player,Round,PARTIAL_RESTORE,open doubles net
+1287439208,2010,Open Doubles Net,2,player,Round,PARTIAL_RESTORE,open doubles net
+1288096032,2010,Request Contest,5,player,Agatka,PARTIAL_RESTORE,request contest
+1290861524,2011,Golf,4,team,Faris/Stuff,PARTIAL_RESTORE,golf
+1290861524,2011,Golf,10,team,Quentin/Alex,PARTIAL_RESTORE,golf
+1295842442,2011,Unknown,1,team,Maude Laudreville/Francois Depatie-Pelletier,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,2,team,Genevieve Bousquet/Luc Legault,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,3,team,Jody Welch/Andy Ronald,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,4,team,Lisa Monti/Kenny Shults,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,5,team,Becca English-Ross/Fletcher Funk,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,6,team,Julie Symons/Jeremy Mirken,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,7,team,Sarah Femmel/Chris Siebert,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,8,team,Darlene House/EJ Gammage,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,9,team,Michelle Chen/Steve Dusablon,NEW_DIV_RESTORE,
+1295842442,2011,Unknown,10,team,Lisa McDaniel/Jack Harris,NEW_DIV_RESTORE,
+1299532552,2011,Intermediate Singles,9,player,Frankie Becerril,PARTIAL_RESTORE,intermediate singles
+1301837824,2011,Open Doubles Net,9,team,Marc Girard-Larivière (Canada)/(),PARTIAL_RESTORE,open doubles net
+1305581560,2011,Singles Net,1,team,Grischa Tellenbach/Lino Landau,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,2,team,Arthur Ledain/Quentin Isackson,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,3,team,Mouss Kabbal/Sebastien Maillet,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,4,team,Marc Brunet/Vincent Rousseau,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,5,team,Guillaume Degat/Sven Depoilly,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,6,team,Thomas Sustrac/Olivier Baillon,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,7,team,Fabien Riffaud/Emmanuelle Bouvier,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,8,team,Emilien Groussin/Clement Gobe,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,9,team,David Rambaud/Maël LeGall,PARTIAL_RESTORE,singles net
+1305581560,2011,Singles Net,10,team,Wilfrid Vincendeau/Nicolas Nantes,PARTIAL_RESTORE,singles net
+1313351184,2011,Open Doubles Net,1,team,Dan Greer/Greg Neumann,PARTIAL_RESTORE,open doubles net
+1313351184,2011,Open Doubles Net,2,team,Tom Bergamasco/Jim Hankins,PARTIAL_RESTORE,open doubles net
+1313351184,2011,Open Doubles Net,3,team,Mark Hunsberger/Josh DeClercq,PARTIAL_RESTORE,open doubles net
+1313351184,2011,Open Doubles Net,4,team,Anthony Intemann/Noah Hunsberger,PARTIAL_RESTORE,open doubles net
+1313351184,2011,Intermediate Doubles Net,1,team,Jack Lentz/Anthony Ritz,PARTIAL_RESTORE,intermediate doubles net
+1314229545,2011,Open Doubles,5,team,Ariel Santetesteban/Ladell,PARTIAL_RESTORE,open doubles
+1314229545,2011,Golf,6,player,Ladell,PARTIAL_RESTORE,golf
+1314328055,2011,Open Doubles Net,6,team,Ronald Varillas Sandoval (Venezuela)/(),PARTIAL_RESTORE,open doubles net
+1320803601,2012,Unknown,12,team,Rene/Nick Rettinger,PARTIAL_RESTORE,unknown
+1320803601,2012,Intermediate Doubles,7,team,Nick Rettinger/Rene,PARTIAL_RESTORE,intermediate doubles
+1329132977,2012,Open Circle Contest,6,player,Pawel Rozek (Poland),PARTIAL_RESTORE,women s circle contest
+1337617980,2012,Open Singles Net,1,team,Fritsch/Antonio B,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,2,team,Rockel/Tammo DD,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,3,team,Khateeb/Yassin B,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,4,team,Voss/Simon KI,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,5,team,Thull/Jonas AC,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,6,team,Anhuth/Kerstin F,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,7,team,Nold/Stefan F,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,8,team,Püchel/Robin DD,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,9,team,Kuntze/Steve DD,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,10,team,Kaufmann/David B,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,11,team,Rusev/Radoslav Strasbourg,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,12,team,Rautenber/Stephan HI,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,13,team,Russell/P. Thomas Plech,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,14,team,Käfer/Andreas AC,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,15,team,Holzmann/Tino DD,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,16,team,Schmidt/Anne DD,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,17,team,Häßler/Ulrike HI,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,18,team,Thal/Janis HB,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,19,team,Künzel/Thorsten Sülbeck,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,20,team,Schmidtke/Benjamin HB,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,21,team,Brekle/Jan HH,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,22,team,Böhme/Rico Frankenberg,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,23,team,Denkert/Marcel Aue,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,24,team,Thierfelde/Markus Aue,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,25,team,Deckert/Sebastian Aue,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Open Singles Net,26,team,Murkner/Lars Aue,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Womens Singles Net,1,team,Anhuth/Kerstin F,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Womens Singles Net,2,team,Schmidt/Anne DD,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Womens Singles Net,3,team,Probst/Katharina Luzern,PARTIAL_RESTORE,womens singles net
+1337617980,2012,Womens Singles Net,4,team,Häßler/Ulrike HI,PARTIAL_RESTORE,womens singles net
+1348929718,2012,Open Doubles Net,10,team,Alberto Perez (Venezuela)/(),PARTIAL_RESTORE,open doubles net
+1353223688,2012,Open Singles Net,5,player,Grischa Tellenbach (Switzerland),PARTIAL_RESTORE,open singles net
+1353223688,2012,Open Singles Net,10,player,Roman Belozerov (Russia),PARTIAL_RESTORE,open singles net
+1353223688,2012,Open Singles Net,14,player,Theodore Fritsch (USA),PARTIAL_RESTORE,open singles net
+1353223688,2012,Open Doubles Net,6,team,Mikko Tapaninaho (Finland)/Theodore Fritsch (USA),PARTIAL_RESTORE,open doubles net
+1353223688,2012,Open Singles Routines,1,player,Toni Pääkkönen (Finland),NEW_DIV_RESTORE,
+1353223688,2012,Open Singles Routines,2,player,Tuomas Riisalo (Finland),NEW_DIV_RESTORE,
+1353223688,2012,Open Singles Routines,3,player,Lauri Airinen (Finland),NEW_DIV_RESTORE,
+1353223688,2012,Open Singles Routines,4,player,Timo Aarnio (Finland),NEW_DIV_RESTORE,
+1353223688,2012,Open Singles Routines,5,player,Jana Riisalo (Czech Republic),NEW_DIV_RESTORE,
+1353223688,2012,Open Singles Routines,6,player,Mikko Tapaninaho (Finland),NEW_DIV_RESTORE,
+1353223688,2012,Open Doubles Net,6,team,"Fritsch, Ted (USA)/Tapaninaho, Mikko",PARTIAL_RESTORE,open doubles net
+1353223688,2012,Open Singles Net,5,player,"Tellenbach, Grischa (FRA)",PARTIAL_RESTORE,open singles net
+1353223688,2012,Open Singles Net,10,player,"Belozerov, Roman (RUS)",PARTIAL_RESTORE,open singles net
+1353223688,2012,Open Singles Net,14,player,"Fritsch, Ted (USA)",PARTIAL_RESTORE,open singles net
+1354752474,2013,Open Singles Routines,1,player,Aleksi Airinen (Finland),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,2,player,Rene Rühr (Israel),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,3,player,Jindra Smola (Czech Republic),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,4,player,Alexander Trenner (Austria),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,5,player,Jakob Wagner (Germany),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,6,player,Andreas Nawrath (Germany),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,7,player,Nis Petersen (Denmark),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,8,player,Maciek Niczyporuk (Poland),NEW_DIV_RESTORE,
+1354752474,2013,Open Singles Routines,9,player,Pawel Nowak (Poland),NEW_DIV_RESTORE,
+1354752474,2013,Women's Singles Routines,1,player,Tina Aeberli (Switzerland),NEW_DIV_RESTORE,
+1354752474,2013,Women's Singles Routines,2,player,Paloma Mayo (Spain),NEW_DIV_RESTORE,
+1354752474,2013,Women's Singles Routines,3,player,Dorota Wojtasiuk (Poland),NEW_DIV_RESTORE,
+1354752474,2013,Open Shred:30,1,player,Aleksi Airinen (Finland),PARTIAL_RESTORE,shred 30
+1354752474,2013,Open Shred:30,4,player,Jakob Wagner,PARTIAL_RESTORE,shred 30
+1354752474,2013,Open Shred:30,5,player,Maciek Niczyporuk,PARTIAL_RESTORE,shred 30
+1354752474,2013,Open Shred:30,6,player,Jindra Smola,PARTIAL_RESTORE,shred 30
+1354752474,2013,Open Shred:30,7,player,Rene Rühr,PARTIAL_RESTORE,shred 30
+1354752474,2013,Open Shred:30,8,player,Pawel Nowak,PARTIAL_RESTORE,shred 30
+1354752474,2013,Open Shred:30,9,player,Rados Turek,PARTIAL_RESTORE,shred 30
+1354752474,2013,Open Circle Contest,4,player,Aleksi Airinen (Finland),PARTIAL_RESTORE,circle contest
+1357101984,2013,Open Mixed Doubles Net,9,team,Jasper Shults (USA)/(),PARTIAL_RESTORE,open mixed doubles net
+1357101984,2013,Open Mixed Doubles Net,11,team,Gaylene Grossen (USA)/(),PARTIAL_RESTORE,open mixed doubles net
+1357101984,2013,Intermediate Doubles Net,2,team,Steve Femmel (USA)/(),PARTIAL_RESTORE,intermediate doubles net
+1357101984,2013,Intermediate Doubles Net,4,team,Paul Vorvick (USA)/(),PARTIAL_RESTORE,intermediate doubles net
+1357101984,2013,Intermediate Doubles Net,5,team,Jesse Ross (USA)/(),PARTIAL_RESTORE,intermediate doubles net
+1361239371,2013,Open Doubles Net,7,team,Diego Gamboa Barrios (Venezuela)/(),PARTIAL_RESTORE,open doubles net
+1368559562,2013,Open Doubles Net,15,team,Carlos Medina (Colombia)/(),PARTIAL_RESTORE,open doubles net
+1368559562,2013,Open Doubles Net,16,team,Eric Castro H (Venezuela)/(),PARTIAL_RESTORE,open doubles net
+1368559562,2013,Open Doubles Net,17,team,Wilmer Rojas Fuentes (Venezuela)/(),PARTIAL_RESTORE,open doubles net
+1369141018,2013,Open Doubles Net,3,team,Benjamin Kanske (Germany)/(),PARTIAL_RESTORE,open doubles net
+1369141018,2013,Open Doubles Net,4,team,Dinko Dimitrov (Bulgaria)/(),PARTIAL_RESTORE,open doubles net
+1377192359,2013,Request,1,player,Blauski,PARTIAL_RESTORE,request
+1377192359,2013,Request,2,player,Mikko,PARTIAL_RESTORE,request
+1378666423,2013,Request Contest,5,team,David Castillo/Tuukka Antikainen,PARTIAL_RESTORE,request contest
+1378666423,2013,Request Contest,9,team,Aleksi Airinen/Alexander Trenner,PARTIAL_RESTORE,request contest
+1378821205,2013,Open Doubles Net,9,team,Miquel Clemente (France)/(),PARTIAL_RESTORE,open doubles net
+1386623061,2014,Open Sick 3,1,player,Matt Kemmer,NEW_DIV_RESTORE,
+1386623061,2014,Open Sick 3,2,player,Chris Dean,NEW_DIV_RESTORE,
+1386623061,2014,Open Sick 3,3,player,Brian Sherrill,NEW_DIV_RESTORE,
+1386623061,2014,Open Sick 3,4,player,Alex Dworetzky,NEW_DIV_RESTORE,
+1386623061,2014,Open Sick 3,5,player,Dustin Rhodes,NEW_DIV_RESTORE,
+1386623061,2014,Open Sick 3,5,player,Derek Littlefield,NEW_DIV_RESTORE,
+1386623061,2014,Open Singles Net,4,player,Edwin Veltman,PARTIAL_RESTORE,women s singles net
+1386623061,2014,Open Singles Net,5,player,Jasper Shults,PARTIAL_RESTORE,women s singles net
+1386623061,2014,Open Singles Net,6,player,Patrick Weinberg,PARTIAL_RESTORE,women s singles net
+1386623061,2014,Open Singles Net,7,player,Dirk Janssens,PARTIAL_RESTORE,women s singles net
+1386623061,2014,Intermediate Singles Net,3,player,Drake Shults,PARTIAL_RESTORE,intermediate singles routines
+1386623061,2014,Intermediate Singles Net,3,player,Gaylene Grossen,PARTIAL_RESTORE,intermediate singles routines
+1386623061,2014,Intermediate Singles Net,5,player,Ben Johnson,PARTIAL_RESTORE,intermediate singles routines
+1405875596,2014,Open Circle Contest,5,player,Brian Sherrill,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Mathieu Gauthier,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Derek Littlefield,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Mikey Etlinger,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Cassandra Taylor,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Anton Britting,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Kevin Hogan,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Ryan Thomas,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Matt Kemmer,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Open Circle Contest,5,player,Nick Polini,PARTIAL_RESTORE,open circle contest
+1405875596,2014,Intermediate Circle Contest,5,player,April Tou,PARTIAL_RESTORE,intermediate circle contest
+1405875596,2014,Intermediate Circle Contest,5,player,Ryan Morris,PARTIAL_RESTORE,intermediate circle contest
+1405875596,2014,Intermediate Circle Contest,6,player,Vince Richardson,PARTIAL_RESTORE,intermediate circle contest
+1405875596,2014,Intermediate Circle Contest,6,player,Daniel Carey,PARTIAL_RESTORE,intermediate circle contest
+1406219099,2014,Open Circle Contest,1,player,Evan Gatesman (USA),PARTIAL_RESTORE,circle contest
+1406219099,2014,Open Circle Contest,4,player,Mariusz Wilk (Poland),PARTIAL_RESTORE,circle contest
+1417735560,2015,Open Sick Trick,1,team,Evan Gatesman (USA)/Swirling Double Blender,PARTIAL_RESTORE,open sick trick
+1417735560,2015,Open Sick Trick,6,team,Filip Wójcik (Poland)/Mobiusscrew,PARTIAL_RESTORE,open sick trick
+1417735560,2015,Open Sick Trick,9,team,Wiktor Debski (Poland)/Voodoo,PARTIAL_RESTORE,open sick trick
+1417735560,2015,Open Sick Trick,15,team,Daniel Boyle (Australia)/Phoenix,PARTIAL_RESTORE,open sick trick
+1417735560,2015,Intermediate Sick Trick,1,team,Sergio Garcia (Spain)/Blurriest,PARTIAL_RESTORE,intermediate sick trick
+1420195881,2015,Open Mixed Doubles Net,6,team,Ivan Stanev (Bulgaria)/(),PARTIAL_RESTORE,open mixed doubles net
+1421069713,2015,Open Doubles Net,4,team,Dinko Dimitrov (Bulgaria)/(),PARTIAL_RESTORE,open doubles net
+1423020874,2015,Open Doubles Net,16,team,Francisco Moreno Gamboa (Venezuela)/(),PARTIAL_RESTORE,open doubles net
+1425372477,2015,Women's Doubles Net,2,team,Leanne Makcrow (Canada)/(),PARTIAL_RESTORE,women s doubles net
+1425372477,2015,Open Mixed Doubles Net,4,team,Leanne Makcrow (Canada)/(),PARTIAL_RESTORE,open mixed doubles net
+1425372477,2015,Open Mixed Doubles Net,6,team,Jasper Shults (USA)/(),PARTIAL_RESTORE,open mixed doubles net
+1435110091,2015,Unknown,13,player,th,NEW_DIV_RESTORE,
+1435784719,2015,Open Singles,10,team,Gonzalez/Daniel Ernesto,PARTIAL_RESTORE,open singles
+1435784719,2015,Open Doubles,1,player,Result Name,PARTIAL_RESTORE,open doubles
+1435784719,2015,Open Doubles,4,team,"Cantillo, Eduardo",PARTIAL_RESTORE,open doubles
+1447494731,2016,Open Doubles Net,1,team,Daniel Greer/Rob McCloskey,NEW_DIV_RESTORE,
+1447494731,2016,Open Doubles Net,2,team,Anthony Ritz/Steve Richardson,NEW_DIV_RESTORE,
+1447494731,2016,Open Doubles Net,3,team,Jim Hogan/Dan Johnson,NEW_DIV_RESTORE,
+1449259560,2016,Footbag Golf,4,player,Ben,PARTIAL_RESTORE,footbag golf
+1449259560,2016,Footbag Golf,5,player,Stuf,PARTIAL_RESTORE,footbag golf
+1449259560,2016,Footbag Golf,17,player,Yari,PARTIAL_RESTORE,footbag golf
+1473932659,2016,Request Contest,6,player,Laurenz Prokoph,PARTIAL_RESTORE,request contest
+1473932659,2016,Request Contest,6,player,Irene Ebermann,PARTIAL_RESTORE,request contest
+1487797845,2017,Open Doubles Net,30,team,Jean-Gabriel Davis Jean/Marie Letort,PARTIAL_RESTORE,open doubles net
+1489248474,2017,Footbag Net: Singles,1,team,Greer/Daniel,PARTIAL_RESTORE,footbag net singles
+1489248474,2017,Footbag Net: Singles,3,team,Hogan/Jim,PARTIAL_RESTORE,footbag net singles
+1489248474,2017,Footbag Net: Singles,4,player,Jake Dodd,PARTIAL_RESTORE,footbag net singles
+1489248474,2017,Footbag Net: Singles,5,team,McCloskey/Robert,PARTIAL_RESTORE,footbag net singles
+1489248474,2017,Footbag Net: Singles,6,team,Richardson/Steve,PARTIAL_RESTORE,footbag net singles
+1489248474,2017,Footbag Net: Singles,7,team,Johnson/Dan,PARTIAL_RESTORE,footbag net singles
+1489248474,2017,Footbag Net: Doubles,1,team,Greer/Daniel,NEW_DIV_RESTORE,
+1489248474,2017,Footbag Net: Doubles,2,team,Hogan/Jim,NEW_DIV_RESTORE,
+1489248474,2017,Footbag Net: Doubles,3,team,McCloskey/Rob,NEW_DIV_RESTORE,
+1489248474,2017,Footbag Net: Doubles,4,team,Richardson/Steve,NEW_DIV_RESTORE,
+1516978874,2018,Doubles Net,13,team,Clovis Jaunet/scratch,PARTIAL_RESTORE,doubles net
+1529239199,2019,Intermediate Circle,1,player,Kyle Hale,PARTIAL_RESTORE,intermediate circle
+1529239199,2019,Intermediate Circle,2,player,Rich Mpelezoz,PARTIAL_RESTORE,intermediate circle
+1529239199,2019,Open 1St & 2Nd,1,team,Anton/2nd Ryan,PARTIAL_RESTORE,open 1st 2nd
+1529239199,2019,Open 1St & 2Nd,1,team,Matt/Josh,PARTIAL_RESTORE,open 1st 2nd
+1555631351,2019,Intermediate Doubles Net,1,team,Jack Lentz/Marc-Andre,PARTIAL_RESTORE,intermediate doubles net
+1555631351,2019,Intermediate Singles Net,2,player,Marc-Andre,PARTIAL_RESTORE,intermediate singles net
+1564005204,2019,I. Ereaga Footbag Net Tournament,1,team,Juan/Jairo,PARTIAL_RESTORE,i ereaga footbag net tournament
+1564005204,2019,I. Ereaga Footbag Net Tournament,2,team,Abdula/Ismael,PARTIAL_RESTORE,i ereaga footbag net tournament
+1564005204,2019,I. Ereaga Footbag Net Tournament,3,team,Jon Cousillas/Hector,PARTIAL_RESTORE,i ereaga footbag net tournament
+1567551985,2019,Footbag Golf,1,team,Micha³ Klimczak/MFT,PARTIAL_RESTORE,footbag golf
+1567551985,2019,Footbag Golf,2,team,Marcin Czech/WSF,PARTIAL_RESTORE,footbag golf
+1567551985,2019,Footbag Golf,3,team,Micha³ Róg/MFT,PARTIAL_RESTORE,footbag golf
+1567551985,2019,Footbag Golf,1,team,Szymon Ka³wak/PSF,PARTIAL_RESTORE,footbag golf
+1567551985,2019,Footbag Golf,2,team,Filip Wójcik/WSF,PARTIAL_RESTORE,footbag golf
+1567551985,2019,Footbag Golf,3,team,Pawe³ Ro¿ek/WSF,PARTIAL_RESTORE,footbag golf
+1568961264,2019,Open Singles Net,1,player,"Maillet, Sébastien",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,2,player,"Tellenbach, Grischa",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,3,player,"Mlakar, Lena",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,4,player,"Rusev, Radoslav",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,5,player,"Stanev, Ivan",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,6,player,"Kabbal, Mouss",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,7,player,"Depoilly, Sven",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,8,player,"Isackson, Quentin",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,9,player,"Rambaud, David",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,10,player,"Arnaud, Anthony",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,11,player,"Janin, Nicolas",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,12,player,"Tumelin, Audrey",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,13,player,"Letort, Jean-Marie",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,15,player,"Lancret, Xavier",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,16,player,"Nguyen, Trung",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,17,player,"Martin, Baptiste",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,18,player,"Bigey, Loic",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,19,player,"Galabrun, Jean",PARTIAL_RESTORE,open singles net
+1568961264,2019,Open Singles Net,20,player,"Jeliazkova, Tania",PARTIAL_RESTORE,open singles net
+1574365921,2019,Footbag Net (Doubles) In April Of 2020.,4,player,Widen Aroni (Basque Country) 7 Joseph Ospina (Colombia),PARTIAL_RESTORE,footbag net doubles in april of 2020
+1593340253,2020,Open Doubles Net,4,player,pairs in total,PARTIAL_RESTORE,open doubles net
+1624971880,2021,Open Singles Net,3,player,Michał Róg,PARTIAL_RESTORE,open singles net
+1624971880,2021,Open Singles Net,4,player,Michał Klimczak,PARTIAL_RESTORE,open singles net
+1624971880,2021,Open Singles Net,21,player,Maciej Pietrzycki,PARTIAL_RESTORE,open singles net
+1624971880,2021,Open Singles Net,22,player,Łukasz Domin,PARTIAL_RESTORE,open singles net
+1624971880,2021,Open Singles Net,24,player,Jędrzej Jurek,PARTIAL_RESTORE,open singles net
+1649177702,2022,Open Singles Net,8,team,Ted Fritsch (Ellenville/NY),PARTIAL_RESTORE,open singles net
+1657486956,2022,Open Singles Net,4,team,Ivan Cuende (Basque Country)/Mikel Maletxeberria (Basque Country),PARTIAL_RESTORE,open singles net
+1668541701,2022,Open Sick 3-Trick,9,team,Pawel Nowak (Poland)/DNF,PARTIAL_RESTORE,open sick 3 trick
+1668541701,2022,Open Sick 3-Trick,9,team,Filip Wójcik (Poland)/DNF,PARTIAL_RESTORE,open sick 3 trick
+1668541701,2022,Open Sick 3-Trick,9,team,Mariusz Wilk (Poland)/DNF,PARTIAL_RESTORE,open sick 3 trick
+1673723574,2023,Open Doubles Net,5,team,Hristo Georgiev/Stefan,PARTIAL_RESTORE,open doubles net
+1677937557,2023,Open Doubles Net,9,team,Henning Lindner/Stuff,PARTIAL_RESTORE,open doubles net
+1677937557,2023,Open Doubles Net,10,team,Alan Gonzalez/Chippy,PARTIAL_RESTORE,open doubles net
+1678957450,2023,Intermediate Singles Net,5,team,Daniel Jaramilo/Anibal Montes,PARTIAL_RESTORE,intermediate singles net
+1678957450,2023,Intermediate Singles Net,9,team,Edgar Camargo/Simon Munoz Arango,PARTIAL_RESTORE,intermediate singles net
+1688144863,2023,Open Freestyle Head To Head Battle,5,player,Ben Barrows,PARTIAL_RESTORE,open freestyle head to head battle
+1688144863,2023,Open Freestyle Head To Head Battle,5,player,Tom Jenkins,PARTIAL_RESTORE,open freestyle head to head battle
+1699593640,2023,Open Singles Net,15,player,Frank Diaz,PARTIAL_RESTORE,open singles net
+1699593640,2023,Intermediate Doubles Net,4,team,Nelson Jiménez/Renato,PARTIAL_RESTORE,intermediate doubles net
+1699593640,2023,Intermediate Doubles Net,9,player,Grecias Martínez ( Barlovia ) Jesus Jiménez,PARTIAL_RESTORE,intermediate doubles net
+1713276656,2024,Open Singles,12,player,Frank diaz,PARTIAL_RESTORE,open singles
+1721817655,2024,Open Singles Net,9,player,january,PARTIAL_RESTORE,open singles net
+1721817655,2024,Open Singles Net,11,player,of january,PARTIAL_RESTORE,open singles net
+1739036206,2025,Singles Net,6,player,Kris,PARTIAL_RESTORE,singles net
+1739036206,2025,Singles Net,7,player,Yavor,PARTIAL_RESTORE,singles net
+1739036206,2025,Singles Net,8,player,Ognyan,PARTIAL_RESTORE,singles net
+1739036206,2025,Singles Net,9,player,Alex,PARTIAL_RESTORE,singles net
+1740391168,2025,Sick 3,2,team,Rafał Kaleta (PL)/PS,PARTIAL_RESTORE,sick 3
+1740391168,2025,Sick 3,5,team,Marco Hartig (DE)/Reverse,PARTIAL_RESTORE,sick 3
+1740391168,2025,Sick 3,6,team,Mikko Lepistö (FI)/Sidewalk,PARTIAL_RESTORE,sick 3
+1741024635,2025,Footbag Golf,17,player,Pauline,PARTIAL_RESTORE,footbag golf
+1741024635,2025,2-Square,8,team,Xavier Lancret/Maya,PARTIAL_RESTORE,2 square
+1741024635,2025,2-Square,10,player,Cyril,PARTIAL_RESTORE,2 square
+1746737817,2025,Double Open - Open Doubles,4,team,Dominic Soulard/Jérôme,PARTIAL_RESTORE,double open open doubles
+1751568193,2025,Open Double Net,5,team,Maciej Niczyporuk/Przemys³aw,PARTIAL_RESTORE,open double net
+1765581778,2025,Open Singles Net,1,team,Egoitz Campo/Basque Country,PARTIAL_RESTORE,open singles net
+1765581778,2025,Open Singles Net,2,team,Lander Campo/Basque Country,PARTIAL_RESTORE,open singles net
+1765581778,2025,Open Singles Net,3,team,Maximo Kulachenok/Basque Country,PARTIAL_RESTORE,open singles net
+1765581778,2025,Open Singles Net,4,team,Joseba Fernandez/Basque Country,PARTIAL_RESTORE,open singles net
+1765581778,2025,Open Singles Net,5,team,Álvaro García/Basque Country,PARTIAL_RESTORE,open singles net
+2001981001,1981,Women's Doubles Net,2,player,unknown,PARTIAL_RESTORE,women s doubles net
+857879540,1997,Singles Freestyle,3,team,Craig Singer/St Marys,PARTIAL_RESTORE,singles freestyle
+857879540,1997,Singles Freestyle,4,player,"Jim McCoppin, VA",PARTIAL_RESTORE,singles freestyle
+857880964,1997,Pro Doubles Net Listing,1,player,SERVICE POACHING,PARTIAL_RESTORE,pro doubles net listing
+857880964,1997,Novice Freestyle,1,player,Frank Sellers,PARTIAL_RESTORE,novice freestyle
+857881898,1997,Amateur Freestyle,2,player,Frank Gutowski,PARTIAL_RESTORE,amateur freestyle
+859400929,1997,Unknown,47,team,"kickers from as far as Vancouver/BC, Arizona, Texas",NEW_DIV_RESTORE,
+859923755,1997,Open Doubles Net,1,player,RESULTS SEED PARTNERS,PARTIAL_RESTORE,open doubles net
+859923755,1997,Novice Doubles,2,player,Doug Toth Chris Cleaver,PARTIAL_RESTORE,novice doubles
+873922005,1997,Singles Net,3,team,Jesse Fryckman/Justin Sexton,PARTIAL_RESTORE,singles net
+876331623,1998,Open Doubles Net,1,team,Brent Welch/david Butcher,PARTIAL_RESTORE,open doubles net
+876336655,1998,Intermediate Singles,5,player,Shay,PARTIAL_RESTORE,intermediate singles
+876336655,1998,Novice Singles,1,player,Shay,PARTIAL_RESTORE,novice singles
+876336655,1998,Novice Singles,2,player,Colton,PARTIAL_RESTORE,novice singles
+876591529,1998,Men's Open Doubles Footbag Net,3,team,Peter Shunny (Denver/Colorado,PARTIAL_RESTORE,men s open doubles footbag net
+876591529,1998,Open Mixed Doubles Footbag Net,1,team,Emmanuel Bouchard (Montreal/Quebec,PARTIAL_RESTORE,open mixed doubles footbag net
+876591529,1998,Open Doubles Freestyle,1,team,"Daryl Genz (Thornton/CO, USA)",PARTIAL_RESTORE,open doubles freestyle
+876591529,1998,Open Doubles Freestyle,3,team,"Peter Irish (College Park/MD, USA)",PARTIAL_RESTORE,open doubles freestyle
+876591529,1998,Open Mixed Doubles Freestyle,2,team,"Lisa McDaniel (Berkeley/California, USA)",PARTIAL_RESTORE,open mixed doubles freestyle
+876591529,1998,Open Mixed Doubles Freestyle,3,team,"Samantha Conlon (San Francisco/CA, USA)",PARTIAL_RESTORE,open mixed doubles freestyle
+876591529,1998,Open Doubles Distance One-Pass,2,team,Jim Caveney (Mountain View/California,PARTIAL_RESTORE,open doubles distance one pass
+876591529,1998,Open Doubles Distance One-Pass,3,player,Allan Petersen (Denmark) and,PARTIAL_RESTORE,open doubles distance one pass
+876591529,1998,Intermediate Singles Footbag Net,1,team,"Mike Voightmann/Lisle, Illinois, USA",PARTIAL_RESTORE,intermediate singles footbag net
+876591529,1998,Intermediate Singles Footbag Net,2,team,"Daniel Botkin/Gill, Massachusetts, USA",PARTIAL_RESTORE,intermediate singles footbag net
+876591529,1998,Intermediate Singles Footbag Net,3,team,"Pierre-Jacques Daigle/Montreal, Quebec, Canada",PARTIAL_RESTORE,intermediate singles footbag net
+876591529,1998,Women's Intermediate Singles Footbag Net,1,team,"Beth Grassfield/Carbondale, Illinois, USA",PARTIAL_RESTORE,women s intermediate singles footbag net
+876591529,1998,Women's Intermediate Singles Footbag Net,2,team,"Amelie Jolicoeur/Montreal, Quebec, Canada",PARTIAL_RESTORE,women s intermediate singles footbag net
+876591529,1998,Women's Intermediate Singles Footbag Net,3,team,"Marie-Ange Cossette-Trudel/Montreal, Quebec, Canada",PARTIAL_RESTORE,women s intermediate singles footbag net
+876591529,1998,Intermediate Doubles Footbag Net,2,team,Iain McKechnie (San Rafael/California,PARTIAL_RESTORE,intermediate doubles footbag net
+876591529,1998,Intermediate Doubles Footbag Net,3,team,Dan Botkin (Gill/Massachusetts,PARTIAL_RESTORE,intermediate doubles footbag net
+877061793,1998,Open Singles Net 16 Entrants,5,team,David Butcher/Yo Kelley,PARTIAL_RESTORE,open singles net 16 entrants
+877061793,1998,Open Singles Net 16 Entrants,7,team,Jim Cobb/Mike McCarthy,PARTIAL_RESTORE,open singles net 16 entrants
+877061793,1998,Open Singles Net 16 Entrants,9,team,Chris Siebert/Chard Cook,PARTIAL_RESTORE,open singles net 16 entrants
+877061793,1998,Women's Singles Net 9 Entrants,5,team,Christy Rapp/Anne Miller,PARTIAL_RESTORE,women s singles net 9 entrants
+877061793,1998,Intermediate Singles Net 10 Entrants,5,team,Kevin Jenkins/Levi Lieb,PARTIAL_RESTORE,intermediate singles net 10 entrants
+877061793,1998,Beginner Doubles Net (Sunday) 6 Teams,4,team,Beth Whitehouse/Darik,PARTIAL_RESTORE,beginner doubles net sunday 6 teams
+877848852,1997,Intermediate 5-Min Timed Consecutives,1,player,Jeremy Keller Auburn,PARTIAL_RESTORE,intermediate 5 min timed consecutives
+886044392,1998,Open Doubles Net,1,player,Dave Bernard (OR) Chris Routh (AZ),PARTIAL_RESTORE,open doubles net
+886044392,1998,Open Doubles Net,3,player,Scott Milne (BC) Jim Derricott (BC),PARTIAL_RESTORE,open doubles net
+886044392,1998,Mixed Doubles Net,1,player,Jody Welch (CA) Danny Borsky (BC),PARTIAL_RESTORE,mixed doubles net
+886044392,1998,Mixed Doubles Net,3,player,Julie Symons (CA) Yossarian Kelley (WA),PARTIAL_RESTORE,mixed doubles net
+892446131,1998,Unknown,2,player,Annual Mountain Dew's,NEW_DIV_RESTORE,
+892446131,1998,Doubles Consecutive,10,player,Minute timed,PARTIAL_RESTORE,doubles consecutive
+892446131,1998,Intermediate,3,team,Zach Reeves/Wichita,PARTIAL_RESTORE,intermediate
+892446131,1998,Intermediate,3,team,Davie Piper/Bolivar,PARTIAL_RESTORE,intermediate
+899077904,1998,Intermediate Footbag Golf,3,player,Dan,PARTIAL_RESTORE,intermediate footbag golf
+903632480,1999,Intermediate Doubles,5,team,Donny/Billy,PARTIAL_RESTORE,intermediate doubles
+912467534,1999,Novice Doubles Footbag Net,2,team,Bob/Matt,PARTIAL_RESTORE,novice doubles footbag net
+917278465,1999,Open Singles Freestyle,5,player,Frank Gutowski (USA),PARTIAL_RESTORE,open singles freestyle
+917741782,1999,Open Singles Net,1,team,Steve Smith/Malta IL,PARTIAL_RESTORE,open singles net
+917741782,1999,Open Singles Net,2,team,Ted Martin/Des Plaines,PARTIAL_RESTORE,open singles net
+917741782,1999,Open Singles Net,3,team,Tom Whitworth/Charleston IL,PARTIAL_RESTORE,open singles net
+917741782,1999,Intermediate Singles Net,1,team,Josh Vorvel/Sherman IL,PARTIAL_RESTORE,intermediate singles net
+917741782,1999,Intermediate Singles Net,2,team,Pete Nawara/Chicago IL,PARTIAL_RESTORE,intermediate singles net
+917741782,1999,Intermediate Singles Net,3,team,Jeff Cruz/Urbana IL,PARTIAL_RESTORE,intermediate singles net
+920579000,1999,And Qdog Pro Footbag.,1,player,RESULTS: 1999 EAST COAST FOOTBAG CHAMPIONSHIPS,NEW_DIV_RESTORE,
+931840905,1999,Novice Overall,10,player,Fetty,PARTIAL_RESTORE,novice overall
+933115858,2000,Intermediate,1,player,"Yacine Merzouk- Montreal, Quebec",PARTIAL_RESTORE,intermediate
+937727262,1999,Grand Masters Division: :-),5,player,"Frankie ""the Kind"" Gutowski",PARTIAL_RESTORE,grand masters division
+941418343,2000,Womens Singles Net,5,team,Marilyn Demuy (Montreal/QC -CANADA),PARTIAL_RESTORE,womens singles net
+941418343,2000,Womens Singles Net,5,team,Maude Landreville (Montreal/QC -CANADA),PARTIAL_RESTORE,womens singles net
+941418343,2000,Womens Singles Net,7,team,Kelly Kelley (Addison/TX -USA),PARTIAL_RESTORE,womens singles net
+941418343,2000,Womens Singles Net,7,team,Pauline Bechtel (Vancouver/BC -CANADA),PARTIAL_RESTORE,womens singles net
+941418343,2000,Womens Footbag Golf,1,team,Becca English-Ross (Eugene/OR -USA) 71,PARTIAL_RESTORE,womens footbag golf
+941418343,2000,Womens Footbag Golf,2,team,Tricia George (West Linn/OR -USA) 77,PARTIAL_RESTORE,womens footbag golf
+941418343,2000,Womens Footbag Golf,3,team,Evanne LaMarche (Phoenix/AZ -USA) 79,PARTIAL_RESTORE,womens footbag golf
+941418343,2000,Womens Speed Consecutives,1,team,Tricia George (West Linn/OR -USA),PARTIAL_RESTORE,womens speed consecutives
+941418343,2000,Womens Speed Consecutives,2,team,Sam Conlon (San Francisco/CA -USA),PARTIAL_RESTORE,womens speed consecutives
+941418343,2000,Womens Speed Consecutives,3,team,Jody Welch (Mountain View/CA -USA),PARTIAL_RESTORE,womens speed consecutives
+941418343,2000,Womens Speed Consecutives,4,team,Becca English-Ross (Eugene/OR -USA),PARTIAL_RESTORE,womens speed consecutives
+941418343,2000,Womens Speed Consecutives,5,team,Marilyn Demuy (Montreal/QC -CANADA),PARTIAL_RESTORE,womens speed consecutives
+941418343,2000,Womens Speed Consecutives,6,team,Evanne LaMarche (Phoenix/AZ -USA),PARTIAL_RESTORE,womens speed consecutives
+941418343,2000,Womens Speed Consecutives,7,team,Kelly Kelley (Addison/TX -USA),PARTIAL_RESTORE,womens speed consecutives
+941418343,2000,Open Speed Consecutives,1,team,Sean Flynn (Phoenix/AZ -USA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,2,team,Peter Shunny (Albuquerque/NM -USA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,3,team,Rick Reese (Fort Collins/CO -USA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,4,team,Jonathan Schneider (Boulder/CO -USA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,5,team,Chard Cook (Vancouver/BC -CANADA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,6,team,Jim Pomey (Cary/IL -USA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,7,team,Bob Green (Pocatello/ID -USA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,8,team,Jim Derricott (Vancouver/BC -CANADA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Speed Consecutives,9,team,Jeffrey Carpenter (Wellandport/Ont -CANADA),PARTIAL_RESTORE,open speed consecutives
+941418343,2000,Open Golf,1,team,Jamie H. Lepley (Lewisberry/PA -USA) 56,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,2,team,Allen Petersen (Denver/CO -USA) 64,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,3,team,Scott Milne (Vancouver/BC -CANADA) 65,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,4,team,Reed Gray (Eugene/OR -USA) 67,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,5,team,Sean Flynn (Phoenix/AZ -USA) 64,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,6,team,Larry Doyle (Chicago/IL -USA) 69,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,7,team,Geoff Hand (Denver/CO -USA) 75,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,8,team,Jim Cobb (Seattle/WA -USA) 75,PARTIAL_RESTORE,open golf
+941418343,2000,Open Golf,9,team,Steve Dusablon (Portland/OR -USA) 70,PARTIAL_RESTORE,open golf
+941418343,2000,Intermediate Singles Freestyle,3,team,Matt Emmings (Pender Is/BC -CANADA),PARTIAL_RESTORE,intermediate singles freestyle
+941418343,2000,Intermediate Singles Freestyle,15,team,"Brian Pihl (Chicago,IL/USA)",PARTIAL_RESTORE,intermediate singles freestyle
+941418343,2000,Intermediate Singles Net,10,team,Jim Pomey (Cary/IL -USA),PARTIAL_RESTORE,intermediate singles net
+941418343,2000,Intermediate Singles Net,10,team,Bill Paris (Seattle/WA -USA),PARTIAL_RESTORE,intermediate singles net
+941418343,2000,Intermediate Singles Net,10,team,Jeremy Kumbruch (Victoria/BC -CANADA),PARTIAL_RESTORE,intermediate singles net
+942013549,1999,Open Singles Freestyle,2,player,Jan Zimmermann (Germany) GERMAN CHAMPION,PARTIAL_RESTORE,open singles freestyle
+946940201,2000,Novice Freestyle,1,team,Mike Huarca (MD/University of Maryland Footbag Club),PARTIAL_RESTORE,novice freestyle
+946940201,2000,Open Freestyle,2,team,Josh Penney (NY/New York Footbag Association),PARTIAL_RESTORE,open freestyle
+946940201,2000,Intermediate Golf,1,team,Jeremy Walters (PA/Team Net Wrecker),PARTIAL_RESTORE,intermediate golf
+946940201,2000,Open Golf,2,team,Jamie Lepley (PA/Team Net Wrecker),PARTIAL_RESTORE,open golf
+946940201,2000,Open Golf,3,team,Garth Smith (PA/Team Net Wrecker),PARTIAL_RESTORE,open golf
+946940201,2000,Intermediate Singles Net,1,team,Dan Kramer (NY/New York Footbag Association),PARTIAL_RESTORE,intermediate singles net
+946940201,2000,Intermediate Singles Net,2,team,Lovell McIlwain (MD/DC All-Stars),PARTIAL_RESTORE,intermediate singles net
+946940201,2000,Open Singles Net,3,team,"Yves Archambault (Montreal, Quebec/AQAF)",PARTIAL_RESTORE,open singles net
+947196813,2000,Unknown,1,player,Annual New Zealand Footbag Championships,NEW_DIV_RESTORE,
+948943299,2000,Doubles Net,1,team,John Leys/Fabian,PARTIAL_RESTORE,doubles net
+948943299,2000,Doubles Net,3,team,Lito Marley/Pelao,PARTIAL_RESTORE,doubles net
+948943299,2000,Doubles Net,1,player,John Leys,PARTIAL_RESTORE,doubles net
+948943299,2000,Doubles Net,4,player,Fabian,PARTIAL_RESTORE,doubles net
+949991621,2000,Open Freestyle Shred,4,player,Jeremy,PARTIAL_RESTORE,open freestyle shred
+952906680,2000,Open Freestyle,2,player,"Yacine Merzouk, Montréal",PARTIAL_RESTORE,open freestyle
+952906680,2000,Open Freestyle,3,player,"Sébastien Duchesne, Montréal",PARTIAL_RESTORE,open freestyle
+952906680,2000,Intermédiaire Freestyle,1,player,"Melissa Schneider, Massachussets",NEW_DIV_RESTORE,
+952906680,2000,Intermédiaire Freestyle,2,player,"Kavin Thiffault, Shawinigan",NEW_DIV_RESTORE,
+952906680,2000,Intermédiaire Freestyle,3,player,"Samuel Jobin, Shawinigan",NEW_DIV_RESTORE,
+952906680,2000,Intermédiaire Freestyle,4,player,"Hugues Veillette, Montréal",NEW_DIV_RESTORE,
+952906680,2000,Intermédiaire Freestyle,5,player,"Pierre-Pascal Gauthier, Montréal",NEW_DIV_RESTORE,
+952906680,2000,Intermédiaire Freestyle,6,player,"Marilou Ouimet, Montréal",NEW_DIV_RESTORE,
+955745735,2000,Singles Footbag Net,1,team,Chuck Powell/Benton KS,PARTIAL_RESTORE,singles footbag net
+955745735,2000,Singles Footbag Net,2,team,Scott McCarthy/Wichita KS,PARTIAL_RESTORE,singles footbag net
+955745735,2000,Singles Footbag Net,3,team,Mike Busby/Wichita KS,PARTIAL_RESTORE,singles footbag net
+955745735,2000,Novice Doubles Footbag Net,1,team,"""Rame"", Wichita Ks/Danny Kirstek, Wichita KS",PARTIAL_RESTORE,novice doubles footbag net
+955745735,2000,Novice Singles 5 Min. Timed Consecutives,1,team,Brian Hudson/Wichita KS,PARTIAL_RESTORE,novice singles 5 min timed consecutives
+955745735,2000,Novice Singles 5 Min. Timed Consecutives,2,team,Rob Collins/Wichita KS,PARTIAL_RESTORE,novice singles 5 min timed consecutives
+955745735,2000,Novice Singles 5 Min. Timed Consecutives,3,team,Gary Williams/McPherson KS,PARTIAL_RESTORE,novice singles 5 min timed consecutives
+967817818,2000,Novice Golf,1,player,Frank Mingst,PARTIAL_RESTORE,novice golf
+972427576,2001,Intermediate Doubles Net,1,team,Joel Dion/Tim Melnyck,PARTIAL_RESTORE,intermediate doubles net
+972427576,2001,Open Doubles Net,1,team,Sebastien Verdi/Emmanuel Bouchard,PARTIAL_RESTORE,open doubles net
+972427576,2001,Open Doubles Net,2,team,Yves Archambault/Mario Vaillancourt,PARTIAL_RESTORE,open doubles net
+972427576,2001,Open Doubles Net,3,team,Chris Seibert/Robert Lavigne,PARTIAL_RESTORE,open doubles net
+972427576,2001,Open Doubles Net,4,team,Martin Cote/Martin Graton,PARTIAL_RESTORE,open doubles net
+972427576,2001,Open Doubles Net,5,team,Jean-Francois Lemieux/Benjamin Rochon,PARTIAL_RESTORE,open doubles net
+972427576,2001,Open Doubles Net,6,team,Marilyn Demuy/Renaud Fanoni,PARTIAL_RESTORE,open doubles net
+972427576,2001,Open Doubles Net,7,team,Philippe Larose/Stephane Comeau,PARTIAL_RESTORE,open doubles net
+972427576,2001,Open Doubles Net,7,team,Jean-Philippe Rochefort/Olivier Tronchon,PARTIAL_RESTORE,open doubles net
+972427576,2001,Routines Intermediate Freestyle,1,player,"Hugues Veillette (Liverpool, England)",PARTIAL_RESTORE,routines intermediate freestyle
+972427576,2001,Shred Contest,11,player,"Hugues Veillette (Liverpool, England)",PARTIAL_RESTORE,shred contest
+973573676,2001,Mens Open Freestyle,2,player,nd= Adrian Dick,PARTIAL_RESTORE,mens open freestyle
+978967004,2001,Intermediate Singles Net,4,team,Jon Herbert/Sam Gregory,PARTIAL_RESTORE,intermediate singles net
+979089216,2001,45 Second Shred,5,player,Travis Strickland,PARTIAL_RESTORE,open 45 second shred
+979089216,2001,Sick 10 Trick,4,team,between Logan Dethman/Travis strickland,PARTIAL_RESTORE,open sick 10 trick
+979334083,2001,Open Singles Freestyle,1,player,Ryan Mulroney 9.20 9.20 1 345 126 2.74,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,2,player,Lon Smith 9.10 9.57 4 256 98 2.61,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,3,player,Ahren Gehrman 7.90 7.97 5 213 83 2.57,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,4,player,Ken Somolinos 7.90 8.23 4 139 61 2.28,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,5,player,Sunil Jani 7.00 8.37 5 229 97 2.36,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,6,player,Daryl Genz 7.50 7.67 6 237 92 2.58,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,7,player,Toby Robinson 6.60 8.43 7 270 105 2.57,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,8,player,Tu Vu 6.30 7.90 5 158 72 2.19,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Singles Freestyle,11,team,Bryan Fournier/(Scores not comparable to finals pool above.),PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Women's Singles Net,6,player,"Teresa (""Tree"") Rodgerson",PARTIAL_RESTORE,women s singles net
+979334083,2001,Women's Singles Freestyle,1,player,Carol Wedemeyer 6.90 8.53 5 153 74 2.07,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Women's Singles Freestyle,2,player,Jane Jones 4.80 7.03 7 108 62 1.74,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Women's Singles Freestyle,3,player,Tara Ohr 2.20 7.40 15 70 73 0.96,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Women's Singles Freestyle,4,player,Sunny Freeman 2.30 4.33 19 121 87 1.39,PARTIAL_RESTORE,open singles freestyle
+979334083,2001,Open Doubles Net,12,player,Brent Stewart,PARTIAL_RESTORE,open doubles net
+979334083,2001,Open Mixed Doubles Net,8,team,"Sage Woodmansee/Teresa (""Tree"") Rodgerson",PARTIAL_RESTORE,open mixed doubles net
+979334083,2001,Women's Doubles Net,4,team,"Darlene House/Teresa (""Tree"") Rodgerson",PARTIAL_RESTORE,women s doubles net
+979334083,2001,Intermediate Singles Freestyle,1,player,Andrew Johnson 5.00 6.40 8 93 57 1.63,PARTIAL_RESTORE,intermediate singles freestyle
+979334083,2001,Intermediate Singles Freestyle,2,player,Peter Bevitori 4.00 6.47 7 119 74 1.61,PARTIAL_RESTORE,intermediate singles freestyle
+979334083,2001,Intermediate Singles Freestyle,3,player,Jeremy Mirken 2.90 5.67 7 92 54 1.70,PARTIAL_RESTORE,intermediate singles freestyle
+979334083,2001,Intermediate Singles Freestyle,4,player,Brian Pihl 3.30 5.53 11 92 62 1.48,PARTIAL_RESTORE,intermediate singles freestyle
+979334083,2001,Intermediate Singles Freestyle,5,player,Mark Husted 3.40 4.97 10 91 54 1.69,PARTIAL_RESTORE,intermediate singles freestyle
+979334083,2001,Intermediate Doubles Net,3,team,"Teresa (""Tree"") Rodgerson/Darlene House",PARTIAL_RESTORE,intermediate doubles net
+979816633,2001,Doubles,1,player,) Kiss + Gyáni,NEW_DIV_RESTORE,
+979816633,2001,Doubles,2,player,) Homola + Halász,NEW_DIV_RESTORE,
+979816633,2001,Doubles,3,player,) Jazz + Juz,NEW_DIV_RESTORE,
+979816633,2001,Doubles,4,player,) Szolosi + Horváth,NEW_DIV_RESTORE,
+980502839,2001,Open Doubles Net,1,team,Emanuel Bouchard/Yves Arschamboult (CAN),PARTIAL_RESTORE,open doubles net
+981129410,2001,Novice Doubles Net,1,team,Ben/Matt Scarborough ( GA ),PARTIAL_RESTORE,novice doubles net
+990626988,2001,Results Freestyle Man,2,team,Antek Szczeniowski/Poland,PARTIAL_RESTORE,results freestyle man
+990626988,2001,Results Freestyle Man,3,team,Hugues Oli Veillette/Canada,PARTIAL_RESTORE,results freestyle man
+990626988,2001,Results Freestyle Man,4,team,Tomas Bogo-Budapest/Hungary,PARTIAL_RESTORE,results freestyle man
+990626988,2001,Results Freestyle Man,4,team,Olek Hamala -Wroclaw/Poland,PARTIAL_RESTORE,results freestyle man
+990626988,2001,Results Freestyle Man,5,team,Damian Budzik-Wroclaw/Poland,PARTIAL_RESTORE,results freestyle man
+990626988,2001,Results Freestyle Man,6,team,Piotrek Abramowicz -Wroclaw/Poland,PARTIAL_RESTORE,results freestyle man
+990905420,2001,Open Doubles,5,team,Pat Quinn (Edmonton/AB) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Doubles,6,team,Andre Lemaire (Vancouver/BC) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Doubles,7,team,Maude Landreville (Vancouver/BC) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Doubles,8,team,Rick Bates (Kalispell/MT) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Doubles,9,team,Steve Dusablon (Portland/OR) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Doubles,10,team,Jan Zimmerman (Zurich/SUI) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Doubles,11,team,Jared Clark (Edmonton/AB) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Doubles,12,team,Simon Hearsey (Seattle/WA) and,PARTIAL_RESTORE,open doubles
+990905420,2001,Open Singles,8,team,Jon Hayduk (Vancouver/BC) or,PARTIAL_RESTORE,open singles
+990905420,2001,Open Singles,12,team,Maude Landreville (Vancouver/BC) or,PARTIAL_RESTORE,open singles
+990905420,2001,Open Singles,13,team,Ben Cochrane (Edmonton/AB) or,PARTIAL_RESTORE,open singles
+991285803,2001,Open Doubles,1,team,Emmanuel Bouchard/Patrick Asswad,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,2,team,Yves Archambault/Alexis Deschenes,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,3,team,John Hayduk/Andy Ronalds,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,4,team,Martin Cote/Martin Graton,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,5,team,David Butcher/John Leys,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,6,team,Jean-Francois Lemieux/Benjamin Rochon,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,7,team,Robert Lavigne/Rob Adams,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,8,team,Pat Keehan/Chris Siebert,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,9,team,Renaud Fanoni/Philippe Larose,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,10,team,Marilyn Demuy/Maude Landreville,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,12,team,Philippe Lessard/Alexandre Bélanger,PARTIAL_RESTORE,open doubles
+991285803,2001,Open Doubles,13,team,Stephane Comeau/Natasha Mercure,PARTIAL_RESTORE,open doubles
+991757909,2001,Team Freestyle,3,team,Sebastian/Y Merzouk,PARTIAL_RESTORE,team freestyle
+991757909,2001,Novice Dbl Net,3,team,Kolo/D Garber,PARTIAL_RESTORE,novice dbl net
+991757909,2001,Amateur Freestyle,3,player,Kolo,PARTIAL_RESTORE,amateur freestyle
+996293200,2001,Singles 5 Minute Timed Kicking,2,player,Lotus,PARTIAL_RESTORE,singles 5 minute timed kicking
+996678489,2001,Intermediate Single & Double Freestyle,1,team,Stemper/Schönhuber (AUT),PARTIAL_RESTORE,intermediate single double freestyle
+996678489,2001,Intermediate Single & Double Freestyle,2,team,Oberleitner/Schrötzer (AUT),PARTIAL_RESTORE,intermediate single double freestyle
+996678489,2001,Intermediate Single & Double Freestyle,3,team,Thanhoffer/Hanak (AUT),PARTIAL_RESTORE,intermediate single double freestyle
+996678489,2001,Intermediate Single & Double Freestyle,5,team,Scheuermann/Nigish (AUT),PARTIAL_RESTORE,intermediate single double freestyle
+996678489,2001,Intermediate Single & Double Freestyle,6,team,Stenzel/Stenzel (AUT),PARTIAL_RESTORE,intermediate single double freestyle

@@ -1,0 +1,881 @@
+effective_person_id,person_canon,player_ids_seen,player_names_seen,aliases,alias_statuses,notes,source,person_canon_clean,person_canon_clean_reason,aliases_presentable,exclude_reason
+0012c28e-3f60-5c87-8d19-869ef819e724,Faris Barakat,0012c28e-3f60-5c87-8d19-869ef819e724,Faris Barakat,,,,overrides+data,Faris Barakat,,,duplicate_person_canon
+00f55402-15a1-5f2e-8184-1b5a0e67c5aa,Teemu Ahlfors,,Teemu Ahlfors,,,,data_only,Teemu Ahlfors,,,duplicate_person_canon
+01693577-31d0-5014-8b7a-1db6bcba5e0b,Heike Koller,,Heike Koller,Hector Köhler,candidate,,overrides_only,Heike Koller,,,duplicate_person_canon
+018c9ed2-a70b-5f10-9b77-a36a479ee64f,Kevin Hogan,018c9ed2-a70b-5f10-9b77-a36a479ee64f,Kevin Hogan,,,,overrides+data,Kevin Hogan,,,duplicate_person_canon
+02561ac6-eddc-55b7-8898-d410c0e9ffc4,Oskari Forstén,,Oskari Forstén,,,,data_only,Oskari Forstén,,,duplicate_person_canon
+0295db32-9628-5fdd-9420-212a8adc5b6d,Stéphane Tailleur,0295db32-9628-5fdd-9420-212a8adc5b6d,Stéphane Tailleur,,,,overrides+data,Stéphane Tailleur,,Stepane Tailleur | Stephan Tailleur | Stephane Tailleur,duplicate_person_canon
+032738f1-4e04-5e0a-9e93-bba0aec3ade7,Erik Chan,,Erik Chan,,,,data_only,Erik Chan,,,duplicate_person_canon
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,,,,overrides+data,David Clavens,,David Clavens - | David Clavens- dropless,duplicate_person_canon
+033f6b08-79f8-5cea-8de7-53a44a10576e,Christoph Alexander,,Christoph Alexander,,,,data_only,Christoph Alexander,,,duplicate_person_canon
+03e4d710-86ec-57be-851d-76e7c915396d,EJ Gammage,03e4d710-86ec-57be-851d-76e7c915396d,EJ Gammage,,,,overrides+data,EJ Gammage,,,duplicate_person_canon
+04837626-9784-5859-9619-1e3683a6fad7,Emmanuel Bouchard,,Emmanuel Bouchard,,,,data_only,Emmanuel Bouchard,,,duplicate_person_canon
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,,,,overrides+data,Felix Zenger,,Felix Zenger ?,duplicate_person_canon
+04f8b74e-4dff-515e-8ce8-48eba50384c0,Leanne Makcrow,,Leanne Makcrow (Canada),,,,data_only,Leanne Makcrow,strip_parens_punct,,duplicate_person_canon
+053067b5-1339-5e25-a63c-e7a173967ad2,Irene Ebermann,,Irene Ebermann,,,,data_only,Irene Ebermann,,,duplicate_person_canon
+0533d6e2-42c6-56c6-9771-5606e02a09d1,Nick Rettinger,0533d6e2-42c6-56c6-9771-5606e02a09d1,Nick Rettinger,,,,overrides+data,Nick Rettinger,,,duplicate_person_canon
+0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,,,,overrides+data,Fletcher Funk,,Fletch Funk,duplicate_person_canon
+05481171-41e1-5bad-9706-308a94fe675e,Beth Whitehouse,,Beth Whitehouse,,,,data_only,Beth Whitehouse,,,duplicate_person_canon
+05e1eec0-b3f1-5728-8ad2-831de4fc204f,Marco Hartig,05e1eec0-b3f1-5728-8ad2-831de4fc204f,Marco Hartig,,,,overrides+data,Marco Hartig,,,duplicate_person_canon
+05f1b506-6cf4-5b60-982a-8af9a59c0d51,Jim Hogan,,Jim Hogan,,,,data_only,Jim Hogan,,,duplicate_person_canon
+061fa246-ed58-5f99-971c-f826586b1327,Jari Linnonmaa,,Jari Linnonmaa,,,,data_only,Jari Linnonmaa,,,duplicate_person_canon
+063102d4-ec37-52b3-aa1c-3314a10d1424,Jorge Ramirez,,Jorge Ramirez,Jorge Ramirez,verified,,overrides_only,Jorge Ramirez,,,duplicate_person_canon
+066a338e-66b2-51f4-9c75-df4c0d9c85cf,Kari Uusitalo,,Kari Uusitalo,,,,data_only,Kari Uusitalo,,,duplicate_person_canon
+06ecee8a-2259-5747-929b-11b0d6ba3b3f,Ted Martin,,Ted Martin,,,,data_only,Ted Martin,,,duplicate_person_canon
+06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,,,,overrides+data,Jim Derricott,,Jim Derricott - | Jim Derricottt,duplicate_person_canon
+071ff943-073b-5edb-b2b1-ae6bb1676176,AJ Shultz,071ff943-073b-5edb-b2b1-ae6bb1676176,AJ Shultz,,,,overrides+data,AJ Shultz,,,duplicate_person_canon
+078f83ff-ffba-5e46-a0e8-2e4a5e6fb1c6,Chris Hughes,078f83ff-ffba-5e46-a0e8-2e4a5e6fb1c6,Chris Hughes,,,,overrides+data,Chris Hughes,,,duplicate_person_canon
+07a815a7-8160-5d84-86a0-36106ad57594,Augustin Tiffaud,,Augustin Tiffaud,,,,data_only,Augustin Tiffaud,,,duplicate_person_canon
+07d6a45a-d9ce-5003-a788-a09bc63a4cd6,Teemu Ahlfors,07d6a45a-d9ce-5003-a788-a09bc63a4cd6,Teemu Ahlfors,,,,overrides+data,Teemu Ahlfors,,,duplicate_person_canon
+08c6d3f6-cdf0-5c32-9195-f0495cba343e,Jindra Smola,,Jindra Smola,,,,data_only,Jindra Smola,,,duplicate_person_canon
+08f98694-a912-5cb1-9d43-76e61eb53564,Stephane Comeau,,Stephane Comeau,,,,data_only,Stephane Comeau,,,duplicate_person_canon
+0911f1cc-88be-54c6-b894-c3dde4041bcf,Flurin Bischoff,,Flurin Bischoff (Switzerland),,,,data_only,Flurin Bischoff,strip_parens_punct,,duplicate_person_canon
+091f84c4-bae4-5d19-a500-2fe2d52ca541,JJ Jones,,JJ Jones,J.J. Jones,verified,,overrides_only,JJ Jones,,J.J. Jones,duplicate_person_canon
+092d4205-dbd7-59e7-8ec4-53b306eb83b3,Justin Sexton,092d4205-dbd7-59e7-8ec4-53b306eb83b3,Justin Sexton,,,,overrides+data,Justin Sexton,,,duplicate_person_canon
+09576479-81ab-5772-a425-e7b205518efe,Stefan Siegert,,Stefan Siegert (Frankenberg),,,,data_only,Stefan Siegert,strip_parens_punct,,duplicate_person_canon
+0a48e125-3d2b-5424-9c97-14e593fbdc6f,ANIBAL MONTES,0a48e125-3d2b-5424-9c97-14e593fbdc6f,ANIBAL MONTES,,,,overrides+data,ANIBAL MONTES,,,duplicate_person_canon
+0a4ebb33-8507-5250-ad97-911b667af696,Francois Leh,,Francois Leh,,,,data_only,Francois Leh,,,duplicate_person_canon
+0a834000-4f87-5e81-9544-a3610bcb70b0,Lisa McDaniel,,Lisa McDaniel,,,,data_only,Lisa McDaniel,,,duplicate_person_canon
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,,,,overrides+data,Milan Benda,,Milan Benda - | Milan Benda ?,duplicate_person_canon
+0b3ffb10-2257-510e-a69a-26ff2fc87508,Pawel Rozek,0b3ffb10-2257-510e-a69a-26ff2fc87508,Pawel Rozek,,,,overrides+data,Pawel Rozek,,,duplicate_person_canon
+0bb06b79-8e36-515b-95a8-13998771e88d,Jorden Moir,,Jorden Moir (Canada),,,,data_only,Jorden Moir,strip_parens_punct,,duplicate_person_canon
+0bc4b084-0cac-5517-8743-5203a67ab647,Manu Schmid,,Manu Schmid,,,,data_only,Manu Schmid,,,duplicate_person_canon
+0bf9f626-46bc-59ed-9889-b0ebb1fbc8bd,Olli Lehtola,,Olli Lehtola,,,,data_only,Olli Lehtola,,,duplicate_person_canon
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,,,,overrides+data,Honza Weber,,,duplicate_person_canon
+0c673c4a-3075-5883-9d64-fc7598c00900,Tim Melnyck,,Tim Melnyck,Tim Melnyck,verified,,overrides_only,Tim Melnyck,,,duplicate_person_canon
+0d2b26ac-e8b9-5064-8c9c-23c033f0b01c,Mathieu Gauthier,,Mathieu Gauthier,,,,data_only,Mathieu Gauthier,,,duplicate_person_canon
+0d5dc325-5513-5949-a4a7-42dab818856a,Paul Lovern,,Paul (PT) Lovern,,,,data_only,Paul Lovern,strip_parens_punct,,duplicate_person_canon
+0d6db9b3-6d3d-501c-8df9-dd03c245a520,Dylan Fry,,Dylan Fry,,,,data_only,Dylan Fry,,,duplicate_person_canon
+0d6ecaaa-cf98-5ded-aedd-00be2ace0aa7,Lander Campo,,Lander Campo,,,,data_only,Lander Campo,,,duplicate_person_canon
+0d90bb3c-6c67-5057-9ac2-d85f9f94fa26,Alex Lopez,0d90bb3c-6c67-5057-9ac2-d85f9f94fa26,Alex Lopez,,,,overrides+data,Alex Lopez,,,duplicate_person_canon
+0da84e00-c9f5-5d23-82b6-9ec1e759c74c,Jakub Worek,0da84e00-c9f5-5d23-82b6-9ec1e759c74c,Jakub Worek,,,,overrides+data,Jakub Worek,,,duplicate_person_canon
+0e47f0eb-6866-5357-99c5-b5b1d57980c8,Mika Koistinen,,Mika Koistinen,,,,data_only,Mika Koistinen,,,duplicate_person_canon
+0e4bdff4-9a80-530e-8640-fc2acfcb9fb6,Andrew Grant,,Andrew Grant,,,,data_only,Andrew Grant,,,duplicate_person_canon
+0f478e1e-d0ad-5e45-b754-42be5c497da3,DJ Dourney,,DJ Dourney,D.J. Dourney,verified,,overrides_only,DJ Dourney,,D.J. Dourney,duplicate_person_canon
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,,,,overrides+data,Sergio Garcia,,,duplicate_person_canon
+0f6326d1-3099-5489-b003-2e4b9d876292,Janne Pesonen,0f6326d1-3099-5489-b003-2e4b9d876292,Janne Pesonen,,,,overrides+data,Janne Pesonen,,,duplicate_person_canon
+101bb442-07b4-58df-9cde-cddb4cd59a7f,Clement Gobe,,Clement Gobe,,,,data_only,Clement Gobe,,,duplicate_person_canon
+1045dc71-7839-599d-a661-e9b05d29af42,Ilkka Malin,,Ilkka Malin (intermediate),,,,data_only,Ilkka Malin,strip_parens_punct,,duplicate_person_canon
+10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,,,,overrides+data,Ethan Husted,,Ethan Red Husted,duplicate_person_canon
+10926263-2832-5460-8999-b0e79bf6c87c,Janne Uusitalo,,Janne Uusitalo,,,,data_only,Janne Uusitalo,,,duplicate_person_canon
+10bcd8b8-7925-51f0-958b-a09a887db9a0,PT Lovern,,PT Lovern,P. T. Lovern,verified,,overrides_only,PT Lovern,,P. T. Lovern | P.T. Lovern,duplicate_person_canon
+10d8fa84-435b-52c6-8bc6-078b691f838d,Carlos Maldonado,,Carlos Maldonado,,,,data_only,Carlos Maldonado,,,duplicate_person_canon
+111079c7-b085-530e-b4da-68e9b975803e,Oskari Forstén,111079c7-b085-530e-b4da-68e9b975803e,Oskari Forstén,,,,overrides+data,Oskari Forstén,,,duplicate_person_canon
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,,,,overrides+data,Brian Sherrill,,Brian Sherill,duplicate_person_canon
+11ebba13-db9d-5556-9717-717c4c47e47f,Robin Puchel,,Robin Puchel,Robin P�chel,verified,,overrides_only,Robin Puchel,,Robin P�chel,duplicate_person_canon
+128286cf-0037-58a3-8057-860f9787af53,Marilyn Demuy,,Marilyn Demuy,,,,data_only,Marilyn Demuy,,,duplicate_person_canon
+12ed4440-7c34-5e80-ab3a-d187ec0ddd24,Yalis Iasenzaniro,,Yalis Iasenzaniro,,,,data_only,Yalis Iasenzaniro,,,duplicate_person_canon
+13109a93-3134-5188-a227-f65842289643,Josh Vorvel,,Josh Vorvel,,,,data_only,Josh Vorvel,,,duplicate_person_canon
+13332977-52d5-5ac0-a710-adcddc872a65,EJ Gammage,,EJ Gammage,E.J. Gammage,verified,,overrides_only,EJ Gammage,,E.J. Gammage,duplicate_person_canon
+13656202-1aec-5fa6-8368-84767b326099,Robert Lavigne,,Robert Lavigne,,,,data_only,Robert Lavigne,,,duplicate_person_canon
+13bffbc6-f26e-5eee-b8e3-114272aa253b,Fanda Hajek,,Fanda Hajek,Fanda Hajek,verified,,overrides_only,Fanda Hajek,,,duplicate_person_canon
+144c052c-ff9e-5ccc-8e3f-4c5817f7613c,Brent Stewart,144c052c-ff9e-5ccc-8e3f-4c5817f7613c,Brent Stewart,,,,overrides+data,Brent Stewart,,,duplicate_person_canon
+1486effc-ae7b-5728-ae11-f1fa541bd1fb,Pawel Rozek,,Pawel Rozek (Poland),,,,data_only,Pawel Rozek,strip_parens_punct,,duplicate_person_canon
+14e78974-f973-55d5-9fab-cc21ce2bea5f,Steve Dusablon,,"Steve Dusablon (Portland, OR)",,,,data_only,Steve Dusablon,strip_parens_punct,,duplicate_person_canon
+14f4024a-a6bd-554b-b568-ca86f5d02850,Grischa Tellenbach,,Grischa Tellenbach,,,,data_only,Grischa Tellenbach,,,duplicate_person_canon
+151a47fe-648c-58ae-81dd-48982975f560,Kevin Regamey,,Kevin Regamey,,,,data_only,Kevin Regamey,,,duplicate_person_canon
+15899e02-8edd-5d38-a14a-a66505771017,Mickiewicz Hanna,,Mickiewicz Hanna,,,,data_only,Mickiewicz Hanna,,,duplicate_person_canon
+162b1752-df2d-540b-98e7-be1be93de775,Henning Lindner,,Henning Lindner,,,,data_only,Henning Lindner,,,duplicate_person_canon
+1645cd59-4ae0-5a7a-adaa-bead2c1d5a81,Eric Fonteneau,1645cd59-4ae0-5a7a-adaa-bead2c1d5a81,Eric Fonteneau,,,,overrides+data,Eric Fonteneau,,,duplicate_person_canon
+169a272b-2931-5aa0-a245-cd495ad4891b,Olivier Tronchon,169a272b-2931-5aa0-a245-cd495ad4891b,Olivier Tronchon,,,,overrides+data,Olivier Tronchon,,,duplicate_person_canon
+16aae952-d265-5e4d-81b8-5474f6c43802,Jorden Moir,16aae952-d265-5e4d-81b8-5474f6c43802,Jorden Moir,,,,overrides+data,Jorden Moir,,,duplicate_person_canon
+171789b5-5b38-5ad8-ae37-b8263341fe9d,Michal Ostrowski,,Michal Ostrowski (Poland),,,,data_only,Michal Ostrowski,strip_parens_punct,,duplicate_person_canon
+171a810b-89f1-5d70-a566-d83a999fd4ce,Martin Huleja,,Martin Huleja,,,,data_only,Martin Huleja,,,duplicate_person_canon
+171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,,,,overrides+data,Tuomas Riisalo,,Tuomas Riisalo ? | Tuomas Riisalo Finland | Tuomas Riisalo Gauntlet | Tuomas Riissalo | Tuomas Risalo,duplicate_person_canon
+1739ca69-640a-52e9-8266-1a96cc39ca49,Dyalan Govender,1739ca69-640a-52e9-8266-1a96cc39ca49,Dyalan Govender,,,,overrides+data,Dyalan Govender,,Dyalan Govender -,duplicate_person_canon
+178b0676-d5ac-5d2e-9696-c8908ce5b533,Jake Dodd,178b0676-d5ac-5d2e-9696-c8908ce5b533,Jake Dodd,,,,overrides+data,Jake Dodd,,,duplicate_person_canon
+179a0324-d7f7-55ee-a3bb-6c02ea0465bd,Silwan Daouk,,Silwan Daouk,,,,data_only,Silwan Daouk,,,duplicate_person_canon
+17f0a629-be74-593f-878c-70346a561a39,Matti Pohjola,,Matti Pohjola (pro net footbags),,,,data_only,Matti Pohjola,strip_parens_punct,,duplicate_person_canon
+180fa3a7-f03c-505e-8f6e-8a962913f46e,Paweł Ścierski,,Paweł Ścierski,Paweł ¦cierski,verified,,overrides_only,Paweł Ścierski,,Paweł ¦cierski,duplicate_person_canon
+184a06bb-be96-5120-9a7c-1676f2b01a2a,Jean-Francois Lemieux,184a06bb-be96-5120-9a7c-1676f2b01a2a,Jean-Francois Lemieux,,,,overrides+data,Jean-Francois Lemieux,,Jean-François Lemieux,duplicate_person_canon
+196ee78f-b4ba-56c9-812f-316dee233089,Daryl Genz,,Daryl Genz,,,,data_only,Daryl Genz,,,duplicate_person_canon
+1986ac5c-d425-5869-98da-b05189185c51,Kyle Hale,,Kyle Hale,,,,data_only,Kyle Hale,,,duplicate_person_canon
+1a1b1397-a4b8-5826-b51d-ff5391eba110,Hakan Hellberg,1a1b1397-a4b8-5826-b51d-ff5391eba110,Hakan Hellberg,,,,overrides+data,Hakan Hellberg,,Håkan Hellberg,duplicate_person_canon
+1bbe19f9-1ce4-5f66-9d5c-90e6e9dd6a6d,Florian Götze,,Florian Götze (Frankfurt),,,,data_only,Florian Götze,strip_parens_punct,,duplicate_person_canon
+1c2abcb7-8850-5321-b5fd-6f7a76157b24,Felix Graf,,Felix Graf,,,,data_only,Felix Graf,,,duplicate_person_canon
+1c3a4a2b-31a8-5dd9-98f7-ee6c30ebcc29,Dominique Soulard,1c3a4a2b-31a8-5dd9-98f7-ee6c30ebcc29,Dominique Soulard,,,,overrides+data,Dominique Soulard,,Domnique Soulard,duplicate_person_canon
+1d7570fd-3fe9-5614-a9fd-aa7f3941c350,Ariel Santetesteban,,Ariel Santetesteban,,,,data_only,Ariel Santetesteban,,,duplicate_person_canon
+1dc7bf3f-8a4d-57b0-912b-b6626fb29cfb,Piia Tantarimäki,1dc7bf3f-8a4d-57b0-912b-b6626fb29cfb,Piia Tantarimäki,,,,overrides+data,Piia Tantarimäki,,,duplicate_person_canon
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,,,,overrides+data,Jan Weber,,,duplicate_person_canon
+1e5e1ed4-57aa-59b7-8a9c-63d9b479551f,Chard Cook,,"Chard Cook (Vancouver, BC)",,,,data_only,Chard Cook,strip_parens_punct,,duplicate_person_canon
+1e600282-c338-51d1-936e-e326f5c0eda8,Bryan Nelson,1e600282-c338-51d1-936e-e326f5c0eda8,Bryan Nelson,,,,overrides+data,Bryan Nelson,,,duplicate_person_canon
+1e9f9cf3-272a-587b-bba7-58c87f9991a7,Martin Huleja,1e9f9cf3-272a-587b-bba7-58c87f9991a7,Martin Huleja,,,,overrides+data,Martin Huleja,,,duplicate_person_canon
+1f654430-c95b-51f1-ac0b-a6f72970a2a9,Rene Rühr,,Rene Rühr,,,,data_only,Rene Rühr,,,duplicate_person_canon
+1fef58b8-d6a5-5fe4-b4f6-00fa1d5b46c5,ALEX LOPEZ,,ALEX LOPEZ,ALEX LOPEZ,verified,,overrides_only,ALEX LOPEZ,,,duplicate_person_canon
+2002626c-155f-5447-8115-bba010c6a418,Rados Turek,2002626c-155f-5447-8115-bba010c6a418,Rados Turek,,,,overrides+data,Rados Turek,,Rados?aw Turek | Radoslav Turek | Radoslaw Turek,duplicate_person_canon
+202607a4-85da-5231-957a-85eb5a4e3e76,Patrick Asswad,202607a4-85da-5231-957a-85eb5a4e3e76,Patrick Asswad,,,,overrides+data,Patrick Asswad,,Patrick Aswad,duplicate_person_canon
+202d494b-1a43-5ddb-b04a-f29b8233e7c1,Oskari Forsten,,Oskari Forsten,,,,data_only,Oskari Forsten,,,duplicate_person_canon
+20728e80-b3c7-5b45-ae65-dedfe4cb4d92,Anthony Intemann,,Anthony Intemann,,,,data_only,Anthony Intemann,,,duplicate_person_canon
+20d639b1-087f-5227-9eaa-6dd342d57439,Rob Adams,20d639b1-087f-5227-9eaa-6dd342d57439,Rob Adams,,,,overrides+data,Rob Adams,,,duplicate_person_canon
+20e4a023-1bb9-5d19-a6dc-73da6eb30a8d,Anne Miller,20e4a023-1bb9-5d19-a6dc-73da6eb30a8d,Anne Miller,,,,overrides+data,Anne Miller,,,duplicate_person_canon
+210c526a-6959-50bf-962c-f799f2f5fd6f,Gaylene Grossen,,Gaylene Grossen (USA),,,,data_only,Gaylene Grossen,strip_parens_punct,,duplicate_person_canon
+21fc27fa-3cd1-5ce3-9272-642445eb386c,Dirk Janssens,,Dirk Janssens,,,,data_only,Dirk Janssens,,,duplicate_person_canon
+227a2147-f902-539d-8ae6-28892a4cecfb,Ronald Varillas Sandoval,227a2147-f902-539d-8ae6-28892a4cecfb,Ronald Varillas Sandoval,,,,overrides+data,Ronald Varillas Sandoval,,Ronald Varilla,duplicate_person_canon
+22bc1a39-1ce4-5f63-ac63-538cd67acd09,Dante Diotallevi,,Dante Diotallevi,,,,data_only,Dante Diotallevi,,,duplicate_person_canon
+22ccea51-7ede-5848-b549-d7ab2d1f1dbe,Carlos Medina,22ccea51-7ede-5848-b549-d7ab2d1f1dbe,Carlos Medina,,,,overrides+data,Carlos Medina,,,duplicate_person_canon
+231de464-a616-50f3-9491-9e13fc1f0922,Jack Harris,,Jack Harris,,,,data_only,Jack Harris,,,duplicate_person_canon
+2367d506-3a7b-5532-9c55-3f970c46cf8c,Dominic O'Brien,2367d506-3a7b-5532-9c55-3f970c46cf8c,Dominic O'Brien,,,,overrides+data,Dominic O'Brien,,Dominic O?Brien,duplicate_person_canon
+23fdcd88-3a8d-5a67-9d19-b5cd011932b0,Lasse Salmenhaara,,Lasse Salmenhaara (Pro 32 sand),,,,data_only,Lasse Salmenhaara,strip_parens_punct,,duplicate_person_canon
+243edd82-4810-581b-a037-62412f0b082b,Beth Grassfield,243edd82-4810-581b-a037-62412f0b082b,Beth Grassfield,,,,overrides+data,Beth Grassfield,,,duplicate_person_canon
+24529fe7-bb61-5963-ba8d-46c7247242c7,Sebastien Verdi,,Sebastien Verdi,Sebastien Verdi,verified,,overrides_only,Sebastien Verdi,,Sebastien Verdy,duplicate_person_canon
+24791814-6054-5866-a5a9-11aab49c78d7,Jan Zimmerman,,Jan Zimmerman,,,,data_only,Jan Zimmerman,,,duplicate_person_canon
+2497f236-9114-5883-b99a-c5d9501473d3,Michelle Chen,,Michelle Chen,,,,data_only,Michelle Chen,,,duplicate_person_canon
+24afc58d-e5a9-58ae-b123-f5bbb7417cb9,Tom Whitworth,,Tom Whitworth,,,,data_only,Tom Whitworth,,,duplicate_person_canon
+24ebddfa-0047-5f90-a1db-18bc2ccc6ba3,Emily Johns,,Emily Johns,Emily J.,verified,,overrides_only,Emily Johns,,Emily J.,duplicate_person_canon
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,,,,overrides+data,Alexander Trenner,,Alexander Trener | Alexander Trenner - | Alexander Trenner ?,duplicate_person_canon
+2512e987-358f-54c5-a8d3-57e452a6897a,Mikel Maletxeberria,2512e987-358f-54c5-a8d3-57e452a6897a,Mikel Maletxeberria,,,,overrides+data,Mikel Maletxeberria,,,duplicate_person_canon
+251d6d5f-a1cf-5169-8602-637a9573958a,Ben Johnson,251d6d5f-a1cf-5169-8602-637a9573958a,Ben Johnson,,,,overrides+data,Ben Johnson,,,duplicate_person_canon
+253d84ba-67eb-5095-afed-4dfb22a91eea,Xavier Lancret,,Xavier Lancret,,,,data_only,Xavier Lancret,,,duplicate_person_canon
+256ba155-76d2-5920-b2d6-04d6ff39fab6,DANIEL BOYLE,256ba155-76d2-5920-b2d6-04d6ff39fab6,DANIEL BOYLE,,,,overrides+data,DANIEL BOYLE,,,duplicate_person_canon
+25748ea5-e2fd-5d33-9dfb-722ee36dafe9,Sakarias Liukko,,Sakarias Liukko,,,,data_only,Sakarias Liukko,,,duplicate_person_canon
+26d70b1f-bca9-579f-b9fa-0c95c3dde86a,Paloma Mayo,26d70b1f-bca9-579f-b9fa-0c95c3dde86a,Paloma Mayo,,,,overrides+data,Paloma Mayo,,Paloma Mayo ?,duplicate_person_canon
+26f13a1d-64a1-5515-a6c9-e4e98e70c94d,Zeke Ibardaloza,,Zeke Ibardaloza,,,,data_only,Zeke Ibardaloza,,,duplicate_person_canon
+275496e5-be14-5d9b-9ee4-173c49a697a6,Janis Thal,,Janis Thal,,,,data_only,Janis Thal,,,duplicate_person_canon
+275fb31f-34ad-5b58-82de-704a7e8a328f,Ryan Mulroney,,Ryan Mulroney,,,,data_only,Ryan Mulroney,,,duplicate_person_canon
+27d1fe0b-354c-541d-984a-61ef8c92f96f,Christophe Spooner,27d1fe0b-354c-541d-984a-61ef8c92f96f,Christophe Spooner,,,,overrides+data,Christophe Spooner,,,duplicate_person_canon
+27e5fdfe-28b0-5d5a-947c-49c123624d51,Johnny Sarah,,Johnny Sarah,,,,data_only,Johnny Sarah,,,duplicate_person_canon
+28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,,,,overrides+data,Tuan Vu,,T Vu | T. Vu | Tu Vu | Tuan DiscoNinja Vu | Tuan Vu*,duplicate_person_canon
+2862a91d-b120-5c46-a85d-1eb5efb6520e,Slava Sidorin,2862a91d-b120-5c46-a85d-1eb5efb6520e,Slava Sidorin,,,,overrides+data,Slava Sidorin,,,duplicate_person_canon
+2875a830-e340-5963-a5c7-d9a7a74d1e56,Steve Richardson,2875a830-e340-5963-a5c7-d9a7a74d1e56,Steve Richardson,,,,overrides+data,Steve Richardson,,,duplicate_person_canon
+28ed65ae-ea5e-5e04-bff5-97b8f71e6696,Jan Struz,28ed65ae-ea5e-5e04-bff5-97b8f71e6696,Jan Struz,,,,overrides+data,Jan Struz,,Jan Stru?,duplicate_person_canon
+29084956-f1ac-5ed6-af65-f0b6a9dc834e,John Hayduk,,John Hayduk,,,,data_only,John Hayduk,,,duplicate_person_canon
+29e10931-a6a5-59af-b950-efdedca2da72,D. Johnson,,D. Johnson,,,,data_only,D. Johnson,,,duplicate_person_canon
+29f394be-2cf0-51c2-86fc-e9eee39ef2e6,Anton Britting,,Anton Britting,,,,data_only,Anton Britting,,,duplicate_person_canon
+2a09a5fa-2cae-525c-aec3-e2adc532c8f3,Maciej Pietrzycki,,Maciej Pietrzycki,,,,data_only,Maciej Pietrzycki,,,duplicate_person_canon
+2a97cd76-25a4-510f-84c2-06826e384bd1,Bryan Nelson,,Bryan Nelson,,,,data_only,Bryan Nelson,,,duplicate_person_canon
+2b498fde-1bb4-5e53-b929-7d258affefac,Malgorzata Ostrowska,,Malgorzata Ostrowska (Poland),,,,data_only,Malgorzata Ostrowska,strip_parens_punct,,duplicate_person_canon
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,,,,overrides+data,Brendan Erskine,,,duplicate_person_canon
+2b79e7a5-8ac3-5476-88c7-5e5e1b744ccf,Jan Zimmermann,,"Jan Zimmermann (Zürich, CH)",,,,data_only,Jan Zimmermann,strip_parens_punct,,duplicate_person_canon
+2bb2f1d3-097c-5e98-bbcd-242904ea1b46,Anibal Montes,,Anibal Montes,,,,data_only,Anibal Montes,,,duplicate_person_canon
+2bc884d4-ef34-5006-8ff5-773d41d9d906,Mike Busby,,Mike Busby,,,,data_only,Mike Busby,,,duplicate_person_canon
+2bf23e27-bb5b-5f4e-a5a7-8103a615b22a,Dominic Soulard,2bf23e27-bb5b-5f4e-a5a7-8103a615b22a,Dominic Soulard,,,,overrides+data,Dominic Soulard,,,duplicate_person_canon
+2caf7286-2a00-5527-8ec3-313132cf469b,Mario Vaillancourt,2caf7286-2a00-5527-8ec3-313132cf469b,Mario Vaillancourt,,,,overrides+data,Mario Vaillancourt,,,duplicate_person_canon
+2cd8e906-db8d-53cc-8536-2d4e9505379e,Michal Klimczak,,Michal Klimczak (Poland),,,,data_only,Michal Klimczak,strip_parens_punct,,duplicate_person_canon
+2dd76aa7-aa8c-5059-b59e-8d6711c8fdb8,Josh Bast,,Josh Bast,,,,data_only,Josh Bast,,,duplicate_person_canon
+2de73e29-2cfb-568d-bbfa-fe2ae52f1131,Kamil Wysocki,,Kamil Wysocki,,,,data_only,Kamil Wysocki,,,duplicate_person_canon
+2dee2361-8290-59e5-b49f-71a422a59f4d,Jan Huleja,,Jan Huleja (Praha),,,,data_only,Jan Huleja,strip_parens_punct,,duplicate_person_canon
+2e1676ee-c921-5591-abec-a74ebe8209ad,Travis Strickland,,Travis Strickland,,,,data_only,Travis Strickland,,,duplicate_person_canon
+2e1fafae-e661-5f8b-8e1b-43eb62920cc2,Nis Petersen,,Nis Petersen (Denmark),,,,data_only,Nis Petersen,strip_parens_punct,,duplicate_person_canon
+2e812b0b-b4e1-5d73-b741-2016bd50e35c,Linnanen Jere,,Linnanen Jere,,,,data_only,Linnanen Jere,,,duplicate_person_canon
+2eaccb7b-430c-5678-b982-9415b20b24cf,Miquel Clemente,2eaccb7b-430c-5678-b982-9415b20b24cf,Miquel Clemente,,,,overrides+data,Miquel Clemente,,,duplicate_person_canon
+2f4c10f2-46a5-5269-a469-25edc48099b5,Christophe Spooner,,Christophe Spooner,,,,data_only,Christophe Spooner,,,duplicate_person_canon
+2f81c04d-9ca4-527b-acf7-eea999dd03ae,Søren Nøhr Thomsen,,Søren Nøhr Thomsen,,,,data_only,Søren Nøhr Thomsen,,,duplicate_person_canon
+2f9c3d03-74a3-5283-b28f-0aed4a3c5269,Paul Vorvick,,Paul Vorvick (USA),,,,data_only,Paul Vorvick,strip_parens_punct,,duplicate_person_canon
+2fe08509-fcb3-5ecd-8828-40411bc4a036,Wojciech Jamski,2fe08509-fcb3-5ecd-8828-40411bc4a036,Wojciech Jamski,,,,overrides+data,Wojciech Jamski,,,duplicate_person_canon
+30b33e5e-6602-5b8b-80fd-a23b978dccf8,Janne Pesonen,,Janne Pesonen,,,,data_only,Janne Pesonen,,,duplicate_person_canon
+313958c0-32b7-53ee-a0da-817ec8d36753,Tabea Fetz,313958c0-32b7-53ee-a0da-817ec8d36753,Tabea Fetz,,,,overrides+data,Tabea Fetz,,,duplicate_person_canon
+31bd4e75-1a44-56b4-94b3-071cdc8dee82,Jeremy Mirken,31bd4e75-1a44-56b4-94b3-071cdc8dee82,Jeremy Mirken,,,,overrides+data,Jeremy Mirken,,,duplicate_person_canon
+31fe03cd-4b0b-5eb3-b674-86bf4a5e876d,Etienne Ruggeri,31fe03cd-4b0b-5eb3-b674-86bf4a5e876d,Etienne Ruggeri,,,,overrides+data,Etienne Ruggeri,,,duplicate_person_canon
+32114402-4961-5a14-9909-01db8a5eb272,Richard Cook,,"Richard ""Chard"" Cook",,,,data_only,Richard Cook,,,duplicate_person_canon
+32be8cc7-0540-5b03-b64b-a54e297bd396,Mikko Poikonen,32be8cc7-0540-5b03-b64b-a54e297bd396,Mikko Poikonen,,,,overrides+data,Mikko Poikonen,,,duplicate_person_canon
+330205c5-5fd5-5886-97a2-3631995788b8,Paul T. Lovern,,Paul T. Lovern,,,,data_only,Paul T. Lovern,,,duplicate_person_canon
+33220ce8-5734-5d7e-b8a5-f487881d0227,Aleksi Airinen,,Aleksi Airinen (Finland),,,,data_only,Aleksi Airinen,strip_parens_punct,,duplicate_person_canon
+332f2787-3507-55e3-9159-07fac5bab996,Jeff Cruz,,Jeff Cruz,,,,data_only,Jeff Cruz,,,duplicate_person_canon
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,,,,overrides+data,Alex Dworetzky,,Alex Dworetzsky,duplicate_person_canon
+3467f051-6e69-5a1d-b6b4-98b33cc60161,Miquel Clemente,,Miquel Clemente (Icarus Footbag),,,,data_only,Miquel Clemente,strip_parens_punct,,duplicate_person_canon
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,,,,overrides+data,Zeb Jackson,,,duplicate_person_canon
+34db9384-7628-5443-8e31-7f3df216821d,Rados Turek,,Rados Turek,,,,data_only,Rados Turek,,,duplicate_person_canon
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,,,,overrides+data,Jakub Grabarczyk,,Jakub Grabaczyk | Jakub Grabarczyk Poland,duplicate_person_canon
+35d28cc3-19b7-5251-8edb-41119ff33d68,Dominique Soulard,,Dominique Soulard,,,,data_only,Dominique Soulard,,,duplicate_person_canon
+36323912-e0fe-566f-b140-66288fe6b755,Mikko Lepistö,,Mikko Lepistö (Pro 32 sand),,,,data_only,Mikko Lepistö,strip_parens_punct,,duplicate_person_canon
+36e57921-030d-5145-b82a-dd75fd550139,Rob Adams,,Rob Adams,,,,data_only,Rob Adams,,,duplicate_person_canon
+37041e6e-d414-5e40-b4d6-3428d15efca3,Tina Aeberli,,Tina Aeberli (Switzerland),,,,data_only,Tina Aeberli,strip_parens_punct,,duplicate_person_canon
+37651668-2f6d-57ae-ade8-7268bc89fbda,Jake DeClercq,,Jake DeClercq,,,,data_only,Jake DeClercq,,,duplicate_person_canon
+37efc8c3-bbf6-5a85-a138-b636801c23d6,Chuck Powell,37efc8c3-bbf6-5a85-a138-b636801c23d6,Chuck Powell,,,,overrides+data,Chuck Powell,,,duplicate_person_canon
+37fc24cd-095c-5c34-b9a0-9f83c593aa43,Ken Hamric,,"Ken ""The Hammer"" Hamric",,,,data_only,Ken Hamric,,,duplicate_person_canon
+3896e00e-da12-559a-8642-ec8f42525409,Craig Singer,3896e00e-da12-559a-8642-ec8f42525409,Craig Singer,,,,overrides+data,Craig Singer,,,duplicate_person_canon
+394af7d8-94f7-5851-97a9-228c68f6fc89,Ivan Stanev,,Ivan Stanev (Bulgaria),,,,data_only,Ivan Stanev,strip_parens_punct,,duplicate_person_canon
+39536eda-03ed-5996-aa21-e2d8ea0ad4d4,Frank Diaz,,Frank Diaz,Frank Diaz,verified,,overrides_only,Frank Diaz,,Frank Díaz,duplicate_person_canon
+395450f8-1f60-5641-a74c-5b77967c549a,Sven Depoilly,,Sven Depoilly,,,,data_only,Sven Depoilly,,,duplicate_person_canon
+39634ee3-a4c9-5bae-a07c-97827d67de4a,Mateusz Związek,,Mateusz Związek,Mateusz Związek,verified,,overrides_only,Mateusz Związek,,Mateusz Zwi±zek,duplicate_person_canon
+3975e864-a494-5e72-a6ca-0d0885e32e2b,Gaylene Grossen,3975e864-a494-5e72-a6ca-0d0885e32e2b,Gaylene Grossen,,,,overrides+data,Gaylene Grossen,,,duplicate_person_canon
+397fafdb-36c4-5952-8b9e-cfdb468801ec,Astrid Archila,,Astrid Archila,,,,data_only,Astrid Archila,,,duplicate_person_canon
+3991f932-86d6-54ae-8e43-9f7e651142cf,Ken Hamric,3991f932-86d6-54ae-8e43-9f7e651142cf,Ken Hamric,,,,overrides+data,Ken Hamric,,Ken 'Hammer' Hamric,duplicate_person_canon
+39bc116f-32e5-534e-82e3-e57d5a026c41,Kevin Jenkins,,Kevin Jenkins,,,,data_only,Kevin Jenkins,,,duplicate_person_canon
+39bc6c51-d2e0-5930-8677-51828c12de14,Andy Ronald,39bc6c51-d2e0-5930-8677-51828c12de14,Andy Ronald,,,,overrides+data,Andy Ronald,,,duplicate_person_canon
+39cc9125-40c0-598a-a53a-940355e0efce,Emilien Groussin,,Emilien Groussin,,,,data_only,Emilien Groussin,,,duplicate_person_canon
+39ea5117-0f3d-54aa-91ce-326e4d1d3c83,Manu Schmid,39ea5117-0f3d-54aa-91ce-326e4d1d3c83,Manu Schmid,,,,overrides+data,Manu Schmid,,,duplicate_person_canon
+3ac13824-862c-50f3-a293-f63b14cb6171,Andre Lemaire,,"Andre Lemaire (Vancouver, BC)",,,,data_only,Andre Lemaire,strip_parens_punct,,duplicate_person_canon
+3b938feb-b4c7-59a1-929f-7b62be77c1ce,John Leys,3b938feb-b4c7-59a1-929f-7b62be77c1ce,John Leys,,,,overrides+data,John Leys,,John Leys* | Johnny Leys,duplicate_person_canon
+3bc20f40-9bd7-598b-a131-92516d1c8a26,Josh DeClercq,3bc20f40-9bd7-598b-a131-92516d1c8a26,Josh DeClercq,,,,overrides+data,Josh DeClercq,,Josh DeClerq,duplicate_person_canon
+3bcf1a20-3b95-53c6-b382-d7ef08a6ced0,Jakub Worek,,Jakub Worek (Poland),,,,data_only,Jakub Worek,strip_parens_punct,,duplicate_person_canon
+3bf12103-06e2-5b54-815b-cc0cbe90cce4,Otso Konttinen,,Otso Konttinen,,,,data_only,Otso Konttinen,,,duplicate_person_canon
+3c50ab0f-2056-50ce-a5f2-c7c95e96702f,Robin Puchel,3c50ab0f-2056-50ce-a5f2-c7c95e96702f,Robin Puchel,,,,overrides+data,Robin Puchel,,Robin Püchel | Robin Püchl | Robin Püschel,duplicate_person_canon
+3c825079-6a02-59d8-ad17-b1c8a5c99538,Darlene House,3c825079-6a02-59d8-ad17-b1c8a5c99538,Darlene House,,,,overrides+data,Darlene House,,,duplicate_person_canon
+3c8f777d-5b9b-5cfb-bc08-b25995b9c02c,Zeke Ibardaloza,3c8f777d-5b9b-5cfb-bc08-b25995b9c02c,Zeke Ibardaloza,,,,overrides+data,Zeke Ibardaloza,,,duplicate_person_canon
+3ca49acd-07ba-5fbd-8d84-12f70b00ba2a,Maciej Niczyporuk,,Maciej Niczyporuk,,,,data_only,Maciej Niczyporuk,,,duplicate_person_canon
+3cb4082c-94b2-50b9-a785-d3afe1102a56,Fred Touzelet,,Fred Touzelet,,,,data_only,Fred Touzelet,,,duplicate_person_canon
+3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,,,,overrides+data,Ted Martin,,,duplicate_person_canon
+3d2e74a0-9a9d-5cca-acfc-8f4b60409de5,Brent Welch,,Brent Welch,,,,data_only,Brent Welch,,,duplicate_person_canon
+3d5080a8-cf56-52a8-9448-99ce045cd8ef,Clement Gobe,3d5080a8-cf56-52a8-9448-99ce045cd8ef,Clement Gobe,,,,overrides+data,Clement Gobe,,Clement Gobé | Clément Gobe | Clément Gobé,duplicate_person_canon
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,,,,overrides+data,Matt Kemmer,,,duplicate_person_canon
+3e99e0a6-5dbe-51c5-b2de-1a2e8fef6bca,Katharina Probst,,Katharina Probst (Switzerland),,,,data_only,Katharina Probst,strip_parens_punct,,duplicate_person_canon
+3ed1867b-3b6e-5a82-b7d0-d65585779dda,Stefan Nold,,Stefan Nold,,,,data_only,Stefan Nold,,,duplicate_person_canon
+3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c,Emmanuel Bouchard,3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c,Emmanuel Bouchard,,,,overrides+data,Emmanuel Bouchard,,Emmanual Bouchard | Emmanuel Bouchard- | Emmanuel Bouchard. | Emmanuel Bourchard,duplicate_person_canon
+3ef712b3-88e6-563f-a66a-694dd711ee93,Zeb Jackson,,Zeb Jackson,,,,data_only,Zeb Jackson,,,duplicate_person_canon
+3f679ab5-27de-5fd4-a1e1-6f33461297e8,Francisco Moreno Gamboa,,Francisco Moreno Gamboa (Venezuela),,,,data_only,Francisco Moreno Gamboa,strip_parens_punct,,duplicate_person_canon
+3fac8ef9-afdf-5df6-b937-07a57c6626f8,Mario Vaillancourt,,Mario Vaillancourt,,,,data_only,Mario Vaillancourt,,,duplicate_person_canon
+3fe1801a-4c0a-5aa3-beda-9d56dd820ee3,Erik Chan,,Erik Chan,Erik Chan,verified,,overrides_only,Erik Chan,,,duplicate_person_canon
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,,,,overrides+data,Maciej Niczyporuk,,,duplicate_person_canon
+4082f2aa-cd10-5a43-bdb5-bf3ba790be48,Tim Livson,4082f2aa-cd10-5a43-bdb5-bf3ba790be48,Tim Livson,,,,overrides+data,Tim Livson,,,duplicate_person_canon
+40a3babb-8d9d-522c-8cbf-9f221bbc5903,Marilyn Demuy,40a3babb-8d9d-522c-8cbf-9f221bbc5903,Marilyn Demuy,,,,overrides+data,Marilyn Demuy,,Marilyn Demuy-,duplicate_person_canon
+4120a537-80b0-5a89-a0b2-b24a4cf4550a,T.J. Boutorwick,4120a537-80b0-5a89-a0b2-b24a4cf4550a,T.J. Boutorwick,,,,overrides+data,T.J. Boutorwick,,,duplicate_person_canon
+4122d672-aba7-5e34-a94f-df9602413736,Jan Zimmermann,4122d672-aba7-5e34-a94f-df9602413736,Jan Zimmermann,,,,overrides+data,Jan Zimmermann,,,duplicate_person_canon
+414acac1-acb2-58f9-9c40-c0f8a8f2d70c,Fred Touzelet,414acac1-acb2-58f9-9c40-c0f8a8f2d70c,Fred Touzelet,,,,overrides+data,Fred Touzelet,,Fr�d�ric Touzelet,duplicate_person_canon
+4184f9cc-a307-5b20-8676-670e751d7654,Philippe Larose,4184f9cc-a307-5b20-8676-670e751d7654,Philippe Larose,,,,overrides+data,Philippe Larose,,,duplicate_person_canon
+423e8ae3-6577-5ef6-9c5e-25a80011412f,Maximo Kulachenok,423e8ae3-6577-5ef6-9c5e-25a80011412f,Maximo Kulachenok,,,,overrides+data,Maximo Kulachenok,,,duplicate_person_canon
+42492045-f1bf-5183-82c0-fedee3941a1e,Olivier Baillon,42492045-f1bf-5183-82c0-fedee3941a1e,Olivier Baillon,,,,overrides+data,Olivier Baillon,,,duplicate_person_canon
+42d02c33-b7f0-5e0d-a1c8-79ba7a128181,Jakub Grabarczyk,,Jakub Grabarczyk (Poland),,,,data_only,Jakub Grabarczyk,strip_parens_punct,,duplicate_person_canon
+4318e1a6-15c7-564b-be96-817d97c2754f,Jyri Ryyppo,,Jyri Ryyppo,Jyri Ryypp�,verified,,overrides_only,Jyri Ryyppo,,Jyri Ryypp�,duplicate_person_canon
+43285d54-75d1-5050-9898-a61e1d345130,Chris Hughes,,"Chris ""Shoes"" Hughes",,,,data_only,Chris Hughes,,,duplicate_person_canon
+438febf8-4005-5600-8a3f-a4c001c13f93,Pete Nawara,438febf8-4005-5600-8a3f-a4c001c13f93,Pete Nawara,,,,overrides+data,Pete Nawara,,,duplicate_person_canon
+43c54f2a-4384-5721-8867-caadc3af928d,Natasha Mercure,,Natasha Mercure,,,,data_only,Natasha Mercure,,,duplicate_person_canon
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,,,,overrides+data,Chris Dean,,,duplicate_person_canon
+43e222f7-1991-53c4-a51a-7dc8ca85e5a2,Merry McCown,43e222f7-1991-53c4-a51a-7dc8ca85e5a2,Merry McCown,,,,overrides+data,Merry McCown,,,duplicate_person_canon
+447600ec-d319-51d8-b1e2-8017e4be0811,Tapio Karhunen,447600ec-d319-51d8-b1e2-8017e4be0811,Tapio Karhunen,,,,overrides+data,Tapio Karhunen,,,duplicate_person_canon
+44c0d1aa-2679-50ae-9ba2-717dbc72c106,Edwin Veltman,,Edwin Veltman,,,,data_only,Edwin Veltman,,,duplicate_person_canon
+45127a55-5b45-5a24-8bcb-86470cb79274,Mikel Maletxeberria,,Mikel Maletxeberria (Basque Country),,,,data_only,Mikel Maletxeberria,strip_parens_punct,,duplicate_person_canon
+45c97f4f-9077-5585-8a83-a9d9a8829f12,Phil Lessard,45c97f4f-9077-5585-8a83-a9d9a8829f12,Phil Lessard,,,,overrides+data,Phil Lessard,,,duplicate_person_canon
+4615cf0e-b5cc-5d8d-aa1d-0f0f3b33d1e6,Alexander Trenner,,Alexander Trenner (Austria),,,,data_only,Alexander Trenner,strip_parens_punct,,duplicate_person_canon
+46b33ee4-1b91-5e08-8160-9bbd2a3e93bd,Emmanuelle Bouvier,,Emmanuelle Bouvier,,,,data_only,Emmanuelle Bouvier,,,duplicate_person_canon
+472059eb-13fd-502a-9d7f-78f17141b06d,Sergio Garcia,,Sergio Garcia (Spain),,,,data_only,Sergio Garcia,strip_parens_punct,,duplicate_person_canon
+47d5bbdb-0fd7-5c80-8ace-118ef3d16fa8,Pierre Bardeau,47d5bbdb-0fd7-5c80-8ace-118ef3d16fa8,Pierre Bardeau,,,,overrides+data,Pierre Bardeau,,,duplicate_person_canon
+47e84bcf-d9d0-584d-8e7e-8c06f8444e50,Teppo Harju,,Teppo Harju,,,,data_only,Teppo Harju,,,duplicate_person_canon
+480189b0-4ac3-5085-bcc4-f381cd90e39f,Hugues Oli Veillette,480189b0-4ac3-5085-bcc4-f381cd90e39f,Hugues Oli Veillette,,,,overrides+data,Hugues Oli Veillette,,Hugues Veillette,duplicate_person_canon
+4883156a-b3b3-5bbf-a3a7-712e0e5c85f3,David Hofstetter,,David Hofstetter,,,,data_only,David Hofstetter,,,duplicate_person_canon
+48dc56d4-b77a-551c-a465-46993ebf06b6,Tom Whitworth,48dc56d4-b77a-551c-a465-46993ebf06b6,Tom Whitworth,,,,overrides+data,Tom Whitworth,,,duplicate_person_canon
+48fb137a-9c34-5b29-ba6b-dd13d2d37f08,Ben Barrows,,Ben Barrows,,,,data_only,Ben Barrows,,,duplicate_person_canon
+49098759-e9cc-5999-9c34-6a3beef327d5,Chuck Powell,,Chuck Powell,,,,data_only,Chuck Powell,,,duplicate_person_canon
+49147fb1-fe9c-5e9e-9c5d-f376ffd2375d,Chard Cook,49147fb1-fe9c-5e9e-9c5d-f376ffd2375d,Chard Cook,,,,overrides+data,Chard Cook,,,duplicate_person_canon
+4936b8a8-212c-5d6f-b5bf-456c729f1def,Sarah Femmel,,Sarah Femmel,,,,data_only,Sarah Femmel,,,duplicate_person_canon
+49652040-6e28-56a8-aff2-b8079f9b2743,D. Johnson,,D. Johnson,D Johnson,verified,,overrides_only,D. Johnson,,D Johnson,duplicate_person_canon
+49a112df-0c0f-5f17-bf3f-727800044f26,Scot Hansen,49a112df-0c0f-5f17-bf3f-727800044f26,Scot Hansen,,,,overrides+data,Scot Hansen,,,duplicate_person_canon
+4a22fa39-9cb7-5763-be1e-3b58e5c939fb,Jesper Hall,,Jesper Hall,,,,data_only,Jesper Hall,,,duplicate_person_canon
+4a284fb0-ae08-580a-a473-c7042d569a95,Olivier Baillon,,Olivier Baillon,,,,data_only,Olivier Baillon,,,duplicate_person_canon
+4a2b0871-113a-5709-8a29-af61cc00cda6,Steve Smith,,Steve Smith,,,,data_only,Steve Smith,,,duplicate_person_canon
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,,,,overrides+data,Mariusz Wilk,,Mariusz Wilk -,duplicate_person_canon
+4ae1304e-960b-554f-8ce7-c59e0d7607b2,Szymon Kalwak,4ae1304e-960b-554f-8ce7-c59e0d7607b2,Szymon Kalwak,,,,overrides+data,Szymon Kalwak,,Szymon Ka wak | Szymon Ka?wak | Szymon Kawak,duplicate_person_canon
+4b08b605-7571-5d5d-8e71-b3eb07d56fca,Davie Piper,,Davie Piper,,,,data_only,Davie Piper,,,duplicate_person_canon
+4b4509f1-71b3-5289-9da4-66628ec6a889,Juan Diaz,4b4509f1-71b3-5289-9da4-66628ec6a889,Juan Diaz,,,,overrides+data,Juan Diaz,,Juan Díaz,duplicate_person_canon
+4b756746-6f76-5a5e-bc32-17361df66622,Rosen Rusev,4b756746-6f76-5a5e-bc32-17361df66622,Rosen Rusev,,,,overrides+data,Rosen Rusev,,,duplicate_person_canon
+4bb6c7f5-f3bb-5181-9f45-f28a8f7178fe,Dan Ednie,,Dan Ednie (Australia),,,,data_only,Dan Ednie,strip_parens_punct,,duplicate_person_canon
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,,,,overrides+data,Andreas Nawrath,,Andreas Narwath | Andreas Navrath,duplicate_person_canon
+4c6a7f4a-7a55-5dd2-ac68-1a792b585e80,Kerry Chun,,Kerry Chun (Advanced Champion),,,,data_only,Kerry Chun,strip_parens_punct,,duplicate_person_canon
+4cd298dd-ad71-5454-9133-2d24b93236c2,Filip Wójcik,,Filip Wójcik,,,,data_only,Filip Wójcik,,,duplicate_person_canon
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,,,,overrides+data,Ryan Mulroney,,Ryan Mulroney-,duplicate_person_canon
+4d098bc2-b888-5c0a-acd5-4885359dcb61,François Depatie,,François Depatie,,,,data_only,François Depatie,,,duplicate_person_canon
+4d8b80e4-fb64-5532-84e8-d2f88decdc3a,Ivan Stanev,4d8b80e4-fb64-5532-84e8-d2f88decdc3a,Ivan Stanev,,,,overrides+data,Ivan Stanev,,,duplicate_person_canon
+4db13af7-52c4-5843-8429-af5d8270691b,Grischa Tellenbach,,Grischa Tellenbach (Switzerland),,,,data_only,Grischa Tellenbach,strip_parens_punct,,duplicate_person_canon
+4e06d1d9-9956-554b-8cb1-ff330c92081f,Szymon Kalwak,,Szymon Kalwak (Poland),,,,data_only,Szymon Kalwak,strip_parens_punct,,duplicate_person_canon
+4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,,,,overrides+data,Dan Greer,,Dan Greer- | Daniel Greer | Danny Greer,duplicate_person_canon
+4ea3c32c-ba79-5e8b-8203-42efc78349ca,Lenneis Verena,4ea3c32c-ba79-5e8b-8203-42efc78349ca,Lenneis Verena,,,,overrides+data,Lenneis Verena,,,duplicate_person_canon
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,,,,overrides+data,Marcin Bujko,,,duplicate_person_canon
+4f15c47d-aa95-5755-8278-cc7a0e7dce3f,Nelson Jiménez,4f15c47d-aa95-5755-8278-cc7a0e7dce3f,Nelson Jiménez,,,,overrides+data,Nelson Jiménez,,,duplicate_person_canon
+4f47c636-9501-52b3-911d-341742eb5071,david Butcher,,david Butcher,,,,data_only,david Butcher,,,duplicate_person_canon
+4f763ef4-fb7b-5fcb-9883-988370e20b2e,Alexis Deschenes,4f763ef4-fb7b-5fcb-9883-988370e20b2e,Alexis Deschenes,,,,overrides+data,Alexis Deschenes,,Alexi Deschenes | Alexie Deschenes | Alexis Dechenes | Alexis Desch?nes | Alexis Deschene | Alexis Deschenes* | Alexis Deschennes | Alexis Deschesne | Alexis Deschesnes | Alexis Deschènes | Alexis Desch�nes,duplicate_person_canon
+50375647-fb1f-51ac-88cd-e7b182667b68,Sarah Femmel,50375647-fb1f-51ac-88cd-e7b182667b68,Sarah Femmel,,,,overrides+data,Sarah Femmel,,,duplicate_person_canon
+508a8ed2-aa3f-5070-ba6c-4109690ded8d,Wiktor Debski,,Wiktor Debski,,,,data_only,Wiktor Debski,,,duplicate_person_canon
+50e8fc4b-3b9b-56f6-ae41-bf4bd65e7a8d,Tammo Rockel,,Tammo Rockel,,,,data_only,Tammo Rockel,,,duplicate_person_canon
+5153f93f-1e75-5497-82c6-bf804faf6476,Anton Britting,5153f93f-1e75-5497-82c6-bf804faf6476,Anton Britting,,,,overrides+data,Anton Britting,,,duplicate_person_canon
+51cd27fc-df6b-5fe6-8bab-ca5d34f89755,Jaakko Inkinen,,Jaakko Inkinen,,,,data_only,Jaakko Inkinen,,,duplicate_person_canon
+520c51cf-7556-5c2a-94bc-919c4b8d3692,Matt Kemmer,,Matt Kemmer,,,,data_only,Matt Kemmer,,,duplicate_person_canon
+531c61e8-5858-5432-911a-3677e188fb2b,Jim Hankins,,Jim Hankins,,,,data_only,Jim Hankins,,,duplicate_person_canon
+5439339f-3ef7-59be-9759-8b426d77d4d5,Lisa Monti,5439339f-3ef7-59be-9759-8b426d77d4d5,Lisa Monti,,,,overrides+data,Lisa Monti,,,duplicate_person_canon
+5495dc1c-2cda-54bd-ab24-38b4f9cac0fc,Lenneis Verena,,Lenneis Verena,,,,data_only,Lenneis Verena,,,duplicate_person_canon
+549edc5f-c1b7-55c2-a246-4a34b13ac605,Sam Gregory,,Sam Gregory,,,,data_only,Sam Gregory,,,duplicate_person_canon
+551932fc-a51d-52f6-ae5f-792aaa33f686,Tuukka Antikainen,,Tuukka Antikainen,,,,data_only,Tuukka Antikainen,,,duplicate_person_canon
+552d2827-5d69-5d37-9824-dd5c304dfaed,Michelle Chen,552d2827-5d69-5d37-9824-dd5c304dfaed,Michelle Chen,,,,overrides+data,Michelle Chen,,,duplicate_person_canon
+5564bfcc-02d5-50bc-9ed2-70d1762a6a9e,Timo Aarnio,,Timo Aarnio (Finland),,,,data_only,Timo Aarnio,strip_parens_punct,,duplicate_person_canon
+562e6ed3-cc82-51ed-b270-9726018f31f1,Wichita KS,,Wichita KS,,,,data_only,Wichita KS,,,duplicate_person_canon
+5633898f-b1b9-572e-a8f0-79f9fb8601d3,Nick Polini,,Nick Polini,,,,data_only,Nick Polini,,,duplicate_person_canon
+563baddd-8bf2-576f-b915-19fe76431eaa,Gilles Demers,563baddd-8bf2-576f-b915-19fe76431eaa,Gilles Demers,,,,overrides+data,Gilles Demers,,,duplicate_person_canon
+565a1720-a819-5c05-b44e-0a53c2027237,Kamil Wysocki,565a1720-a819-5c05-b44e-0a53c2027237,Kamil Wysocki,,,,overrides+data,Kamil Wysocki,,,duplicate_person_canon
+5666e1c1-448e-55f0-b3a6-145bfa4e367e,Russell Arseneault,,Russell Arseneault,,,,data_only,Russell Arseneault,,,duplicate_person_canon
+57a7a762-cec7-54fc-b3f7-0df479312eb0,Aaron De Glanville,,Aaron De Glanville,Aaron De Glanville,verified,,overrides_only,Aaron De Glanville,,,duplicate_person_canon
+57dca99e-db45-5b32-83f4-c188d1d24c50,Jack Lentz,57dca99e-db45-5b32-83f4-c188d1d24c50,Jack Lentz,,,,overrides+data,Jack Lentz,,,duplicate_person_canon
+57eebef7-a990-5d43-807c-b9a75b1f2572,Juan Diaz,,Juan Diaz,,,,data_only,Juan Diaz,,,duplicate_person_canon
+5812096d-611b-5ca7-a4c0-bc30d45b67f4,Rick Bates,5812096d-611b-5ca7-a4c0-bc30d45b67f4,Rick Bates,,,,overrides+data,Rick Bates,,Rick Bates -,duplicate_person_canon
+58177f72-ca0c-5407-9720-fc0db2e7a337,Ryan Thomas,,Ryan Thomas,,,,data_only,Ryan Thomas,,,duplicate_person_canon
+587fed45-bcf6-529d-b12d-28b46e37b7f3,Aleksi Öhman,,Aleksi Öhman,,,,data_only,Aleksi Öhman,,,duplicate_person_canon
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,,,,overrides+data,Dustin Rhodes,,,duplicate_person_canon
+58cb9eef-615d-513d-9851-834e6c26b416,Davie Piper,58cb9eef-615d-513d-9851-834e6c26b416,Davie Piper,,,,overrides+data,Davie Piper,,,duplicate_person_canon
+58cca5c0-0120-5bf1-a40e-ae4f46712dc1,Jaakko Inkinen,58cca5c0-0120-5bf1-a40e-ae4f46712dc1,Jaakko Inkinen,,,,overrides+data,Jaakko Inkinen,,Jaakko Inkinen $$$,duplicate_person_canon
+59947054-0169-5c1c-9c45-2acb21062826,Teppo Harju,59947054-0169-5c1c-9c45-2acb21062826,Teppo Harju,,,,overrides+data,Teppo Harju,,,duplicate_person_canon
+5a2e9e09-b72a-56f5-8bec-edfe5b745b21,Mikko Tapaninaho,5a2e9e09-b72a-56f5-8bec-edfe5b745b21,Mikko Tapaninaho,,,,overrides+data,Mikko Tapaninaho,,,duplicate_person_canon
+5aa3e850-fd29-5687-b328-eed7e8d51cc0,Yves Archambault,,Yves Archambault,,,,data_only,Yves Archambault,,,duplicate_person_canon
+5aa7342e-e990-5f3c-951d-b002acfa18f7,Mikko Poikonen,,Mikko Poikonen,,,,data_only,Mikko Poikonen,,,duplicate_person_canon
+5b5e96d0-ef3f-5d6f-a08b-bc95b80330ab,Jack Lentz,,Jack Lentz,,,,data_only,Jack Lentz,,,duplicate_person_canon
+5ba80595-7d72-5c1d-a4f4-bce8e26ff6b4,David Castillo,,David Castillo,,,,data_only,David Castillo,,,duplicate_person_canon
+5bad49a9-580d-55ab-9a5f-7863d76ba446,Jere Vainikka,,Jere Vainikka,,,,data_only,Jere Vainikka,,,duplicate_person_canon
+5bb6bc10-d808-5775-8c64-4abfee52cad4,Tabea Fetz,,Tabea Fetz (Switzerland),,,,data_only,Tabea Fetz,strip_parens_punct,,duplicate_person_canon
+5c0a3bfe-be36-5f21-9ce1-2700c8af27f3,Ilkka Malin,5c0a3bfe-be36-5f21-9ce1-2700c8af27f3,Ilkka Malin,,,,overrides+data,Ilkka Malin,,Ilka Malin,duplicate_person_canon
+5c162da2-c670-5845-a3d6-a2ed097eb59b,Søren Nøhr Thomsen,5c162da2-c670-5845-a3d6-a2ed097eb59b,Søren Nøhr Thomsen,,,,overrides+data,Søren Nøhr Thomsen,,,duplicate_person_canon
+5ce2bcac-00ea-5d03-9cb6-5eb9f53927b2,Paloma Mayo,,Paloma Mayo (Spain),,,,data_only,Paloma Mayo,strip_parens_punct,,duplicate_person_canon
+5d195515-f800-54f3-988d-9f37bc7d8fb4,Yalis Iasenzaniro,5d195515-f800-54f3-988d-9f37bc7d8fb4,Yalis Iasenzaniro,,,,overrides+data,Yalis Iasenzaniro,,,duplicate_person_canon
+5d354739-8231-5d99-a1d6-eeb30a73ec40,Gilles Demers,,Gilles Demers,,,,data_only,Gilles Demers,,,duplicate_person_canon
+5d4624fd-09c1-5936-ab08-91567df09453,John Hayduk,5d4624fd-09c1-5936-ab08-91567df09453,John Hayduk,,,,overrides+data,John Hayduk,,,duplicate_person_canon
+5db2c1db-a650-515f-949a-247b355ec6d1,Andre LeMaire,,Andre LeMaire,Andre LeMaire,verified,,overrides_only,Andre LeMaire,,Andre Lemaire - | Andre' LeMaire,duplicate_person_canon
+5dfc812d-03e8-5262-b331-f9a2f1c763e8,Martin Cote,,Martin Cote,,,,data_only,Martin Cote,,,duplicate_person_canon
+5e1ae4b0-3d84-50e3-b08f-1e6fd7d605f4,Vašek Klouda,,Vašek Klouda,,,,data_only,Vašek Klouda,,,duplicate_person_canon
+5e247cdb-80be-5231-8206-ad106d102ddd,Sebastien Gomez,5e247cdb-80be-5231-8206-ad106d102ddd,Sebastien Gomez,,,,overrides+data,Sebastien Gomez,,,duplicate_person_canon
+5e335ad7-2552-5ab3-a7c7-1014a5ef5dc3,EJ Gammage,,EJ Gammage,,,,data_only,EJ Gammage,,,duplicate_person_canon
+5e3c0915-e072-596a-8db9-e19b96f632af,Rafał Kaleta,,Rafał Kaleta,,,,data_only,Rafał Kaleta,,,duplicate_person_canon
+5e791fb5-daf6-5b55-bfe9-f65aae0f0577,Pablo Wey,,Pablo Wey (Switzerland),,,,data_only,Pablo Wey,strip_parens_punct,,duplicate_person_canon
+5e7aee36-aee8-5e0f-8ba5-3e955de284f3,Timo Aarnio,5e7aee36-aee8-5e0f-8ba5-3e955de284f3,Timo Aarnio,,,,overrides+data,Timo Aarnio,,,duplicate_person_canon
+5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,,,,overrides+data,Jeremy O'Wheel,,,duplicate_person_canon
+5fbba3aa-5e94-5308-833d-688066b524b8,Frank Gutowski,,Frank Gutowski,,,,data_only,Frank Gutowski,,,duplicate_person_canon
+603bbc2d-6488-5891-a942-b5c5c79e0018,Pawel Cisek,603bbc2d-6488-5891-a942-b5c5c79e0018,Pawel Cisek,,,,overrides+data,Pawel Cisek,,,duplicate_person_canon
+605fe975-38b6-5985-b851-26db7cab3b98,Aleksi Airinen,,Aleksi Airinen,,,,data_only,Aleksi Airinen,,,duplicate_person_canon
+612d03bc-b410-51b6-8701-442d670a549c,Tomas Solc,,Tomas Solc (Czech Republic),,,,data_only,Tomas Solc,strip_parens_punct,,duplicate_person_canon
+61463c7c-13d0-5727-bd8c-31cfba8c0f40,Tom Jenkins,61463c7c-13d0-5727-bd8c-31cfba8c0f40,Tom Jenkins,,,,overrides+data,Tom Jenkins,,,duplicate_person_canon
+61656316-f92f-5235-a6fd-e3218d5601f8,Jim Hankins,61656316-f92f-5235-a6fd-e3218d5601f8,Jim Hankins,,,,overrides+data,Jim Hankins,,Jim Hankins-,duplicate_person_canon
+617abb97-3969-5024-8c37-22923d84318d,Malgorzata Ostrowska,617abb97-3969-5024-8c37-22923d84318d,Malgorzata Ostrowska,,,,overrides+data,Malgorzata Ostrowska,,,duplicate_person_canon
+619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,,,,overrides+data,Richard Cook,,Rich Chard Cook | Richard Chard Cook | Richard Cook -,duplicate_person_canon
+61a07a87-2b6b-522f-9370-02ea8018c9a7,Carlos Blaumann,61a07a87-2b6b-522f-9370-02ea8018c9a7,Carlos Blaumann,,,,overrides+data,Carlos Blaumann,,,duplicate_person_canon
+620a8311-2a3a-5cdb-a5e3-c83a82f0bff1,Emmanuelle Bouvier,620a8311-2a3a-5cdb-a5e3-c83a82f0bff1,Emmanuelle Bouvier,,,,overrides+data,Emmanuelle Bouvier,,,duplicate_person_canon
+6288c047-81e9-5b47-aaf7-59f4158d7b4d,Rob Collins,,Rob Collins,,,,data_only,Rob Collins,,,duplicate_person_canon
+628bd3b2-335d-5fdb-bad2-b794d74ede90,Janne Uusitalo,628bd3b2-335d-5fdb-bad2-b794d74ede90,Janne Uusitalo,,,,overrides+data,Janne Uusitalo,,,duplicate_person_canon
+628eaec3-c746-51d1-99ef-002723115a19,Szymon Kalwak,,Szymon Kalwak,,,,data_only,Szymon Kalwak,,,duplicate_person_canon
+62bdd1f4-4414-5259-9996-91770a34d09f,Edwin Veltman,62bdd1f4-4414-5259-9996-91770a34d09f,Edwin Veltman,,,,overrides+data,Edwin Veltman,,Edwin Veltman*,duplicate_person_canon
+6309675a-3452-5700-a769-9fc3e37f0f07,Edgar Camargo,,Edgar Camargo,,,,data_only,Edgar Camargo,,,duplicate_person_canon
+6334fc3c-d11c-5241-bdeb-4568f90d7e05,Jakub Ścisiński,6334fc3c-d11c-5241-bdeb-4568f90d7e05,Jakub Ścisiński,,,,overrides+data,Jakub Ścisiński,,,duplicate_person_canon
+636197f5-1163-5ba5-9625-c87688915faf,Henning Goetzke,,"Henning Goetzke (Frankfurt, D)",,,,data_only,Henning Goetzke,strip_parens_punct,,duplicate_person_canon
+637957bf-f5f1-532a-851f-8f6bb5d6c16d,Mikkel Frederiksen,637957bf-f5f1-532a-851f-8f6bb5d6c16d,Mikkel Frederiksen,,,,overrides+data,Mikkel Frederiksen,,,duplicate_person_canon
+637e2df7-7444-5ad8-99ea-d388a06c7235,Matt Scarborough,,Matt Scarborough ( GA ),,,,data_only,Matt Scarborough,strip_parens_punct,,duplicate_person_canon
+63c7d1eb-38dd-5a9f-89a6-ab8087611a99,Emanuel Bouchard,,Emanuel Bouchard,Emanuel Bouchard,verified,,overrides_only,Emanuel Bouchard,,,duplicate_person_canon
+648dc111-aae3-566a-832c-c0cc6ae24494,Carlos Medina,,Carlos Medina (Colombia),,,,data_only,Carlos Medina,strip_parens_punct,,duplicate_person_canon
+6492ac5a-80c6-53de-b6a0-5dc9fd05f1f5,Rene Rühr,,Rene Rühr (Israel),,,,data_only,Rene Rühr,strip_parens_punct,,duplicate_person_canon
+64ed460b-5379-575a-9b9d-3b26ca28d703,Andreas Nawrath,,Andreas Nawrath (Germany),,,,data_only,Andreas Nawrath,strip_parens_punct,,duplicate_person_canon
+64f9f45d-3df1-598d-8cc8-dca8ff08e9df,Jakob Wagner,,Jakob Wagner (Germany),,,,data_only,Jakob Wagner,strip_parens_punct,,duplicate_person_canon
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,,,,overrides+data,Arkadiusz Dudzinski,,Arkadiusz Dudziñski | Arkadiusz Dudziński,duplicate_person_canon
+653cd100-98e5-5078-9fd7-a7ce0f10b1f5,Vincent Rousseau,,Vincent Rousseau,,,,data_only,Vincent Rousseau,,,duplicate_person_canon
+65e5e48b-b683-5dea-a798-4f5ea6a19c19,Iisak Liukko,,Iisak Liukko,,,,data_only,Iisak Liukko,,,duplicate_person_canon
+6640fdb5-ce0a-551f-ac7e-b5673e17e9a5,Arek Hutnik,6640fdb5-ce0a-551f-ac7e-b5673e17e9a5,Arek Hutnik,,,,overrides+data,Arek Hutnik,,,duplicate_person_canon
+666f5ce3-3ec1-5b34-847f-9d7157b7b81a,Genevieve Bousquet,,Genevieve Bousquet,,,,data_only,Genevieve Bousquet,,,duplicate_person_canon
+668e9ac0-be07-5556-9f28-6434ca3f7f93,Pekka Raitio,,Pekka Raitio,,,,data_only,Pekka Raitio,,,duplicate_person_canon
+67b0f580-f9e9-5eab-8811-4672dbd0bea5,Ulrike HI,,Ulrike HI,Ulrike HI,verified,,overrides_only,Ulrike HI,,,duplicate_person_canon
+67b606f2-635a-5cd2-af00-9aa0f59379c2,Bartosz Rząsa,,Bartosz Rząsa,Bartosz Rz�sa,verified,,overrides_only,Bartosz Rząsa,,Bartosz Rz?sa | Bartosz Rz±sa | Bartosz Rz�sa,duplicate_person_canon
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,,,,overrides+data,Jake Wren,,Jake Wren-,duplicate_person_canon
+6842b20a-a927-5b6b-9501-4fae0e547a1f,Rob McCloskey,6842b20a-a927-5b6b-9501-4fae0e547a1f,Rob McCloskey,,,,overrides+data,Rob McCloskey,,Rob Mc Closkey | Rob McClosky | Robert McCloskey,duplicate_person_canon
+6879d4b4-d8d3-5cb2-8e9e-65a82d3167e8,David Hofstetter,6879d4b4-d8d3-5cb2-8e9e-65a82d3167e8,David Hofstetter,,,,overrides+data,David Hofstetter,,,duplicate_person_canon
+689e6a5d-4f79-5d70-8c64-684871012e77,Maciek Niczyporuk,,Maciek Niczyporuk (Poland),,,,data_only,Maciek Niczyporuk,strip_parens_punct,,duplicate_person_canon
+68cd165c-8d63-5538-9a69-06ebb63f178f,Jesse Ross,68cd165c-8d63-5538-9a69-06ebb63f178f,Jesse Ross,,,,overrides+data,Jesse Ross,,,duplicate_person_canon
+691f48a0-1dbd-5ef5-99ea-13615a7437d2,Yves Archambault,691f48a0-1dbd-5ef5-99ea-13615a7437d2,Yves Archambault,,,,overrides+data,Yves Archambault,,Yves Archambault- | YVES ARCHAMBAUT | Yves Archamboult,duplicate_person_canon
+6948416d-212b-510b-b454-760c45b24a17,Justin Sexton,,Justin Sexton,,,,data_only,Justin Sexton,,,duplicate_person_canon
+69667b03-2f4f-55b7-9c2f-79a5b60f362b,Lauri Airinen,69667b03-2f4f-55b7-9c2f-79a5b60f362b,Lauri Airinen,,,,overrides+data,Lauri Airinen,,Lauri Airinen ?,duplicate_person_canon
+698fd3e8-a756-5c8e-bfdc-127a68fb6a58,Arnaud Saniez,698fd3e8-a756-5c8e-bfdc-127a68fb6a58,Arnaud Saniez,,,,overrides+data,Arnaud Saniez,,,duplicate_person_canon
+69f3d611-6612-512f-8de5-c4de11d4bad6,Wojciech Jamski,,Wojciech Jamski (Poland),,,,data_only,Wojciech Jamski,strip_parens_punct,,duplicate_person_canon
+6a12c0df-5e18-595f-867f-efb8b6372efb,Drake Shults,,Drake Shults,,,,data_only,Drake Shults,,,duplicate_person_canon
+6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,,,,overrides+data,Jim Cobb,,Jim Cobb -,duplicate_person_canon
+6b16ec7e-c666-5497-8c07-1d28b620ad6e,PT Lovern,,PT Lovern,,,,data_only,PT Lovern,,,duplicate_person_canon
+6b76e4a5-d1e8-51b1-b623-9c35758632ee,Maël LeGall,6b76e4a5-d1e8-51b1-b623-9c35758632ee,Maël LeGall,,,,overrides+data,Maël LeGall,,,duplicate_person_canon
+6bba138b-c1ff-5cce-8631-058da505b26a,Matthias Lino Schmidt,,Matthias Lino Schmidt,,,,data_only,Matthias Lino Schmidt,,,duplicate_person_canon
+6bbf4aed-65f6-5581-9876-471380550446,Marco Brunet,,Marco Brunet,,,,data_only,Marco Brunet,,,duplicate_person_canon
+6bddaecf-3335-5caf-ab0c-51a97fce26e2,Steve Smith,6bddaecf-3335-5caf-ab0c-51a97fce26e2,Steve Smith,,,,overrides+data,Steve Smith,,Steve Smith -,duplicate_person_canon
+6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,Tina Aeberli,6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,Tina Aeberli,,,,overrides+data,Tina Aeberli,,Tina Aeberli Whirlwind,duplicate_person_canon
+6c87743a-21d2-589d-8043-07baf6e284c6,Francisco Moreno Gamboa,6c87743a-21d2-589d-8043-07baf6e284c6,Francisco Moreno Gamboa,,,,overrides+data,Francisco Moreno Gamboa,,,duplicate_person_canon
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,,,,overrides+data,Kevin Regamey,,Kevin Regamy | Kevin Regamy-,duplicate_person_canon
+6cba33e0-bdc9-5555-ae6c-27ab527fb3db,Bartosz Rząsa,,Bartosz Rząsa,,,,data_only,Bartosz Rząsa,,,duplicate_person_canon
+6ccd9e40-b0e2-55d7-acba-73540486d2cd,Arkadiusz Stanek,,Arkadiusz Stanek (Poland),,,,data_only,Arkadiusz Stanek,strip_parens_punct,,duplicate_person_canon
+6cea3bb0-7685-548c-9b83-d28d1ff54e0a,Dyalan Govender,,Dyalan Govender,,,,data_only,Dyalan Govender,,,duplicate_person_canon
+6d470835-60a8-50e5-81b0-7a1188b24c28,Mike Busby,6d470835-60a8-50e5-81b0-7a1188b24c28,Mike Busby,,,,overrides+data,Mike Busby,,,duplicate_person_canon
+6d50650f-7f41-5484-894f-74986085f48b,Martin Cote,6d50650f-7f41-5484-894f-74986085f48b,Martin Cote,,,,overrides+data,Martin Cote,,Martin Cote- | Martin Cote? | Martin Côté,duplicate_person_canon
+6e43f6db-7d45-5068-ac3d-5c150d250323,Michael Müller,6e43f6db-7d45-5068-ac3d-5c150d250323,Michael Müller,,,,overrides+data,Michael Müller,,Michael Mueller,duplicate_person_canon
+6e6169ab-a3e9-54ed-ac40-5a6e3445d175,Hakan Hellberg,,Hakan Hellberg,,,,data_only,Hakan Hellberg,,,duplicate_person_canon
+6eab06fa-5baa-597d-bf9e-d52fc5dd89ce,Serge Kaldany,,Serge Kaldany,,,,data_only,Serge Kaldany,,,duplicate_person_canon
+700e0ec0-94b9-5de3-b9a9-8d40a3645de3,Patrik Cerny,700e0ec0-94b9-5de3-b9a9-8d40a3645de3,Patrik Cerny,,,,overrides+data,Patrik Cerny,,Patrik Cerný | Patrik Èerný,duplicate_person_canon
+705ad942-9627-5f81-a24c-3fbf4a4b655a,Philippe Lessard,,Philippe Lessard,,,,data_only,Philippe Lessard,,,duplicate_person_canon
+70761b99-7648-5763-8004-d3d25f652340,Benjamin Kanske,,Benjamin Kanske (Germany),,,,data_only,Benjamin Kanske,strip_parens_punct,,duplicate_person_canon
+70f7b4f9-e8e3-5a08-b540-0924c68a4b20,Olaf Piwowar,70f7b4f9-e8e3-5a08-b540-0924c68a4b20,Olaf Piwowar,,,,overrides+data,Olaf Piwowar,,,duplicate_person_canon
+71475c85-2292-5764-b481-1c24bd73bda6,Robinson Sustrac,71475c85-2292-5764-b481-1c24bd73bda6,Robinson Sustrac,,,,overrides+data,Robinson Sustrac,,,duplicate_person_canon
+714f736c-1a9b-5ec2-ac2d-a5d54cc36f3c,Andi Wolff,714f736c-1a9b-5ec2-ac2d-a5d54cc36f3c,Andi Wolff,,,,overrides+data,Andi Wolff,,andi wolf,duplicate_person_canon
+71501d92-2a94-5c78-9fe7-8cc7c58de04b,Augustin Tiffaud,71501d92-2a94-5c78-9fe7-8cc7c58de04b,Augustin Tiffaud,,,,overrides+data,Augustin Tiffaud,,,duplicate_person_canon
+71ae4086-3d7f-5fdb-812b-778eda4da0cf,Anthony Intemann,71ae4086-3d7f-5fdb-812b-778eda4da0cf,Anthony Intemann,,,,overrides+data,Anthony Intemann,,A Intemann | A. Intemann | Aintno Intemann | Anthony Aintno Inteman | Anthony Intermann | Intemann Anthony,duplicate_person_canon
+71bbada7-d192-52c2-86d3-ec357b851ce0,Emanuel Bouchard,,Emanuel Bouchard,,,,data_only,Emanuel Bouchard,,,duplicate_person_canon
+71d34d6a-8c23-52d2-be1f-4163cd0cc5fe,Scott McCarthy,,Scott McCarthy,,,,data_only,Scott McCarthy,,,duplicate_person_canon
+720e2139-027a-5e14-ab81-e82e84c1c44b,Derek Littlefield,720e2139-027a-5e14-ab81-e82e84c1c44b,Derek Littlefield,,,,overrides+data,Derek Littlefield,,,duplicate_person_canon
+721e48e4-b4f3-54c0-b53a-c2009ad7c8e3,Scott Ellenberger,,Scott Ellenberger,,,,data_only,Scott Ellenberger,,,duplicate_person_canon
+728b3b53-35df-511c-b1dd-6a8fa4294b85,Evan Gatesman,,Evan Gatesman (USA),,,,data_only,Evan Gatesman,strip_parens_punct,,duplicate_person_canon
+72b6791b-f80d-5731-b271-1d561d85862a,Marcin Czech,,Marcin Czech,,,,data_only,Marcin Czech,,,duplicate_person_canon
+73581965-61c6-58a6-b316-da0cc17d1766,Steve Femmel,,Steve Femmel (USA),,,,data_only,Steve Femmel,strip_parens_punct,,duplicate_person_canon
+73726365-a460-5a91-98f2-90b965ca227e,Damian Budzik,,Damian Budzik (Poland),,,,data_only,Damian Budzik,strip_parens_punct,,duplicate_person_canon
+7381d8a0-724a-5f77-be6f-74bebfea1ebb,Samuli Viitanen,,Samuli Viitanen,,,,data_only,Samuli Viitanen,,,duplicate_person_canon
+738cbf71-ad21-598f-a5b3-afdb8bdf543d,Theodore Fritsch,738cbf71-ad21-598f-a5b3-afdb8bdf543d,Theodore Fritsch,,,,overrides+data,Theodore Fritsch,,T Fritsch | T. Fritsch | Ted Fristsch | Ted Fritch | Ted Fritsch | Ted Fritxch | Theodore J Fritsch | Theodore J. Fritsch,duplicate_person_canon
+743f6e8e-4ce0-5a42-9b16-af1e496a45fb,Jonathan Éthier,,Jonathan Éthier,,,,data_only,Jonathan Éthier,,,duplicate_person_canon
+7485567f-be65-5583-9511-35f6a2799251,Ben Johnson,,Ben Johnson,,,,data_only,Ben Johnson,,,duplicate_person_canon
+74978bc4-6b20-544a-8fa1-cf37ec444c4f,Dexter Struz,74978bc4-6b20-544a-8fa1-cf37ec444c4f,Dexter Struz,,,,overrides+data,Dexter Struz,,,duplicate_person_canon
+74dce642-af57-51ea-82c4-9e400e906dc9,Otso Konttinen,74dce642-af57-51ea-82c4-9e400e906dc9,Otso Konttinen,,,,overrides+data,Otso Konttinen,,Otso Kontinen,duplicate_person_canon
+7559971a-350f-52b6-a32a-1a260a20cfda,Kyle Hewitt,,Kyle Hewitt,,,,data_only,Kyle Hewitt,,,duplicate_person_canon
+75d38144-2062-5612-af49-f2d1329c7724,Jesse Fryckman,,Jesse Fryckman,,,,data_only,Jesse Fryckman,,,duplicate_person_canon
+75f75c81-07a3-5b70-93bf-67ae62024304,Antek Szczeniowski,,Antek Szczeniowski,,,,data_only,Antek Szczeniowski,,,duplicate_person_canon
+75fb7091-312f-5197-a560-f5505d472c7c,Jan Struz,,Jan Struz (Czech Republic),,,,data_only,Jan Struz,strip_parens_punct,,duplicate_person_canon
+75ffbeae-598c-5593-8e64-b3163c809b9c,Jukka Peltola,75ffbeae-598c-5593-8e64-b3163c809b9c,Jukka Peltola,,,,overrides+data,Jukka Peltola,,Jukka Peltola ??,duplicate_person_canon
+7623b340-c4c7-595f-a871-d3b7e4d6faed,Rafal Kaleta,,Rafal Kaleta (Poland),,,,data_only,Rafal Kaleta,strip_parens_punct,,duplicate_person_canon
+762bb9f5-cfb2-5ab4-8cff-c1d6452609cd,mike mccarthy,762bb9f5-cfb2-5ab4-8cff-c1d6452609cd,mike mccarthy,,,,overrides+data,mike mccarthy,,,duplicate_person_canon
+7651d9d0-d7eb-5205-b3a8-ff034a2cb777,Scot Hansen,,Scot Hansen,,,,data_only,Scot Hansen,,,duplicate_person_canon
+767e8e7e-0623-530e-890b-eb1ce4707a7b,Olaf Piwowar,,Olaf Piwowar (Canada),,,,data_only,Olaf Piwowar,strip_parens_punct,,duplicate_person_canon
+77044482-18f9-5727-8a55-7ff34f6f8687,Tobias Larsen,,Tobias Larsen,,,,data_only,Tobias Larsen,,,duplicate_person_canon
+774bf460-e82d-5e8f-8fc2-241c504c7c98,Ian Pritchard,,Ian Pritchard,,,,data_only,Ian Pritchard,,,duplicate_person_canon
+776dd37c-a318-59fa-95e1-1bc4beb4078f,Arnaud Saniez,,Arnaud Saniez,,,,data_only,Arnaud Saniez,,,duplicate_person_canon
+77860188-a954-51af-b02c-86ae35e4d8e9,Dustin Rhodes,,Dustin Rhodes,,,,data_only,Dustin Rhodes,,,duplicate_person_canon
+77f224b6-e2fa-59f2-af85-15a21d1d8c51,Dante Diotallevi,77f224b6-e2fa-59f2-af85-15a21d1d8c51,Dante Diotallevi,,,,overrides+data,Dante Diotallevi,,,duplicate_person_canon
+78392109-7b08-5761-a4ad-e6cf737dc112,Faris Barakat,,Faris Barakat,,,,data_only,Faris Barakat,,,duplicate_person_canon
+78c08cde-3710-54fb-be38-e2805f2208f3,Maude Landreville,,Maude Landreville,,,,data_only,Maude Landreville,,,duplicate_person_canon
+78cb7741-da32-5894-926c-168a190cc4d2,Eduardo Martinez,,Eduardo Martinez,Eduardo Martinez,verified,,overrides_only,Eduardo Martinez,,Eduardo Martínez,duplicate_person_canon
+78d0c91f-b1ec-572e-855b-a7d3f706f8b7,Stefan Siegert,78d0c91f-b1ec-572e-855b-a7d3f706f8b7,Stefan Siegert,,,,overrides+data,Stefan Siegert,,,duplicate_person_canon
+78e184dd-7455-59ee-80fc-f4e24eaaa234,Lauri Airinen,,Lauri Airinen (Finland),,,,data_only,Lauri Airinen,strip_parens_punct,,duplicate_person_canon
+79794aae-73fe-56e4-92f4-ea90fda8a5f2,Tommy Whitworth,,Tommy Whitworth,,,,data_only,Tommy Whitworth,,,duplicate_person_canon
+7a45c27b-dc4b-5d9d-bff6-e89425ec0ee4,Mouss Kabbal,,Mouss Kabbal,,,,data_only,Mouss Kabbal,,,duplicate_person_canon
+7a495ac2-7771-5070-a3ef-6cd2d465daa4,Björn Stenzel,7a495ac2-7771-5070-a3ef-6cd2d465daa4,Björn Stenzel,,,,overrides+data,Björn Stenzel,,,duplicate_person_canon
+7a552b26-385d-55be-a217-164bd663eeea,Emmanuel Bouchard,,Emmanuel Bouchard (Canada),,,,data_only,Emmanuel Bouchard,strip_parens_punct,,duplicate_person_canon
+7a8314b4-2af9-584d-bd79-4af7a74d9c21,Jakub Mosciszewski,7a8314b4-2af9-584d-bd79-4af7a74d9c21,Jakub Mosciszewski,,,,overrides+data,Jakub Mosciszewski,,JAKUB MOSCIEZESKI | Jakub Moscizewski | Jakub Mo¶ciszewski | Jakub Mościszewski,duplicate_person_canon
+7a8c8b83-9ae8-5b65-8f1f-6923058cc237,Dorota Wojtasiuk,7a8c8b83-9ae8-5b65-8f1f-6923058cc237,Dorota Wojtasiuk,,,,overrides+data,Dorota Wojtasiuk,,,duplicate_person_canon
+7a8ebf46-3df4-5114-9913-7154c9e52708,Pekka Raitio,7a8ebf46-3df4-5114-9913-7154c9e52708,Pekka Raitio,,,,overrides+data,Pekka Raitio,,,duplicate_person_canon
+7ae6be66-e239-50b3-8b72-8874919289a4,Matthias Schmidt,,Matthias Schmidt,,,,data_only,Matthias Schmidt,,,duplicate_person_canon
+7b3a8ea4-fdc1-554c-9e5e-8b4797a527d0,Piia Tantarimäki,,Piia Tantarimäki,,,,data_only,Piia Tantarimäki,,,duplicate_person_canon
+7b729bc2-570a-543c-a460-24ed136deb5b,Eduardo Martinez,7b729bc2-570a-543c-a460-24ed136deb5b,Eduardo Martinez,,,,overrides+data,Eduardo Martinez,,,duplicate_person_canon
+7b98567a-0a8e-50f9-9288-d908d734c05e,Yacine Merzouk,,"Yacine Merzouk- Montreal, Quebec",,,,data_only,Yacine Merzouk,dash_suffix,,duplicate_person_canon
+7c17dac5-be0b-5fc2-a537-2c8d02be9019,Tobias Larsen,7c17dac5-be0b-5fc2-a537-2c8d02be9019,Tobias Larsen,,,,overrides+data,Tobias Larsen,,,duplicate_person_canon
+7c33ba36-7a60-5538-9746-a4f4dad83a47,Jorge Ramirez,,Jorge Ramirez,,,,data_only,Jorge Ramirez,,,duplicate_person_canon
+7c5778f0-6847-58e6-9e37-09967ef3db13,Paul Lovern,7c5778f0-6847-58e6-9e37-09967ef3db13,Paul Lovern,,,,overrides+data,Paul Lovern,,,duplicate_person_canon
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,,,,overrides+data,Aleksi Airinen,,Aleksi Airinen ?,duplicate_person_canon
+7c8cfb20-ed0b-5203-89ea-46dea3ebf0e0,Jack Harris,7c8cfb20-ed0b-5203-89ea-46dea3ebf0e0,Jack Harris,,,,overrides+data,Jack Harris,,,duplicate_person_canon
+7cc39a4b-c59e-516b-8844-e80b8ef11cca,Alexander Trenner,,Alexander Trenner,,,,data_only,Alexander Trenner,,,duplicate_person_canon
+7d094f73-d2d9-5f99-9b73-6593696c90ef,Quentin Isackson,7d094f73-d2d9-5f99-9b73-6593696c90ef,Quentin Isackson,,,,overrides+data,Quentin Isackson,,Quentin Isackson France,duplicate_person_canon
+7d504d1c-b9ad-5251-b1c3-2e1bbf7bc3a2,Samuli Viitanen,7d504d1c-b9ad-5251-b1c3-2e1bbf7bc3a2,Samuli Viitanen,,,,overrides+data,Samuli Viitanen,,,duplicate_person_canon
+7d5f2a61-4f30-5eac-a31e-24d403f009c0,Pawel Nowak,,Pawel Nowak,,,,data_only,Pawel Nowak,,,duplicate_person_canon
+7d957be1-f215-5b0d-9f0b-bad8bc09af5b,Lukáš Blažek,,Lukáš Blažek,Luká? Bla?ek,verified,,overrides_only,Lukáš Blažek,,Luká? Bla?ek,duplicate_person_canon
+7dee7ff1-d6c2-59e0-ace6-830b9ca1d6a1,Paul Vorvick,7dee7ff1-d6c2-59e0-ace6-830b9ca1d6a1,Paul Vorvick,,,,overrides+data,Paul Vorvick,,,duplicate_person_canon
+7e5f195b-fb1f-5b3c-9ecf-1ed93e1e2ebf,David Bernard,,David Bernard,David Bernard,candidate,,overrides_only,David Bernard,,"David Bernard III | David Bernard, III",duplicate_person_canon
+7ed608a7-7311-52f9-935b-7951158d56e8,Kari Uusitalo,7ed608a7-7311-52f9-935b-7951158d56e8,Kari Uusitalo,,,,overrides+data,Kari Uusitalo,,,duplicate_person_canon
+7ee4d71f-31c5-5507-b991-3b77045dbfcf,Jody Welch,,Jody Welch,,,,data_only,Jody Welch,,,duplicate_person_canon
+7f1f87be-22cb-5173-88c1-ef59c1f3e019,Maciek Niczyporuk,,Maciek Niczyporuk,Maciek Niczyporuk,verified,,overrides_only,Maciek Niczyporuk,,,duplicate_person_canon
+7fe5d80f-b925-50d8-a886-0ddc9824bb88,Mateusz Związek,7fe5d80f-b925-50d8-a886-0ddc9824bb88,Mateusz Związek,,,,overrides+data,Mateusz Związek,,,duplicate_person_canon
+8000b520-2bfb-5767-86a7-b5c8eefc7651,Silwan Daouk,8000b520-2bfb-5767-86a7-b5c8eefc7651,Silwan Daouk,,,,overrides+data,Silwan Daouk,,,duplicate_person_canon
+8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,,,,overrides+data,Maxime Boucoiran,,,duplicate_person_canon
+80b8a17d-8f44-5571-881e-cd86f3c5c49e,Jochen Bauer,80b8a17d-8f44-5571-881e-cd86f3c5c49e,Jochen Bauer,,,,overrides+data,Jochen Bauer,,,duplicate_person_canon
+820cd94f-96f9-5bac-bc27-a2fa9f7332da,Jasper Shults,820cd94f-96f9-5bac-bc27-a2fa9f7332da,Jasper Shults,,,,overrides+data,Jasper Shults,,Jasper Schults | Jasper Shultz,duplicate_person_canon
+829c09d3-2dbc-57f7-9919-c33c330aeef8,Jon Herbert,,Jon Herbert,,,,data_only,Jon Herbert,,,duplicate_person_canon
+82c36f56-236f-4496-826b-cf59a6fcc4ed,Rafal Kaleta,82c36f56-236f-4496-826b-cf59a6fcc4ed,Rafal Kaleta,,,,overrides+data,Rafal Kaleta,,Rafa? Kaleta | Rafa³ Kaleta | Rafał Kaleta,duplicate_person_canon
+82d41ddf-e31e-53fc-b77c-7ee1841dffdf,Jindra Smola,,Jindra Smola (Czech Republic),,,,data_only,Jindra Smola,strip_parens_punct,,duplicate_person_canon
+83608398-b4ed-586e-a003-8a2d110c3e98,Egoitz Campo,,Egoitz Campo,,,,data_only,Egoitz Campo,,,duplicate_person_canon
+83ba4a8c-d170-5c79-b698-e0fd6893a7c3,Linnanen Jere,83ba4a8c-d170-5c79-b698-e0fd6893a7c3,Linnanen Jere,,,,overrides+data,Linnanen Jere,,,duplicate_person_canon
+840f22cd-dabf-544b-a954-ed3aa965a2e7,Quentin Isackson,,Quentin Isackson,,,,data_only,Quentin Isackson,,,duplicate_person_canon
+847dee99-9512-5acb-8260-6b000a2d9829,Anne DD,,Anne DD,,,,data_only,Anne DD,,,duplicate_person_canon
+8519ad8c-7103-5eee-97c4-a08a9895da57,Ryan Thomas,8519ad8c-7103-5eee-97c4-a08a9895da57,Ryan Thomas,,,,overrides+data,Ryan Thomas,,,duplicate_person_canon
+852d96fe-a602-5ccc-a2ff-89ba45865a2c,Benjamin Rochon,,Benjamin Rochon,,,,data_only,Benjamin Rochon,,,duplicate_person_canon
+8578cf41-f2fa-58b3-a9cc-972be1e3cc24,Jon Herbert,8578cf41-f2fa-58b3-a9cc-972be1e3cc24,Jon Herbert,,,,overrides+data,Jon Herbert,,,duplicate_person_canon
+858da927-84b9-5d1a-b600-0130b4be9200,Natalia Fry,,Natalia Fry,Natalia Fry,verified,,overrides_only,Natalia Fry,,Natalia Frys,duplicate_person_canon
+85b19220-524f-553e-83f5-39286809df55,Drake Shults,85b19220-524f-553e-83f5-39286809df55,Drake Shults,,,,overrides+data,Drake Shults,,,duplicate_person_canon
+8606a47f-6d0b-5055-8ce8-8d4ec60c746c,Steve Dusablon,,Steve Dusablon,,,,data_only,Steve Dusablon,,,duplicate_person_canon
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,,,,overrides+data,Andrew Grant,,Andrew Grant-,duplicate_person_canon
+8656a6f8-07d4-54fa-83a3-b1ad985f4968,Dorota Wojtasiuk,,Dorota Wojtasiuk (Poland),,,,data_only,Dorota Wojtasiuk,strip_parens_punct,,duplicate_person_canon
+868383e7-efdd-5941-a489-b1c50891c066,JF Lemieux,,JF Lemieux,J-F Lemieux,verified,,overrides_only,JF Lemieux,,J-F Lemieux | J.-F. Lemieux | J.F. Lemieux,duplicate_person_canon
+87216aed-3048-50f7-8c54-d7e9e7bb52f3,Philippe Lessard,87216aed-3048-50f7-8c54-d7e9e7bb52f3,Philippe Lessard,,,,overrides+data,Philippe Lessard,,Phillip Lessard,duplicate_person_canon
+872b93ec-1cd4-51c6-bd10-09c3ceeecec6,Nick Polini,,Nick Polini,Nick Polini,verified,,overrides_only,Nick Polini,,,duplicate_person_canon
+8769fa9e-200a-505d-b008-889add42a38b,Jyri Ilama,8769fa9e-200a-505d-b008-889add42a38b,Jyri Ilama,,,,overrides+data,Jyri Ilama,,,duplicate_person_canon
+878b75e0-3ba4-5b07-ad37-cbb0aa60712e,Félix-Antoine Guérard,,Félix-Antoine Guérard,,,,data_only,Félix-Antoine Guérard,,,duplicate_person_canon
+87e0d502-d749-53dd-997b-f266371d1474,François Depatie,87e0d502-d749-53dd-997b-f266371d1474,François Depatie,,,,overrides+data,François Depatie,,François D.,duplicate_person_canon
+87f7b4bd-d5cf-512c-96b9-cd3da84bae06,Philippe Larose,,Philippe Larose,,,,data_only,Philippe Larose,,,duplicate_person_canon
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,,,,overrides+data,Arkadiusz Stanek,,,duplicate_person_canon
+891487a0-7098-5d9f-97d1-62b3b0925558,Lisa Monti,,Lisa Monti,,,,data_only,Lisa Monti,,,duplicate_person_canon
+8950ca74-8ad6-5905-8b44-82bf59c508ad,Jeff Cruz,8950ca74-8ad6-5905-8b44-82bf59c508ad,Jeff Cruz,,,,overrides+data,Jeff Cruz,,,duplicate_person_canon
+895c7680-76b0-5ea3-bd66-672c011462ee,Martin Graton,,Martin Graton,,,,data_only,Martin Graton,,,duplicate_person_canon
+897d9022-b9cd-5d56-b9c8-19d31f38b5a7,Mouss Kabbal,897d9022-b9cd-5d56-b9c8-19d31f38b5a7,Mouss Kabbal,,,,overrides+data,Mouss Kabbal,,,duplicate_person_canon
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,,,,overrides+data,Serge Kaldany,,,duplicate_person_canon
+89ff2e20-dbee-5110-bcf4-f4708867d303,Mike Voightmann,89ff2e20-dbee-5110-bcf4-f4708867d303,Mike Voightmann,,,,overrides+data,Mike Voightmann,,mike voightman,duplicate_person_canon
+8a740aac-66c5-5fe2-a482-2acd1d1cdc11,Lynton Stephens,8a740aac-66c5-5fe2-a482-2acd1d1cdc11,Lynton Stephens,,,,overrides+data,Lynton Stephens,,,duplicate_person_canon
+8a8c7700-53c4-59ac-ad7a-7f6291a06abe,Charles Dupuy,,Charles Dupuy,,,,data_only,Charles Dupuy,,,duplicate_person_canon
+8a93b44e-f647-5ea4-9923-8b7d31d07abd,Arkadiusz Stanek,,Arkadiusz Stanek (no combo),,,,data_only,Arkadiusz Stanek,strip_parens_punct,,duplicate_person_canon
+8b1e5ce1-b6be-58dd-90c3-02bafdb34ec6,Vašek Klouda,8b1e5ce1-b6be-58dd-90c3-02bafdb34ec6,Vašek Klouda,,,,overrides+data,Vašek Klouda,,,duplicate_person_canon
+8b26cf69-a5fe-51ca-84e8-f9ce6f564494,Lino Landau,,Lino Landau,,,,data_only,Lino Landau,,,duplicate_person_canon
+8b5d4d7b-834a-5043-932f-61ae39ee8d5f,Gary Williams,,Gary Williams,,,,data_only,Gary Williams,,,duplicate_person_canon
+8b5dcbda-a949-5c87-9859-2ab604ac6266,Natalia Fry,,Natalia Fry,Natalia Fry?,verified,,overrides_only,Natalia Fry,,Natalia Fry?,duplicate_person_canon
+8b933217-dd74-5cb4-95ba-ae86e1749bd5,Hannes Daniel,,Hannes Daniel,,,,data_only,Hannes Daniel,,,duplicate_person_canon
+8c208a97-7119-5175-8d03-a935db10d8e3,Dominic O'Brien,,Dominic O'Brien,,,,data_only,Dominic O'Brien,,,duplicate_person_canon
+8c2eb374-4553-5af3-b8f6-2fe87fc89b42,Augustin Tiffou Predator,,Augustin Tiffou Predator,Augustin Tiffau,verified,,overrides_only,Augustin Tiffou Predator,,Augustin Tiffau,duplicate_person_canon
+8c65f15f-7187-53a8-a9ef-e9ccbcf52cda,Jakub Ścisiński,,Jakub Ścisiński,Jakub Ścisiński,verified,,overrides_only,Jakub Ścisiński,,Jakub ¦cisiński,duplicate_person_canon
+8cecdcc8-5029-5dc8-959d-6bf8a8013e26,Lisa Amengual,,Lisa Amengual,Lisa Amengual,verified,,overrides_only,Lisa Amengual,,,duplicate_person_canon
+8d561101-f8e4-542c-ac79-6c83936deb60,Dexter Struz,,Dexter Struz,,,,data_only,Dexter Struz,,,duplicate_person_canon
+8d6469b0-5c33-55cb-a1ea-bd8968112bfb,Carlos Maldonado,8d6469b0-5c33-55cb-a1ea-bd8968112bfb,Carlos Maldonado,,,,overrides+data,Carlos Maldonado,,,duplicate_person_canon
+8f14511f-24fe-5a5e-8a5e-bb85f0282997,Samuel Cloutier,,Samuel Cloutier,,,,data_only,Samuel Cloutier,,,duplicate_person_canon
+8f23788e-d792-58e0-a652-e7e72895010d,Marc Brunet,,Marc Brunet,,,,data_only,Marc Brunet,,,duplicate_person_canon
+8f500fd9-68a8-5e81-a489-07c2e8fa078c,Jochen Bauer,,Jochen Bauer,,,,data_only,Jochen Bauer,,,duplicate_person_canon
+8fc6832d-0715-5df5-b96c-9bf5fdad2a9a,JJ Jones,8fc6832d-0715-5df5-b96c-9bf5fdad2a9a,JJ Jones,,,,overrides+data,JJ Jones,,,duplicate_person_canon
+8fdae0cb-db8d-5b6e-85d8-36a5d71d8d1a,Jesper Hall,8fdae0cb-db8d-5b6e-85d8-36a5d71d8d1a,Jesper Hall,,,,overrides+data,Jesper Hall,,,duplicate_person_canon
+8fed00b8-3b98-5fb6-8ac5-757006e5616e,Jeremy Mirken,,Jeremy Mirken,,,,data_only,Jeremy Mirken,,,duplicate_person_canon
+8ff23f68-12ef-528b-9d78-fe8b57cabc49,Lynton Stephens,,Lynton Stephens,,,,data_only,Lynton Stephens,,,duplicate_person_canon
+905e83f1-afb6-5bea-a585-9c6677034520,Noah Hunsberger,905e83f1-afb6-5bea-a585-9c6677034520,Noah Hunsberger,,,,overrides+data,Noah Hunsberger,,,duplicate_person_canon
+9083160f-699b-53b4-b6c8-878eff3bda10,AJ Shultz,,AJ Shultz,A. J. Shultz,verified,,overrides_only,AJ Shultz,,A. J. Shultz | A. J. Shultz# | A.J. Shultz,duplicate_person_canon
+90c36387-46ca-57fd-947f-ea260ff5ff13,Dan Johnson,,Dan Johnson,,,,data_only,Dan Johnson,,,duplicate_person_canon
+90fcb1e5-33b8-5e89-9820-1e3f7bd3525a,Alberto Perez,,Alberto Perez (Venezuela),,,,data_only,Alberto Perez,strip_parens_punct,,duplicate_person_canon
+91051e19-2663-50dc-b447-c24ff4701d13,Lander Campo,91051e19-2663-50dc-b447-c24ff4701d13,Lander Campo,,,,overrides+data,Lander Campo,,,duplicate_person_canon
+91146149-579f-55e6-89b0-fffd0edbe1c0,Christy Rapp,,Christy Rapp,,,,data_only,Christy Rapp,,,duplicate_person_canon
+9134f261-0135-538e-a44d-7bf80160ded7,Rob McCloskey,,Rob McCloskey,,,,data_only,Rob McCloskey,,,duplicate_person_canon
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,,,,overrides+data,Justin Dale,,,duplicate_person_canon
+92056889-0ca5-5f00-a9ae-b1a650a234a1,Félix-Antoine Guérard,92056889-0ca5-5f00-a9ae-b1a650a234a1,Félix-Antoine Guérard,,,,overrides+data,Félix-Antoine Guérard,,,duplicate_person_canon
+921c1976-07aa-5b18-9eaa-25b2bd5ff7e0,Filip Wójcik,,Filip Wójcik (Poland),,,,data_only,Filip Wójcik,strip_parens_punct,,duplicate_person_canon
+925cf75b-f5a8-5cf5-a419-662be0a57057,Nelson Jiménez,,Nelson Jiménez,,,,data_only,Nelson Jiménez,,,duplicate_person_canon
+9337337c-b3c1-53a6-9f38-ee3923ef6c13,Fabien Riffaud,9337337c-b3c1-53a6-9f38-ee3923ef6c13,Fabien Riffaud,,,,overrides+data,Fabien Riffaud,,,duplicate_person_canon
+9381df36-35c3-5703-b87e-fc0f8e93e704,Edgar Camargo,9381df36-35c3-5703-b87e-fc0f8e93e704,Edgar Camargo,,,,overrides+data,Edgar Camargo,,,duplicate_person_canon
+93e8261a-fc74-58df-a6db-c0b34a063bbd,Ryan Morris,,Ryan Morris,,,,data_only,Ryan Morris,,,duplicate_person_canon
+947f45c0-78b1-5c03-ae2e-ab431b5ae491,Mika Koistinen,947f45c0-78b1-5c03-ae2e-ab431b5ae491,Mika Koistinen,,,,overrides+data,Mika Koistinen,,,duplicate_person_canon
+94dc2e36-b050-5660-9db6-6716fff17200,Dan Ednie,,Dan Ednie,,,,data_only,Dan Ednie,,,duplicate_person_canon
+94f7127f-d01d-56c1-92bd-70e334487986,Xavier Lancret,94f7127f-d01d-56c1-92bd-70e334487986,Xavier Lancret,,,,overrides+data,Xavier Lancret,,,duplicate_person_canon
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,,,,overrides+data,Maciej Pietrzycki,,,duplicate_person_canon
+95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,,,,overrides+data,Brent Welch,,,duplicate_person_canon
+96d4b12e-2526-5e32-a2a9-00a4b8da10b6,Andre Lemaire,,Andre Lemaire,,,,data_only,Andre Lemaire,,,duplicate_person_canon
+9732a3ce-da90-5025-9e81-beac7320bc43,Randy Pace,,Randy Pace,,,,data_only,Randy Pace,,,duplicate_person_canon
+978967d9-a392-57b4-9b8d-2d39a1e4fc86,Milan Benda,,Milan Benda (Czech Republic),,,,data_only,Milan Benda,strip_parens_punct,,duplicate_person_canon
+97d60d0e-3503-5814-8b1d-3fe6bb6bff86,Yacine Merzouk,97d60d0e-3503-5814-8b1d-3fe6bb6bff86,Yacine Merzouk,,,,overrides+data,Yacine Merzouk,,,duplicate_person_canon
+97d6d8fc-878f-50de-b6fd-85110bf86fd0,Julie Symons,,Julie Symons,,,,data_only,Julie Symons,,,duplicate_person_canon
+97dc8652-bf81-51cc-8f79-d92647a989f7,April Tou,97dc8652-bf81-51cc-8f79-d92647a989f7,April Tou,,,,overrides+data,April Tou,,,duplicate_person_canon
+985037b3-5ab6-5dc7-b4b3-10f5780dd2b7,Anne DD,,Anne DD,Anne DD,verified,,overrides_only,Anne DD,,,duplicate_person_canon
+98945320-03c6-5cb1-8dbd-886ce1019bb9,Toni Pääkkönen,98945320-03c6-5cb1-8dbd-886ce1019bb9,Toni Pääkkönen,,,,overrides+data,Toni Pääkkönen,,Toni Paakkonen,duplicate_person_canon
+989e4bf9-b2ab-526c-bd1e-a09ebe6411aa,Sven Depoilly,989e4bf9-b2ab-526c-bd1e-a09ebe6411aa,Sven Depoilly,,,,overrides+data,Sven Depoilly,,,duplicate_person_canon
+98f17eb4-7752-5b1f-83ad-31ec7049bc44,Nis Petersen,,Nis Petersen,,,,data_only,Nis Petersen,,,duplicate_person_canon
+99605346-05e5-561a-ac32-33d9443a0a0d,Rick Bates,,"Rick Bates (Kalispell, MT)",,,,data_only,Rick Bates,strip_parens_punct,,duplicate_person_canon
+998c87dc-4197-5f4d-97aa-f54b82f96a13,Aleksi Öhman,998c87dc-4197-5f4d-97aa-f54b82f96a13,Aleksi Öhman,,,,overrides+data,Aleksi Öhman,,,duplicate_person_canon
+99c34237-0b11-5547-975b-038ff70b8b13,Oskari Forsten,,Oskari Forsten,Oskari Forstém,verified,,overrides_only,Oskari Forsten,,Oskari Forstém | Oskari Forstén | Oskari Forst�n | Oskari Forst�n $$$ | Oskari Forst�n ??,duplicate_person_canon
+99f8f795-df84-5f76-a00c-935658d2914e,Lionel Veluire,99f8f795-df84-5f76-a00c-935658d2914e,Lionel Veluire,,,,overrides+data,Lionel Veluire,,,duplicate_person_canon
+99fbb87c-1aaf-514a-94d0-035097de5a92,Lisa Amengual,,Lisa Amengual,,,,data_only,Lisa Amengual,,,duplicate_person_canon
+9a67acb8-d69e-565c-9a52-ca308a6babc0,Janis Thal,9a67acb8-d69e-565c-9a52-ca308a6babc0,Janis Thal,,,,overrides+data,Janis Thal,,,duplicate_person_canon
+9aa9e85a-1dbb-54ad-8aed-10bd7e5719ad,Dylan Fry,9aa9e85a-1dbb-54ad-8aed-10bd7e5719ad,Dylan Fry,,,,overrides+data,Dylan Fry,,,duplicate_person_canon
+9ab1178b-7b6e-57a7-8717-99f9b46cbbd7,Jake DeClercq,9ab1178b-7b6e-57a7-8717-99f9b46cbbd7,Jake DeClercq,,,,overrides+data,Jake DeClercq,,Jake DeClerq,duplicate_person_canon
+9b611046-b474-5467-ac09-61eacaba23df,Roman Belozerov,,Roman Belozerov (Russia),,,,data_only,Roman Belozerov,strip_parens_punct,,duplicate_person_canon
+9bad2301-479a-57b3-a832-a35d161eb025,Felix Golz,,Felix Golz,,,,data_only,Felix Golz,,,duplicate_person_canon
+9c096f4c-8db9-598e-9fb7-451ddbad7a73,Marco Hartig,,Marco Hartig (DE),,,,data_only,Marco Hartig,strip_parens_punct,,duplicate_person_canon
+9c422461-9487-54d2-928f-992d46bad96b,Anne Miller,,Anne Miller,,,,data_only,Anne Miller,,,duplicate_person_canon
+9ccf80c3-2581-57dd-bdf8-37732ac36d24,Franck Remy,,Franck Remy,,,,data_only,Franck Remy,,,duplicate_person_canon
+9d0180d4-c8fd-5200-9392-9b2c86b14605,Frank diaz,,Frank diaz,,,,data_only,Frank diaz,,,duplicate_person_canon
+9d12fe41-0154-57a6-b312-5f3b46f621b5,Pavel Motorov,9d12fe41-0154-57a6-b312-5f3b46f621b5,Pavel Motorov,,,,overrides+data,Pavel Motorov,,,duplicate_person_canon
+9dd1729e-cd7f-5412-93ee-f08166e75fc7,David Rambaud,9dd1729e-cd7f-5412-93ee-f08166e75fc7,David Rambaud,,,,overrides+data,David Rambaud,,,duplicate_person_canon
+9e24f0cf-99d4-5e18-9ac7-08b0c2077ad2,Felix Graf,9e24f0cf-99d4-5e18-9ac7-08b0c2077ad2,Felix Graf,,,,overrides+data,Felix Graf,,,duplicate_person_canon
+9ea45ff6-8d05-54bf-b1cb-b2033affe40b,Fanda Hajek,,Fanda Hajek,,,,data_only,Fanda Hajek,,,duplicate_person_canon
+9f21915c-0f75-5d9e-a5ab-50393d24e114,Jonathan Éthier,9f21915c-0f75-5d9e-a5ab-50393d24e114,Jonathan Éthier,,,,overrides+data,Jonathan Éthier,,,duplicate_person_canon
+9f28b300-7e98-568d-9536-95bc36187686,Dan Greer,,Dan Greer,,,,data_only,Dan Greer,,,duplicate_person_canon
+9f802396-3fe8-57ef-88ac-98cd42a8fcab,Irene Ebermann,9f802396-3fe8-57ef-88ac-98cd42a8fcab,Irene Ebermann,,,,overrides+data,Irene Ebermann,,,duplicate_person_canon
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,,,,overrides+data,Kyle Hewitt,,,duplicate_person_canon
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,,,,overrides+data,Pawel Nowak,,,duplicate_person_canon
+9fd15f64-bdb2-5419-a563-e9df4e539036,Robinson Sustrac,,Robinson Sustrac,,,,data_only,Robinson Sustrac,,,duplicate_person_canon
+a03090dc-7534-5454-aab3-f3a074f67d33,Andreas Wolff,a03090dc-7534-5454-aab3-f3a074f67d33,Andreas Wolff,,,,overrides+data,Andreas Wolff,,Andreas Wolff ????,duplicate_person_canon
+a0bcdd4a-2d77-522f-8f5c-b74c30ade8d2,Thomas Sustrac,a0bcdd4a-2d77-522f-8f5c-b74c30ade8d2,Thomas Sustrac,,,,overrides+data,Thomas Sustrac,,,duplicate_person_canon
+a1c0db8b-b83d-567e-831f-c54db929a9fb,Grischa Tellenbach,,Grischa Tellenbach (RNH Footbag),,,,data_only,Grischa Tellenbach,strip_parens_punct,,duplicate_person_canon
+a1fd6063-13d2-5cc9-9e4e-35cfc34bf5e1,Patrick Weinberg,,Patrick Weinberg,,,,data_only,Patrick Weinberg,,,duplicate_person_canon
+a2741d8d-a32d-5245-b022-cf4c44d92611,Chris Dean,,Chris Dean,,,,data_only,Chris Dean,,,duplicate_person_canon
+a28621a9-642b-5ca0-8128-322235649e6c,Merry McCown,,Merry McCown (USA),,,,data_only,Merry McCown,strip_parens_punct,,duplicate_person_canon
+a2a657c2-efe3-52f8-b841-ed8d1633b728,Tomasz Ostrowski,,Tomasz Ostrowski,,,,data_only,Tomasz Ostrowski,,,duplicate_person_canon
+a3036351-4d3f-504d-add4-4ae9fc629177,Dirk Janssens,a3036351-4d3f-504d-add4-4ae9fc629177,Dirk Janssens,,,,overrides+data,Dirk Janssens,,,duplicate_person_canon
+a36bfc1a-3f84-5b43-b31c-ad9b2c2dd674,Thygesen Lise,,Thygesen Lise,,,,data_only,Thygesen Lise,,,duplicate_person_canon
+a3781ac2-c529-5316-b22b-2bdcfa67bb67,Damian Budzik,a3781ac2-c529-5316-b22b-2bdcfa67bb67,Damian Budzik,,,,overrides+data,Damian Budzik,,Damian Budzik Poland | Damian BudzikBut | Damien Coventry,duplicate_person_canon
+a3794596-c456-532f-900c-d054e01006d9,Craig Singer,,Craig Singer,,,,data_only,Craig Singer,,,duplicate_person_canon
+a399a42d-40cc-5b18-8d3e-e88a28f4683f,Dinko Dimitrov,a399a42d-40cc-5b18-8d3e-e88a28f4683f,Dinko Dimitrov,,,,overrides+data,Dinko Dimitrov,,Dinko Loco Dimitrov,duplicate_person_canon
+a4046e59-6bc5-5094-9547-b68183237024,Dominik Šimků,,Dominik Šimků,Dominik ?imků,verified,,overrides_only,Dominik Šimků,,Dominik ?imků,duplicate_person_canon
+a53103b0-5a6c-5593-96da-f0f48a83d810,David Butcher,,David Butcher,,,,data_only,David Butcher,,,duplicate_person_canon
+a5c9d383-777c-5f21-9604-6fd1cba79fb4,Marc Brunet,a5c9d383-777c-5f21-9604-6fd1cba79fb4,Marc Brunet,,,,overrides+data,Marc Brunet,,,duplicate_person_canon
+a5fb5d18-fb7d-5e38-a012-323baf96c3b0,Francois Leh,,Francois Leh,Francois Leh,verified,,overrides_only,Francois Leh,,Fran�ois Leh | Fran�ois Leh -,duplicate_person_canon
+a6177af9-a854-56a6-a47a-083c3aacf209,Charles Dupuy,a6177af9-a854-56a6-a47a-083c3aacf209,Charles Dupuy,,,,overrides+data,Charles Dupuy,,,duplicate_person_canon
+a6500854-2f53-5a6f-b63f-a3c072838ebd,Caroline Birch,a6500854-2f53-5a6f-b63f-a3c072838ebd,Caroline Birch,,,,overrides+data,Caroline Birch,,,duplicate_person_canon
+a7372522-5b92-589e-8b5d-f2b2ab9f74b3,Honza Weber,,Honza Weber,,,,data_only,Honza Weber,,,duplicate_person_canon
+a7b5d479-6c69-58fe-be82-ecef17c80069,Sakarias Liukko,a7b5d479-6c69-58fe-be82-ecef17c80069,Sakarias Liukko,,,,overrides+data,Sakarias Liukko,,,duplicate_person_canon
+a801965f-efdc-57a0-b8d6-506d3bafe0be,Tuukka Antikainen,,Tuukka Antikainen (Pro 32 sand),,,,data_only,Tuukka Antikainen,strip_parens_punct,,duplicate_person_canon
+a81adde6-197e-5067-872a-b05092e75cf9,Nis Petersen,a81adde6-197e-5067-872a-b05092e75cf9,Nis Petersen,,,,overrides+data,Nis Petersen,,,duplicate_person_canon
+a9a940f8-ea34-598b-a8a7-b64548c7c5c9,Tomas Solc,a9a940f8-ea34-598b-a8a7-b64548c7c5c9,Tomas Solc,,,,overrides+data,Tomas Solc,,,duplicate_person_canon
+aa260fca-6775-50bc-953b-3664d656878c,Kyle Hale,aa260fca-6775-50bc-953b-3664d656878c,Kyle Hale,,,,overrides+data,Kyle Hale,,,duplicate_person_canon
+aa80a8c4-46ac-5a36-ab85-d273a831513d,Dexter Struž,,Dexter Struž,Dexter Stru?,verified,,overrides_only,Dexter Struž,,Dexter Stru?,duplicate_person_canon
+aac6d8d9-a3ac-52ff-b0de-6a463e3f8900,Josh DeClercq,,Josh DeClercq,,,,data_only,Josh DeClercq,,,duplicate_person_canon
+ab044605-35fd-564f-93d9-91037f21b89b,Jakob Wagner,,Jakob Wagner,,,,data_only,Jakob Wagner,,,duplicate_person_canon
+ab5c26c5-801d-5534-939e-e77ef7e9ba84,Sebastien Verdi,,Sebastien Verdi,,,,data_only,Sebastien Verdi,,,duplicate_person_canon
+ab966624-6643-5dea-b165-67e66af402f9,Florian Goetze,ab966624-6643-5dea-b165-67e66af402f9,Florian Goetze,,,,overrides+data,Florian Goetze,,Flo Goetze | Flo Gotze | Flo Götze | Florian Götze | Florian G�tze,duplicate_person_canon
+abd71bf0-9c14-5fe7-9b6a-457e3284cd10,Jake Wren,,Jake Wren,,,,data_only,Jake Wren,,,duplicate_person_canon
+abee57b6-fef6-53c9-ad4c-a252b3ea8c0d,Jasper Shults,,Jasper Shults,,,,data_only,Jasper Shults,,,duplicate_person_canon
+ac025c98-d61b-5c1b-94bd-b7771216cf5a,Dinko Dimitrov,,Dinko Dimitrov (Bulgaria),,,,data_only,Dinko Dimitrov,strip_parens_punct,,duplicate_person_canon
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,,,,overrides+data,Damian Gielnicki,,Damian Gielnicki ? | Damian Gielnicki.,duplicate_person_canon
+ace9681d-7bc4-50ec-ac9e-5d7b6c82abc6,Augustin Tiffou Predator,,Augustin Tiffou ? Predator,,,,data_only,Augustin Tiffou Predator,strip_parens_punct,,duplicate_person_canon
+ad38435b-60eb-5fc6-baab-2d427b507d4f,Matyáš Mach,ad38435b-60eb-5fc6-baab-2d427b507d4f,Matyáš Mach,,,,overrides+data,Matyáš Mach,,,duplicate_person_canon
+ad4b8529-f85c-568c-8799-6f1adbf1d1fc,Chard Cook,,Chard Cook,,,,data_only,Chard Cook,,,duplicate_person_canon
+ad692219-8775-53e3-8252-eaa2595117d7,John Leys,,John Leys,,,,data_only,John Leys,,,duplicate_person_canon
+ada3e1e5-8440-5027-83a3-32489bd28c4f,Robert Creel,,Robert Creel,,,,data_only,Robert Creel,,,duplicate_person_canon
+adc70b9b-7496-5ded-8feb-fdc8e9c5d21c,Julie Symons,adc70b9b-7496-5ded-8feb-fdc8e9c5d21c,Julie Symons,,,,overrides+data,Julie Symons,,,duplicate_person_canon
+adfcef85-4e2d-5805-ac6d-7620e56298bc,Felix Golz,adfcef85-4e2d-5805-ac6d-7620e56298bc,Felix Golz,,,,overrides+data,Felix Golz,,,duplicate_person_canon
+ae772b2a-745b-5a13-96e1-b66a369221e4,Windsen Pan,,Windsen Pan,,,,data_only,Windsen Pan,,,duplicate_person_canon
+aebd87cc-ee45-5037-ac3d-dc7a3bdea5ff,Matti Pohjola,,Matti Pohjola,,,,data_only,Matti Pohjola,,,duplicate_person_canon
+aebe4382-9ddc-55d0-9924-9be69c2e9f30,Gary Williams,aebe4382-9ddc-55d0-9924-9be69c2e9f30,Gary Williams,,,,overrides+data,Gary Williams,,,duplicate_person_canon
+aedee340-7c7e-5156-9724-9aa07b067373,Brian Sherrill,,Brian Sherrill,,,,data_only,Brian Sherrill,,,duplicate_person_canon
+af2f4296-58f1-5ac8-9338-cf9979998d6a,Lionel Veluire,,Lionel Veluire(Thor le),,,,data_only,Lionel Veluire,strip_parens_punct,,duplicate_person_canon
+b046ab19-f057-53dd-a850-18c4248086ff,Antek Szczeniowski,b046ab19-f057-53dd-a850-18c4248086ff,Antek Szczeniowski,,,,overrides+data,Antek Szczeniowski,,,duplicate_person_canon
+b18b3d11-0736-5aab-bb12-261de29d0aab,Jan Weber,,Jan Weber (Czech Republic),,,,data_only,Jan Weber,strip_parens_punct,,duplicate_person_canon
+b2087ff7-8dd0-5b57-89b2-54081fb86525,Sage Woodmansee,,Sage Woodmansee,,,,data_only,Sage Woodmansee,,,duplicate_person_canon
+b20915fd-a12b-52a1-9e17-a6a8ef435bb7,Mariusz Wilk,,Mariusz Wilk (Poland),,,,data_only,Mariusz Wilk,strip_parens_punct,,duplicate_person_canon
+b20bec33-66d4-5ea4-8f90-0c034479366f,Robert Creel,b20bec33-66d4-5ea4-8f90-0c034479366f,Robert Creel,,,,overrides+data,Robert Creel,,,duplicate_person_canon
+b22097d3-4224-559e-85a7-7e4664d11081,Fabien Riffaud,,Fabien Riffaud,,,,data_only,Fabien Riffaud,,,duplicate_person_canon
+b25e1487-fa44-5076-aeae-c9e44b2c6e60,Frank Gutowski,,Frank Gutowski (USA),,,,data_only,Frank Gutowski,strip_parens_punct,,duplicate_person_canon
+b31dd728-3178-56e8-ab26-fb5f8c516d49,Hristo Georgiev,b31dd728-3178-56e8-ab26-fb5f8c516d49,Hristo Georgiev,,,,overrides+data,Hristo Georgiev,,,duplicate_person_canon
+b369091f-f15d-57ab-8439-6550acfbde4c,Matthias Schmidt,,Matthias Schmidt,Matthias Lino Schmidt,verified,,overrides_only,Matthias Schmidt,,Matthias Lino Schmidt | Matthias Schmidt -,duplicate_person_canon
+b39aea2d-6370-5381-88ec-ffc5a9d3f9de,Ian Pritchard,b39aea2d-6370-5381-88ec-ffc5a9d3f9de,Ian Pritchard,,,,overrides+data,Ian Pritchard,,Ian Pritchard -,duplicate_person_canon
+b39ec050-703f-574a-a2ab-d59749391429,Josh Vorvel,b39ec050-703f-574a-a2ab-d59749391429,Josh Vorvel,,,,overrides+data,Josh Vorvel,,Josh Varvel,duplicate_person_canon
+b3a275df-fe1c-58b4-967b-d0396cec4211,Dominik Šimků,b3a275df-fe1c-58b4-967b-d0396cec4211,Dominik Šimků,,,,overrides+data,Dominik Šimků,,Dominik Simku,duplicate_person_canon
+b41de971-59be-5ed6-9298-912eae01e000,Emily Johns,,Emily Johns,,,,data_only,Emily Johns,,,duplicate_person_canon
+b4cc91b6-ffb5-5e98-b309-bc534d2c7b77,David Rambaud,,David Rambaud,,,,data_only,David Rambaud,,,duplicate_person_canon
+b4d3857a-5a59-5e4f-8756-766f9defcce8,Andreas Käfer,b4d3857a-5a59-5e4f-8756-766f9defcce8,Andreas Käfer,,,,overrides+data,Andreas Käfer,,,duplicate_person_canon
+b4f6f411-8443-559a-8ba2-af88d8291db4,Brian Hudson,,Brian Hudson,,,,data_only,Brian Hudson,,,duplicate_person_canon
+b55adde0-c55f-555c-b991-6b35ab141bc2,Derek Littlefield,,Derek Littlefield,,,,data_only,Derek Littlefield,,,duplicate_person_canon
+b59311fe-a047-53fe-866a-db6dbf206553,Steve Richardson,,Steve Richardson,,,,data_only,Steve Richardson,,,duplicate_person_canon
+b5c82731-ff37-5170-86a5-f744afe4d154,Vincent Rousseau,b5c82731-ff37-5170-86a5-f744afe4d154,Vincent Rousseau,,,,overrides+data,Vincent Rousseau,,,duplicate_person_canon
+b69caea7-1203-5f6b-a29b-dfea2fc59918,Darlene House,,Darlene House,,,,data_only,Darlene House,,,duplicate_person_canon
+b69d06e1-49be-5fac-ae61-a9194ef30ee0,Maude Laudreville,b69d06e1-49be-5fac-ae61-a9194ef30ee0,Maude Laudreville,,,,overrides+data,Maude Laudreville,,Maude Landerville | Maude Landreville,duplicate_person_canon
+b6b18fd6-fb1b-51f1-b41e-4c7f0c032770,Henning Lindner,b6b18fd6-fb1b-51f1-b41e-4c7f0c032770,Henning Lindner,,,,overrides+data,Henning Lindner,,,duplicate_person_canon
+b6e28eb4-9de6-52a6-bde7-4ffaaa488933,Christoph Alexander,b6e28eb4-9de6-52a6-bde7-4ffaaa488933,Christoph Alexander,,,,overrides+data,Christoph Alexander,,,duplicate_person_canon
+b6e509f5-f792-5859-b823-777818d97b6a,Nick Rettinger,,Nick Rettinger,,,,data_only,Nick Rettinger,,,duplicate_person_canon
+b74be882-7328-5408-8ad6-6bcc29118738,Rafał Kaleta,,Rafał Kaleta (PL),,,,data_only,Rafał Kaleta,strip_parens_punct,,duplicate_person_canon
+b7fc6e7e-6385-5551-89a5-a67064d0a1a0,Carlos Blaumann,,Carlos Blaumann,,,,data_only,Carlos Blaumann,,,duplicate_person_canon
+b9286d18-8c51-5ee0-a108-7b018480c749,Noah Hunsberger,,Noah Hunsberger,,,,data_only,Noah Hunsberger,,,duplicate_person_canon
+b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,,,,overrides+data,Steve Dusablon,,Steve Dusablon -,duplicate_person_canon
+b9497e23-389c-5a44-9bc6-f46f3729aa3b,Tim Melnyck,,Tim Melnyck,,,,data_only,Tim Melnyck,,,duplicate_person_canon
+b9622797-e057-5ced-a522-6c3ea570f1ab,Jasper Shults,,Jasper Shults (USA),,,,data_only,Jasper Shults,strip_parens_punct,,duplicate_person_canon
+b980fe51-dd4b-54fd-bb60-21cbb482f674,Michal Klimczak,b980fe51-dd4b-54fd-bb60-21cbb482f674,Michal Klimczak,,,,overrides+data,Michal Klimczak,,,duplicate_person_canon
+b98f124a-152c-584b-8835-22f8108e1156,Ethan Husted,,"Ethan Husted (OR, USA) (Shooting Eggbeater)",,,,data_only,Ethan Husted,strip_parens_punct,,duplicate_person_canon
+b9c3d74c-aff6-582e-904b-0a7b5173087d,Brent Stewart,,Brent Stewart,,,,data_only,Brent Stewart,,,duplicate_person_canon
+ba944ac7-4c12-5873-af37-9ecc0f454107,Paul T. Lovern,,Paul T. Lovern,Paul T. Lovern,verified,,overrides_only,Paul T. Lovern,,,duplicate_person_canon
+bafca202-44c4-5c39-85d0-39e9e1c8b4b6,Andi Wolff,,Andi Wolff (Frankfurt),,,,data_only,Andi Wolff,strip_parens_punct,,duplicate_person_canon
+bb3423a2-0d08-5a5e-ae23-0356f815e605,Eric Fonteneau,,Eric Fonteneau,,,,data_only,Eric Fonteneau,,,duplicate_person_canon
+bb4a96be-f5b0-518a-a83d-2512486db5a6,Renaud Fanoni,bb4a96be-f5b0-518a-a83d-2512486db5a6,Renaud Fanoni,,,,overrides+data,Renaud Fanoni,,,duplicate_person_canon
+bb89d2bb-12af-5038-a092-0b4cf1269860,Marcin Czech,bb89d2bb-12af-5038-a092-0b4cf1269860,Marcin Czech,,,,overrides+data,Marcin Czech,,,duplicate_person_canon
+bbd248bf-d032-5ae9-b961-50c400e656a4,Sébastien Verdy,,Sébastien Verdy,,,,data_only,Sébastien Verdy,,,duplicate_person_canon
+bbfc2988-56de-5b01-acdb-19c3d7043433,Patrik Cerny,,Patrik Cerny (Czech Republic),,,,data_only,Patrik Cerny,strip_parens_punct,,duplicate_person_canon
+bc02f091-60e7-52fd-8af7-db9bfcad81a2,Roman Belozerov,,Roman Belozerov,,,,data_only,Roman Belozerov,,,duplicate_person_canon
+bc616017-e31f-508d-848f-998c2fbb3fa1,Jesse Fryckman,bc616017-e31f-508d-848f-998c2fbb3fa1,Jesse Fryckman,,,,overrides+data,Jesse Fryckman,,,duplicate_person_canon
+bd0010df-d5b7-5860-a1c0-fb5ed7523815,Jana Čačáková,bd0010df-d5b7-5860-a1c0-fb5ed7523815,Jana Čačáková,,,,overrides+data,Jana Čačáková,,,duplicate_person_canon
+bd1ac97c-6c20-5bcd-9fbd-f5279f4c22bf,Chris Seibert,bd1ac97c-6c20-5bcd-9fbd-f5279f4c22bf,Chris Seibert,,,,overrides+data,Chris Seibert,,Chris Siebert | Chris Siebert- | Christopher Siebert,duplicate_person_canon
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,,,,overrides+data,Daryl Genz,,Daryl Genz Westminster | Daryl Genzu Genz,duplicate_person_canon
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,,,,overrides+data,Evan Gatesman,,,duplicate_person_canon
+be893999-2a0b-59d7-958f-82ec1099031e,Jim Derricott,,"Jim Derricott (Vancouver, BC)",,,,data_only,Jim Derricott,strip_parens_punct,,duplicate_person_canon
+be9e7754-b854-524b-8041-2d6d2630f7c5,Andreas Käfer,,Andreas Käfer,,,,data_only,Andreas Käfer,,,duplicate_person_canon
+beb1ab15-e6c4-566c-88aa-42d5de9c589b,Thomas Sustrac,,Thomas Sustrac,,,,data_only,Thomas Sustrac,,,duplicate_person_canon
+bee228f1-5bef-53a9-9081-54d338bb958b,Maciek Niczyporuk,,Maciek Niczyporuk,,,,data_only,Maciek Niczyporuk,,,duplicate_person_canon
+befb6921-1a5b-5cd1-8b05-578b117f2ef2,Brian Hudson,befb6921-1a5b-5cd1-8b05-578b117f2ef2,Brian Hudson,,,,overrides+data,Brian Hudson,,,duplicate_person_canon
+bf33d2da-1e8d-5c5c-a915-cdf1f15c1863,Fletcher Funk,,Fletcher Funk,,,,data_only,Fletcher Funk,,,duplicate_person_canon
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,,,,overrides+data,Byrin Wylie,,,duplicate_person_canon
+bf902030-c943-57e8-9619-7ba5e237527e,Sam Gregory,bf902030-c943-57e8-9619-7ba5e237527e,Sam Gregory,,,,overrides+data,Sam Gregory,,,duplicate_person_canon
+bfaeaa7a-e6e7-500b-ac00-71382171c73c,Jari Linnonmaa,bfaeaa7a-e6e7-500b-ac00-71382171c73c,Jari Linnonmaa,,,,overrides+data,Jari Linnonmaa,,,duplicate_person_canon
+c035902d-8658-5b8d-8de2-4079452de49d,Windsen Pan,c035902d-8658-5b8d-8de2-4079452de49d,Windsen Pan,,,,overrides+data,Windsen Pan,,,duplicate_person_canon
+c09000c8-1fae-5bdb-90cf-a3a1a3b8e4be,Dan Johnson,c09000c8-1fae-5bdb-90cf-a3a1a3b8e4be,Dan Johnson,,,,overrides+data,Dan Johnson,,,duplicate_person_canon
+c0a952fc-a028-5f61-a489-4dbc6d809fad,Jyri Ryyppo,,Jyri Ryyppo,Jyri Ryyppo,verified,,overrides_only,Jyri Ryyppo,,Jyri Ryyppö,duplicate_person_canon
+c1acd150-13c5-5d8d-9d2e-8fe031d8bcdf,Mikko Lepistö,,Mikko Lepistö,Mikko Lepisto Atomic Blender //trick,verified,,overrides_only,Mikko Lepistö,,,duplicate_person_canon
+c1f4a6a4-7905-5276-98df-cbad30981800,JF Lemieux,c1f4a6a4-7905-5276-98df-cbad30981800,JF Lemieux,,,,overrides+data,JF Lemieux,,,duplicate_person_canon
+c1f6d696-5444-5cd0-919f-9dd06ca54bea,David Butcher,c1f6d696-5444-5cd0-919f-9dd06ca54bea,David Butcher,,,,overrides+data,David Butcher,,,duplicate_person_canon
+c2637d75-15a7-5f34-b78a-16264db593c0,Alberto Perez,c2637d75-15a7-5f34-b78a-16264db593c0,Alberto Perez,,,,overrides+data,Alberto Perez,,Alberto Pérez,duplicate_person_canon
+c26d9677-db84-5714-bba9-53da87894907,Logan Dethman,,Logan Dethman,,,,data_only,Logan Dethman,,,duplicate_person_canon
+c273dfeb-2f82-5ffc-95d1-ad7f6544119b,Bjarne Everberg,c273dfeb-2f82-5ffc-95d1-ad7f6544119b,Bjarne Everberg,,,,overrides+data,Bjarne Everberg,,,duplicate_person_canon
+c2b71e3c-4ffb-5b75-b92f-cfbb4f0c9bb4,Joel Dion,c2b71e3c-4ffb-5b75-b92f-cfbb4f0c9bb4,Joel Dion,,,,overrides+data,Joel Dion,,,duplicate_person_canon
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,,,,overrides+data,Johnny Sarah,,,duplicate_person_canon
+c2e01c26-ebff-53ff-9c9e-36fed1875cca,Chris Seibert,,Chris Seibert,,,,data_only,Chris Seibert,,,duplicate_person_canon
+c312c02d-8a8c-5c73-8b68-65fc9e3fa453,Benjamin Rochon,c312c02d-8a8c-5c73-8b68-65fc9e3fa453,Benjamin Rochon,,,,overrides+data,Benjamin Rochon,,,duplicate_person_canon
+c350595b-634b-52d1-901e-33c0289808f5,Miquel Clemente,,Miquel Clemente (France),,,,data_only,Miquel Clemente,strip_parens_punct,,duplicate_person_canon
+c383fcb7-76ce-5f22-874c-c9aaacfe0ccc,Josh Bast,c383fcb7-76ce-5f22-874c-c9aaacfe0ccc,Josh Bast,,,,overrides+data,Josh Bast,,,duplicate_person_canon
+c3d1ffd9-7617-5853-be2a-095e239a0256,Natasha Mercure,c3d1ffd9-7617-5853-be2a-095e239a0256,Natasha Mercure,,,,overrides+data,Natasha Mercure,,,duplicate_person_canon
+c40665c5-c88f-5671-8ac7-b8ebd46f65cb,Jakub Mosciszewski,,Jakub Mosciszewski (Poland),,,,data_only,Jakub Mosciszewski,strip_parens_punct,,duplicate_person_canon
+c4740063-fa81-5668-a5e6-4ba3b1a6c40f,Kevin Jenkins,c4740063-fa81-5668-a5e6-4ba3b1a6c40f,Kevin Jenkins,,,,overrides+data,Kevin Jenkins,,,duplicate_person_canon
+c476af72-3cce-5434-8266-d46bdab0d565,Tim Livson,,Tim Livson,,,,data_only,Tim Livson,,,duplicate_person_canon
+c49dd058-6a9b-5ed9-809f-5ca0ae435c85,Ronald Varillas Sandoval,,Ronald Varillas Sandoval (Venezuela),,,,data_only,Ronald Varillas Sandoval,strip_parens_punct,,duplicate_person_canon
+c5259d71-aa3e-5532-b624-f61ac354d4a4,Maximo Kulachenok,,Maximo Kulachenok,,,,data_only,Maximo Kulachenok,,,duplicate_person_canon
+c5a2692f-fac8-5e76-bc30-5de2bde4ee30,Slava Sidorin,,Slava Sidorin (Czech Republic),,,,data_only,Slava Sidorin,strip_parens_punct,,duplicate_person_canon
+c5ca3119-65da-5633-8594-19b98c3c3a01,Phil Lessard,,Phil Lessard,,,,data_only,Phil Lessard,,,duplicate_person_canon
+c5f8340c-22c8-5751-a3a3-d0ea1aade4e2,Michael Müller,,Michael Müller,,,,data_only,Michael Müller,,,duplicate_person_canon
+c6c51b4e-e17b-5de9-b7fa-e641bccaac9a,Damian Gielnicki,,Damian Gielnicki (Poland),,,,data_only,Damian Gielnicki,strip_parens_punct,,duplicate_person_canon
+c7096477-723a-5b19-846a-96f0c05a160e,April Tou,,April Tou,,,,data_only,April Tou,,,duplicate_person_canon
+c7292428-b1b1-5e65-ad37-d85ffc49bf9b,Jim Cobb,,Jim Cobb,,,,data_only,Jim Cobb,,,duplicate_person_canon
+c72c0112-c4f5-5d6b-8154-a99588624cbc,Daniel Schuldes,,Daniel Schuldes,,,,data_only,Daniel Schuldes,,,duplicate_person_canon
+c7308982-a2af-598b-baf9-a0515c121cf7,Anne Busch,c7308982-a2af-598b-baf9-a0515c121cf7,Anne Busch,,,,overrides+data,Anne Busch,,,duplicate_person_canon
+c7369fe4-1358-5230-9648-bb2c851d8357,Maxime Boucoiran,,Maxime Boucoiran,Maxime Boucoiran,verified,,overrides_only,Maxime Boucoiran,,,duplicate_person_canon
+c74ad312-33c1-5b48-a32e-ee6bd2317f2b,Amelie Jolicoeur,,Amelie Jolicoeur,,,,data_only,Amelie Jolicoeur,,,duplicate_person_canon
+c75a8cbe-1bdf-5e15-a636-4a854c2b3ef8,Stéphane Comeau,c75a8cbe-1bdf-5e15-a636-4a854c2b3ef8,Stéphane Comeau,,,,overrides+data,Stéphane Comeau,,,duplicate_person_canon
+c7a61695-ebc4-5346-afb1-5f91c5ed170c,Ulrike HI,,Ulrike HI,,,,data_only,Ulrike HI,,,duplicate_person_canon
+c841895c-74e8-53e8-a532-2c0ad7976b65,Stéphane Comeau,,Stéphane Comeau,,,,data_only,Stéphane Comeau,,,duplicate_person_canon
+c88c7a4e-7137-50b1-a51a-5b5ba400c5ab,Gregor Morel,,Gregor Morel,Grega Morel,candidate,,overrides_only,Gregor Morel,,,duplicate_person_canon
+c906f460-2356-50ba-a9d0-ebb7a8512705,Paweł Frączek,,Paweł Frączek,,,,data_only,Paweł Frączek,,,duplicate_person_canon
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,,,,overrides+data,Jakob Wagner,,Jakob Wagner ? | Jakob Wagner FCFootstar | Jakob Wagner Revstein,duplicate_person_canon
+c917c04b-83fa-5c1a-8f2c-292f24db5616,Wiktor Debski,c917c04b-83fa-5c1a-8f2c-292f24db5616,Wiktor Debski,,,,overrides+data,Wiktor Debski,,Wikor Debski | Wiktor D?bski | Wiktor D?bski- | Wiktor D?bski. | Wiktor Dêbski | Wiktor Dębski,duplicate_person_canon
+c91a2084-4b3a-5614-8b34-a52171742e13,Marco Brunet,c91a2084-4b3a-5614-8b34-a52171742e13,Marco Brunet,,,,overrides+data,Marco Brunet,,,duplicate_person_canon
+c9312d25-2097-5826-ba39-6de3a7ee7043,Leanne Makcrow,c9312d25-2097-5826-ba39-6de3a7ee7043,Leanne Makcrow,,,,overrides+data,Leanne Makcrow,,Leanne Mackron | Leanne Mackrow,duplicate_person_canon
+c94f0ce0-8ac1-5e32-982d-567f1b6355e9,Maude Laudreville,,Maude Laudreville,,,,data_only,Maude Laudreville,,,duplicate_person_canon
+cb06d632-79b1-593e-a603-7827cd60a33a,Logan Dethman,cb06d632-79b1-593e-a603-7827cd60a33a,Logan Dethman,,,,overrides+data,Logan Dethman,,,duplicate_person_canon
+cb2f5aeb-165a-5e47-96a0-b80622a0d252,Ben Barrows,cb2f5aeb-165a-5e47-96a0-b80622a0d252,Ben Barrows,,,,overrides+data,Ben Barrows,,,duplicate_person_canon
+cb46be05-cb0b-5298-9f55-571b0e674e4c,Florian Götze,,"Florian Götze (Frankfurt, D)",,,,data_only,Florian Götze,strip_parens_punct,,duplicate_person_canon
+cbca9fb4-f105-5671-bf40-69f1e8d54275,Ilkka Malin,,Ilkka Malin,,,,data_only,Ilkka Malin,,,duplicate_person_canon
+cc0cf08b-e3d0-5e6e-89de-1edbe3a1769d,Christy Rapp,cc0cf08b-e3d0-5e6e-89de-1edbe3a1769d,Christy Rapp,,,,overrides+data,Christy Rapp,,,duplicate_person_canon
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,,,,overrides+data,Dan Ednie,,Dan Ednie -,duplicate_person_canon
+cc218add-76be-5f54-b15a-7c2aefa168e6,Florian Götze,,Florian Götze,,,,data_only,Florian Götze,,,duplicate_person_canon
+cc6e5b23-89ff-5194-ae25-e5efb1acce40,Rob Collins,cc6e5b23-89ff-5194-ae25-e5efb1acce40,Rob Collins,,,,overrides+data,Rob Collins,,,duplicate_person_canon
+ccf4accb-fd13-5d23-ad27-074c9f129385,Hannes Daniel,,Hannes Daniel,Hannes Daniel,verified,,overrides_only,Hannes Daniel,,,duplicate_person_canon
+cddcd65a-e539-5968-8090-68bede4e4e47,Jan Zimmerman,,Jan Zimmerman,Jan Zimmerman,verified,,overrides_only,Jan Zimmerman,,Jan Zimmermann,duplicate_person_canon
+ce09f810-ac43-5992-b494-3b10f04c4614,Tuomas Riisalo,,Tuomas Riisalo (Finland),,,,data_only,Tuomas Riisalo,strip_parens_punct,,duplicate_person_canon
+ce36ad7d-05ea-5a90-b194-e8683a75d97c,Jere Vainikka,ce36ad7d-05ea-5a90-b194-e8683a75d97c,Jere Vainikka,,,,overrides+data,Jere Vainikka,,,duplicate_person_canon
+cee58a07-5f1a-5bbc-8bc8-0a433a9cd4f2,Hristo Georgiev,,Hristo Georgiev,,,,data_only,Hristo Georgiev,,,duplicate_person_canon
+cf13a16f-8a7a-5507-b4b8-8d2a72c61baa,Wichita Ks,cf13a16f-8a7a-5507-b4b8-8d2a72c61baa,Wichita Ks,,,,overrides+data,Wichita Ks,,,duplicate_person_canon
+cf27b6c7-22b1-5eb9-a2e0-3ba8e20a79bf,Evan Gatesman,,Evan Gatesman,,,,data_only,Evan Gatesman,,,duplicate_person_canon
+cfe791ea-8b10-5d08-8cb4-2ee8eb1b1ce5,Pablo Wey,cfe791ea-8b10-5d08-8cb4-2ee8eb1b1ce5,Pablo Wey,,,,overrides+data,Pablo Wey,,,duplicate_person_canon
+d02ca394-5078-5f9a-bd5a-26a08e3d153d,Justin Dale,,Justin Dale,,,,data_only,Justin Dale,,,duplicate_person_canon
+d0fd4b0a-a59e-525d-a918-eefb16c70e80,Martin Graton,d0fd4b0a-a59e-525d-a918-eefb16c70e80,Martin Graton,,,,overrides+data,Martin Graton,,Martin Gratan,duplicate_person_canon
+d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,,,,overrides+data,Ken Somolinos,,,duplicate_person_canon
+d1afbdbf-5b4a-5ccf-bc8a-d5bea2c4ada2,Patrick Weinberg,d1afbdbf-5b4a-5ccf-bc8a-d5bea2c4ada2,Patrick Weinberg,,,,overrides+data,Patrick Weinberg,,,duplicate_person_canon
+d1dd55ec-1917-5283-9eb5-47288c90cf67,Lisa Uebele,,Lisa Uebele,,,,data_only,Lisa Uebele,,,duplicate_person_canon
+d20a835e-3df2-5caa-a6e8-2cc1effb5d4b,Andreas Wolff,,Andreas Wolff,,,,data_only,Andreas Wolff,,,duplicate_person_canon
+d25f994e-0337-5fc5-923d-8f1c88d4a44d,Flurin Bischoff,d25f994e-0337-5fc5-923d-8f1c88d4a44d,Flurin Bischoff,,,,overrides+data,Flurin Bischoff,,,duplicate_person_canon
+d2da3e08-0ffd-5554-b5aa-edee14972150,Heike Koller,,Heike Koller,Heike Koller,verified,,overrides_only,Heike Koller,,,duplicate_person_canon
+d3721e3e-5868-5aa0-b0ac-ad62cec21842,Ryan Morris,d3721e3e-5868-5aa0-b0ac-ad62cec21842,Ryan Morris,,,,overrides+data,Ryan Morris,,,duplicate_person_canon
+d38d6a95-920f-5c38-86a9-1c291109c12c,David Castillo,d38d6a95-920f-5c38-86a9-1c291109c12c,David Castillo,,,,overrides+data,David Castillo,,David Casillo Tibocha | David Castillo ? | David Castillo Tibocha,duplicate_person_canon
+d3a61e96-bc5b-5f73-833e-21fc117c1fd5,Toni Pääkkönen,,Toni Pääkkönen (Finland),,,,data_only,Toni Pääkkönen,strip_parens_punct,,duplicate_person_canon
+d4114f42-4353-5df7-bc61-e70c3ef28c67,Arek Hutnik,,Arek Hutnik (Poland),,,,data_only,Arek Hutnik,strip_parens_punct,,duplicate_person_canon
+d46071b1-ddbf-50f2-a9e5-a08ad40014a2,Anne Busch,,Anne Busch,,,,data_only,Anne Busch,,,duplicate_person_canon
+d47ff105-1ef4-5474-8580-a2aa69d104ab,Natalia Fry,d47ff105-1ef4-5474-8580-a2aa69d104ab,Natalia Fry,,,,overrides+data,Natalia Fry,,,duplicate_person_canon
+d53a00fb-e086-58f3-a88e-348447192619,Tapio Karhunen,,Tapio Karhunen,,,,data_only,Tapio Karhunen,,,duplicate_person_canon
+d5ed0487-904c-5d5b-b324-655bb3f4886a,Cassandra Taylor,,Cassandra Taylor,Cassandra Taylor,verified,,overrides_only,Cassandra Taylor,,,duplicate_person_canon
+d60e365c-7575-573e-bba7-207e2f6a54ba,Pete Nawara,,Pete Nawara,,,,data_only,Pete Nawara,,,duplicate_person_canon
+d61d44a8-0960-5d3c-a83e-ed08dd4bc988,Pawel Nowak,,Pawel Nowak (Poland),,,,data_only,Pawel Nowak,strip_parens_punct,,duplicate_person_canon
+d64e7a8d-5caf-556c-909b-6c6dc6e23353,Jean-Francois Lemieux,,Jean-Francois Lemieux,,,,data_only,Jean-Francois Lemieux,,,duplicate_person_canon
+d6698a89-7152-5d34-be04-8b382df640bb,Jim Hogan,d6698a89-7152-5d34-be04-8b382df640bb,Jim Hogan,,,,overrides+data,Jim Hogan,,,duplicate_person_canon
+d74877a6-2358-53db-a106-7a6af235cf1f,Rosen Rusev,,Rosen Rusev,,,,data_only,Rosen Rusev,,,duplicate_person_canon
+d777d4e1-1f25-53e5-bce2-92ad9fb33ec7,Gaylene Grossen,,Gaylene Grossen,,,,data_only,Gaylene Grossen,,,duplicate_person_canon
+d7a61318-ffcb-592b-9a2d-1388f18133f9,Jan Huleja,d7a61318-ffcb-592b-9a2d-1388f18133f9,Jan Huleja,,,,overrides+data,Jan Huleja,,,duplicate_person_canon
+d7db5e72-c569-5cbc-805a-599c44340fd7,Rados Turek,,Rados Turek (Polska),,,,data_only,Rados Turek,strip_parens_punct,,duplicate_person_canon
+d7ee4909-a76d-5639-aa82-ce4a8a7a53ba,Stephane Comeau,d7ee4909-a76d-5639-aa82-ce4a8a7a53ba,Stephane Comeau,,,,overrides+data,Stephane Comeau,,Stéphane Comeau,duplicate_person_canon
+d88c923c-2775-5283-bfec-1624d807ca47,Roman Belozerov,,Roman Belozerov,Roman Belozerov,verified,,overrides_only,Roman Belozerov,,Roman (RUS) Belozerov,duplicate_person_canon
+d8c141b1-5709-54cf-8713-7ffc9c5623cf,Jeremy Keller Auburn,,Jeremy Keller Auburn,,,,data_only,Jeremy Keller Auburn,,,duplicate_person_canon
+d9173a63-b38b-593a-b534-9b1a3291b6fe,Mickiewicz Hanna,d9173a63-b38b-593a-b534-9b1a3291b6fe,Mickiewicz Hanna,,,,overrides+data,Mickiewicz Hanna,,,duplicate_person_canon
+d9360ea7-5b71-5034-a990-b55cb6108ed7,Olli Lehtola,d9360ea7-5b71-5034-a990-b55cb6108ed7,Olli Lehtola,,,,overrides+data,Olli Lehtola,,,duplicate_person_canon
+d93d2a64-46d0-547f-9a9b-1000d67c9117,Gregor Morel,,Gregor Morel,,,,data_only,Gregor Morel,,,duplicate_person_canon
+d9406f89-c54a-5915-851f-58257801f801,Travis Strickland,d9406f89-c54a-5915-851f-58257801f801,Travis Strickland,,,,overrides+data,Travis Strickland,,,duplicate_person_canon
+d97bdb08-5caa-51bc-8f26-aca27accb727,Randy Pace,d97bdb08-5caa-51bc-8f26-aca27accb727,Randy Pace,,,,overrides+data,Randy Pace,,,duplicate_person_canon
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,,,,overrides+data,Michal Ostrowski,,,duplicate_person_canon
+dad697e8-36ed-598e-84b3-8105a2868685,Guillaume Degat,dad697e8-36ed-598e-84b3-8105a2868685,Guillaume Degat,,,,overrides+data,Guillaume Degat,,,duplicate_person_canon
+dadc0fec-8640-5977-aa46-c14056a53ae2,Jani Markkanen,,Jani Markkanen,,,,data_only,Jani Markkanen,,,duplicate_person_canon
+db8a553e-aee4-59e9-83d0-13e574c9ff10,Mikko Lepistö,,Mikko Lepistö (FI),,,,data_only,Mikko Lepistö,strip_parens_punct,,duplicate_person_canon
+dc323789-6d0e-5465-959d-43d056401113,David Bernard,,David Bernard,,,,data_only,David Bernard,,,duplicate_person_canon
+dc41183a-5f5b-5ccd-a12e-a54cad4b9d2c,David Clavens,,David Clavens,,,,data_only,David Clavens,,,duplicate_person_canon
+dc90abbb-7f4e-5a16-abce-d7aebb91d3b2,Curtis Taylor,,Curtis Taylor,,,,data_only,Curtis Taylor,,,duplicate_person_canon
+dcd329d4-d6e7-5ce3-83bd-1333d64cac19,Ken Somolinos,,Ken Somolinos,,,,data_only,Ken Somolinos,,,duplicate_person_canon
+dcd4f256-409a-5afe-b320-98c10b762aec,Lukáš Blažek,dcd4f256-409a-5afe-b320-98c10b762aec,Lukáš Blažek,,,,overrides+data,Lukáš Blažek,,,duplicate_person_canon
+dcfbd70d-6f66-509c-bff0-6184e0f5a6c3,Curtis Taylor,,Curtis Taylor,Curtis Taylor Houston,verified,,overrides_only,Curtis Taylor,,Curtis Taylor Houston,duplicate_person_canon
+dd033603-4714-5162-8de9-39f56f77e9e6,Katharina Probst,dd033603-4714-5162-8de9-39f56f77e9e6,Katharina Probst,,,,overrides+data,Katharina Probst,,,duplicate_person_canon
+dd375238-677e-5505-988f-91195c80fec9,Felix Zenger,,Felix Zenger (Pro 32 sand),,,,data_only,Felix Zenger,strip_parens_punct,,duplicate_person_canon
+ddb5eb21-8727-57ae-a641-59b249639143,Álvaro García,,Álvaro García,,,,data_only,Álvaro García,,,duplicate_person_canon
+ddea539c-7117-54c1-94f4-ae804f5fc6eb,T.J. Boutorwick,,T.J. Boutorwick,T.J. Boutorwick,verified,,overrides_only,T.J. Boutorwick,,TJ Boutorwick,duplicate_person_canon
+ddffefad-c620-55ab-b1bc-ca01939671c6,Matti Pohjola,ddffefad-c620-55ab-b1bc-ca01939671c6,Matti Pohjola,,,,overrides+data,Matti Pohjola,,Matti Pohjol | Matti Pohjola ? | Matti Pohola,duplicate_person_canon
+deefac3b-8a4f-5924-b17c-aeb4f2c5e86e,Curtis Taylor,,Curtis Taylor,Curtis Taylor,verified,,overrides_only,Curtis Taylor,,,duplicate_person_canon
+df263262-ba63-5e6d-a788-e4bec376282e,Mike Voightmann,,Mike Voightmann,,,,data_only,Mike Voightmann,,,duplicate_person_canon
+df508427-2928-51db-8d89-58f46f6cd362,Jesse Ross,,Jesse Ross (USA),,,,data_only,Jesse Ross,strip_parens_punct,,duplicate_person_canon
+df81883b-2bb7-5a74-b7bf-c0aac5917ba8,Sebastien Gomez,,Sebastien Gomez,,,,data_only,Sebastien Gomez,,,duplicate_person_canon
+dfa44cc9-a786-5f71-9660-ea1e59ebb9ca,Eric Wulff,,Eric Wulff,,,,data_only,Eric Wulff,,,duplicate_person_canon
+dfd9c592-0f50-582b-8e8c-fcb60d9c2bb8,Tuukka Antikainen,dfd9c592-0f50-582b-8e8c-fcb60d9c2bb8,Tuukka Antikainen,,,,overrides+data,Tuukka Antikainen,,Tuukka Antikainen ?,duplicate_person_canon
+e023aa06-ace7-5617-8145-aaca829f4c54,Helena Schlichting,e023aa06-ace7-5617-8145-aaca829f4c54,Helena Schlichting,,,,overrides+data,Helena Schlichting,,,duplicate_person_canon
+e05232ed-8421-52e3-92db-8e2c4ba35804,Sérifo Desjardins,,Sérifo Desjardins,,,,data_only,Sérifo Desjardins,,,duplicate_person_canon
+e05df5f0-2746-5ce8-9d07-94c066123302,Mikkel Frederiksen,,Mikkel Frederiksen,,,,data_only,Mikkel Frederiksen,,,duplicate_person_canon
+e0d1d6f2-45be-5cc5-a815-1e882552e95f,Egoitz Campo,e0d1d6f2-45be-5cc5-a815-1e882552e95f,Egoitz Campo,,,,overrides+data,Egoitz Campo,,,duplicate_person_canon
+e0da0c30-ced4-5a68-8734-a59370f01f1c,Matt Scarborough,e0da0c30-ced4-5a68-8734-a59370f01f1c,Matt Scarborough,,,,overrides+data,Matt Scarborough,,,duplicate_person_canon
+e0f19cce-5d6a-5f62-847a-bd05ef24b11b,Jeremy Keller Auburn,e0f19cce-5d6a-5f62-847a-bd05ef24b11b,Jeremy Keller Auburn,,,,overrides+data,Jeremy Keller Auburn,,Jeremy Keller | Jeremy Keller -,duplicate_person_canon
+e0ff5af1-8b97-5b29-af49-1792c3746c0f,Iisak Liukko,e0ff5af1-8b97-5b29-af49-1792c3746c0f,Iisak Liukko,,,,overrides+data,Iisak Liukko,,,duplicate_person_canon
+e127d87a-07d1-5dfb-a359-499f678ce286,Daniel Botkin,e127d87a-07d1-5dfb-a359-499f678ce286,Daniel Botkin,,,,overrides+data,Daniel Botkin,,,duplicate_person_canon
+e159d0c0-115b-590f-a073-22d122b291e8,Mike McCarthy,,Mike McCarthy,,,,data_only,Mike McCarthy,,,duplicate_person_canon
+e16aec2e-47a0-5f26-8175-e4b1006c7f54,Renaud Fanoni,,Renaud Fanoni,,,,data_only,Renaud Fanoni,,,duplicate_person_canon
+e18b362e-18a3-5f56-a542-aaacc4da7d0d,Tom Jenkins,,Tom Jenkins,,,,data_only,Tom Jenkins,,,duplicate_person_canon
+e269647d-af97-5740-aa94-792c5ccb1d1f,Alan Gonzalez,e269647d-af97-5740-aa94-792c5ccb1d1f,Alan Gonzalez,,,,overrides+data,Alan Gonzalez,,Alan Gonzalez Gomez | Alan González | Alan Gonz�lez,duplicate_person_canon
+e2918571-8f01-52ff-a4dd-375586168aca,Scott McCarthy,e2918571-8f01-52ff-a4dd-375586168aca,Scott McCarthy,,,,overrides+data,Scott McCarthy,,,duplicate_person_canon
+e2ad332e-4635-5c13-9bc3-9cd157eaee8d,Stefan Nold,e2ad332e-4635-5c13-9bc3-9cd157eaee8d,Stefan Nold,,,,overrides+data,Stefan Nold,,,duplicate_person_canon
+e333a5e6-3d76-513c-a9a4-f34c09c31b96,Jody Welch,e333a5e6-3d76-513c-a9a4-f34c09c31b96,Jody Welch,,,,overrides+data,Jody Welch,,,duplicate_person_canon
+e3363801-39ef-5401-a6ee-02c674f47a55,Jukka Peltola,,Jukka Peltola,,,,data_only,Jukka Peltola,,,duplicate_person_canon
+e4a3a8a3-563f-5d16-9db9-61ffd76898eb,Jere Linnanen,,Jere Linnanen,,,,data_only,Jere Linnanen,,,duplicate_person_canon
+e4c09b10-7eac-5341-8a8a-e789390c0683,Jeremy O'Wheel,,Jeremy O'Wheel,,,,data_only,Jeremy O'Wheel,,,duplicate_person_canon
+e4cfa9d3-8784-557f-9fa4-ccf0fb04e12d,Paweł Frączek,,Paweł Frączek,Paweł Fr±czek,verified,redirected:d3993e1c-14be-5e6c-9706-af47a197b663->e4cfa9d3,overrides_only,Paweł Frączek,,Paweł Fr±czek,duplicate_person_canon
+e500b711-3e34-5191-b5c4-1b503d4710ee,Ariel Santetesteban,,Ariel Santetesteban,Ariel Santesteban,verified,,overrides_only,Ariel Santetesteban,,Ariel Santesteban | Ariel Santesteban -,duplicate_person_canon
+e5b5852c-6792-5d2b-a8e6-b754be9ae2bd,Samuel Cloutier,e5b5852c-6792-5d2b-a8e6-b754be9ae2bd,Samuel Cloutier,,,,overrides+data,Samuel Cloutier,,,duplicate_person_canon
+e5c93036-87db-52c4-9f94-ea3e80831f62,Alan Gonzalez,,Alan Gonzalez,,,,data_only,Alan Gonzalez,,,duplicate_person_canon
+e622a3c5-5cb8-5388-8428-45f726d65aea,Jani Markkanen,,Jani Markkanen,Jani Markkanen ?,verified,,overrides_only,Jani Markkanen,,Jani Markkanen ?,duplicate_person_canon
+e741bbb4-1245-516b-b6e6-e8c909d6e93c,Franck Remy,,Franck Remy,Franck Remy,verified,,overrides_only,Franck Remy,,,duplicate_person_canon
+e80b7e7f-5c7b-5e1e-8028-030cfd1a26cf,Tomasz Ostrowski,,Tomasz Ostrowski (Poland),,,,data_only,Tomasz Ostrowski,strip_parens_punct,,duplicate_person_canon
+e85d91be-8374-5ff0-bcdd-90536afb146a,Olivier Tronchon,,Olivier Tronchon,,,,data_only,Olivier Tronchon,,,duplicate_person_canon
+e868301e-775e-5c23-b358-bff723b98db1,Pawel Cisek,,Pawel Cisek (Poland),,,,data_only,Pawel Cisek,strip_parens_punct,,duplicate_person_canon
+e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,,,,overrides+data,Eric Wulff,,Eric Wulff* | Eric Wulff-,duplicate_person_canon
+e933e703-67f8-5341-8850-610e668ea3f9,Beth Grassfield,,Beth Grassfield,,,,data_only,Beth Grassfield,,,duplicate_person_canon
+e96d4d25-1446-570e-bfcc-277d318607e1,Thygesen Lise,e96d4d25-1446-570e-bfcc-277d318607e1,Thygesen Lise,,,,overrides+data,Thygesen Lise,,,duplicate_person_canon
+e96e9226-8f0e-5240-9d11-9ec88240891b,Brendan Erskine,,Brendan Erskine,,,,data_only,Brendan Erskine,,,duplicate_person_canon
+e9842fbc-f693-5b98-b87b-4fd7ef76e03c,Patrick Schrickel,,Patrick Schrickel,,,,data_only,Patrick Schrickel,,,duplicate_person_canon
+e9b3e355-8598-5f8e-8062-6c897c7143f1,Caroline Birch,,Caroline Birch (Australia),,,,data_only,Caroline Birch,strip_parens_punct,,duplicate_person_canon
+eafdffa6-05a1-5c3a-9618-380d4929c04a,Jana Riisalo,,Jana Riisalo (Czech Republic),,,,data_only,Jana Riisalo,strip_parens_punct,,duplicate_person_canon
+eb267746-2f81-59a0-ab7d-7607968653a8,Jana Čačáková,,Jana Čačáková,Jana ?a??áková,verified,,overrides_only,Jana Čačáková,,Jana ?a??áková,duplicate_person_canon
+ebad1497-e45b-538a-a18a-0a3cda5d730c,Lisa Uebele,ebad1497-e45b-538a-a18a-0a3cda5d730c,Lisa Uebele,,,,overrides+data,Lisa Uebele,,,duplicate_person_canon
+ebe02541-a6f6-566c-bdb6-35a42bac08bc,Arkadiusz Dudzinski,,Arkadiusz Dudzinski (Poland),,,,data_only,Arkadiusz Dudzinski,strip_parens_punct,,duplicate_person_canon
+ebee3fe5-20af-5a2e-806e-2bf383dbcd16,Marcin Bujko,,Marcin Bujko (Poland),,,,data_only,Marcin Bujko,strip_parens_punct,,duplicate_person_canon
+ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,,,,overrides+data,Grischa Tellenbach,,Grischa (FRA) Tellenbach | Grischa Tellebach | Grischa Tellenbach ????,duplicate_person_canon
+ec1ff689-9404-5db4-8091-b44d9af0c126,Beth Whitehouse,ec1ff689-9404-5db4-8091-b44d9af0c126,Beth Whitehouse,,,,overrides+data,Beth Whitehouse,,,duplicate_person_canon
+ec2f3904-394e-59f1-bb57-ead24650aa15,Mikko Tapaninaho,,Mikko Tapaninaho (Finland),,,,data_only,Mikko Tapaninaho,strip_parens_punct,,duplicate_person_canon
+ec457933-1536-595e-94bd-77f8b3750a12,Maël LeGall,,Maël LeGall,,,,data_only,Maël LeGall,,,duplicate_person_canon
+ec81489c-50e5-5647-8793-f1edac6291d7,De Zeeuw,,De Zeeuw,,,,data_only,De Zeeuw,,,duplicate_person_canon
+ec868a52-338f-5793-b6cb-ca895546969e,Andy Ronald,,Andy Ronald,,,,data_only,Andy Ronald,,,duplicate_person_canon
+ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,,,,overrides+data,Mathieu Gauthier,,,duplicate_person_canon
+ecf4cab4-a4f2-549d-85fb-5d8528db3948,Tammo Rockel,ecf4cab4-a4f2-549d-85fb-5d8528db3948,Tammo Rockel,,,,overrides+data,Tammo Rockel,,,duplicate_person_canon
+ed0fa218-2a4b-5697-a596-9ee141732268,Kerry Chun,ed0fa218-2a4b-5697-a596-9ee141732268,Kerry Chun,,,,overrides+data,Kerry Chun,,,duplicate_person_canon
+ed153ef0-cdfd-544a-aea0-91bbe91009c3,Joel Dion,,Joel Dion,,,,data_only,Joel Dion,,,duplicate_person_canon
+ed50255d-dc25-559d-aeda-973bba389eb8,Cory Current,,Cory Current,,,,data_only,Cory Current,,,duplicate_person_canon
+ed638858-3da2-5302-8a94-6eef9dd674a1,Amelie Jolicoeur,ed638858-3da2-5302-8a94-6eef9dd674a1,Amelie Jolicoeur,,,,overrides+data,Amelie Jolicoeur,,,duplicate_person_canon
+ed89d93e-e79d-5a17-abe4-24fc6538bbac,Astrid Archila,ed89d93e-e79d-5a17-abe4-24fc6538bbac,Astrid Archila,,,,overrides+data,Astrid Archila,,,duplicate_person_canon
+eda693e2-258b-595c-b7d1-af67657564ce,Sage Woodmansee,eda693e2-258b-595c-b7d1-af67657564ce,Sage Woodmansee,,,,overrides+data,Sage Woodmansee,,Sage Woodmansee#,duplicate_person_canon
+edfefe12-0f85-58c1-b3c8-c35975e68e5b,Tommy Whitworth,edfefe12-0f85-58c1-b3c8-c35975e68e5b,Tommy Whitworth,,,,overrides+data,Tommy Whitworth,,,duplicate_person_canon
+ee0ad89d-1a7e-5d68-a179-cd9d725d24a3,Theodore Fritsch,,Theodore Fritsch (USA),,,,data_only,Theodore Fritsch,strip_parens_punct,,duplicate_person_canon
+ee123d7b-3496-5a63-8e7f-16fac1dced1b,Etienne Ruggeri,,Etienne Ruggeri,,,,data_only,Etienne Ruggeri,,,duplicate_person_canon
+ee1aedfe-c34a-5e70-abf9-44650e1b1859,Patrick Schrickel,ee1aedfe-c34a-5e70-abf9-44650e1b1859,Patrick Schrickel,,,,overrides+data,Patrick Schrickel,,,duplicate_person_canon
+ee2baf5d-9053-51e8-88a1-39697df4da51,Sérifo Desjardins,ee2baf5d-9053-51e8-88a1-39697df4da51,Sérifo Desjardins,,,,overrides+data,Sérifo Desjardins,,,duplicate_person_canon
+ee2e7bf3-d545-558d-8d2f-4afee32bee9f,Andreas Wolff,,"Andreas Wolff (Frankfurt, D)",,,,data_only,Andreas Wolff,strip_parens_punct,,duplicate_person_canon
+ee569024-9b98-5ae0-8f39-8f0a97d99dfa,Lasse Salmenhaara,ee569024-9b98-5ae0-8f39-8f0a97d99dfa,Lasse Salmenhaara,,,,overrides+data,Lasse Salmenhaara,,Lasse Salmenhara,duplicate_person_canon
+ee7c74b8-07be-57ee-9593-f0286bd2c84a,Jake Dodd,,Jake Dodd,,,,data_only,Jake Dodd,,,duplicate_person_canon
+eea1063c-fcc1-5849-9e35-592bdf13fd7b,Aaron De Glanville,eea1063c-fcc1-5849-9e35-592bdf13fd7b,Aaron De Glanville,,,,overrides+data,Aaron De Glanville,,,duplicate_person_canon
+ef8ba08d-1bb8-5a98-be62-5424ca456e8c,Björn Stenzel,,Björn Stenzel,,,,data_only,Björn Stenzel,,,duplicate_person_canon
+f003e168-55f4-5798-a35e-f2799a3637c6,Tuan Vu,,Tuan Vu,,,,data_only,Tuan Vu,,,duplicate_person_canon
+f04e4ff3-b1af-5ca5-a49a-a504442d190b,Guillaume Degat,,Guillaume Degat,,,,data_only,Guillaume Degat,,,duplicate_person_canon
+f10ba803-21c5-54c5-a12f-6ff31f2542df,Bjarne Everberg,,Bjarne Everberg,,,,data_only,Bjarne Everberg,,,duplicate_person_canon
+f1268e70-f97d-5eef-acab-060aa3f594d8,Dexter Struž,,Dexter Struž,,,,data_only,Dexter Struž,,,duplicate_person_canon
+f1f49edd-da47-536a-b759-de441795fc2f,Cory Current,f1f49edd-da47-536a-b759-de441795fc2f,Cory Current,,,,overrides+data,Cory Current,,,duplicate_person_canon
+f1fe9561-90bd-588f-8b0d-0e62cec1cc5c,Jyri Ilama,,Jyri Ilama,,,,data_only,Jyri Ilama,,,duplicate_person_canon
+f25b7c08-5511-55a3-859d-bc6e4a632dd5,Byrin Wylie,,Byrin Wylie,,,,data_only,Byrin Wylie,,,duplicate_person_canon
+f267e72f-e1d7-58f8-91a1-88a765030ad8,Kevin Hogan,,Kevin Hogan,,,,data_only,Kevin Hogan,,,duplicate_person_canon
+f26ffe1a-0eef-5b0e-86cc-0c7aa2e0e7db,Hugues Oli Veillette,,Hugues Oli Veillette,,,,data_only,Hugues Oli Veillette,,,duplicate_person_canon
+f2ce846c-fa31-52e4-a88e-d8f7bccbe92e,Maude Landreville,f2ce846c-fa31-52e4-a88e-d8f7bccbe92e,Maude Landreville,,,,overrides+data,Maude Landreville,,,duplicate_person_canon
+f2df2e46-9db7-5cfd-b95f-d525c99cf92c,Sébastien Verdy,f2df2e46-9db7-5cfd-b95f-d525c99cf92c,Sébastien Verdy,,,,overrides+data,Sébastien Verdy,,,duplicate_person_canon
+f34a79b5-4bc2-5e40-8e60-f502696aa2c2,Paweł Ścierski,,Paweł Ścierski,,,,data_only,Paweł Ścierski,,,duplicate_person_canon
+f3634b80-4e96-5659-9988-5a01de0c9d22,Pierre Bardeau,,Pierre Bardeau,,,,data_only,Pierre Bardeau,,,duplicate_person_canon
+f372a324-611e-5b28-aa8e-3f045c36d2cd,Daniel Boyle,,Daniel Boyle (Australia),,,,data_only,Daniel Boyle,strip_parens_punct,,duplicate_person_canon
+f3a1b132-58a5-5743-9590-e2ad379146f3,Curtis Taylor,f3a1b132-58a5-5743-9590-e2ad379146f3,Curtis Taylor,,,,overrides+data,Curtis Taylor,,,duplicate_person_canon
+f3df946a-a5b1-59ed-a5ec-91518589c5f7,Florian Goetze,,Florian Goetze,,,,data_only,Florian Goetze,,,duplicate_person_canon
+f42fe37d-9e2b-5ebb-aa0b-1d6752bc104e,Patrick Asswad,,Patrick Asswad,,,,data_only,Patrick Asswad,,,duplicate_person_canon
+f4d49a51-ce30-5b65-9919-ee3c557207b0,Frank Diaz,,Frank Diaz,,,,data_only,Frank Diaz,,,duplicate_person_canon
+f52e0fe8-4eff-5532-9af4-14124f1e92ee,Matthias Lino Schmidt,f52e0fe8-4eff-5532-9af4-14124f1e92ee,Matthias Lino Schmidt,,,,overrides+data,Matthias Lino Schmidt,,,duplicate_person_canon
+f56368e3-d47f-5702-a258-a3c96178564e,Helena Schlichting,,Helena Schlichting,,,,data_only,Helena Schlichting,,,duplicate_person_canon
+f569a985-6548-5b3d-9322-5e2c764bcc11,Robert Lavigne,f569a985-6548-5b3d-9322-5e2c764bcc11,Robert Lavigne,,,,overrides+data,Robert Lavigne,,,duplicate_person_canon
+f5aaba26-d03b-5e76-88f6-2d80d78b2793,De Zeeuw,,De Zeeuw,De Zeeuw,verified,,overrides_only,De Zeeuw,,,duplicate_person_canon
+f663d921-12d9-5412-a383-eef52f7a8ad1,Stefan Siegert,,Stefan Siegert,,,,data_only,Stefan Siegert,,,duplicate_person_canon
+f6e8bbc6-d43b-5e8d-a0b7-1b426b5e7dee,Henning Goetzke,f6e8bbc6-d43b-5e8d-a0b7-1b426b5e7dee,Henning Goetzke,,,,overrides+data,Henning Goetzke,,,duplicate_person_canon
+f7205d80-d739-51c3-906e-ec6d716c8fb7,Mikey Etlinger,f7205d80-d739-51c3-906e-ec6d716c8fb7,Mikey Etlinger,,,,overrides+data,Mikey Etlinger,,,duplicate_person_canon
+f750870f-de5e-5d52-88fd-86c7e0e0f477,Stéphane Tailleur,,Stéphane Tailleur,,,,data_only,Stéphane Tailleur,,,duplicate_person_canon
+f80afba0-f050-5e6b-aa60-f1ecf1a696f4,DJ Dourney,f80afba0-f050-5e6b-aa60-f1ecf1a696f4,DJ Dourney,,,,overrides+data,DJ Dourney,,,duplicate_person_canon
+f81c53e1-a44e-5a20-894d-1cfeb2ed2b7a,Emilien Groussin,f81c53e1-a44e-5a20-894d-1cfeb2ed2b7a,Emilien Groussin,,,,overrides+data,Emilien Groussin,,Emilient Groussin,duplicate_person_canon
+f83860f2-510f-52b2-9ec8-d3cfa2dfd271,Wiktor Debski,,Wiktor Debski (Poland),,,,data_only,Wiktor Debski,strip_parens_punct,,duplicate_person_canon
+f91a82c7-feda-5f3b-b4a9-ca0932dd1bcd,Cassandra Taylor,,Cassandra Taylor,,,,data_only,Cassandra Taylor,,,duplicate_person_canon
+f91f76bc-1b7b-5965-a815-3d18ddc87759,Jana Riisalo,f91f76bc-1b7b-5965-a815-3d18ddc87759,Jana Riisalo,,,,overrides+data,Jana Riisalo,,,duplicate_person_canon
+f995558d-69d9-557a-892a-0e695d85250b,Lisa McDaniel,f995558d-69d9-557a-892a-0e695d85250b,Lisa McDaniel,,,,overrides+data,Lisa McDaniel,,Lisa MacDaniel | Lisa Mc Daniel,duplicate_person_canon
+f99d10d4-9e88-58c8-8d3e-eee8156db3c0,Dominic Soulard,,Dominic Soulard,,,,data_only,Dominic Soulard,,,duplicate_person_canon
+f9dea2e0-bf01-5c7f-a7f9-d648e59029e2,Álvaro García,f9dea2e0-bf01-5c7f-a7f9-d648e59029e2,Álvaro García,,,,overrides+data,Álvaro García,,,duplicate_person_canon
+fa10a575-9e6a-57a4-93dc-e9d8c2bc0ccd,Pavel Motorov,,Pavel Motorov (Russia),,,,data_only,Pavel Motorov,strip_parens_punct,,duplicate_person_canon
+fa832884-a352-5334-93c8-d92c8af0e2dc,Daniel Schuldes,fa832884-a352-5334-93c8-d92c8af0e2dc,Daniel Schuldes,,,,overrides+data,Daniel Schuldes,,,duplicate_person_canon
+fa9be285-7a85-5ffa-a4dd-5561ae4c5c62,Benjamin Kanske,fa9be285-7a85-5ffa-a4dd-5561ae4c5c62,Benjamin Kanske,,,,overrides+data,Benjamin Kanske,,,duplicate_person_canon
+fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,,,,overrides+data,Steve Femmel,,,duplicate_person_canon
+fbf52ca9-ba84-50bc-bce9-0244718c18e7,Lino Landau,fbf52ca9-ba84-50bc-bce9-0244718c18e7,Lino Landau,,,,overrides+data,Lino Landau,,,duplicate_person_canon
+fc3f381a-650e-5582-910d-6a83702e9dae,Jere Linnanen,fc3f381a-650e-5582-910d-6a83702e9dae,Jere Linnanen,,,,overrides+data,Jere Linnanen,,,duplicate_person_canon
+fcfe59c3-8579-59af-b116-0fb5b5bf92a5,Alex Dworetzky,,Alex Dworetzky,,,,data_only,Alex Dworetzky,,,duplicate_person_canon
+fd6f4c9f-d5ff-5e56-b0bd-1853db9284b3,Felix Zenger,,Felix Zenger (intermediate),,,,data_only,Felix Zenger,strip_parens_punct,,duplicate_person_canon
+fde6dd86-e7ec-5e64-9365-1060998d4c40,Alexis Deschenes,,Alexis Deschenes,,,,data_only,Alexis Deschenes,,,duplicate_person_canon
+fe600dcf-025a-54ac-a7da-f20f4101ede8,Russell Arseneault,fe600dcf-025a-54ac-a7da-f20f4101ede8,Russell Arseneault,,,,overrides+data,Russell Arseneault,,Russ Arsenault | Russ Arseneault | Russel Arsenault | Russell Arsenault,duplicate_person_canon
+fea99a91-ae13-5cb1-b87f-3c352783dc2e,Genevieve Bousquet,fea99a91-ae13-5cb1-b87f-3c352783dc2e,Genevieve Bousquet,,,,overrides+data,Genevieve Bousquet,,Geneviève Bousquet | Genvieve Bousquet,duplicate_person_canon
+fec49a21-d1ff-530b-b1de-22a57992351d,Mikey Etlinger,,Mikey Etlinger,,,,data_only,Mikey Etlinger,,,duplicate_person_canon
+fee9703e-1158-5e1e-a49f-ddb449c4084d,Matyáš Mach,,Matyáš Mach,Matyá? Mach,verified,,overrides_only,Matyáš Mach,,Matyá? Mach,duplicate_person_canon
+ff11acf4-ec1e-5574-b33d-febf3bbd0bf6,Scott Ellenberger,ff11acf4-ec1e-5574-b33d-febf3bbd0bf6,Scott Ellenberger,,,,overrides+data,Scott Ellenberger,,,duplicate_person_canon
+ff8ac118-87e8-50be-a863-f56f657e2021,Daniel Botkin,,Daniel Botkin,,,,data_only,Daniel Botkin,,,duplicate_person_canon

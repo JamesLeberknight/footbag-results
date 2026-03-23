@@ -6,6 +6,31 @@ This project follows a structured, versioned release approach for dataset output
 
 ---
 
+## [v2.15.0] — Post-1997 Dataset Finalized
+
+### State
+
+- **Identity lock:** Persons_Truth v47 (3,468 persons), Placements_ByPerson v85 (27,980 rows)
+- **Events:** 814 published events (1997–present)
+- **Canonical CSVs:** events.csv (814), event_disciplines.csv (4,117), event_results.csv (28,034), event_result_participants.csv (35,933), persons.csv (3,468)
+- **QC gate:** PASS — 0 hard fails
+
+### Included
+
+- Post-1997 mirror-era dataset finalized and published
+- Community spreadsheet (`Footbag_Results_Community_FINAL_v13.xlsx`)
+- Canonical CSV dataset (`out/canonical/`)
+- HTML event comparison viewer for event-level validation
+- Full identity resolution via immutable lock (PT v47 / PBP v85)
+- 9 quarantined events excluded from canonical outputs (documented)
+
+### Notes
+
+- Pre-1997 historical recovery is a separate ongoing effort, not included in this release
+- Mirror source (`mirror.tar.gz`) distributed as a GitHub Release asset
+
+---
+
 ## [post1997-v1.0] — Initial Stable Release
 
 ### Added

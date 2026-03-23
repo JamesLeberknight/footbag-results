@@ -1,0 +1,128 @@
+event_id,source_file,field_name,current_value,corrected_value,corruption_type,description,blocker,fix_applied_where
+1001942070,Placements_Flat,division_canon,Women?S Singles Net,Women's Singles Net,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1052775366,Placements_Flat,division_canon,Women?S Freestyle,Women's Freestyle,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1109356644,Placements_Flat,division_canon,Master?S Singles Net,Master's Singles Net,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1293877917,Placements_Flat,division_canon,Women?S Circle Contest,Women's Circle Contest,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1293877917,Placements_Flat,division_canon,Women?S Shred 30,Women's Shred 30,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1293877917,Placements_Flat,division_canon,Women?S Singles Routines,Women's Singles Routines,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1294262550,Placements_Flat,division_canon,Women?S Doubles Net,Women's Doubles Net,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1298627369,Placements_Flat,team_display_name,Robin P¸chel / Tammo Rockel,Robin Pžchel / Tammo Rockel,ISO88592,ISO-8859-2 byte misread as Latin-1,YES,04B presentation
+1439332196,Placements_Flat,team_display_name,Rafał Kaleta / Kinga Gwó¼d¼,Rafał Kaleta / Kinga Gwóźdź,ISO88592,ISO-8859-2 byte misread as Latin-1,YES,04B presentation
+1467142686,Placements_Flat,team_display_name,Paweł ¦cierski / Szymon Kałwak,Paweł Ścierski / Szymon Kałwak,ISO88592,ISO-8859-2 byte misread as Latin-1,YES,04B presentation
+877061793,Placements_Flat,team_display_name,Chris ÏGatorÓ Routh / David Bernard,"Chris ""Gator"" Routh / David Bernard",MOJI_QUOTE,ÏxyzÓ mojibake around nickname,YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Jake Leong / Andr� Lemaire,Jake Leong / Andr Lemaire,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Martin C�t� / Martin Graton,Martin Ct / Martin Graton,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Matti Pohjola / Oskari Forst�n,Matti Pohjola / Oskari Forstn,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Alexandre B�langer / Philippe Lessard,Alexandre Blanger / Philippe Lessard,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Genevi�ve Bousquet / Emmanuel Bouchard,Genevive Bousquet / Emmanuel Bouchard,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Maude Laudreville / Jean-Fran�ois Lemieux,Maude Laudreville / Jean-Franois Lemieux,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Lyne Arsenault / Alexandre B�langer,Lyne Arsenault / Alexandre Blanger,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Genevi�ve Bousquet / Maude Laudreville,Genevive Bousquet / Maude Laudreville,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Theodore Fritsch / Fran�ois Leh,Theodore Fritsch / Franois Leh,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1069929277,Placements_Flat,team_display_name,Christophe Spooner / Fran�ois Pelletier,Christophe Spooner / Franois Pelletier,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1102576153,Placements_Flat,team_display_name,Florian G�tze / Patrick Schrickel,Florian Gtze / Patrick Schrickel,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1102576153,Placements_Flat,team_display_name,Tuomas K�rki / Olli Savoilainen,Tuomas Krki / Olli Savoilainen,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1102576153,Placements_Flat,team_display_name,Thomas F�rster / Yassin Khateeb,Thomas Frster / Yassin Khateeb,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1102576153,Placements_Flat,team_display_name,T. Aeberli / J. B�hm,T. Aeberli / J. Bhm,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1102576153,Placements_Flat,team_display_name,Z�lli / Martikainen,Zlli / Martikainen,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1102576153,Placements_Flat,team_display_name,Pet�inen / Hoznour,Petinen / Hoznour,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1163784775,Placements_Flat,team_display_name,Gilles Demers / Fran�ois Pelletier,Gilles Demers / Franois Pelletier,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1183729267,Placements_Flat,team_display_name,Robin P�chel / Sven Depoilly,Robin Pchel / Sven Depoilly,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1183729267,Placements_Flat,team_display_name,Christopher Larndorfer / Klemenz L�ngauer,Christopher Larndorfer / Klemenz Lngauer,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1265745512,Placements_Flat,team_display_name,S�bastien Duchesne / Philippe Lessard,Sbastien Duchesne / Philippe Lessard,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1265745512,Placements_Flat,team_display_name,Carlos M�rquez / Oscar Loretto,Carlos Mrquez / Oscar Loretto,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1265745512,Placements_Flat,team_display_name,Justin Sexton / Olivier Berthiaume-Berg�,Justin Sexton / Olivier Berthiaume-Berg,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1265745512,Placements_Flat,team_display_name,Jean-Francois B�langer / Luka Weyler-Lavall�e,Jean-Francois Blanger / Luka Weyler-Lavalle,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1269266785,Placements_Flat,team_display_name,Robin P�chel / Steve Kuntze,Robin Pchel / Steve Kuntze,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Oskari Forst�n / Tuomas K�rki,Oskari Forstn / Tuomas Krki,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Fran�ois Pelletier / Benjamin Rochon,Franois Pelletier / Benjamin Rochon,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,S�bastien Duchesne / Antonio Fritsch,Sbastien Duchesne / Antonio Fritsch,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Carlos M�rquez / Tuan Vu,Carlos Mrquez / Tuan Vu,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Mouss Kabbal / S�bastien Maillet,Mouss Kabbal / Sbastien Maillet,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Alex Bartsch / Chris L�w,Alex Bartsch / Chris Lw,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Yves Mingard / Renato Z�lli,Yves Mingard / Renato Zlli,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Guillaume Degat / Robin P�chel,Guillaume Degat / Robin Pchel,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Sakarias Liukko / Petteri Pet�inen,Sakarias Liukko / Petteri Petinen,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Luke Legault / Genevi�ve Bousquet,Luke Legault / Genevive Bousquet,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Fran�ois Pelletier / Maude Laudreville,Franois Pelletier / Maude Laudreville,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Oskari Forst�n / Lisa McDaniel,Oskari Forstn / Lisa McDaniel,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Janne Uusitalo / Piia Tantarim�ki,Janne Uusitalo / Piia Tantarimki,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Ninni Liukko / Piia Tantarim�ki,Ninni Liukko / Piia Tantarimki,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877677,Placements_Flat,team_display_name,Tomas Tucek / Martin Sl�dek,Tomas Tucek / Martin Sldek,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Oskari Forst�n / Jani Sakari Markkanen,Oskari Forstn / Jani Sakari Markkanen,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Tuomas K�rki / Jukka Peltola,Tuomas Krki / Jukka Peltola,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Renato Z�lli / Yves Mingard,Renato Zlli / Yves Mingard,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Luka Weyler-Lavall�e / Carl-Antoine Boulay,Luka Weyler-Lavalle / Carl-Antoine Boulay,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Stephan Rauthenberg / Ulrike H�ssler,Stephan Rauthenberg / Ulrike Hssler,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Weyler-Lavall�e / Luka CA,Weyler-Lavalle / Luka CA,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Z�lli / Renato CH,Zlli / Renato CH,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Tailleur / St�phane CA,Tailleur / Stphane CA,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,P�chel / Robin DE,Pchel / Robin DE,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Fran�ois Depatie-Pelletier / Marilyn Demuy,Franois Depatie-Pelletier / Marilyn Demuy,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Kerstin Anhuth / Piia Tantarim�ki (Germany,Kerstin Anhuth / Piia Tantarimki (Germany,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Ivaneidy Zambrano Torres / Ulrike H��ler,Ivaneidy Zambrano Torres / Ulrike Hler,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,division_canon,Open Freestyle Rou�Tines,Open Freestyle Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,division_canon,Women's Freestyle Rou�Tines,Women's Freestyle Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,division_canon,Mixed Dou�Bles Rou�Tines,Mixed Doubles Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Mał�gorzata Dęb�ska / Wiktor Dębski,Małgorzata Dębska / Wiktor Dębski,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Mał�gorzata Olędzka / Tomas Ostrowski,Małgorzata Olędzka / Tomas Ostrowski,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,division_canon,Open Dou�Bles Rou�Tines,Open Doubles Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,team_display_name,Wiktor Dębski / Mał�gorzata Dęb�ska,Wiktor Dębski / Małgorzata Dębska,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,division_canon,Open Cir�Cle Con�Test,Open Circle Contest,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_Flat,division_canon,Women's Cir�Cle Con�Test,Women's Circle Contest,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1336988107,Placements_Flat,team_display_name,Kinga Gw�źdź / Rafal Kaleta,Kinga Gwźdź / Rafal Kaleta,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1376036018,Placements_Flat,team_display_name,Wojciech Jamski / Wiktor D�bski,Wojciech Jamski / Wiktor Dbski,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1376036018,Placements_Flat,team_display_name,Jakub Grabarczyk / Marcin Staro�,Jakub Grabarczyk / Marcin Staro,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1376036018,Placements_Flat,team_display_name,Micha� R�g / Micha Klimczak,Micha Rg / Micha Klimczak,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1376036018,Placements_Flat,team_display_name,Krzysztof Sob�tka / Filip W�jcik,Krzysztof Sobtka / Filip Wjcik,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1376036018,Placements_Flat,team_display_name,Pawe Nowak / Rados�aw Turek,Pawe Nowak / Radosaw Turek,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1376036018,Placements_Flat,team_display_name,Micha� R�g / Iwona Sitkowska,Micha Rg / Iwona Sitkowska,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1485863923,Placements_Flat,team_display_name,Wiktor D�bski / Wojtek Jamski,Wiktor Dbski / Wojtek Jamski,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1485863923,Placements_Flat,team_display_name,Damian Budzik / Marcin Staro�,Damian Budzik / Marcin Staro,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1485863923,Placements_Flat,team_display_name,Micha Klimczak / Micha� R�g,Micha Klimczak / Micha Rg,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1485863923,Placements_Flat,team_display_name,Maciej Samborowski / Gosia D�bska,Maciej Samborowski / Gosia Dbska,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1485863923,Placements_Flat,team_display_name,Maciej Pietrzycki / �ukasz Domin,Maciej Pietrzycki / ukasz Domin,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1518200935,Placements_Flat,team_display_name,Steve Kuntze / Robin P�chel,Steve Kuntze / Robin Pchel,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1519215398,Placements_Flat,team_display_name,Luka Weyler-Lavall�e / Sarah Femmel,Luka Weyler-Lavalle / Sarah Femmel,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Tuomas K�rki / Matti Pohjola,Tuomas Krki / Matti Pohjola,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Quentin Isackson / Fran�ois Pelletier,Quentin Isackson / Franois Pelletier,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Tammo Rockel / Luka Weyler-Lavall�e,Tammo Rockel / Luka Weyler-Lavalle,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,S�bastien Maillet / Grischa Tellenbach,Sbastien Maillet / Grischa Tellenbach,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Pawel Rozek / Marcin Staro�,Pawel Rozek / Marcin Staro,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Kerstin Adineh / Piia Tantarim�ki,Kerstin Adineh / Piia Tantarimki,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Julia Klouda / Heike K�ller,Julia Klouda / Heike Kller,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Matti Pohjola / Piia Tantarim�ki,Matti Pohjola / Piia Tantarimki,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Yves Kreil / Heike K�ller,Yves Kreil / Heike Kller,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1547415984,Placements_Flat,team_display_name,Tuomas K�rki / Tanja Abt,Tuomas Krki / Tanja Abt,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1694170899,Placements_Flat,team_display_name,Michał R�g / Micha Klimczak,Michał Rg / Micha Klimczak,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Emmanuel Bouchard / Fran�ois Pelletier,Emmanuel Bouchard / Franois Pelletier,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Pawel Rozek / Luka Weyler-Lavall�e,Pawel Rozek / Luka Weyler-Lavalle,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Yassin Khateeb / Chris L�w,Yassin Khateeb / Chris Lw,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Dominique Soulard / St�phane Tailleur,Dominique Soulard / Stphane Tailleur,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Genevi�ve Bousquet / Lena Mlakar,Genevive Bousquet / Lena Mlakar,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Kerstin Adineh / L�a L'Esp�rance,Kerstin Adineh / La L'Esprance,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Luka Weyler-Lavall�e / Maude Laudreville,Luka Weyler-Lavalle / Maude Laudreville,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Genevi�ve Bousquet / Corbin Steele,Genevive Bousquet / Corbin Steele,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Zackary Bourdeau / L�a L'Esp�rance,Zackary Bourdeau / La L'Esprance,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,St�phane Tailleur / Marcela Mercado,Stphane Tailleur / Marcela Mercado,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Luc Legeault / Chris L�w,Luc Legeault / Chris Lw,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Martin C�t� / Chris Gregory,Martin Ct / Chris Gregory,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1706036811,Placements_Flat,team_display_name,Chris Cleaver / St�phane Tailleur,Chris Cleaver / Stphane Tailleur,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1458772302,Placements_ByPerson,division_canon,Women?S Doubles Net,Women's Doubles Net,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1458772302,Placements_ByPerson,division_canon,Women?S Singles Net,Women's Singles Net,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1323272493,Placements_ByPerson,division_canon,Mixed Dou�Bles Rou�Tines,Mixed Doubles Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_ByPerson,division_canon,Open Cir�Cle Con�Test,Open Circle Contest,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_ByPerson,division_canon,Open Dou�Bles Rou�Tines,Open Doubles Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_ByPerson,division_canon,Open Freestyle Rou�Tines,Open Freestyle Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_ByPerson,division_canon,Women's Cir�Cle Con�Test,Women's Circle Contest,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1323272493,Placements_ByPerson,division_canon,Women's Freestyle Rou�Tines,Women's Freestyle Routines,FFFD,U+FFFD replacement char (encoding fallback),YES,04B presentation
+1293877917,Placements_ByPerson,division_canon,Women?S Circle Contest,Women's Circle Contest,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1293877917,Placements_ByPerson,division_canon,Women?S Shred 30,Women's Shred 30,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1293877917,Placements_ByPerson,division_canon,Women?S Singles Routines,Women's Singles Routines,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1149881200,Placements_ByPerson,division_canon,Master?S Singles Net,Master's Singles Net,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+1052775366,Placements_ByPerson,division_canon,Women?S Freestyle,Women's Freestyle,QS_APOS,?S apostrophe corruption (Women?S etc.),YES,04B presentation
+876336655,Placements_ByPerson,person_canon,Chris ÏGatorÓ Routh,"Chris ""Gator"" Routh",MOJI_QUOTE,ÏxyzÓ mojibake around nickname,YES,04B presentation
+,Persons_Truth,person_canon,Chris ÏGatorÓ Routh,"Chris ""Gator"" Routh",MOJI_QUOTE,ÏxyzÓ mojibake around nickname,YES,04B presentation (display only — do not alter identity key)
+1282647603,stage2_canonical_events,event_name,Net Orange Jam II (Net D¿em),Net Orange Jam II (Net Dżem),ISO88592,ISO-8859-2 byte misread as Latin-1,YES,04B presentation (event name display)
+,canonical/events,event_name,Net Orange Jam II (Net D¿em),Net Orange Jam II (Net Dżem),ISO88592,ISO-8859-2 byte misread as Latin-1,YES,stage 05 re-run after pipeline fix
+,canonical/persons,person_canon,Chris ÏGatorÓ Routh,"Chris ""Gator"" Routh",MOJI_QUOTE,ÏxyzÓ mojibake around nickname,YES,stage 05 re-run after pipeline fix

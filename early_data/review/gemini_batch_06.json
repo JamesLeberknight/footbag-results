@@ -1,0 +1,95 @@
+[
+  {
+    "source_file": "FBW_V07_N01_p037.jpg",
+    "page_notes": "Contains results for the 1987 World Footbag Championships.",
+    "events": [
+      {
+        "event_name_raw": "1987 World Footbag Championships",
+        "date_raw": "1987",
+        "location_raw": "Golden, Colorado",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Ken Eldrick", "team_raw": "", "score_raw": "", "notes": "" },
+              { "placement_raw": "2", "placement_num": 2, "player_raw": "John Stalberger", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Doug Little", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V07_N03_p040.jpg",
+    "page_notes": "Contains 1987 European Championship results.",
+    "events": [
+      {
+        "event_name_raw": "1987 European Footbag Championships",
+        "date_raw": "1987",
+        "location_raw": "",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Jan-Olof Karlsson", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V08_N01_p042.jpg",
+    "page_notes": "Contains results for the 1988 World Footbag Championships.",
+    "events": [
+      {
+        "event_name_raw": "1988 World Footbag Championships",
+        "date_raw": "1988",
+        "location_raw": "Golden, Colorado",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Ken Eldrick", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          },
+          {
+            "division_raw": "Open Freestyle",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Rick Reese", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "FBW_V08_N02_p044.jpg",
+    "page_notes": "Contains results for the 1988 U.S. Nationals.",
+    "events": [
+      {
+        "event_name_raw": "1988 U.S. National Footbag Championships",
+        "date_raw": "1988",
+        "location_raw": "Chicago, Illinois",
+        "source_page_notes": "",
+        "divisions": [
+          {
+            "division_raw": "Open Singles Net",
+            "results": [
+              { "placement_raw": "1", "placement_num": 1, "player_raw": "Ken Eldrick", "team_raw": "", "score_raw": "", "notes": "" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

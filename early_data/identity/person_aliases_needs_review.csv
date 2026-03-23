@@ -1,0 +1,13 @@
+raw_name,candidate_person_ids,candidate_person_names,reason,confidence,review_notes
+Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,near-miss — requires manual verification,LOW,Nickname vs formal name. PT rename Jimmy→Jim was planned but not yet in PT. Confirm before accepting.
+Jody Grace,73728c19-e412-5006-aa48-1d2685a77f7e,Judy Grace,near-miss — requires manual verification,LOW,Different first name (Jody vs Judy). Could be same person or different. Needs external evidence.
+Jenny Davidson,3f48caf5-14c9-59f1-8255-1db7ef2fd049,Jenny Davison,near-miss — requires manual verification,LOW,Single char surname difference (Davidson vs Davison). Could be same person. Verify via source image.
+Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,near-miss — requires manual verification,LOW,Ken is common short form of Kenneth but PT alias is 'Kenny Schults' (different spelling). No 'Ken Shults' alias registered.
+Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,near-miss — requires manual verification,LOW,"PT alias is 'Kenny Schults', not 'Kenny Shults'. Spelling difference in last name. Confirm before accepting."
+Karin Atogpian,,Karen Atgopian (also unresolved),near-miss — requires manual verification,LOW,Both 'Karin Atogpian' and 'Karen Atgopian' are unresolved. Likely same person with variant spelling. Merge only after verifying against source.
+Lori Jean Tarr,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,near-miss — requires manual verification,LOW,Different surname. Could be maiden/married name change. Needs external confirmation.
+Tim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,near-miss — requires manual verification,LOW,Completely different first name. Likely source transcription error (Tim vs Jim). Verify against source image before accepting.
+Tobin Wigger,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torbin Wigger,near-miss — requires manual verification,LOW,"Scandinavian name variant (Tobin vs Torbin). Single char, but these are proper Scandinavian names with distinct forms. Needs verification."
+Torben Wigger,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torbin Wigger,near-miss — requires manual verification,LOW,Scandinavian name variant (Torben vs Torbin). PT spells it 'Torbin'. Needs verification.
+Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,near-miss — requires manual verification,LOW,Different spelling (Fennell vs Femmel). Not a 1-char change — could be same person or different. Verify source.
+Ted Martens,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,near-miss — requires manual verification,LOW,Similar but different surname (Martens vs Martin). Could be transcription error. Needs verification.
