@@ -1,154 +1,168 @@
-# Early Data Pipeline Outputs (Pre-1997 Reconstruction)
+# Pre-1997 Recovery — Output File Reference
 
-This directory contains the structured outputs from the historical reconstruction pipeline using:
+**Last updated:** 2026-03-23
 
-- FBW (Footbag World) scanned images
-- IFAB Worlds history pages
-- OLD_RESULTS.txt (text-based historical records)
-
-The pipeline preserves full provenance and does not perform automatic deduplication or normalization.
+All paths are relative to `early_data/`. The pipeline preserves full provenance
+and does not perform automatic deduplication or normalization.
 
 ---
 
-## 1. Raw Structured Outputs
+## Key Counts at a Glance
 
-### `event_blocks/event_blocks.csv`
+```
+Sources:          3 (FBW Magazine scans, IFAB History page, OLD_RESULTS.txt)
+Source events:   45 → 37 canonical groups
+Years:           17 (1980–1996)
+Placements:     755 (all sources combined)
+Participants:  1141 (teams expanded to individuals)
+Persons:         97 (83 established + 14 new early players)
 
-One row per extracted event.
-
-Fields:
-- event_id
-- event_name_raw
-- date_raw
-- year
-- location_raw
-- source_file
-- source_type (FBW / IFAB)
-- normalized_event_type
-- exclude_pre1997
+Validation: 8 CONFIRMED_MULTI_SOURCE, 29 SINGLE_SOURCE, 0 CONFLICT
+Identity:   83 EXACT, 5 AUTOACCEPTED, 14 NEW_PLAYER, 12 REVIEW_NEEDED, 1 NOISE
+```
 
 ---
 
-### `placements/placements_flat.csv`
+## Canonical Outputs (FROZEN — do not edit manually)
 
-One row per placement.
+### `canonical/events_pre1997.csv`
+One row per canonical event group (year < 1997). **37 rows.**
+Fields: canonical_event_id, event_name, year, location, normalized_event_type,
+source_types, num_sources, validation_status, confidence, num_placements.
 
-Fields:
-- event_id
-- division_raw
-- placement_raw
-- placement_num
-- player_raw
-- team_raw
-- score_raw
-- notes
-- source_file
-- source_type
+### `canonical/event_disciplines_pre1997.csv`
+One row per unique (canonical_event_id, division_raw) pair. **308 rows.**
+Preserves raw division names exactly as found in sources.
 
----
+### `canonical/event_results_pre1997.csv`
+All placement rows with canonical event IDs. One row per source placement
+(multiple rows possible for same logical placement from different sources).
+**755 rows.** Fields: result_id, canonical_event_id, division_raw, place,
+player_raw, team_raw, source_event_id, source_type.
 
-## 2. OLD_RESULTS Source Layer
+### `canonical/event_result_participants_pre1997.csv`
+Teams expanded to individual participants. One row per individual per placement.
+**1,141 rows.** Key field: resolution_status
+(MATCHED / AUTOACCEPTED / NEW_PLAYER / REVIEW_NEEDED / NOISE / UNRESOLVED).
 
-### `old_results/old_results_event_blocks.csv`
+### `canonical/persons_pre1997.csv`
+**97 rows** = 83 established PT persons referenced in pre-1997 data
++ 14 new early players (source_scope = PRE1997_ONLY).
 
-Structured events parsed from OLD_RESULTS.txt.
-
-### `old_results/old_results_placements_flat.csv`
-
-Structured placements parsed from OLD_RESULTS.txt.
-
----
-
-## 3. Canonical Event Identity Layer
-
-### `canonical/event_groups.csv`
-
-Candidate event groupings based on:
-- normalized_event_type
-- year
-
-Fields:
-- group_id
-- normalized_event_type
-- year
-- candidate_event_ids
-- source_types
-- confidence
-
----
+### `canonical/person_aliases_pre1997.csv`
+Full name→person_id mapping for all resolved pre-1997 names.
 
 ### `canonical/canonical_events.csv`
-
-Canonical event identities.
-
-Fields:
-- canonical_event_id
-- normalized_event_type
-- year
-- source_count
-- source_types
-
----
+All 37 canonical event groups (pre-1997 only; no post-1997 in this file).
 
 ### `canonical/event_id_mapping.csv`
+Maps each source event_id → canonical_event_id. **45 rows.**
 
-Mapping from raw events to canonical events.
+### `canonical/event_groups.csv`
+All 45 source events with group membership and confidence scores.
 
-Fields:
-- event_id
-- canonical_event_id
-- source_file
-- source_type
+### `canonical/event_source_comparison.csv`
+One row per canonical event group with validation_status and source list.
 
 ---
 
-## 4. Validation Layer
+## Source-Level Data
 
-### `canonical/event_source_comparison.csv`
+### `event_blocks/event_blocks.csv`
+35 in-scope FBW/IFAB events from Gemini extraction.
+Schema: event_id, event_name_raw, year, date_raw, location_raw,
+source_file, source_type, normalized_event_type, exclude_pre1997.
 
-Cross-source comparison of placements.
+### `event_blocks/fbw_event_blocks.csv`
+Original 04_json_to_csv.py output (before normalized_event_type was added).
+Legacy file — prefer event_blocks.csv for new work.
 
-Fields:
-- canonical_event_id
-- division_raw
-- placement_raw
-- placement_num
-- player_raw
-- team_raw
-- score_raw
-- source_type
-- source_file
-- validation_status
+### `event_blocks/fbw_event_blocks_out_of_scope.csv`
+13 events with year ≥ 1997 found in Gemini extraction (preserved, not used).
 
-Validation statuses:
-- CONFIRMED_MULTI_SOURCE → appears identically in ≥2 sources
-- SINGLE_SOURCE → appears in only one source
-- CONFLICT → disagreement between sources
+### `placements/placements_flat.csv`
+**496 rows** from Gemini AI extraction (FBW + IFAB).
+
+### `placements/fbw_placements_flat.csv`
+Legacy file — prefer placements_flat.csv.
+
+### `old_results/old_results_event_blocks.csv`
+**10 in-scope events** parsed from OLD_RESULTS.txt.
+
+### `old_results/old_results_placements_flat.csv`
+**259 placement rows** parsed from OLD_RESULTS.txt.
+
+---
+
+## Identity Resolution Files
+
+### `identity/person_match_candidates.csv`
+All **115 unique raw player names** with match results against Persons_Truth.
+Match types: EXACT (83), NONE (32).
+
+### `identity/unresolved_names.csv`
+32 names with match_type = NONE, with near-miss suggestions for review.
+
+### `identity/person_aliases_autoaccepted.csv`
+5 safe aliases auto-accepted: Billy Hayne, Fred Kipley, Misty Helme,
+Max Smith Jr., Gary Laut.
+
+### `identity/person_aliases_needs_review.csv`
+12 near-miss aliases requiring human decision. Source for review files.
+
+### `identity/new_early_players.csv`
+14 player names added as PRE1997_ONLY persons with stable generated IDs.
+
+### `identity/unresolved_noise.csv`
+1 entry: `unknown` (literal noise — not added to any person table).
+
+---
+
+## Review Files (Human Input Required)
+
+### `review/person_alias_resolution.csv`
+12 REVIEW_NEEDED aliases with context columns and blank DECISION field.
+**Fill in DECISION:** ACCEPT | CREATE_NEW | REJECT | DEFER
+
+### `review/review_aliases.xlsx`
+Excel version of the alias review file with formatted layout.
+
+### `review/event_group_resolution.csv`
+37 canonical event groups with review questions and blank DECISION field.
+**Fill in DECISION:** CORRECT | MERGE_WITH | SPLIT | NEEDS_DATA | DEFER
+
+### `review/review_event_groups.xlsx`
+Excel version of the event group review file.
+
+---
+
+## Spreadsheet Deliverable
+
+### `out/footbag_results_pre1997_recovery.xlsx`
+Standalone Excel workbook. **22 sheets:**
+README · DATA NOTES · EVENT INDEX · PLAYER SUMMARY ·
+1980–1996 (17 year sheets) · VALIDATION SUMMARY
+
+---
+
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/01_build_page_inventory.py` | Extract PPTX slide inventory |
+| `scripts/02_image_qc_report.py` | Image QC for scanned pages |
+| `scripts/03_rename_pages.py` | Rename/extract page images from PPTX |
+| `scripts/04_json_to_csv.py` | Gemini batch JSON → event_blocks + placements |
+| `scripts/05_build_historical_dataset.py` | Gemini + OLD_RESULTS → canonical grouping layer |
+| `scripts/06_identity_resolution.py` | Match raw names against Persons_Truth |
+| `scripts/07_build_early_release.py` | Apply identity policy, build canonical CSVs + Excel |
 
 ---
 
 ## Key Design Principles
 
-- No guessing or inference
-- No automatic deduplication
-- All sources preserved independently
-- Canonical layer is reversible
-- Conflicts are surfaced, not resolved
-
----
-
-## Known Limitations
-
-- Some events are partial or fragmented across sources
-- Naming inconsistencies exist (WFA / IFAB / World Championships)
-- Some player names may include location text
-- Post-1997 data may appear in FBW and is flagged but not removed at raw level
-
----
-
-## Next Step
-
-Person Identity Resolution:
-- Map `player_raw` / `team_raw` to Persons_Truth
-- Generate alias candidates
-- Preserve unresolved identities
+- No guessing or inference on identities
+- No automatic deduplication of placement evidence
+- All raw names, division names, and source files preserved
+- Conflicts are surfaced as review items, never silently resolved
+- Pre-1997 outputs are isolated from post-1997 published dataset

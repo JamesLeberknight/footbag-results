@@ -51,8 +51,8 @@ canonical_event_id,division_raw,total_placements
 0e1499ab21,Women's Overall,1
 0e1499ab21,Women's Sgls Net,3
 0e1499ab21,Women's Team Freestyle,3
-1398fe01e4,Open Freestyle,1
-1398fe01e4,Open Singles Net,1
+d272be24f7,Open Freestyle,1
+d272be24f7,Open Singles Net,1
 15782bd1d5,Men's Overall,1
 15782bd1d5,Mixed Dbls Net,3
 15782bd1d5,Open Dbls Consecutive,3
@@ -148,7 +148,7 @@ canonical_event_id,division_raw,total_placements
 6cd9e5b635,Women's Singles Consecutive Kicks,3
 6cd9e5b635,Women's Singles Net,3
 6cd9e5b635,Women's Ultra Singles Net,3
-6ce90a8f5d,Open Singles Net,1
+334c632f6e,Open Singles Net,1
 6dc440629d,Men's Overall,1
 6dc440629d,Mixed Dbls Net,3
 6dc440629d,Open Dbls Consecutive,3
@@ -231,9 +231,9 @@ canonical_event_id,division_raw,total_placements
 88ab188635,Women's Overall,3
 88ab188635,Women's Singles Consecutive Kicks,3
 88ab188635,Women's Singles Net,3
-8a1c282011,Open Freestyle,1
-8a1c282011,Open Singles Net,2
-9bced09b82,Open Singles Net,1
+8667de3590,Open Freestyle,1
+8667de3590,Open Singles Net,2
+b9d35c4646,Open Singles Net,1
 af9e865ed5,Open Singles,2
 b4b6a194e2,Men's Overall,1
 b4b6a194e2,Mixed Dbls Net,3
@@ -291,8 +291,8 @@ d272be24f7,Open Team Freestyle,3
 d272be24f7,Women's Dbls Net,3
 d272be24f7,Women's Overall,1
 d272be24f7,Women's Sgls Net,3
-dea8d6f019,Open Freestyle,1
-dea8d6f019,Open Singles Net,1
+b4b6a194e2,Open Freestyle,1
+b4b6a194e2,Open Singles Net,1
 e04899bee1,Men's Overall,1
 e04899bee1,Mixed Dbls Net,3
 e04899bee1,Open Dbls Consecutive,3
