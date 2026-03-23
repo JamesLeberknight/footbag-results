@@ -47,6 +47,7 @@ Division pairing
 5. Unpaired → appended under "— UNMATCHED CANONICAL DIVISIONS —"
 """
 
+import argparse
 import csv, json, re, sys, unicodedata
 from collections import defaultdict
 from pathlib import Path
@@ -1238,4 +1239,12 @@ def main():
 
 
 if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--stage2', help='Override stage2 CSV path')
+    ap.add_argument('--pf',     help='Override Placements_Flat CSV path')
+    ap.add_argument('--output', help='Override HTML output path')
+    args = ap.parse_args()
+    if args.stage2: STAGE2_CSV = Path(args.stage2)
+    if args.pf:     PF_CSV     = Path(args.pf)
+    if args.output: OUT_HTML   = Path(args.output)
     main()

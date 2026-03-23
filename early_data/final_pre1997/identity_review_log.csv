@@ -1,0 +1,8 @@
+raw_name,action,previous_status,new_status,person_id,canonical_display,note
+billy hayne,PROMOTE_TO_EXPERT_CONFIRMED,AUTOACCEPTED,EXPERT_CONFIRMED,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,
+fred kipley,PROMOTE_TO_EXPERT_CONFIRMED,AUTOACCEPTED,EXPERT_CONFIRMED,8acf4e97-e1e8-50d7-8fd4-3a1d8ff4e731,Fred Kippley,
+misty helme,PROMOTE_TO_EXPERT_CONFIRMED,AUTOACCEPTED,EXPERT_CONFIRMED,e85a6af9-3ac6-550d-8b35-045ec4886d06,Misty Helms,
+tim fitzgerald,PROMOTE_TO_EXPERT_CONFIRMED,ACCEPTED,EXPERT_CONFIRMED,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,
+tobin wigger,PROMOTE_TO_EXPERT_CONFIRMED,ACCEPTED,EXPERT_CONFIRMED,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torben Wigger,
+torben wigger,PROMOTE_TO_EXPERT_CONFIRMED,ACCEPTED,EXPERT_CONFIRMED,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torben Wigger,
+(persons_table),UPDATE_PERSON_CANON,Torbin Wigger,Torben Wigger,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torben Wigger,PT has 'Torbin'; expert confirms correct historical spelling is 'Torben'

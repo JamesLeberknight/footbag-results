@@ -1,0 +1,1142 @@
+result_id,canonical_event_id,division_raw,place,player_name_raw,person_id,person_canon,resolution_status,source_type
+047aab5c64,069f7909e7,Open Sgls Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+a8b2f2801a,069f7909e7,Open Sgls Net,2,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,FBW
+991d935ecd,069f7909e7,Open Sgls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+80102db12b,069f7909e7,Open Dbls Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+80102db12b,069f7909e7,Open Dbls Net,1,Max Smith Jr.,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,Max Smith,AUTOACCEPTED,FBW
+df31d45f1f,069f7909e7,Open Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+df31d45f1f,069f7909e7,Open Dbls Net,2,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,FBW
+3f989a14e6,069f7909e7,Open Dbls Net,3,Gale Bigler,f06dc40d-e92e-5784-9269-cf25a77b450e,Gale Bigler,MATCHED,FBW
+3f989a14e6,069f7909e7,Open Dbls Net,3,Dave Frazier,d00d203f-ac71-5ec1-ad7f-497a8f024c50,Dave Frazier,MATCHED,FBW
+647e260466,069f7909e7,Open Sgls Consecutive,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+37a063dd9f,069f7909e7,Open Dbls Consecutive,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+37a063dd9f,069f7909e7,Open Dbls Consecutive,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+abbf3c3df3,bc88796233,Open Sgls Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+18ae2a5d23,bc88796233,Open Sgls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+40b1a4412f,bc88796233,Open Sgls Net,3,Dave Hill,5cb79fb4-ab20-558f-b4a2-e7206c9f22df,Dave Hill,MATCHED,FBW
+8bcb26b916,bc88796233,Open Dbls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+8bcb26b916,bc88796233,Open Dbls Net,1,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+fbe54bf5fd,bc88796233,Open Dbls Net,2,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+fbe54bf5fd,bc88796233,Open Dbls Net,2,Max Smith Jr.,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,Max Smith,AUTOACCEPTED,FBW
+b605188c2d,bc88796233,Open Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+b605188c2d,bc88796233,Open Dbls Net,3,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,FBW
+71d29d34bb,bc88796233,Women's Dbls Net,1,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,FBW
+71d29d34bb,bc88796233,Women's Dbls Net,1,Misty Helme,e85a6af9-3ac6-550d-8b35-045ec4886d06,Misty Helms,AUTOACCEPTED,FBW
+d7731ccbe9,bc88796233,Women's Dbls Net,2,?,,,UNRESOLVED,FBW
+2eba8d9958,bc88796233,Women's Dbls Net,3,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,FBW
+2eba8d9958,bc88796233,Women's Dbls Net,3,Jennifer Reese,8d03383e-8e17-5065-a3ec-bae127aea67d,Jennifer Reese,MATCHED,FBW
+1d0078c636,bc88796233,Open Sgls Consecutive,1,Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,AUTOACCEPTED,FBW
+15a17643ea,bc88796233,Open Team Consecutive,1,Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,AUTOACCEPTED,FBW
+15a17643ea,bc88796233,Open Team Consecutive,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+15a17643ea,bc88796233,Open Team Consecutive,1,Kalia Klaban,0c681fd1-e4bf-54b3-a314-41da581ecb40,Kalia Klaban,MATCHED,FBW
+f1e03810e2,bc88796233,Women's Sgls Consecutive,1,Kalia Klaban,0c681fd1-e4bf-54b3-a314-41da581ecb40,Kalia Klaban,MATCHED,FBW
+b83a963033,1e36e7ca92,Open Sgls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+877c97aef7,1e36e7ca92,Open Sgls Net,2,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+37989f1a5c,1e36e7ca92,Open Sgls Net,3,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+9313635c5c,1e36e7ca92,Open Dbls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+9313635c5c,1e36e7ca92,Open Dbls Net,1,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+334795941e,1e36e7ca92,Open Dbls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+334795941e,1e36e7ca92,Open Dbls Net,2,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,FBW
+b0d6bf4c8f,1e36e7ca92,Open Dbls Net,3,Fred Kipley,8acf4e97-e1e8-50d7-8fd4-3a1d8ff4e731,Fred Kippley,AUTOACCEPTED,FBW
+b0d6bf4c8f,1e36e7ca92,Open Dbls Net,3,Gary Preston,472663b7-a356-59f4-8743-c5ad3fae999e,Gary Preston,MATCHED,FBW
+609f3f30fb,1e36e7ca92,Women's Sgls Net,1,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,FBW
+a3c659f467,1e36e7ca92,Women's Sgls Net,2,Carolyn Ramondie,cbf84862-04b1-5408-9e43-49b9818ed9aa,Carolyn Ramondie,MATCHED,FBW
+69ca6270c5,1e36e7ca92,Women's Sgls Net,3,Karen Gunther,63327293-7bb9-5a45-a50a-e2a2167ba80e,Karen Gunther,MATCHED,FBW
+0f4334650b,1e36e7ca92,Women's Dbls Net,1,Carolyn Ramondie,cbf84862-04b1-5408-9e43-49b9818ed9aa,Carolyn Ramondie,MATCHED,FBW
+0f4334650b,1e36e7ca92,Women's Dbls Net,1,Lori Jean Tarr,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,FBW
+315223983f,1e36e7ca92,Women's Dbls Net,2,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,FBW
+315223983f,1e36e7ca92,Women's Dbls Net,2,Alex Frazier,1f2d14aa-31e7-5d1f-a338-9ae43af68af5,Alex Frazier,MATCHED,FBW
+14aed77b21,1e36e7ca92,Women's Dbls Net,3,Karen Uppinghouse,4b3d47c0-977c-5285-a31f-b3c2f33428a8,Karen Uppinghouse,NEW_PLAYER,FBW
+14aed77b21,1e36e7ca92,Women's Dbls Net,3,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,FBW
+4c06cfa01a,1e36e7ca92,Mixed Dbls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+4c06cfa01a,1e36e7ca92,Mixed Dbls Net,1,Alex Frazier,1f2d14aa-31e7-5d1f-a338-9ae43af68af5,Alex Frazier,MATCHED,FBW
+6b4eb67eec,1e36e7ca92,Mixed Dbls Net,2,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+6b4eb67eec,1e36e7ca92,Mixed Dbls Net,2,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,FBW
+550ca7ceb6,1e36e7ca92,Mixed Dbls Net,3,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+550ca7ceb6,1e36e7ca92,Mixed Dbls Net,3,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,FBW
+42aa4ad24e,1e36e7ca92,Open Sgls Freestyle,1,Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,AUTOACCEPTED,FBW
+01cc7044c6,1e36e7ca92,Open Team Freestyle,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+01cc7044c6,1e36e7ca92,Open Team Freestyle,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+590eadc6cb,1e36e7ca92,Open Sgls Consecutive,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+079c2f8370,1e36e7ca92,Open Sgls Consecutive,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+5a70962dc8,1e36e7ca92,Open Sgls Consecutive,3,Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,AUTOACCEPTED,FBW
+4a28098dc0,1e36e7ca92,Open Golf,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+a8e4d54e96,1e36e7ca92,Open Golf,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+9e1a4ac3b3,1e36e7ca92,Open Golf,3,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+98a0e0aebf,76498d51d2,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+ff052ef614,76498d51d2,Open Sgls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+6f121bebd8,76498d51d2,Open Sgls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+14b96b52ca,76498d51d2,Open Dbls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+14b96b52ca,76498d51d2,Open Dbls Net,1,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+e66d08c1e2,76498d51d2,Open Dbls Net,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+e66d08c1e2,76498d51d2,Open Dbls Net,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+f25ed8fc0d,76498d51d2,Open Dbls Net,3,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,FBW
+f25ed8fc0d,76498d51d2,Open Dbls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+4242fb6a3f,76498d51d2,Mixed Dbls Net,1,Lori Jean Tarr,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,FBW
+4242fb6a3f,76498d51d2,Mixed Dbls Net,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+bd781aaad0,76498d51d2,Mixed Dbls Net,2,Shannon Aubin,4667c817-96f6-5e6e-b3ab-46ecd390dc0e,Shannon Aubin,MATCHED,FBW
+bd781aaad0,76498d51d2,Mixed Dbls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+5874e1bf64,76498d51d2,Mixed Dbls Net,3,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+5874e1bf64,76498d51d2,Mixed Dbls Net,3,Tim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+79878edcf8,76498d51d2,Open Sgls Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+bb2bdb9655,76498d51d2,Open Sgls Freestyle,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+f3e4c16336,76498d51d2,Open Sgls Freestyle,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,FBW
+7ba709391b,76498d51d2,Open Team Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+7ba709391b,76498d51d2,Open Team Freestyle,1,Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,AUTOACCEPTED,FBW
+7ba709391b,76498d51d2,Open Team Freestyle,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+244d6dfb22,76498d51d2,Open Team Freestyle,2,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,FBW
+244d6dfb22,76498d51d2,Open Team Freestyle,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+244d6dfb22,76498d51d2,Open Team Freestyle,2,Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,MATCHED,FBW
+da78f9c7c0,76498d51d2,Open Team Freestyle,3,Robert Conover,282ea81a-5815-5a15-9842-ee2ad6e2047e,Robert Conover,MATCHED,FBW
+da78f9c7c0,76498d51d2,Open Team Freestyle,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+c53ba9c763,76498d51d2,Open Sgls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+09a648931b,76498d51d2,Open Golf,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+92050a27bc,76498d51d2,Open Golf,2,Tim Mackey,5e46bdbe-bbbb-5cca-aacb-d5edf9bf2540,Tim Mackey,MATCHED,FBW
+11aadc2902,76498d51d2,Open Golf,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+56f1486137,00659874b9,Open Sgls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+30f480459f,00659874b9,Open Sgls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+c96d2d93b1,00659874b9,Open Sgls Net,3,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+aef0975903,00659874b9,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+aef0975903,00659874b9,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+ee27ec484c,00659874b9,Open Dbls Net,2,Dave Hill,5cb79fb4-ab20-558f-b4a2-e7206c9f22df,Dave Hill,MATCHED,FBW
+ee27ec484c,00659874b9,Open Dbls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+18784d3a47,00659874b9,Open Dbls Net,3,Bob Swerdlick,4a680cee-eee2-5f29-9637-86075d66581c,Bob Swerdlick,MATCHED,FBW
+18784d3a47,00659874b9,Open Dbls Net,3,Mike Puderbaugh,38df5c50-08d9-5706-90e5-464508ea0962,Mike Puderbaugh,MATCHED,FBW
+2cfcf50581,00659874b9,Women's Sgls Net,1,Lori Jean Tarr,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,FBW
+72db0e5877,00659874b9,Women's Sgls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+5a3a7abe3b,00659874b9,Women's Sgls Net,3,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+1f67f0c371,00659874b9,Women's Dbls Net,1,Lori Jean Tarr,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,FBW
+1f67f0c371,00659874b9,Women's Dbls Net,1,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,FBW
+e519f2aaa8,00659874b9,Women's Dbls Net,2,Shannon Aubin,4667c817-96f6-5e6e-b3ab-46ecd390dc0e,Shannon Aubin,MATCHED,FBW
+e519f2aaa8,00659874b9,Women's Dbls Net,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+478f6e64b7,00659874b9,Women's Dbls Net,3,Karin Atogpian,86de3135-51c7-5ad5-9144-112f984acd3f,Karen Atgopian,NEW_PLAYER,FBW
+478f6e64b7,00659874b9,Women's Dbls Net,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+30722f65b5,00659874b9,Mixed Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+30722f65b5,00659874b9,Mixed Dbls Net,1,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+c7bf90d101,00659874b9,Mixed Dbls Net,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+c7bf90d101,00659874b9,Mixed Dbls Net,2,Jody Grace,73728c19-e412-5006-aa48-1d2685a77f7e,Judy Grace,MATCHED,FBW
+c007d6733b,00659874b9,Mixed Dbls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+c007d6733b,00659874b9,Mixed Dbls Net,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+e411db61e7,00659874b9,Open Sgls Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+bc8c601231,00659874b9,Open Team Freestyle,1,Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,AUTOACCEPTED,FBW
+bc8c601231,00659874b9,Open Team Freestyle,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+bc8c601231,00659874b9,Open Team Freestyle,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+bc8c601231,00659874b9,Open Team Freestyle,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+7b716dc32f,00659874b9,Open Team Freestyle,2,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+7b716dc32f,00659874b9,Open Team Freestyle,2,Will Squire,a6ba539d-a3b1-5685-ba8f-f537731bc96d,Will Squire,MATCHED,FBW
+70305348fe,00659874b9,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+49d69f136c,00659874b9,Open Golf,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+3ddbe28d53,00659874b9,Open Golf,2,?,,,UNRESOLVED,FBW
+3be65a8b51,00659874b9,Open Golf,3,?,,,UNRESOLVED,FBW
+6028337f94,0e1499ab21,Men's Overall,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+3bfec0b873,0e1499ab21,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+844292e07d,0e1499ab21,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+6096159dce,0e1499ab21,Open Sgls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+5b6ecdc054,0e1499ab21,Open Sgls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+c8ad9090d2,0e1499ab21,Open Dbls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+c8ad9090d2,0e1499ab21,Open Dbls Net,1,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+7625531637,0e1499ab21,Open Dbls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+7625531637,0e1499ab21,Open Dbls Net,2,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+83c9548cdd,0e1499ab21,Open Dbls Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+83c9548cdd,0e1499ab21,Open Dbls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+e74ee0089e,0e1499ab21,Women's Sgls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+b694daa76e,0e1499ab21,Women's Sgls Net,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+d531446133,0e1499ab21,Women's Sgls Net,3,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,FBW
+fe6a936768,0e1499ab21,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+fe6a936768,0e1499ab21,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+62dfbf940e,0e1499ab21,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+62dfbf940e,0e1499ab21,Women's Dbls Net,2,Jenny Davidson,3f48caf5-14c9-59f1-8255-1db7ef2fd049,Jenny Davison,MATCHED,FBW
+9ba0ac45d0,0e1499ab21,Women's Dbls Net,3,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+9ba0ac45d0,0e1499ab21,Women's Dbls Net,3,Shannon Aubin,4667c817-96f6-5e6e-b3ab-46ecd390dc0e,Shannon Aubin,MATCHED,FBW
+d707fe1939,0e1499ab21,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+d707fe1939,0e1499ab21,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+f52bc1c937,0e1499ab21,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+f52bc1c937,0e1499ab21,Mixed Dbls Net,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+62e303cd41,0e1499ab21,Mixed Dbls Net,3,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,FBW
+62e303cd41,0e1499ab21,Mixed Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+a5effdf8e7,0e1499ab21,Open Sgls Freestyle,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+cc99d1b3b0,0e1499ab21,Open Sgls Freestyle,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+8f81de21d6,0e1499ab21,Open Sgls Freestyle,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+2e69bf2265,0e1499ab21,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+2e69bf2265,0e1499ab21,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+518e3edc68,0e1499ab21,Open Team Freestyle,2,Gary Laut,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,AUTOACCEPTED,FBW
+518e3edc68,0e1499ab21,Open Team Freestyle,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+518e3edc68,0e1499ab21,Open Team Freestyle,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+dd2156def6,0e1499ab21,Open Team Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+dd2156def6,0e1499ab21,Open Team Freestyle,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,FBW
+0633df218b,0e1499ab21,Women's Team Freestyle,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+0633df218b,0e1499ab21,Women's Team Freestyle,1,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+428d87e172,0e1499ab21,Women's Team Freestyle,2,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+428d87e172,0e1499ab21,Women's Team Freestyle,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+7d8692ded8,0e1499ab21,Women's Team Freestyle,3,Jenny Davidson,3f48caf5-14c9-59f1-8255-1db7ef2fd049,Jenny Davison,MATCHED,FBW
+7d8692ded8,0e1499ab21,Women's Team Freestyle,3,Ruth Osterman,a10fa54f-eadb-5842-8df1-fdca1920e7e7,Ruth Osterman,MATCHED,FBW
+334ea887e2,0e1499ab21,Open Sgls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+0a944f1ff2,0e1499ab21,Open Golf,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+e84423cbcc,0e1499ab21,Open Golf,2,Tim Mackey,5e46bdbe-bbbb-5cca-aacb-d5edf9bf2540,Tim Mackey,MATCHED,FBW
+dd9b2f1b67,0e1499ab21,Open Golf,3,Tobin Wigger,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torben Wigger,MATCHED,FBW
+d3aaf6bc07,1c74083104,Men's Overall,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+0a98adc065,1c74083104,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+22af5de874,1c74083104,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+2ccaf54736,1c74083104,Open Sgls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+7ba60e1fdb,1c74083104,Open Sgls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+4cbf7010bc,1c74083104,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+4cbf7010bc,1c74083104,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+c8b42b5066,1c74083104,Open Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+c8b42b5066,1c74083104,Open Dbls Net,2,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+9cb35882ec,1c74083104,Open Dbls Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+9cb35882ec,1c74083104,Open Dbls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+578d8c715d,1c74083104,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+2c75b7b169,1c74083104,Women's Sgls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+4d64d3a78d,1c74083104,Women's Sgls Net,3,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,FBW
+2224538390,1c74083104,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+2224538390,1c74083104,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+3cc053933b,1c74083104,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+3cc053933b,1c74083104,Women's Dbls Net,2,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,FBW
+423392d4af,1c74083104,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+423392d4af,1c74083104,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+702c9aabf0,1c74083104,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+702c9aabf0,1c74083104,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+b6d38cb659,1c74083104,Mixed Dbls Net,2,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,FBW
+b6d38cb659,1c74083104,Mixed Dbls Net,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+f5f4fd8437,1c74083104,Mixed Dbls Net,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+f5f4fd8437,1c74083104,Mixed Dbls Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+4fb1b6b50a,1c74083104,Open Sgls Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+8c815d1080,1c74083104,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+bba60dd30e,1c74083104,Open Sgls Freestyle,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+63be9817f8,1c74083104,Open Team Freestyle,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+63be9817f8,1c74083104,Open Team Freestyle,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+e7aa5fd623,1c74083104,Open Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+e7aa5fd623,1c74083104,Open Team Freestyle,2,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,FBW
+9777d6e24e,1c74083104,Open Team Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+9777d6e24e,1c74083104,Open Team Freestyle,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,FBW
+09d3d80f9b,1c74083104,Women's Sgls Freestyle,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+3e2ab9f484,1c74083104,Women's Team Freestyle,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+3e2ab9f484,1c74083104,Women's Team Freestyle,1,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+9f1daaed99,1c74083104,Women's Team Freestyle,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+9f1daaed99,1c74083104,Women's Team Freestyle,2,Kim Era,b76be9ba-0d58-5747-8ab1-11f3e3e5cc8d,Kim Era,MATCHED,FBW
+61f84722ea,1c74083104,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+33738329f2,1c74083104,Open Sgls Consecutive,2,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+1e628d85b4,1c74083104,Open Sgls Consecutive,3,Fred Barnum,06e833ec-f06f-50fb-9c56-390ca839e23f,Fred Barnum,MATCHED,FBW
+10e6bb7299,1c74083104,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+10e6bb7299,1c74083104,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+9ec5a31726,1c74083104,Open Dbls Consecutive,2,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+9ec5a31726,1c74083104,Open Dbls Consecutive,2,Jeff Johnson,76c8b933-3ec9-53e9-b2a7-a862b32704db,Jeff Johnson,MATCHED,FBW
+cdf074c8e9,1c74083104,Open Dbls Consecutive,3,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+cdf074c8e9,1c74083104,Open Dbls Consecutive,3,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+200966ab89,b4b6a194e2,Men's Overall,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+8a606ba8b4,b4b6a194e2,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+9d0f6e9bb3,b4b6a194e2,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+3ce96ecbb6,b4b6a194e2,Open Sgls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+763957a5b0,b4b6a194e2,Open Sgls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+ed350252b3,b4b6a194e2,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+ed350252b3,b4b6a194e2,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+89e7ab5a9a,b4b6a194e2,Open Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+89e7ab5a9a,b4b6a194e2,Open Dbls Net,2,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+cc5eee263f,b4b6a194e2,Open Dbls Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+cc5eee263f,b4b6a194e2,Open Dbls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+aadb2b58fb,b4b6a194e2,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+ded1873b47,b4b6a194e2,Women's Sgls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+f653acb622,b4b6a194e2,Women's Sgls Net,3,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+d65e8c0b51,b4b6a194e2,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+d65e8c0b51,b4b6a194e2,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+70ed462d12,b4b6a194e2,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+70ed462d12,b4b6a194e2,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+7ad0a3f708,b4b6a194e2,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+7ad0a3f708,b4b6a194e2,Women's Dbls Net,3,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,FBW
+ae589cca2a,b4b6a194e2,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+ae589cca2a,b4b6a194e2,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+7296f8689d,b4b6a194e2,Mixed Dbls Net,2,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,FBW
+7296f8689d,b4b6a194e2,Mixed Dbls Net,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+1ffd6cf261,b4b6a194e2,Mixed Dbls Net,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+1ffd6cf261,b4b6a194e2,Mixed Dbls Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+7b58e37102,b4b6a194e2,Open Sgls Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+3a2033be5b,b4b6a194e2,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+54ea5d712c,b4b6a194e2,Open Sgls Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+222d5250b4,b4b6a194e2,Open Team Freestyle,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+222d5250b4,b4b6a194e2,Open Team Freestyle,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+fc8c9ac9bd,b4b6a194e2,Open Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+fc8c9ac9bd,b4b6a194e2,Open Team Freestyle,2,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,FBW
+d61031d6fe,b4b6a194e2,Open Team Freestyle,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+d61031d6fe,b4b6a194e2,Open Team Freestyle,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+94f03e5ba5,b4b6a194e2,Women's Team Freestyle,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+94f03e5ba5,b4b6a194e2,Women's Team Freestyle,1,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+caae46db4a,b4b6a194e2,Women's Team Freestyle,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+caae46db4a,b4b6a194e2,Women's Team Freestyle,2,Kim Era,b76be9ba-0d58-5747-8ab1-11f3e3e5cc8d,Kim Era,MATCHED,FBW
+9a6d30681d,b4b6a194e2,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+712301f2d0,b4b6a194e2,Open Sgls Consecutive,2,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+d2686fd87e,b4b6a194e2,Open Sgls Consecutive,3,Fred Barnum,06e833ec-f06f-50fb-9c56-390ca839e23f,Fred Barnum,MATCHED,FBW
+0a9c19486a,b4b6a194e2,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+0a9c19486a,b4b6a194e2,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+aba64ade31,b4b6a194e2,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+aba64ade31,b4b6a194e2,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+dad844aacb,b4b6a194e2,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+dad844aacb,b4b6a194e2,Open Dbls Consecutive,3,Jeff Johnson,76c8b933-3ec9-53e9-b2a7-a862b32704db,Jeff Johnson,MATCHED,FBW
+1f5a0a6030,8667de3590,Men's Overall,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+f36e5ed86e,8667de3590,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+385f4979ca,8667de3590,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+1196d3c1d6,8667de3590,Open Sgls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+ccfeaacef0,8667de3590,Open Sgls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+d4415c65aa,8667de3590,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+d4415c65aa,8667de3590,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+0853829c98,8667de3590,Open Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+0853829c98,8667de3590,Open Dbls Net,2,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+3086357581,8667de3590,Open Dbls Net,3,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,FBW
+3086357581,8667de3590,Open Dbls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+c7164ab3e2,8667de3590,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+f195cda10c,8667de3590,Women's Sgls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+45b3aa75f0,8667de3590,Women's Sgls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+0acde5f131,8667de3590,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+0acde5f131,8667de3590,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+32fb6ac835,8667de3590,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+32fb6ac835,8667de3590,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+23fc6dc863,8667de3590,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+23fc6dc863,8667de3590,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+9742fccd85,8667de3590,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+9742fccd85,8667de3590,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+79d2a2dc74,8667de3590,Mixed Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+79d2a2dc74,8667de3590,Mixed Dbls Net,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+25572d7bdd,8667de3590,Mixed Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+25572d7bdd,8667de3590,Mixed Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+bbffd8bf78,8667de3590,Open Sgls Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+51e97b0321,8667de3590,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+add9793d9d,8667de3590,Open Sgls Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+9cc53184dd,8667de3590,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+9cc53184dd,8667de3590,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+e14d194aeb,8667de3590,Open Team Freestyle,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+e14d194aeb,8667de3590,Open Team Freestyle,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+db57deeee9,8667de3590,Open Team Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+db57deeee9,8667de3590,Open Team Freestyle,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,FBW
+f049610d9a,8667de3590,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+eaa8576ec5,8667de3590,Open Sgls Consecutive,2,Fred Barnum,06e833ec-f06f-50fb-9c56-390ca839e23f,Fred Barnum,MATCHED,FBW
+f225e65ead,8667de3590,Open Sgls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+a13e185a84,8667de3590,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+a13e185a84,8667de3590,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+22b484a6ab,8667de3590,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+22b484a6ab,8667de3590,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+28c3bb0f22,8667de3590,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+28c3bb0f22,8667de3590,Open Dbls Consecutive,3,Jeff Johnson,76c8b933-3ec9-53e9-b2a7-a862b32704db,Jeff Johnson,MATCHED,FBW
+2717571a1b,d272be24f7,Men's Overall,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+197b55fd74,d272be24f7,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+91ab982d3f,d272be24f7,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+f73d4d9b19,d272be24f7,Open Sgls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+6214c69aaa,d272be24f7,Open Sgls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+16f1b5d33e,d272be24f7,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+16f1b5d33e,d272be24f7,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+56b49f6c1d,d272be24f7,Open Dbls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+56b49f6c1d,d272be24f7,Open Dbls Net,2,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,FBW
+986da1d7ba,d272be24f7,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+986da1d7ba,d272be24f7,Open Dbls Net,3,Billy Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,AUTOACCEPTED,FBW
+6482d59bab,d272be24f7,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+976e07eb51,d272be24f7,Women's Sgls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+ca6ba8ef74,d272be24f7,Women's Sgls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+f723d57407,d272be24f7,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+f723d57407,d272be24f7,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+378ef3a84d,d272be24f7,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+378ef3a84d,d272be24f7,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+e98afa7a35,d272be24f7,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+e98afa7a35,d272be24f7,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+1f38d1bb9a,d272be24f7,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+1f38d1bb9a,d272be24f7,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+93f816256a,d272be24f7,Mixed Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+93f816256a,d272be24f7,Mixed Dbls Net,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,FBW
+54bd7d1507,d272be24f7,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+54bd7d1507,d272be24f7,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+bce72d89a4,d272be24f7,Open Sgls Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+3253e9a6fa,d272be24f7,Open Sgls Freestyle,2,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+0cb6410ec4,d272be24f7,Open Sgls Freestyle,3,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+570329313c,d272be24f7,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+570329313c,d272be24f7,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+509be80dd1,d272be24f7,Open Team Freestyle,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+509be80dd1,d272be24f7,Open Team Freestyle,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+6c37b8f004,d272be24f7,Open Team Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+6c37b8f004,d272be24f7,Open Team Freestyle,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,FBW
+f88a3c383f,d272be24f7,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+0b02d0d74a,d272be24f7,Open Sgls Consecutive,2,Fred Barnum,06e833ec-f06f-50fb-9c56-390ca839e23f,Fred Barnum,MATCHED,FBW
+b7fb3a7081,d272be24f7,Open Sgls Consecutive,3,John Lind,290ed496-1837-57fd-820d-a907ba6ea20b,John Lind,MATCHED,FBW
+ad83a1d48f,d272be24f7,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+ad83a1d48f,d272be24f7,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+b4eaa11bd2,d272be24f7,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+b4eaa11bd2,d272be24f7,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+8bfe70a5eb,d272be24f7,Open Dbls Consecutive,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+8bfe70a5eb,d272be24f7,Open Dbls Consecutive,3,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+3be61a5185,334c632f6e,Men's Overall,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+31a6881708,334c632f6e,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+4ee03dc5a9,334c632f6e,Open Sgls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+cbb22bf476,334c632f6e,Open Sgls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+85c59890db,334c632f6e,Open Sgls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+8a09448b8f,334c632f6e,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+8a09448b8f,334c632f6e,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+53e6c36adc,334c632f6e,Open Dbls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+53e6c36adc,334c632f6e,Open Dbls Net,2,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,FBW
+4e928577ed,334c632f6e,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+4e928577ed,334c632f6e,Open Dbls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+f68c23734b,334c632f6e,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+0273d4e471,334c632f6e,Women's Sgls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+5c351124cd,334c632f6e,Women's Sgls Net,3,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+ccaeb4e7ba,334c632f6e,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+ccaeb4e7ba,334c632f6e,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+0eaf15f889,334c632f6e,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+0eaf15f889,334c632f6e,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+41bb2e9a79,334c632f6e,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+41bb2e9a79,334c632f6e,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+8452dd083f,334c632f6e,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+8452dd083f,334c632f6e,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+07b90ec8b5,334c632f6e,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+07b90ec8b5,334c632f6e,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+b45dcc9caa,334c632f6e,Mixed Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+b45dcc9caa,334c632f6e,Mixed Dbls Net,3,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+96b2e4ebc6,334c632f6e,Open Sgls Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+a4f5089357,334c632f6e,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+7ab00f0526,334c632f6e,Open Sgls Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+a1cdd3b8e8,334c632f6e,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+a1cdd3b8e8,334c632f6e,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+0902659759,334c632f6e,Open Team Freestyle,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+0902659759,334c632f6e,Open Team Freestyle,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+5e60d67cc0,334c632f6e,Open Team Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+5e60d67cc0,334c632f6e,Open Team Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+7d648aa282,334c632f6e,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+dd2c751001,334c632f6e,Open Sgls Consecutive,2,John Lind,290ed496-1837-57fd-820d-a907ba6ea20b,John Lind,MATCHED,FBW
+4c68812b66,334c632f6e,Open Sgls Consecutive,3,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+5d6f336445,334c632f6e,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+5d6f336445,334c632f6e,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+206a30ad80,334c632f6e,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+206a30ad80,334c632f6e,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+8f2f80ce78,334c632f6e,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+8f2f80ce78,334c632f6e,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+c071c5ccf8,15782bd1d5,Men's Overall,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+215edcf347,15782bd1d5,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+faa81a8cb1,15782bd1d5,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+dff0dd1f29,15782bd1d5,Open Sgls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+8104ba4073,15782bd1d5,Open Sgls Net,3,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+1e27753546,15782bd1d5,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+1e27753546,15782bd1d5,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+804aea02dc,15782bd1d5,Open Dbls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+804aea02dc,15782bd1d5,Open Dbls Net,2,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+0c11c2f01e,15782bd1d5,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+0c11c2f01e,15782bd1d5,Open Dbls Net,3,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+d6b8321c75,15782bd1d5,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+a82d8f1155,15782bd1d5,Women's Sgls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+14ca27e641,15782bd1d5,Women's Sgls Net,3,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+fdeed1090f,15782bd1d5,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+fdeed1090f,15782bd1d5,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+7377995890,15782bd1d5,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+7377995890,15782bd1d5,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+8368a4b5d1,15782bd1d5,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+8368a4b5d1,15782bd1d5,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+2f1e302b14,15782bd1d5,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+2f1e302b14,15782bd1d5,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+bc5976d437,15782bd1d5,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+bc5976d437,15782bd1d5,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+4558c38350,15782bd1d5,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+4558c38350,15782bd1d5,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+59df320d4a,15782bd1d5,Open Sgls Freestyle,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+2126a597d0,15782bd1d5,Open Sgls Freestyle,2,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+dab52e3910,15782bd1d5,Open Sgls Freestyle,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+37f8febf08,15782bd1d5,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+37f8febf08,15782bd1d5,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+38a20ae73c,15782bd1d5,Open Team Freestyle,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,FBW
+38a20ae73c,15782bd1d5,Open Team Freestyle,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,FBW
+866e822855,15782bd1d5,Open Team Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+866e822855,15782bd1d5,Open Team Freestyle,3,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+cb8e377361,15782bd1d5,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+79e7509cea,15782bd1d5,Open Sgls Consecutive,2,John Lind,290ed496-1837-57fd-820d-a907ba6ea20b,John Lind,MATCHED,FBW
+3034700fb7,15782bd1d5,Open Sgls Consecutive,3,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+0676580b88,15782bd1d5,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+0676580b88,15782bd1d5,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+4e27b83bb9,15782bd1d5,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+4e27b83bb9,15782bd1d5,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+30219b9a81,15782bd1d5,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+30219b9a81,15782bd1d5,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+60481a8f86,76340820ba,Men's Overall,1,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+3fb47044e1,76340820ba,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+9019364f74,76340820ba,Open Sgls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+d3842dc538,76340820ba,Open Sgls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+d55ef28b6e,76340820ba,Open Sgls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+3437f51951,76340820ba,Open Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+3437f51951,76340820ba,Open Dbls Net,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+f46c486974,76340820ba,Open Dbls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+f46c486974,76340820ba,Open Dbls Net,2,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+677f6d8004,76340820ba,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+677f6d8004,76340820ba,Open Dbls Net,3,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+a51bbf9d2e,76340820ba,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+33028a5bbd,76340820ba,Women's Sgls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+ff7c357886,76340820ba,Women's Sgls Net,3,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+f34a1645c0,76340820ba,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+f34a1645c0,76340820ba,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+5b3bb0ed25,76340820ba,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+5b3bb0ed25,76340820ba,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+80a6788945,76340820ba,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+80a6788945,76340820ba,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+2261ec5ae9,76340820ba,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+2261ec5ae9,76340820ba,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+1a2e93a0ae,76340820ba,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+1a2e93a0ae,76340820ba,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+1c7e2cc3b7,76340820ba,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+1c7e2cc3b7,76340820ba,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+95e3efa41f,76340820ba,Open Sgls Freestyle,1,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+49189e7843,76340820ba,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+8b48ba4513,76340820ba,Open Sgls Freestyle,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+1a29c0e1f0,76340820ba,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+1a29c0e1f0,76340820ba,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+5a9872f948,76340820ba,Open Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+5a9872f948,76340820ba,Open Team Freestyle,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+7d981ac0ce,76340820ba,Open Team Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+7d981ac0ce,76340820ba,Open Team Freestyle,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,FBW
+eed1531305,76340820ba,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+2c0d79d873,76340820ba,Open Sgls Consecutive,2,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+e11ad34796,76340820ba,Open Sgls Consecutive,3,Ted Martens,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,MATCHED,FBW
+d6a0cdf547,76340820ba,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+d6a0cdf547,76340820ba,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+f33fee66fe,76340820ba,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+f33fee66fe,76340820ba,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+bba0bb9dd9,76340820ba,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+bba0bb9dd9,76340820ba,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+2693722f5b,07e711d92a,Men's Overall,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+df9f80fb3f,07e711d92a,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+7956fbe385,07e711d92a,Open Sgls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+563331c366,07e711d92a,Open Sgls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+cefc30e4e8,07e711d92a,Open Sgls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+82c26e068a,07e711d92a,Open Dbls Net,1,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+82c26e068a,07e711d92a,Open Dbls Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+c1988daa46,07e711d92a,Open Dbls Net,2,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+c1988daa46,07e711d92a,Open Dbls Net,2,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+20c9753efe,07e711d92a,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+20c9753efe,07e711d92a,Open Dbls Net,3,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+7484d84d39,07e711d92a,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+c8e03d7451,07e711d92a,Women's Sgls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+24c54aa585,07e711d92a,Women's Sgls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+83f11c70b2,07e711d92a,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+83f11c70b2,07e711d92a,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+fa380cf1fb,07e711d92a,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+fa380cf1fb,07e711d92a,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+6955f57ae3,07e711d92a,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+6955f57ae3,07e711d92a,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+b32d793aaa,07e711d92a,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+b32d793aaa,07e711d92a,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+70f2ff4bd4,07e711d92a,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+70f2ff4bd4,07e711d92a,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+8e0bdfb5cd,07e711d92a,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+8e0bdfb5cd,07e711d92a,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+97ea1a3af1,07e711d92a,Open Sgls Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+8a7064e753,07e711d92a,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+2e96ea689d,07e711d92a,Open Sgls Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+830360837e,07e711d92a,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+830360837e,07e711d92a,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+c41b5a7697,07e711d92a,Open Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+c41b5a7697,07e711d92a,Open Team Freestyle,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+c3f6a2547f,07e711d92a,Open Team Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+c3f6a2547f,07e711d92a,Open Team Freestyle,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,FBW
+7a870cf995,07e711d92a,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+6c9f549a03,07e711d92a,Open Sgls Consecutive,2,Ted Martens,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,MATCHED,FBW
+b617481fe3,07e711d92a,Open Sgls Consecutive,3,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+385d46bc42,07e711d92a,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+385d46bc42,07e711d92a,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+e6e3504b7d,07e711d92a,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+e6e3504b7d,07e711d92a,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+7f607e5a77,07e711d92a,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+7f607e5a77,07e711d92a,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+ac1cb7b5a0,e04899bee1,Men's Overall,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+35daeac35e,e04899bee1,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+91c1c7001c,e04899bee1,Open Sgls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+1cb377b7d3,e04899bee1,Open Sgls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+14f2dbd812,e04899bee1,Open Sgls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+376bb62209,e04899bee1,Open Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+376bb62209,e04899bee1,Open Dbls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+1bbfccc816,e04899bee1,Open Dbls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+1bbfccc816,e04899bee1,Open Dbls Net,2,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+0357a3b4be,e04899bee1,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+0357a3b4be,e04899bee1,Open Dbls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+c19bbf9314,e04899bee1,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+bdd3fa245e,e04899bee1,Women's Sgls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+0d6bb07cfe,e04899bee1,Women's Sgls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+0ec152e543,e04899bee1,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+0ec152e543,e04899bee1,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+423421ea5f,e04899bee1,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+423421ea5f,e04899bee1,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+c3c7a75c6d,e04899bee1,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+c3c7a75c6d,e04899bee1,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+d4e6d2c622,e04899bee1,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+d4e6d2c622,e04899bee1,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+1dfa4c0f7c,e04899bee1,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+1dfa4c0f7c,e04899bee1,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+9f4487abc4,e04899bee1,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+9f4487abc4,e04899bee1,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+6534910873,e04899bee1,Open Sgls Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+b4c5c7c9c5,e04899bee1,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+0d7c39158a,e04899bee1,Open Sgls Freestyle,3,Torgeir Rygh,42b5c8be-9cb5-5b3b-b167-13fd86b35ca4,Torgeir Rygh,NEW_PLAYER,FBW
+5b9b7255f1,e04899bee1,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+5b9b7255f1,e04899bee1,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+393ea10b01,e04899bee1,Open Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+393ea10b01,e04899bee1,Open Team Freestyle,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+55af40455b,e04899bee1,Open Team Freestyle,3,Torgeir Rygh,42b5c8be-9cb5-5b3b-b167-13fd86b35ca4,Torgeir Rygh,NEW_PLAYER,FBW
+55af40455b,e04899bee1,Open Team Freestyle,3,Sindre Madsen,e0682f82-69f2-5395-bf80-1f7c9a2e2cad,Sindre Madsen,NEW_PLAYER,FBW
+77545950d9,e04899bee1,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+5a51ce9375,e04899bee1,Open Sgls Consecutive,2,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+745f954cd8,e04899bee1,Open Sgls Consecutive,3,Ted Martens,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,MATCHED,FBW
+9b31bdfbb7,e04899bee1,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+9b31bdfbb7,e04899bee1,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+b12a6281df,e04899bee1,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+b12a6281df,e04899bee1,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+d195c8ae71,e04899bee1,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+d195c8ae71,e04899bee1,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+5c601b3d6b,b9d35c4646,Men's Overall,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+242ff432aa,b9d35c4646,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+b96e8b8876,b9d35c4646,Open Sgls Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+c5193227b1,b9d35c4646,Open Sgls Net,2,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+7f1d7388ec,b9d35c4646,Open Sgls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+196311f4bd,b9d35c4646,Open Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+196311f4bd,b9d35c4646,Open Dbls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+26ade66473,b9d35c4646,Open Dbls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+26ade66473,b9d35c4646,Open Dbls Net,2,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+a25d3e26d7,b9d35c4646,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+a25d3e26d7,b9d35c4646,Open Dbls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+086679e82b,b9d35c4646,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+5f6ad90752,b9d35c4646,Women's Sgls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+2f5ba391b4,b9d35c4646,Women's Sgls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+842d6fd323,b9d35c4646,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+842d6fd323,b9d35c4646,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+d66b943ddc,b9d35c4646,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+d66b943ddc,b9d35c4646,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+dd8152a222,b9d35c4646,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+dd8152a222,b9d35c4646,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+7f2cc0e4fc,b9d35c4646,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+7f2cc0e4fc,b9d35c4646,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+acae426d4d,b9d35c4646,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+acae426d4d,b9d35c4646,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+cd7264586f,b9d35c4646,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+cd7264586f,b9d35c4646,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+37f6b36b4d,b9d35c4646,Open Sgls Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+c92061e1ce,b9d35c4646,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+d4e756a0bd,b9d35c4646,Open Sgls Freestyle,3,Torgeir Rygh,42b5c8be-9cb5-5b3b-b167-13fd86b35ca4,Torgeir Rygh,NEW_PLAYER,FBW
+54c07e79c9,b9d35c4646,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+54c07e79c9,b9d35c4646,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+abad56fa83,b9d35c4646,Open Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+abad56fa83,b9d35c4646,Open Team Freestyle,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+1bd3a0d366,b9d35c4646,Open Team Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+1bd3a0d366,b9d35c4646,Open Team Freestyle,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,FBW
+02b217f91f,b9d35c4646,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+543db049ad,b9d35c4646,Open Sgls Consecutive,2,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+f194e49f4f,b9d35c4646,Open Sgls Consecutive,3,Ted Martens,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,MATCHED,FBW
+e8f42ef1bc,b9d35c4646,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+e8f42ef1bc,b9d35c4646,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+10945e4097,b9d35c4646,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+10945e4097,b9d35c4646,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+278ae585b7,b9d35c4646,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+278ae585b7,b9d35c4646,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+d1820f0278,1faddf6c05,Men's Overall,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+024f16969c,1faddf6c05,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+a3c5f0bfd8,1faddf6c05,Open Sgls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+1fdb2ae7d0,1faddf6c05,Open Sgls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+0f9976a780,1faddf6c05,Open Sgls Net,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+029e100037,1faddf6c05,Open Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+029e100037,1faddf6c05,Open Dbls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+31f3068767,1faddf6c05,Open Dbls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+31f3068767,1faddf6c05,Open Dbls Net,2,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+3713b9c322,1faddf6c05,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+3713b9c322,1faddf6c05,Open Dbls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+a2cccf44eb,1faddf6c05,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+ccf64e0b44,1faddf6c05,Women's Sgls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+80b8b14a53,1faddf6c05,Women's Sgls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+7c3ba5308e,1faddf6c05,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+7c3ba5308e,1faddf6c05,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+68f114c835,1faddf6c05,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+68f114c835,1faddf6c05,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+21f0349513,1faddf6c05,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+21f0349513,1faddf6c05,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+75dc26372d,1faddf6c05,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+75dc26372d,1faddf6c05,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+febbee5afa,1faddf6c05,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+febbee5afa,1faddf6c05,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+01c333b3f5,1faddf6c05,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+01c333b3f5,1faddf6c05,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+84958e786f,1faddf6c05,Open Sgls Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+6017358802,1faddf6c05,Open Sgls Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+3f3af0cdd4,1faddf6c05,Open Sgls Freestyle,3,Torgeir Rygh,42b5c8be-9cb5-5b3b-b167-13fd86b35ca4,Torgeir Rygh,NEW_PLAYER,FBW
+4d197bdb82,1faddf6c05,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+4d197bdb82,1faddf6c05,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+19883faecf,1faddf6c05,Open Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+19883faecf,1faddf6c05,Open Team Freestyle,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+c9b86a5e6d,1faddf6c05,Open Team Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+c9b86a5e6d,1faddf6c05,Open Team Freestyle,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,FBW
+9f889b5c7c,1faddf6c05,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+c2620714d9,1faddf6c05,Open Sgls Consecutive,2,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+e95e384a10,1faddf6c05,Open Sgls Consecutive,3,Ted Martens,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,MATCHED,FBW
+e2dbdd99c0,1faddf6c05,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+e2dbdd99c0,1faddf6c05,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+032075dd7a,1faddf6c05,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+032075dd7a,1faddf6c05,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+94f718636a,1faddf6c05,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+94f718636a,1faddf6c05,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+21f586798d,6dc440629d,Men's Overall,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+787c9ecac5,6dc440629d,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+ae9c36222b,6dc440629d,Open Sgls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+a4f7f57791,6dc440629d,Open Sgls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+14d4aefbd6,6dc440629d,Open Sgls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+e36001c1ec,6dc440629d,Open Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+e36001c1ec,6dc440629d,Open Dbls Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+d96dc348e3,6dc440629d,Open Dbls Net,2,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+d96dc348e3,6dc440629d,Open Dbls Net,2,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,FBW
+6c2536df3f,6dc440629d,Open Dbls Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+6c2536df3f,6dc440629d,Open Dbls Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+c5540dbe99,6dc440629d,Women's Sgls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+464898749a,6dc440629d,Women's Sgls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+2ae3c9d602,6dc440629d,Women's Sgls Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+19ca8c9eb7,6dc440629d,Women's Dbls Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+19ca8c9eb7,6dc440629d,Women's Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+07267ff9f3,6dc440629d,Women's Dbls Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,FBW
+07267ff9f3,6dc440629d,Women's Dbls Net,2,Jodi Sebastian,2224d6ba-5be4-56a5-90e1-aaa61a15bcb0,Jodi Sebastian,MATCHED,FBW
+5586afd2fa,6dc440629d,Women's Dbls Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,FBW
+5586afd2fa,6dc440629d,Women's Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+dd7b9c1fb8,6dc440629d,Mixed Dbls Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,FBW
+dd7b9c1fb8,6dc440629d,Mixed Dbls Net,1,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+45f0806593,6dc440629d,Mixed Dbls Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,FBW
+45f0806593,6dc440629d,Mixed Dbls Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,FBW
+b17c01af35,6dc440629d,Mixed Dbls Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,FBW
+b17c01af35,6dc440629d,Mixed Dbls Net,3,Kenny Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,FBW
+d8e5636859,6dc440629d,Open Sgls Freestyle,1,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+a8099691f9,6dc440629d,Open Sgls Freestyle,2,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+19ab15f67c,6dc440629d,Open Sgls Freestyle,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+d7f6f4b547,6dc440629d,Open Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,FBW
+d7f6f4b547,6dc440629d,Open Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+5c05bd6995,6dc440629d,Open Team Freestyle,2,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,FBW
+5c05bd6995,6dc440629d,Open Team Freestyle,2,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,FBW
+842aa1d541,6dc440629d,Open Team Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,FBW
+842aa1d541,6dc440629d,Open Team Freestyle,3,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+3f59ac43a2,6dc440629d,Open Sgls Consecutive,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,FBW
+b0c5539eb1,6dc440629d,Open Sgls Consecutive,2,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+0654be5d01,6dc440629d,Open Sgls Consecutive,3,Ted Martens,3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,MATCHED,FBW
+a29eff40f9,6dc440629d,Open Dbls Consecutive,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,FBW
+a29eff40f9,6dc440629d,Open Dbls Consecutive,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,FBW
+e738011af5,6dc440629d,Open Dbls Consecutive,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,FBW
+e738011af5,6dc440629d,Open Dbls Consecutive,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,FBW
+54ba77166a,6dc440629d,Open Dbls Consecutive,3,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,FBW
+54ba77166a,6dc440629d,Open Dbls Consecutive,3,Dave Robinson,e7b054cf-d4f7-56cb-aafb-26a313fbbc14,Dave Robinson,MATCHED,FBW
+a3b91532bf,8396ba09ac,Open Singles,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+e5be25c4c2,8396ba09ac,Open Singles,2,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+dce50236a8,af9e865ed5,Open Singles,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+73af312e02,af9e865ed5,Open Singles,2,Mike Marshall,1381939c-35d0-5941-ae91-ca262b6fc482,Mike Marshall,MATCHED,FBW
+a1db66f1a8,e41e20722d,Open Doubles,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+a1db66f1a8,e41e20722d,Open Doubles,1,Mike Marshall,1381939c-35d0-5941-ae91-ca262b6fc482,Mike Marshall,MATCHED,FBW
+dabb044482,0a43031545,Open Singles,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+942ba0656b,f771c4ef26,Open Singles,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+16a6bcd2b1,76ff377548,Open Singles Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+dc5e273c29,76ff377548,Open Singles Net,2,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+556310c30c,76ff377548,Open Doubles Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+556310c30c,76ff377548,Open Doubles Net,1,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+7673c1ed24,6cd9e5b635,Open Freestyle,1,Doug Little,d86e1aad-2058-5773-95eb-c5fd05217112,Doug Little,NEW_PLAYER,FBW
+35a2138816,77aa0f8390,Open Singles Net,1,Jan-Olof Karlsson,6448a460-2f45-5a41-879d-f967d87e8a5c,Jan-Olof Karlsson,NEW_PLAYER,FBW
+b660a392ac,88ab188635,Open Singles Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+e5915ef1aa,88ab188635,Open Freestyle,1,Doug Little,d86e1aad-2058-5773-95eb-c5fd05217112,Doug Little,NEW_PLAYER,FBW
+acfd3c2261,b4b6a194e2,Open Singles Net,1,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+d25b0c47fc,b4b6a194e2,Open Freestyle,1,Doug Little,d86e1aad-2058-5773-95eb-c5fd05217112,Doug Little,NEW_PLAYER,FBW
+f3c2172dea,8667de3590,Open Singles Net,1,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+cf9eae8a04,8667de3590,Open Singles Net,2,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+11e4248a69,8667de3590,Open Freestyle,1,Doug Little,d86e1aad-2058-5773-95eb-c5fd05217112,Doug Little,NEW_PLAYER,FBW
+2e12fd4ffe,e753e2a15c,Open Singles Net,1,Jan-Olof Karlsson,6448a460-2f45-5a41-879d-f967d87e8a5c,Jan-Olof Karlsson,NEW_PLAYER,FBW
+fb5f1fb355,d272be24f7,Open Singles Net,1,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+4267673bf4,d272be24f7,Open Freestyle,1,Rick Reese,0858e74f-3f58-51c5-8d9b-4a6f2333c08c,Rick Reese,MATCHED,FBW
+07f409af99,7f20a87202,Open Singles Net,1,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+ae712c02e5,5c386b7dea,Open Singles,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,FBW
+2f5e54aecf,334c632f6e,Open Singles Net,1,Ken Eldrick,03bcdedb-b187-5ef3-ba2d-e371c1cada15,Ken Eldrick,NEW_PLAYER,FBW
+6a25514e3d,b9d35c4646,Open Singles Net,1,Steve Fennell,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,FBW
+db9777f4d0,1e36e7ca92,,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+db9777f4d0,1e36e7ca92,,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+7f9a866e8f,1e36e7ca92,,2,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+81e6c01524,1e36e7ca92,,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+81e6c01524,1e36e7ca92,,3,Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,MATCHED,OLD_RESULTS
+a32e53a1a7,76498d51d2,Singles,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+c3f154cd8f,76498d51d2,Singles,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+789d80aefe,76498d51d2,Singles,3,Jeff Johnson,76c8b933-3ec9-53e9-b2a7-a862b32704db,Jeff Johnson,MATCHED,OLD_RESULTS
+c90b7e93b6,76498d51d2,Team,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+c90b7e93b6,76498d51d2,Team,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+c90b7e93b6,76498d51d2,Team,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+c90b7e93b6,76498d51d2,Team,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+959ee3f490,76498d51d2,Team,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+959ee3f490,76498d51d2,Team,2,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,OLD_RESULTS
+959ee3f490,76498d51d2,Team,2,Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,MATCHED,OLD_RESULTS
+959ee3f490,76498d51d2,Team,2,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+85981a677a,76498d51d2,Team,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+85981a677a,76498d51d2,Team,3,Will Squire,a6ba539d-a3b1-5685-ba8f-f537731bc96d,Will Squire,MATCHED,OLD_RESULTS
+1656965262,00659874b9,Singles,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+c7ac99298d,00659874b9,Singles,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+794b39dcc0,00659874b9,Singles,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+c6d7082cea,00659874b9,Team,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+c6d7082cea,00659874b9,Team,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+c6d7082cea,00659874b9,Team,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+f6a4e0012f,00659874b9,Team,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+f6a4e0012f,00659874b9,Team,2,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,OLD_RESULTS
+f6a4e0012f,00659874b9,Team,2,Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,MATCHED,OLD_RESULTS
+a3daabe31e,00659874b9,Team,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+a3daabe31e,00659874b9,Team,3,Robert Conover,282ea81a-5815-5a15-9842-ee2ad6e2047e,Robert Conover,MATCHED,OLD_RESULTS
+8f812c74e9,0e1499ab21,Singles,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+8e747f9b50,0e1499ab21,Singles,2,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+3979c1e38d,0e1499ab21,Singles,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+a1b3d19c66,0e1499ab21,Team,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+a1b3d19c66,0e1499ab21,Team,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+cf5120e8d7,0e1499ab21,Team,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+cf5120e8d7,0e1499ab21,Team,2,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+cf5120e8d7,0e1499ab21,Team,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+d37d9708f8,0e1499ab21,Team,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,OLD_RESULTS
+d37d9708f8,0e1499ab21,Team,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+91c0b9f6e4,1c74083104,Singles,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+7207b1a963,1c74083104,Singles,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,OLD_RESULTS
+7a1263f429,1c74083104,Singles,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+c8a00203cc,1c74083104,Team,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+c8a00203cc,1c74083104,Team,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+023f71cb50,1c74083104,Team,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,OLD_RESULTS
+023f71cb50,1c74083104,Team,2,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+a6b5257fd6,1c74083104,Team,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,OLD_RESULTS
+a6b5257fd6,1c74083104,Team,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,OLD_RESULTS
+9233dbcf60,b4b6a194e2,Singles,1,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,OLD_RESULTS
+5647f3550e,b4b6a194e2,Singles,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+28ca44696d,b4b6a194e2,Singles,3,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+fad82e75a6,b4b6a194e2,Team,1,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,OLD_RESULTS
+fad82e75a6,b4b6a194e2,Team,1,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+fad82e75a6,b4b6a194e2,Team,1,Randy Nelson,d91dcdc5-e286-538b-984c-1eb0fb6d5bc4,Randy Nelson,NEW_PLAYER,OLD_RESULTS
+0b2417e314,b4b6a194e2,Team,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,OLD_RESULTS
+0b2417e314,b4b6a194e2,Team,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,OLD_RESULTS
+9efd1b9a79,b4b6a194e2,Team,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+9efd1b9a79,b4b6a194e2,Team,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+02bee7ee0d,bb975bff1d,Singles Consecutive Kicks,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+95e665692b,bb975bff1d,Doubles Consecutive Kicks,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+95e665692b,bb975bff1d,Doubles Consecutive Kicks,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+e721091f01,bb975bff1d,Singles Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,OLD_RESULTS
+ea1232d11d,bb975bff1d,Singles Net,2,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,OLD_RESULTS
+2debdc2427,bb975bff1d,Singles Net,3,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+3150bb43b1,bb975bff1d,Doubles Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,OLD_RESULTS
+3150bb43b1,bb975bff1d,Doubles Net,1,Max Smith,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,Max Smith,MATCHED,OLD_RESULTS
+d2c62a6e41,bb975bff1d,Doubles Net,2,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,OLD_RESULTS
+d2c62a6e41,bb975bff1d,Doubles Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+5cf5214429,bb975bff1d,Doubles Net,3,Gale Bigler,f06dc40d-e92e-5784-9269-cf25a77b450e,Gale Bigler,MATCHED,OLD_RESULTS
+5cf5214429,bb975bff1d,Doubles Net,3,Dave Frazier,d00d203f-ac71-5ec1-ad7f-497a8f024c50,Dave Frazier,MATCHED,OLD_RESULTS
+f1b7c3ce83,b9540daaab,Intermediate Singles Consecutive Kicks,1,Max Smith,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,Max Smith,MATCHED,OLD_RESULTS
+27363f6a19,b9540daaab,Singles Consecutive Kicks,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+0c2b39e91d,b9540daaab,Women's Singles Consecutive Kicks,1,Kalia Klaban,0c681fd1-e4bf-54b3-a314-41da581ecb40,Kalia Klaban,MATCHED,OLD_RESULTS
+79975ba9d2,b9540daaab,Team Consecutive Kicks,1,Kalia Klaban,0c681fd1-e4bf-54b3-a314-41da581ecb40,Kalia Klaban,MATCHED,OLD_RESULTS
+79975ba9d2,b9540daaab,Team Consecutive Kicks,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+79975ba9d2,b9540daaab,Team Consecutive Kicks,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+d0e12d09de,b9540daaab,Intermediate Singles Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+90357363b5,b9540daaab,Intermediate Doubles Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+90357363b5,b9540daaab,Intermediate Doubles Net,1,Mark Daniels,33e83366-7b1e-5c4a-99a9-8eba0d3988ca,Mark Daniels,MATCHED,OLD_RESULTS
+f1b8e13343,b9540daaab,Singles Net,1,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,OLD_RESULTS
+4c2db96939,b9540daaab,Singles Net,2,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+5cf0284876,b9540daaab,Singles Net,3,Dave Hill,5cb79fb4-ab20-558f-b4a2-e7206c9f22df,Dave Hill,MATCHED,OLD_RESULTS
+f826bf3637,b9540daaab,Doubles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+f826bf3637,b9540daaab,Doubles Net,1,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+57dbc5b4fe,b9540daaab,Doubles Net,2,John Stalberger,8f420eba-d663-5f06-b0f4-b62bf7550f80,John Stalberger,MATCHED,OLD_RESULTS
+57dbc5b4fe,b9540daaab,Doubles Net,2,Max Smith,95fb4def-7ff2-5c9c-8de5-1b97d0e13756,Max Smith,MATCHED,OLD_RESULTS
+fe13c6ce59,b9540daaab,Doubles Net,3,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+fe13c6ce59,b9540daaab,Doubles Net,3,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,OLD_RESULTS
+c4e7748716,b9540daaab,Women's Doubles Net,1,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,OLD_RESULTS
+c4e7748716,b9540daaab,Women's Doubles Net,1,Misty Helms,e85a6af9-3ac6-550d-8b35-045ec4886d06,Misty Helms,MATCHED,OLD_RESULTS
+bf8bb079b3,b9540daaab,Women's Doubles Net,2,unknown,,,NOISE,OLD_RESULTS
+ea584ebdb4,b9540daaab,Women's Doubles Net,3,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+ea584ebdb4,b9540daaab,Women's Doubles Net,3,Jennifer Reese,8d03383e-8e17-5065-a3ec-bae127aea67d,Jennifer Reese,MATCHED,OLD_RESULTS
+915a613b86,1e36e7ca92,Golf,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+10f108f800,1e36e7ca92,Golf,2,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+df918d0a1b,1e36e7ca92,Golf,3,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+2ce3d73f4f,1e36e7ca92,Singles Consecutive Kicks,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+b73104f1da,1e36e7ca92,Singles Consecutive Kicks,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+f551ea8227,1e36e7ca92,Singles Consecutive Kicks,3,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+4cb0f34b1d,1e36e7ca92,Women's Doubles Net,1,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+4cb0f34b1d,1e36e7ca92,Women's Doubles Net,1,Carolyn Ramondie,cbf84862-04b1-5408-9e43-49b9818ed9aa,Carolyn Ramondie,MATCHED,OLD_RESULTS
+02bb6a8383,1e36e7ca92,Women's Doubles Net,2,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,OLD_RESULTS
+02bb6a8383,1e36e7ca92,Women's Doubles Net,2,Alex Frazier,1f2d14aa-31e7-5d1f-a338-9ae43af68af5,Alex Frazier,MATCHED,OLD_RESULTS
+6a4ccb09da,1e36e7ca92,Women's Doubles Net,3,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+6a4ccb09da,1e36e7ca92,Women's Doubles Net,3,Karen Uppinghouse,4b3d47c0-977c-5285-a31f-b3c2f33428a8,Karen Uppinghouse,NEW_PLAYER,OLD_RESULTS
+5d11e04577,1e36e7ca92,Women's Singles Net,1,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+513107bce0,1e36e7ca92,Women's Singles Net,2,Carolyn Ramondie,cbf84862-04b1-5408-9e43-49b9818ed9aa,Carolyn Ramondie,MATCHED,OLD_RESULTS
+341ecb9e91,1e36e7ca92,Women's Singles Net,3,Karen Gunther,63327293-7bb9-5a45-a50a-e2a2167ba80e,Karen Gunther,MATCHED,OLD_RESULTS
+2cc2f0ae6c,1e36e7ca92,Mixed Doubles Net,1,Alex Frazier,1f2d14aa-31e7-5d1f-a338-9ae43af68af5,Alex Frazier,MATCHED,OLD_RESULTS
+2cc2f0ae6c,1e36e7ca92,Mixed Doubles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+1818d6f11c,1e36e7ca92,Mixed Doubles Net,2,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+1818d6f11c,1e36e7ca92,Mixed Doubles Net,2,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+465d92fcaa,1e36e7ca92,Mixed Doubles Net,3,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,OLD_RESULTS
+465d92fcaa,1e36e7ca92,Mixed Doubles Net,3,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+649b10743b,1e36e7ca92,Singles Net,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+bb5b74fb3b,1e36e7ca92,Singles Net,2,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+7cab14487c,1e36e7ca92,Singles Net,3,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+34554d537a,1e36e7ca92,Doubles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+34554d537a,1e36e7ca92,Doubles Net,1,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+8d7aea7863,1e36e7ca92,Doubles Net,2,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+8d7aea7863,1e36e7ca92,Doubles Net,2,Walt Mason,c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,MATCHED,OLD_RESULTS
+09e7885730,1e36e7ca92,Doubles Net,3,Fred Kippley,8acf4e97-e1e8-50d7-8fd4-3a1d8ff4e731,Fred Kippley,MATCHED,OLD_RESULTS
+09e7885730,1e36e7ca92,Doubles Net,3,Gary Preston,472663b7-a356-59f4-8743-c5ad3fae999e,Gary Preston,MATCHED,OLD_RESULTS
+f71d322699,1e36e7ca92,Intermediate Singles Net,1,Steve Femmel,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,OLD_RESULTS
+d297a8de48,1e36e7ca92,Intermediate Doubles Net,1,Steve Femmel,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,OLD_RESULTS
+d297a8de48,1e36e7ca92,Intermediate Doubles Net,1,Ted Johnson,ecd4e14c-7ddf-560c-8cd0-ec10bedf4095,Ted Johnson,NEW_PLAYER,OLD_RESULTS
+d3df5670d2,1e36e7ca92,Freestyle,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+d3df5670d2,1e36e7ca92,Freestyle,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+731bcdf222,1e36e7ca92,Freestyle,2,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+970e2fcb86,1e36e7ca92,Freestyle,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+970e2fcb86,1e36e7ca92,Freestyle,3,Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,MATCHED,OLD_RESULTS
+d2e7424cc7,1e36e7ca92,Intermediate Freestyle,1,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,OLD_RESULTS
+afaafccb6c,76498d51d2,Singles Consecutive Kicks,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+678350788c,76498d51d2,Singles Consecutive Kicks,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+d19af25cc0,76498d51d2,Singles Consecutive Kicks,3,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+dacf11aaa3,76498d51d2,Women's Consecutive Kicks,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+936fd7e7ac,76498d51d2,Women's Consecutive Kicks,2,Cheri Johnson,5ed3846e-4212-5e19-84ff-19cc486e66db,Cheri Johnson,MATCHED,OLD_RESULTS
+da8604edc9,76498d51d2,Women's Consecutive Kicks,3,Grace Faucette,5e9196f6-80e9-58e5-b152-822cd1fc1021,Grace Faucette,MATCHED,OLD_RESULTS
+70488202a4,76498d51d2,Women's Singles Net,1,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+471b6d15e3,76498d51d2,Women's Singles Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+e4ba5f7712,76498d51d2,Women's Singles Net,3,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+1d20ab86f9,76498d51d2,Women's Doubles Net,1,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+1d20ab86f9,76498d51d2,Women's Doubles Net,1,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+0ccaeb2757,76498d51d2,Women's Doubles Net,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+0ccaeb2757,76498d51d2,Women's Doubles Net,2,Judy Grace,73728c19-e412-5006-aa48-1d2685a77f7e,Judy Grace,MATCHED,OLD_RESULTS
+e2cbee505b,76498d51d2,Women's Doubles Net,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+e2cbee505b,76498d51d2,Women's Doubles Net,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+87ffef3ffe,76498d51d2,Mixed Doubles Net,1,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+87ffef3ffe,76498d51d2,Mixed Doubles Net,1,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+90d23c21a2,76498d51d2,Mixed Doubles Net,2,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+90d23c21a2,76498d51d2,Mixed Doubles Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+a6da4e7381,76498d51d2,Mixed Doubles Net,3,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+a6da4e7381,76498d51d2,Mixed Doubles Net,3,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+6e2af2137f,76498d51d2,Singles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+3effd172c3,76498d51d2,Singles Net,2,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+fcbd7cc5c8,76498d51d2,Singles Net,3,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+90c243f117,76498d51d2,Doubles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+90c243f117,76498d51d2,Doubles Net,1,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+14f5b2f99a,76498d51d2,Doubles Net,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+14f5b2f99a,76498d51d2,Doubles Net,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+6a9799a620,76498d51d2,Doubles Net,3,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+6a9799a620,76498d51d2,Doubles Net,3,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,OLD_RESULTS
+48f6af8a73,76498d51d2,Intermediate Singles Net,1,Jimmy Evans,1df424ed-8425-5452-ac6a-f7abb11bb468,Jimmy Evans,MATCHED,OLD_RESULTS
+8931f905ce,76498d51d2,Intermediate Doubles Net,1,Steve Brown,7d9fad30-f7f8-569b-b27d-7ef146e35653,Steve Brown,NEW_PLAYER,OLD_RESULTS
+8931f905ce,76498d51d2,Intermediate Doubles Net,1,Kevin Gaunce,bf2fefd4-7e20-5b87-84ba-056eac2bb001,Kevin Gaunce,NEW_PLAYER,OLD_RESULTS
+66905f63f0,76498d51d2,Singles Freestyle,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+3e3084b5f2,76498d51d2,Singles Freestyle,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+51024f5019,76498d51d2,Singles Freestyle,3,Jeff Johnson,76c8b933-3ec9-53e9-b2a7-a862b32704db,Jeff Johnson,MATCHED,OLD_RESULTS
+1c61b0dc45,76498d51d2,Team Freestyle,1,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+1c61b0dc45,76498d51d2,Team Freestyle,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+1c61b0dc45,76498d51d2,Team Freestyle,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+1c61b0dc45,76498d51d2,Team Freestyle,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+f23fbab101,76498d51d2,Team Freestyle,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+f23fbab101,76498d51d2,Team Freestyle,2,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,OLD_RESULTS
+f23fbab101,76498d51d2,Team Freestyle,2,Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,MATCHED,OLD_RESULTS
+f23fbab101,76498d51d2,Team Freestyle,2,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+c88dc80feb,76498d51d2,Team Freestyle,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+c88dc80feb,76498d51d2,Team Freestyle,3,Will Squire,a6ba539d-a3b1-5685-ba8f-f537731bc96d,Will Squire,MATCHED,OLD_RESULTS
+a927ad90c6,00659874b9,Singles Net,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+c2ab2fcadc,00659874b9,Singles Net,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+ad25f2bc6c,00659874b9,Singles Net,3,Steve Femmel,fb605451-fa41-5e6d-ad21-1b541b3fc82b,Steve Femmel,MATCHED,OLD_RESULTS
+5897552e8b,00659874b9,Doubles Net,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+5897552e8b,00659874b9,Doubles Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+086cd6b78f,00659874b9,Doubles Net,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+086cd6b78f,00659874b9,Doubles Net,2,Dave Hill,5cb79fb4-ab20-558f-b4a2-e7206c9f22df,Dave Hill,MATCHED,OLD_RESULTS
+b67193487c,00659874b9,Doubles Net,3,Bob Swerdlick,4a680cee-eee2-5f29-9637-86075d66581c,Bob Swerdlick,MATCHED,OLD_RESULTS
+b67193487c,00659874b9,Doubles Net,3,Mike Puderbaugh,38df5c50-08d9-5706-90e5-464508ea0962,Mike Puderbaugh,MATCHED,OLD_RESULTS
+7c10033c25,00659874b9,Women's Singles Net,1,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+1ac9ed87f9,00659874b9,Women's Singles Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+4d736a4c69,00659874b9,Women's Singles Net,3,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+2beddb52fd,00659874b9,Women's Doubles Net,1,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+2beddb52fd,00659874b9,Women's Doubles Net,1,Rita Buckley,2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e,Rita Buckley,MATCHED,OLD_RESULTS
+02ad758adc,00659874b9,Women's Doubles Net,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+02ad758adc,00659874b9,Women's Doubles Net,2,Shannon Aubin,4667c817-96f6-5e6e-b3ab-46ecd390dc0e,Shannon Aubin,MATCHED,OLD_RESULTS
+f21ac43106,00659874b9,Women's Doubles Net,3,Karen Atgopian,86de3135-51c7-5ad5-9144-112f984acd3f,Karen Atgopian,NEW_PLAYER,OLD_RESULTS
+f21ac43106,00659874b9,Women's Doubles Net,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+a6efbd7298,00659874b9,Mixed Doubles Net,1,Lori Jean Conover,77f0f32d-98bf-5742-8228-4e06ac07bd9d,Lori Jean Conover,MATCHED,OLD_RESULTS
+a6efbd7298,00659874b9,Mixed Doubles Net,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+6ac01135f1,00659874b9,Mixed Doubles Net,2,Shannon Aubin,4667c817-96f6-5e6e-b3ab-46ecd390dc0e,Shannon Aubin,MATCHED,OLD_RESULTS
+6ac01135f1,00659874b9,Mixed Doubles Net,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+63a9664d2b,00659874b9,Mixed Doubles Net,3,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+63a9664d2b,00659874b9,Mixed Doubles Net,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+978354ab5d,00659874b9,Singles Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+80b3418309,00659874b9,Singles Freestyle,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+359274e730,00659874b9,Singles Freestyle,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+52d624b1b1,00659874b9,Team Freestyle,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+52d624b1b1,00659874b9,Team Freestyle,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+52d624b1b1,00659874b9,Team Freestyle,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+05c943aae0,00659874b9,Team Freestyle,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+05c943aae0,00659874b9,Team Freestyle,2,Kevin Courtney,eb40c6a6-7e80-5190-b77d-47a47735bc0b,Kevin Courtney,MATCHED,OLD_RESULTS
+05c943aae0,00659874b9,Team Freestyle,2,Reed Gray,b5d49246-d1b4-5540-a92d-72d26e6b1d0b,Reed Gray,MATCHED,OLD_RESULTS
+1bffe72490,00659874b9,Team Freestyle,3,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+1bffe72490,00659874b9,Team Freestyle,3,Robert Conover,282ea81a-5815-5a15-9842-ee2ad6e2047e,Robert Conover,MATCHED,OLD_RESULTS
+e92411544d,00659874b9,Singles Consecutive Kicks,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+2480d36901,00659874b9,Golf,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+b259dda0be,00659874b9,Golf,2,Tim Prater,de9e5c5c-8b5b-5ced-b326-5d2048c7ab3c,Tim Prater,MATCHED,OLD_RESULTS
+d501411628,00659874b9,Golf,3,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+1cc8b48474,6cd9e5b635,Intermediate Singles Net,1,Tom Akin,f0156ba3-ee86-5eab-b884-99ba8719dd84,Tom Akin,MATCHED,OLD_RESULTS
+9c8151ec78,6cd9e5b635,Intermediate Doubles Net,1,Torben Wigger,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torben Wigger,MATCHED,OLD_RESULTS
+9c8151ec78,6cd9e5b635,Intermediate Doubles Net,1,Rick Kaufman,8ca3812a-3df8-5cfe-9cff-a1df1963b8e6,Rick Kaufman,MATCHED,OLD_RESULTS
+2b1ee6f87c,6cd9e5b635,Intermediate Freestyle,1,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,OLD_RESULTS
+2b1ee6f87c,6cd9e5b635,Intermediate Freestyle,1,Colin Cowles,face7f79-7983-5032-a0de-d238eeb55bb2,Colin Cowles,NEW_PLAYER,OLD_RESULTS
+2bd0f8b2f9,6cd9e5b635,Women's Singles Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+6166e8ae2a,6cd9e5b635,Women's Singles Net,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+c904850d2c,6cd9e5b635,Women's Singles Net,3,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,OLD_RESULTS
+8a5b5642ae,6cd9e5b635,Women's Doubles Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+8a5b5642ae,6cd9e5b635,Women's Doubles Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+c66b853466,6cd9e5b635,Women's Doubles Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+c66b853466,6cd9e5b635,Women's Doubles Net,2,Jenny Davison,3f48caf5-14c9-59f1-8255-1db7ef2fd049,Jenny Davison,MATCHED,OLD_RESULTS
+6131896977,6cd9e5b635,Women's Doubles Net,3,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+6131896977,6cd9e5b635,Women's Doubles Net,3,Shannon Storment,c04b0df1-3194-55ab-aa97-16adb45c25d3,Shannon Storment,MATCHED,OLD_RESULTS
+df43b1f02c,6cd9e5b635,Women's Ultra Singles Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+86eea883c5,6cd9e5b635,Women's Ultra Singles Net,2,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+af06dcd03a,6cd9e5b635,Women's Ultra Singles Net,3,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+17587f606d,6cd9e5b635,Women's Singles Consecutive Kicks,1,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+b0bd484647,6cd9e5b635,Women's Singles Consecutive Kicks,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+22e38f1c5f,6cd9e5b635,Women's Singles Consecutive Kicks,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+0c80285fbc,6cd9e5b635,Women's Doubles Consecutive Kicks,1,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+0c80285fbc,6cd9e5b635,Women's Doubles Consecutive Kicks,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+4358c9e237,6cd9e5b635,Women's Doubles Consecutive Kicks,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+4358c9e237,6cd9e5b635,Women's Doubles Consecutive Kicks,2,Vanessa Sabala,03ed9422-5152-5132-a181-7249637c824a,Vanessa Sabala,MATCHED,OLD_RESULTS
+5a716a52fe,6cd9e5b635,Women's Doubles One-Pass Consecutive Kicks,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+5a716a52fe,6cd9e5b635,Women's Doubles One-Pass Consecutive Kicks,1,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+e103a5283a,6cd9e5b635,Women's Doubles One-Pass Consecutive Kicks,2,Ruth Osterman,a10fa54f-eadb-5842-8df1-fdca1920e7e7,Ruth Osterman,MATCHED,OLD_RESULTS
+e103a5283a,6cd9e5b635,Women's Doubles One-Pass Consecutive Kicks,2,Vanessa Sabala,03ed9422-5152-5132-a181-7249637c824a,Vanessa Sabala,MATCHED,OLD_RESULTS
+8d8886b755,6cd9e5b635,Women's Freestyle,1,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+8d8886b755,6cd9e5b635,Women's Freestyle,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+17f1d4693c,6cd9e5b635,Women's Freestyle,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+17f1d4693c,6cd9e5b635,Women's Freestyle,2,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,OLD_RESULTS
+4127bdb748,6cd9e5b635,Women's Freestyle,3,Ruth Osterman,a10fa54f-eadb-5842-8df1-fdca1920e7e7,Ruth Osterman,MATCHED,OLD_RESULTS
+4127bdb748,6cd9e5b635,Women's Freestyle,3,Vanessa Sabala,03ed9422-5152-5132-a181-7249637c824a,Vanessa Sabala,MATCHED,OLD_RESULTS
+4127bdb748,6cd9e5b635,Women's Freestyle,3,Jenny Davison,3f48caf5-14c9-59f1-8255-1db7ef2fd049,Jenny Davison,MATCHED,OLD_RESULTS
+07982b7977,6cd9e5b635,Women's Golf,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+ce406c15b7,6cd9e5b635,Women's Golf,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+2eb98450db,6cd9e5b635,Women's Golf,3,Vanessa Sabala,03ed9422-5152-5132-a181-7249637c824a,Vanessa Sabala,MATCHED,OLD_RESULTS
+0d17b21e93,6cd9e5b635,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+520f1d5a00,6cd9e5b635,Men's Overall,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+c3eb7e2b92,6cd9e5b635,Mixed Doubles Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+c3eb7e2b92,6cd9e5b635,Mixed Doubles Net,1,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+5586440107,6cd9e5b635,Mixed Doubles Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+5586440107,6cd9e5b635,Mixed Doubles Net,2,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+151cd3f5d2,6cd9e5b635,Mixed Doubles Net,3,Cheryl Hughes,cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,MATCHED,OLD_RESULTS
+151cd3f5d2,6cd9e5b635,Mixed Doubles Net,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+4b807657bc,6cd9e5b635,Golf,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+dc32adbd09,6cd9e5b635,Golf,2,Tim Mackey,5e46bdbe-bbbb-5cca-aacb-d5edf9bf2540,Tim Mackey,MATCHED,OLD_RESULTS
+9de66b62b3,6cd9e5b635,Golf,3,Torben Wigger,f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torben Wigger,MATCHED,OLD_RESULTS
+9477e27499,6cd9e5b635,Advanced Singles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+1d87f3cdff,6cd9e5b635,Advanced Singles Net,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+9a727de79a,6cd9e5b635,Advanced Singles Net,3,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+f64f8f26d7,6cd9e5b635,Advanced Doubles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+f64f8f26d7,6cd9e5b635,Advanced Doubles Net,1,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+2c9b041db1,6cd9e5b635,Advanced Doubles Net,2,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+2c9b041db1,6cd9e5b635,Advanced Doubles Net,2,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+a6ea7eeb08,6cd9e5b635,Advanced Doubles Net,3,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+a6ea7eeb08,6cd9e5b635,Advanced Doubles Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+88de1ef76b,6cd9e5b635,Ultra Singles Net,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+d19e7165bb,6cd9e5b635,Ultra Singles Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+2fe24b13bf,6cd9e5b635,Ultra Singles Net,3,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+61c2854f74,6cd9e5b635,Ultra Doubles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+61c2854f74,6cd9e5b635,Ultra Doubles Net,1,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+ce16e2d840,6cd9e5b635,Ultra Doubles Net,2,Kevin Coker,9837d58a-0b5d-58cf-a565-dda9bde70bac,Kevin Coker,MATCHED,OLD_RESULTS
+ce16e2d840,6cd9e5b635,Ultra Doubles Net,2,Steve Granzberg,14941d8e-1763-5f1e-9daf-dc3c7fa97c96,Steve Granzberg,MATCHED,OLD_RESULTS
+7d21ea2459,6cd9e5b635,Ultra Doubles Net,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,OLD_RESULTS
+7d21ea2459,6cd9e5b635,Ultra Doubles Net,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+22b44b4843,6cd9e5b635,Singles Freestyle,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+535accfaa8,6cd9e5b635,Singles Freestyle,2,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+411adebabc,6cd9e5b635,Singles Freestyle,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+6da9f0ff8f,6cd9e5b635,Team Freestyle,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+6da9f0ff8f,6cd9e5b635,Team Freestyle,1,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,MATCHED,OLD_RESULTS
+31af1fd726,6cd9e5b635,Team Freestyle,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+31af1fd726,6cd9e5b635,Team Freestyle,2,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+31af1fd726,6cd9e5b635,Team Freestyle,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+9695c049c0,6cd9e5b635,Team Freestyle,3,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,OLD_RESULTS
+9695c049c0,6cd9e5b635,Team Freestyle,3,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+bb9581957d,6cd9e5b635,Singles Consecutive Kicks,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,OLD_RESULTS
+f8340b81e3,6cd9e5b635,Singles Consecutive Kicks,2,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+982df6490d,6cd9e5b635,Singles Consecutive Kicks,3,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+8564b7e840,6cd9e5b635,Doubles Consecutive Kicks,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+8564b7e840,6cd9e5b635,Doubles Consecutive Kicks,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+989b60c08f,6cd9e5b635,Doubles Consecutive Kicks,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+989b60c08f,6cd9e5b635,Doubles Consecutive Kicks,2,Jimmy Evans,1df424ed-8425-5452-ac6a-f7abb11bb468,Jimmy Evans,MATCHED,OLD_RESULTS
+2592ac93cf,6cd9e5b635,Doubles Consecutive Kicks,3,Lee Guenther,4901847d-1c88-5fda-aca5-a24c19da90d9,Lee Guenther,MATCHED,OLD_RESULTS
+2592ac93cf,6cd9e5b635,Doubles Consecutive Kicks,3,Mike Mueller,70e1582b-c009-508a-b3e1-11b184198b72,Mike Mueller,MATCHED,OLD_RESULTS
+b216cc5c47,6cd9e5b635,Doubles One-Pass Consecutive Kicks,1,Gary Lautt,66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14,Gary Lautt,MATCHED,OLD_RESULTS
+b216cc5c47,6cd9e5b635,Doubles One-Pass Consecutive Kicks,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+42930bdb9c,6cd9e5b635,Doubles One-Pass Consecutive Kicks,2,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+42930bdb9c,6cd9e5b635,Doubles One-Pass Consecutive Kicks,2,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,OLD_RESULTS
+af1fec1829,6cd9e5b635,Doubles One-Pass Consecutive Kicks,3,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+af1fec1829,6cd9e5b635,Doubles One-Pass Consecutive Kicks,3,Greg Cortopassi,bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,MATCHED,OLD_RESULTS
+0e72fa2dfd,88ab188635,Women's Singles Consecutive Kicks,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+b4903287b1,88ab188635,Women's Singles Consecutive Kicks,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+95ac4daf27,88ab188635,Women's Singles Consecutive Kicks,3,Marie Elsner,fdf8022e-1b76-57e0-a06b-b0fbe66e7f26,Marie Elsner,MATCHED,OLD_RESULTS
+a49cf9cd87,88ab188635,Singles Consecutive Kicks,1,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+08c6a02039,88ab188635,Singles Consecutive Kicks,2,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,OLD_RESULTS
+c244098c43,88ab188635,Singles Consecutive Kicks,3,Fred Barnum,06e833ec-f06f-50fb-9c56-390ca839e23f,Fred Barnum,MATCHED,OLD_RESULTS
+cc7d00ce22,88ab188635,Women's Doubles Consecutive Kicks,1,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+cc7d00ce22,88ab188635,Women's Doubles Consecutive Kicks,1,Marie Elsner,fdf8022e-1b76-57e0-a06b-b0fbe66e7f26,Marie Elsner,MATCHED,OLD_RESULTS
+26b090d966,88ab188635,Women's Doubles Consecutive Kicks,2,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+26b090d966,88ab188635,Women's Doubles Consecutive Kicks,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+beb5159f98,88ab188635,Women's Doubles Consecutive Kicks,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+beb5159f98,88ab188635,Women's Doubles Consecutive Kicks,3,Kendall KIC,ece72308-6a72-551f-866a-e348728ee455,Kendall KIC,MATCHED,OLD_RESULTS
+5d9545e553,88ab188635,Doubles Consecutive Kicks,1,Pat Castle,fb644300-e5a4-51ca-962f-e59dad795b03,Pat Castle,MATCHED,OLD_RESULTS
+5d9545e553,88ab188635,Doubles Consecutive Kicks,1,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+077dfee3df,88ab188635,Doubles Consecutive Kicks,2,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,OLD_RESULTS
+077dfee3df,88ab188635,Doubles Consecutive Kicks,2,Jeff Johnson,76c8b933-3ec9-53e9-b2a7-a862b32704db,Jeff Johnson,MATCHED,OLD_RESULTS
+e5b027adf3,88ab188635,Doubles Consecutive Kicks,3,Jon Lind,a6e260ae-74e5-5ef5-8b20-d7c2fbd65b83,Jon Lind,MATCHED,OLD_RESULTS
+e5b027adf3,88ab188635,Doubles Consecutive Kicks,3,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,OLD_RESULTS
+97dbc62965,88ab188635,Women's Doubles One-Pass Consecutive Kicks,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+97dbc62965,88ab188635,Women's Doubles One-Pass Consecutive Kicks,1,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+d8487e0e02,88ab188635,Women's Doubles One-Pass Consecutive Kicks,2,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+d8487e0e02,88ab188635,Women's Doubles One-Pass Consecutive Kicks,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+7a3217d13d,88ab188635,Women's Doubles One-Pass Consecutive Kicks,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,OLD_RESULTS
+7a3217d13d,88ab188635,Women's Doubles One-Pass Consecutive Kicks,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,OLD_RESULTS
+dac1186ea1,88ab188635,Doubles One-Pass Consecutive Kicks,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+dac1186ea1,88ab188635,Doubles One-Pass Consecutive Kicks,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+c4ae1f0a26,88ab188635,Doubles One-Pass Consecutive Kicks,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+c4ae1f0a26,88ab188635,Doubles One-Pass Consecutive Kicks,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+06d169349c,88ab188635,Doubles One-Pass Consecutive Kicks,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,OLD_RESULTS
+06d169349c,88ab188635,Doubles One-Pass Consecutive Kicks,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,OLD_RESULTS
+73ce2fd5b3,88ab188635,Women's Golf,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+c2a7d6e50b,88ab188635,Women's Golf,2,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,OLD_RESULTS
+33eecb36a6,88ab188635,Women's Golf,3,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,OLD_RESULTS
+f406c7e52c,88ab188635,Golf,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+1696502c0f,88ab188635,Golf,2,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,OLD_RESULTS
+1a904d8331,88ab188635,Golf,3,Evan Bozett,7bbc620b-366a-5ffb-8bf3-0f9f3e9e8e0e,Evan Bozett,MATCHED,OLD_RESULTS
+20d4a13237,88ab188635,Women's Freestyle,1,Jodi Chandler,4a06d35f-7a27-5347-8c06-3157385d71f6,Jodi Chandler,MATCHED,OLD_RESULTS
+20d4a13237,88ab188635,Women's Freestyle,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+c7dd0df633,88ab188635,Women's Freestyle,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+c7dd0df633,88ab188635,Women's Freestyle,2,Kim Era,b76be9ba-0d58-5747-8ab1-11f3e3e5cc8d,Kim Era,MATCHED,OLD_RESULTS
+0191ea700a,88ab188635,Women's Freestyle,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+f2aeb3343a,88ab188635,Singles Freestyle,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+5f86fa10da,88ab188635,Singles Freestyle,2,Dennis Ross,84641a6f-36d4-5857-af3f-827b1f57102f,Dennis Ross,MATCHED,OLD_RESULTS
+36b24df06b,88ab188635,Singles Freestyle,3,Jack Schoolcraft,b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,MATCHED,OLD_RESULTS
+83032b2950,88ab188635,Team Freestyle,1,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+83032b2950,88ab188635,Team Freestyle,1,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+54a5bc05bf,88ab188635,Team Freestyle,2,Scott Cleere,777d9449-6e41-5985-bb7d-cdaf8647ef9c,Scott Cleere,MATCHED,OLD_RESULTS
+54a5bc05bf,88ab188635,Team Freestyle,2,Bill Bethurum,67af5b3f-6e16-530a-8841-409debf11fb0,Bill Bethurum,MATCHED,OLD_RESULTS
+ad9b7d95a5,88ab188635,Team Freestyle,3,Brent Welch,95643c20-ec23-57a5-a742-5b44534ae959,Brent Welch,MATCHED,OLD_RESULTS
+ad9b7d95a5,88ab188635,Team Freestyle,3,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,MATCHED,OLD_RESULTS
+d633b5c419,88ab188635,Intermediate Singles Net,1,Mark Pistorio,6dd7483e-cc7e-53ca-8424-1f36838e8faa,Mark Pistorio,MATCHED,OLD_RESULTS
+35e85efab7,88ab188635,Intermediate Doubles Net,1,Randy Ross,046fa84f-2797-5d25-866e-4d04c12880dd,Randy Ross,NEW_PLAYER,OLD_RESULTS
+35e85efab7,88ab188635,Intermediate Doubles Net,1,James Stallcup,d84a8f26-14f2-5966-b09c-971a685c6c50,James Stallcup,NEW_PLAYER,OLD_RESULTS
+60a774189a,88ab188635,Mixed Doubles Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+60a774189a,88ab188635,Mixed Doubles Net,1,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+e648f586df,88ab188635,Mixed Doubles Net,2,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,OLD_RESULTS
+e648f586df,88ab188635,Mixed Doubles Net,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+109870f168,88ab188635,Mixed Doubles Net,3,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+109870f168,88ab188635,Mixed Doubles Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+771684a381,88ab188635,Women's Singles Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+5a138c66c6,88ab188635,Women's Singles Net,2,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+52f3ce4ec8,88ab188635,Women's Singles Net,3,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,OLD_RESULTS
+af1fc572a9,88ab188635,Women's Doubles Net,1,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS
+af1fc572a9,88ab188635,Women's Doubles Net,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+e3936aa589,88ab188635,Women's Doubles Net,2,Trudy Archdale,3b25f805-f97e-528c-915d-3647ecaa8914,Trudy Archdale,MATCHED,OLD_RESULTS
+e3936aa589,88ab188635,Women's Doubles Net,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+6b47ed25a1,88ab188635,Women's Doubles Net,3,Suzanne Beauchemin,3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82,Suzanne Beauchemin,MATCHED,OLD_RESULTS
+6b47ed25a1,88ab188635,Women's Doubles Net,3,Linda Burt,669a3821-2547-5215-9edd-7965ff400e69,Linda Burt,MATCHED,OLD_RESULTS
+955478356c,88ab188635,Advanced Singles Net,1,Gary Griggs,8b8c45bf-a622-55cd-bd2d-67f3b395873e,Gary Griggs,MATCHED,OLD_RESULTS
+13d917bff7,88ab188635,Advanced Singles Net,2,Jimmy Evans,1df424ed-8425-5452-ac6a-f7abb11bb468,Jimmy Evans,MATCHED,OLD_RESULTS
+af643becfe,88ab188635,Advanced Singles Net,3,Allan Petersen,64472889-80b6-5457-a226-8aa66fa810fd,Allan Petersen,MATCHED,OLD_RESULTS
+121ff8183e,88ab188635,Advanced Doubles Net,1,Jimmy Evans,1df424ed-8425-5452-ac6a-f7abb11bb468,Jimmy Evans,MATCHED,OLD_RESULTS
+121ff8183e,88ab188635,Advanced Doubles Net,1,Chris Ott,8959d778-41d3-554e-a831-6e1f73534b0f,Chris Ott,MATCHED,OLD_RESULTS
+14aabc6cad,88ab188635,Advanced Doubles Net,2,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+14aabc6cad,88ab188635,Advanced Doubles Net,2,Andy Linder,64a7a989-aa2c-5a58-b141-e8378be4a962,Andy Linder,MATCHED,OLD_RESULTS
+c25cc4a55e,88ab188635,Advanced Doubles Net,3,Peter Shunny,5f056e75-0943-584d-8969-c6a2a03760f2,Peter Shunny,MATCHED,OLD_RESULTS
+c25cc4a55e,88ab188635,Advanced Doubles Net,3,John East,f8bd392f-8e8a-5fd4-8ef1-006d2c3e1e0b,John East,MATCHED,OLD_RESULTS
+cce585fb91,88ab188635,Ultra Singles Net,1,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+3a891ff67d,88ab188635,Ultra Singles Net,2,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+a18d688358,88ab188635,Ultra Singles Net,3,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+dc302b803b,88ab188635,Ultra Doubles Net,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+dc302b803b,88ab188635,Ultra Doubles Net,1,Mike Harding,d75b5871-83c1-5284-b09d-a5eb5d4377dd,Mike Harding,MATCHED,OLD_RESULTS
+1ab686dad3,88ab188635,Ultra Doubles Net,2,Mag Hughes,ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,MATCHED,OLD_RESULTS
+1ab686dad3,88ab188635,Ultra Doubles Net,2,Bill Hayne,92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0,Bill Hayne,MATCHED,OLD_RESULTS
+4443bf3351,88ab188635,Ultra Doubles Net,3,David Robinson,895b0608-34df-509a-853d-684ffa24e824,David Robinson,MATCHED,OLD_RESULTS
+4443bf3351,88ab188635,Ultra Doubles Net,3,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+7ff6615ab8,88ab188635,Men's Overall,1,Ken Shults,2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,MATCHED,OLD_RESULTS
+23f17d2bf0,88ab188635,Men's Overall,2,Jim Caveney,df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,MATCHED,OLD_RESULTS
+0e389bd1ef,88ab188635,Men's Overall,3,Bruce Guettich,886e5b99-bd46-5707-a490-a2e938b09a35,Bruce Guettich,MATCHED,OLD_RESULTS
+57778cd4a9,88ab188635,Women's Overall,1,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,MATCHED,OLD_RESULTS
+a0f9f44624,88ab188635,Women's Overall,2,Constance Constable,826201f8-2540-5663-9bbf-239e94ccee43,Constance Constable,MATCHED,OLD_RESULTS
+d1bfc8d9dc,88ab188635,Women's Overall,3,Nancy Reynolds,eccb075a-3997-5288-a805-774d358f5656,Nancy Reynolds,MATCHED,OLD_RESULTS

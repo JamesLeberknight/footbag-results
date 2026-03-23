@@ -1,0 +1,76 @@
+PRE-1997 Historical Footbag Dataset — Validation Summary
+Dataset version: v1.0
+Generated: 2026-03-23
+
+========================================================
+EVENT COVERAGE
+========================================================
+  Canonical events (year < 1997): 32
+  Years covered:                  1980–1996
+  Source placement rows:          755
+  Participant rows (expanded):    1141
+
+CROSS-SOURCE VALIDATION
+----------------------------------------
+  CONFIRMED_MULTI_SOURCE         12
+  SINGLE_SOURCE                  20
+  CONFLICT                       0
+
+IDENTITY RESOLUTION
+----------------------------------------
+  MATCHED                   1086
+  AUTOACCEPTED              21
+  NEW_PLAYER                30
+  UNRESOLVED                3
+  NOISE                     1
+
+ALIAS STATUS BREAKDOWN
+----------------------------------------
+  ACCEPTED                  9
+  AUTOACCEPTED              2
+  EXPERT_CONFIRMED          6
+  MATCHED                   83
+  NEW_PLAYER                14
+  NOISE                     1
+
+PERSONS TABLE
+----------------------------------------
+  Total persons referenced:  101
+  POST1997                  87
+  PRE1997_ONLY              14
+
+YEAR DISTRIBUTION
+----------------------------------------
+  1980   4 events     27 participants
+  1981   3 events     44 participants
+  1982   3 events     80 participants
+  1983   4 events    179 participants
+  1984   3 events    150 participants
+  1985   2 events    152 participants
+  1986   1 events     60 participants
+  1987   2 events     48 participants
+  1988   2 events     47 participants
+  1989   1 events     45 participants
+  1990   1 events     44 participants
+  1991   1 events     44 participants
+  1992   1 events     44 participants
+  1993   1 events     44 participants
+  1994   1 events     45 participants
+  1995   1 events     44 participants
+  1996   1 events     44 participants
+
+UNRESOLVED IDENTITIES
+----------------------------------------
+  ?
+
+SEPARATION GUARANTEE
+----------------------------------------
+  All events in this dataset have year < 1997.
+  No post-1997 data is included.
+  The post-1997 published dataset is unchanged.
+
+SOURCES
+----------------------------------------
+  FBW Magazine (Vols 2-14) — AI extraction via Gemini
+  IFAB History Pages — AI extraction via Gemini
+  OLD_RESULTS.txt — Contributed historical text file

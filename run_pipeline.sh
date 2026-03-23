@@ -11,12 +11,17 @@
 #             Order: … 03 → 04 → 04B → 05 → 05p5  (community workbook before relational export).
 #   qc       — Run all QC checks (master, post-release, schema/logic)
 #   all      — Full pipeline: rebuild → release → qc  [default]
+#   pre1997  — Build pre-1997 comparison feed → viewer-compatible outputs only.
+#             Does NOT touch post-1997 release. Reads early_data/canonical/*.csv.
+#             Produces early_data/out/early_stage2_feed.csv + early_placements_feed.csv.
+#             Then renders out/event_comparison_viewer_pre1997.html.
 #
 # Examples:
 #   ./run_pipeline.sh setup
 #   ./run_pipeline.sh rebuild
 #   ./run_pipeline.sh release
 #   ./run_pipeline.sh all
+#   ./run_pipeline.sh pre1997
 
 set -euo pipefail
 
@@ -148,11 +153,31 @@ do_qc() {
 
 # ── Dispatch ───────────────────────────────────────────────────────────────────
 
+do_pre1997() {
+    require_venv
+
+    step "Pre-1997: Build early comparison feed"
+    "$PYTHON" early_data/scripts/10_build_early_comparison_feed.py
+
+    step "Pre-1997: Render event comparison viewer"
+    "$PYTHON" tools/event_comparison_viewerV10.py \
+        --stage2 early_data/out/early_stage2_feed.csv \
+        --pf     early_data/out/early_placements_feed.csv \
+        --output out/event_comparison_viewer_pre1997.html
+
+    echo
+    echo "Pre-1997 comparison viewer written → out/event_comparison_viewer_pre1997.html"
+    echo "Feed files:"
+    echo "  early_data/out/early_stage2_feed.csv"
+    echo "  early_data/out/early_placements_feed.csv"
+}
+
 case "$MODE" in
     setup)   do_setup   ;;
     rebuild) do_rebuild ;;
     release) do_release ;;
     qc)      do_qc      ;;
+    pre1997) do_pre1997 ;;
     all)
         do_rebuild
         do_release
