@@ -1,0 +1,713 @@
+event_id,year,event_name,city,country,line_no,line_raw,name_raw,person_id,person_canon,match_type,score_raw,score_value,extract_method
+1004370976,2001,,,,7,Sick-3 Contest : 1. Jan Zimmermann,Sick,,,unresolved,3,3.0,name_score_inline
+1004370976,2001,,,,7,Sick-3 Contest : 1. Jan Zimmermann,Contest,,,unresolved,1,1.0,name_score_inline
+1012638214,2002,,,,56,OPEN SHRED:30 FREESTYLE,OPEN SHRED,,,unresolved,30,30.0,name_score_inline
+1022992222,2002,,,,2,1st: Chris Gregory-96.00,Chris Gregory,552a9fb8-e63c-5f87-b431-06f68b0a1323,Chris Gregory,exact,96.00,96.0,name_score_inline
+1022992222,2002,,,,3,2nd: Jamie Lloyd-83.78,Jamie Lloyd,25e41527-c521-5b2c-804e-a02fd2d532c5,Jamie Lloyd,exact,83.78,83.78,name_score_inline
+1022992222,2002,,,,4,3rd: Brian Johnson-72.42,Brian Johnson,92038581-bf67-512b-8d09-c41ce57276ba,Brian Johnson,exact,72.42,72.42,name_score_inline
+1022992222,2002,,,,6,1st: Jeff Lopes-141.04,Jeff Lopes,3d55febf-188e-59cb-96a0-64e670b3316c,Jeff Lopes,exact,141.04,141.04,name_score_inline
+1022992222,2002,,,,7,2nd: Derek Vandall-112.36,Derek Vandall,887e181f-a3e4-5842-a6b8-05ec686b4e5b,Derek Vandall,exact,112.36,112.36,name_score_inline
+1022992222,2002,,,,8,3rd: Erik Chan-88.81,Erik Chan,,,unresolved,88.81,88.81,name_score_inline
+1028233308,2002,,,,50,Pro Shred :30 Contest,Pro Shred,,,unresolved,30,30.0,name_score_inline
+1028233308,2002,,,,68,Intermediate Shred :30 Contest,Intermediate Shred,,,unresolved,30,30.0,name_score_inline
+1031334528,2003,,,,64,1. Jamie Lepley- 29 $50,Jamie Lepley,3e46c4db-089a-55ed-a5ff-f0ce0ed793f3,Jamie Lepley,exact,29,29.0,name_score_inline
+1031334528,2003,,,,64,1. Jamie Lepley- 29 $50,Jamie Lepley,3e46c4db-089a-55ed-a5ff-f0ce0ed793f3,Jamie Lepley,exact,29,29.0,placement_line_tail_score
+1031334528,2003,,,,65,2. Garth Smith- 30 prize,Garth Smith,08ecb6e2-5ae2-539e-a4be-41cb2d98524b,Garth Smith,exact,30,30.0,name_score_inline
+1031334528,2003,,,,65,2. Garth Smith- 30 prize,Garth Smith,08ecb6e2-5ae2-539e-a4be-41cb2d98524b,Garth Smith,exact,30,30.0,placement_line_tail_score
+1031334528,2003,,,,66,3. Jeremy Walters- 35,Jeremy Walters,de3e9581-85a2-520b-92e5-d48c0d7f8bd2,Jeremy Walters,exact,35,35.0,name_score_inline
+1031334528,2003,,,,66,3. Jeremy Walters- 35,Jeremy Walters,de3e9581-85a2-520b-92e5-d48c0d7f8bd2,Jeremy Walters,exact,35,35.0,placement_line_tail_score
+1031334528,2003,,,,67,4. Jon Felix- 37,Jon Felix,995b3cb0-5d4d-5695-9413-3c7d4110f481,Jon Felix,exact,37,37.0,name_score_inline
+1031334528,2003,,,,67,4. Jon Felix- 37,Jon Felix,995b3cb0-5d4d-5695-9413-3c7d4110f481,Jon Felix,exact,37,37.0,placement_line_tail_score
+1031334528,2003,,,,69,FREESTYLE SHRED- Greg Nelson- 171- $100 (record),FREESTYLE SHRED- Greg Nelson,,,unresolved,171,171.0,name_score_inline
+1031334528,2003,,,,70,SERVICE POACHING-E Bouchard- 356 - $100,SERVICE POACHING-E Bouchard,,,unresolved,356,356.0,name_score_inline
+1031334528,2003,,,,94,1. Effram Press- 41,Effram Press,1e11a981-de87-536a-abdb-31030a1ce540,Effram Press,exact,41,41.0,name_score_inline
+1031334528,2003,,,,94,1. Effram Press- 41,Effram Press,1e11a981-de87-536a-abdb-31030a1ce540,Effram Press,exact,41,41.0,placement_line_tail_score
+1031334528,2003,,,,95,2. Ben Kellman- 42,Ben Kellman,edb7ff85-0dae-5590-b5df-ac61cd472031,Ben Kellman,exact,42,42.0,name_score_inline
+1031334528,2003,,,,95,2. Ben Kellman- 42,Ben Kellman,edb7ff85-0dae-5590-b5df-ac61cd472031,Ben Kellman,exact,42,42.0,placement_line_tail_score
+1031334528,2003,,,,96,3. Jason Varvaro- 44 (tie breaker),Jason Varvaro,86e02868-8a77-5e1f-9783-e7b43e95ddb2,Jason Varvaro,exact,44,44.0,name_score_inline
+1031334528,2003,,,,96,3. Jason Varvaro- 44 (tie breaker),Jason Varvaro,86e02868-8a77-5e1f-9783-e7b43e95ddb2,Jason Varvaro,exact,44,44.0,placement_line_tail_score
+1031334528,2003,,,,97,4. Matt Vilade- 44,Matt Vilade,38235b83-a291-534d-ae4b-6ba8c6d6bf67,Matt Vilade,exact,44,44.0,name_score_inline
+1031334528,2003,,,,97,4. Matt Vilade- 44,Matt Vilade,38235b83-a291-534d-ae4b-6ba8c6d6bf67,Matt Vilade,exact,44,44.0,placement_line_tail_score
+1031334528,2003,,,,98,5. Errol Stryker-44,Errol Stryker,c256196e-aeb4-5011-9dce-81719a307619,Erroll Stryker,exact,44,44.0,name_score_inline
+1031334528,2003,,,,98,5. Errol Stryker-44,Errol Stryker,c256196e-aeb4-5011-9dce-81719a307619,Erroll Stryker,exact,44,44.0,placement_line_tail_score
+1032602594,2002,,,,18,Dan Ednie - 126.13,Dan Ednie,cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,exact,126.13,126.13,name_score_inline
+1032602594,2002,,,,19,Brendan Erskine- 95.17,Brendan Erskine,2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,exact,95.17,95.17,name_score_inline
+1035277529,2003,,,,153,OPEN SHRED:30,OPEN SHRED,,,unresolved,30,30.0,name_score_inline
+1036298726,2003,,,,14,"We had competitions in Intermediate, Women's and Open Shred :30 as well as Sik",Open Shred,,,unresolved,30,30.0,name_score_inline
+1036298726,2003,,,,16,Intermediate Shred :30 (one round - 2's counted as unique),Intermediate Shred,,,unresolved,30,30.0,name_score_inline
+1036298726,2003,,,,17,"1st) Ricky Moran: Bothell, WA - 121.35",WA,,,unresolved,121.35,121.35,name_score_inline
+1036298726,2003,,,,18,"2nd) Juan Sanchez: San Antonio, TX - 95.52",TX,,,unresolved,95.52,95.52,name_score_inline
+1036298726,2003,,,,19,"3rd) Mike Lopez: San Antonio, TX -86.64",TX,,,unresolved,86.64,86.64,name_score_inline
+1036298726,2003,,,,20,"4th) Shannon Anderson: Fort Collins, CO - 73.7",CO,,,unresolved,73.7,73.7,name_score_inline
+1036298726,2003,,,,21,"5th) Dylan Johnson (11 years old): Westminster, CO - 64.04",CO,,,unresolved,64.04,64.04,name_score_inline
+1036298726,2003,,,,22,Women's Shred :30,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1036298726,2003,,,,26,Open Shred :30 -- Final Round Scoring (first round was seeding),Open Shred,,,unresolved,30,30.0,name_score_inline
+1036298726,2003,,,,28,"2nd) Jim Penske: Rexburg, ID - 176.0",ID,,,unresolved,176.0,176.0,name_score_inline
+1036298726,2003,,,,29,"3rd) Allan Haggett: Victoria, BC - 167.63",BC,,,unresolved,167.63,167.63,name_score_inline
+1036298726,2003,,,,30,"4th) Greg Nelson: Ann Arbor, MI - 145.7",MI,,,unresolved,145.7,145.7,name_score_inline
+1036298726,2003,,,,31,"5th) Sunil Jani: San Francisco, CA - 144.0",CA,,,unresolved,144.0,144.0,name_score_inline
+1036298726,2003,,,,32,"6th) Peter Irish: College Park, MD - 141.17",MD,,,unresolved,141.17,141.17,name_score_inline
+1036298726,2003,,,,33,"7th) Scott Davidson: Chicago, IL - 141.0",IL,,,unresolved,141.0,141.0,name_score_inline
+1036298726,2003,,,,34,"8th) Daryl Genz: Westminster, CO - 134.08",CO,,,unresolved,134.08,134.08,name_score_inline
+1036298726,2003,,,,35,"9th) Rick Reese: Fort Collins, CO - 122.78",CO,,,unresolved,122.78,122.78,name_score_inline
+1036298726,2003,,,,36,"10th) Justin Dale: Seattle, WA - 73.14",WA,,,unresolved,73.14,73.14,name_score_inline
+1061212821,2003,,,,18,Open Shred :30 Contest,Open Shred,,,unresolved,30,30.0,name_score_inline
+1061212821,2003,,,,33,Intermediate Shred :30 Contest,Intermediate Shred,,,unresolved,30,30.0,name_score_inline
+1061453080,2003,,,,4,1. Dyalan Govender - 412,Dyalan Govender,1739ca69-640a-52e9-8266-1a96cc39ca49,Dyalan Govender,exact,412,412.0,name_score_inline
+1061453080,2003,,,,4,1. Dyalan Govender - 412,Dyalan Govender,1739ca69-640a-52e9-8266-1a96cc39ca49,Dyalan Govender,exact,412,412.0,placement_line_tail_score
+1061453080,2003,,,,5,2. Dan Ednie - 375,Dan Ednie,cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,exact,375,375.0,name_score_inline
+1061453080,2003,,,,5,2. Dan Ednie - 375,Dan Ednie,cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,exact,375,375.0,placement_line_tail_score
+1061453080,2003,,,,6,3. Ian Pritchard - 357,Ian Pritchard,b39aea2d-6370-5381-88ec-ffc5a9d3f9de,Ian Pritchard,exact,357,357.0,name_score_inline
+1061453080,2003,,,,6,3. Ian Pritchard - 357,Ian Pritchard,b39aea2d-6370-5381-88ec-ffc5a9d3f9de,Ian Pritchard,exact,357,357.0,placement_line_tail_score
+1061453080,2003,,,,7,4. Katrina Schultz - 242,Katrina Schultz,009aeef3-6da5-52f9-919d-4de94f6410e4,Katrina Schultz,exact,242,242.0,name_score_inline
+1061453080,2003,,,,7,4. Katrina Schultz - 242,Katrina Schultz,009aeef3-6da5-52f9-919d-4de94f6410e4,Katrina Schultz,exact,242,242.0,placement_line_tail_score
+1061453080,2003,,,,15,1. Ian Pritchard - 51.7,Ian Pritchard,b39aea2d-6370-5381-88ec-ffc5a9d3f9de,Ian Pritchard,exact,51.7,51.7,name_score_inline
+1061453080,2003,,,,15,1. Ian Pritchard - 51.7,Ian Pritchard,b39aea2d-6370-5381-88ec-ffc5a9d3f9de,Ian Pritchard,exact,51.7,51.7,placement_line_tail_score
+1061453080,2003,,,,16,2. Mark Roberts - 49.5,Mark Roberts,a45f9d77-e16f-524c-99b4-d75cb23648db,Mark Roberts,exact,49.5,49.5,name_score_inline
+1061453080,2003,,,,16,2. Mark Roberts - 49.5,Mark Roberts,a45f9d77-e16f-524c-99b4-d75cb23648db,Mark Roberts,exact,49.5,49.5,placement_line_tail_score
+1061453080,2003,,,,29,1. Dan Ednie - 137.5,Dan Ednie,cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,exact,137.5,137.5,name_score_inline
+1061453080,2003,,,,29,1. Dan Ednie - 137.5,Dan Ednie,cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,exact,137.5,137.5,placement_line_tail_score
+1061453080,2003,,,,30,2. Jeremy O'Wheel - 117.1,Jeremy O'Wheel,5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,exact,117.1,117.1,name_score_inline
+1061453080,2003,,,,30,2. Jeremy O'Wheel - 117.1,Jeremy O'Wheel,5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,exact,117.1,117.1,placement_line_tail_score
+1061453080,2003,,,,31,3. Brendan Erskine - 80.3,Brendan Erskine,2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,exact,80.3,80.3,name_score_inline
+1061453080,2003,,,,31,3. Brendan Erskine - 80.3,Brendan Erskine,2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,exact,80.3,80.3,placement_line_tail_score
+1063109533,2003,,,,10,What: 12th Annual Ambler Oktoberfest,What,,,unresolved,12,12.0,name_score_inline
+1068406344,2004,,,,6,Shred:30,Shred,,,unresolved,30,30.0,name_score_inline
+1070400528,2003,,,,4,"Take US-101 south across the bay bridge, and continue on Park Presidio south through",Take US,,,unresolved,101,101.0,name_score_inline
+1077766197,2004,,,,4,Singles Net: 1. The Enforcer Kenny Schultz,Singles Net,,,unresolved,1,1.0,name_score_inline
+1080757998,2004,,,,8,Open Shred:30,Open Shred,,,unresolved,30,30.0,name_score_inline
+1080757998,2004,,,,12,Intermediate Shred:30,Intermediate Shred,,,unresolved,30,30.0,name_score_inline
+1094123527,2004,,,,20,Shred:30,Shred,,,unresolved,30,30.0,name_score_inline
+1094123527,2004,,,,34,"(Final: 11-4, 7-11, 11-9)",Final,,,unresolved,11,11.0,name_score_inline
+1095965765,2004,,,,12,Shred:30,Shred,,,unresolved,30,30.0,name_score_inline
+1095965765,2004,,,,14,"SCORE: 124,55",SCORE,,,unresolved,124,124.0,name_score_inline
+1095965765,2004,,,,16,"SCORE: 98,22",SCORE,,,unresolved,98,98.0,name_score_inline
+1095965765,2004,,,,18,"SCORE: 87,875",SCORE,,,unresolved,87,87.0,name_score_inline
+1103297805,2005,,,,39,Niko+Jules vs Dreuf+Pierrot : 11-5 11-3,Pierrot,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,40,Niko+Jules vs Nono+Lassad : 11-5 11-7,Lassad,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,41,Dreuf+Pierrot vs Nono+Lassad : 11-5 11-7,Lassad,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,43,Vinz+G* vs Go Bros : 1-11 11-4 11-8,Go Bros,,,unresolved,1,1.0,name_score_inline
+1103297805,2005,,,,44,Vinz+G* vs Xav+David : 11-5 11-5,David,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,45,Go Bros vs Xav+David : 11-8 11-5,David,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,47,Ludo+Chach vs Lisa+Myriam : 11-0 11-6,Myriam,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,48,Ludo+Chach vs Miq+Eric : 6-11 5-11,Eric,,,unresolved,6,6.0,name_score_inline
+1103297805,2005,,,,49,Lisa+Myriam vs Miq+Eric : 1-11 2-11,Eric,,,unresolved,1,1.0,name_score_inline
+1103297805,2005,,,,51,Tutur+Greg vs Marco-Mamoute : 11-7 11-1,Marco-Mamoute,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,52,Tutur+Greg vs Augustin-Vincent : 11-5 11-5,Augustin-Vincent,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,53,Tutur+Greg vs Thibault-Pierrot : 11-1 11-3,Thibault-Pierrot,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,54,Marco-Mamoute vs Augustin-Vincent : 11-3 11-4,Augustin-Vincent,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,55,Marco-Mamoute vs Thibault-Pierrot : 11-0 11-2,Thibault-Pierrot,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,56,Augustin-Vincent vs Thibault-Pierrot : 11-5 11-7,Thibault-Pierrot,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,58,Niko+Jules vs Marco+Mamoute : 15-2 15-12,Mamoute,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,59,Vinz+G* vs Ludo+Chach : 15-4 15-5,Chach,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,60,Go Bros vs Miq+Eric : 15-12 15-5,Eric,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,61,Tutur+Greg vs Fred+Pierrot : 15-5 15-11,Pierrot,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,63,Vinz+G* vs Niko+Jules : 15-7 1-15 15-12,Jules,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,64,Tutur+Greg vs Go Bros : 15-7 15-12,Go Bros,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,69,Tutur-Marco : 15-12,Tutur-Marco,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,70,Tutur-Greg : 15-5,Tutur-Greg,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,71,Tutur-Xav : 15-1,Tutur-Xav,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,72,Tutur-Thierry : 15-9,Tutur-Thierry,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,73,Marco-Greg : 5-15,Marco-Greg,,,unresolved,5,5.0,name_score_inline
+1103297805,2005,,,,74,Marco-Xav : 15-3,Marco-Xav,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,75,Marco-Thierry : 15-2,Marco-Thierry,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,76,Greg-Xav : 15-5,Greg-Xav,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,77,Greg-Thierry : 15-2,Greg-Thierry,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,78,Xav-Thierry : 15-12,Xav-Thierry,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,80,Olive-Jules : 15-11,Olive-Jules,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,81,Olive-Eric : 15-6,Olive-Eric,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,82,Olive-Chach : 15-9,Olive-Chach,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,83,Olive-Myriam : 15-2,Olive-Myriam,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,84,Jules-Eric : 12-15,Jules-Eric,,,unresolved,12,12.0,name_score_inline
+1103297805,2005,,,,85,Jules-Chach : 15-7,Jules-Chach,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,86,Jules-Myriam : 15-3,Jules-Myriam,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,87,Eric-Chach : 15-9,Eric-Chach,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,88,Eric-Myriam : 15-2,Eric-Myriam,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,89,Chach-Myriam : 15-7,Chach-Myriam,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,91,Vinz-Miq : 11-15,Vinz-Miq,,,unresolved,11,11.0,name_score_inline
+1103297805,2005,,,,92,Vinz-Ludo : 15-6,Vinz-Ludo,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,93,Vinz-Nono : 15-4,Vinz-Nono,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,94,Vinz-David : 15-1,Vinz-David,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,95,Vinz-Lassad : 15-10,Vinz-Lassad,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,96,Miq-Ludo : 15-4,Miq-Ludo,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,97,Miq-Nono : 15-2,Miq-Nono,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,98,Miq-David : 15-5,Miq-David,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,99,Miq-Lassad : 15-9,Miq-Lassad,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,100,Ludo-Nono : 15-2,Ludo-Nono,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,101,Ludo-David : 15-4,Ludo-David,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,102,Ludo-Lassad : 15-4,Ludo-Lassad,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,104,Nono-Lassad : 16-18,Nono-Lassad,,,unresolved,16,16.0,name_score_inline
+1103297805,2005,,,,105,David-Lassad : 4-15,David-Lassad,,,unresolved,4,4.0,name_score_inline
+1103297805,2005,,,,108,Niko-Mamoute : 15-4,Niko-Mamoute,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,109,Niko-Lisa : 15-2,Niko-Lisa,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,110,Niko-Vincent : 15-4,Niko-Vincent,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,111,Niko-Augustin : 15-0,Niko-Augustin,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,112,G*-Mamoute : 14-16,Mamoute,,,unresolved,14,14.0,name_score_inline
+1103297805,2005,,,,113,G*-Lisa : 15-4,Lisa,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,114,G*-Vincent : 15-4,Vincent,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,115,G*-Augustin : 15-0,Augustin,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,117,Mamoute-Vincent : 15-1,Mamoute-Vincent,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,118,Mamoute-Augustin : 7-15 (???),Mamoute-Augustin,,,unresolved,7,7.0,name_score_inline
+1103297805,2005,,,,119,Lisa-Vincent : 12-15,Lisa-Vincent,,,unresolved,12,12.0,name_score_inline
+1103297805,2005,,,,120,Lisa-Augustin : 15-8,Lisa-Augustin,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,121,Vincent-Augustin : 16-14,Vincent-Augustin,,,unresolved,16,16.0,name_score_inline
+1103297805,2005,,,,131,Tutur-Miq : 15-6 15-11,Tutur-Miq,,,unresolved,15,15.0,name_score_inline
+1103297805,2005,,,,150,"1. Tutur : 155,46",Tutur,,,unresolved,155,155.0,name_score_inline
+1103297805,2005,,,,150,"1. Tutur : 155,46",Tutur,,,unresolved,155,155.0,placement_line_tail_score
+1103297805,2005,,,,151,"a. Reni : 152,42",Reni,,,unresolved,152,152.0,name_score_inline
+1103297805,2005,,,,152,"2. Zerg : 148,58",Zerg,,,unresolved,148,148.0,name_score_inline
+1103297805,2005,,,,152,"2. Zerg : 148,58",Zerg,,,unresolved,148,148.0,placement_line_tail_score
+1103297805,2005,,,,153,"b. Karim : 146,42",Karim,,,unresolved,146,146.0,name_score_inline
+1103297805,2005,,,,154,"c : Samy : 145,55",Samy,,,unresolved,145,145.0,name_score_inline
+1103297805,2005,,,,155,"3 : Fcky : 139,38",Fcky,,,unresolved,139,139.0,name_score_inline
+1103297805,2005,,,,156,"4 : Leuch : 113,9",Leuch,,,unresolved,113,113.0,name_score_inline
+1103297805,2005,,,,157,"5 : Dreuf : 84,21",Dreuf,,,unresolved,84,84.0,name_score_inline
+1103297805,2005,,,,159,"7 : Nono : 37,8",Nono,,,unresolved,37,37.0,name_score_inline
+1103297805,2005,,,,160,"8 : Augustin : 29,45",Augustin,,,unresolved,29,29.0,name_score_inline
+1104851808,2005,,,,21,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1104851808,2005,,,,32,Women's Shred:30:,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1109356644,2005,,,,55,1. Matt Matson- 36,Matt Matson,e5eca718-d710-54a4-a38a-9b3df2de3a21,Matt Matson,exact,36,36.0,name_score_inline
+1109356644,2005,,,,55,1. Matt Matson- 36,Matt Matson,e5eca718-d710-54a4-a38a-9b3df2de3a21,Matt Matson,exact,36,36.0,placement_line_tail_score
+1121753561,2006,,,,5,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1124840254,2005,,,,3,1) Andrew Grant - 162.0,Andrew Grant,8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,exact,162.0,162.0,name_score_inline
+1124840254,2005,,,,3,1) Andrew Grant - 162.0,Andrew Grant,8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,exact,162.0,162.0,placement_line_tail_score
+1124840254,2005,,,,4,2) Brett Campbell - 128.9,Brett Campbell,96456a6d-5895-58ab-8175-9408424e79d1,Brett Campbell,exact,128.9,128.9,name_score_inline
+1124840254,2005,,,,4,2) Brett Campbell - 128.9,Brett Campbell,96456a6d-5895-58ab-8175-9408424e79d1,Brett Campbell,exact,128.9,128.9,placement_line_tail_score
+1124840254,2005,,,,5,3) Byrin Wylie - 118.3,Byrin Wylie,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,exact,118.3,118.3,name_score_inline
+1124840254,2005,,,,5,3) Byrin Wylie - 118.3,Byrin Wylie,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,exact,118.3,118.3,placement_line_tail_score
+1124840254,2005,,,,6,4) Erik Chan - 107.7,Erik Chan,,,unresolved,107.7,107.7,name_score_inline
+1124840254,2005,,,,6,4) Erik Chan - 107.7,Erik Chan,,,unresolved,107.7,107.7,placement_line_tail_score
+1124840254,2005,,,,7,5) Rory Dawson - 102. 1,Rory Dawson,e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,exact,102,102.0,name_score_inline
+1124840254,2005,,,,7,5) Rory Dawson - 102. 1,Rory Dawson,e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,exact,102,102.0,placement_line_tail_score
+1124840254,2005,,,,9,1) Erik Magnusson - 49.2,Erik Magnusson,d5e3365e-ca56-5337-84fd-eaac9b7d7de4,Erik Magnusson,exact,49.2,49.2,name_score_inline
+1124840254,2005,,,,9,1) Erik Magnusson - 49.2,Erik Magnusson,d5e3365e-ca56-5337-84fd-eaac9b7d7de4,Erik Magnusson,exact,49.2,49.2,placement_line_tail_score
+1124840254,2005,,,,10,2) Jessica Archer - 33.3,Jessica Archer,3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,exact,33.3,33.3,name_score_inline
+1124840254,2005,,,,10,2) Jessica Archer - 33.3,Jessica Archer,3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,exact,33.3,33.3,placement_line_tail_score
+1125004188,2005,,,,4,Novice Singles - 8 competing,Novice Singles,,,unresolved,8,8.0,name_score_inline
+1125004188,2005,,,,9,Novice Doubles - 4 competing,Novice Doubles,,,unresolved,4,4.0,name_score_inline
+1125004188,2005,,,,14,Intermediate Singles - 6 competing,Intermediate Singles,,,unresolved,6,6.0,name_score_inline
+1125004188,2005,,,,19,Intermediate Doubles - 2 competing,Intermediate Doubles,,,unresolved,2,2.0,name_score_inline
+1133888413,2006,,,,1,NET DOUBLES - 7 competing teams,NET DOUBLES,,,unresolved,7,7.0,name_score_inline
+1133888413,2006,,,,10,4 - SQUARE - 16 competing,SQUARE,,,unresolved,16,16.0,name_score_inline
+1133888413,2006,,,,15,CONSECUTIVES 3 MIN. - 5 competing,MIN,,,unresolved,5,5.0,name_score_inline
+1135116604,2006,,,,112,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1135116604,2006,,,,116,Women's Shred:30:,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1137347261,2006,,,,3,2. Dylan Johnson - 84,Dylan Johnson,162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,exact,84,84.0,name_score_inline
+1137347261,2006,,,,3,2. Dylan Johnson - 84,Dylan Johnson,162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,exact,84,84.0,placement_line_tail_score
+1137347261,2006,,,,4,3. Sunny Freeman Genz- 75.5,Sunny Freeman Genz,226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,exact,75.5,75.5,name_score_inline
+1137347261,2006,,,,4,3. Sunny Freeman Genz- 75.5,Sunny Freeman Genz,226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,exact,75.5,75.5,placement_line_tail_score
+1137347261,2006,,,,5,4. Chris Balch - 66.46,Chris Balch,e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,exact,66.46,66.46,name_score_inline
+1137347261,2006,,,,5,4. Chris Balch - 66.46,Chris Balch,e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,exact,66.46,66.46,placement_line_tail_score
+1148241486,2006,,,,3,1) David Clavens - 232,David Clavens,033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,exact,232,232.0,name_score_inline
+1148241486,2006,,,,3,1) David Clavens - 232,David Clavens,033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,exact,232,232.0,placement_line_tail_score
+1148241486,2006,,,,4,2) Gordon Bevier - 210,Gordon Bevier,10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,exact,210,210.0,name_score_inline
+1148241486,2006,,,,4,2) Gordon Bevier - 210,Gordon Bevier,10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,exact,210,210.0,placement_line_tail_score
+1148241486,2006,,,,5,3) Caleb Abraham - 152,Caleb Abraham,ea4b97b8-2ee0-516b-94ce-ccdf349463da,Caleb Abraham,exact,152,152.0,name_score_inline
+1148241486,2006,,,,5,3) Caleb Abraham - 152,Caleb Abraham,ea4b97b8-2ee0-516b-94ce-ccdf349463da,Caleb Abraham,exact,152,152.0,placement_line_tail_score
+1148241486,2006,,,,9,3) Nathan Pipenberg - 69,Nathan Pipenberg,eae790d9-83f5-5339-8828-c641f33ec86d,Nathan Pipenberg,exact,69,69.0,name_score_inline
+1148241486,2006,,,,9,3) Nathan Pipenberg - 69,Nathan Pipenberg,eae790d9-83f5-5339-8828-c641f33ec86d,Nathan Pipenberg,exact,69,69.0,placement_line_tail_score
+1149763452,2006,,,,130,Contacts: 29,Contacts,,,unresolved,29,29.0,name_score_inline
+1149763452,2006,,,,131,Uniques: 25,Uniques,,,unresolved,25,25.0,name_score_inline
+1149763452,2006,,,,132,Adds: 97,Adds,,,unresolved,97,97.0,name_score_inline
+1154685554,2007,,,,26,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1163784775,2007,,,,221,Open Shred :30,Open Shred,,,unresolved,30,30.0,name_score_inline
+1163784775,2007,,,,256,Women's Shred :30,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1163784775,2007,,,,266,Intermediate Shred :30,Intermediate Shred,,,unresolved,30,30.0,name_score_inline
+1166622628,2007,,,,9,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1168634226,2007,,,,16,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1177512537,2007,,,,17,"1- Serge Kaldany : 183,97",Serge Kaldany,8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,exact,183,183.0,name_score_inline
+1177512537,2007,,,,18,"2- Jeremy Masselis : 123,34",Jeremy Masselis,1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,exact,123,123.0,name_score_inline
+1177512537,2007,,,,19,"3- Maxime Boucoiran : 118,46",Maxime Boucoiran,8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,exact,118,118.0,name_score_inline
+1183654670,2007,,,,10,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1185556078,2007,,,,36,1. Ali Dastrandj - 26,Ali Dastrandj,e2a90d21-3f84-5e96-b568-8750b69ca493,Ali Djastranj,exact,26,26.0,name_score_inline
+1185556078,2007,,,,36,1. Ali Dastrandj - 26,Ali Dastrandj,e2a90d21-3f84-5e96-b568-8750b69ca493,Ali Djastranj,exact,26,26.0,placement_line_tail_score
+1185556078,2007,,,,37,2. Bernhard Leiner - 28,Bernhard Leiner,600c7e31-01f3-50f4-9a65-c79c13691920,Bernhard Leiner,exact,28,28.0,name_score_inline
+1185556078,2007,,,,37,2. Bernhard Leiner - 28,Bernhard Leiner,600c7e31-01f3-50f4-9a65-c79c13691920,Bernhard Leiner,exact,28,28.0,placement_line_tail_score
+1185556078,2007,,,,38,3. Klemens Längauer - 29,Klemens Längauer,b41cedc4-cb5f-5d49-899f-5a04af4092da,Klemenz Längauer,exact,29,29.0,name_score_inline
+1185556078,2007,,,,38,3. Klemens Längauer - 29,Klemens Längauer,b41cedc4-cb5f-5d49-899f-5a04af4092da,Klemenz Längauer,exact,29,29.0,placement_line_tail_score
+1185556078,2007,,,,39,4. Alexander Trenner - 31,Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,31,31.0,name_score_inline
+1185556078,2007,,,,39,4. Alexander Trenner - 31,Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,31,31.0,placement_line_tail_score
+1185556078,2007,,,,41,"1. Paul Cronjäger - 186,06",Paul Cronjäger,be1b4187-c73a-58a6-beb7-1bba61be3f28,Paul Cronjaeger,exact,186,186.0,name_score_inline
+1185556078,2007,,,,41,"1. Paul Cronjäger - 186,06",Paul Cronjäger,be1b4187-c73a-58a6-beb7-1bba61be3f28,Paul Cronjaeger,exact,186,186.0,placement_line_tail_score
+1185556078,2007,,,,42,"2. Alexander Trenner - 158,52",Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,158,158.0,name_score_inline
+1185556078,2007,,,,42,"2. Alexander Trenner - 158,52",Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,158,158.0,placement_line_tail_score
+1185556078,2007,,,,43,"3. Rene Rühr - 138,83",Rene Rühr,9585ffd8-cc96-528e-ba4a-4211da8cef00,Rene Ruehr,exact,138,138.0,name_score_inline
+1185556078,2007,,,,43,"3. Rene Rühr - 138,83",Rene Rühr,9585ffd8-cc96-528e-ba4a-4211da8cef00,Rene Ruehr,exact,138,138.0,placement_line_tail_score
+1185556078,2007,,,,44,"4. Matthias Schmidt - 136,36",Matthias Schmidt,,,unresolved,136,136.0,name_score_inline
+1185556078,2007,,,,44,"4. Matthias Schmidt - 136,36",Matthias Schmidt,,,unresolved,136,136.0,placement_line_tail_score
+1185556078,2007,,,,45,"5. Klemens Längauer - 110,38",Klemens Längauer,b41cedc4-cb5f-5d49-899f-5a04af4092da,Klemenz Längauer,exact,110,110.0,name_score_inline
+1185556078,2007,,,,45,"5. Klemens Längauer - 110,38",Klemens Längauer,b41cedc4-cb5f-5d49-899f-5a04af4092da,Klemenz Längauer,exact,110,110.0,placement_line_tail_score
+1185556078,2007,,,,46,"6. Chrisoph Larndorfer - 73,38",Chrisoph Larndorfer,4cbec9a2-d07a-5400-b645-ce6e573e93b2,Chrisoph Larndorfer,exact,73,73.0,name_score_inline
+1185556078,2007,,,,46,"6. Chrisoph Larndorfer - 73,38",Chrisoph Larndorfer,4cbec9a2-d07a-5400-b645-ce6e573e93b2,Chrisoph Larndorfer,exact,73,73.0,placement_line_tail_score
+1185556078,2007,,,,47,"7. Ali Dastrandj - 51,32",Ali Dastrandj,e2a90d21-3f84-5e96-b568-8750b69ca493,Ali Djastranj,exact,51,51.0,name_score_inline
+1185556078,2007,,,,47,"7. Ali Dastrandj - 51,32",Ali Dastrandj,e2a90d21-3f84-5e96-b568-8750b69ca493,Ali Djastranj,exact,51,51.0,placement_line_tail_score
+1189657133,2007,,,,42,"-Saturday: 4 Square, Circle Competition",Saturday,,,unresolved,4,4.0,name_score_inline
+1190256479,2007,,,,6,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1194517448,2008,,,,168,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1194517448,2008,,,,206,Women's Shred:30:,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1195585401,2008,,,,4,"[Final: 16-14, 10-15, 15-8] [Semi over Bob & Alexis: sets: 2-0]",Final,,,unresolved,16,16.0,name_score_inline
+1195585401,2008,,,,6,"[Semi over John & Eric: 15-12, 15-5]",Eric,,,unresolved,15,15.0,name_score_inline
+1195585401,2008,,,,8,"over John & Eric: 15-12, 15-10]",Eric,,,unresolved,15,15.0,name_score_inline
+1195585401,2008,,,,65,"1. Florian Goetze / Lisa McDaniel (El Cerrito, CA, USA) [Final: 15-13, 15-10]",Final,,,unresolved,15,15.0,name_score_inline
+1200325415,2008,,,,6,Mike Anello - 585-455-9706,Mike Anello,,,unresolved,585,585.0,name_score_inline
+1200325415,2008,,,,7,Paul Agostinelli - 585-309-1518,Paul Agostinelli,9c72f8f3-a7a1-5151-85f4-fa78ad055fcc,Paul Agostinelli,exact,585,585.0,name_score_inline
+1200325415,2008,,,,24,"Saturday, April 19, 11:00 AM - 12:00 PM (noon) - Your window of opportunity.",AM,,,unresolved,12,12.0,name_score_inline
+1200325415,2008,,,,38,Routines - 2 minute routines choreographed to music.,Routines,,,unresolved,2,2.0,name_score_inline
+1208408135,2008,,,,2,1) Andrew Grant - 178.8,Andrew Grant,8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,exact,178.8,178.8,name_score_inline
+1208408135,2008,,,,2,1) Andrew Grant - 178.8,Andrew Grant,8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,exact,178.8,178.8,placement_line_tail_score
+1208408135,2008,,,,3,2) Rory Dawson - 173.6,Rory Dawson,e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,exact,173.6,173.6,name_score_inline
+1208408135,2008,,,,3,2) Rory Dawson - 173.6,Rory Dawson,e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,exact,173.6,173.6,placement_line_tail_score
+1208408135,2008,,,,4,3) Byrin Wylie - 160.3,Byrin Wylie,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,exact,160.3,160.3,name_score_inline
+1208408135,2008,,,,4,3) Byrin Wylie - 160.3,Byrin Wylie,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,exact,160.3,160.3,placement_line_tail_score
+1208408135,2008,,,,13,1) Manna Mpepo- 99.0,Manna Mpepo,9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,exact,99.0,99.0,name_score_inline
+1208408135,2008,,,,13,1) Manna Mpepo- 99.0,Manna Mpepo,9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,exact,99.0,99.0,placement_line_tail_score
+1208408135,2008,,,,14,2) Denton Louis- 57.0,Denton Louis,17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,exact,57.0,57.0,name_score_inline
+1208408135,2008,,,,14,2) Denton Louis- 57.0,Denton Louis,17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,exact,57.0,57.0,placement_line_tail_score
+1208408135,2008,,,,15,3) Kyle Warren - 37.7,Kyle Warren,b20ba292-aa4b-5271-817a-d1a80bcb4d65,Kyle Warren,exact,37.7,37.7,name_score_inline
+1208408135,2008,,,,15,3) Kyle Warren - 37.7,Kyle Warren,b20ba292-aa4b-5271-817a-d1a80bcb4d65,Kyle Warren,exact,37.7,37.7,placement_line_tail_score
+1208408135,2008,,,,25,1) Kevin Regamey - 4 games,Kevin Regamey,6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,exact,4,4.0,name_score_inline
+1208408135,2008,,,,25,1) Kevin Regamey - 4 games,Kevin Regamey,6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,exact,4,4.0,placement_line_tail_score
+1208408135,2008,,,,26,2) Rory Dawson - 3 games,Rory Dawson,e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,exact,3,3.0,name_score_inline
+1208408135,2008,,,,26,2) Rory Dawson - 3 games,Rory Dawson,e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,exact,3,3.0,placement_line_tail_score
+1208408135,2008,,,,27,3) Manna Mpepo - 1 game,Manna Mpepo,9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,exact,1,1.0,name_score_inline
+1208408135,2008,,,,27,3) Manna Mpepo - 1 game,Manna Mpepo,9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,exact,1,1.0,placement_line_tail_score
+1226679678,2009,,,,203,Women's Open Shred:30,Women's Open Shred,,,unresolved,30,30.0,name_score_inline
+1226679678,2009,,,,209,Open Shred:30,Open Shred,,,unresolved,30,30.0,name_score_inline
+1231286017,2009,,,,12,WOMEN'S DOUBLES NET: 4 teams,WOMEN'S DOUBLES NET,,,unresolved,4,4.0,name_score_inline
+1231286017,2009,,,,17,MIXED DOUBLES NET: 10 teams,MIXED DOUBLES NET,,,unresolved,10,10.0,name_score_inline
+1231286017,2009,,,,28,OPEN DOUBLES NET: 7 teams,OPEN DOUBLES NET,,,unresolved,7,7.0,name_score_inline
+1231286017,2009,,,,36,OPEN SINGLES NET: 8 players,OPEN SINGLES NET,,,unresolved,8,8.0,name_score_inline
+1231286017,2009,,,,45,INTERMEDIATE SINGLES NET: 6 players,INTERMEDIATE SINGLES NET,,,unresolved,6,6.0,name_score_inline
+1231286017,2009,,,,52,INTERMEDIATE DOUBLES NET: 4 teams,INTERMEDIATE DOUBLES NET,,,unresolved,4,4.0,name_score_inline
+1231286017,2009,,,,57,NOVICE FOOT-C: 6 players? much fun had.,NOVICE FOOT-C,,,unresolved,6,6.0,name_score_inline
+1233718528,2009,,,,9,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1235653935,2009,,,,116,Open Shred:30 Final,Open Shred,,,unresolved,30,30.0,name_score_inline
+1235653935,2009,,,,117,1. Milan Benda - 246 (Czechy),Milan Benda,0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,exact,246,246.0,name_score_inline
+1235653935,2009,,,,117,1. Milan Benda - 246 (Czechy),Milan Benda,0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,exact,246,246.0,placement_line_tail_score
+1235653935,2009,,,,122,"6. Mariusz Wilk - 144,83 (Warszawa)",Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,144,144.0,name_score_inline
+1235653935,2009,,,,122,"6. Mariusz Wilk - 144,83 (Warszawa)",Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,144,144.0,placement_line_tail_score
+1248033041,2009,,,,10,Open Doubles Net - 7 teams,Open Doubles Net,,,unresolved,7,7.0,name_score_inline
+1248033041,2009,,,,18,Open Singles Net - 6 competitors,Open Singles Net,,,unresolved,6,6.0,name_score_inline
+1248033041,2009,,,,25,Mixed Doubles Net - 3 teams,Mixed Doubles Net,,,unresolved,3,3.0,name_score_inline
+1255269216,2009,,,,19,Alex Davidson - 32 (and personal best of 102),Alex Davidson,5034c206-0e8f-58e6-8845-776e6b7a57e4,Alex Davidson,exact,32,32.0,name_score_inline
+1255957016,2009,,,,38,1. Arkadiusz Dudziñski - 240 pkt,Arkadiusz Dudziñski,6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,exact,240,240.0,name_score_inline
+1255957016,2009,,,,38,1. Arkadiusz Dudziñski - 240 pkt,Arkadiusz Dudziñski,6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,exact,240,240.0,placement_line_tail_score
+1255957016,2009,,,,39,2. Jakub Grabarczyk - 195 pkt,Jakub Grabarczyk,3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,exact,195,195.0,name_score_inline
+1255957016,2009,,,,39,2. Jakub Grabarczyk - 195 pkt,Jakub Grabarczyk,3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,exact,195,195.0,placement_line_tail_score
+1255957016,2009,,,,40,3. Marcin Bujko - 183 pkt,Marcin Bujko,4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,exact,183,183.0,name_score_inline
+1255957016,2009,,,,40,3. Marcin Bujko - 183 pkt,Marcin Bujko,4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,exact,183,183.0,placement_line_tail_score
+1255957016,2009,,,,41,4. Damian Gielnicki - 180 pkt,Damian Gielnicki,ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,exact,180,180.0,name_score_inline
+1255957016,2009,,,,41,4. Damian Gielnicki - 180 pkt,Damian Gielnicki,ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,exact,180,180.0,placement_line_tail_score
+1255957016,2009,,,,42,5. Mariusz Wilk - 160 pkt,Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,160,160.0,name_score_inline
+1255957016,2009,,,,42,5. Mariusz Wilk - 160 pkt,Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,160,160.0,placement_line_tail_score
+1255957016,2009,,,,43,6. Mateusz Janicki - 158 pkt,Mateusz Janicki,db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,exact,158,158.0,name_score_inline
+1255957016,2009,,,,43,6. Mateusz Janicki - 158 pkt,Mateusz Janicki,db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,exact,158,158.0,placement_line_tail_score
+1255957016,2009,,,,44,7. Pawe³ Nowak - 118 pkt,Nowak,,,unresolved,118,118.0,name_score_inline
+1255957016,2009,,,,45,8. Maciej Niczyporuk - 113 pkt,Maciej Niczyporuk,401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,exact,113,113.0,name_score_inline
+1255957016,2009,,,,45,8. Maciej Niczyporuk - 113 pkt,Maciej Niczyporuk,401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,exact,113,113.0,placement_line_tail_score
+1260368810,2010,,,,27,Datum: 07.03.10,Datum,,,unresolved,07.03,7.03,name_score_inline
+1263589392,2010,,,,1,Footbaggolfturnier-Hamburg-2010,Footbaggolfturnier-Hamburg,,,unresolved,201,201.0,name_score_inline
+1265745512,2010,,,,121,Open Shred:30,Open Shred,,,unresolved,30,30.0,name_score_inline
+1265745512,2010,,,,144,Women's Shred:30,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1278603677,2010,,,,16,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1284588517,2010,,,,15,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1293877677,2011,,,,237,Open Shred:30,Open Shred,,,unresolved,30,30.0,name_score_inline
+1293877677,2011,,,,346,Women's Shred:30,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1293877677,2011,,,,369,Intermediate Shred:30,Intermediate Shred,,,unresolved,30,30.0,name_score_inline
+1293878155,2011,,,,14,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1318673467,2011,,,,23,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1321869570,2012,,,,19,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1323272493,2012,,,,254,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1323272493,2012,,,,355,Women's Shred:30:,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1329132977,2012,,,,52,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1337617980,2012,,,,77,Shred:30,Shred,,,unresolved,30,30.0,name_score_inline
+1344593549,2012,,,,8,Shred:30sec,Shred,,,unresolved,30,30.0,name_score_inline
+1349043745,2013,,,,75,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1353223688,2012,,,,32,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1354752474,2013,,,,100,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1357206898,2013,,,,19,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1361207019,2013,,,,153,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1361207019,2013,,,,198,Women's Shred:30:,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1389338303,2014,,,,73,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1391189882,2014,,,,202,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1391189882,2014,,,,251,Women's Shred:30:,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1406219099,2014,,,,21,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1408070192,2015,,,,1,Int Circle-1.David Moutard 2. Ryan Morris 3.Ben Baybak,Int Circle,,,unresolved,1,1.0,name_score_inline
+1408070192,2015,,,,2,Open Circle-1.Evan Gatesman 2.Nick Landes 3.Nathan Pipenburg,Open Circle,,,unresolved,1,1.0,name_score_inline
+1417735560,2015,,,,194,Open Shred:30:,Open Shred,,,unresolved,30,30.0,name_score_inline
+1417735560,2015,,,,270,Women's Shred:30:,Women's Shred,,,unresolved,30,30.0,name_score_inline
+1473853257,2016,,,,46,1. Jakub Mo¶ciszewski (Request: 1 Sick3: 1 Big1: 2),Request,,,unresolved,1,1.0,name_score_inline
+1473853257,2016,,,,47,2. Pawe³ Nowak (Request: 4 Sick3: 2 Big1: 1),Request,,,unresolved,4,4.0,name_score_inline
+1473853257,2016,,,,48,3. Maciej Pietrzycki (Request: 2 Sick3: 4 Big1: 4),Request,,,unresolved,2,2.0,name_score_inline
+1487797845,2017,,,,24,1. Juho Marjo - 21.1,Juho Marjo,97d088ee-48f7-5920-b973-94cc1deb0b66,Juho Marjo,exact,21.1,21.1,name_score_inline
+1487797845,2017,,,,24,1. Juho Marjo - 21.1,Juho Marjo,97d088ee-48f7-5920-b973-94cc1deb0b66,Juho Marjo,exact,21.1,21.1,placement_line_tail_score
+1487797845,2017,,,,25,2. Alexander Trenner - 19.8,Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,19.8,19.8,name_score_inline
+1487797845,2017,,,,25,2. Alexander Trenner - 19.8,Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,19.8,19.8,placement_line_tail_score
+1487797845,2017,,,,26,3. Wiktor Debski - 19.4,Wiktor Debski,,,unresolved,19.4,19.4,name_score_inline
+1487797845,2017,,,,26,3. Wiktor Debski - 19.4,Wiktor Debski,,,unresolved,19.4,19.4,placement_line_tail_score
+1487797845,2017,,,,27,4. Nico Gasser - 9.4,Nico Gasser,08bad299-35e4-5311-a847-3f7d78cbeef6,Nico Gasser,exact,9.4,9.4,name_score_inline
+1487797845,2017,,,,27,4. Nico Gasser - 9.4,Nico Gasser,08bad299-35e4-5311-a847-3f7d78cbeef6,Nico Gasser,exact,9.4,9.4,placement_line_tail_score
+1487797845,2017,,,,28,5. Flurin Bischoff - 8.5,Flurin Bischoff,d25f994e-0337-5fc5-923d-8f1c88d4a44d,Flurin Bischoff,exact,8.5,8.5,name_score_inline
+1487797845,2017,,,,28,5. Flurin Bischoff - 8.5,Flurin Bischoff,d25f994e-0337-5fc5-923d-8f1c88d4a44d,Flurin Bischoff,exact,8.5,8.5,placement_line_tail_score
+1487797845,2017,,,,30,1. Pawel Nowak - 19.9,Pawel Nowak,9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,exact,19.9,19.9,name_score_inline
+1487797845,2017,,,,30,1. Pawel Nowak - 19.9,Pawel Nowak,9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,exact,19.9,19.9,placement_line_tail_score
+1487797845,2017,,,,31,2. Arkadiusz Stanek - 18.9,Arkadiusz Stanek,8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,exact,18.9,18.9,name_score_inline
+1487797845,2017,,,,31,2. Arkadiusz Stanek - 18.9,Arkadiusz Stanek,8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,exact,18.9,18.9,placement_line_tail_score
+1487797845,2017,,,,32,3. Arthur Ledain - 17.3,Arthur Ledain,e528ca88-e462-5870-bd7f-45fb49bfbcfc,Arthur Ledain,exact,17.3,17.3,name_score_inline
+1487797845,2017,,,,32,3. Arthur Ledain - 17.3,Arthur Ledain,e528ca88-e462-5870-bd7f-45fb49bfbcfc,Arthur Ledain,exact,17.3,17.3,placement_line_tail_score
+1487797845,2017,,,,33,4. Paloma Mayo - 15.8,Paloma Mayo,,,unresolved,15.8,15.8,name_score_inline
+1487797845,2017,,,,33,4. Paloma Mayo - 15.8,Paloma Mayo,,,unresolved,15.8,15.8,placement_line_tail_score
+1487797845,2017,,,,34,5. Nis Petersen - 12.5,Nis Petersen,a81adde6-197e-5067-872a-b05092e75cf9,Nis Petersen,exact,12.5,12.5,name_score_inline
+1487797845,2017,,,,34,5. Nis Petersen - 12.5,Nis Petersen,a81adde6-197e-5067-872a-b05092e75cf9,Nis Petersen,exact,12.5,12.5,placement_line_tail_score
+1487797845,2017,,,,35,6. Felix Vogelsanger - 10.0,Felix Vogelsanger,32bbbcf6-957d-5549-9658-1aa7c742aa74,Felix Vogelsanger,exact,10.0,10.0,name_score_inline
+1487797845,2017,,,,35,6. Felix Vogelsanger - 10.0,Felix Vogelsanger,32bbbcf6-957d-5549-9658-1aa7c742aa74,Felix Vogelsanger,exact,10.0,10.0,placement_line_tail_score
+1487797845,2017,,,,37,1. Mariusz Wilk - 16.8,Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,16.8,16.8,name_score_inline
+1487797845,2017,,,,37,1. Mariusz Wilk - 16.8,Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,16.8,16.8,placement_line_tail_score
+1487797845,2017,,,,38,2. Mikko Lepistö - 14.5,Mikko Lepistö,8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,exact,14.5,14.5,name_score_inline
+1487797845,2017,,,,38,2. Mikko Lepistö - 14.5,Mikko Lepistö,8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,exact,14.5,14.5,placement_line_tail_score
+1487797845,2017,,,,39,3. Tuomas Riisalo - 14.3,Tuomas Riisalo,171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,exact,14.3,14.3,name_score_inline
+1487797845,2017,,,,39,3. Tuomas Riisalo - 14.3,Tuomas Riisalo,171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,exact,14.3,14.3,placement_line_tail_score
+1487797845,2017,,,,40,4. Silwan Daouk - 8.3,Silwan Daouk,8000b520-2bfb-5767-86a7-b5c8eefc7651,Silwan Daouk,exact,8.3,8.3,name_score_inline
+1487797845,2017,,,,40,4. Silwan Daouk - 8.3,Silwan Daouk,8000b520-2bfb-5767-86a7-b5c8eefc7651,Silwan Daouk,exact,8.3,8.3,placement_line_tail_score
+1487797845,2017,,,,41,5. Sergio Martin - 8.1,Sergio Martin,0b0dbf15-8800-5001-81b5-bb9a2f088118,Sergio Martin,exact,8.1,8.1,name_score_inline
+1487797845,2017,,,,41,5. Sergio Martin - 8.1,Sergio Martin,0b0dbf15-8800-5001-81b5-bb9a2f088118,Sergio Martin,exact,8.1,8.1,placement_line_tail_score
+1487797845,2017,,,,43,1. Vasek Klouda - 21.0,Vasek Klouda,,,unresolved,21.0,21.0,name_score_inline
+1487797845,2017,,,,43,1. Vasek Klouda - 21.0,Vasek Klouda,,,unresolved,21.0,21.0,placement_line_tail_score
+1487797845,2017,,,,44,2. Krystof Maler - 19.1,Krystof Maler,33021da9-34aa-56fa-95f2-f31a6b2b6bca,Krystof Maler,exact,19.1,19.1,name_score_inline
+1487797845,2017,,,,44,2. Krystof Maler - 19.1,Krystof Maler,33021da9-34aa-56fa-95f2-f31a6b2b6bca,Krystof Maler,exact,19.1,19.1,placement_line_tail_score
+1487797845,2017,,,,45,3. Aleksi Airinen - 16.8,Aleksi Airinen,7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,exact,16.8,16.8,name_score_inline
+1487797845,2017,,,,45,3. Aleksi Airinen - 16.8,Aleksi Airinen,7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,exact,16.8,16.8,placement_line_tail_score
+1487797845,2017,,,,46,4. Sergio Garcia - 14.2,Sergio Garcia,0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,exact,14.2,14.2,name_score_inline
+1487797845,2017,,,,46,4. Sergio Garcia - 14.2,Sergio Garcia,0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,exact,14.2,14.2,placement_line_tail_score
+1487797845,2017,,,,47,5. Sergio Hernandez - 11.4,Sergio Hernandez,403742dd-27cb-5ebc-a0db-4382eaccfe64,Sergio Hernandez,exact,11.4,11.4,name_score_inline
+1487797845,2017,,,,47,5. Sergio Hernandez - 11.4,Sergio Hernandez,403742dd-27cb-5ebc-a0db-4382eaccfe64,Sergio Hernandez,exact,11.4,11.4,placement_line_tail_score
+1487797845,2017,,,,49,1. Mariusz Wilk - 25.8,Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,25.8,25.8,name_score_inline
+1487797845,2017,,,,49,1. Mariusz Wilk - 25.8,Mariusz Wilk,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,exact,25.8,25.8,placement_line_tail_score
+1487797845,2017,,,,50,2. Vasek Klouda - 24.9,Vasek Klouda,,,unresolved,24.9,24.9,name_score_inline
+1487797845,2017,,,,50,2. Vasek Klouda - 24.9,Vasek Klouda,,,unresolved,24.9,24.9,placement_line_tail_score
+1487797845,2017,,,,51,3. Pawel Nowak - 22.3,Pawel Nowak,9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,exact,22.3,22.3,name_score_inline
+1487797845,2017,,,,51,3. Pawel Nowak - 22.3,Pawel Nowak,9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,exact,22.3,22.3,placement_line_tail_score
+1487797845,2017,,,,52,4. Krystof Maler - 21.5,Krystof Maler,33021da9-34aa-56fa-95f2-f31a6b2b6bca,Krystof Maler,exact,21.5,21.5,name_score_inline
+1487797845,2017,,,,52,4. Krystof Maler - 21.5,Krystof Maler,33021da9-34aa-56fa-95f2-f31a6b2b6bca,Krystof Maler,exact,21.5,21.5,placement_line_tail_score
+1487797845,2017,,,,53,5. Arkadiusz Stanek - 20.8,Arkadiusz Stanek,8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,exact,20.8,20.8,name_score_inline
+1487797845,2017,,,,53,5. Arkadiusz Stanek - 20.8,Arkadiusz Stanek,8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,exact,20.8,20.8,placement_line_tail_score
+1487797845,2017,,,,54,6. Juho Marjo - 18.2,Juho Marjo,97d088ee-48f7-5920-b973-94cc1deb0b66,Juho Marjo,exact,18.2,18.2,name_score_inline
+1487797845,2017,,,,54,6. Juho Marjo - 18.2,Juho Marjo,97d088ee-48f7-5920-b973-94cc1deb0b66,Juho Marjo,exact,18.2,18.2,placement_line_tail_score
+1487797845,2017,,,,55,7. Mikko Lepistö - 17.6,Mikko Lepistö,8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,exact,17.6,17.6,name_score_inline
+1487797845,2017,,,,55,7. Mikko Lepistö - 17.6,Mikko Lepistö,8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,exact,17.6,17.6,placement_line_tail_score
+1487797845,2017,,,,56,8. Alexander Trenner - 15.8,Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,15.8,15.8,name_score_inline
+1487797845,2017,,,,56,8. Alexander Trenner - 15.8,Alexander Trenner,24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,exact,15.8,15.8,placement_line_tail_score
+1487797845,2017,,,,64,1. Paloma Mayo - 23.9,Paloma Mayo,,,unresolved,23.9,23.9,name_score_inline
+1487797845,2017,,,,64,1. Paloma Mayo - 23.9,Paloma Mayo,,,unresolved,23.9,23.9,placement_line_tail_score
+1487797845,2017,,,,65,2. Jana Sassakova - 20.4,Jana Sassakova,02095322-bd6e-52a6-9f2d-6b5a7a527eae,Jana Sassakova,exact,20.4,20.4,name_score_inline
+1487797845,2017,,,,65,2. Jana Sassakova - 20.4,Jana Sassakova,02095322-bd6e-52a6-9f2d-6b5a7a527eae,Jana Sassakova,exact,20.4,20.4,placement_line_tail_score
+1487797845,2017,,,,66,3. Gosia Debska - 17.9,Gosia Debska,a737859a-35f6-51c8-9cd1-d5f54f88b8dd,Gosia Debska,exact,17.9,17.9,name_score_inline
+1487797845,2017,,,,66,3. Gosia Debska - 17.9,Gosia Debska,a737859a-35f6-51c8-9cd1-d5f54f88b8dd,Gosia Debska,exact,17.9,17.9,placement_line_tail_score
+1487797845,2017,,,,67,4. Nina Stuppacher - 14.2,Nina Stuppacher,766b89e4-c947-5434-b6b1-d590bd9929e3,Nina Stuppacher,exact,14.2,14.2,name_score_inline
+1487797845,2017,,,,67,4. Nina Stuppacher - 14.2,Nina Stuppacher,766b89e4-c947-5434-b6b1-d590bd9929e3,Nina Stuppacher,exact,14.2,14.2,placement_line_tail_score
+1487797845,2017,,,,68,5. Dorota Wojtasiuk - 12.3,Dorota Wojtasiuk,7a8c8b83-9ae8-5b65-8f1f-6923058cc237,Dorota Wojtasiuk,exact,12.3,12.3,name_score_inline
+1487797845,2017,,,,68,5. Dorota Wojtasiuk - 12.3,Dorota Wojtasiuk,7a8c8b83-9ae8-5b65-8f1f-6923058cc237,Dorota Wojtasiuk,exact,12.3,12.3,placement_line_tail_score
+1502997442,2018,,,,2,1. Emmanuel Bouchard ID: 14240 / Francois Depatie Pelletier ID: 69479,Emmanuel Bouchard ID,,,unresolved,142,142.0,name_score_inline
+1502997442,2018,,,,2,1. Emmanuel Bouchard ID: 14240 / Francois Depatie Pelletier ID: 69479,Francois Depatie Pelletier ID,,,unresolved,694,694.0,name_score_inline
+1502997442,2018,,,,3,2. Daniel Greer ID: 51574 / Christopher Siebert ID: 12722,Daniel Greer ID,,,unresolved,515,515.0,name_score_inline
+1502997442,2018,,,,3,2. Daniel Greer ID: 51574 / Christopher Siebert ID: 12722,Christopher Siebert ID,,,unresolved,127,127.0,name_score_inline
+1502997442,2018,,,,4,3. Luc Legault ID: 36301 / Martin Cote ID: 12260,Luc Legault ID,,,unresolved,363,363.0,name_score_inline
+1502997442,2018,,,,4,3. Luc Legault ID: 36301 / Martin Cote ID: 12260,Martin Cote ID,,,unresolved,122,122.0,name_score_inline
+1502997442,2018,,,,5,4. Luka WeyLav-Lavallee ID: 12260 / Benjamin De Bastos ID: 82444,Luka WeyLav-Lavallee ID,,,unresolved,122,122.0,name_score_inline
+1502997442,2018,,,,5,4. Luka WeyLav-Lavallee ID: 12260 / Benjamin De Bastos ID: 82444,Benjamin De Bastos ID,,,unresolved,824,824.0,name_score_inline
+1502997442,2018,,,,6,5. Jim Hogan ID: 83027 / Anthony Ritz ID: 81222,Jim Hogan ID,,,unresolved,830,830.0,name_score_inline
+1502997442,2018,,,,6,5. Jim Hogan ID: 83027 / Anthony Ritz ID: 81222,Anthony Ritz ID,,,unresolved,812,812.0,name_score_inline
+1502997442,2018,,,,7,"6. Scot Hansen ID: 19148 , Cory Current ID: 12439",Scot Hansen ID,,,unresolved,191,191.0,name_score_inline
+1502997442,2018,,,,7,"6. Scot Hansen ID: 19148 , Cory Current ID: 12439",Cory Current ID,,,unresolved,124,124.0,name_score_inline
+1502997442,2018,,,,8,7. Jim Hankins ID: 12880 / Jake Jo Dodd ID: 82580,Jim Hankins ID,,,unresolved,128,128.0,name_score_inline
+1502997442,2018,,,,8,7. Jim Hankins ID: 12880 / Jake Jo Dodd ID: 82580,Jake Jo Dodd ID,,,unresolved,825,825.0,name_score_inline
+1502997442,2018,,,,9,8. Robert McCloskey ID:12506 / Jack Lentz ID: 38318,Robert McCloskey ID,,,unresolved,125,125.0,name_score_inline
+1502997442,2018,,,,9,8. Robert McCloskey ID:12506 / Jack Lentz ID: 38318,Jack Lentz ID,,,unresolved,383,383.0,name_score_inline
+1502997442,2018,,,,11,1. Emmanuel Bouchard ID: 14240,Emmanuel Bouchard ID,,,unresolved,142,142.0,name_score_inline
+1502997442,2018,,,,12,2. Francois Depatie Pelletier ID: 69479,Francois Depatie Pelletier ID,,,unresolved,694,694.0,name_score_inline
+1502997442,2018,,,,13,3. Luc Legault ID: 69479,Luc Legault ID,,,unresolved,694,694.0,name_score_inline
+1502997442,2018,,,,14,4. Martin Cote ID: 12260,Martin Cote ID,,,unresolved,122,122.0,name_score_inline
+1502997442,2018,,,,15,5. Daniel Greer ID: 51574,Daniel Greer ID,,,unresolved,515,515.0,name_score_inline
+1502997442,2018,,,,16,6. Luka WeyLav ID: 12260,Luka WeyLav ID,,,unresolved,122,122.0,name_score_inline
+1502997442,2018,,,,17,7. Jim Hogan ID: 83027,Jim Hogan ID,,,unresolved,830,830.0,name_score_inline
+1502997442,2018,,,,18,8. Christopher Siebert ID: 12722,Christopher Siebert ID,,,unresolved,127,127.0,name_score_inline
+1502997442,2018,,,,19,9. Anthony Ritz ID: 81222,Anthony Ritz ID,,,unresolved,812,812.0,name_score_inline
+1502997442,2018,,,,20,10. Ben De Bastos ID: 82444,Ben De Bastos ID,,,unresolved,824,824.0,name_score_inline
+1502997442,2018,,,,21,11. Jim Hankins ID: 12880,Jim Hankins ID,,,unresolved,128,128.0,name_score_inline
+1502997442,2018,,,,22,12. Jake Jo Dodd ID: 82580,Jake Jo Dodd ID,,,unresolved,825,825.0,name_score_inline
+1502997442,2018,,,,23,13. Robert McCloskey ID: 12506,Robert McCloskey ID,,,unresolved,125,125.0,name_score_inline
+1502997442,2018,,,,25,1. Pat Doran ID: 83698 / Steve Richardson ID: 83113,Pat Doran ID,,,unresolved,836,836.0,name_score_inline
+1502997442,2018,,,,25,1. Pat Doran ID: 83698 / Steve Richardson ID: 83113,Steve Richardson ID,,,unresolved,831,831.0,name_score_inline
+1502997442,2018,,,,27,3. Benjamin J. Babyak ID: 82615 / Brandy Nicole (No IFPA #),Benjamin J. Babyak ID,,,unresolved,826,826.0,name_score_inline
+1529239199,2019,,,,4,1. Walter Houston ID: 76726 / Benjamin Alston ID: 77041,Walter Houston ID,,,unresolved,767,767.0,name_score_inline
+1529239199,2019,,,,4,1. Walter Houston ID: 76726 / Benjamin Alston ID: 77041,Benjamin Alston ID,,,unresolved,770,770.0,name_score_inline
+1529239199,2019,,,,5,2. Daniel Greer ID: 51574 / Christopher Siebert ID: 12722,Daniel Greer ID,,,unresolved,515,515.0,name_score_inline
+1529239199,2019,,,,5,2. Daniel Greer ID: 51574 / Christopher Siebert ID: 12722,Christopher Siebert ID,,,unresolved,127,127.0,name_score_inline
+1529239199,2019,,,,6,3.Genevieve Bousquet ID: 40480 / Benjamin De Bastos ID: 82444,Genevieve Bousquet ID,,,unresolved,404,404.0,name_score_inline
+1529239199,2019,,,,6,3.Genevieve Bousquet ID: 40480 / Benjamin De Bastos ID: 82444,Benjamin De Bastos ID,,,unresolved,824,824.0,name_score_inline
+1529239199,2019,,,,7,4. Jim Hogan ID: 83027 / Anthony Ritz ID: 81222,Jim Hogan ID,,,unresolved,830,830.0,name_score_inline
+1529239199,2019,,,,7,4. Jim Hogan ID: 83027 / Anthony Ritz ID: 81222,Anthony Ritz ID,,,unresolved,812,812.0,name_score_inline
+1529239199,2019,,,,8,5. Jim Hankins ID: 12880 / Jake Dodd ID: 82580,Jim Hankins ID,,,unresolved,128,128.0,name_score_inline
+1529239199,2019,,,,8,5. Jim Hankins ID: 12880 / Jake Dodd ID: 82580,Jake Dodd ID,,,unresolved,825,825.0,name_score_inline
+1529239199,2019,,,,9,6. Robert McCloskey ID: 12506 / John Lentz ID: 38318,Robert McCloskey ID,,,unresolved,125,125.0,name_score_inline
+1529239199,2019,,,,9,6. Robert McCloskey ID: 12506 / John Lentz ID: 38318,John Lentz ID,,,unresolved,383,383.0,name_score_inline
+1529239199,2019,,,,10,7. Ted Fritch ID: 33265 / Sean Jordan 83796,Ted Fritch ID,,,unresolved,332,332.0,name_score_inline
+1529239199,2019,,,,12,1. Walter Houston ID: 76726,Walter Houston ID,,,unresolved,767,767.0,name_score_inline
+1529239199,2019,,,,13,2. Benjamin Alston ID: 77041,Benjamin Alston ID,,,unresolved,770,770.0,name_score_inline
+1529239199,2019,,,,14,3. Christopher Siebert ID: 12722,Christopher Siebert ID,,,unresolved,127,127.0,name_score_inline
+1529239199,2019,,,,15,4. Daniel Greer ID: 51574,Daniel Greer ID,,,unresolved,515,515.0,name_score_inline
+1529239199,2019,,,,16,5. Genevieve Bousquet ID: 40480,Genevieve Bousquet ID,,,unresolved,404,404.0,name_score_inline
+1529239199,2019,,,,17,6. Jim Hogan ID: 83027,Jim Hogan ID,,,unresolved,830,830.0,name_score_inline
+1529239199,2019,,,,18,7. Benjamin De Bastos ID: 82444,Benjamin De Bastos ID,,,unresolved,824,824.0,name_score_inline
+1529239199,2019,,,,19,8. Jim Hankins ID: 12880,Jim Hankins ID,,,unresolved,128,128.0,name_score_inline
+1529239199,2019,,,,20,9. Anthony Ritz ID: 81222,Anthony Ritz ID,,,unresolved,812,812.0,name_score_inline
+1529239199,2019,,,,21,10. Robert McCloskey ID: 12506,Robert McCloskey ID,,,unresolved,125,125.0,name_score_inline
+1529239199,2019,,,,22,11. Jake Jo Dodd ID: 82580,Jake Jo Dodd ID,,,unresolved,825,825.0,name_score_inline
+1529239199,2019,,,,23,12. Sean Jordan ID: 83796,Sean Jordan ID,,,unresolved,837,837.0,name_score_inline
+1529239199,2019,,,,28,1. Stephen R. Richardson ID: 83112,Stephen R. Richardson ID,,,unresolved,831,831.0,name_score_inline
+1529239199,2019,,,,30,3. Pat Doran ID: 83698,Pat Doran ID,,,unresolved,836,836.0,name_score_inline
+1529239199,2019,,,,32,1. Matt Kemmer ID: 75720,Matt Kemmer ID,,,unresolved,757,757.0,name_score_inline
+1529239199,2019,,,,34,3. Christian Britting ID: 83583,Christian Britting ID,,,unresolved,835,835.0,name_score_inline
+1529239199,2019,,,,36,5. Anton Britting ID: 82454,Anton Britting ID,,,unresolved,824,824.0,name_score_inline
+1529239199,2019,,,,37,6. Daniel Greer ID: 51574,Daniel Greer ID,,,unresolved,515,515.0,name_score_inline
+1529239199,2019,,,,39,Josh Gayhart ID: 65680,Josh Gayhart ID,,,unresolved,656,656.0,name_score_inline
+1529239199,2019,,,,42,Josh Gayhart ID: 65680,Josh Gayhart ID,,,unresolved,656,656.0,name_score_inline
+1529239199,2019,,,,44,1. Anthony Ritz ID: 81222,Anthony Ritz ID,,,unresolved,812,812.0,name_score_inline
+1529239199,2019,,,,48,5. Jim Hogan ID: 83027,Jim Hogan ID,,,unresolved,830,830.0,name_score_inline
+1568289502,2019,,,,9,Evgeni/Stoian vs. Stefan/Stefan - 15-9; 15-5,Stefan,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,10,Evgeni/Stoian vs. Vladislav/Martin - 15-6; 15-7,Martin,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,11,Stefan/Stefan vs. Vladislav/Martin - 11-15; 15-12; 15-13,Martin,,,unresolved,11,11.0,name_score_inline
+1568289502,2019,,,,13,Teodora/Nikolai vs. Aleksandar/Georgi - 15-3; 15-11,Georgi,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,14,Teodora/Nikolai vs. Ivan/Tanina - 14-16; 15-13; 15-13,Tanina,,,unresolved,14,14.0,name_score_inline
+1568289502,2019,,,,15,Tania/Ivan vs. Aleksandar/Georgi - 15-9; 15-13,Georgi,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,20,Teodora/Nikolai vs. Stefan/Stefan - 15-6; 15-13,Stefan,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,21,Ivan/Tania vs. Evgeni/Stoian - 17-15; 13-15; 13-15,Stoian,,,unresolved,17,17.0,name_score_inline
+1568289502,2019,,,,23,Ivan/Tania vs. Stefan/Stefan - 15-10; 10-15; 15-17,Stefan,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,25,Evgeni/Stoian vs. Teodora/Nikolai - 12-17; 17-8; 13-17,Nikolai,,,unresolved,12,12.0,name_score_inline
+1568289502,2019,,,,41,Ivan vs. Nikolai - 15-5; 15-14,Nikolai,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,42,Nikolai vs. Evgeni - 15-13; 15-13,Evgeni,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,43,Ivan vs. Evgeni - 15-9; 15-13,Evgeni,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,45,Stoian vs. Teodora - 15-8; 12-15; 15-17,Teodora,,,unresolved,15,15.0,name_score_inline
+1568289502,2019,,,,46,Stefan vs. Stoian - 11-15; 12-15,Stoian,,,unresolved,11,11.0,name_score_inline
+1568289502,2019,,,,47,Stefan vs. Teodora - 9-15; 6-15,Teodora,,,unresolved,9,9.0,name_score_inline
+1568289502,2019,,,,52,Stoian vs. Ivan - 9-15; 13-15,Ivan,,,unresolved,9,9.0,name_score_inline
+1568289502,2019,,,,53,Teodora vs. Nikolai - 9-15; 11-15,Nikolai,,,unresolved,9,9.0,name_score_inline
+1568289502,2019,,,,55,Teodora vs. Stoian - 5-15; 13-15,Stoian,,,unresolved,5,5.0,name_score_inline
+1568289502,2019,,,,57,Ivan vs. Nikolai - 15-5; 16-14,Nikolai,,,unresolved,15,15.0,name_score_inline
+1623054449,2021,,,,47,SHRED-30,SHRED,,,unresolved,30,30.0,name_score_inline
+1623054449,2021,,,,84,Cass Taylor https://youtu.be/5CnJpt-4o4k 2,CnJpt,,,unresolved,4,4.0,name_score_inline
+1697391704,2023,,,,90,Sick-3:,Sick,,,unresolved,3,3.0,name_score_inline
+1756448770,2025,,,,21,Ivan/Rosen - 21:17; 23:21,Rosen,,,unresolved,21,21.0,name_score_inline
+857875120,1997,,,,14,Open Competitors: 78,Open Competitors,,,unresolved,78,78.0,name_score_inline
+857875120,1997,,,,15,Intermediate Competitors: 28,Intermediate Competitors,,,unresolved,28,28.0,name_score_inline
+857875120,1997,,,,16,Novice Competitors: 44,Novice Competitors,,,unresolved,44,44.0,name_score_inline
+857875120,1997,,,,64,1. Jim Fitzgerald - 56 * new course record,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,exact,56,56.0,name_score_inline
+857875120,1997,,,,64,1. Jim Fitzgerald - 56 * new course record,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,exact,56,56.0,placement_line_tail_score
+857875120,1997,,,,65,2. Bill Langbehn - 66,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,exact,66,66.0,name_score_inline
+857875120,1997,,,,65,2. Bill Langbehn - 66,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,exact,66,66.0,placement_line_tail_score
+857875120,1997,,,,66,3. Tricia George - 67,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,exact,67,67.0,name_score_inline
+857875120,1997,,,,66,3. Tricia George - 67,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,exact,67,67.0,placement_line_tail_score
+857875120,1997,,,,68,Saturday: 1. Rob Gourley / Hilary Strickland,Saturday,,,unresolved,1,1.0,name_score_inline
+857875120,1997,,,,70,Sunday: 1. Eric Duggan / Dave Pena,Sunday,,,unresolved,1,1.0,name_score_inline
+857875120,1997,,,,73,Monday: 1. Randall Whitman / Chris Schoonover,Monday,,,unresolved,1,1.0,name_score_inline
+859787898,1997,,,,40,1ST Kenny Shults: 56.9,ST Kenny Shults,,,unresolved,56.9,56.9,name_score_inline
+859787898,1997,,,,41,2ND Steve Kremer: 43.52,ND Steve Kremer,,,unresolved,43.52,43.52,name_score_inline
+859787898,1997,,,,42,3RD Ahren Gerhman: 36.67,RD Ahren Gerhman,,,unresolved,36.67,36.67,name_score_inline
+859787898,1997,,,,43,4TH Paul Munger: 36.09,TH Paul Munger,,,unresolved,36.09,36.09,name_score_inline
+859787898,1997,,,,44,5TH Tricia George: 31.17,TH Tricia George,,,unresolved,31.17,31.17,name_score_inline
+859787898,1997,,,,45,6TH Tuan Vu: 35.1,TH Tuan Vu,,,unresolved,35.1,35.1,name_score_inline
+859787898,1997,,,,46,7TH Tu Vu: 21.85,TH Tu Vu,,,unresolved,21.85,21.85,name_score_inline
+859787898,1997,,,,47,8TH Justin Sexton: 19.46,TH Justin Sexton,,,unresolved,19.46,19.46,name_score_inline
+859787898,1997,,,,53,Competitors: 38. Prize money $400 in each of the following categories:,Competitors,,,unresolved,38,38.0,name_score_inline
+860356126,1997,,,,54,1. Steve Dusablon - 29,Steve Dusablon,b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,exact,29,29.0,name_score_inline
+860356126,1997,,,,54,1. Steve Dusablon - 29,Steve Dusablon,b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,exact,29,29.0,placement_line_tail_score
+860356126,1997,,,,55,"2. Dr. Mike Stefanelli - 31 (3-Way tie, 1 hole playoff)",Dr. Mike Stefanelli,98e6bef0-c1f7-5bb2-b99c-a31a359e2540,Dr. Mike Stefanelli,exact,31,31.0,name_score_inline
+860356126,1997,,,,55,"2. Dr. Mike Stefanelli - 31 (3-Way tie, 1 hole playoff)",Dr. Mike Stefanelli,98e6bef0-c1f7-5bb2-b99c-a31a359e2540,Dr. Mike Stefanelli,exact,31,31.0,placement_line_tail_score
+860356126,1997,,,,56,3. Jim Cobb - 31,Jim Cobb,6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,exact,31,31.0,name_score_inline
+860356126,1997,,,,56,3. Jim Cobb - 31,Jim Cobb,6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,exact,31,31.0,placement_line_tail_score
+860356126,1997,,,,57,4. Scott Milne - 31,Scott Milne,53335424-f4eb-5933-8b9b-939b6f177ea2,Scott Milne,exact,31,31.0,name_score_inline
+860356126,1997,,,,57,4. Scott Milne - 31,Scott Milne,53335424-f4eb-5933-8b9b-939b6f177ea2,Scott Milne,exact,31,31.0,placement_line_tail_score
+860356126,1997,,,,60,1. Jon Hayduk - 36,Jon Hayduk,ceb19bce-3ebd-5c57-bebb-aa545ba79aa6,Jon Hayduk,exact,36,36.0,name_score_inline
+860356126,1997,,,,60,1. Jon Hayduk - 36,Jon Hayduk,ceb19bce-3ebd-5c57-bebb-aa545ba79aa6,Jon Hayduk,exact,36,36.0,placement_line_tail_score
+860356126,1997,,,,61,2. Aaron Gregg - 39,Aaron Gregg,0bf96614-8396-5c18-bdb0-501af1fa9c81,Aaron Gregg,exact,39,39.0,name_score_inline
+860356126,1997,,,,61,2. Aaron Gregg - 39,Aaron Gregg,0bf96614-8396-5c18-bdb0-501af1fa9c81,Aaron Gregg,exact,39,39.0,placement_line_tail_score
+860356126,1997,,,,62,"3. Bobby ""The Iceman"" Heiney - 40",Heiney,,,unresolved,40,40.0,name_score_inline
+860356126,1997,,,,65,1. Jason Kingsley - 46,Jason Kingsley,02439d85-0006-551d-a25b-434d61071e9c,Jason Kingsley,exact,46,46.0,name_score_inline
+860356126,1997,,,,65,1. Jason Kingsley - 46,Jason Kingsley,02439d85-0006-551d-a25b-434d61071e9c,Jason Kingsley,exact,46,46.0,placement_line_tail_score
+860356126,1997,,,,66,2. Darlene Goodridge - 47,Darlene Goodridge,6fbf0925-b1f2-5ca4-b314-d29ce081219b,Darlene Goodridge,exact,47,47.0,name_score_inline
+860356126,1997,,,,66,2. Darlene Goodridge - 47,Darlene Goodridge,6fbf0925-b1f2-5ca4-b314-d29ce081219b,Darlene Goodridge,exact,47,47.0,placement_line_tail_score
+860356126,1997,,,,67,3. Cameran Carnegie - 47,Cameran Carnegie,b99dcaef-c269-5484-adc1-790a4512adb5,Cameron Carnegie,exact,47,47.0,name_score_inline
+860356126,1997,,,,67,3. Cameran Carnegie - 47,Cameran Carnegie,b99dcaef-c269-5484-adc1-790a4512adb5,Cameron Carnegie,exact,47,47.0,placement_line_tail_score
+860356126,1997,,,,70,1. Evanne Lamarche - 619,Evanne Lamarche,299071d7-2781-514f-93b1-6b7a7059ab8a,Evanne Lemarche,exact,619,619.0,name_score_inline
+860356126,1997,,,,70,1. Evanne Lamarche - 619,Evanne Lamarche,299071d7-2781-514f-93b1-6b7a7059ab8a,Evanne Lemarche,exact,619,619.0,placement_line_tail_score
+860356126,1997,,,,71,2. Richard Cook - 606,Richard Cook,619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,exact,606,606.0,name_score_inline
+860356126,1997,,,,71,2. Richard Cook - 606,Richard Cook,619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,exact,606,606.0,placement_line_tail_score
+860356126,1997,,,,72,3. Mike Grueter - 459,Mike Grueter,247929d0-57bc-5f9c-bff5-c4557d471b42,Mike Grueter,exact,459,459.0,name_score_inline
+860356126,1997,,,,72,3. Mike Grueter - 459,Mike Grueter,247929d0-57bc-5f9c-bff5-c4557d471b42,Mike Grueter,exact,459,459.0,placement_line_tail_score
+860356126,1997,,,,73,4. Jim Derricott - 428,Jim Derricott,06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,exact,428,428.0,name_score_inline
+860356126,1997,,,,73,4. Jim Derricott - 428,Jim Derricott,06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,exact,428,428.0,placement_line_tail_score
+860356126,1997,,,,76,1. Rick Kom - 571,Rick Kom,b6cd9486-0b87-582f-ad50-e5c4da573a20,Rick Kom,exact,571,571.0,name_score_inline
+860356126,1997,,,,76,1. Rick Kom - 571,Rick Kom,b6cd9486-0b87-582f-ad50-e5c4da573a20,Rick Kom,exact,571,571.0,placement_line_tail_score
+860356126,1997,,,,77,2. Chris Eckley - 519,Chris Eckley,9c808a76-9232-5aef-9536-149543c18ba0,Chris Eckley,exact,519,519.0,name_score_inline
+860356126,1997,,,,77,2. Chris Eckley - 519,Chris Eckley,9c808a76-9232-5aef-9536-149543c18ba0,Chris Eckley,exact,519,519.0,placement_line_tail_score
+860356126,1997,,,,78,3. Nathan Rhoads - 511,Nathan Rhoads,9af9fa47-67ea-5376-8875-71bf24016a7a,Nathan Rhoads,exact,511,511.0,name_score_inline
+860356126,1997,,,,78,3. Nathan Rhoads - 511,Nathan Rhoads,9af9fa47-67ea-5376-8875-71bf24016a7a,Nathan Rhoads,exact,511,511.0,placement_line_tail_score
+860356126,1997,,,,81,1. Doug Willis - 251,Doug Willis,9ab59f0e-0eb2-5249-a60d-6583d51aa2c0,Doug Willis,exact,251,251.0,name_score_inline
+860356126,1997,,,,81,1. Doug Willis - 251,Doug Willis,9ab59f0e-0eb2-5249-a60d-6583d51aa2c0,Doug Willis,exact,251,251.0,placement_line_tail_score
+876356874,1998,,,,16,Registered Open Men: 53,Registered Open Men,,,unresolved,53,53.0,name_score_inline
+876356874,1998,,,,17,Registered Open Women: 13,Registered Open Women,,,unresolved,13,13.0,name_score_inline
+876356874,1998,,,,18,Registered Intermediate Men: 34,Registered Intermediate Men,,,unresolved,34,34.0,name_score_inline
+876356874,1998,,,,19,Registered Intermediate Women: 6,Registered Intermediate Women,,,unresolved,6,6.0,name_score_inline
+876356874,1998,,,,21,Total Registered Players: 106,Total Registered Players,,,unresolved,106,106.0,name_score_inline
+876356874,1998,,,,22,Unregistered Novice: 22,Unregistered Novice,,,unresolved,22,22.0,name_score_inline
+876356874,1998,,,,24,Total Competitors: 128,Total Competitors,,,unresolved,128,128.0,name_score_inline
+879319107,1998,,,,45,1. James Roberts - 67,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,67,67.0,name_score_inline
+879319107,1998,,,,45,1. James Roberts - 67,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,67,67.0,placement_line_tail_score
+879319107,1998,,,,46,2. Eric Burgess - 70,Eric Burgess,051c1b5e-f34d-5e7b-a27c-50f94324c96d,Eric Burgess,exact,70,70.0,name_score_inline
+879319107,1998,,,,46,2. Eric Burgess - 70,Eric Burgess,051c1b5e-f34d-5e7b-a27c-50f94324c96d,Eric Burgess,exact,70,70.0,placement_line_tail_score
+879319107,1998,,,,47,3. Jeremy Keller - 71,Jeremy Keller,e0f19cce-5d6a-5f62-847a-bd05ef24b11b,Jeremy Keller Auburn,exact,71,71.0,name_score_inline
+879319107,1998,,,,47,3. Jeremy Keller - 71,Jeremy Keller,e0f19cce-5d6a-5f62-847a-bd05ef24b11b,Jeremy Keller Auburn,exact,71,71.0,placement_line_tail_score
+879319107,1998,,,,48,4. Derric Scalf - 73,Derric Scalf,b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,exact,73,73.0,name_score_inline
+879319107,1998,,,,48,4. Derric Scalf - 73,Derric Scalf,b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,exact,73,73.0,placement_line_tail_score
+884112176,1998,,,,1,Open Singles - 1st Steve Smith,Open Singles,,,unresolved,1,1.0,name_score_inline
+884112176,1998,,,,4,Open Doubles - 1st Steve Smith/ Ted Martin,Open Doubles,,,unresolved,1,1.0,name_score_inline
+884112176,1998,,,,7,"Open Freestyle - 1st ""Nato"" representing Nato's marauders",Open Freestyle,,,unresolved,1,1.0,name_score_inline
+884112176,1998,,,,10,Amateur Singles Net - 1st Kyle Baird,Amateur Singles Net,,,unresolved,1,1.0,name_score_inline
+884112176,1998,,,,13,Amateur Doubles Net - 1st Matt Baker/ Min Yang,Amateur Doubles Net,,,unresolved,1,1.0,name_score_inline
+884112176,1998,,,,16,Amateur Freestyle - 1st Mike Collins,Amateur Freestyle,,,unresolved,1,1.0,name_score_inline
+888294869,1998,,,,53,1. Bill Langbehn - 24,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,exact,24,24.0,name_score_inline
+888294869,1998,,,,53,1. Bill Langbehn - 24,Bill Langbehn,40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,exact,24,24.0,placement_line_tail_score
+888294869,1998,,,,54,2. Steve Dusablon - 26,Steve Dusablon,b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,exact,26,26.0,name_score_inline
+888294869,1998,,,,54,2. Steve Dusablon - 26,Steve Dusablon,b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,exact,26,26.0,placement_line_tail_score
+888294869,1998,,,,55,3. Greg Potts - 27 (tie concession),Greg Potts,97771593-c865-5ac9-b7bf-c76ba6159476,Greg Potts,exact,27,27.0,name_score_inline
+888294869,1998,,,,55,3. Greg Potts - 27 (tie concession),Greg Potts,97771593-c865-5ac9-b7bf-c76ba6159476,Greg Potts,exact,27,27.0,placement_line_tail_score
+888294869,1998,,,,56,4. Greg Durrett - 27,Greg Durrett,64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,exact,27,27.0,name_score_inline
+888294869,1998,,,,56,4. Greg Durrett - 27,Greg Durrett,64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,exact,27,27.0,placement_line_tail_score
+888294869,1998,,,,59,1. Rick Kom - 669,Rick Kom,b6cd9486-0b87-582f-ad50-e5c4da573a20,Rick Kom,exact,669,669.0,name_score_inline
+888294869,1998,,,,59,1. Rick Kom - 669,Rick Kom,b6cd9486-0b87-582f-ad50-e5c4da573a20,Rick Kom,exact,669,669.0,placement_line_tail_score
+888294869,1998,,,,60,2. Richard Cook - 627,Richard Cook,619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,exact,627,627.0,name_score_inline
+888294869,1998,,,,60,2. Richard Cook - 627,Richard Cook,619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,exact,627,627.0,placement_line_tail_score
+888294869,1998,,,,61,3. Jim Derricott - 462,Jim Derricott,06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,exact,462,462.0,name_score_inline
+888294869,1998,,,,61,3. Jim Derricott - 462,Jim Derricott,06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,exact,462,462.0,placement_line_tail_score
+888294869,1998,,,,64,1. Jason Peppin - 499,Jason Peppin,ad1a4e9d-727b-50be-8dbb-4fbccafcc00b,Jason Peppin,exact,499,499.0,name_score_inline
+888294869,1998,,,,64,1. Jason Peppin - 499,Jason Peppin,ad1a4e9d-727b-50be-8dbb-4fbccafcc00b,Jason Peppin,exact,499,499.0,placement_line_tail_score
+888294869,1998,,,,65,2. Matthew Davis - 383,Matthew Davis,16147b02-0dc5-57ff-b625-057bce8be7cd,Matthew Davis,exact,383,383.0,name_score_inline
+888294869,1998,,,,65,2. Matthew Davis - 383,Matthew Davis,16147b02-0dc5-57ff-b625-057bce8be7cd,Matthew Davis,exact,383,383.0,placement_line_tail_score
+892446131,1998,,,,5,"Novice: 1, Alan Moffett,",Novice,,,unresolved,1,1.0,name_score_inline
+892446131,1998,,,,11,"Pro: 1. Brian McKenzie, Hebron,",Pro,,,unresolved,1,1.0,name_score_inline
+892446131,1998,,,,15,Intermediate: 1. Romie,Intermediate,,,unresolved,1,1.0,name_score_inline
+892446131,1998,,,,23,Intermediate: 1 Mike Voght-,Intermediate,,,unresolved,1,1.0,name_score_inline
+892446131,1998,,,,30,Intermediate: 1. Mike,Intermediate,,,unresolved,1,1.0,name_score_inline
+892446131,1998,,,,40,"Intermediate: 1. Josh Bowen,",Intermediate,,,unresolved,1,1.0,name_score_inline
+892446131,1998,,,,44,"Pro: 1. Brian McKenzie, Hebron,",Pro,,,unresolved,1,1.0,name_score_inline
+892446131,1998,,,,47,Intermediate: 1. Brian McK-,Intermediate,,,unresolved,1,1.0,name_score_inline
+901687367,1998,,,,11,2 Eric Wulff- 1 drop,Eric Wulff,e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,exact,1,1.0,name_score_inline
+909186885,1999,,,,33,1.Steve Smith - 72,Steve Smith,6bddaecf-3335-5caf-ab0c-51a97fce26e2,Steve Smith,exact,72,72.0,name_score_inline
+909186885,1999,,,,33,1.Steve Smith - 72,Steve Smith,6bddaecf-3335-5caf-ab0c-51a97fce26e2,Steve Smith,exact,72,72.0,placement_line_tail_score
+909186885,1999,,,,34,2.Derric Scalf - 77,Derric Scalf,b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,exact,77,77.0,name_score_inline
+909186885,1999,,,,34,2.Derric Scalf - 77,Derric Scalf,b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,exact,77,77.0,placement_line_tail_score
+909186885,1999,,,,35,3.James Roberts - 79,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,79,79.0,name_score_inline
+909186885,1999,,,,35,3.James Roberts - 79,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,79,79.0,placement_line_tail_score
+909186885,1999,,,,37,1.Dave Neill - 102,Dave Neill,ce087533-3219-53b2-b800-4ca3e1bb4274,Dave Neill,exact,102,102.0,name_score_inline
+909186885,1999,,,,37,1.Dave Neill - 102,Dave Neill,ce087533-3219-53b2-b800-4ca3e1bb4274,Dave Neill,exact,102,102.0,placement_line_tail_score
+909186885,1999,,,,53,1.James Roberts - 587,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,587,587.0,name_score_inline
+909186885,1999,,,,53,1.James Roberts - 587,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,587,587.0,placement_line_tail_score
+909186885,1999,,,,54,2.Matt Strong - 545,Matt Strong,0ddc5084-452c-5a5c-825c-50f47856bda3,Matt Strong,exact,545,545.0,name_score_inline
+909186885,1999,,,,54,2.Matt Strong - 545,Matt Strong,0ddc5084-452c-5a5c-825c-50f47856bda3,Matt Strong,exact,545,545.0,placement_line_tail_score
+909186885,1999,,,,55,3.Derric Scalf - 417,Derric Scalf,b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,exact,417,417.0,name_score_inline
+909186885,1999,,,,55,3.Derric Scalf - 417,Derric Scalf,b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,exact,417,417.0,placement_line_tail_score
+909186885,1999,,,,60,1.Ian Dubman - 514,Ian Dubman,edb6c68e-0005-5eea-8207-bd2fdc8d97f3,Ian Dubman,exact,514,514.0,name_score_inline
+909186885,1999,,,,60,1.Ian Dubman - 514,Ian Dubman,edb6c68e-0005-5eea-8207-bd2fdc8d97f3,Ian Dubman,exact,514,514.0,placement_line_tail_score
+909186885,1999,,,,61,2.Brandon Finger - 501,Brandon Finger,6242c3ff-6b9f-5cff-a5c8-32794fce31c0,Brandon Finger,exact,501,501.0,name_score_inline
+909186885,1999,,,,61,2.Brandon Finger - 501,Brandon Finger,6242c3ff-6b9f-5cff-a5c8-32794fce31c0,Brandon Finger,exact,501,501.0,placement_line_tail_score
+909186885,1999,,,,62,3.Ariel Santesteban - 467,Ariel Santesteban,63846eb8-93a6-5795-a5bb-a9538ef3f1ee,Ariel Santesteban,exact,467,467.0,name_score_inline
+909186885,1999,,,,62,3.Ariel Santesteban - 467,Ariel Santesteban,63846eb8-93a6-5795-a5bb-a9538ef3f1ee,Ariel Santesteban,exact,467,467.0,placement_line_tail_score
+909186885,1999,,,,68,1.Wally Victory - 321,Wally Victory,6008126d-4385-5973-bf29-56f0563088f6,Wally Victory,exact,321,321.0,name_score_inline
+909186885,1999,,,,68,1.Wally Victory - 321,Wally Victory,6008126d-4385-5973-bf29-56f0563088f6,Wally Victory,exact,321,321.0,placement_line_tail_score
+909186885,1999,,,,69,2.James Roberts - 308,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,308,308.0,name_score_inline
+909186885,1999,,,,69,2.James Roberts - 308,James Roberts,12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,exact,308,308.0,placement_line_tail_score
+909186885,1999,,,,70,3.Geoff Hand - 289,Geoff Hand,2fba2bff-d73a-5082-ad4c-b956439788bd,Geoff Hand,exact,289,289.0,name_score_inline
+909186885,1999,,,,70,3.Geoff Hand - 289,Geoff Hand,2fba2bff-d73a-5082-ad4c-b956439788bd,Geoff Hand,exact,289,289.0,placement_line_tail_score
+910551956,1999,,,,97,1. Jim Fitzgerald - 47,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,exact,47,47.0,name_score_inline
+910551956,1999,,,,97,1. Jim Fitzgerald - 47,Jim Fitzgerald,b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,exact,47,47.0,placement_line_tail_score
+910551956,1999,,,,98,2. Dave Wedertz - 50,Dave Wedertz,e8e76f56-0e5f-5873-902d-2c5eb571ecc0,Dave Wedertz,exact,50,50.0,name_score_inline
+910551956,1999,,,,98,2. Dave Wedertz - 50,Dave Wedertz,e8e76f56-0e5f-5873-902d-2c5eb571ecc0,Dave Wedertz,exact,50,50.0,placement_line_tail_score
+910551956,1999,,,,99,3. Brent Allard - 53,Brent Allard,1fcbaa9b-9f74-56eb-9429-7f9d46f5c722,Brent Allard,exact,53,53.0,name_score_inline
+910551956,1999,,,,99,3. Brent Allard - 53,Brent Allard,1fcbaa9b-9f74-56eb-9429-7f9d46f5c722,Brent Allard,exact,53,53.0,placement_line_tail_score
+910551956,1999,,,,100,4. Greg Durrett - 57,Greg Durrett,64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,exact,57,57.0,name_score_inline
+910551956,1999,,,,100,4. Greg Durrett - 57,Greg Durrett,64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,exact,57,57.0,placement_line_tail_score
+910551956,1999,,,,129,1. Ben Little - 53,Ben Little,b1f1ebbc-9b2a-58f9-bb36-6c8b6d751f19,Ben Little,exact,53,53.0,name_score_inline
+910551956,1999,,,,129,1. Ben Little - 53,Ben Little,b1f1ebbc-9b2a-58f9-bb36-6c8b6d751f19,Ben Little,exact,53,53.0,placement_line_tail_score
+910551956,1999,,,,130,2. Hugh Harrell - 54,Hugh Harrell,2196c6c7-92a7-5243-a1b9-278c2c8f33e4,Hugh Harrell,exact,54,54.0,name_score_inline
+910551956,1999,,,,130,2. Hugh Harrell - 54,Hugh Harrell,2196c6c7-92a7-5243-a1b9-278c2c8f33e4,Hugh Harrell,exact,54,54.0,placement_line_tail_score
+910551956,1999,,,,131,3. Nick Jaros - 62,Nick Jaros,6a885ca2-769c-5b8e-9b4b-d94b60f94246,Nick Jaros,exact,62,62.0,name_score_inline
+910551956,1999,,,,131,3. Nick Jaros - 62,Nick Jaros,6a885ca2-769c-5b8e-9b4b-d94b60f94246,Nick Jaros,exact,62,62.0,placement_line_tail_score
+920579000,1999,,,,3,RESULTS: 1999 EAST COAST FOOTBAG CHAMPIONSHIPS,RESULTS,,,unresolved,199,199.0,name_score_inline
+924977661,1999,,,,45,1. Geoff Hand - 30,Geoff Hand,2fba2bff-d73a-5082-ad4c-b956439788bd,Geoff Hand,exact,30,30.0,name_score_inline
+924977661,1999,,,,45,1. Geoff Hand - 30,Geoff Hand,2fba2bff-d73a-5082-ad4c-b956439788bd,Geoff Hand,exact,30,30.0,placement_line_tail_score
+924977661,1999,,,,46,2. Jim Cobb - 31,Jim Cobb,6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,exact,31,31.0,name_score_inline
+924977661,1999,,,,46,2. Jim Cobb - 31,Jim Cobb,6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,exact,31,31.0,placement_line_tail_score
+924977661,1999,,,,47,3. Jim Derricott - 32 (tie concession),Jim Derricott,06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,exact,32,32.0,name_score_inline
+924977661,1999,,,,47,3. Jim Derricott - 32 (tie concession),Jim Derricott,06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,exact,32,32.0,placement_line_tail_score
+924977661,1999,,,,48,4. Greg Durrett - 32,Greg Durrett,64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,exact,32,32.0,name_score_inline
+924977661,1999,,,,48,4. Greg Durrett - 32,Greg Durrett,64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,exact,32,32.0,placement_line_tail_score
+924977661,1999,,,,51,1. François Leh - 36,François Leh,27569bfc-a9e1-58c3-845b-ba0a01f4d9d7,François Leh,exact,36,36.0,name_score_inline
+924977661,1999,,,,51,1. François Leh - 36,François Leh,27569bfc-a9e1-58c3-845b-ba0a01f4d9d7,François Leh,exact,36,36.0,placement_line_tail_score
+924977661,1999,,,,52,2. Gibson Holub - 38 (tie concession),Gibson Holub,6e298b9e-2cc2-50d3-9665-50993e5564d5,Gibson Holub,exact,38,38.0,name_score_inline
+924977661,1999,,,,52,2. Gibson Holub - 38 (tie concession),Gibson Holub,6e298b9e-2cc2-50d3-9665-50993e5564d5,Gibson Holub,exact,38,38.0,placement_line_tail_score
+924977661,1999,,,,53,3. Andre Lemaire - 38,Andre Lemaire,8cf04727-1ddc-5d6a-9680-9581a4466522,André Lemaire,exact,38,38.0,name_score_inline
+924977661,1999,,,,53,3. Andre Lemaire - 38,Andre Lemaire,8cf04727-1ddc-5d6a-9680-9581a4466522,André Lemaire,exact,38,38.0,placement_line_tail_score
+924977661,1999,,,,56,1. Tricia George - 646,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,exact,646,646.0,name_score_inline
+924977661,1999,,,,56,1. Tricia George - 646,Tricia George,26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,exact,646,646.0,placement_line_tail_score
+924977661,1999,,,,57,2. Becca English-Ross - 574,Becca English-Ross,,,unresolved,574,574.0,name_score_inline
+924977661,1999,,,,57,2. Becca English-Ross - 574,Becca English,93d75393-13d7-55c0-b23e-cf0c9a077583,Becca English Ross,exact,574,574.0,placement_line_tail_score
+924977661,1999,,,,60,1. Chris Eckley - 528,Chris Eckley,9c808a76-9232-5aef-9536-149543c18ba0,Chris Eckley,exact,528,528.0,name_score_inline
+924977661,1999,,,,60,1. Chris Eckley - 528,Chris Eckley,9c808a76-9232-5aef-9536-149543c18ba0,Chris Eckley,exact,528,528.0,placement_line_tail_score
+924977661,1999,,,,61,2. Noah Wilson - 485,Noah Wilson,5176d834-f522-5281-b627-3ab2fe8cf644,Noah Wilson,exact,485,485.0,name_score_inline
+924977661,1999,,,,61,2. Noah Wilson - 485,Noah Wilson,5176d834-f522-5281-b627-3ab2fe8cf644,Noah Wilson,exact,485,485.0,placement_line_tail_score
+924977661,1999,,,,62,3. François Leh - 395,François Leh,27569bfc-a9e1-58c3-845b-ba0a01f4d9d7,François Leh,exact,395,395.0,name_score_inline
+924977661,1999,,,,62,3. François Leh - 395,François Leh,27569bfc-a9e1-58c3-845b-ba0a01f4d9d7,François Leh,exact,395,395.0,placement_line_tail_score
+946940201,2000,,,,24,"1. Manu Bouchard - 6 years in a row!! (Montreal, Quebec - AQAF)",Manu Bouchard,f1e2640c-48ae-588d-99bc-7b55713191f0,Manu Bouchard,exact,6,6.0,name_score_inline
+946940201,2000,,,,24,"1. Manu Bouchard - 6 years in a row!! (Montreal, Quebec - AQAF)",Manu Bouchard,f1e2640c-48ae-588d-99bc-7b55713191f0,Manu Bouchard,exact,6,6.0,placement_line_tail_score
+957240514,2000,,,,32,1. Rick Bates - 35,Rick Bates,5812096d-611b-5ca7-a4c0-bc30d45b67f4,Rick Bates,exact,35,35.0,name_score_inline
+957240514,2000,,,,32,1. Rick Bates - 35,Rick Bates,5812096d-611b-5ca7-a4c0-bc30d45b67f4,Rick Bates,exact,35,35.0,placement_line_tail_score
+974683678,2001,,,,10,7. Shannon Anderson--74,Shannon Anderson,a50d8f07-9139-5fe3-9bed-fc4723872d4e,Shannon Anderson,exact,74,74.0,name_score_inline
+974683678,2001,,,,10,7. Shannon Anderson--74,Shannon Anderson,a50d8f07-9139-5fe3-9bed-fc4723872d4e,Shannon Anderson,exact,74,74.0,placement_line_tail_score
+979334083,2001,,,,28,RESULTS: 16th Annual Western Regional Footbag Championships,RESULTS,,,unresolved,16,16.0,name_score_inline
+979334083,2001,,,,192,1. Ryan Mulroney - 211.41,Ryan Mulroney,4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,exact,211.41,211.41,name_score_inline
+979334083,2001,,,,192,1. Ryan Mulroney - 211.41,Ryan Mulroney,4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,exact,211.41,211.41,placement_line_tail_score
+979334083,2001,,,,193,2. Lon Smith - 180.97,Lon Smith,60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,exact,180.97,180.97,name_score_inline
+979334083,2001,,,,193,2. Lon Smith - 180.97,Lon Smith,60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,exact,180.97,180.97,placement_line_tail_score
+979334083,2001,,,,194,3. Eric Wulff - 173.33,Eric Wulff,e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,exact,173.33,173.33,name_score_inline
+979334083,2001,,,,194,3. Eric Wulff - 173.33,Eric Wulff,e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,exact,173.33,173.33,placement_line_tail_score
+979334083,2001,,,,195,4. Brian McKenzie - 172.13,Brian McKenzie,0c7a541a-eae6-5ffc-9b9b-3ff86bf3941c,Brian McKenzie,exact,172.13,172.13,name_score_inline
+979334083,2001,,,,195,4. Brian McKenzie - 172.13,Brian McKenzie,0c7a541a-eae6-5ffc-9b9b-3ff86bf3941c,Brian McKenzie,exact,172.13,172.13,placement_line_tail_score
+979334083,2001,,,,196,5. Daryl Genz - 155.17,Daryl Genz,bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,exact,155.17,155.17,name_score_inline
+979334083,2001,,,,196,5. Daryl Genz - 155.17,Daryl Genz,bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,exact,155.17,155.17,placement_line_tail_score
+979334083,2001,,,,197,6. Sunil Jani - 139.66,Sunil Jani,8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,exact,139.66,139.66,name_score_inline
+979334083,2001,,,,197,6. Sunil Jani - 139.66,Sunil Jani,8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,exact,139.66,139.66,placement_line_tail_score
+979334083,2001,,,,198,7. Forest Schrodt - 139.64,Forest Schrodt,a8489587-4463-53fe-b8d2-4717ee6ef01a,Forest Schrodt,exact,139.64,139.64,name_score_inline
+979334083,2001,,,,198,7. Forest Schrodt - 139.64,Forest Schrodt,a8489587-4463-53fe-b8d2-4717ee6ef01a,Forest Schrodt,exact,139.64,139.64,placement_line_tail_score
+979334083,2001,,,,199,8. Ahren Gehrman - 134.71,Ahren Gehrman,919f3417-97e3-574a-9f85-f0aafc57539e,Ahren Gehrman,exact,134.71,134.71,name_score_inline
+979334083,2001,,,,199,8. Ahren Gehrman - 134.71,Ahren Gehrman,919f3417-97e3-574a-9f85-f0aafc57539e,Ahren Gehrman,exact,134.71,134.71,placement_line_tail_score
+979334083,2001,,,,200,9. Toby Robinson - 130.63,Toby Robinson,6be990dc-a556-51ae-b2f1-78d9b38c1d8e,Toby Robinson,exact,130.63,130.63,name_score_inline
+979334083,2001,,,,200,9. Toby Robinson - 130.63,Toby Robinson,6be990dc-a556-51ae-b2f1-78d9b38c1d8e,Toby Robinson,exact,130.63,130.63,placement_line_tail_score
+979334083,2001,,,,201,10. Avery McCombs - 101.68,Avery McCombs,e886f2c6-2560-5f06-9077-d0dcb41614a6,Avery McCombs,exact,101.68,101.68,name_score_inline
+979334083,2001,,,,201,10. Avery McCombs - 101.68,Avery McCombs,e886f2c6-2560-5f06-9077-d0dcb41614a6,Avery McCombs,exact,101.68,101.68,placement_line_tail_score
+979334083,2001,,,,202,11. Chad Devlahovich - 99.31,Chad Devlahovich,2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,exact,99.31,99.31,name_score_inline
+979334083,2001,,,,202,11. Chad Devlahovich - 99.31,Chad Devlahovich,2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,exact,99.31,99.31,placement_line_tail_score
+979334083,2001,,,,203,12. Richard Abshire - 97.92,Richard Abshire,92d46e52-ae22-54a4-a848-fe8cdb118f30,Richard Abshire,exact,97.92,97.92,name_score_inline
+979334083,2001,,,,203,12. Richard Abshire - 97.92,Richard Abshire,92d46e52-ae22-54a4-a848-fe8cdb118f30,Richard Abshire,exact,97.92,97.92,placement_line_tail_score
+979334083,2001,,,,204,13. Ken Somolinos - 94.34,Ken Somolinos,d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,exact,94.34,94.34,name_score_inline
+979334083,2001,,,,204,13. Ken Somolinos - 94.34,Ken Somolinos,d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,exact,94.34,94.34,placement_line_tail_score
+979334083,2001,,,,205,14. Cameron Kennedy - 94.15,Cameron Kennedy,0cc59803-c375-5573-8a7c-90201837b32b,Cameron Kennedy,exact,94.15,94.15,name_score_inline
+979334083,2001,,,,205,14. Cameron Kennedy - 94.15,Cameron Kennedy,0cc59803-c375-5573-8a7c-90201837b32b,Cameron Kennedy,exact,94.15,94.15,placement_line_tail_score
+979334083,2001,,,,206,15. Melissa Schneider - 57.93,Melissa Schneider,26e40173-e0b2-5d76-99b7-61a202886550,Melissa Schneider,exact,57.93,57.93,name_score_inline
+979334083,2001,,,,206,15. Melissa Schneider - 57.93,Melissa Schneider,26e40173-e0b2-5d76-99b7-61a202886550,Melissa Schneider,exact,57.93,57.93,placement_line_tail_score
+979334083,2001,,,,207,16. Mark Husted - 55.91,Mark Husted,3eebd90a-e974-54b7-9ae7-16c7352c8e91,Mark Husted,exact,55.91,55.91,name_score_inline
+979334083,2001,,,,207,16. Mark Husted - 55.91,Mark Husted,3eebd90a-e974-54b7-9ae7-16c7352c8e91,Mark Husted,exact,55.91,55.91,placement_line_tail_score
+979334083,2001,,,,208,17. Mike Jauss - 46.25,Mike Jauss,be913bdb-7b5c-51c2-9e11-afa2c03b7297,Mike Jauss,exact,46.25,46.25,name_score_inline
+979334083,2001,,,,208,17. Mike Jauss - 46.25,Mike Jauss,be913bdb-7b5c-51c2-9e11-afa2c03b7297,Mike Jauss,exact,46.25,46.25,placement_line_tail_score
+979334083,2001,,,,209,18. Nathan Martinez - 38.16,Nathan Martinez,881eff63-e268-508d-8416-86d6979230f3,Nathan Martinez,exact,38.16,38.16,name_score_inline
+979334083,2001,,,,209,18. Nathan Martinez - 38.16,Nathan Martinez,881eff63-e268-508d-8416-86d6979230f3,Nathan Martinez,exact,38.16,38.16,placement_line_tail_score
+992517335,2001,,,,3,Shred:30 (adds + [uniques * add ratio]),Shred,,,unresolved,30,30.0,name_score_inline

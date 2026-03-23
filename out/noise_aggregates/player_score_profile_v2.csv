@@ -1,0 +1,164 @@
+person_id,person_canon,score_type,score_mentions,scored_events,min_score,max_score,avg_score,first_year,last_year,sample_event,sample_line
+06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,raw_integer,6,3,32.0,462.0,307.3333333333333,1997,1999,14th Annual Emerald City Open Footbag Championships,4. Jim Derricott - 428
+d6698a89-7152-5d34-be04-8b382df640bb,Jim Hogan,raw_integer,5,2,830.0,830.0,830.0,2018,2019,Lake Erie Footbag Tournament & Freestyle Jam,5. Jim Hogan ID: 83027 / Anthony Ritz ID: 81222
+f861dfae-a8c1-5b93-9f5e-c82a3b7c76bf,Anthony Tony Ritz,raw_integer,5,2,812.0,812.0,812.0,2018,2019,Lake Erie Footbag Tournament & Freestyle Jam,5. Jim Hogan ID: 83027 / Anthony Ritz ID: 81222
+4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,raw_integer,5,2,515.0,515.0,515.0,2018,2019,Lake Erie Footbag Tournament & Freestyle Jam,2. Daniel Greer ID: 51574 / Christopher Siebert ID: 12722
+b6cd9486-0b87-582f-ad50-e5c4da573a20,Rick Kom,raw_integer,4,2,571.0,669.0,620.0,1997,1998,14th Annual Emerald City Open Footbag Championships,1. Rick Kom - 571
+26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,raw_integer,4,2,67.0,646.0,356.5,1997,1999,Western Regional Footbag Championships,3. Tricia George - 67
+619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,raw_integer,4,2,606.0,627.0,616.5,1997,1998,14th Annual Emerald City Open Footbag Championships,2. Richard Cook - 606
+9c808a76-9232-5aef-9536-149543c18ba0,Chris Eckley,raw_integer,4,2,519.0,528.0,523.5,1997,1999,14th Annual Emerald City Open Footbag Championships,2. Chris Eckley - 519
+27569bfc-a9e1-58c3-845b-ba0a01f4d9d7,François Leh,raw_integer,4,1,36.0,395.0,215.5,1999,1999,16th Annual Emerald City Open,1. François Leh - 36
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,raw_integer,4,2,144.0,160.0,152.0,2009,2009,11th Annual IFPA European Footbag Championships - Strzelin,"6. Mariusz Wilk - 144,83 (Warszawa)"
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,raw_integer,4,1,31.0,158.0,94.5,2007,2007,Austrian Footbag Championships 2007,4. Alexander Trenner - 31
+61656316-f92f-5235-a6fd-e3218d5601f8,Jim Hankins,raw_integer,4,2,128.0,128.0,128.0,2018,2019,Lake Erie Footbag Tournament & Freestyle Jam,7. Jim Hankins ID: 12880 / Jake Jo Dodd ID: 82580
+bd1ac97c-6c20-5bcd-9fbd-f5279f4c22bf,Chris Seibert,raw_integer,4,2,127.0,127.0,127.0,2018,2019,Lake Erie Footbag Tournament & Freestyle Jam,2. Daniel Greer ID: 51574 / Christopher Siebert ID: 12722
+6842b20a-a927-5b6b-9501-4fae0e547a1f,Rob McCloskey,raw_integer,4,2,125.0,125.0,125.0,2018,2019,Lake Erie Footbag Tournament & Freestyle Jam,8. Robert McCloskey ID:12506 / Jack Lentz ID: 38318
+64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,raw_integer,4,2,32.0,57.0,44.5,1999,1999,1999 Western Regional Footbag Championships,4. Greg Durrett - 57
+b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,raw_integer,4,2,47.0,56.0,51.5,1997,1999,Western Regional Footbag Championships,1. Jim Fitzgerald - 56 * new course record
+6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,raw_integer,4,2,31.0,31.0,31.0,1997,1999,14th Annual Emerald City Open Footbag Championships,3. Jim Cobb - 31
+b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,golf_score,4,2,26.0,29.0,27.5,1997,1998,14th Annual Emerald City Open Footbag Championships,1. Steve Dusablon - 29
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,freestyle_judging,4,1,16.8,25.8,21.3,2017,2017,19th Annual IFPA European Footbag Championships,1. Mariusz Wilk - 16.8
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,freestyle_judging,4,1,19.9,22.3,21.1,2017,2017,19th Annual IFPA European Footbag Championships,1. Pawel Nowak - 19.9
+33021da9-34aa-56fa-95f2-f31a6b2b6bca,Krystof Maler,freestyle_judging,4,1,19.1,21.5,20.3,2017,2017,19th Annual IFPA European Footbag Championships,2. Krystof Maler - 19.1
+97d088ee-48f7-5920-b973-94cc1deb0b66,Juho Marjo,freestyle_judging,4,1,18.2,21.1,19.65,2017,2017,19th Annual IFPA European Footbag Championships,1. Juho Marjo - 21.1
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,freestyle_judging,4,1,18.9,20.8,19.85,2017,2017,19th Annual IFPA European Footbag Championships,2. Arkadiusz Stanek - 18.9
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,freestyle_judging,4,1,15.8,19.8,17.8,2017,2017,19th Annual IFPA European Footbag Championships,2. Alexander Trenner - 19.8
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,freestyle_judging,4,1,14.5,17.6,16.05,2017,2017,19th Annual IFPA European Footbag Championships,2. Mikko Lepistö - 14.5
+ebba741d-7628-5830-8c96-e15ef18f2905,Pat Duran,raw_integer,2,2,836.0,836.0,836.0,2018,2019,Lake Erie Footbag Tournament & Freestyle Jam,1. Pat Doran ID: 83698 / Steve Richardson ID: 83113
+76079f4a-40db-5e3c-97e1-99e590791839,Benjamin Alston,raw_integer,2,1,770.0,770.0,770.0,2019,2019,Lake Erie Footbag Tournament,1. Walter Houston ID: 76726 / Benjamin Alston ID: 77041
+87e0d502-d749-53dd-997b-f266371d1474,François Depatie,raw_integer,2,1,694.0,694.0,694.0,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,1. Emmanuel Bouchard ID: 14240 / Francois Depatie Pelletier ID: 69479
+c86e3f98-1abf-59a0-bd1a-2dcb61f7e241,Luc Legeault,raw_integer,2,1,363.0,694.0,528.5,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,3. Luc Legault ID: 36301 / Martin Cote ID: 12260
+299071d7-2781-514f-93b1-6b7a7059ab8a,Evanne Lemarche,raw_integer,2,1,619.0,619.0,619.0,1997,1997,14th Annual Emerald City Open Footbag Championships,1. Evanne Lamarche - 619
+9af9fa47-67ea-5376-8875-71bf24016a7a,Nathan Rhoads,raw_integer,2,1,511.0,511.0,511.0,1997,1997,14th Annual Emerald City Open Footbag Championships,3. Nathan Rhoads - 511
+ad1a4e9d-727b-50be-8dbb-4fbccafcc00b,Jason Peppin,raw_integer,2,1,499.0,499.0,499.0,1998,1998,15th Annual Emerald City Open,1. Jason Peppin - 499
+5176d834-f522-5281-b627-3ab2fe8cf644,Noah Wilson,raw_integer,2,1,485.0,485.0,485.0,1999,1999,16th Annual Emerald City Open,2. Noah Wilson - 485
+247929d0-57bc-5f9c-bff5-c4557d471b42,Mike Grueter,raw_integer,2,1,459.0,459.0,459.0,1997,1997,14th Annual Emerald City Open Footbag Championships,3. Mike Grueter - 459
+fea99a91-ae13-5cb1-b87f-3c352783dc2e,Genevieve Bousquet,raw_integer,2,1,404.0,404.0,404.0,2019,2019,Lake Erie Footbag Tournament,3.Genevieve Bousquet ID: 40480 / Benjamin De Bastos ID: 82444
+16147b02-0dc5-57ff-b625-057bce8be7cd,Matthew Davis,raw_integer,2,1,383.0,383.0,383.0,1998,1998,15th Annual Emerald City Open,2. Matthew Davis - 383
+9ab59f0e-0eb2-5249-a60d-6583d51aa2c0,Doug Willis,raw_integer,2,1,251.0,251.0,251.0,1997,1997,14th Annual Emerald City Open Footbag Championships,1. Doug Willis - 251
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,raw_integer,2,1,246.0,246.0,246.0,2009,2009,11th Annual IFPA European Footbag Championships - Strzelin,1. Milan Benda - 246 (Czechy)
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,raw_integer,2,1,240.0,240.0,240.0,2009,2009,Zocha Jam 2009,1. Arkadiusz Dudziñski - 240 pkt
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,raw_integer,2,1,232.0,232.0,232.0,2006,2006,2006 Steel City Shred Off,1) David Clavens - 232
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,raw_integer,2,1,211.41,211.41,211.41,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,1. Ryan Mulroney - 211.41
+10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,raw_integer,2,1,210.0,210.0,210.0,2006,2006,2006 Steel City Shred Off,2) Gordon Bevier - 210
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,raw_integer,2,1,195.0,195.0,195.0,2009,2009,Zocha Jam 2009,2. Jakub Grabarczyk - 195 pkt
+be1b4187-c73a-58a6-beb7-1bba61be3f28,Paul Cronjaeger,raw_integer,2,1,186.0,186.0,186.0,2007,2007,Austrian Footbag Championships 2007,"1. Paul Cronjäger - 186,06"
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,raw_integer,2,1,183.0,183.0,183.0,2009,2009,Zocha Jam 2009,3. Marcin Bujko - 183 pkt
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,raw_integer,2,1,183.0,183.0,183.0,2007,2007,Championnats de France de Footbag,"1- Serge Kaldany : 183,97"
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,raw_integer,2,1,180.97,180.97,180.97,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,2. Lon Smith - 180.97
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,raw_integer,2,1,180.0,180.0,180.0,2009,2009,Zocha Jam 2009,4. Damian Gielnicki - 180 pkt
+e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,raw_integer,2,1,173.33,173.33,173.33,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,3. Eric Wulff - 173.33
+0c7a541a-eae6-5ffc-9b9b-3ff86bf3941c,Brian McKenzie,raw_integer,2,1,172.13,172.13,172.13,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,4. Brian McKenzie - 172.13
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,raw_integer,2,1,162.0,162.0,162.0,2005,2005,The Hackrifice Open 2005,1) Andrew Grant - 162.0
+db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,raw_integer,2,1,158.0,158.0,158.0,2009,2009,Zocha Jam 2009,6. Mateusz Janicki - 158 pkt
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,raw_integer,2,1,155.17,155.17,155.17,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,5. Daryl Genz - 155.17
+ea4b97b8-2ee0-516b-94ce-ccdf349463da,Caleb Abraham,raw_integer,2,1,152.0,152.0,152.0,2006,2006,2006 Steel City Shred Off,3) Caleb Abraham - 152
+3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c,Emmanuel Bouchard,raw_integer,2,1,142.0,142.0,142.0,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,1. Emmanuel Bouchard ID: 14240 / Francois Depatie Pelletier ID: 69479
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,raw_integer,2,1,139.66,139.66,139.66,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,6. Sunil Jani - 139.66
+a8489587-4463-53fe-b8d2-4717ee6ef01a,Forest Schrodt,raw_integer,2,1,139.64,139.64,139.64,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,7. Forest Schrodt - 139.64
+9585ffd8-cc96-528e-ba4a-4211da8cef00,Rene Ruehr,raw_integer,2,1,138.0,138.0,138.0,2007,2007,Austrian Footbag Championships 2007,"3. Rene Rühr - 138,83"
+919f3417-97e3-574a-9f85-f0aafc57539e,Ahren Gehrman,raw_integer,2,1,134.71,134.71,134.71,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,8. Ahren Gehrman - 134.71
+6be990dc-a556-51ae-b2f1-78d9b38c1d8e,Toby Robinson,raw_integer,2,1,130.63,130.63,130.63,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,9. Toby Robinson - 130.63
+96456a6d-5895-58ab-8175-9408424e79d1,Brett Campbell,raw_integer,2,1,128.9,128.9,128.9,2005,2005,The Hackrifice Open 2005,2) Brett Campbell - 128.9
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,raw_integer,2,1,123.0,123.0,123.0,2007,2007,Championnats de France de Footbag,"2- Jeremy Masselis : 123,34"
+6d50650f-7f41-5484-894f-74986085f48b,Martin Cote,raw_integer,2,1,122.0,122.0,122.0,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,3. Luc Legault ID: 36301 / Martin Cote ID: 12260
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,raw_integer,2,1,118.3,118.3,118.3,2005,2005,The Hackrifice Open 2005,3) Byrin Wylie - 118.3
+8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,raw_integer,2,1,118.0,118.0,118.0,2007,2007,Championnats de France de Footbag,"3- Maxime Boucoiran : 118,46"
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,raw_integer,2,1,113.0,113.0,113.0,2009,2009,Zocha Jam 2009,8. Maciej Niczyporuk - 113 pkt
+b41cedc4-cb5f-5d49-899f-5a04af4092da,Klemenz Längauer,raw_integer,2,1,110.0,110.0,110.0,2007,2007,Austrian Footbag Championships 2007,"5. Klemens Längauer - 110,38"
+10f0e26c-4ec9-5916-bc9b-ff587c0681d4,Eric Chan,raw_integer,2,1,107.7,107.7,107.7,2005,2005,The Hackrifice Open 2005,4) Erik Chan - 107.7
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,raw_integer,2,1,102.0,102.0,102.0,2005,2005,The Hackrifice Open 2005,5) Rory Dawson - 102. 1
+e886f2c6-2560-5f06-9077-d0dcb41614a6,Avery McCombs,raw_integer,2,1,101.68,101.68,101.68,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,10. Avery McCombs - 101.68
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,raw_integer,2,1,99.31,99.31,99.31,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,11. Chad Devlahovich - 99.31
+92d46e52-ae22-54a4-a848-fe8cdb118f30,Richard Abshire,raw_integer,2,1,97.92,97.92,97.92,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,12. Richard Abshire - 97.92
+d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,raw_integer,2,1,94.34,94.34,94.34,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,13. Ken Somolinos - 94.34
+0cc59803-c375-5573-8a7c-90201837b32b,Cameron Kennedy,raw_integer,2,1,94.15,94.15,94.15,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,14. Cameron Kennedy - 94.15
+162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,raw_integer,2,1,84.0,84.0,84.0,2006,2006,7th Annual Colorado Shred Symposium,2. Dylan Johnson - 84
+226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,raw_integer,2,1,75.5,75.5,75.5,2006,2006,7th Annual Colorado Shred Symposium,3. Sunny Freeman Genz- 75.5
+a50d8f07-9139-5fe3-9bed-fc4723872d4e,Shannon Anderson,raw_integer,2,1,74.0,74.0,74.0,2001,2001,COLORADO SHRED SYMPOSIUM 2,7. Shannon Anderson--74
+4cbec9a2-d07a-5400-b645-ce6e573e93b2,Chrisoph Larndorfer,raw_integer,2,1,73.0,73.0,73.0,2007,2007,Austrian Footbag Championships 2007,"6. Chrisoph Larndorfer - 73,38"
+b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,raw_integer,2,1,73.0,73.0,73.0,1998,1998,1998 Southern Regional Footbag Championships,4. Derric Scalf - 73
+e0f19cce-5d6a-5f62-847a-bd05ef24b11b,Jeremy Keller Auburn,raw_integer,2,1,71.0,71.0,71.0,1998,1998,1998 Southern Regional Footbag Championships,3. Jeremy Keller - 71
+051c1b5e-f34d-5e7b-a27c-50f94324c96d,Eric Burgess,raw_integer,2,1,70.0,70.0,70.0,1998,1998,1998 Southern Regional Footbag Championships,2. Eric Burgess - 70
+eae790d9-83f5-5339-8828-c641f33ec86d,Nathan Pipenberg,raw_integer,2,1,69.0,69.0,69.0,2006,2006,2006 Steel City Shred Off,3) Nathan Pipenberg - 69
+12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,raw_integer,2,1,67.0,67.0,67.0,1998,1998,1998 Southern Regional Footbag Championships,1. James Roberts - 67
+e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,raw_integer,2,1,66.46,66.46,66.46,2006,2006,7th Annual Colorado Shred Symposium,4. Chris Balch - 66.46
+40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,raw_integer,2,1,66.0,66.0,66.0,1997,1997,Western Regional Footbag Championships,2. Bill Langbehn - 66
+6a885ca2-769c-5b8e-9b4b-d94b60f94246,Nick Jaros,raw_integer,2,1,62.0,62.0,62.0,1999,1999,1999 Western Regional Footbag Championships,3. Nick Jaros - 62
+26e40173-e0b2-5d76-99b7-61a202886550,Melissa Schneider,raw_integer,2,1,57.93,57.93,57.93,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,15. Melissa Schneider - 57.93
+3eebd90a-e974-54b7-9ae7-16c7352c8e91,Mark Husted,raw_integer,2,1,55.91,55.91,55.91,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,16. Mark Husted - 55.91
+2196c6c7-92a7-5243-a1b9-278c2c8f33e4,Hugh Harrell,raw_integer,2,1,54.0,54.0,54.0,1999,1999,1999 Western Regional Footbag Championships,2. Hugh Harrell - 54
+b1f1ebbc-9b2a-58f9-bb36-6c8b6d751f19,Ben Little,raw_integer,2,1,53.0,53.0,53.0,1999,1999,1999 Western Regional Footbag Championships,1. Ben Little - 53
+1fcbaa9b-9f74-56eb-9429-7f9d46f5c722,Brent Allard,raw_integer,2,1,53.0,53.0,53.0,1999,1999,1999 Western Regional Footbag Championships,3. Brent Allard - 53
+e2a90d21-3f84-5e96-b568-8750b69ca493,Ali Djastranj,raw_integer,2,1,51.0,51.0,51.0,2007,2007,Austrian Footbag Championships 2007,"7. Ali Dastrandj - 51,32"
+e8e76f56-0e5f-5873-902d-2c5eb571ecc0,Dave Wedertz,raw_integer,2,1,50.0,50.0,50.0,1999,1999,1999 Western Regional Footbag Championships,2. Dave Wedertz - 50
+d5e3365e-ca56-5337-84fd-eaac9b7d7de4,Erik Magnusson,raw_integer,2,1,49.2,49.2,49.2,2005,2005,The Hackrifice Open 2005,1) Erik Magnusson - 49.2
+b99dcaef-c269-5484-adc1-790a4512adb5,Cameron Carnegie,raw_integer,2,1,47.0,47.0,47.0,1997,1997,14th Annual Emerald City Open Footbag Championships,3. Cameran Carnegie - 47
+6fbf0925-b1f2-5ca4-b314-d29ce081219b,Darlene Goodridge,raw_integer,2,1,47.0,47.0,47.0,1997,1997,14th Annual Emerald City Open Footbag Championships,2. Darlene Goodridge - 47
+be913bdb-7b5c-51c2-9e11-afa2c03b7297,Mike Jauss,raw_integer,2,1,46.25,46.25,46.25,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,17. Mike Jauss - 46.25
+02439d85-0006-551d-a25b-434d61071e9c,Jason Kingsley,raw_integer,2,1,46.0,46.0,46.0,1997,1997,14th Annual Emerald City Open Footbag Championships,1. Jason Kingsley - 46
+c256196e-aeb4-5011-9dce-81719a307619,Erroll Stryker,raw_integer,2,1,44.0,44.0,44.0,2003,2003,Funtastik Summer Classic Footbag Tournament,5. Errol Stryker-44
+86e02868-8a77-5e1f-9783-e7b43e95ddb2,Jason Varvaro,raw_integer,2,1,44.0,44.0,44.0,2003,2003,Funtastik Summer Classic Footbag Tournament,3. Jason Varvaro- 44 (tie breaker)
+38235b83-a291-534d-ae4b-6ba8c6d6bf67,Matt Vilade,raw_integer,2,1,44.0,44.0,44.0,2003,2003,Funtastik Summer Classic Footbag Tournament,4. Matt Vilade- 44
+edb7ff85-0dae-5590-b5df-ac61cd472031,Ben Kellman,raw_integer,2,1,42.0,42.0,42.0,2003,2003,Funtastik Summer Classic Footbag Tournament,2. Ben Kellman- 42
+1e11a981-de87-536a-abdb-31030a1ce540,Effram Press,raw_integer,2,1,41.0,41.0,41.0,2003,2003,Funtastik Summer Classic Footbag Tournament,1. Effram Press- 41
+0bf96614-8396-5c18-bdb0-501af1fa9c81,Aaron Gregg,raw_integer,2,1,39.0,39.0,39.0,1997,1997,14th Annual Emerald City Open Footbag Championships,2. Aaron Gregg - 39
+881eff63-e268-508d-8416-86d6979230f3,Nathan Martinez,raw_integer,2,1,38.16,38.16,38.16,2001,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,18. Nathan Martinez - 38.16
+8cf04727-1ddc-5d6a-9680-9581a4466522,André Lemaire,raw_integer,2,1,38.0,38.0,38.0,1999,1999,16th Annual Emerald City Open,3. Andre Lemaire - 38
+6e298b9e-2cc2-50d3-9665-50993e5564d5,Gibson Holub,raw_integer,2,1,38.0,38.0,38.0,1999,1999,16th Annual Emerald City Open,2. Gibson Holub - 38 (tie concession)
+995b3cb0-5d4d-5695-9413-3c7d4110f481,Jon Felix,raw_integer,2,1,37.0,37.0,37.0,2003,2003,Funtastik Summer Classic Footbag Tournament,4. Jon Felix- 37
+ceb19bce-3ebd-5c57-bebb-aa545ba79aa6,Jon Hayduk,raw_integer,2,1,36.0,36.0,36.0,1997,1997,14th Annual Emerald City Open Footbag Championships,1. Jon Hayduk - 36
+e5eca718-d710-54a4-a38a-9b3df2de3a21,Matt Matson,raw_integer,2,1,36.0,36.0,36.0,2005,2005,Funtastik Summer Classic,1. Matt Matson- 36
+de3e9581-85a2-520b-92e5-d48c0d7f8bd2,Jeremy Walters,raw_integer,2,1,35.0,35.0,35.0,2003,2003,Funtastik Summer Classic Footbag Tournament,3. Jeremy Walters- 35
+5812096d-611b-5ca7-a4c0-bc30d45b67f4,Rick Bates,raw_integer,2,1,35.0,35.0,35.0,2000,2000,Emerald City Open,1. Rick Bates - 35
+3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,raw_integer,2,1,33.3,33.3,33.3,2005,2005,The Hackrifice Open 2005,2) Jessica Archer - 33.3
+98e6bef0-c1f7-5bb2-b99c-a31a359e2540,Dr. Mike Stefanelli,raw_integer,2,1,31.0,31.0,31.0,1997,1997,14th Annual Emerald City Open Footbag Championships,"2. Dr. Mike Stefanelli - 31 (3-Way tie, 1 hole playoff)"
+53335424-f4eb-5933-8b9b-939b6f177ea2,Scott Milne,raw_integer,2,1,31.0,31.0,31.0,1997,1997,14th Annual Emerald City Open Footbag Championships,4. Scott Milne - 31
+08ecb6e2-5ae2-539e-a4be-41cb2d98524b,Garth Smith,raw_integer,2,1,30.0,30.0,30.0,2003,2003,Funtastik Summer Classic Footbag Tournament,2. Garth Smith- 30 prize
+2fba2bff-d73a-5082-ad4c-b956439788bd,Geoff Hand,raw_integer,2,1,30.0,30.0,30.0,1999,1999,16th Annual Emerald City Open,1. Geoff Hand - 30
+3e46c4db-089a-55ed-a5ff-f0ce0ed793f3,Jamie Lepley,golf_score,2,1,29.0,29.0,29.0,2003,2003,Funtastik Summer Classic Footbag Tournament,1. Jamie Lepley- 29 $50
+b41cedc4-cb5f-5d49-899f-5a04af4092da,Klemenz Längauer,golf_score,2,1,29.0,29.0,29.0,2007,2007,Austrian Footbag Championships 2007,3. Klemens Längauer - 29
+600c7e31-01f3-50f4-9a65-c79c13691920,Bernhard Leiner,golf_score,2,1,28.0,28.0,28.0,2007,2007,Austrian Footbag Championships 2007,2. Bernhard Leiner - 28
+64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,golf_score,2,1,27.0,27.0,27.0,1998,1998,15th Annual Emerald City Open,4. Greg Durrett - 27
+97771593-c865-5ac9-b7bf-c76ba6159476,Greg Potts,golf_score,2,1,27.0,27.0,27.0,1998,1998,15th Annual Emerald City Open,3. Greg Potts - 27 (tie concession)
+e2a90d21-3f84-5e96-b568-8750b69ca493,Ali Djastranj,golf_score,2,1,26.0,26.0,26.0,2007,2007,Austrian Footbag Championships 2007,1. Ali Dastrandj - 26
+40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,golf_score,2,1,24.0,24.0,24.0,1998,1998,15th Annual Emerald City Open,1. Bill Langbehn - 24
+02095322-bd6e-52a6-9f2d-6b5a7a527eae,Jana Sassakova,freestyle_judging,2,1,20.4,20.4,20.4,2017,2017,19th Annual IFPA European Footbag Championships,2. Jana Sassakova - 20.4
+a737859a-35f6-51c8-9cd1-d5f54f88b8dd,Gosia Debska,freestyle_judging,2,1,17.9,17.9,17.9,2017,2017,19th Annual IFPA European Footbag Championships,3. Gosia Debska - 17.9
+e528ca88-e462-5870-bd7f-45fb49bfbcfc,Arthur Ledain,freestyle_judging,2,1,17.3,17.3,17.3,2017,2017,19th Annual IFPA European Footbag Championships,3. Arthur Ledain - 17.3
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,freestyle_judging,2,1,16.8,16.8,16.8,2017,2017,19th Annual IFPA European Footbag Championships,3. Aleksi Airinen - 16.8
+171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,freestyle_judging,2,1,14.3,14.3,14.3,2017,2017,19th Annual IFPA European Footbag Championships,3. Tuomas Riisalo - 14.3
+766b89e4-c947-5434-b6b1-d590bd9929e3,Nina Stuppacher,freestyle_judging,2,1,14.2,14.2,14.2,2017,2017,19th Annual IFPA European Footbag Championships,4. Nina Stuppacher - 14.2
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,freestyle_judging,2,1,14.2,14.2,14.2,2017,2017,19th Annual IFPA European Footbag Championships,4. Sergio Garcia - 14.2
+a81adde6-197e-5067-872a-b05092e75cf9,Nis Petersen,freestyle_judging,2,1,12.5,12.5,12.5,2017,2017,19th Annual IFPA European Footbag Championships,5. Nis Petersen - 12.5
+7a8c8b83-9ae8-5b65-8f1f-6923058cc237,Dorota Wojtasiuk,freestyle_judging,2,1,12.3,12.3,12.3,2017,2017,19th Annual IFPA European Footbag Championships,5. Dorota Wojtasiuk - 12.3
+403742dd-27cb-5ebc-a0db-4382eaccfe64,Sergio Hernandez,freestyle_judging,2,1,11.4,11.4,11.4,2017,2017,19th Annual IFPA European Footbag Championships,5. Sergio Hernandez - 11.4
+32bbbcf6-957d-5549-9658-1aa7c742aa74,Felix Vogelsanger,freestyle_judging,2,1,10.0,10.0,10.0,2017,2017,19th Annual IFPA European Footbag Championships,6. Felix Vogelsanger - 10.0
+08bad299-35e4-5311-a847-3f7d78cbeef6,Nico Gasser,freestyle_judging,2,1,9.4,9.4,9.4,2017,2017,19th Annual IFPA European Footbag Championships,4. Nico Gasser - 9.4
+d25f994e-0337-5fc5-923d-8f1c88d4a44d,Flurin Bischoff,freestyle_judging,2,1,8.5,8.5,8.5,2017,2017,19th Annual IFPA European Footbag Championships,5. Flurin Bischoff - 8.5
+8000b520-2bfb-5767-86a7-b5c8eefc7651,Silwan Daouk,freestyle_judging,2,1,8.3,8.3,8.3,2017,2017,19th Annual IFPA European Footbag Championships,4. Silwan Daouk - 8.3
+0b0dbf15-8800-5001-81b5-bb9a2f088118,Sergio Martin,freestyle_judging,2,1,8.1,8.1,8.1,2017,2017,19th Annual IFPA European Footbag Championships,5. Sergio Martin - 8.1
+f1e2640c-48ae-588d-99bc-7b55713191f0,Manu Bouchard,golf_score,2,1,6.0,6.0,6.0,2000,2000,East Coast Footbag Championships,"1. Manu Bouchard - 6 years in a row!! (Montreal, Quebec - AQAF)"
+b2fa3076-dd14-5f09-923f-ae5e322035ea,Sean Jordan,raw_integer,1,1,837.0,837.0,837.0,2019,2019,Lake Erie Footbag Tournament,12. Sean Jordan ID: 83796
+e3d94c0b-8963-5e74-bc7c-5efb703a22b4,Christian Britting,raw_integer,1,1,835.0,835.0,835.0,2019,2019,Lake Erie Footbag Tournament,3. Christian Britting ID: 83583
+2875a830-e340-5963-a5c7-d9a7a74d1e56,Steve Richardson,raw_integer,1,1,831.0,831.0,831.0,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,1. Pat Doran ID: 83698 / Steve Richardson ID: 83113
+178b0676-d5ac-5d2e-9696-c8908ce5b533,Jake Dodd,raw_integer,1,1,825.0,825.0,825.0,2019,2019,Lake Erie Footbag Tournament,5. Jim Hankins ID: 12880 / Jake Dodd ID: 82580
+5153f93f-1e75-5497-82c6-bf804faf6476,Anton Britting,raw_integer,1,1,824.0,824.0,824.0,2019,2019,Lake Erie Footbag Tournament,5. Anton Britting ID: 82454
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,raw_integer,1,1,757.0,757.0,757.0,2019,2019,Lake Erie Footbag Tournament,1. Matt Kemmer ID: 75720
+93d75393-13d7-55c0-b23e-cf0c9a077583,Becca English Ross,raw_integer,1,1,574.0,574.0,574.0,1999,1999,16th Annual Emerald City Open,2. Becca English-Ross - 574
+57dca99e-db45-5b32-83f4-c188d1d24c50,Jack Lentz,raw_integer,1,1,383.0,383.0,383.0,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,8. Robert McCloskey ID:12506 / Jack Lentz ID: 38318
+738cbf71-ad21-598f-a5b3-afdb8bdf543d,Theodore Fritsch,raw_integer,1,1,332.0,332.0,332.0,2019,2019,Lake Erie Footbag Tournament,7. Ted Fritch ID: 33265 / Sean Jordan 83796
+49a112df-0c0f-5f17-bf3f-727800044f26,Scot Hansen,raw_integer,1,1,191.0,191.0,191.0,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,"6. Scot Hansen ID: 19148 , Cory Current ID: 12439"
+f1f49edd-da47-536a-b759-de441795fc2f,Cory Current,raw_integer,1,1,124.0,124.0,124.0,2018,2018,Lake Erie Footbag Tournament & Freestyle Jam,"6. Scot Hansen ID: 19148 , Cory Current ID: 12439"
+ab966624-6643-5dea-b165-67e66af402f9,Florian Goetze,golf_score,1,1,15.0,15.0,15.0,2008,2008,The 2008 Green Cup Presented by Chaos,"1. Florian Goetze / Lisa McDaniel (El Cerrito, CA, USA) [Final: 15-13, 15-10]"
+6ebe041f-1087-5d8a-92e7-0913329d4548,Felipe Haase,golf_score,1,1,13.0,13.0,13.0,2023,2023,IV.Basque Tournament of Footbag Net (Doubles),2-Felipe Haase (Colombia) / Unai Pérez (Basque Country) 1 victory - 13 points.
+bc25cbb5-3010-58ac-8bba-b7b745d309dd,Evan Lovely,golf_score,1,1,12.0,12.0,12.0,2006,2006,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,4. Evan Lovely (US) - 12 placing points
+691f48a0-1dbd-5ef5-99ea-13615a7437d2,Yves Archambault,golf_score,1,1,12.0,12.0,12.0,2006,2006,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,4. Yves Archambault (CA) - 12 placing points
+9aa9e85a-1dbb-54ad-8aed-10bd7e5719ad,Dylan Fry,golf_score,1,1,11.0,11.0,11.0,2006,2006,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,3. Dylan Fry (UK) - 11 placing points
+ddffefad-c620-55ab-b1bc-ca01939671c6,Matti Pohjola,golf_score,1,1,10.0,10.0,10.0,2009,2009,Turku Open 2009,"1. Matti Pohjola (Final 15-10, 15-1)"
+0dee73bb-caed-5f5c-9c20-5ea946939871,Jani Sakari Markkanen,golf_score,1,1,8.0,8.0,8.0,2008,2008,9th Annual Turku Open,"1. Jani Markkanen (final 11-8, 9-11, 11-6)"
+4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,golf_score,1,1,3.0,3.0,3.0,2017,2017,35th Annual East Coast Footbag Championships,5. Dan Greer (USA)- 3 way tie; did not advance past semi-final round
+d02af1ed-7c5d-5ee3-8dbe-422421ec5b3a,Lauri Jaakkola,golf_score,1,1,3.0,3.0,3.0,2006,2006,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,1. Lauri Jaakkola (FI) - 3 placing points
+3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c,Emmanuel Bouchard,golf_score,1,1,2.0,2.0,2.0,2006,2006,2006 Green Cup Presented by Chaos,"1. Emmanuel Bouchard (semi: 2 - 1 JF; final: 11 - 1, 12 - 10)"
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,golf_score,1,1,2.0,2.0,2.0,2016,2016,Malopolska Footbag Championships 2016 // Mistrzostwa Ma³opolski w Zo¶kê 2016,3. Maciej Pietrzycki (Request: 2 Sick3: 4 Big1: 4)
+e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,golf_score,1,1,1.0,1.0,1.0,1998,1998,13th Annual Funtastik Summer Classic Footbag Tournament,2 Eric Wulff- 1 drop

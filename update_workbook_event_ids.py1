@@ -1,0 +1,224 @@
+#!/usr/bin/env python3
+"""
+update_workbook_event_ids.py
+
+Replace legacy event IDs in an Excel workbook with canonical event_key slugs.
+
+Inputs:
+- Canonical events CSV, e.g. out/canonical/events.csv
+- Workbook, e.g. Footbag_Results_Community_FINAL_v13.xlsx
+
+Behavior:
+- Builds mapping from legacy_event_id -> event_key
+- Replaces exact cell values that match a legacy event ID
+- Also replaces exact numeric IDs stored as numbers
+- Preserves workbook formatting, formulas, widths, etc. via openpyxl
+- Writes a new workbook by default
+
+Usage:
+    python update_workbook_event_ids.py \
+        --events-csv out/canonical/events.csv \
+        --in-xlsx Footbag_Results_Community_FINAL_v13.xlsx \
+        --out-xlsx Footbag_Results_Community_FINAL_v13_eventkeys.xlsx
+
+Optional:
+    --in-place     overwrite the input workbook
+    --verbose      print every replacement
+"""
+
+from __future__ import annotations
+
+import argparse
+from collections import defaultdict
+from pathlib import Path
+from typing import Any
+
+import pandas as pd
+from openpyxl import load_workbook
+
+
+def build_event_map(events_csv: Path) -> dict[str, str]:
+    df = pd.read_csv(events_csv, dtype=str).fillna("")
+
+    id_col = None
+    for candidate in ("legacy_event_id", "event_id"):
+        if candidate in df.columns:
+            id_col = candidate
+            break
+    if id_col is None:
+        raise ValueError(
+            f"Could not find legacy event ID column in {events_csv}. "
+            "Expected 'legacy_event_id' or 'event_id'."
+        )
+
+    if "event_key" not in df.columns:
+        raise ValueError(f"Could not find 'event_key' column in {events_csv}.")
+
+    event_map: dict[str, str] = {}
+    dupes: dict[str, set[str]] = defaultdict(set)
+
+    for _, row in df.iterrows():
+        legacy_id = str(row[id_col]).strip()
+        event_key = str(row["event_key"]).strip()
+
+        if not legacy_id or not event_key:
+            continue
+
+        if legacy_id in event_map and event_map[legacy_id] != event_key:
+            dupes[legacy_id].update({event_map[legacy_id], event_key})
+        event_map[legacy_id] = event_key
+
+    if dupes:
+        msg = "\n".join(
+            f"  {eid}: {sorted(list(keys))}" for eid, keys in sorted(dupes.items())
+        )
+        raise ValueError(
+            "Found conflicting mappings for some legacy event IDs:\n" + msg
+        )
+
+    return event_map
+
+
+def normalize_cell_value(value: Any) -> str | None:
+    """
+    Normalize a cell value to a candidate legacy event ID string.
+
+    Handles:
+    - strings like "1035277529"
+    - ints like 1035277529
+    - floats like 1035277529.0
+    Rejects:
+    - formulas
+    - non-integer floats
+    - strings with extra text
+    """
+    if value is None:
+        return None
+
+    if isinstance(value, str):
+        s = value.strip()
+        if not s or s.startswith("="):
+            return None
+        if s.isdigit():
+            return s
+        return None
+
+    if isinstance(value, bool):
+        return None
+
+    if isinstance(value, int):
+        return str(value)
+
+    if isinstance(value, float):
+        if value.is_integer():
+            return str(int(value))
+        return None
+
+    return None
+
+
+def replace_ids_in_workbook(
+    in_xlsx: Path,
+    out_xlsx: Path,
+    event_map: dict[str, str],
+    verbose: bool = False,
+) -> tuple[int, dict[str, int]]:
+    wb = load_workbook(in_xlsx)
+    replacements_by_sheet: dict[str, int] = defaultdict(int)
+    total = 0
+
+    for ws in wb.worksheets:
+        for row in ws.iter_rows():
+            for cell in row:
+                legacy_id = normalize_cell_value(cell.value)
+                if legacy_id is None:
+                    continue
+                if legacy_id in event_map:
+                    old = cell.value
+                    new = event_map[legacy_id]
+                    cell.value = new
+                    replacements_by_sheet[ws.title] += 1
+                    total += 1
+                    if verbose:
+                        print(
+                            f"{ws.title}!{cell.coordinate}: "
+                            f"{old!r} -> {new!r}"
+                        )
+
+    wb.save(out_xlsx)
+    return total, dict(replacements_by_sheet)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Replace workbook legacy event IDs with canonical event_key slugs."
+    )
+    parser.add_argument(
+        "--events-csv",
+        required=True,
+        type=Path,
+        help="Path to canonical events.csv containing legacy_event_id/event_id and event_key.",
+    )
+    parser.add_argument(
+        "--in-xlsx",
+        required=True,
+        type=Path,
+        help="Input workbook path.",
+    )
+    parser.add_argument(
+        "--out-xlsx",
+        type=Path,
+        help="Output workbook path. Required unless --in-place is used.",
+    )
+    parser.add_argument(
+        "--in-place",
+        action="store_true",
+        help="Overwrite the input workbook.",
+    )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Print every replacement.",
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+
+    if args.in_place and args.out_xlsx is not None:
+        raise SystemExit("Use either --in-place or --out-xlsx, not both.")
+
+    if not args.in_place and args.out_xlsx is None:
+        raise SystemExit("Provide --out-xlsx, or use --in-place.")
+
+    if not args.events_csv.exists():
+        raise SystemExit(f"events.csv not found: {args.events_csv}")
+    if not args.in_xlsx.exists():
+        raise SystemExit(f"Workbook not found: {args.in_xlsx}")
+
+    out_xlsx = args.in_xlsx if args.in_place else args.out_xlsx
+    assert out_xlsx is not None
+
+    event_map = build_event_map(args.events_csv)
+    print(f"Loaded {len(event_map):,} legacy_event_id -> event_key mappings")
+
+    total, by_sheet = replace_ids_in_workbook(
+        in_xlsx=args.in_xlsx,
+        out_xlsx=out_xlsx,
+        event_map=event_map,
+        verbose=args.verbose,
+    )
+
+    print(f"\nWrote: {out_xlsx}")
+    print(f"Total replacements: {total:,}")
+    if by_sheet:
+        print("Replacements by sheet:")
+        for sheet, count in sorted(by_sheet.items()):
+            print(f"  {sheet}: {count:,}")
+    else:
+        print("No matching event IDs found in workbook.")
+
+
+if __name__ == "__main__":
+    main()

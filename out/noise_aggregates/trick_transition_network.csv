@@ -1,0 +1,249 @@
+trick_a,trick_b,count,n_players,n_events
+blurry whirl,whirl,17,15,14
+ripwalk,whirl,11,10,11
+whirl,whirl,10,9,9
+smear,dimwalk,7,7,6
+dimwalk,ripwalk,6,6,6
+blurry whirl,ripwalk,6,5,6
+dimwalk,whirl,5,5,5
+blurry whirl,paradox torque,5,5,4
+fusion,eggbeater,5,4,5
+torque,whirl,4,3,4
+eggbeater,torque,4,4,4
+ripwalk,blur,4,4,3
+swirl,swirl,4,1,2
+ducking butterfly,torque,4,4,2
+ripwalk,mirage,4,3,4
+whirl,superfly,3,3,3
+butterfly,ripwalk,3,3,3
+blurry whirl,blurry whirl,3,3,3
+butterfly,blurry whirl,3,2,3
+ducking butterfly,whirl,3,3,3
+butterfly,ducking butterfly,3,3,3
+food processor,mobius,3,2,3
+blurry whirl,blurriest,3,2,3
+butterfly,mirage,3,3,3
+pickup,fusion,3,1,3
+fusion,swirl,3,1,3
+mirage,butterfly,3,3,3
+legover,legover,3,3,3
+fusion,food processor,3,2,2
+whirl,blender,3,3,3
+whirl,swirl,3,3,3
+ducking clipper,mirage,2,2,2
+ripwalk,ducking butterfly,2,2,3
+paradox mirage,blur,2,2,2
+spinning osis,food processor,2,1,2
+smear,butterfly,2,2,2
+paradox drifter,paradox whirl,2,2,2
+osis,dimwalk,2,2,2
+drifter,torque,2,1,2
+drifter,legover,2,1,1
+clipper,clipper,2,2,2
+butterfly,whirl,2,2,2
+clipper,ripwalk,2,2,2
+ducking butterfly,fog,2,1,2
+eggbeater,swirl,2,1,2
+blur,dimwalk,2,2,2
+blurry whirl,blur,2,1,2
+blur,smear,2,1,1
+blur,butterfly,2,2,2
+dimwalk,osis,2,2,2
+drifter,blurry whirl,2,2,2
+blurry whirl,osis,2,2,2
+blurriest,whirl,2,2,2
+blurry whirl,paradox whirl,2,2,2
+blurry whirl,torque,2,2,2
+blurry whirl,superfly,2,1,2
+fog,torque,2,2,2
+mirage,dimwalk,2,2,2
+food processor,whirl,2,2,2
+food processor,superfly,2,2,2
+legover,mirage,2,2,2
+legover,butterfly,2,2,2
+fog,spinning osis,2,1,2
+legover,clipper,2,2,2
+torque,blender,2,2,2
+torque,paradox blender,2,2,2
+ripwalk,ripwalk,2,2,2
+whirl,blurriest,2,2,2
+torque,torque,2,2,2
+ripwalk,butterfly,2,2,2
+ripwalk,blurry whirl,2,2,2
+pickup,legover,2,2,2
+whirl,spinning whirl,2,1,1
+dimwalk,blurry whirl,1,1,1
+clipper,whirl,1,1,1
+dimwalk,blur,1,1,1
+clipper,legover,1,1,1
+dimwalk,food processor,1,1,1
+dimwalk,butterfly,1,1,1
+clipper,spinning clipper,1,1,1
+blurriest,eggbeater,1,1,1
+blurriest,flurry,1,1,1
+blurry whirl,fog,1,1,1
+blurry whirl,legover,1,1,1
+blurry whirl,paradox blender,1,1,1
+blurry whirl,mobius,1,1,1
+blurry whirl,paradox symposium whirl,1,1,1
+butterfly,swirl,1,1,1
+drifter,food processor,1,1,1
+drifter,blurriest,1,1,1
+butterfly,ducking osis,1,1,1
+butterfly,osis,1,1,1
+blurry whirl,spinning clipper,1,1,1
+blurry whirl,smear,1,1,1
+blurry whirl,spinning whirl,1,1,1
+butterfly,fog,1,1,1
+blurriest,blurry whirl,1,1,1
+blender,mobius,1,1,1
+blender,whirl,1,1,1
+blender,superfly,1,1,1
+blender,atom smasher,1,1,1
+atomic butterfly,swirl,1,1,1
+blurriest,swirl,1,1,1
+blurriest,spinning whirl,1,1,1
+blurry whirl,swirl,1,1,1
+blurriest,blur,1,1,1
+blur,whirl,1,1,1
+blur,symposium whirl,1,1,1
+blur,swirl,1,1,1
+blur,parkwalk,1,1,1
+blur,barfly,1,1,1
+blur,blurriest,1,1,1
+blender,food processor,1,1,1
+barfly,blurriest,1,1,1
+barfly,swirl,1,1,1
+atom smasher,atom smasher,1,1,1
+atom smasher,whirl,1,1,1
+atom smasher,atomic torque,1,1,1
+atom smasher,mirage,1,1,1
+atom smasher,smear,1,1,1
+pickup,butterfly,1,1,1
+parkwalk,osis,1,1,1
+paradox whirl,whirl,1,1,1
+eggbeater,eggbeater,1,1,1
+ducking osis,mobius,1,1,1
+ducking osis,torque,1,1,1
+eggbeater,blurry whirl,1,1,1
+eggbeater,drifter,1,1,1
+ducking clipper,drifter,1,1,1
+ducking clipper,whirl,1,1,1
+ducking clipper,pickup,1,1,1
+ducking clipper,ducking whirl,1,1,1
+ducking butterfly,paradox mirage,1,1,1
+ducking butterfly,spinning clipper,1,1,1
+ducking mirage,legover,1,1,1
+eggbeater,blur,1,1,1
+drifter,spinning clipper,1,1,1
+ducking butterfly,butterfly,1,1,1
+ducking butterfly,blurry whirl,1,1,1
+drifter,swirl,1,1,1
+ducking butterfly,food processor,1,1,1
+ducking butterfly,ducking osis,1,1,1
+ducking butterfly,ducking butterfly,1,1,1
+ducking butterfly,dimwalk,1,1,1
+drifter,mobius,1,1,1
+drifter,superfly,1,1,1
+dimwalk,ducking butterfly,1,1,1
+dimwalk,spinning osis,1,1,1
+double around the world,butterfly,1,1,1
+dimwalk,swirl,1,1,1
+ducking butterfly,spinning whirl,1,1,1
+ducking mirage,butterfly,1,1,1
+butterfly,paradox mirage,1,1,1
+butterfly,symposium whirl,1,1,1
+butterfly,paradox whirl,1,1,1
+butterfly,spinning osis,1,1,1
+clipper,ducking clipper,1,1,1
+clipper,ducking mirage,1,1,1
+dimwalk,paradox whirl,1,1,1
+dimwalk,spinning clipper,1,1,1
+dimwalk,drifter,1,1,1
+mirage,torque,1,1,1
+mobius,swirl,1,1,1
+legover,torque,1,1,1
+legover,pickup,1,1,1
+mirage,spinning osis,1,1,1
+mirage,ripwalk,1,1,1
+mirage,ducking butterfly,1,1,1
+mirage,clipper,1,1,1
+mirage,atom smasher,1,1,1
+legover,whirl,1,1,1
+fog,butterfly,1,1,1
+fusion,blurry whirl,1,1,1
+food processor,torque,1,1,1
+fusion,whirl,1,1,1
+fusion,torque,1,1,1
+legover,drifter,1,1,1
+legover,dimwalk,1,1,1
+legover,smear,1,1,1
+fog,blender,1,1,1
+fog,drifter,1,1,1
+fog,fusion,1,1,1
+fog,paradox torque,1,1,1
+fog,mirage,1,1,1
+stepping osis,barfly,1,1,1
+spinning whirl,mobius,1,1,1
+spinning whirl,legover,1,1,1
+paradox whirl,symposium whirl,1,1,1
+paradox whirl,paradox whirl,1,1,1
+paradox whirl,spinning osis,1,1,1
+paradox whirl,paradox torque,1,1,1
+paradox whirl,paradox mirage,1,1,1
+paradox torque,paradox blender,1,1,1
+paradox whirl,paradox blender,1,1,1
+paradox whirl,barfly,1,1,1
+paradox torque,whirl,1,1,1
+paradox drifter,tomahawk,1,1,1
+paradox mirage,butterfly,1,1,1
+osis,torque,1,1,1
+paradox blender,whirl,1,1,1
+mirage,mirage,1,1,1
+mirage,fusion,1,1,1
+osis,paradox whirl,1,1,1
+osis,paradox torque,1,1,1
+osis,butterfly,1,1,1
+osis,ducking butterfly,1,1,1
+ripwalk,tomahawk,1,1,1
+ripwalk,osis,1,1,2
+ripwalk,spinning osis,1,1,1
+ripwalk,spinning clipper,1,1,1
+ripwalk,spinning butterfly,1,1,1
+ripwalk,legover,1,1,1
+ripwalk,eggbeater,1,1,1
+ripwalk,clipper,1,1,1
+ripwalk,mobius,1,1,1
+rev whirl,rev whirl,1,1,1
+whirl,mirage,1,1,1
+torque,superfly,1,1,1
+torque,food processor,1,1,1
+spinning whirl,blurry whirl,1,1,1
+spinning osis,whirl,1,1,1
+spinning clipper,swirl,1,1,1
+spinning clipper,spinning whirl,1,1,1
+spinning clipper,blender,1,1,1
+ripwalk,spinning whirl,1,1,1
+smear,ducking mirage,1,1,1
+ripwalk,swirl,1,1,1
+superfly,blender,1,1,1
+swirl,smear,1,1,1
+swirl,spinning osis,1,1,1
+swirl,food processor,1,1,1
+swirl,butterfly,1,1,1
+whirl,paradox whirl,1,1,1
+whirl,eggbeater,1,1,1
+whirl,drifter,1,1,1
+torque,mirage,1,1,1
+symposium whirl,whirl,1,1,1
+torque,drifter,1,1,1
+swirl,superfly,1,1,1
+swirl,torque,1,1,1
+whirl,osis,1,1,1
+whirl,paradox torque,1,1,1
+whirl,torque,1,1,1
+torque,swirl,1,1,1
+ducking butterfly,mobius,0,0,1
+butterfly,butterfly,0,0,1
+blurry whirl,ducking whirl,0,0,1
+tomahawk,whirl,0,0,1

@@ -1,0 +1,18 @@
+alias,person_id,person_canon,status,notes,action
+Bryan S. Nelson,3a9a28f9-3065-55af-8f68-049c7cf09cc9,Byran Nelson,suggested,ALIAS_MATCH via member 13774; display name not yet in aliases,ADD_ALIAS
+Corey L. Carr,5535ae64-98f5-50a4-abe1-542bbcaaec3d,Cody Carr,suggested,ALIAS_MATCH via member 70312; display name not yet in aliases,ADD_ALIAS
+Drake Shults,17f1d5dd-7053-5cdb-b2d1-289152953428,Elle Shults,suggested,ALIAS_MATCH via member 77592; display_name='Elle  Shults'; review before applying,REVIEW_MERGE
+Errol H.  Stryker,c256196e-aeb4-5011-9dce-81719a307619,Erroll Stryker,suggested,ALIAS_MATCH via member 63879; display name not yet in aliases,ADD_ALIAS
+Forrester  Winterburn,cafcd1b7-1e6c-54a2-befb-09e51f1f9813,Forra,suggested,ALIAS_MATCH via member 13089; display name not yet in aliases,ADD_ALIAS
+Heikki Rautio,04ec794c-27b3-5d3f-a9c0-4058fbaa133d,Henry Rautio,suggested,ALIAS_MATCH via member 19395; display_name='Henry  Rautio'; review before applying,REVIEW_MERGE
+Jacob Hall,998b1b7c-26da-5fd3-8957-4398616d55b9,Jakob Hall,suggested,ALIAS_MATCH via member 14904; display_name='Jakob  Hall'; review before applying,REVIEW_MERGE
+Jakob og Jesper Hall,998b1b7c-26da-5fd3-8957-4398616d55b9,Jakob Hall,suggested,ALIAS_MATCH via member 14904; display_name='Jakob  Hall'; review before applying,REVIEW_MERGE
+Johanna A.  Eronen,1ad2ff35-a74b-5fa9-8608-cc6d9259a6e0,Janne Eronen,suggested,ALIAS_MATCH via member 26718; display name not yet in aliases,ADD_ALIAS
+Jason Hall,998b1b7c-26da-5fd3-8957-4398616d55b9,Jakob Hall,suggested,ALIAS_MATCH via member 14904; display_name='Jakob  Hall'; review before applying,REVIEW_MERGE
+Johnny Leys,3b938feb-b4c7-59a1-929f-7b62be77c1ce,John Leys,suggested,ALIAS_MATCH via member 12279; display_name='John  Leys'; review before applying,REVIEW_MERGE
+Jonathan F.  Araquistain,081e9873-5730-55c0-86ec-4fe1706d52e0,Jonathan Felipe Araquistain,suggested,ALIAS_MATCH via member 66967; display name not yet in aliases,ADD_ALIAS
+Laurence DuMont,44a4a929-c3fc-5e7e-8398-8c795cd5dc8a,Lawrence Dumont,suggested,ALIAS_MATCH via member 82399; display_name='Lawrence  Dumont'; review before applying,REVIEW_MERGE
+Nathan  Oates,d909eae1-a7da-53e8-ab94-4dc6df3c5120,Nate Oates,suggested,ALIAS_MATCH via member 14080; display name not yet in aliases,ADD_ALIAS
+Steven M.  Fisher,14d56111-9811-5543-be08-9263c5dafabd,Shawn Fisher,suggested,ALIAS_MATCH via member 27280; display name not yet in aliases,ADD_ALIAS
+Tony Mehok,0d68e5a5-9068-5484-8468-e21ea144dbc6,Anthony Mehok,suggested,ALIAS_MATCH via member 12105; display_name='Anthony  Mehok'; review before applying,REVIEW_MERGE
+Rodney  Cook,619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,suggested,ALIAS_MATCH via member 33478; display name not yet in aliases,ADD_ALIAS

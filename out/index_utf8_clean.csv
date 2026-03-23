@@ -1,0 +1,776 @@
+event_id,year,Tournament Name,Date,Location,Event Type,Host Club,placements_count,results_lines
+1043096425,1985,East Coast Championships - 3rd Annual - 1985,"September 14-15, 1985","Monmouth College Long Branch, New Jersey, USA",mixed,,27,52
+1057126024,1986,East Coast Footbag Championships - 4th Annual - 1986,"September 30, 1986","Monmouth College Long Branch, New Jersey, USA",mixed,,33,62
+1057175925,1990,East Coast Footbag Championships - 8th Annual - 1990,"August 31, 1990","Mayo Park Beachwood, New Jersey, USA",mixed,,33,62
+1057345914,1991,East Coast Footbag Championships - 1991 - 9th Annual,"October 5-6, 1991","Mayo Park Beachwood, NK, USA",mixed,,36,67
+857852604,1997,Southern California Footbag Championships,"April 5-6, 1997","Hermosa Valley Park Hermosa Beach, California, USA",freestyle,,6,11
+857874500,1997,University of Oregon Footbag Tournament,"April 19-20, 1997","University of Oregon Eugene, OR, USA",golf,,22,29
+857875120,1997,Western Regional Footbag Championships,"May 24-26, 1997","Stanford University - Wilbur Field Palo Alto, California, USA",mixed,,43,80
+857876215,1997,State Games of Oregon Footbag Tournament,"July 12-13, 1997","Mt. Hood Community College Gresham, Oregon, USA",net,,26,41
+857876517,1997,The 18th Annual WORLD FOOTBAG CHAMPIONSHIPS,"August 11-17, 1997","Portland, Oregon, USA",worlds,,84,133
+857876870,1997,Eugene Celebration Footbag Tournament,"September 20-21, 1997","Alton Baker Park Eugene, Oregon, USA",net,,25,32
+857880054,1997,Bedford (Australia) Indoor Footbag Championships,"June 8, 1997","Bedford, Western Australia, Australia",net,,8,11
+857880964,1997,13th Annual MIDWEST REGIONAL FOOTBAG CHAMPIONSHIPS,"June 13-15, 1997","Mt. Prospect, Illinois, USA",mixed,,51,86
+857881519,1997,11th Annual Vancouver Open (and Worlds Warm-Up),"August 2-3, 1997","Stanley Park - Brockton Oval Vancouver, BC, Canada",net,,32,53
+857881898,1997,Funtastik Summer Classic,"August 30-September 1, 1997","City Island Harrisburg, Pennsylvania, USA",mixed,,38,65
+859400929,1997,Montreal International Footbag Championships,"July 19-20, 1997","La Ronde and Plaine des Jeux Montreal, Quebec, Canada",mixed,,29,52
+859657310,1997,New York Footbag EXPLOSION,"June 28-29, 1997","Central Park (next to Summerstage) New York, USA",freestyle,,11,18
+859787898,1997,HEART OF FOOTBAG Freestyle Tournament,"February 15-16, 1997","Portland State University, Main Gym Portland, Oregon, USA",freestyle,,37,54
+859913311,1997,Air-A-Zona State Footbag Championships,"January 18-19, 1997","Eldorado Park Scottsdale, Arizona, USA",net,,12,21
+859923755,1997,California State Footbag Championships,"July 5-6, 1997","Schaefer Elementary School Santa Rosa, California, USA",mixed,,39,54
+860082052,1997,Texas State Footbag Championships,October 11 - 12,"Texas, USA",social,,0,0
+860356126,1997,14th Annual Emerald City Open Footbag Championships,"June 7-8, 1997","Lid Park - Mercer Island Seattle, Washington, USA",net,,50,83
+865043841,1997,The Ultimate Chaos Outdoor Footbag Flying Disc Festival,"September 27-28, 1997","Sam Rinella Playfields Carbondale, Illinois, USA",mixed,,19,34
+873922005,1997,FOOTBAG SM 97 / Finnish Footbag Championships '97,"November 29, 1997","Ruskeasuon urheiluhalli / Sportcenter of Ruskeasuo Helsinki, Finland",mixed,,12,21
+876590022,1997,1997 Seattle Fall Indoor Tournament,"November 8-9, 1997","Magnolia Community Center Seattle, Washington, USA",golf,,16,25
+877848852,1997,Auburn U.F.O. Fall Festival,"November 8-9, 1997","Martin Luther King Park Auburn, Alabama, USA",mixed,,21,40
+876331623,1998,Southern California Footbag Championships,"April 4-5, 1998","Hermosa Valley Park Hermosa Beach, California, USA",mixed,,31,48
+876336655,1998,Air-A-Zona 2nd Annual Footbag Net Championships,"January 17-18, 1998","Eldorado Park Scottsdale, Arizona, USA",net,,67,82
+876356874,1998,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,"May 23-25, 1998","Stanford University, Wilbur Field Palo Alto, California, USA",mixed,,150,197
+876591529,1998,1998 WORLD FOOTBAG CHAMPIONSHIPS,"July 13-19, 1998","Ile Ste. Helene Montreal, Quebec, Canada",worlds,,58,105
+877061793,1998,U. S. Open Footbag Net Championships,"June 20-21, 1998","Sellwood Riverfront Park Portland, Oregon, USA",net,,45,64
+879319107,1998,1998 Southern Regional Footbag Championships,"April 25-26, 1998","Wildflower Festival / Heights Park Richardson, Texas, USA",mixed,,50,83
+881872990,1998,The 3rd Annual Chaos Indoor Footbag Festival,"February 7-8, 1998","Student Recreation Center of SIUC Carbondale, Illinois, USA",mixed,,18,33
+883135865,1998,1998 Winter Windchill Warm-Up (l'Hivernal),"March 28-29, 1998","Montreal, QC, Canada",net,,14,23
+884112176,1998,The 1st Annual Fighting Illini Footbag Festival,"April 17-19, 1998","Illini Playfields Champaign, Illinois, USA",mixed,,12,25
+886044392,1998,12th Annual Vancouver Open Footbag Net Tournament,"August 22-23, 1998","Stanley Park Vancouver, B.C., Canada",net,,34,61
+888294869,1998,15th Annual Emerald City Open,"June 6-7, 1998","Lid Park Mercer Island, Washington, USA",net,,42,73
+892446131,1998,Kansas Footbag Open,"May 16-17, 1998","Watson Park Wichita, Kansas, USA",golf,,13,26
+899077904,1998,Northern Illinois Footbag Open,"August 8-9, 1998","Malta, Illinois, USA",mixed,,20,39
+899722892,1998,Finnish Footbag Open 1998,"September 26-27, 1998","Tali Soccer Innerstadium / Toolo Sportcenter Helsinki, Finland",mixed,,18,33
+901349509,1998,18th Annual Beaver Open,"September 5-7, 1998","Willamette Mission State Park Salem, Oregon, USA",net,,11,22
+901687367,1998,13th Annual Funtastik Summer Classic Footbag Tournament,"September 5-7, 1998","City Island Harrisburg, Pennsylvania, USA",mixed,,37,66
+903468009,1999,Southern California Footbag Championships,"April 10-11, 1999","Hermosa Valley Park Hermosa Beach, CA",mixed,,23,42
+903632480,1999,3rd Annual Air-A-Zona Footbag Net Championships,"January 16-17, 1999","ASU Band Field Tempe, Arizona, USA",net,,38,55
+909186885,1999,1999 Southern Regional Footbag Championships,"April 24-25, 1999","Dallas, Texas, USA",golf,,43,48
+910551956,1999,1999 Western Regional Footbag Championships,"May 29-31, 1999","Stanford University - Wilbur Field Palo Alto, California, USA",mixed,,106,141
+912467534,1999,12th Annual U.S. Open Footbag Net Championships,"August 13-15, 1999","Tom McCall Waterfront Park Portland, Oregon, USA",net,,38,55
+913061034,1999,Finnish Freestyle Festival '99,"March 13, 1999","Toolo Sportcenter Helsinki, Finland",freestyle,,18,25
+915561090,1999,WORLD FOOTBAG CHAMPIONSHIPS,"July 12-18, 1999","Montrose Harbor - Mayor's Cup Soccer Tournament Chicago, Illinois, USA",worlds,,43,46
+916193231,1999,1999 Montreal International Footbag Championship,"July 2-4, 1999","Plage du parc des Iles de Montreal Montreal, Quebec, Canada",mixed,Association Québécoise de Footbag,25,42
+916977484,1999,State Games of Oregon Footbag Tournament,"May 15-16, 1999","University of Oregon Education Field Eugene, Oregon, USA",net,,21,38
+917278465,1999,EUROPEAN FOOTBAG OPEN,"June 19-20, 1999","Flatow-Halle Berlin Kreuzberg Berlin, Germany",mixed,,34,53
+917741782,1999,2nd Annual Illini Footbag Festival,"April 10-11, 1999","Multiplex (First and Stadium) Champaign, Illinois, USA",mixed,,18,33
+919703711,1999,13th Annual Vancouver Open Footbag Net Tournament,"August 21-22, 1999","Stanley Park Vancouver, B.C., Canada",net,,57,78
+919885513,1999,Montreal Windchill (l'HIVERNAL),"April 10-11, 1999","Cegep du Vieux-Montreal Montreal, Quebec, Canada",net,,14,23
+920579000,1999,East Coast Footbag Championships,"May 8-9, 1999","University of Maryland, College Park College Park, Maryland, USA",mixed,,24,43
+924977661,1999,16th Annual Emerald City Open,"June 12-13, 1999","Greenlake Park Seattle, Washington, USA",net,,40,67
+929217368,1999,14th Annual Funtastik Summer Classic,"September 4-6, 1999","City Island Harrisburg, Pennsylvania, USA",mixed,,41,68
+931840905,1999,1st Annual Montana Invitational,"September 18-19, 1999","Sliter's Park Bigfork, Montana, USA",mixed,,56,87
+933870505,1999,Finnish Footbag Open Championships 1999,"August 28-29, 1999","Toolo's Sportcenter (downtown Helsinki) Helsinki, Finland",mixed,,42,57
+937727262,1999,California State Footbag Championships,"October 23-24, 1999","Peacock Meadow, Golden Gate Park (a.k.a. the usual place) San Francisco, California, USA",mixed,,24,37
+937854594,1999,Turku Tournee 1999,"September 25, 1999","Kupitta park Turku, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),16,21
+942013549,1999,German Footbag Freestyle Battle 99,"December 19, 1999","Arena Berlin, Germany",freestyle,FC Footstar Berlin e.V.,8,11
+933099911,2000,4th Annual Air-A-Zona Footbag Net Tournament,"January 15-17, 2000","ASU Tempe, Arizona, USA",net,AIR-A-ZONA FOOTBAG NET CLUB,12,21
+933115858,2000,Colorado Shred Symposium,"February 19-21, 2000","Sat/Sun: Toadstool Playhouse; Mon: UMC, (CU Campus) Boulder, Colorado, USA",freestyle,,10,15
+941066992,2000,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,May 29,"California, USA",social,,0,0
+941418343,2000,WORLD FOOTBAG CHAMPIONSHIPS,"August 14-20, 2000","See Worlds website Vancouver, BC, Canada",worlds,Kitsilano Footbag Association,256,299
+944242404,2000,Todexon Cup Freestyle Tournament,"February 5, 2000","Club Luxor Praha, Czech Republic",freestyle,Czech Footbag Association,8,11
+945548940,2000,U.S. Open Footbag Net Championships,"August 11-13, 2000","Waterfront Park Portland, Oregon, USA",net,,12,19
+946940201,2000,East Coast Footbag Championships,"April 29-30, 2000","University of Maryland campus College Park, Maryland, USA",mixed,,20,43
+947026077,2000,The 2nd Annual Philly Open Footbag Championships,"March 25-26, 2000","Phoenixville YMCA Phoenixville, Pennsylvania, USA",mixed,,30,45
+947196813,2000,New Zealand Footbag Championships,"April 1-2, 2000","Chaffers Park Wellington, New Zealand",net,,23,34
+948198763,2000,European Footbag Championships 2000,"July 14-16, 2000","Parc de Saint Cloud Paris, France",mixed,,63,96
+948943299,2000,First Annual Arica Open,"February 3, 2000","Parque Brasil Arica, Chile",net,,10,15
+949991621,2000,6th Annual Southern California Footbag Championships,"April 15-16, 2000","Hermosa Valley Park Hermosa Beach, California, USA",freestyle,OOPS,12,19
+951771943,2000,UCSF Freestyle Jam,"April 1-2, 2000","Millberry Union, UCSF San Francisco, California, USA",freestyle,,0,0
+952906680,2000,Montreal International Footbag Championships,"July 7-9, 2000","Parc Jeanne-Mance Montreal, Quebec, Canada",freestyle,Association Québécoise de Footbag,51,72
+953918475,2000,Funtastik Summer Classic Footbag Tournament,"September 2-4, 2000","Sunshine Park and City Island, Harrisburg, Pa. Harrisburg, Pennsylvania, USA",mixed,,40,67
+955745735,2000,4th Annual Kansas Footbag Open,"May 20-21, 2000","Watson Park, South Side Wichita, Kansas, USA",mixed,,24,47
+955831740,2000,Turku Open 2000,"June 10-11, 2000","Halinen Halli Turku, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),23,36
+957240514,2000,Emerald City Open,"June 24-25, 2000","Green Lake Park Seattle, Washington, USA",net,,19,38
+957778745,2000,Footbag Meeting Bern,"June 17, 2000","Bern, Switzerland",mixed,Sole Rebels Zürich,12,19
+959094047,2000,Battle of the Year Switzerland,May 27,Switzerland,social,,0,0
+959353403,2000,2000 Southeast Idaho Footbag Championships,"July 15, 2000","Pocatello, Idaho, USA",freestyle,Idaho State University Footbag Club,17,28
+961053916,2000,Footbag Oulu-Open 2000,"July 29-30, 2000","Oulu marketplace and theatre area Oulu, Finland",mixed,,23,38
+961626997,2000,Quebec City Footbag Net Championships,"July 2-3, 2000","Plaines d'Abraham Quebec City, Quebec, Canada",net,,30,37
+967817818,2000,Texas State Footbag Championships,"November 11-12, 2000","Zilker Park Rugby Fields (Front Gate) Austin, Texas, USA",mixed,Austin Style Footbag Club - Texas Footbag League,48,85
+972427576,2001,L'Hivernal (The Windchill) Footbag Tournament,"February 10-11, 2001","Cegep du Vieux-Montr?al (College of Vieux-Montreal) Montreal, Quebec, Canada",mixed,Association Québécoise de Footbag,57,76
+973573676,2001,2nd Annual New Zealand Footbag Championships,"January 6, 2001","Herne Bay Racket Club Auckland, New Zealand",freestyle,The Auckland Freestyle Footbag Club (AFFC),11,26
+974683678,2001,COLORADO SHRED SYMPOSIUM 2,"February 25, 2001","Toadstool Playhouse Boulder, Colorado, USA",freestyle,,26,29
+977260894,2001,Second Annual Arica Open,"January 10, 2001","Parque Brasil Arica, Chile",net,,8,13
+978967004,2001,Southern California Footbag Championships,"April 28-29, 2001","Hermosa Valley Park Hermosa Beach, California, USA",mixed,OOPS,42,59
+979089216,2001,First Annual Eugene Freestyle Freekout!!!,"March 24-25, 2001","IRVING GRANGE Eugene, Oregon, USA",freestyle,,17,22
+979334083,2001,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,"May 26-28, 2001","Stanford University - Wilbur Field Palo Alto, California, USA",mixed,Stanford University Footbag Club,108,137
+979816633,2001,1st Hungarian Footbag Cup,"February 3, 2001","Lucia-Laura Cafe Budapest, Hungary",net,FreeStall,14,21
+980253113,2001,Swiss Footbag Jam,"January 27-28, 2001","TBA Zurich, Switzerland",freestyle,Sole Rebels Zürich,0,0
+980502839,2001,European Footbag Championships,"July 19-22, 2001","Are?l Slavia Praha Prague, Czech Republic",mixed,Czech Footbag Association,50,77
+980969461,2001,WORLD FOOTBAG CHAMPIONSHIPS,"August 6-12, 2001","Berkeley, Albany, San Francisco San Francisco Bay Area, California, USA",worlds,,203,252
+981129410,2001,East Coast Footbag Championships,"April 28-29, 2001","UMD College Park Campus College Park, Maryland, USA",mixed,,55,86
+981560223,2001,Swiss Footbag Championships (FootJam),"May 26-27, 2001","B?ckeranlage/Dynamo Zurich, Switzerland",mixed,Sole Rebels Zürich,115,136
+984694623,2001,1st Montreal Summer Freestyle Challenge,"July 20-22, 2001","Les Foufounes Electriques, 87 Sainte-Catherine E. Montreal, Quebec, Canada",freestyle,,20,27
+984874006,2001,P.S.T. Obligatory Footbag Forum,"March 31-April 1, 2001","University Park Campus of the Pennsylvania State University State College, Pennsylvania, USA",freestyle,,1,4
+987985282,2001,Townsville Promotional Jam,"July 22, 2001","Pioneer Park Townsville, Queensland, Australia",freestyle,,0,0
+988325277,2001,Saskatchewan Footbag Championships,"August 18-19, 2001","Wascana Park (near Imax theater) Regina, Saskatchewan, Canada",freestyle,,9,12
+988434364,2001,2001 Southern Regional Footbag Championships,"May 19-20, 2001","Wildflower Arts & Music Festival Richardson, Texas, USA",mixed,Dallas Footbag Club,56,87
+989875090,2001,Chicago Inner Circle Museum of Science and Industry Jam,"July 20-21, 2001","CIC Headquarters, The Museum of Science and Industry La Grange, Chicago, Illinois, USA",freestyle,Chicago Inner Circle,11,20
+990512631,2001,3rd annual Turku International Open Championships 2001 Finland,"June 9, 2001","Sportcenter Liikunta.fi Turku, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),24,33
+990626988,2001,Polish Footbag Competition,"June 22, 2001","ROCKER club ul.Braniborska2/10 Wroclaw, Poland",freestyle,PSF Polish Footbag Association,7,10
+990905420,2001,Vancouver Open Footbag Tournament,"August 25-26, 2001","Jericho Beach Park East Vancouver, BC, Canada",golf,Kitsilano Footbag Association,45,60
+991285803,2001,Montreal International Footbag Net Championships 2001,"July 14-15, 2001","Montreal, Quebec, Canada",net,Association Québécoise de Footbag,40,47
+991757909,2001,Funtastik Summer Classic Footbag Tournament,"September 1-3, 2001","Sunshine Park/ City Island Harrisburg, Pennsylvania, USA",mixed,,47,76
+992517335,2001,Keuruu Footbag Jam 2001,"June 16, 2001","Iso Kirja Conference Center Keuruu, Finland",freestyle,,24,33
+994186570,2001,Faith Footbag Forum,"July 14, 2001","Faith U.P. Church Washington, Pennsylvania, USA",freestyle,,0,0
+996293200,2001,Australian Footbag Championships,"December 7-9, 2001","Stadium Australia, Sydney Sydney, New South Wales, Australia",freestyle,,20,27
+996678489,2001,Vienna Footbag Festival,"August 19, 2001","Resselpark / Karlsplatz Vienna, Austria",freestyle,Footbag-Vienna,12,17
+999985344,2001,Estonian Footbag Championships,"October 7, 2001","Kristiine Spordihall, Forelli 12 Tallinn, Harjumaa, Estonia",mixed,Tallinn Footbag Club,35,44
+1000071985,2001,2001 Frankfurt Footbag Open,"September 29, 2001","Fachhochschule Frankfurt am Main, Kleiststra?e 10 Frankfurt/Main, Hessen, Germany",freestyle,SG Frankfurt Footbag e.V.,2,7
+1001076203,2001,3ème Open de France de Footbag,"November 9-11, 2001","Paint-ball Arena Montpellier, Hérault, France",net,,22,31
+1001076315,2001,5th Annual Finnish Footbag Championships,"September 28-30, 2001","Turku Fair Center Turku, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),39,54
+1001905008,2001,Fall Footbag Party,"October 20-21, 2001","Manassas, Virginia, USA",mixed,D.C. All-Stars,0,0
+1001942070,2001,Texas State Footbag Championships,"November 17-18, 2001","Zilker Park Rugby Field Austin, Texas, USA",mixed,Austin Style Footbag Club - Texas Footbag League,30,53
+1004370976,2001,Bootfägers Shred,"November 10, 2001","B?umlihofschule Basel, Basel-Stadt, Switzerland",freestyle,Bootfägers Basel,6,11
+1005667143,2001,Finnstyle Footbag JAM,"November 24, 2001","Arena Center, Ruskeasuo Helsinki, Finland",freestyle,,12,23
+1011291051,2002,Quebec City Footbag Net Championships 2002,"July 12-14, 2002","Plaines of Abraham Quebec City, Quebec, Canada",net,,40,49
+1011324897,2002,PennStateTrio's O.F.F. 2,"March 2-3, 2002","Days Inn Hotel (Ballroom Reserved) State College, Pennsylvania, USA",freestyle,,12,21
+1011556608,2002,FOOTJAM meets 3BORDERSCUP,"June 1-2, 2002","St. Jakob Sportlocation Basel, Switzerland",mixed,Bootfägers Basel,14,27
+1012638214,2002,2002 WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,"May 25-27, 2002","Stanford University - Wilbur Field Palo Alto, California, USA",mixed,Stanford University Footbag Club,74,97
+1013283071,2002,23rd Annual WORLD FOOTBAG CHAMPIONSHIPS,"August 5-11, 2002","Various San Francisco, California, USA",worlds,,78,93
+1015198403,2002,Footbag Barbarian Training Camp,"June 22-23, 2002","Manassas, Virginia, USA",social,D.C. All-Stars,0,0
+1015303046,2002,S.L.O. Kickin's 1st annual footbag net tournament,"June 22, 2002","Mitchell Park San Luis Obispo, California, USA",net,,10,17
+1016457376,2002,Cinco de Mayo Footbag Fest,"May 5, 2002","Pendleton King Park Augusta, Georgia, USA",freestyle,,29,38
+1018812342,2002,Czech Footbag Championships,"August 31-September 1, 2002","Praha, Czech Republic",freestyle,Czech Footbag Association,38,51
+1018925821,2002,Tri-State Area Footbag Jam,"May 18, 2002","Bear Run Campground, Portersville, Pennsylvania, USA",freestyle,,4,9
+1019193491,2002,Finnsta City Jam,"June 15-16, 2002","Vallila/Vr:n makasiinit Helsinki, Finland",freestyle,Finnsta,17,22
+1020262608,2002,German Footbag Open 2002,"September 13-15, 2002","Tennis & Squash City / YAAM Berlin, Germany",social,FC Footstar Berlin e.V.,0,0
+1021665982,2002,2002 East Coast Footbag Championships,"June 15-16, 2002","Fairland Aquatic Center, Laurel, Maryland, USA",freestyle,D.C. All-Stars,56,63
+1022992222,2002,Shred Zero Summer Open 2002,"July 5-7, 2002","Acadia Althletic Park Calgary, Alberta, Canada",freestyle,,7,12
+1023993464,2002,Funtastik Summer Classic Footbag Tournament,August 31 - September 2,"Hershey, Pennsylvania, USA",social,,0,0
+1024091202,2002,III. Hungarian Footbag Festival,"July 13, 2002","Beke ter Kiskunfelegyhaza, Hungary",freestyle,Sunshred Footbag Crew,14,23
+1025084282,2002,1st Queensland Footbag Challenge,"August 18, 2002","Logan City PoliceYouth Club Logan, Queensland, Australia",freestyle,,9,14
+1027925383,2002,Finnish Footbag Championships 2002,"September 28-29, 2002","T??l?nkisahalli Helsinki, Finland",mixed,Finnsta,44,59
+1028218784,2002,2002 Texas State Footbag Championships,"October 19-20, 2002","Westheimer Street Festival - Allen Parkway Houston, Texas, USA",mixed,Houston Skyliners Footbag Club,53,84
+1028233308,2002,US Open Freestyle Championships,"December 27-29, 2002","McCormick Place Chicago, Illinois, USA",freestyle,MIDWEST FOOTBAG ASSOCIATION,31,48
+1028800969,2002,3. Frankfurt Footbag Open,"August 24-25, 2002","Ostparkstrasse / Ostpark Frankfurt, Hessen, Germany",mixed,SG Frankfurt Footbag e.V.,23,32
+1029347412,2002,Woodstower: French Opening,"September 7-8, 2002","Lyon, France",freestyle,,2,7
+1030642331,2002,Seattle Juggling and Footbag Festival,November 15 - 17,"Seattle, Washington, USA",social,,0,0
+1030830356,2002,4e Open de France de Footbag,"November 9-11, 2002","Paint Ball Arena Montpellier, France",mixed,Icarus Footbag,52,75
+1032602594,2002,Victorian Footbag Championships,"October 5, 2002","Outside the State Library Melbourne, Victoria, Australia",freestyle,,8,11
+1034212755,2002,Fall Footbag Party 2002,"October 26-27, 2002","Fourth Street/Chicago Avenue Park Ocean City, Maryland, USA",mixed,D.C. All-Stars,0,0
+1035817350,2002,New South Wales Footbag Championships,"December 7, 2002","Sydney Myer Music Bowl/Homebake Music Festival Sydney, New South Wales, Australia",freestyle,,6,9
+1043430155,2002,Tri-State Area Footbag Jam,"May 18, 2002","Portersville, Pennsylvania, USA",freestyle,,4,9
+1031334528,2003,Funtastik Summer Classic Footbag Tournament,"August 30-September 1, 2003","Sunshine Park & City Island Harrisburg, Pennsylvania, USA",mixed,,50,79
+1032472601,2003,The 3rd Annual Chilly Philly Freestyle Jam,"January 4-5, 2003","The Adam's Mark Hotel Philadelphia, Pennsylvania, USA",freestyle,Philly Footworks,13,20
+1034985978,2003,2003 Canadian Open Footbag Championships,"July 19-20, 2003","Carnarvon Park Vancouver, BC, Canada",mixed,Canadian Footbag Alliance,19,36
+1035277529,2003,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,"July 28-August 3, 2003","Slavia Sports Complex (Praha 10 - Vrsovice) Prague, Czech Republic",worlds,Czech Footbag Association,187,210
+1036298726,2003,Colorado Shred Symposium 4,"March 1-2, 2003","O.D.'s Sports Crossing Fort Collins, Colorado, USA",freestyle,,53,60
+1036653244,2003,2003 Shred Zero Summer Open,"June 28-29, 2003","University of Calgary Calgary, Alberta, Canada",freestyle,,9,14
+1038895913,2003,Seapa NZ Freestyle Footbag Championships,"February 21-23, 2003","Day 1: Cuba Mall, Day 2: Chaffers Park, Day 3: Te Papa Amphitheatre Wellington, New Zealand",freestyle,,29,42
+1039550946,2003,2003 Montreal International Footbag Championships,"July 11-13, 2003","Parc Jeanne-Mance (Tentative) Montréal, Quebec, Canada",net,Association Québécoise de Footbag,15,28
+1041241196,2003,MECCA Footbag Cup,"February 28-March 1, 2003","Bal?zs B?la ?MK Gy?r, Hungary",freestyle,Sunshred Footbag Crew,9,16
+1042821772,2003,European Footbag Championships 2003,"July 18-20, 2003","W?hlerschule, Bertramswiese Frankfurt, Hessen, Germany",mixed,SG Frankfurt Footbag e.V.,117,140
+1044624680,2003,2003 Southeastern Regional Championships,"April 26, 2003","Pendleton King Park Augusta, Georgia, USA",freestyle,,25,34
+1044952105,2003,"L'Hivernal, The Windchill","March 15, 2003","Old Montreal College Montréal, QC, Canada",net,Association Québécoise de Footbag,10,13
+1045628278,2003,Montreal Footbag Challenge 2003,"May 31, 2003","Le Gesu -, Bleury (coin Ste-Catherine) Montreal, Quebec, Canada",freestyle,,12,21
+1046985067,2003,2003 Steel City Footbag Open,"May 16-18, 2003","Nationality Days Street Festival Ambridge, Pennsylvania, USA",freestyle,,8,15
+1049457912,2003,2003 East Coast Championships - The BIG 2-0,"June 28-29, 2003","Fairland Aquatic Center, Laurel, MD, USA",freestyle,D.C. All-Stars,81,100
+1050067583,2003,Turku Open,"June 6-7, 2003","Kupittaa Park Turku, Finland",freestyle,Footcraft,11,20
+1050140930,2003,German Footbag Open 2003,"July 4-5, 2003","Sportarena Tuchanger Zeil, Germany",mixed,FC Footstar Berlin e.V.,32,47
+1050745947,2003,RNH Contest 2003,"May 10-11, 2003","Centre Sportif Georges-Carpentier Paris, France",mixed,Rien N'est Hacky - RNH Footbag,24,39
+1052775366,2003,Danish Footbag Open 03,"August 29-31, 2003","Indre By Medborgerhus - Ahlefeldtsgade 33 Copenhagen, Denmark",mixed,FootbagDenmark,29,50
+1054616435,2003,1st Annual Eugene Freestyle Festival,"October 18-19, 2003","Washington Jefferson St bridge Eugene, Oregon, USA",freestyle,,0,0
+1057773472,2003,23rd Annual Moonin' & Noonin' Beaver Open,"August 30-September 1, 2003","Willamette Mission State Park Near Salem, Oregon, USA",mixed,,3,10
+1058378281,2003,Texas State Footbag Championships,"October 18-19, 2003","Zilker Park - Rugby Fields Austin, Texas, USA",mixed,Austin Style Footbag Club - Texas Footbag League,53,90
+1058877971,2003,"""Kick Til You're Sick"" Fall Freestyle Fest","October 17-18, 2003","Newtown Athletic Club Newtown, Pennsylvania, USA",freestyle,Philly Footworks,12,19
+1061212821,2003,19th Annual Midwest Regional Championships and Exhibition,"December 27-29, 2003","McCormick Place, Chicago Chicago, Illinois, USA",freestyle,MIDWEST FOOTBAG ASSOCIATION,25,46
+1061453080,2003,Australian East Coast Regionals,"September 27-28, 2003","State Library Melbourne, Victoria, Australia",freestyle,,23,40
+1061921260,2003,Pre Season Footbag Golf Open,"August 26, 2003","Parc de Bercy Paris, France",golf,Rien N'est Hacky - RNH Footbag,0,0
+1063788560,2003,Finnish Footbag Championships 2003,"September 19-21, 2003","Maijam?en liikuntahalli & Turun Sporttimessut Naantali and Turku, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),40,57
+1064330873,2003,4. Frankfurt Footbag Open,"September 27-28, 2003","Licht und Luftbad Niederrad Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,34,41
+1064849293,2003,1st French Footbag Championships,"November 8-11, 2003","Montpellier, France",mixed,Icarus Footbag,61,80
+1069415266,2003,"Party Golf @ ""Salon de l'Education""","November 21-23, 2003","""Salon de l'Education"" Paris, France",golf,Rien N'est Hacky - RNH Footbag,0,0
+1042566573,2004,The 4th Annual Chilly Philly Freestyle Jam,"January 2-3, 2004","Levy Tennis Pavillion Philadelphia, Pennsylvania, USA",freestyle,,0,0
+1065478531,2004,The Windchill -- L'Hivernal de Footbag 2004,"March 13, 2004","Old Montreal College Montréal, QC, Canada",net,Association Québécoise de Footbag,12,15
+1068406344,2004,2nd Annual MECCA Footbag Cup,"February 28-29, 2004","Gym of the ?nyos Jedlik Secondary Technical School Gy?r, Hungary",freestyle,Sunshred Footbag Crew,13,20
+1068638122,2004,"Swiss Footbag Open 2004, FootJam04","May 22-23, 2004","Rote Fabrik Zurich, Switzerland",social,Sole Rebels Zürich,0,0
+1069791565,2004,5th Annual Open de France,"January 24-25, 2004","Gymnase Duplat & Ninkasi Kaf Lyon, France",mixed,,25,40
+1069929277,2004,25th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 26-August 1, 2004","Montreal, Quebec, Canada",worlds,Association Québécoise de Footbag,244,277
+1070734498,2004,TODEXON 5,"March 20, 2004","Praha, Czech Republic",freestyle,Czech Footbag Association,23,30
+1070954568,2004,5th Annual Colorado Shred Symposium,"February 28-29, 2004","Auraria Campus, St. Cajetan's Center Denver, Colorado, USA",freestyle,,54,65
+1071060801,2004,Aachen Indoor Open 2004,"February 7-8, 2004","K?nigsh?gel Aachen, Germany",net,TSK Aachen e.V.,8,13
+1074511718,2004,Swiat Zoski,"March 5-6, 2004","Wroclaw, Poland",mixed,PSF Polish Footbag Association,12,27
+1075781798,2004,Funtastik Summer Classic Footbag Tournament,"September 4-6, 2004","Sunshine Park & City Island Harrisburg, Pennsylvania, USA",mixed,,44,75
+1076876907,2004,Russian Open Footbag Series/ Stage 1,"March 19-21, 2004","SKK Saint-Petersburg, Russia",freestyle,,10,15
+1076952530,2004,SOUF 2004 Southeastern Regional Footbag Championships,"May 8, 2004","New Community Church Atlanta, Georgia, USA",freestyle,,7,10
+1077766197,2004,2004 New Paltz Footbag Jam,"April 24-25, 2004","State University New Paltz New Paltz, New York, USA",mixed,,3,10
+1079024287,2004,Shercle Session #1,"April 24, 2004","RadissonSAS Hotel, 24th floor Conference Hall ""Tallinn"" Tallinn, Harjumaa, Estonia",freestyle,Tallinn Footbag Club,6,13
+1079444598,2004,German Footbag Open 2004,"June 10-12, 2004","G?nthersburgpark Frankfurt, Germany",mixed,SG Frankfurt Footbag e.V.,28,53
+1079605499,2004,6th Annual IFPA European Footbag Championships,"July 15-18, 2004","Copenhagen, Denmark",mixed,FootbagDenmark,71,94
+1079664495,2004,May Day '04,"May 1-2, 2004","Camosun College - Lansdowne Campus - Young Building Victoria, BC, Canada",social,Victoria Footbag,0,0
+1080138513,2004,RNH Contest 2004,"April 24-25, 2004","Gymnase, de la Glaci?re Paris, France",mixed,Rien N'est Hacky - RNH Footbag,48,65
+1080247856,2004,1st Annual Montana Freestyle Jam,"April 24-25, 2004","University of MT: Oval Missoula, Montana, USA",freestyle,Missoula Footbag Alliance,0,0
+1080757998,2004,Space City Freestyle Jam 2004,"May 1-2, 2004","Westheimer Street Festival Houston, Texas, USA",freestyle,Houston Skyliners Footbag Club,15,28
+1080896073,2004,Turku Open 2004,"June 11-12, 2004","Kupittaa Park TURKU, Finland",net,Footcraft,11,14
+1081766954,2004,Russian Open Footbag Series/ Stage 2,"May 8, 2004","Moscow, Russia",mixed,FOOTFORCE Moscow,11,18
+1083699966,2004,JFK Net Battle,"May 16, 2004","Mattilanniemi Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",10,13
+1089373321,2004,6e Open de France de Footbag,"November 11-14, 2004","Annexe Georges Carpentier, Mass?na, Paris Paris, France",mixed,Rien N'est Hacky - RNH Footbag,98,127
+1090437706,2004,Zocha Jam 2004,"October 22-23, 2004","Wroclaw, Poland",mixed,PSF Polish Footbag Association,54,75
+1090569022,2004,Montpellier Sunny Jam Open,"September 4-5, 2004","Montpellier, France",net,Icarus Footbag,24,29
+1091802943,2004,2004 Texas State Footbag Championships,"November 13, 2004","Zilker Park Barton & Jaycee fields Austin, Texas, USA",freestyle,,0,0
+1092044099,2004,Russian Open Footbag Series/ Stage 4,"August 27-29, 2004","Olympic Winter Stadium Moscow, Russia",mixed,FOOTFORCE Moscow,8,15
+1092073845,2004,Czech Championships 2004,"September 4-5, 2004","Sokol Mala Strana Prague, Czech Republic",mixed,Czech Footbag Association,51,68
+1093955766,2004,"Russian Open Footbag Series/ Stage 5, Brooks Cup","September 11, 2004","Moscow, Russia",mixed,FOOTFORCE Moscow,6,13
+1094071528,2004,1. Footbag- Net- Jam Berlin 04,"October 30-31, 2004","TCW Tenniscenter Weissensee Berlin, Berlin, Germany",net,FC Footstar Berlin e.V.,10,13
+1094123527,2004,8th Annual Footbag Finnish Open 2004,"September 24-25, 2004","Vanha YO-talo Helsinki, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),48,59
+1094201584,2004,Frankfurt Footbag Open 2004,"October 2-3, 2004","Sporthall S?D Frankfurt, Germany",mixed,SG Frankfurt Footbag e.V.,13,22
+1095965765,2004,2nd Annual Piliscsaba Footbag Open,"November 6, 2004","P?zm?ny P?ter Katolikus Egyetem Piliscsaba, Hungary",freestyle,Sunshred Footbag Crew,9,16
+1096318324,2004,3rd Annual Seattle Juggling and Footbag Festival,"November 12-14, 2004","Ravenna Community Center Seattle, Washington, USA",freestyle,Rain City Shred,30,37
+1096695238,2004,2nd Annual UMaine Hacky Sack Club Tournament,"October 16, 2004","Lengyel Gym, UMO Campus Orono, Maine, USA",freestyle,,33,40
+1097785506,2004,Finnish Singles Net Footbag Championships 2004,"December 4-5, 2004","Karvetti School Naantali, Finland",net,Footcraft,14,17
+1102447093,2004,Drunken Net Masters 2004,"December 25-26, 2004","FH-Sporthalle Frankfurt, Germany",net,SG Frankfurt Footbag e.V.,2,5
+1097686137,2005,Swiss Championships 2005,"April 9-10, 2005","Fribourg, Switzerland, Switzerland",mixed,,23,36
+1099545007,2005,Seapa NZ Footbag Nationals 2005,January 21 - 23,New Zealand,social,,0,0
+1100728799,2005,FC Footstar's 7th Anniversary,"January 15-16, 2005","GYM at Palisadenstr. 76-77, YAAM@ostbahnof - Stralauer Pl. 35-37 Berlin, Germany",net,FC Footstar Berlin e.V.,4,7
+1102227996,2005,The Green Cup Presented by Chaos,"May 28-30, 2005","Oakland, California, USA",net,Chaos Footbag Club,18,23
+1102443443,2005,Footbag Fiesta,"January 28-29, 2005","Club Hypnoza Szczecin, Zachodnio-pomorskie, Poland",freestyle,ToMiStyKa Footbag Club,34,47
+1102576153,2005,26th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 23-30, 2005","Helsinki Sports Hall and Brahe Sports Field, Helsinginkatu 23 & 25 Helsinki, Finland",worlds,Suomen Footbag Liitto ry. (Finnish Footbag Association),238,271
+1102788509,2005,3rd Annual Sunshred Footbag Open (LIVE),"February 26, 2005","Under The Bridge (K?l?czy T?r 6.) Gy?r, Hungary",freestyle,Sunshred Footbag Crew,14,21
+1103297805,2005,2e Championnat de France de Footbag,"March 26-28, 2005","Lyon, France",mixed,,55,78
+1103724325,2005,RNH Contest 2005,"February 26-27, 2005","Annexe Georges Carpentier, Mass?na, Paris Paris, France",mixed,Rien N'est Hacky - RNH Footbag,54,71
+1104851808,2005,7th Annual IFPA European Footbag Championships,"July 14-17, 2005","Hotel GEM street Baudouina de Courtenay 16 Wroclaw, Poland",freestyle,PSF Polish Footbag Association,30,41
+1105087209,2005,IFPA Swiss Footbag Open 2005: FootJam05,"May 14-16, 2005","Rote Fabrik Zurich, Switzerland",mixed,Sole Rebels Zürich,70,79
+1105353373,2005,5 years Frankfurt Footbag e.V.,"February 26, 2005","Fachhochschule - Sporthalle Frankfurt, Germany",mixed,SG Frankfurt Footbag e.V.,10,21
+1106561176,2005,Aachen Indoor Open 05,"March 5-6, 2005","HSZ - K?nigsh?gel Aachen, Germany",freestyle,TSK Aachen e.V.,6,11
+1107289556,2005,The Windchill Footbag net tournament,"March 5, 2005","Montréal, QC, Canada",net,Association Québécoise de Footbag,7,10
+1107290435,2005,The 2005 Montreal International Footbag Championships,"July 8-10, 2005","Montréal, QC, Canada",net,Association Québécoise de Footbag,30,37
+1109356644,2005,Funtastik Summer Classic,"September 3-5, 2005","Harrisburg, Pennsylvania, USA",mixed,,47,76
+1109682847,2005,Shercle Session #2,"April 16, 2005","RadissonSAS - 24 floor Tallinn, Harjumaa, Estonia",freestyle,Tallinn Footbag Club,5,10
+1109802420,2005,6th Annual IFPA Turku Open,"June 18, 2005","TBA TURKU, Finland",net,Footcraft,8,11
+1110562712,2005,2005 Austrian Footbag & Disc Open,"April 29-May 1, 2005","Podersdorf, Austria",mixed,Footbag-Vienna,7,26
+1111735438,2005,Greater Rochester Area Shred Symposium and RIT Juggle-IN,"May 6-8, 2005","Clark Gymnasium at RIT Rochester, New York, USA",freestyle,The Rochester Footbag Association,13,20
+1113344236,2005,2005 IFPA U.S. OPEN FOOTBAG NET CHAMPIONSHIPS,"June 18-19, 2005","Willamette Park in West Linn Portland, Oregon, USA",net,NPR,6,11
+1113922209,2005,Commalamaison Contest,"April 23-24, 2005","see Information below Paris, France",social,Rien N'est Hacky - RNH Footbag,0,0
+1114277529,2005,Czech Footbag Championships,"August 26-28, 2005","Sokol Mala Strana, Ujezd Praha-vychod, Czech Republic",freestyle,Czech Footbag Association,33,44
+1117746703,2005,6th Frankfurt Footbag Open,"August 13-14, 2005","Tanzhaus West/ Gr?neburgpark Frankfurt, Frankfurt, Germany",mixed,SG Frankfurt Footbag e.V.,23,38
+1124035486,2005,IFPA Sun City Spike,"September 10-11, 2005","Turku, Finland",net,Footcraft,15,20
+1124840254,2005,The Hackrifice Open 2005,"September 3-4, 2005","River Osbourn Comunity Center Winnipeg, Manitoba, Canada",freestyle,Hackrifice,21,38
+1125004188,2005,Tennessee Net Championships,"September 3-4, 2005","Middle Tennessee State University (MTSU) Intermural Fields Murfreesboro, Tennessee, USA",net,Nashville Kicks,14,23
+1125936037,2005,7e Open de France de Footbag,"November 11-13, 2005","Stade Pierre de Coubertin - 82, Avenue Georges Lafont -, Paris, France",mixed,Rien N'est Hacky - RNH Footbag,115,146
+1126086921,2005,Polish Footbag Championships 2005,"October 14-15, 2005","Sport hall sp 35 ul. Swiebo?yc?w 40 Szczecin, Zachodnio-pomorskie, Poland",mixed,ToMiStyKa Footbag Club,40,63
+1127155729,2005,Zocha Jam 2005,"November 26-27, 2005","Kozanowska 69 Wroclaw, Poland",mixed,PSF Polish Footbag Association,56,73
+1132511088,2005,Finnish Footbag Championships 2005,"December 2-4, 2005","Kuopio, Finland",mixed,Jyväskylän Footbag-klubi,42,57
+1121753561,2006,2006 Australian Footbag Championships,"January 13-15, 2006","Melbourne Sports & Aquatic Centre - Show Court Melbourne, Victoria, Australia",freestyle,,9,16
+1131659634,2006,2006 Green Cup Presented by Chaos,"May 27-29, 2006","Bushrod Recreation Center/ Golden Gate Park Oakland/San Francisco, California, USA",net,Chaos Footbag Club,25,34
+1133888413,2006,Valentines Day Massacre,"February 18, 2006","MTSU Recreation Center Murfreesboro, Tennessee, USA",mixed,Nashville Kicks,12,19
+1134914723,2006,RNH Contest 2006,"February 4-5, 2006","Coll?ge Thomas Mann Paris 13 arr., France",mixed,Rien N'est Hacky - RNH Footbag,53,72
+1135116604,2006,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 16-22, 2006","Sport-Club Frankfurt, e.V., Frankfurt Frankfurt, Germany",worlds,SG Frankfurt Footbag e.V.,269,310
+1137347261,2006,7th Annual Colorado Shred Symposium,"February 24-26, 2006","St. Cajetan's Church -- Auraria Campus Denver, Colorado, USA",freestyle,,26,39
+1137937282,2006,Czech Footbag Championships,"August 26-27, 2006","ZS Masarykova Litomerice, Czech Republic",mixed,Footbag Litomerice,32,49
+1137942486,2006,8th Annual IFPA European Footbag Championships,"June 2-4, 2006","Lausanne, Switzerland",mixed,Les Pieds à Gilles,96,127
+1138601883,2006,Santa Cruz Invitational,"June 10-11, 2006","Aptos Academy Santa Cruz, California, USA",freestyle,Santa Cruz Footbag Club,27,34
+1139778550,2006,Swedish Open Footbag Net,"June 17-18, 2006","Ralambshov Park Stockholm, Sweden",net,Mañana Footbag Club,26,35
+1141576257,2006,7th Annual Turku Open,"July 1-2, 2006","Turun linnan puisto TURKU, Finland",net,Footcraft,17,22
+1142360459,2006,3rd Annual JFK Net Battle,"May 19-20, 2006","Mattilanniemi Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",26,31
+1143027870,2006,Commalamaison Contest 2,"March 25, 2006","Gym 88 Glaci?re, Paris M?6 Glaci?re Paris, France",net,Rien N'est Hacky - RNH Footbag,16,19
+1143155263,2006,U. S. Open Footbag Championships,"August 11-13, 2006","Colonel Summers Park Portland, Oregon, USA",mixed,Sole Purpose,74,111
+1143172220,2006,2006 Jersey Spike & Shred,"May 27-29, 2006","Somerville, New Jersey, USA",mixed,Ministry of Silly Walks,44,73
+1143195910,2006,Hack Ski Sack,"April 1-8, 2006","Place de l'Ambiance Les Carroz d'Araches, Haute Savoie, France",net,Rien N'est Hacky - RNH Footbag,7,10
+1146356760,2006,1st Annual North Alabama Footbag Competition,"July 22, 2006","Athens, Alabama, USA",mixed,,5,18
+1146789209,2006,East Coast Footbag Championships 2006,"June 10-11, 2006","University of Maryland Campus College Park, Maryland, USA",mixed,D.C. All-Stars,11,20
+1146843672,2006,Montreal Spring Jam,"June 3-4, 2006","NDA centre and Place des arts Montreal, Quebec, Canada",freestyle,,10,13
+1148241486,2006,2006 Steel City Shred Off,"June 24-25, 2006","Univ. of Pittsburgh William Pitt Union (Forbes Ave. and Bigelow Blvd.) Pittsburgh, Pennsylvania, USA",freestyle,Steel City Freestyle,21,34
+1148374547,2006,Championnats de France 2006,"July 1-2, 2006","Carnon, France",mixed,Icarus Footbag,45,58
+1149763452,2006,8e OPEN de France de Footbag,"November 10-12, 2006","Centre Sportif Carpentier Paris, France",mixed,Rien N'est Hacky - RNH Footbag,144,181
+1149881200,2006,Funtastik Summer Classic Tournament and Festival,"September 2-4, 2006","Harrisburg, Pennsylvania, USA",mixed,,41,68
+1151949245,2006,ShrEdmonton 2006,July 21 - 23,"Edmonton, Alberta, Canada",freestyle,,0,0
+1153345992,2006,"""KC"" Memorial Footbag Tournament","September 9, 2006","Mud Island River Park Memphis, Tennessee, USA",net,Memphis Footworks,9,12
+1155788760,2006,2006 Southeast Regionals,"October 14-15, 2006","Barfield Crescent Park - Shelter #7 Murfreesboro, Tennessee, USA",mixed,Nashville Kicks,15,24
+1156283186,2006,The Hackrifice Open 2006,"September 30-October 1, 2006","River Osborne Community Center Winnipeg, Manitoba, Canada",mixed,Hackrifice,17,32
+1157398732,2006,Danish Footbag Championships 2006,"September 30-October 1, 2006","Copenhagen, Denmark",freestyle,FootbagDenmark,27,38
+1157942368,2006,New Year's Jam 2006,"December 28-30, 2006","McCormick Place Chicago, Illinois, USA",freestyle,MIDWEST FOOTBAG ASSOCIATION,18,33
+1158263300,2006,Zocha Jam 2006,"December 2-3, 2006","Wroclaw, Poland",mixed,PSF Polish Footbag Association,53,74
+1160579826,2006,CommALaMaison Contest 3,"October 21-22, 2006","Gymnase Thomas Mann Paris, France",net,Rien N'est Hacky - RNH Footbag,28,31
+1161167528,2006,German Footbag Championships 2006,"December 16-17, 2006","TCW -, Berlin, Germany",mixed,FC Footstar Berlin e.V.,34,49
+1161871029,2006,Finnish Footbag Championships 2006,"December 8-10, 2006","Karvetin koulu (Karvetti School) Naantali, Finland",freestyle,Footcraft,62,77
+1161888703,2006,Cornell Footbag Jam,"November 10-12, 2006","Cornell University Ithaca, NY, US",freestyle,,12,17
+1163624128,2006,Moonin' & Noonin' Beaver Open Post Turkey Day Blues Footbag Golf!,"November 25, 2006","Willamette Park West Linn, Oregon, USA",golf,NPR,1,4
+1164034575,2006,Southeastern 4-Square Championship,"December 2, 2006","UTC Racquet Center Chattanooga, Tennessee, USA",social,River City Footbag,4,7
+1154685554,2007,9th Annual IFPA European Footbag Championships,"July 19-22, 2007","Vienna, Austria",freestyle,Footbag-Vienna,43,56
+1163784775,2007,2007 IFPA WORLD FOOTBAG CHAMPIONSHIPS,"August 11-18, 2007","Disney Wide World of Sports Complex Lake Buena Vista, Florida, USA",worlds,,269,310
+1164845982,2007,The Green Cup 2007 - Presented By Chaos,"May 26-28, 2007","Bushrod Recreation Cntr & Peacock Meadow, Golden Gate Park Oakland & San Francisco, California, USA",net,Chaos Footbag Club,36,47
+1166622628,2007,RNH Contest 2007,"January 20-21, 2007","Gymnase Ch?teau des Rentiers Paris, France",freestyle,Rien N'est Hacky - RNH Footbag,18,25
+1167422711,2007,'07 Southeastern Net Championships,"April 14-15, 2007","Mud Island River Park Memphis, Tennessee, USA",net,Memphis Footworks,7,10
+1168634226,2007,Todexon 8,"April 5-8, 2007","TBA Prague, Czech Republic",freestyle,Czech Footbag Association,19,28
+1170456736,2007,"L'Hivernal 2007, The 2007 Windchill","March 31-April 1, 2007","College of Old Montreal Montréal, QC, Canada",net,Association Québécoise de Footbag,30,41
+1172562114,2007,Santa Cruz Soul Jam,"May 5-6, 2007","Monterey Avenue Park Capitola/ Santa Cruz, California, USA",net,Santa Cruz Footbag Club,11,14
+1172931308,2007,Montreal Spring Jam 2,"June 1-3, 2007","Montreal, Quebec, Canada",freestyle,,16,27
+1173467292,2007,4th annual Montana Freestyle Jam,"April 28-29, 2007","Caras Park Missoula, Montana, USA",freestyle,Missoula Footbag Alliance,38,43
+1173606489,2007,4th Annual JFK Net Battle,"May 26-27, 2007","Mattilanniemi Park Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",30,35
+1176318174,2007,2007 U.S. Open Footbag Championships,"July 6-8, 2007","Pioneer Courthouse Square, Willamette Park Portland, Oregon, USA",mixed,Sole Purpose,81,118
+1176650845,2007,3rd New Jersey Spike and Shred,"May 12-13, 2007","Turkey Brook Park Budd Lake, New Jersey, USA",mixed,,27,38
+1176844933,2007,Texas Statewide Footbag Tournament 2007,"October 13-14, 2007","Bailey Park - off Lamar Austin, Texas, USA",net,Austin Style Footbag Club - Texas Footbag League,10,17
+1177512537,2007,Championnats de France de Footbag,"June 9-10, 2007","Carnon, France",mixed,Icarus Footbag,44,59
+1177615498,2007,8th Annual Turku Open,"July 7-8, 2007","TBA Turku, Finland",net,Footcraft,31,38
+1179679872,2007,German Footbag Championships 2007,"June 29-30, 2007","Jakobshof Aachen, Germany",mixed,TSK Aachen e.V.,41,52
+1179874637,2007,2007 Montreal Footbag Championships,"July 21-22, 2007","TBA Montréal, QC, Canada",net,Association Québécoise de Footbag,16,25
+1180373807,2007,Finnish Footbag Championships 2007,"September 7-9, 2007","Kuokkala Graniitti Jyväskylä, Finland",mixed,"Jyväskylän Footbag-klubi, JFK",60,77
+1180496320,2007,20th Annual Vancouver Open Net Footbag Tournament,"July 28-29, 2007","New Jericho Beach Location Vancouver, BC, Canada",net,Kitsilano Footbag Association,14,25
+1181021804,2007,ShrEdmonton Freestyle Assembly 2007,"June 22-24, 2007","Jamie Platz YMCA Edmonton, Alberta, Canada",freestyle,Edmonton Footbag Club,19,26
+1182542776,2007,Funtastik Summer Classic,"September 1-3, 2007","Morrison Park (alias Sunshine) & Forrester & Front Sts, Harrisburg, Pennsylvania, USA",freestyle,,66,95
+1183654670,2007,1st South American IFPA Footbag Championships,"October 12-15, 2007","Antioquia University Soccer fields, Teather & Campus Medellín, Antioquia, Colombia",freestyle,Footbag Medellin,24,33
+1183729267,2007,9e Open de France de Footbag,"November 1-4, 2007","Centre Sportif Carpentier Paris, France",mixed,Rien N'est Hacky - RNH Footbag,154,185
+1185458086,2007,Footbagmania 3007 - Polish Footbag Championships,"August 24-26, 2007","Wadowice, near Cracow, Malopolska, Poland",mixed,Maniac Footbag Team,49,74
+1185556078,2007,Austrian Footbag Championships 2007,"September 7-9, 2007","Linz, Austria",mixed,gravityfighters Linz,41,60
+1188233129,2007,The 9th Hackrifice Open 2007,"September 29-30, 2007","River Osborne Community Center Winnipeg, Manitoba, Canada",mixed,Hackrifice,22,37
+1189345008,2007,5th Annual Wilanow Footbag Open 2007,"September 29-30, 2007","Warszawa, Poland",freestyle,,48,59
+1189535136,2007,3rd Annual Shred Idaho Jam,"September 14-16, 2007","Camel's Back Park Boise, Idaho, USA",freestyle,Northwest Footbag Alliance,11,18
+1190256479,2007,1st Annual NYFA Freestyle Symposium,"November 10-11, 2007","Washington Square New York, USA",freestyle,New York Footbag Association,13,22
+1191627566,2007,Cornell Footbag Jam 2,"October 27-28, 2007","Cornell University (Ramin Room) Ithaca, New York, USA",freestyle,,7,12
+1192722292,2007,Russian Footbag Freestyle Jam,"October 27-28, 2007","""knaf"" skatepark Saint-Petersburg, Russia",freestyle,RFA (Russian Footbag Association),6,9
+1195773772,2007,Zocha Jam 2007,"December 8-9, 2007","Inwest Sport Complex Wroclaw, Poland",mixed,PSF Polish Footbag Association,31,54
+1189467124,2008,Phoenix Open,"January 19-21, 2008","Snedigar Park Phoenix, Arizona, USA",net,AIR-A-ZONA FOOTBAG NET CLUB,24,31
+1189977929,2008,2008 Southern Regional Footbag Championships,"May 17, 2008","Memorial Park Houston, Texas, USA",net,Houston Skyliners Footbag Club,18,27
+1193783964,2008,U.S. Open Footbag Championships,"July 12-13, 2008","Willamette Park and Pioneer Courthouse Square, Portland Portland, Oregon, USA",mixed,Sole Purpose,101,138
+1194517448,2008,2008 IFPA WORLD FOOTBAG CHAMPIONSHIPS,"August 10-17, 2008","Slavia Athletic Stadium Prague, Czech Republic",worlds,Czech Footbag Association,204,225
+1195585401,2008,The 2008 Green Cup Presented by Chaos,"May 24-26, 2008","Golden Gate Park - Peacock Meadow San Francisco, California, USA",net,Chaos Footbag Club,66,75
+1195677906,2008,FC Footstar's 10th anniversary,"January 12-13, 2008","Hausburgstr. 20, Friedrichshain Berlin, Germany",mixed,FC Footstar Berlin e.V.,6,13
+1196344513,2008,Todexon 9,"March 15, 2008","Club Bordo Prague, Czech Republic",freestyle,Czech Footbag Association,23,30
+1199106237,2008,10th Annual IFPA European Footbag Championships,"July 3-6, 2008","Montpellier, France",mixed,Icarus Footbag,172,203
+1200725314,2008,SoCali Jam 08,"February 15-18, 2008","San Diego, California, USA",social,,9,12
+1201396433,2008,Second Annual NYFA Freestyle Symposium,"July 25-27, 2008","Central Park New York, USA",freestyle,New York Footbag Association,11,20
+1201811757,2008,Southeastern Net Championships,"April 5-6, 2008","Mud Island Memphis, Tennessee, USA",net,Memphis Footworks,18,23
+1202118857,2008,JFK March Mayhem,"March 1-2, 2008","Kilpinen school Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",14,17
+1203102773,2008,The 2008 Windy City Cup,"June 13-15, 2008","Navy Pier Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,26,37
+1203604560,2008,CommALaMaison Contest 2008,"March 1, 2008","Complexe Sportif Carpentier Paris, France",net,Rien N'est Hacky - RNH Footbag,18,21
+1204006435,2008,The 2008 Pro Kicker Windchill,"April 12-13, 2008","College of Old Montreal Montréal, QC, Canada",net,Association Québécoise de Footbag,28,35
+1204009603,2008,The 2008 Pro Kicker Montreal Footbag Championships,"July 18-20, 2008","Montréal, QC, Canada",net,Association Québécoise de Footbag,38,47
+1204904987,2008,RNH Contest 2008,"April 26-27, 2008","Gym 4bis Choisy Paris, France",mixed,Rien N'est Hacky - RNH Footbag,40,51
+1205552627,2008,5th Annual JFK Net Battle,"May 17-18, 2008","Mattilanniemi Park Jyvaskyla, Finland",net,"Jyväskylän Footbag-klubi, JFK",33,40
+1206161350,2008,Montreal Spring Jam 3,"June 13-15, 2008","Place-des-Arts, NDA center, Tamtam Montréal, Qc, Canada",freestyle,,17,24
+1208064566,2008,The 10th Annual Hackrifice Open Footbag Championship,"September 19-21, 2008","TBA Winnipeg, Manitoba, Canada",freestyle,Hackrifice,9,14
+1208345952,2008,9th Annual Turku Open,"July 26-27, 2008","TURKU, Finland",net,Footcraft,41,48
+1208408135,2008,ShrEdmonton Freestyle Assembly 2008,"June 27-29, 2008","Jamie Platz YMCA Edmonton, Alberta, Canada",freestyle,Edmonton Footbag Club,19,26
+1209416688,2008,Andrew Coleman's Foot-tastic Extravaganza,"June 28, 2008","Bicentennial Mall Nashville, Tennessee, USA",social,Nashville Kicks,0,0
+1212406878,2008,French Footbag Championships 2008,"June 13-14, 2008","Marseille, France",mixed,Icarus Footbag,26,35
+1212769063,2008,24th Annual Midwest Regional Footbag Championships,"July 5-6, 2008","Taste of Chicago - TasteSports Pavillion Chicago, Illinois, USA",freestyle,MIDWEST FOOTBAG ASSOCIATION,7,14
+1216058526,2008,Funtastik Summer Classic Footbag Tournament,"August 30-September 1, 2008","Morrison Park (alias Sunshine) & Forrester & Front Sts, Harrisburg, Pennsylvania, USA",mixed,,56,81
+1216742033,2008,The 2008 Second City Cup presented by CLCK,"September 20-21, 2008","Union Park Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,11,16
+1216849705,2008,Texas Statewide Tournament 2008,"October 18-19, 2008","Palm Park Austin, Texas, USA",mixed,Austin Style Footbag Club - Texas Footbag League,27,46
+1218721346,2008,Memphicago Kick Volley Challenge 1,"August 17, 2008","Bryan Memorial Park Salem, Illinois, USA",net,Memphis Footworks,8,11
+1219405634,2008,8th Annual Polish Footbag Championships 2008,"September 20-21, 2008","Muzeum Sportu i Turystyki Warszawa, Poland",mixed,PSF Polish Footbag Association,98,121
+1220466807,2008,East Coast Footbag Championships,"September 27-28, 2008","Eastern Middle School Silver Spring, Maryland, USA",mixed,D.C. All-Stars,39,54
+1220519679,2008,Finnish Footbag Singles Net Championships,"December 5-6, 2008","Karvetti School Naantali, Finland",net,Footcraft,21,26
+1220533446,2008,Memphicago Kick Volley Challenge 2,"September 7, 2008","Bryan Memorial Park Salem, Illinois, USA",net,Memphis Footworks,0,0
+1221506867,2008,JFK Fall Fury,"October 18, 2008","Jyv?skyl? University Gym, Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",10,13
+1222687523,2008,10e Open de France de Footbag,"October 31-November 2, 2008","La Halle Carpentier -, Paris Paris, France",mixed,Rien N'est Hacky - RNH Footbag,124,149
+1224962900,2008,Zocha Jam 2008,"December 6-7, 2008","""Sportwerk"" Center, Wroclaw, Poland",mixed,PSF Polish Footbag Association,47,74
+1226205667,2008,2nd IFPA South American Footbag Championships,"December 18-21, 2008","Gimnasio ""Campeones del 97"" San Cristóbal, Táchira, Venezuela",freestyle,Footbag Táchira Venezuela,26,35
+1226938152,2008,Finnish Footbag Championships,"December 20, 2008","T??l?n Kisahalli Helsinki, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),29,38
+1228946926,2008,Czech Footbag Championships,"December 20, 2008","Praha-vychod, Czech Republic",freestyle,Czech Footbag Association,35,42
+1225370942,2009,Frankfurt Footbag Open - *Bembel Cup 2009*,"July 11-12, 2009","Frankfurt, Germany",net,SG Frankfurt Footbag e.V.,25,32
+1226378339,2009,Phoenix Open 2009,"January 17-19, 2009","Snedigar Park Chandler, Arizona, USA",net,AIR-A-ZONA FOOTBAG NET CLUB,16,21
+1226549669,2009,"""The Mud Island Belt"" 2009 presented by Memphis Footworks","April 18-19, 2009","Mud Island Memphis, Tennessee, USA",net,Memphis Footworks,25,30
+1226679678,2009,30th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 19-26, 2009","Berlin, Germany",worlds,FC Footstar Berlin e.V.,227,272
+1229435305,2009,2009 Windy City Cup presented by CLCK,"June 12-14, 2009","Union Park and Navy Pier Chicago, Illinois, USA",freestyle,Chicago Lake Coast Kickers,18,23
+1230850031,2009,"Montreal's 2009 First Single Net Footbag Championships, presented by AKIQ","January 17, 2009","C?gep du Vieux Montr?al, Ontario Est Montréal, Québec, Canada",net,Aki Québec,18,23
+1231286017,2009,2009 U.S. Open Footbag Net Championships,"June 20-21, 2009","Willamette Park Portland, Oregon, USA",net,NPR,37,50
+1231432184,2009,Todexon 10,"March 27-29, 2009","Klub L?vka Praha, Czech Republic",freestyle,Czech Footbag Association,34,43
+1232474501,2009,2009 Green Cup Presented by Chaos,"May 23-25, 2009","Golden Gate Park San Francisco, California, USA",net,Chaos Footbag Club,54,61
+1233299407,2009,2009 U.S. Open Freestyle Footbag Championships,"July 11-12, 2009","Nautilus Worlds Headquarters Sports Facility Vancouver, Washington, USA",freestyle,Sole Purpose,32,53
+1233718528,2009,The 7th Australian National Footbag Championships,"April 17-19, 2009","Sydney Olympic Park, Homebush Sydney, NSW, Australia",freestyle,Sydney Freestyle,17,26
+1234761224,2009,Kick Volley 01,"March 21-22, 2009","C?gep du Vieux-Montr?al Montréal, QC, Canada",net,Association Québécoise de Footbag,11,16
+1235149093,2009,RNH Contest 2009,"April 18-19, 2009","Annexe Carpentier Paris, France",mixed,Rien N'est Hacky - RNH Footbag,98,115
+1235253768,2009,2009 Southern Regional Footbag Championships,"May 16-17, 2009","Memorial Park Houston, Texas, USA",mixed,Houston Skyliners Footbag Club,30,53
+1235504528,2009,JFK March Mayhem,"March 21-22, 2009","Keljonkankaan koulu Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",10,13
+1235653935,2009,11th Annual IFPA European Footbag Championships - Strzelin,"June 26-28, 2009","Strzelin, Poland",mixed,DST Footbag Club Strzelin,138,181
+1237771561,2009,IFPA's Montreal Open 09 : Footbag Freestyle,"June 12-14, 2009","Place-des-Arts, NDA center, Jeanne-Mance park (TAMTAM) Montréal, Quebec, Canada",freestyle,,14,19
+1238728089,2009,2009 Winter Buce League,"May 3, 2009","Customs House Newcastle, NSW, Australia",social,,0,0
+1239056543,2009,"The AkiSphere 2009, presented by AKIQ (Montreal Net)","July 3-5, 2009","Lafontaine Park Montréal, Québec, Canada",net,Aki Québec,36,41
+1239721441,2009,End of Winter Jam,"April 18-19, 2009","Wroclaw/Strzelin, Poland",freestyle,PSF Polish Footbag Association,12,21
+1240469006,2009,Turku Open 2009,"July 4-5, 2009","TURKU, Finland",net,Footcraft,27,34
+1241011525,2009,2009 French Footbag Championships,"June 13-14, 2009","Nantes, France",mixed,,51,64
+1241031822,2009,Frisbee Footbag Fest,"May 9-11, 2009","Moscow, Russia",mixed,Footbag Empire,30,41
+1242210886,2009,JFK Net Battle,"May 23-24, 2009","Mattilanniemi Park Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",24,29
+1244553505,2009,Helsinki Open 2009,"June 13-14, 2009","Opera house Helsinki, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),21,30
+1245199707,2009,22nd Annual Vancouver Open Footbag Tournament,"August 15-16, 2009","Jericho Beach Vancouver, BC, Canada",golf,Kitsilano Footbag Association,26,35
+1245404642,2009,6# Swiss Footbag Open,"September 18-20, 2009","Bergi?res Lausanne, Vaud, Switzerland",freestyle,Les Pieds à Gilles,23,30
+1245432804,2009,Austrian Footbag Championships 2009,"August 7-9, 2009","Schwimmbad / Triebwerk (Finals) Wiener Neustadt, Austria",mixed,AUTsiders,32,53
+1245793403,2009,Funtastik Summer Classic,"September 5-7, 2009","Morrison Park - Front & Forrester Sts. Harrisburg, Pennsylvania, USA",mixed,,33,54
+1248033041,2009,Texas Statewide 2009,"October 24-25, 2009","Mueller Lake Park, Austin, Texas, USA",net,Austin Style Footbag Club - Texas Footbag League,24,35
+1248864536,2009,Polish Footbag Championships 2009,"August 21-23, 2009","Zwierzyniec Sports Center Bia?ystok, Poland",mixed,Pasikonik BFT,52,81
+1250478677,2009,Montreal End-of-Summer Jam 1,"September 11-13, 2009","Montréal, Quebec, Canada",freestyle,Aki Freestyle Montréal,8,11
+1251952403,2009,X-PRO Cup (Copa X-PRO),"September 19-20, 2009","Parque Los Caobos Caracas, Dtto. Capital, Venezuela",net,X-PRO,34,41
+1251990500,2009,6th Annual Wilanow Footbag Open 2009,"October 10-11, 2009","Gubinowska 28/30 Warszawa, Mazowieckie, Poland",freestyle,WSF Warsaw Footbag Association,47,60
+1252110023,2009,2009 East-Coast Footbag Championships,"October 3-4, 2009","College Park Community Center College Park, Maryland, USA",freestyle,D.C. All-Stars,47,60
+1254829577,2009,Finnish Footbag Championships,"December 11-13, 2009","Karvetti school / Karvetin koulu Naantali, Finland",mixed,Footcraft,48,65
+1255269216,2009,25th Midwest Regionals Tournament & New Year's Jam,"December 27-28, 2009","McCormick Place Convention Center Chicago, Illinois, USA",freestyle,MIDWEST FOOTBAG ASSOCIATION,13,22
+1255335697,2009,Prague Net Open,"November 20-22, 2009","Tenis Cibulka Praha, Czech Republic",net,Czech Footbag Association,23,28
+1255957016,2009,Zocha Jam 2009,"December 5-6, 2009","Sports Gym, Wroclaw, Poland",mixed,PSF Polish Footbag Association,56,81
+1257621700,2009,German Footbag Championships 2009,"December 5-6, 2009","Hamburg, Germany",mixed,Hamburg Footkings e.V.,40,59
+1258513500,2009,IFPA South American Championships,"December 17-21, 2009","Bogotá, Cundinamarca, Colombia",net,Fundación Footbag Colombia - IFC,37,42
+1260517364,2009,Footbag Open Meeting,"December 12-13, 2009","BSFS Hall Stara Zagora, Bulgaria",mixed,Urban Komba,13,22
+1252451527,2010,Funtastik Summer Classic,"September 4-6, 2010","Harrisburg, Pennsylvania, USA",mixed,,69,94
+1254662073,2010,FC Footstar Berlin 12th Birthday Jam,"January 16-17, 2010","Berlin, Germany",mixed,FC Footstar Berlin e.V.,18,27
+1254724022,2010,Phoenix Open 2010,"January 16-18, 2010","Snedigar Sportsplex (soccer field #1) Chandler, Arizona, USA",social,AIR-A-ZONA FOOTBAG NET CLUB,0,0
+1256202918,2010,11e Open de France de Footbag,"February 26-28, 2010","Stade de Coubertin Paris, France",mixed,Rien N'est Hacky - RNH Footbag,137,158
+1260368810,2010,Frankfurt Footbag 10th Anniversary Jam,"March 5-7, 2010","Frankfurt, Germany",net,SG Frankfurt Footbag e.V.,36,43
+1262288759,2010,2010 U.S. Open Footbag Net Championships,"June 26-27, 2010","Willamette Park Portland, Oregon, USA",net,NPR,50,65
+1262631137,2010,Urban Komba Footbag Open Footbag Jam,"January 30-31, 2010","BSFS Hall (next to Central City Post Office) Stara Zagora, Bulgaria",mixed,Urban Komba,13,22
+1262691385,2010,Todexon 11,"March 19-21, 2010","A Studio Rubin (Malostranske namesti 262/9) Praha, Czech Republic",freestyle,Czech Footbag Association,14,21
+1263589392,2010,FB-Golf-Hamburg,"January 30, 2010","Hamburg, Hamburg, Germany",golf,Tu Wat,0,0
+1264098849,2010,2010 Mud Island Belt Presented by Memphis Footworks,"April 10-11, 2010","Mississippi Greenbelt Park Memphis, Tennessee, USA",net,Memphis Footworks,30,35
+1265745512,2010,31st IFPA WORLD FOOTBAG CHAMPIONSHIPS,"August 1-7, 2010","Oakland Convention Center, Marriott City Center Oakland, California, USA",worlds,,268,313
+1265850138,2010,U. S. Open Freestyle Footbag Championships,"July 24-25, 2010","Nautilus World Headquarters Vancouver WA., WA., USA",freestyle,Sole Purpose,30,47
+1267199851,2010,WSF Mistrzostwa Pragi w Grze w Zoske,"May 1-2, 2010","Szkola Podstawowa nr 312, Warszawa, Poland",mixed,WSF Warsaw Footbag Association,56,79
+1267469140,2010,Footcamp 2010,"April 1-3, 2010","San Cristóbal, Táchira, Venezuela",net,Footbag Táchira Venezuela,26,31
+1267718326,2010,3rd Annual Windy City Cup,"June 19-20, 2010","Union Park, Navy Pier Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,22,27
+1267920908,2010,KICK VOLLEY 02,"April 17-18, 2010","Old Montreal College - C?gep du Vieux-Montr?al Montréal, QC, Canada",net,Association Québécoise de Footbag,9,12
+1267996189,2010,Footbag again in the Zara,"March 13-14, 2010","Sport hall - next to 9th Primary School (9-th OU) Stara Zagora, Bulgaria",mixed,Urban Komba,13,22
+1268191383,2010,2010 Southern Regional Footbag Championships,"May 1-2, 2010","Discover Green Park - Downtown Houston, Texas, USA",mixed,Houston Skyliners Footbag Club,12,27
+1268407783,2010,2010 East Coast Footbag Championships,"May 22-23, 2010","College Park Community Center College Park, Maryland, USA",net,D.C. All-Stars,44,51
+1268445253,2010,2010 Green Cup Presented by Chaos,"July 24-28, 2010","TBA South Lake Tahoe, California, USA",net,Chaos Footbag Club,41,48
+1269111845,2010,"The King of the Hill 2010, presented by Aki Québec","May 29-30, 2010","Jeanne-Mance Park Montréal, Québec, Canada",net,Aki Québec,24,27
+1269266785,2010,12th Annual IFPA European Footbag Championships - Brussels,"June 25-27, 2010","Stade Albert Demuyter Brussels, Ixelles, Belgium",mixed,Brussels Footbag Club,194,225
+1269860787,2010,March Mayhem 2010,"March 27-28, 2010","Keljonkangas School Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",7,10
+1270518636,2010,Texas State Footbag Championships 2010,"October 16-17, 2010","Austin, Texas, USA",golf,Austin Style Footbag Club - Texas Footbag League,14,21
+1270631935,2010,RNH Contest 2010,"June 5-6, 2010","Gymnase 4bis Choisy Paris, France",net,Rien N'est Hacky - RNH Footbag,51,56
+1271270281,2010,*Bembel Cup 2010*,"August 28-29, 2010","Frankfurt am Meer, Germany",net,SG Frankfurt Footbag e.V.,19,22
+1271275118,2010,Turku Open 2010,"July 17-18, 2010","Kupittaa Park TURKU, Finland",net,Footcraft,10,15
+1272817638,2010,"The AkiSphere 2010, presented by AKIQ","July 2-4, 2010","Lafontaine Park Montréal, Québec, Canada",net,Aki Québec,32,37
+1273248665,2010,4th Annual NYFA Freestyle and Net Symposium,"May 29-31, 2010","Roosevelt Island (Sportspark Gym, Firefighter's Field) New York, USA",mixed,New York Footbag Association,38,59
+1277805979,2010,French Footbag Championships 2010,"July 3-4, 2010","Place de la Com?die Montpellier, France",mixed,Icarus Footbag,31,42
+1278603677,2010,10th Annual Polish Footbag Championships 2010,"August 6-8, 2010","Hala Sportowa Cieszyn, Silesia, Poland",freestyle,WSF Warsaw Footbag Association,56,71
+1278991986,2010,23rd Annual Vancouver Open Footbag Championships,August 14 - 15,"Vancouver, British Columbia, Canada",social,,0,0
+1280002674,2010,Finnish Footbag Championships,"September 17-19, 2010","Kuokkala Graniitti Jyväskylä, Finland",mixed,"Jyväskylän Footbag-klubi, JFK",32,45
+1280907422,2010,10th Swiss Footbag Championships,"September 11-12, 2010","Treibhaus Luzern Luzern, Switzerland",mixed,Swirl Pool,25,38
+1282224512,2010,12th Annual German Footbag Championships,"November 13-14, 2010","Magarete Witzleben Schule / Palisadenstr. Berlin, Germany",mixed,FC Footstar Berlin e.V.,94,117
+1282647603,2010,Net Orange Jam II (Net D¿em),"September 4-5, 2010","Cracow, Poland",net,Maniac Footbag Team,11,14
+1282912320,2010,7th Annual Wilanow Footbag Open 2010,"October 9-10, 2010","Zespol Szkol nr 1. Warszawa, Poland",mixed,WSF Warsaw Footbag Association,42,63
+1284182261,2010,1era COPA VENEZUELA,"September 18-19, 2010","Vinicio Adames Caracas, Miranda, Venezuela",net,X-PRO,28,33
+1284588517,2010,Austrian Footbag Championships 2010,"December 10-12, 2010","Vienna, Austria",freestyle,Footbag-Vienna,30,39
+1285506605,2010,2010 NYJ/Midwest Regionals Footbag Championships,"December 18-20, 2010","McCormick Place Convention Center Chicago, Illinois, USA",freestyle,MIDWEST FOOTBAG ASSOCIATION,17,26
+1285989828,2010,Footbag Táchira Cup (Copa Tachira),"October 23-24, 2010","Parque Quinimari San Cristóbal, Táchira, Venezuela",net,Footbag Táchira Venezuela,19,26
+1286381206,2010,2da. Copa X-PRO,"November 20-21, 2010","Facultad de Ciencias de la U.C.V. ""El poliedrito"" Caracas, Distrito Capital, Venezuela",mixed,X-PRO,23,26
+1286381599,2010,4to Campeonato Suramericano de Footbag,"December 18-21, 2010","Club Monteclaro Caracas, Distrito Capital, Venezuela",net,X-PRO,57,68
+1286644859,2010,Czech Footbag Championship 2010,"November 6, 2010","Hradec Králové, Czech Republic",mixed,,20,31
+1287439208,2010,Naantalin Seudun Mestaruuskilpailut,"December 11, 2010","Karvetti School Naantali, Finland",net,Footcraft,6,9
+1288096032,2010,Zocha Jam 2010,"December 4-5, 2010","Wroclaw, Poland",mixed,PSF Polish Footbag Association,71,96
+1287703732,2011,Kick Volley 03,"March 26-27, 2011","Cegep du Vieux-Montreal Montréal, QC, Canada",net,Association Québécoise de Footbag,8,11
+1290861524,2011,Bembel Cup 2011: Gimbledon Championships,"July 23-24, 2011","Funkfurt, Germany",net,SG Frankfurt Footbag e.V.,30,37
+1293877677,2011,32nd IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 31-August 6, 2011","Helsinki, Finland",worlds,Suomen Footbag Liitto ry. (Finnish Footbag Association),381,430
+1293877917,2011,13th Annual IFPA European Footbag Championships,"July 8-10, 2011","Polideportivo Orcasur (street: MOREJA, Madrid) Madrid, Spain",mixed,Madrid Footbag Club,140,183
+1293878155,2011,Todexon 12,"April 16, 2011","teatro NoD Prague, Czech Republic",freestyle,Czech Footbag Association,27,36
+1294262550,2011,12e Open de France de Footbag,"February 24-27, 2011","La Halle Carpentier, Paris, France",mixed,Rien N'est Hacky - RNH Footbag,114,133
+1294779128,2011,2011 Mud Island Belt presented by Memphis Footworks,"April 9-10, 2011","Mississippi River Greenbelt Park Memphis, Tennessee, USA",net,Memphis Footworks,20,25
+1295120951,2011,2011 Green Cup Presented by Chaos,"May 28-30, 2011","Oakland, California, USA",mixed,Chaos Footbag Club,66,91
+1295262886,2011,2011 Prague Open,"February 19, 2011","Tennis Park Cibulka Praha - Ko¹íøe, Czech Republic",net,Czech Footbag Association,10,15
+1295842442,2011,US OPEN Footbag Net Championships 2011,"June 25-26, 2011","Willamette Park Portland, Oregon, USA",net,NPR,52,67
+1296449468,2011,1st Caribbean Jam,"February 26-28, 2011","ParqueWashington and Rancho Deli (Salgar) Barranquilla, Atlantico, Colombia",freestyle,Footbag Barranquilla,0,0
+1297811412,2011,11th Annual Polish Footbag Championships 2011,"August 19-21, 2011","Miejskie Centrum Sportu i Rekreacji (MCSiR), Plonsk, Poland",mixed,Footbayerzy Footbag Club Nowe Miasto,158,185
+1297909685,2011,2da Copa Ciencias,"March 12-13, 2011","Caracas, Venezuela",net,X-PRO,37,48
+1298063977,2011,April Assault!,"April 2, 2011","Keljonkangas School Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",11,14
+1298627369,2011,13th Annual German Footbag Championships,"October 21-23, 2011","Kieler Gelehrtenschule / Feldstra?e 19 /, Kiel Kiel, Germany",mixed,Nordlicht Footbag Club e.V.,94,115
+1299019355,2011,10 years Pieds à Gilles - 7th Swiss Footbag Open,"August 26-28, 2011","Lausanne, Vaud, Switzerland",net,Les Pieds à Gilles,41,48
+1299244521,2011,Warsaw Footbag Open 2011,April 30 - May 1,"Warsaw, Poland",social,,0,0
+1299532552,2011,4th Annual Windy City Cup Footbag Net Championships,"June 17-19, 2011","Union Park / Navy Pier Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,35,44
+1300316952,2011,Paris Net Battle 2011,"April 16-17, 2011","Paris, France",net,Rien N'est Hacky - RNH Footbag,28,33
+1301104070,2011,Footcamp 2011,"April 22-24, 2011","Parque Kinimar San Cristóbal, Táchira, Venezuela",net,Footbag Táchira Venezuela,11,14
+1301243982,2011,Aachen Outdoor Open - The Rally Cup,"June 11-12, 2011","Westpark Aachen, Nrw, Germany",net,TSK Aachen e.V.,19,24
+1301675662,2011,2da Copa Venezuela,"June 24-26, 2011","Caracas, Venezuela",net,X-PRO,45,56
+1301837216,2011,"The King of the Hill 2011, presented by Aki Québec","August 27-28, 2011","Jeanne-Mance park Montréal, Québec, Canada",net,Aki Québec,13,16
+1301837824,2011,"The AkiSphere 2011, presented by AKIQ","July 1-3, 2011","Park La Fontaine Montréal, Québec, Canada",net,Aki Québec,23,28
+1301958487,2011,US Open Freestyle Footbag Championships,"August 11-13, 2011","Settlers park Boise, Idaho, USA",freestyle,Northwest Footbag Alliance,21,36
+1302802291,2011,JFK Net Battle,"June 4-5, 2011","Tellervonkatu Jyväskylä, Finland",net,"Jyväskylän Footbag-klubi, JFK",21,26
+1302874713,2011,Turku Open,"July 23-24, 2011","TURKU, Finland",net,Footcraft,16,21
+1305581560,2011,French Footbag Championships 2011,"June 11-12, 2011","Gymnase de Doulon Pornic, Loire-Atlantique, France",mixed,Carnabal Footbag,35,42
+1310408325,2011,24th Annual Vancouver Open & Golf Tournament,"August 20-21, 2011","Jericho Beach Park Vancouver, BC, Canada",golf,Kitsilano Footbag Association,27,38
+1311699287,2011,3ra Copa X-PRO,"November 5-6, 2011","El poliedrito UCV Caracas, Miranda, Venezuela",net,X-PRO,36,43
+1313351184,2011,2011 East Coast Footbag Championships,"September 24-25, 2011","Buccleuch Park, adjacent to Rutgers University New Brunswick, New Jersey, USA",mixed,,30,49
+1314229545,2011,Texas State Footbag Championships 2011,"October 29-30, 2011","Austin, Texas, USA",net,Austin Style Footbag Club - Texas Footbag League,21,32
+1314323534,2011,5to Campeonato Suramericano de Footbag,"December 18-21, 2011","Sitio por confirmar. San Cristobal, Estado Tachira, Venezuela",mixed,Footbag Táchira Venezuela,73,94
+1314328055,2011,3ra Copa Táchira de Footbag,"October 1-2, 2011","Parque Quinimari, Pirineos San Cristobal, Estado Tachira, Venezuela",net,Footbag Táchira Venezuela,19,24
+1315451053,2011,Memphicago Open,"October 8, 2011","Bryan Memorial Park Salem, Il, USA",net,Memphis Footworks,4,7
+1316280393,2011,8th Annual Wilanow Footbag Open 2011,"November 26-27, 2011","Gimnazjum nr 116, Warszawa, Poland",mixed,WSF Warsaw Footbag Association,67,86
+1318673467,2011,Austrian Footbag Championships 2011,"December 9-11, 2011","Vienna, Austria",freestyle,Footbag-Vienna,45,54
+1320232300,2011,RNH Contest 2011,"December 3-4, 2011","Gymnase 4bis Choisy Paris, France",net,Rien N'est Hacky - RNH Footbag,24,29
+1321368279,2011,Finnish Footbag Championships,"December 17-18, 2011","Salmisaaren liikuntakeskus and T??l?n kisahalli Helsinki, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),27,32
+1319622692,2012,14th FC Footstar anniversary,"January 28-29, 2012","Otto-Ostrowski-Str. Berlin, Germany",mixed,FC Footstar Berlin e.V.,52,65
+1320803601,2012,U.S. OPEN Footbag Net Championships 2012,"June 30-July 1, 2012","Willamette Park (Portland) Portland, Oregon, USA",net,NPR,46,61
+1321869570,2012,Todexon 13,"April 6-8, 2012","K4 Student Club Praha, Czech Republic",freestyle,Czech Footbag Association,25,34
+1323272493,2012,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 29-August 4, 2012","University of Physical Education in Warsaw Warsaw, Poland",worlds,WSF Warsaw Footbag Association,331,372
+1323980691,2012,The 2012 Mud Island Belt Presented by Memphis Footworks,"April 14-15, 2012","Mud Island Greenbelt Park Memphis, Tennessee, USA",net,Memphis Footworks,21,26
+1325504349,2012,Bembel Cup 2012,"July 21-22, 2012","Brentanobad Frankfurt, Germany",net,SG Frankfurt Footbag e.V.,17,20
+1326451143,2012,Praha Open,"February 18, 2012","Sokol Mala Strana Gym Praha, Czech Republic",net,Czech Footbag Association,6,9
+1328094862,2012,14th Annual IFPA European Footbag Championships,"July 13-15, 2012","Hander Weg Aachen, Nrw, Germany",mixed,TSK Aachen e.V.,143,166
+1329044785,2012,JFK March Mayhem 2012,"March 24-25, 2012","Keljonkankaan koulu Jyväskylä, Länsi-Suomen Lääni, Finland",net,"Jyväskylän Footbag-klubi, JFK",12,17
+1329132977,2012,Swiss Footbag Championships 2012,"May 19-20, 2012","Sporthalle Hardau Zurich, Switzerland",mixed,Sole Rebels Zürich,62,83
+1330833781,2012,3ra Copa Ciencias-UCV.,"March 24-25, 2012","Caracas, Venezuela",net,X-PRO,29,34
+1330902233,2012,2012 Green Cup Presented by Chaos,"May 26-28, 2012","Lake Merritt & Bushrod Community Center / Finals at Linden St. Brewery Oakland, California, USA",mixed,Chaos Footbag Club,43,58
+1331667371,2012,Paris Net Battle 2,"April 14-15, 2012","Annexe Georges Carpentier, Mass?na, Paris Paris, France",net,Rien N'est Hacky - RNH Footbag,36,39
+1333483324,2012,3rd biennial Helsinki Open Footbag Tournament,"May 19-20, 2012","T??l? Sports Hall B Helsinki, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),15,20
+1335148163,2012,2012 US Open Freestyle Footbag Championships,"August 25, 2012","Colonel Summers Park Portland, Oregon, USA",freestyle,Sole Purpose,33,42
+1335381794,2012,French Footbag Championships 2012,"May 26-27, 2012","Gymnase de Doulon Nantes, France",net,Carnabal Footbag,25,30
+1335761071,2012,6to Torneo FootCamp,"June 2-3, 2012","Esta en Logisti San Cristobal, Estado Tachira, Venezuela",net,Footbag Táchira Venezuela,32,37
+1335898356,2012,Turku Open 2012,"June 30-July 1, 2012","TURKU, Finland",net,Footcraft,10,15
+1336988107,2012,12th Annual IFPA Polish Footbag Championships 2012,"August 24-26, 2012","Gimnazjum nr 2 Strzelin, woj. dolnoslaskie, Poland",mixed,DST Footbag Club Strzelin,117,152
+1337309613,2012,25th Annual Vancouver Open Footbag Championships,"August 18-19, 2012","Jericho Beach Vancouver, BC, Canada",net,Kitsilano Footbag Association,37,50
+1337327565,2012,Akisphere,"June 22-24, 2012","Parc Lafontaine Montréal, Québec, Canada",net,Aki Québec,25,30
+1337617980,2012,German Footbag Open (14th Annual German Footbag Championships),"August 25-26, 2012","Alaunplatz/Vitzthum Gymnasium Dresden, Sachsen, Germany",mixed,Footbag Dresden e.V.,90,113
+1337623340,2012,30th Annual East Coast Footbag Championships,"September 28-30, 2012","Dumbo Arts Festival Brooklyn, New York, USA",mixed,New York Footbag Association,36,49
+1338821785,2012,Warsaw Footbag Open 2012,"July 1, 2012","Warszawa, Poland",net,WSF Warsaw Footbag Association,10,15
+1339389008,2012,3ra Copa Venezuela,"June 30-July 1, 2012","El Poliedrito, UCV Caracas, Distrito Capital, Venezuela",net,X-PRO,51,60
+1344519313,2012,Fifth Annual Windy City Cup Footbag Net Championships,"August 24-26, 2012","Union Park Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,7,10
+1344593549,2012,IFPA Austrian Footbag Champs 2012,"November 23-25, 2012","Mozartschule and OK-Mediendeck Linz, Austria",mixed,gravityfighters Linz,52,73
+1344933824,2012,Acapulco Zocha Jam,"September 1-2, 2012","Na Grobli 49 Wroclaw, Dolnyslask, Poland",mixed,PSF Polish Footbag Association,29,44
+1346947092,2012,6o Suramericano de Footbag,"December 17-20, 2012","Complejo Deportiva Atanasio Girardot Medellin, Antioquia, Colombia",mixed,Footbag Medellin,30,47
+1346948712,2012,1o Torneo Nacional de Footbag,"October 13-15, 2012","Complejo Deportiva Atanasio Girardot Medellin, Antioquia, Colombia",mixed,Footbag Medellin,22,31
+1347475695,2012,Carnabal Footbag Contest,"October 20-21, 2012","Gymnase Gobelets Ripossi?re Nantes, Loire-Atlantique, France",net,Carnabal Footbag,23,28
+1348171585,2012,Texas State Footbag Championships 2012,"October 20-21, 2012","Austin, Texas, USA",net,Austin Style Footbag Club - Texas Footbag League,4,7
+1348929718,2012,4ta Copa Táchira de Footbag,"November 3-4, 2012","Esta en log?stica un Estadio Cubierto del IND. San Cristobal, Estado Tachira, Venezuela",net,Footbag Táchira Venezuela,24,29
+1353085933,2012,RNH Contest 2012,"November 24-25, 2012","Gym Thomas Mann (Saturday) & gym Bourneville (Sunday) Paris, France",net,Rien N'est Hacky - RNH Footbag,15,20
+1353223688,2012,Finnish Footbag Open,"December 8-9, 2012","Helsinki, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),38,51
+1327693335,2013,Kick Volley 04,"June 15-16, 2013","Parc Beaubien, 9?me ave. et Beaubien Montréal, QC, Canada",net,Association Québécoise de Footbag,11,16
+1349043745,2013,15 Years FC Footstar,"January 25-27, 2013","Palisadenstr. 76 / 78 Berlin, Germany",mixed,FC Footstar Berlin e.V.,82,99
+1353380057,2013,5ta Copa X-PRO,"February 9-10, 2013","Caracas, Distrito Capital, Venezuela",net,X-PRO,32,39
+1354752474,2013,13e Open de France de Footbag,"February 8-10, 2013","Stade de Coubertin Paris, France",mixed,Rien N'est Hacky - RNH Footbag,99,124
+1357101984,2013,U.S. OPEN Footbag Net Championships 2013,"June 29-30, 2013","Portland, Oregon, USA",net,NPR,38,53
+1357206898,2013,Todexon 14,"April 12-14, 2013","PVA Letnany Praha, Czech Republic",freestyle,Czech Footbag Association,34,45
+1357231609,2013,Sixth Annual Windy City Cup Footbag Net Championships,"June 21-23, 2013","Union Park/ Navy Pier Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,20,25
+1357234775,2013,2013 Mud Island Belt presented by Memphis Footworks,"April 13-14, 2013","Bartlett Recreational Center Bartlett, Tennessee, USA",net,Memphis Footworks,16,21
+1357642226,2013,*Bembel Cup*,"May 18-19, 2013","Frankfurt, Germany",net,SG Frankfurt Footbag e.V.,22,25
+1358271250,2013,2013 Green Cup Presented by Chaos,"May 25-27, 2013","Oakland / San Francisco, California, USA",mixed,Chaos Footbag Club,40,53
+1358964427,2013,JFK March Mayhem 2013,"March 23, 2013","Keljonkankaan koulu Jyväskylä, Länsi-Suomen Lääni, Finland",net,"Jyväskylän Footbag-klubi, JFK",6,9
+1361207019,2013,34th IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 28-August 3, 2013","Cegep du Vieux-Montreal Montréal, Québec, Canada",worlds,Aki Québec,199,236
+1361239371,2013,Copa San Sebastián,"March 16-17, 2013","Gimnasio Arminio Guti?rrez San Cristóbal, Táchira, Venezuela",net,Footbag Táchira Venezuela,16,21
+1361239920,2013,FOOTCAMP 2013,"April 20-21, 2013","San Cristóbal, Táchira, Venezuela",net,Footbag Táchira Venezuela,21,26
+1362598500,2013,Akisphere,"July 19-21, 2013","Montréal, Québec, Canada",net,Aki Québec,34,41
+1362657553,2013,15th Annual IFPA European Footbag Championships,"July 5-7, 2013","Russian State University of Physical Education, Sport and Tourism Moscow, Russia",mixed,FlyD,54,65
+1362915311,2013,Turku Open Tuanament,"July 13-14, 2013","Turku, Finland",net,Footcraft,15,20
+1363551565,2013,4th annual Helsinki Open Footbag Tournament,"May 25-26, 2013","Ruskeasuo Sports Centre Helsinki, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),20,25
+1366240051,2013,4ta. Copa Ciencias,"May 4-5, 2013","U.E.N. Francisco Pimentel Caracas, Miranda, Venezuela",net,X-PRO,28,33
+1366375326,2013,WSF Stare Babice Footbag Jam 2013,"May 18, 2013","Stare Babice, Warsaw Suburb, Poland",mixed,WSF Warsaw Footbag Association,37,48
+1367327351,2013,31 Annual East Coast Footbag Championships,"September 27-29, 2013","Red Brooklyn, New York, USA",mixed,New York Footbag Association,20,31
+1368559562,2013,4ta Copa Venezuela,"June 22-23, 2013","Caracas, Distrito Capital, Venezuela",net,X-PRO,39,44
+1369141018,2013,Burgas Summer Footbag Jam V,"July 27-28, 2013","Pantheon Burgas, Bulgaria",net,Urban Komba,11,16
+1369864929,2013,Paris Net Battle 3,"June 29-30, 2013","Gymnase 4bis Choisy Paris, France",net,Rien N'est Hacky - RNH Footbag,7,10
+1370276202,2013,Swiss Footbag Open & Championships,"October 25-27, 2013","Bergi?res Lausanne, Vaud, Switzerland",net,Les Pieds à Gilles,35,42
+1371821574,2013,Swiss Jam Zürich,"September 14-15, 2013","Zurich Lake & Haus der Farben Zurich, Switzerland",freestyle,Sole Rebels Zürich,37,46
+1374570632,2013,17th Annual Finnish Footbag Open,"September 14-15, 2013","T??l?n Kisahalli / T??l? Sports Hall Helsinki, Finland",freestyle,Suomen Footbag Liitto ry. (Finnish Footbag Association),63,78
+1376036018,2013,13th Annual Polish Footbag Championships 2013,"August 31-September 1, 2013","Wroclaw, Poland",mixed,,118,147
+1377192359,2013,15th Annual German Footbag Championships & Open,"October 12-13, 2013","Berlin, Germany",mixed,FC Footstar Berlin e.V.,49,66
+1378666423,2013,Danish Footbag Open,"November 29-30, 2013","Kulturhuset Indre By Charlotte Ammundsens Plads 3, K?benhavn K Copenhagen, Denmark",freestyle,,57,66
+1378821205,2013,Championnat de France de Footbag 2013,"November 30-December 1, 2013","SUAPS de Nantes 3 Bd Guy Mollet Nantes, Loire Atlantique, France",net,Carnabal Footbag,27,32
+1378928859,2013,5º Copa Táchira,"October 5-6, 2013","San Cristóbal, Táchira, Venezuela",net,Footbag Táchira Venezuela,19,24
+1379414806,2013,Czech Footbag Championships,"November 22-24, 2013","BVV Brno Brno, Czech Republic",freestyle,Czech Footbag Association,17,24
+1382778441,2013,Austrian Footbag Championships 2013,"December 20-21, 2013","Vienna, Austria",mixed,Footbag-Vienna,38,55
+1383076667,2014,Sweet Six-Teen - Footstar B-Day 2014,"February 1-2, 2014","Berlin, Germany",net,FC Footstar Berlin e.V.,33,38
+1386623061,2014,U. S. Open Footbag Championships 2014,"June 28-29, 2014","Willamette Park, West Linn, Oregon, USA",freestyle,Sole Purpose,26,39
+1389338303,2014,16th Annual IFPA European Footbag Championships,"July 11-13, 2014","Caribia Arena (& Samppalinna Sports Hall) Turku, Finland",mixed,Footcraft,88,105
+1389613723,2014,Swiss Jam Zürich,"March 15-16, 2014","Haus der Farbe Zurich, Switzerland",freestyle,Sole Rebels Zürich,15,22
+1389730147,2014,Todexon 15,"April 4-6, 2014","Prague, Czech Republic",mixed,Czech Footbag Association,36,49
+1391176125,2014,Mud Island Belt 2014,"April 12-13, 2014","Bartlett Recreational Center Memphis, Tennessee, USA",net,,12,17
+1391189882,2014,35th IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 27-August 2, 2014","CENTRE SPORTIF GEORGES CARPENTIER, Mass?na, PARIS Paris, France",worlds,Rien N'est Hacky - RNH Footbag,246,289
+1392497284,2014,3rd Czech Footbag Freestyle Meeting,"March 1-2, 2014","Ostrava, Czech Republic",freestyle,Footbag Ostrava,4,7
+1393451254,2014,bulgarian open footbag jam part 24,"May 2-4, 2014","park.Ayazmoto Stara Zagora, Bulgaria",mixed,Urban Komba,23,32
+1393501611,2014,Bembel Cup 2014,"May 30-June 1, 2014","Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,14,17
+1394621886,2014,Paris Net Battle 2014,"April 19, 2014","Gymnase Thomas Mann, rue des cadets de la France Paris, France",net,Rien N'est Hacky - RNH Footbag,5,8
+1394742347,2014,Seventh Annual Windy City Cup Footbag Net Championships,"June 21-22, 2014","Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,25,32
+1394773593,2014,2014 Green Cup Presented by Chaos,"May 24-25, 2014","Bushrod Recreation Center, Oakland, California, USA",mixed,Chaos Footbag Club,39,52
+1399929003,2014,2da Copa Bobston de Footbag Net individual,"June 22, 2014","unidad deportiva Atanasio Girardot Medellin, Antioquia, Colombia",net,Club Footbag Medellín,10,15
+1401113913,2014,16th Annual German Footbag Open,"September 6-7, 2014","Freiburg i. Brsg., Germany",net,FC Footstar Berlin e.V.,22,29
+1403287103,2014,Akisphere,"July 4-6, 2014","Lafontaine, Maisonneuve Montréal, Québec, Canada",net,Aki Québec,18,23
+1404123889,2014,Burgas Summer Footbag Jam VI,"August 22-24, 2014","Sea garden, Panteona Burgas, Bulgaria",net,Urban Komba,11,16
+1405875596,2014,32nd Annual East Coast Footbag Championships,"September 27-28, 2014","Red Hook Rec Area & Comm. Barry Park Brooklyn, New York, USA",mixed,New York Footbag Association,42,63
+1406219099,2014,14th Annual Polish Footbag Championships 2014,"August 22-24, 2014","Lubaczów, Poland",mixed,Lubaczów Footbag Club,51,80
+1407335213,2014,Swiss Footbag Open,"October 17-19, 2014","Bergi?res Lausanne, Vaud, Switzerland",mixed,Les Pieds à Gilles,46,59
+1412859519,2014,15th Anniversary of RNH Footbag (RNH Contest 2014),"November 15-16, 2014","Gymnase Bourneville-Kellermann Paris, France",net,Rien N'est Hacky - RNH Footbag,22,27
+1413607134,2014,18th Annual Finnish Footbag Open,"November 29-30, 2014","T??l? Sports Hall Helsinki, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),28,33
+1417000778,2014,RNH Winter Contest 2014,"December 13-14, 2014","Gymnase Maryse Hilsz - Paris Porte de Montreuil Paris, France",net,Rien N'est Hacky - RNH Footbag,13,18
+1408070192,2015,New Year's Footbag Jam,"January 3-4, 2015","TBA Ann Arbor, Michigan, USA",freestyle,\m/ichigan footbag,2,7
+1415986036,2015,Todexon 16,"April 11, 2015","Praha-vychod, Czech Republic",freestyle,Czech Footbag Association,22,31
+1417735560,2015,36th IFPA WORLD FOOTBAG CHAMPIONSHIPS,"July 26-August 1, 2015","N?rrebrohallen Copenhagen, Denmark",worlds,FootbagDenmark,272,321
+1417958417,2015,17th Annual IFPA European Footbag Championships,"June 25-28, 2015","Sofia Hall Sofia, Bulgaria",net,Urban Komba,58,65
+1418127354,2015,Bembel Cup 2015 and 15 Years FrankfurtFootbag,"May 23-24, 2015","Open Air Pool Brentano Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,25,34
+1420195881,2015,17th FC Footstar anniversary,"March 7-8, 2015","Palisadenstr. 78 Berlin, Germany",net,FC Footstar Berlin e.V.,24,29
+1421069713,2015,Bulgarian Open Footbag Jam,"May 1-3, 2015","park.Ayazmo Stara Zagora, Bulgaria",net,Urban Komba,11,16
+1421271111,2015,8th Annual Windy City Cup Footbag Net Championships,"June 19-21, 2015","Humboldt Park / Navy Pier Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,19,24
+1422386917,2015,2015 Mud Island Belt presented by Memphis Footworks,"May 23-25, 2015","Mud Island Memphis, Tennessee, USA",net,,16,21
+1423020874,2015,7ma Copa X-PRO,"February 28, 2015","Caracas, Dt Capital, Venezuela",net,X-PRO,40,45
+1425372477,2015,U.S. Open Footbag Championships 2015,"June 27-28, 2015","Willamette Park West Linn, Oregon, USA",mixed,Sole Purpose,37,54
+1427144456,2015,Lake Erie Footbag Tournament,"July 18-19, 2015","Frontier Park Erie, Pennsylvania, USA",net,FOOTBAG ERIE,10,15
+1430582557,2015,5ta Copa Venezuela,"June 27-28, 2015","Club Ymca de San Bernandino Caracas, Distrito Capital, Venezuela",net,X-PRO,25,30
+1430596760,2015,Akisphere 2015,"July 10-12, 2015","not determined yet Montréal, Québec, Canada",net,Aki Québec,8,13
+1431288258,2015,Turku Open,"July 18, 2015","Caribia Arena Turku, Finland",net,Footcraft,10,15
+1432901754,2015,Championnat de France de Footbag 2015,"July 11-12, 2015","Salle de la Pavelle, rue du Pressoir, Saint-Aignan-de-Grand-lieu Nantes, France",net,Carnabal Footbag,25,30
+1435110091,2015,33rd Annual East Coast Footbag Championships,"September 12-13, 2015","Commodore Barry Park Brooklyn, New York, USA",mixed,New York Footbag Association,33,54
+1435784719,2015,The Perpetual Flame Footbag Net Challenge,"September 5-6, 2015","YMCA- CARACAS Caracas, Dt Capital, Venezuela",net,X-PRO,38,43
+1436878168,2015,19th Annual Finnish Footbag Open (FFA 20th anniversary special edition),"November 28-29, 2015","T??l? Sports Hall Helsinki, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),37,48
+1438626750,2015,Swiss Footbag Open,"October 23-25, 2015","Bergi?res, Lausanne Lausanne, Vaud, Switzerland",mixed,Les Pieds à Gilles,38,53
+1439332196,2015,XV IFPA Polish Footbag Championships,"September 12-13, 2015","Szkolna 2a Góra, Lower Silesia, Poland",mixed,PSF Polish Footbag Association,58,89
+1444911632,2015,17th Annual German Footbag Open,"December 4-6, 2015","Fachhochschule Sports Hall Frankfurt, Hessen, Germany",mixed,SG Frankfurt Footbag e.V.,62,81
+1445178271,2015,Austrian Footbag Championships 2015,"December 18-19, 2015","Vienna, Austria",freestyle,Footbag-Vienna,16,23
+1449217972,2015,2015 Finnish Footbag Championships in Singles Net,"December 19, 2015","Jarkko Nieminen Areena Turku, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),8,11
+1446571794,2016,FC Footstar's 18th Anniversary,"January 29-31, 2016","Margarethe-von-Witzleben-Schule, Berlin Berlin, Germany",net,FC Footstar Berlin e.V.,27,32
+1447494731,2016,Lake Erie Footbag Tournament,"May 14-15, 2016","TBA Erie, Pennsylvania, USA",net,FOOTBAG ERIE,9,14
+1449259560,2016,37th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2016,"July 31-August 6, 2016","Trnava, Slovakia",worlds,Czech Footbag Association,46,63
+1453384342,2016,Bembel Cup 2016,"July 22-24, 2016","Open Air Pool Brentano Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,15,24
+1454371285,2016,2016 Mud Island Belt presented by Memphis Footworks,"May 28-29, 2016","Mississippi River Greenbelt Park Memphis, Tennessee, USA",net,Memphis Footworks,6,11
+1455047000,2016,9th Annual Windy City Cup Footbag Net Championships,"July 15-17, 2016","Humboldt Park / Navy Pier Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,13,18
+1458125752,2016,Bulgaria Footbag Open,"May 21-22, 2016","Stara Zagora, Bulgaria",net,Urban Komba,12,17
+1458170459,2016,RNH Contest 2016,"April 23-24, 2016","Paris, France",net,Rien N'est Hacky - RNH Footbag,8,11
+1458772302,2016,U.S. Open Footbag Net Championships 2016,"June 25-26, 2016","Hammerle Park, West Linn, Oregon, USA",net,Sole Purpose,38,53
+1459426362,2016,Championnat de France de Footbag 2016,"May 14-15, 2016","Le Pavelle, rue du Pressoir, Saint Aignan de Grand Lieu Nantes, France",net,Carnabal Footbag,30,35
+1460640850,2016,18th Annual IFPA European Footbag Championships 2016,"June 17-19, 2016","IGS West School, Palleskestra?e 20, Frankfurt am Main Frankfurt, Hessen, Germany",mixed,SG Frankfurt Footbag e.V.,86,105
+1461077179,2016,Zocha Jam 2016,"November 12-13, 2016","Hala sportowa GEM, ul. Mianowskiego 2B Wroclaw, Poland",net,PSF Polish Footbag Association,5,8
+1463511970,2016,Akisphere 2016,"July 8-10, 2016","Parc Lafontaine (pr?lims), Parc Jeanne-Mance (finales) Montréal, Québec, Canada",net,Aki Québec,18,23
+1464967908,2016,34th Annual East Coast Footbag Championships,"September 9-11, 2016","brooklyn, New York, USA",freestyle,New York Footbag Association,23,38
+1466891959,2016,Swiss Footbag Open 2016,"October 28-30, 2016","Bergi?res Lausanne, Vaud, Switzerland",net,Les Pieds à Gilles,25,32
+1466942562,2016,18th Annual German Footbag Open,"October 14-16, 2016","Sportturm, University Bremen Bremen, Bremen, Germany",mixed,Freestyle Fanatics,48,65
+1467142686,2016,16th Annual Polish Footbag Championships,"September 10-11, 2016","Jaworzno, Sl±skie, Poland",mixed,Jaworzno Footbag Club,44,67
+1471407009,2016,20th Annual Finnish Footbag Open,"November 19-20, 2016","Leaf Areena Turku, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),5,8
+1473853257,2016,Malopolska Footbag Championships 2016 // Mistrzostwa Ma³opolski w Zo¶kê 2016,"October 8-9, 2016","Ogr?d Zabaw, ul. Piekarska Krakow, Poland",mixed,Maniac Footbag Team,43,58
+1473932659,2016,Austrian Footbag Championships 2016,"October 21-22, 2016","Vienna, Austria",freestyle,Footbag-Vienna,18,27
+1471686537,2017,38th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2017,"August 6-12, 2017","Oregon Convention Center, additional sites Portland, Oregon, USA",worlds,Sole Purpose,125,158
+1485520697,2017,Bembel Cup 2017,"May 6-7, 2017","Brentanobad Frankfurt Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,12,17
+1485863923,2017,17th Annual Polish Footbag Championships,"September 2-3, 2017","Lublin, Poland",mixed,PSF Polish Footbag Association,103,132
+1485967222,2017,2017 Mud Belt Presented by Memphis Footworks,"May 20-21, 2017","Buchanan Peninsula Cherokee, Alabama, USA",net,Memphis Footworks,13,18
+1485970612,2017,Akisphere 2017,"July 28-30, 2017","Lafontaine and Jeanne-Mance Montreal, Quebec, Canada",net,Aki Québec,17,22
+1486654923,2017,RNH Contest,"April 1-2, 2017","Gymnase Bourneville - Kellerman Paris, 75, France",net,Rien N'est Hacky - RNH Footbag,7,10
+1487797845,2017,19th Annual IFPA European Footbag Championships,"May 25-28, 2017","Aranjuez, Spain",mixed,,167,192
+1487800738,2017,Stara Zagora Footbag Jam 2017,"April 29-30, 2017","Ayazmo park, Hall of laughter area Stara Zagora, Bulgaria",net,Urban Komba,6,9
+1488957997,2017,Swiss Footbag Open 2017,"October 20-22, 2017","Lausanne, Vaud, Switzerland",mixed,Les Pieds à Gilles,44,57
+1489248474,2017,Lake Erie Footbag Tournament,"June 10-11, 2017","Griswald Park Erie, Pennsylvania, USA",net,FOOTBAG ERIE,12,17
+1492354286,2017,Tenth Annual Windy City Cup Footbag Net Championships,"June 24-25, 2017","Humboldt Park Chicago, Illinois, USA",net,Chicago Lake Coast Kickers,14,19
+1497678985,2017,Championnat de France de Footbag 2017,"July 8-9, 2017","La Pavelle, Rue du Pressoir, Saint Aignan de Grand Lieu Nantes, France",net,Carnabal Footbag,27,32
+1498568502,2017,Austrian Footbag Championships 2017,"October 6-8, 2017","Vienna, Austria",freestyle,Footbag-Vienna,15,20
+1499025778,2017,19th Annual German Footbag Championships 2017,"November 18-19, 2017","Gym of Silberstein Elementary School Berlin, Germany",mixed,FC Footstar Berlin e.V.,71,84
+1499168069,2017,Bulgarian Footbag Championships 2017,"September 22-24, 2017","Ayazmo Park Stara Zagora, Bulgaria",net,Urban Komba,13,18
+1502929111,2017,35th Annual East Coast Footbag Championships,"September 16-17, 2017","Van Cortland Park, Bronx, NYC New York City, New York, USA",mixed,New York Footbag Association,20,35
+1509295388,2017,Finnish Footbag Net Championships,"November 11-12, 2017","Puhos Center // Leaf Areena Turku, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),9,14
+1509295589,2017,Finnish Freestyle Footbag Championships,"December 2, 2017","Töölön Kisahalli / Töölö Sports Hall Helsinki, Finland",freestyle,Suomen Footbag Liitto ry. (Finnish Footbag Association),8,13
+1502997442,2018,Lake Erie Footbag Tournament & Freestyle Jam,"June 9-10, 2018","Frontier Park Erie, Pennsylvania, USA",net,FOOTBAG ERIE,24,31
+1515176008,2018,Copa Medellin De Footbag,"May 26-27, 2018","Estadio Atanasio Girardot Medellin, Antioquia, Colombia",net,Club Footbag Medellín,12,17
+1516978874,2018,RNH Contest 2018,"March 24-25, 2018","Paris, 75, France",net,Rien N'est Hacky - RNH Footbag,13,16
+1518200935,2018,20th Annual IFPA European Footbag Championships,"June 21-23, 2018","Kranj, Slovenia",freestyle,Footbag Kranj,100,121
+1519215398,2018,39th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2018,"July 22-28, 2018","Sofia, Bulgaria",worlds,Urban Komba,161,192
+1519233007,2018,Bulgarian Footbag Championships 2018,"April 28-30, 2018","Ayazmo park Stara Zagora, Bulgaria",net,Urban Komba,12,17
+1520348349,2018,2018 Mud Belt presented by Memphis Footworks,"May 19-20, 2018","Tba Memphis, Tennessee, USA",net,Memphis Footworks,10,15
+1520596747,2018,Championnat de France de footbag 2018,"April 14-15, 2018","Halle de raquettes, Rue Simone de Beauvoir, TREILLIERES Nantes, France",net,Carnabal Footbag,18,23
+1524683077,2018,36th Annual East Coast Footbag Championships,"June 23-24, 2018","Van Cortland Park, Bronx, NYC, New York, USA",freestyle,New York Footbag Association,21,34
+1526035381,2018,Bembel Cup 2018 - 10th Anniversary,"August 11-12, 2018","Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,8,11
+1526583313,2018,Refaski Cup 2018,"June 17, 2018","Stadion Míru, Tábor TÁBOR, Czech Republic",net,SK FOOTBAG TÁBOR,6,9
+1526588580,2018,Akisphere 2018,"July 6-8, 2018","Parc Jeanne-Mance Montreal, Quebec, Canada",net,Aki Québec,34,41
+1527557123,2018,Suramericano de Footbag Net y Freestyle,"December 19-22, 2018","Estadio Atanasio Girardot Medellin, Antioquia, Colombia",mixed,Footbag Medellin,15,24
+1531284609,2018,XVIII Polish Footbag Championships - Krakow 2018,"August 31, 2018","Krakow, Poland",mixed,Maniac Footbag Team,96,125
+1531311472,2018,Open de France 2018,"September 29-30, 2018","Nantes, France",net,Carnabal Footbag,15,20
+1533246739,2018,Swiss Footbag Open,"October 27-28, 2018","Lausanne, Vaud, Switzerland",mixed,Les Pieds à Gilles,37,52
+1536221908,2018,Austrian Footbag Championships 2018,"October 12-13, 2018","Vienna, Austria",freestyle,Footbag-Vienna,15,20
+1537521152,2018,Footbag Finnish Open,"December 8, 2018","Kupittaan palloiluhalli Turku, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),19,32
+1537994275,2018,2o Torneo Nacional de Footbag,"October 27-28, 2018","Estadio Atanasio Girardot Medellin, Antioquia, Colombia",freestyle,Footbag Medellin,20,29
+1539024211,2018,2018 US Freestyle Footbag Open,"December 14-16, 2018","Rio Hotel and Casino- SkillCon, Las Vegas, Nevada, USA",freestyle,Tucson Wild Footbag Cats,16,23
+1529239199,2019,Lake Erie Footbag Tournament,"June 8-9, 2019","Frontier Park Erie, Pennsylvania, USA",mixed,FOOTBAG ERIE,48,71
+1547415984,2019,40th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2019,"July 29-August 3, 2019","AWF Warszawa, Marymoncka 15 Warszawa, Poland",worlds,WSF Warsaw Footbag Association,295,346
+1547720079,2019,Open de France 2019,"May 25-26, 2019","Salle Héraclès, Rue Simone de Beauvoir, TREILLIERES Nantes, FRANCE",net,Carnabal Footbag,22,27
+1549597969,2019,4ta Copa BoBston de Footbag 2019,"March 30-31, 2019","Estadio Atanasio Girardot Medellin, Antioquia, Colombia",freestyle,Footbag Medellin,14,21
+1551207285,2019,RNH Contest 2019,"March 24, 2019","Gymnase 4bis Choisy Paris, France",net,Rien N'est Hacky - RNH Footbag,9,12
+1552865692,2019,37th Annual East Coast Footbag Championships,"September 14-15, 2019","Van Cortland Park New York City, New York, USA",mixed,New York Footbag Association,32,51
+1555631351,2019,US Open Footbag Championships 2019,"August 16-18, 2019","The Silver Fox- Everett, Moakley Park-Dorchester (Net), Boston Common Boston, Massachusetts, USA",mixed,Boston Shred Crew,47,64
+1556306551,2019,Akisphere 2019,"July 5-7, 2019","Lafontaine Park MONTREAL, Canada",net,Aki Québec,30,37
+1556730450,2019,I. Basque Tournament of Footbag (Doubles),"April 27-May 4, 2019","Bilbao, Vizcaya, Basque Country",net,Bilbao Footbag Club,3,6
+1557144269,2019,11th Bembel Cup 2019 - a jam with friends,"August 17-18, 2019","Riedbad Bergen-Enkheim Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,12,17
+1557331196,2019,Mud Belt Presented by Memphis Footworks,"June 22-23, 2019","Mississippi Greenbelt Park Memphis, Tennessee, USA",net,Memphis Footworks,5,10
+1562271704,2019,Ohio Footbag Jam,"July 27-28, 2019","T.B.A Centralized Location (T.B.A.), Ohio, USA",freestyle,,0,0
+1564005204,2019,I. Ereaga Footbag Net Tournament (Doubles) 2019,"July 28, 2019","Getxo, Bizkaia, Basque Country",net,Bilbao Footbag Club,5,8
+1566500647,2019,I. Basque Tournament of Footbag Net (Individual),"August 23-24, 2019","Bilbao, Vizcaya, Basque Country, Spain",net,Bilbao Footbag Club,7,10
+1566532030,2019,German Footbag Open 2019,"October 12-13, 2019","Gym of Silberstein Elementary School Berlin, Germany",mixed,FC Footstar Berlin e.V.,65,84
+1567551985,2019,XIX Polish Footbag Championships - Krakow 2019,"November 23-24, 2019","Fame Sport Fitness Club Cracow, Poland",mixed,Maniac Footbag Team,75,106
+1568289502,2019,Bulgarian Footbag Open Vol.2,"September 21-23, 2019","Mitropolit Metodiy Kusev, Stara Zagora Stara Zagora, Bulgaria, Bulgaria",net,Urban Komba,12,17
+1568692191,2019,MedeJam de Footbag 2019,"December 28-29, 2019","Medellin, Antioquia, Colombia",mixed,,18,33
+1568961264,2019,RNH Footbag 20th Anniversary,"November 16-17, 2019","Gymnase Bourneville - Kellermann Paris, France",net,Rien N'est Hacky - RNH Footbag,35,42
+1572864719,2019,19th Czech Footbag Net Championships,"November 30, 2019",Czech Republic,net,Hradec Králové Footbag Club,7,12
+1574365921,2019,Basque Open Footbag Net Tournament (Doubles),"November 24, 2019","The ""fronton"" of Olabeaga (Bilbao) Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,5,8
+1575361225,2019,Austrian Footbag Championships + XMAS Jam 2019,"December 20, 2019","WUK ( Werkstätten- und Kulturhaus ) Wien, Wien, Austria",freestyle,Footbag-Vienna,5,8
+1576342966,2019,Footbag Finnish Open,"December 29, 2019","Helsinki, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),17,28
+1580328152,2020,Bulgarian Footbag Championships 2020,"June 20-22, 2020","Park ""Ayazmo"", Mitropolit Metodiy Kusev, Stara Zagora Stara Zagora, Bulgaria, Bulgaria",net,Urban Komba,6,11
+1584223469,2020,II.Basque Tournament of Footbag (Net - Individual),"March 15, 2020","Derio, Bizkaia, Basque Country",net,Bilbao Footbag Club,3,6
+1587822289,2020,IFPA Online World Footbag Freestyle Championships,"August 1, 2020","Worldwide, The Globe",freestyle,WSF Warsaw Footbag Association,0,0
+1593340253,2020,I.Bilbao Tournament (Doubles - Net),"June 28, 2020","Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,5,8
+1595872698,2020,Czech Footbag Championships,"August 8, 2020","Hradec Kralove, Czech Republic",net,Hradec Králové Footbag Club,12,17
+1596587110,2020,38th Annual East Coast Footbag Championships,"September 12-13, 2020","Joe & Brenda Solonoski's Place Doylesburg, Pennsylvania, USA",mixed,New York Footbag Association,19,34
+1598616506,2020,II. Basque Tournament of Footbag Net (Individual),"August 30, 2020","Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,10,13
+1600984774,2020,XX Polish Footbag Championships - Warsaw 2020,"November 14-15, 2020","Warszawa, Poland",mixed,WSF Warsaw Footbag Association,44,59
+1628025851,2020,Akisphere 2020,"July 10-12, 2020","Montreal, Quebec, Canada",net,Aki Québec,21,28
+1614772897,2021,Bulgarian Footbag Open 2021,"May 22-24, 2021","Stara Zagora, Bulgaria",net,Urban Komba,8,13
+1617902706,2021,III.Basque Tournament of Footba Net (Individual),"April 9, 2021","Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,6,9
+1623054449,2021,2021 IFPA Online World Footbag Freestyle Championships,"August 1-25, 2021","Worldwide, Worldwide",freestyle,Madrid Footbag Club,44,53
+1624971880,2021,21st IFPA European Footbag Net Championships,"August 20-22, 2021","Krakow, Poland",net,Maniac Footbag Team,32,37
+1625854837,2021,39th Annual East Coast Footbag Championships,"August 28-29, 2021","Brenda and Joe Solonoski's place Doylesburg, Pennsylvania, USA",freestyle,New York Footbag Association,11,20
+1628024472,2021,Czech Footbag Net Championships,"June 12, 2021","Hradec Kralove, Czech Republic",net,Hradec Králové Footbag Club,10,15
+1628025574,2021,Akisphere 2021,"July 9-11, 2021","Montreal, Quebec, Canada",net,Aki Québec,26,33
+1628596712,2021,II. Basque Tournament of Footbag Net (Doubles),"August 10, 2021","In Deusto, in futsal courts near university Bilbao, Basque Country",net,Bilbao Footbag Club,2,5
+1634665636,2021,XXI Polish Footbag Championships - Warsaw 2021,"November 27-28, 2021","Warszawa, Poland",mixed,WSF Warsaw Footbag Association,36,55
+1634938934,2021,II.Basque Open Footbag Net Tournament (Doubles),"October 23, 2021","Barakaldo, Bizkaia, Basque Country",net,Bilbao Footbag Club,4,7
+1635599636,2021,Refaski Cup 2021,"November 6, 2021","Tabor, Czech Republic",net,SK FOOTBAG TÁBOR,10,15
+1643478787,2021,24th Annual Footbag Finnish Open,"December 11, 2021","Kulosaari Sports Hall Helsinki, Uusimaa, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),9,14
+1565425638,2022,Swiss Footbag Open 2022,"October 29-30, 2022","Lausanne, Vaud, Switzerland",mixed,Les Pieds à Gilles,31,44
+1645025950,2022,Cracow Net Jam 3,"February 26-27, 2022","Krakow, Poland",net,Maniac Footbag Team,9,14
+1645621833,2022,IV.Basque Tournament of Footbag Net (Individual),"February 24, 2022","Leioa, Bizkaia, Basque Country",net,Bilbao Footbag Club,11,16
+1646387871,2022,41st IFPA WORLD FOOTBAG CHAMPIONSHIPS 2022,"July 27-31, 2022","Jordan Park Krakow, Poland",worlds,Maniac Footbag Team,120,153
+1646855336,2022,22nd Annual IFPA European Footbag Championships,"July 22-24, 2022","Jaworzno, Poland",net,Jaworzno Footbag Club,51,58
+1647508742,2022,Open de France de Footbag 2022,"September 24-25, 2022","Gym Malakoff IV Nantes, France",net,Carnabal Footbag,26,35
+1649177702,2022,40th Annual East Coast Footbag Championships,"September 24-25, 2022","The Solonoski Camp Doylesburg, Pennsylvania, USA",mixed,New York Footbag Association,16,27
+1649326445,2022,Czech Footbag Championships 2022,"May 21, 2022","Sportpark HIT Hradec Kralove, Czech Republic",net,Hradec Králové Footbag Club,7,12
+1653152207,2022,Akisphere 2022,"July 8-10, 2022","Lafontaine/ Jeanne-Mance Montreal, Quebec, Canada",net,Aki Québec,19,26
+1653647467,2022,I. Elorrieta Tournament of Footbag Net (Basque Country),"May 27, 2022","Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,5,8
+1657486956,2022,II. Ereaga Tournament of Footbag Net,"July 11, 2022","Getxo, Bizkaia, Basque Country",net,Bilbao Footbag Club,5,8
+1667566506,2022,Refaski Cup 2022,"November 26, 2022","Tenis Arena Tabor Tabor, Czech Republic",net,SK FOOTBAG TÁBOR,13,18
+1668541701,2022,XXII Polish Footbag Championships - Warsaw 2022,"December 10-11, 2022","LAVO Warszawa, Poland",mixed,WSF Warsaw Footbag Association,47,64
+1669556651,2022,III.Basque Tournament of Footbag Net (Doubles),"November 27, 2022","Larrabetzu, Bizkaia, Basque Country",net,Bilbao Footbag Club,5,8
+1664206719,2023,2023 US Open,"June 9-11, 2023","Perry Square: 571, Erie, PA, United States",mixed,FOOTBAG ERIE,20,31
+1673723574,2023,Bulgarian Footbag Open 2023,"April 29-30, 2023","Ayazmo park Stara Zagora, Bulgaria",net,Urban Komba,10,15
+1677285621,2023,V. Basque Tournament of Footbag Net (Individual),"February 25, 2023","Leioa, Bizkaia, Basque Country",net,Bilbao Footbag Club,8,11
+1677937557,2023,13th Bembel Cup 2023,"May 27-28, 2023","Sportband Hafenpark Frankfurt, Hessen, Germany",net,SG Frankfurt Footbag e.V.,11,14
+1678957450,2023,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,"July 26-30, 2023","Ivan de Bedout Medellin, Colombia",worlds,Footbag Medellin,141,170
+1686926080,2023,Akisphere,"July 7-9, 2023","Parks Lafontaine + Jeanne-Mance Montreal, Quebec, Canada",net,Aki Québec,29,36
+1688144863,2023,41st Annual East Coast Footbag Championships,"August 26-27, 2023","McCarren Park Brooklyn, New York, USA",mixed,New York Footbag Association,17,28
+1690897570,2023,IV.Basque Tournament of Footbag Net (Doubles),"August 1, 2023","Artaza park Leioa, Bizkaia, Basque Country",net,Bilbao Footbag Club,3,6
+1692508794,2023,Bulgarian Footbag Championships,"September 22-24, 2023","Stara Zagora, Bulgaria",net,Urban Komba,6,11
+1694170899,2023,XXIII Polish Footbag Championships - Warsaw 2023,"October 28-29, 2023","Warszawa, Poland",mixed,WSF Warsaw Footbag Association,84,103
+1694868513,2023,German Footbag Open 2023,"November 11-12, 2023","Palisadenstr. Gym Berlin, Germany",mixed,FC Footstar Berlin e.V.,26,37
+1695501837,2023,Czech Footbag Championships 2023,"October 14, 2023","Byst, Czech, Czech Republic",net,Hradec Králové Footbag Club,10,15
+1697391704,2023,23rd IFPA European Footbag Championships 2023,"December 15-17, 2023","Fame Sport Krakow, Poland",freestyle,Maniac Footbag Team,81,112
+1699593640,2023,8vo Suramericano Footbag Net 2023,"December 8-10, 2023","complejo deportivo los salias San antonio de los altos, Miranda, Venezuela",net,sole push,50,59
+1699709080,2023,Refaski Cup 2023 aneb JINDRA Kicks with us,"December 2, 2023","Tenis Arena Tabor Tabor, Czech Republic",net,SK FOOTBAG TÁBOR,12,17
+1700920831,2023,Finnish Footbag Open 2023,"December 9, 2023","Mandatum Center Helsinki, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),15,20
+1706036811,2024,43rd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2024,"July 29-August 3, 2024","Park Lalancette Montreal, Quebec, Canada",worlds,Aki Québec,168,207
+1706536250,2024,14th Bembel Cup 2024 - a jam with friends,"May 25-26, 2024","Hafenpark Frankfurt, Hessen, Germany",freestyle,SG Frankfurt Footbag e.V.,12,15
+1709070838,2024,Swiss Footbag Open 2024,"October 26-27, 2024","Lausanne, Vaud, Switzerland",net,Les Pieds à Gilles,27,38
+1709496969,2024,Open de France de Footbag 2024,"May 4-5, 2024","de la jeunesse, Orvault Nantes, Orvault, Loire Atlantique, France",net,Carnabal Footbag,19,24
+1711181388,2024,Bulgarian Footbag Open 2024,"May 10-12, 2024","Ayazmo park Stara Zagora, Bulgaria",net,Urban Komba,8,13
+1711182054,2024,24th IFPA European Footbag Championships,"June 27-30, 2024","Stara Zagora, Bulgaria",net,Urban Komba,21,26
+1713276656,2024,1era Copa Footbag Net - Altos Mirandinos,"May 25-26, 2024","Carrizal, Miranda, Venezuela",net,San Antonio Footbag Club,26,31
+1719166875,2024,Akisphere 2024,"July 12-14, 2024","Lafontaine park, Jeanne-Mance park Montreal, Quebec, Canada",net,Aki Québec,31,40
+1721038326,2024,RNH Contest 2024,"September 28-29, 2024","Paris, France",net,Rien N'est Hacky - RNH Footbag,22,27
+1721320739,2024,42nd Annual East Coast Footbag Championships,"August 24-25, 2024","McCarren Park Brooklyn, New York, USA",mixed,New York Footbag Association,21,32
+1721817655,2024,VI. Basque Tournament of Footbag Net (Individual),"January 11, 2024","Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,8,11
+1721923932,2024,V.Basque Tournament of Footbag Net (Doubles),"July 25, 2024","Ortuella, Bizkaia, Basque Country",net,Bilbao Footbag Club,3,6
+1722339396,2024,Czech Footbag champioships 2024,"August 3, 2024","Byst, Czech Republic",net,Hradec Králové Footbag Club,9,14
+1727756195,2024,24th Polish Footbag Championships - Krakow 2024,"October 19-20, 2024","Krakow, Poland",freestyle,Maniac Footbag Team,61,80
+1728058298,2024,Memorial Jindra Smoly - Refaski Cup 10,"November 30, 2024","U stadionu Miru, Tabor Tabor, Czech Republic",net,SK FOOTBAG TÁBOR,7,12
+1728384115,2024,I. Santutxu Tournament of Footbag (Net),"October 8, 2024","Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,4,7
+1730420667,2024,5ta Copa Bobston de Footbag Net,"November 30-December 1, 2024","MEDELLIN, ANTIOQUIA, Colombia",net,Footbag Medellin,11,16
+1733755410,2024,Segunda 'Copa Perpetual Flame',"December 15, 2024","Caracas, Distrito Capital, Venezuela",net,Footbag Net Caracas,8,11
+1736265216,2025,Footbag Finnish Open 2024,"January 11, 2025","Mandatum Center Helsinki, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),5,8
+1738446800,2025,US Open Footbag Championships,"June 14-15, 2025","West Linn Willamette Park West Linn, Oregon, USA",mixed,,60,83
+1739036206,2025,Bulgarian Footbag Open 2025,"May 2-4, 2025","Ayazmo park Stara Zagora, Bulgaria",net,Urban Komba,16,21
+1740391168,2025,25th IFPA European Footbag Championships 2025,"June 6-8, 2025","Frankfurt, Hessen, Germany",freestyle,SG Frankfurt Footbag e.V.,60,79
+1740419380,2025,Swiss Footbag Open 2025,"October 25-26, 2025","Lausanne, Vaud, Switzerland",net,Les Pieds à Gilles,42,53
+1741024635,2025,44th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2025,"August 4-9, 2025","Stade Michel Lecointre Beaulieu, Alexandre Millerand, Nantes, France",worlds,Carnabal Footbag,209,258
+1742511366,2025,VII.Basque Tournament of Footbag Net (Individual),"April 1-5, 2025","Abanto y Zierbena and Trapagaran, Bizkaia, Basque Country",net,Bilbao Footbag Club,10,13
+1745298933,2025,Czech Footbag champioships 2025,"May 3, 2025","Byst, Czech Republic",net,Hradec Králové Footbag Club,8,13
+1745686591,2025,Footbag Finnish Open 2024 - Singles Net,"April 26, 2025","Mandatum Center, Kulosaari Helsinki, Uusimaa, Finland",net,Suomen Footbag Liitto ry. (Finnish Footbag Association),7,10
+1746737817,2025,Akisphere 2025,"July 4-6, 2025","Parc Lalancette Montreal, QC, CA",net,Aki Québec,22,29
+1749326277,2025,Footbag Finnish Open,"November 29-30, 2025","Helsinki, Finland",mixed,Suomen Footbag Liitto ry. (Finnish Footbag Association),29,48
+1750356087,2025,43rd Annual East Coast Footbag Championships,"August 23-24, 2025","McCarren Park Brooklyn, New York, USA",mixed,New York Footbag Association,28,43
+1751568193,2025,25th Polish Footbag Championships - Jaworzno 2025,"September 13-14, 2025","Via Sport Activ Jaworzno, Poland",mixed,Jaworzno Footbag Club,75,102
+1752525121,2025,VI. Basque Tournament of Footbag Net (Doubles),"July 15, 2025","Ugasko futsal court (Deusto, Bilbao) BIlbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,3,6
+1753997172,2025,RNH Contest 2025,"September 27-28, 2025","Paris, France",net,Rien N'est Hacky - RNH Footbag,22,27
+1756448770,2025,Bulgarian Footbag Championships 2025,"September 20-21, 2025","Ayazmo park Stara Zagora, Bulgaria",net,Urban Komba,16,23
+1759558836,2025,Memorial Jindry Smoly-Refaski cup 11,"November 29, 2025","Tabor, Czech Republic",net,SK FOOTBAG TÁBOR,4,7
+1760495074,2025,6a Copa Bobston de Footbag,"November 29-30, 2025","Unidad deportiva Atanasio Girardot Medellin, Antioquia, Colombia",net,Footbag Medellin,8,13
+1765581778,2025,II.Bilbao Tournament of Footbag (Individual),"December 13, 2025","Bilbao, Bizkaia, Basque Country",net,Bilbao Footbag Club,5,8
+1764237004,2026,Swiss Footbag Open 2026,"October 10-11, 2026","Centre Omnisports des Bergières Lausanne, Vaud, Switzerland",social,Les Pieds à Gilles,0,0
+1766004796,2026,German Footbag Open,"February 7-8, 2026","Berlin, Germany",social,FC Footstar Berlin e.V.,0,0
+1768520954,2026,US Open Footbag Tournament,"June 13-14, 2026","West Linn Willamette Park Portland, Oregon, USA",social,,0,0
+1768623808,2026,San Francisco Net Jam,"February 14-15, 2026","Golden Gate Park- Robin Williams Meadow San Francisco, California, USA",mixed,North Bay Flyers,0,0
+1768955907,2026,45th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2026,"August 10-15, 2026","Tsukuba Capio Tsukuba, Ibaraki, Japan",worlds,team Twist,0,0

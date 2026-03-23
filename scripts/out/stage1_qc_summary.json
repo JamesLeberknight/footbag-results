@@ -1,0 +1,45 @@
+{
+  "total_records": 774,
+  "total_errors": 0,
+  "total_warnings": 20,
+  "total_info": 0,
+  "counts_by_check": {
+    "s1_html_no_events_results_div": {
+      "ERROR": 0,
+      "WARN": 20,
+      "INFO": 0
+    }
+  },
+  "field_coverage": {
+    "event_id": {
+      "present": 774,
+      "total": 774,
+      "percent": 100.0
+    },
+    "event_name_raw": {
+      "present": 774,
+      "total": 774,
+      "percent": 100.0
+    },
+    "date_raw": {
+      "present": 774,
+      "total": 774,
+      "percent": 100.0
+    },
+    "location_raw": {
+      "present": 774,
+      "total": 774,
+      "percent": 100.0
+    },
+    "year": {
+      "present": 774,
+      "total": 774,
+      "percent": 100.0
+    },
+    "results_block_raw": {
+      "present": 774,
+      "total": 774,
+      "percent": 100.0
+    }
+  }
+}

@@ -1,0 +1,716 @@
+event_id,event_name,year,sport,division,mirror_place_range,sheet_place_range,missing_places,extra_places,issue_type
+1043096425,East Coast Championships - 3rd Annual - 1985,1985,,,1-3,,"1,2,3",,missing_middle
+1057126024,East Coast Footbag Championships - 4th Annual - 1986,1986,,,1-3,,"1,2,3",,missing_middle
+1057175925,East Coast Footbag Championships - 8th Annual - 1990,1990,,,1-3,,"1,2,3",,missing_middle
+1057345914,East Coast Footbag Championships - 1991 - 9th Annual,1991,,,1-3,,"1,2,3",,missing_middle
+857852604,Southern California Footbag Championships,1997,,Open Singles Routines,1-5,1-5,4,,truncated_tail
+857852604,Southern California Footbag Championships,1997,,Intermediate Singles Routines,1-3,1-2,3,,truncated_tail
+857874500,University of Oregon Footbag Tournament,1997,,The Results,1-4,,"1,2,3,4",,missing_middle
+857876870,Eugene Celebration Footbag Tournament,1997,,,1-199,,1-199 (13 places),,truncated_tail
+857879540,The 15th Annual EAST COAST FOOTBAG CHAMPIONSHIPS,1997,,Open Singles Routines,1-8,1-4,"5,6,7,8",,truncated_tail
+857880054,Bedford (Australia) Indoor Footbag Championships,1997,,,1-5,,"1,2,3,4,5",,missing_middle
+857880054,Bedford (Australia) Indoor Footbag Championships,1997,,Results from the five minute timed consecutives were as follows,1-3,,"1,2,3",,missing_middle
+857880964,13th Annual MIDWEST REGIONAL FOOTBAG CHAMPIONSHIPS,1997,,,1-6,,"1,2,3,4,5,6",,missing_middle
+857880964,13th Annual MIDWEST REGIONAL FOOTBAG CHAMPIONSHIPS,1997,Dropless,,1-4,,"1,2,3,4",,missing_middle
+857881519,11th Annual Vancouver Open (and Worlds Warm-Up),1997,,,1-4,,"1,2,3,4",,missing_middle
+859400929,Montreal International Footbag Championships,1997,,,47,,47,,missing_middle
+859787898,HEART OF FOOTBAG Freestyle Tournament,1997,,EVENTS,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+859923755,California State Footbag Championships,1997,,MIXED DOUBLES NET,1-8,1-5,"7,8",,truncated_tail
+860356126,14th Annual Emerald City Open Footbag Championships,1997,,,1-199,,"1,2,3,4,199",,truncated_tail
+865043841,The Ultimate Chaos Outdoor Footbag Flying Disc Festival,1997,,,1-4,,"1,2,3,4",,missing_middle
+873922005,FOOTBAG SM 97 / Finnish Footbag Championships '97,1997,,,1-6,,"1,2,3,4,5,6",,missing_middle
+877848852,Auburn U.F.O. Fall Festival,1997,,Here's how is came down,1-3,,"1,2,3",,missing_middle
+876331623,Southern California Footbag Championships,1998,,RESULTS,1-45,,1-45 (14 places),,truncated_tail
+876336655,Air-A-Zona 2nd Annual Footbag Net Championships,1998,,Open Mixed Doubles,1-7,1-5,"6,7",,truncated_tail
+876356874,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,1998,,,105,,105,,missing_middle
+876356874,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,1998,,Here's how it came down,199,,199,,missing_middle
+876356874,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,1998,,Competitor Breakdown,1-24,,1-24 (16 places),,truncated_tail
+876356874,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,1998,,FREESTYLE,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+876356874,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,1998,Sudden death,,1-2,,"1,2",,missing_middle
+879319107,1998 Southern Regional Footbag Championships,1998,,,1-6,,"1,2,3,4,5,6",,missing_middle
+883135865,1998 Winter Windchill Warm-Up (l'Hivernal),1998,,,1-3,,"1,2,3",,missing_middle
+884112176,The 1st Annual Fighting Illini Footbag Festival,1998,,,2-3,,"2,3",,missing_middle
+886044392,12th Annual Vancouver Open Footbag Net Tournament,1998,,,1-12,,"1,2,3,12",,truncated_tail
+888294869,15th Annual Emerald City Open,1998,,,1-15,,"1,2,3,4,15",,truncated_tail
+892446131,Kansas Footbag Open,1998,,,2-10,,"2,3,10",,truncated_tail
+899077904,Northern Illinois Footbag Open,1998,,,1-3,,"1,2,3",,missing_middle
+901349509,18th Annual Beaver Open,1998,,Unsanctioned Late-Night Fire-Bag Net,1,1-3,,"2,3",extra_in_sheet
+901349509,18th Annual Beaver Open,1998,,Bizz Buzz,1-3,,"1,2,3",,missing_middle
+901349509,18th Annual Beaver Open,1998,,Cribbage,1-3,,"1,2,3",,missing_middle
+903468009,Southern California Footbag Championships,1999,,Freestyle Finals in Safeway Parking Garage,1-3,,"1,2,3",,missing_middle
+903468009,Southern California Footbag Championships,1999,,Net Finals in Heavy Downpour,1-3,,"1,2,3",,missing_middle
+903632480,3rd Annual Air-A-Zona Footbag Net Championships,1999,,Intermediate Singles,1-6,1-4,"5,6",,truncated_tail
+909186885,1999 Southern Regional Footbag Championships,1999,Timed Consecutives,,1-3,,"1,2,3",,missing_middle
+910551956,1999 Western Regional Footbag Championships,1999,,,199,,199,,missing_middle
+910551956,1999 Western Regional Footbag Championships,1999,,Participants,24-89,,"24,89",,truncated_tail
+910551956,1999 Western Regional Footbag Championships,1999,,Awards,1,,1,,missing_middle
+910551956,1999 Western Regional Footbag Championships,1999,,OPEN RESULTS,1-19,,1-19 (13 places),,truncated_tail
+910551956,1999 Western Regional Footbag Championships,1999,,INTERMEDIATE RESULTS,1-13,,"1,2,3,4,5,6,9,10,13",,truncated_tail
+910551956,1999 Western Regional Footbag Championships,1999,,NOVICE RESULTS,1-4,,"1,2,3,4",,missing_middle
+913061034,Finnish Freestyle Festival '99,1999,,,1-6,,"1,2,3,4,5,6",,missing_middle
+916193231,1999 Montreal International Footbag Championship,1999,,,1-4,,"1,2,3,4",,missing_middle
+917278465,EUROPEAN FOOTBAG OPEN,1999,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+917741782,2nd Annual Illini Footbag Festival,1999,,,1-3,,"1,2,3",,missing_middle
+919703711,13th Annual Vancouver Open Footbag Net Tournament,1999,,,1-23,,1-23 (15 places),,truncated_tail
+919885513,Montreal Windchill (l'HIVERNAL),1999,,,1-4,,"1,2,3,4",,missing_middle
+924977661,16th Annual Emerald City Open,1999,,,1-4,,"1,2,3,4",,missing_middle
+933870505,Finnish Footbag Open Championships 1999,1999,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+937727262,California State Footbag Championships,1999,,Mixed Net,1-4,1-5,,5,extra_in_sheet
+937727262,California State Footbag Championships,1999,,Yellow Belt Division,1-5,,"1,2,3,4,5",,missing_middle
+937727262,California State Footbag Championships,1999,,Beginners,1-3,,"1,2,3",,missing_middle
+937854594,Turku Tournee 1999,1999,,,1-4,,"1,2,3,4",,missing_middle
+942013549,German Footbag Freestyle Battle 99,1999,,Final,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+941418343,WORLD FOOTBAG CHAMPIONSHIPS,2000,,Open Singles Routines,1-34,1-47,24,"35,37,38,39,40,41,42,45,46,47",tie_lost
+944242404,Todexon Cup Freestyle Tournament,2000,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+946940201,East Coast Footbag Championships,2000,,OPEN SINGLES NET,1-3,2-3,1,,missing_middle
+947026077,The 2nd Annual Philly Open Footbag Championships,2000,,,2,,2,,missing_middle
+947026077,The 2nd Annual Philly Open Footbag Championships,2000,,Here are the links for the pictures,1-3,,"1,2,3",,missing_middle
+947026077,The 2nd Annual Philly Open Footbag Championships,2000,,Open Events,1-3,,"1,2,3",,missing_middle
+947026077,The 2nd Annual Philly Open Footbag Championships,2000,,Intermediate Events,1-3,,"1,2,3",,missing_middle
+947026077,The 2nd Annual Philly Open Footbag Championships,2000,,Novice Events,1-3,,"1,2,3",,missing_middle
+947196813,New Zealand Footbag Championships,2000,,,1-9,,"1,2,3,5,6,7,9",,truncated_tail
+948198763,European Footbag Championships 2000,2000,,,1-11,,1-11 (11 places),,missing_middle
+948198763,European Footbag Championships 2000,2000,,European rankings for open freestyle,1-7,1-3,"4,5,6,7",,truncated_tail
+948198763,European Footbag Championships 2000,2000,,European rankings for open women's freestyle,1-4,1-3,4,,truncated_tail
+948198763,European Footbag Championships 2000,2000,,European rankings for open singles net,1-5,1-3,"4,5",,truncated_tail
+948198763,European Footbag Championships 2000,2000,,European rankings for open doubles net,1-6,1-3,"4,5,6",,truncated_tail
+948198763,European Footbag Championships 2000,2000,,European rankings for intermediate freestyle,1-6,1-3,"4,5,6",,truncated_tail
+948943299,First Annual Arica Open,2000,,,1-4,,"1,2,3,4",,missing_middle
+949991621,6th Annual Southern California Footbag Championships,2000,,,1-4,,"1,2,3,4",,missing_middle
+952906680,Montreal International Footbag Championships,2000,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+955745735,4th Annual Kansas Footbag Open,2000,,,1-5,,"1,2,3,5",,truncated_tail
+955831740,Turku Open 2000,2000,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+957240514,Emerald City Open,2000,,Intermediate Singles Net,1-3,1-2,3,,truncated_tail
+957778745,Footbag Meeting Bern,2000,,Here's the results,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+959353403,2000 Southeast Idaho Footbag Championships,2000,,,1-4,,"1,2,3,4",,missing_middle
+961053916,Footbag Oulu-Open 2000,2000,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+961626997,Quebec City Footbag Net Championships,2000,,Here are the results for this year's tournament,1-13,,1-13 (11 places),,truncated_tail
+967817818,Texas State Footbag Championships,2000,,,1-200,,"1,2,3,4,5,6,200",,truncated_tail
+1001076203,3ème Open de France de Footbag,2001,,,1,,1,,missing_middle
+1001076203,3ème Open de France de Footbag,2001,,SINGLE Homme,1-9,1-5,"4,6,7,9",,truncated_tail
+1001076315,5th Annual Finnish Footbag Championships,2001,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1001942070,Texas State Footbag Championships,2001,,,1-30,,"1,2,3,30",,truncated_tail
+1004370976,Bootfägers Shred,2001,,,2-3,,"2,3",,missing_middle
+1005667143,Finnstyle Footbag JAM,2001,,,1-3,,"1,2,3",,missing_middle
+972427576,L'Hivernal (The Windchill) Footbag Tournament,2001,,,1-15,,1-15 (15 places),,missing_middle
+973573676,2nd Annual New Zealand Footbag Championships,2001,,As for the rest of the freestylers results are as follows,1,,1,,missing_middle
+974683678,COLORADO SHRED SYMPOSIUM 2,2001,,,1-13,,1-13 (13 places),,missing_middle
+978967004,Southern California Footbag Championships,2001,,,1-13,,1-13 (13 places),,missing_middle
+979089216,First Annual Eugene Freestyle Freekout!!!,2001,,,1-45,,"1,2,3,4,45",,truncated_tail
+979089216,First Annual Eugene Freestyle Freekout!!!,2001,,Intermediate results,1-45,,"1,2,3,4,5,45",,truncated_tail
+979334083,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,2001,,COMPETITION RESULTS,1-20,,1-20 (20 places),,missing_middle
+979334083,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,2001,,Women's Singles Freestyle,1-5,1-4,5,,truncated_tail
+980502839,European Footbag Championships,2001,,G O L F,1-3,,"1,2,3",,missing_middle
+980969461,WORLD FOOTBAG CHAMPIONSHIPS,2001,,Open Singles Net,1-4,1-32,,5-32 (27 places),extra_in_sheet
+980969461,WORLD FOOTBAG CHAMPIONSHIPS,2001,,Open Singles Routines,1-26,1-32,,12-32 (14 places),extra_in_sheet
+980969461,WORLD FOOTBAG CHAMPIONSHIPS,2001,,Open Doubles Routines,1-6,1-26,,7-26 (17 places),extra_in_sheet
+980969461,WORLD FOOTBAG CHAMPIONSHIPS,2001,,Women's Singles Routines,1-3,1-9,,"4,5,6,7,8,9",extra_in_sheet
+980969461,WORLD FOOTBAG CHAMPIONSHIPS,2001,,Open Mixed Doubles Routines,1-5,1-11,,"6,7,8,9,10,11",extra_in_sheet
+981129410,East Coast Footbag Championships,2001,,Open Freestyle Results,1-4,1-4,3,,truncated_tail
+981129410,East Coast Footbag Championships,2001,,Open Golf Results,1-5,1-4,5,,truncated_tail
+981560223,Swiss Footbag Championships (FootJam),2001,,,1-9,,"1,2,3,4,5,6,8,9",,truncated_tail
+981560223,Swiss Footbag Championships (FootJam),2001,,Final Ranking,1-25,,"1,2,3,4,5,6,7,8,9,25",,truncated_tail
+981560223,Swiss Footbag Championships (FootJam),2001,,Final Swiss Ranking,1-9,,"1,2,3,5,6,7,8,9",,truncated_tail
+981560223,Swiss Footbag Championships (FootJam),2001,,Detailed results,1-5,,"1,2,3,4,5",,missing_middle
+981560223,Swiss Footbag Championships (FootJam),2001,Advanced to finals,,1-8,1-5,"6,7,8",,truncated_tail
+981560223,Swiss Footbag Championships (FootJam),2001,Advanced to semifinals,,1-9,1-5,"6,7,8,9",,truncated_tail
+981560223,Swiss Footbag Championships (FootJam),2001,Advance to finals,,1-8,1-5,"6,7,8",,truncated_tail
+984694623,1st Montreal Summer Freestyle Challenge,2001,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+988325277,Saskatchewan Footbag Championships,2001,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+988434364,2001 Southern Regional Footbag Championships,2001,,,1-200,,"1,2,3,4,5,6,7,9,200",,truncated_tail
+989875090,Chicago Inner Circle Museum of Science and Industry Jam,2001,,Novice Circle Shred contest,1-30,1-2,"3,30",,truncated_tail
+990512631,3rd annual Turku International Open Championships 2001 Finland,2001,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+990626988,Polish Footbag Competition,2001,,,1-6,,"1,2,3,4,5,6",,missing_middle
+990905420,Vancouver Open Footbag Tournament,2001,,,1-16,,1-16 (16 places),,missing_middle
+991285803,Montreal International Footbag Net Championships 2001,2001,,,1-19,,1-19 (19 places),,missing_middle
+991757909,Funtastik Summer Classic Footbag Tournament,2001,,,1-6,,"1,2,3,4,5,6",,missing_middle
+992517335,Keuruu Footbag Jam 2001,2001,,,1-12,,1-12 (12 places),,missing_middle
+996293200,Australian Footbag Championships,2001,,Open Singles Routines,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+996293200,Australian Footbag Championships,2001,,Open Sick 3-Trick,1,,1,,missing_middle
+1011556608,FOOTJAM meets 3BORDERSCUP,2002,,,1-3,,"1,2,3",,missing_middle
+1012638214,2002 WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,2002,,Open Singles Routines,1-9,1-15,,"10,11,12,13,14,15",extra_in_sheet
+1013283071,23rd Annual WORLD FOOTBAG CHAMPIONSHIPS,2002,,Open Singles Net,1-28,1-28,8,,truncated_tail
+1013283071,23rd Annual WORLD FOOTBAG CHAMPIONSHIPS,2002,,Women's Singles Net,1-10,1-10,7,,truncated_tail
+1016457376,Cinco de Mayo Footbag Fest,2002,,,1-5,,"1,2,3,4,5",,missing_middle
+1018812342,Czech Footbag Championships,2002,,Doubles Freestyle,1-30,1-5,30,,truncated_tail
+1018925821,Tri-State Area Footbag Jam,2002,,LAST MAN STANDING,4,1,4,1,tie_lost
+1019193491,Finnsta City Jam,2002,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1021665982,2002 East Coast Footbag Championships,2002,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1022992222,Shred Zero Summer Open 2002,2002,,,1-3,,"1,2,3",,missing_middle
+1025084282,1st Queensland Footbag Challenge,2002,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1027925383,Finnish Footbag Championships 2002,2002,,,1-12,,1-12 (12 places),,missing_middle
+1028218784,2002 Texas State Footbag Championships,2002,,,1-200,,"1,2,3,4,5,6,30,200",,truncated_tail
+1028233308,US Open Freestyle Championships,2002,,,1-200,,"1,2,3,4,5,6,7,200",,truncated_tail
+1028800969,3. Frankfurt Footbag Open,2002,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1030830356,4e Open de France de Footbag,2002,,Overall Champions,1-5,,"1,2,3,5",,truncated_tail
+1032602594,Victorian Footbag Championships,2002,,Results,1-6,,"1,2,3,4,5,6",,missing_middle
+1032602594,Victorian Footbag Championships,2002,,Sic 3,1-3,,"1,2,3",,missing_middle
+1035817350,New South Wales Footbag Championships,2002,,,1-5,,"1,2,3,4,5",,missing_middle
+1031334528,Funtastik Summer Classic Footbag Tournament,2003,,,1-200,,"1,2,3,4,5,200",,truncated_tail
+1032472601,The 3rd Annual Chilly Philly Freestyle Jam,2003,,Open Shred 30 (conventional rules),1-6,1-5,6,,truncated_tail
+1034985978,2003 Canadian Open Footbag Championships,2003,,,1-200,,"1,2,3,200",,truncated_tail
+1035277529,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,2003,,Open Singles Net,1-17,1-17,,10,extra_in_sheet
+1035277529,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,2003,,Open Singles Routines,1-55,1-10,"11,16,21,26,30,31,37,43,49,55",,truncated_tail
+1035277529,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,2003,,Open Doubles Routines,1-7,1-6,7,,truncated_tail
+1035277529,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,2003,,Women's Singles Routines,1-11,1-6,"7,9,11",,truncated_tail
+1035277529,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,2003,,Open Mixed Doubles Routines,1-3,,"1,2,3",,missing_middle
+1035277529,24th Annual WORLD FOOTBAG CHAMPIONSHIPS,2003,,Intermediate Singles Routines,1-43,1-6,7-43 (11 places),,truncated_tail
+1036298726,Colorado Shred Symposium 4,2003,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1036298726,Colorado Shred Symposium 4,2003,,BIG 3 Round 1,1-17,,1-17 (17 places),,missing_middle
+1036298726,Colorado Shred Symposium 4,2003,,BIG 3 Round 2 (best combo from both rounds),1-6,,"1,2,3,4,5,6",,missing_middle
+1036298726,Colorado Shred Symposium 4,2003,,Tricks,1-5,,"1,2,3,4,5",,missing_middle
+1036653244,2003 Shred Zero Summer Open,2003,,Most Rippen Run,1-3,,"1,2,3",,missing_middle
+1038895913,Seapa NZ Freestyle Footbag Championships,2003,,,1-30,,"1,2,3,4,5,6,30",,truncated_tail
+1039550946,2003 Montreal International Footbag Championships,2003,,,1-3,,"1,2,3",,missing_middle
+1041241196,MECCA Footbag Cup,2003,,,1-3,,"1,2,3",,missing_middle
+1042821772,European Footbag Championships 2003,2003,,Open Singles Routines,1-36,1-4,5-36 (11 places),,truncated_tail
+1042821772,European Footbag Championships 2003,2003,,Women's Singles Routines,1-13,,1-13 (11 places),,truncated_tail
+1042821772,European Footbag Championships 2003,2003,,Open Shred:30,1-12,,1-12 (12 places),,missing_middle
+1044624680,2003 Southeastern Regional Championships,2003,,,1-4,,"1,2,3,4",,missing_middle
+1044952105,"L'Hivernal, The Windchill",2003,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1045628278,Montreal Footbag Challenge 2003,2003,,,1-3,,"1,2,3",,missing_middle
+1046985067,2003 Steel City Footbag Open,2003,,Intermediate Big3,1-3,,"1,2,3",,missing_middle
+1046985067,2003 Steel City Footbag Open,2003,,Intermediate Shred30,1-3,,"1,2,3",,missing_middle
+1046985067,2003 Steel City Footbag Open,2003,,Open Shred30,1-3,,"1,2,3",,missing_middle
+1050140930,German Footbag Open 2003,2003,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1050745947,RNH Contest 2003,2003,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1052775366,Danish Footbag Open 03,2003,,Best ranged Danish players,1-4,,"1,2,3,4",,missing_middle
+1052775366,Danish Footbag Open 03,2003,,Golf,1-3,1-2,3,,truncated_tail
+1057773472,23rd Annual Moonin' & Noonin' Beaver Open,2003,,,200,,200,,missing_middle
+1057773472,23rd Annual Moonin' & Noonin' Beaver Open,2003,,"Also, much honor to the 2003 Beaver Hall of Famer",1-19,,"1,2,19",,truncated_tail
+1057773472,23rd Annual Moonin' & Noonin' Beaver Open,2003,,I believe the only undefeated team was,4,,4,,missing_middle
+1058378281,Texas State Footbag Championships,2003,,,1-200,,1-200 (13 places),,truncated_tail
+1061212821,19th Annual Midwest Regional Championships and Exhibition,2003,,,1-4,,"1,2,3,4",,missing_middle
+1061453080,Australian East Coast Regionals,2003,,,1-5,,"1,2,3,4,5",,missing_middle
+1063109533,2003 Philly Area Oktoberfest Freestyle Jam,2003,,,1,,1,,missing_middle
+1064330873,4. Frankfurt Footbag Open,2003,,,1-9,,"1,2,3,4,5,9",,truncated_tail
+1070400528,West Coast Xmas Shred,2003,,Coming from areas south of San Francisco,19,,19,,missing_middle
+1065478531,The Windchill -- L'Hivernal de Footbag 2004,2004,,,1-12,,1-12 (12 places),,missing_middle
+1068406344,2nd Annual MECCA Footbag Cup,2004,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1069791565,5th Annual Open de France,2004,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1069929277,25th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,2004,,Open Singles Net,1-37,1-37,,"26,32,35",extra_in_sheet
+1070734498,TODEXON 5,2004,,Girls,1-4,,"1,2,3,4",,missing_middle
+1070734498,TODEXON 5,2004,,Big 1,1-3,,"1,2,3",,missing_middle
+1070954568,5th Annual Colorado Shred Symposium,2004,,Open Freestyle Results,1-16,,1-16 (16 places),,missing_middle
+1070954568,5th Annual Colorado Shred Symposium,2004,,Intermediate Final Results,1-303,,1-303 (11 places),,truncated_tail
+1071060801,Aachen Indoor Open 2004,2004,,,1-4,,"1,2,3,4",,missing_middle
+1074511718,Swiat Zoski,2004,,,1-3,,"1,2,3",,missing_middle
+1075781798,Funtastik Summer Classic Footbag Tournament,2004,,,1-200,,"1,2,3,4,5,6,20,200",,truncated_tail
+1076876907,Russian Open Footbag Series/ Stage 1,2004,,,1-5,,"1,2,3,4,5",,missing_middle
+1076952530,SOUF 2004 Southeastern Regional Footbag Championships,2004,,,1-3,,"1,2,3",,missing_middle
+1077766197,2004 New Paltz Footbag Jam,2004,,,2,,2,,missing_middle
+1079024287,Shercle Session #1,2004,,,1-2,,"1,2",,missing_middle
+1079444598,German Footbag Open 2004,2004,,Here are the Net results,1-4,,"1,2,3,4",,missing_middle
+1079605499,6th Annual IFPA European Footbag Championships,2004,,Open Singles Routines,1-4,1-8,,"5,6,7,8",extra_in_sheet
+1080138513,RNH Contest 2004,2004,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1080757998,Space City Freestyle Jam 2004,2004,,,1-3,,"1,2,3",,missing_middle
+1081766954,Russian Open Footbag Series/ Stage 2,2004,,,1-100,,"1,2,3,4,5,7,8,9,100",,truncated_tail
+1083699966,JFK Net Battle,2004,,,1-15,,"1,2,3,4,5,6,7,8,9,15",,truncated_tail
+1089373321,6e Open de France de Footbag,2004,,Open Singles Routines,1-24,1-25,"9,11,13,15,17,21","10,12,14,16,20,25",tie_lost
+1089373321,6e Open de France de Footbag,2004,,Women's Singles Routines,1-5,,"1,2,3,4,5",,missing_middle
+1089373321,6e Open de France de Footbag,2004,,Open Shred:30,1-12,1-15,,"13,14,15",extra_in_sheet
+1090437706,Zocha Jam 2004,2004,,Open Woman Freestyle,1-7,1-6,7,,truncated_tail
+1090569022,Montpellier Sunny Jam Open,2004,,,1-16,,1-16 (11 places),,truncated_tail
+1092044099,Russian Open Footbag Series/ Stage 4,2004,,,1-4,,"1,2,3,4",,missing_middle
+1092073845,Czech Championships 2004,2004,,Doubles Freestyle,1-30,1-3,30,,truncated_tail
+1092073845,Czech Championships 2004,2004,,Big 1,1-15,,1-15 (15 places),,missing_middle
+1093955766,"Russian Open Footbag Series/ Stage 5, Brooks Cup",2004,,,1-4,,"1,2,3,4",,missing_middle
+1094071528,1. Footbag- Net- Jam Berlin 04,2004,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1094123527,8th Annual Footbag Finnish Open 2004,2004,,RESULTS,1-17,,1-17 (17 places),,missing_middle
+1094201584,Frankfurt Footbag Open 2004,2004,,And the winner are,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1096318324,3rd Annual Seattle Juggling and Footbag Festival,2004,,Open Shred:30,1-3,1-7,,"4,5,6,7",extra_in_sheet
+1096318324,3rd Annual Seattle Juggling and Footbag Festival,2004,,Open Sick 3-Trick,1-6,1-6,,4,extra_in_sheet
+1096695238,2nd Annual UMaine Hacky Sack Club Tournament,2004,,,1-5,,"1,2,3,4,5",,missing_middle
+1097785506,Finnish Singles Net Footbag Championships 2004,2004,,,1-16,,1-16 (16 places),,missing_middle
+1097686137,Swiss Championships 2005,2005,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1102227996,The Green Cup Presented by Chaos,2005,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1102443443,Footbag Fiesta,2005,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1102576153,26th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,2005,,Women's Singles Routines,1-7,1-5,"6,7",,truncated_tail
+1102788509,3rd Annual Sunshred Footbag Open (LIVE),2005,,Shred30,1-3,,"1,2,3",,missing_middle
+1102788509,3rd Annual Sunshred Footbag Open (LIVE),2005,,Rewind Combo,1-3,,"1,2,3",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Routine,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Shred,1-3,1-8,,"4,5,6,7,8",extra_in_sheet
+1103297805,2e Championnat de France de Footbag,2005,,Sick 3,1-3,1-5,,"4,5",extra_in_sheet
+1103297805,2e Championnat de France de Footbag,2005,,Big 1,1-3,,"1,2,3",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Team,1-2,,"1,2",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Simple,1-3,,"1,2,3",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Double,1-3,,"1,2,3",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Femmes,1-2,,"1,2",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Mixte,1-2,,"1,2",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Poule D,1,,1,,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Routine Double,1-2,,"1,2",,missing_middle
+1103297805,2e Championnat de France de Footbag,2005,,Routine Girlz,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1103724325,RNH Contest 2005,2005,,,1-18,,1-18 (14 places),,truncated_tail
+1105353373,5 years Frankfurt Footbag e.V.,2005,,,1-4,,"1,2,3,4",,missing_middle
+1106561176,Aachen Indoor Open 05,2005,,,1-5,,"1,2,3,4,5",,missing_middle
+1107289556,The Windchill Footbag net tournament,2005,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1109356644,Funtastik Summer Classic,2005,,,1-200,,"1,2,3,4,5,200",,truncated_tail
+1109682847,Shercle Session #2,2005,,,1-3,,"1,2,3",,missing_middle
+1109802420,6th Annual IFPA Turku Open,2005,,Here are the results from the awesome event,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1111735438,Greater Rochester Area Shred Symposium and RIT Juggle-IN,2005,,,1-3,,"1,2,3",,missing_middle
+1117746703,6th Frankfurt Footbag Open,2005,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1124840254,The Hackrifice Open 2005,2005,,Intermediate Sick 1,1-2,1,2,,truncated_tail
+1125004188,Tennessee Net Championships,2005,,,1-4,,"1,2,3,4",,missing_middle
+1125936037,7e Open de France de Footbag,2005,,Women's Singles Routines,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1125936037,7e Open de France de Footbag,2005,,Open Sick 3-Trick,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1125936037,7e Open de France de Footbag,2005,,Open Sick Trick,1-6,,"1,2,3,4,5,6",,missing_middle
+1132511088,Finnish Footbag Championships 2005,2005,,,1-13,,1-13 (13 places),,missing_middle
+1131659634,2006 Green Cup Presented by Chaos,2006,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1133888413,Valentines Day Massacre,2006,,,1-4,,"1,2,3,4",,missing_middle
+1134914723,RNH Contest 2006,2006,,,1-15,,1-15 (15 places),,missing_middle
+1137937282,Czech Footbag Championships,2006,,,1-5,,"1,2,3,4,5",,missing_middle
+1138601883,Santa Cruz Invitational,2006,,Open Sick 3-Trick,1-3,1-2,3,,truncated_tail
+1138601883,Santa Cruz Invitational,2006,,Open Sick Trick,1-3,,"1,2,3",,missing_middle
+1142360459,3rd Annual JFK Net Battle,2006,,,1-16,,1-16 (16 places),,missing_middle
+1143027870,Commalamaison Contest 2,2006,,,1-16,,1-16 (16 places),,missing_middle
+1143155263,U. S. Open Footbag Championships,2006,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1143195910,Hack Ski Sack,2006,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1146356760,1st Annual North Alabama Footbag Competition,2006,,,2-4,,"2,4",,truncated_tail
+1146789209,East Coast Footbag Championships 2006,2006,,Open Singles Routines,1-3,1-4,,4,extra_in_sheet
+1146843672,Montreal Spring Jam,2006,,,1-10,,"1,2,3,4,7,10",,truncated_tail
+1148241486,2006 Steel City Shred Off,2006,,Open Sick 3,1-3,2,"1,3",,truncated_tail
+1148241486,2006 Steel City Shred Off,2006,,Intermediate Sick 1,1-3,1-3,2,,truncated_tail
+1148241486,2006 Steel City Shred Off,2006,,Intermediate Big 3,1-3,,"1,2,3",,missing_middle
+1148374547,Championnats de France 2006,2006,,,10-11,,"10,11",,missing_middle
+1148374547,Championnats de France 2006,2006,,Final,1-16,,1-16 (15 places),,truncated_tail
+1149763452,8e OPEN de France de Footbag,2006,,Open Singles Routines,1-9,1-24,,5-24 (16 places),extra_in_sheet
+1149763452,8e OPEN de France de Footbag,2006,,Women's Singles Routines,1-3,1-9,,"4,5,6,7,8,9",extra_in_sheet
+1149763452,8e OPEN de France de Footbag,2006,,Open Sick Trick,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1149881200,Funtastik Summer Classic Tournament and Festival,2006,,Open Singles Routines,1-5,,"1,2,3,4,5",,missing_middle
+1153345992,"""KC"" Memorial Footbag Tournament",2006,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1155788760,2006 Southeast Regionals,2006,,,1-5,,"1,2,3,4,5",,missing_middle
+1156283186,The Hackrifice Open 2006,2006,,The Results,1-4,,"1,2,3,4",,missing_middle
+1157398732,Danish Footbag Championships 2006,2006,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1157942368,New Year's Jam 2006,2006,,,1-4,,"1,2,3,4",,missing_middle
+1158263300,Zocha Jam 2006,2006,,Open Singles Routines,1-20,1-8,9-20 (11 places),"7,8",tie_lost
+1158263300,Zocha Jam 2006,2006,,Women's Singles Routines,1-3,,"1,2,3",,missing_middle
+1158263300,Zocha Jam 2006,2006,,Open Shred:30,1-3,,"1,2,3",,missing_middle
+1158263300,Zocha Jam 2006,2006,,Open Sick 3-Trick,1-2,,"1,2",,missing_middle
+1160579826,CommALaMaison Contest 3,2006,,,1-11,,"1,2,3,4,5,11",,truncated_tail
+1161167528,German Footbag Championships 2006,2006,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1161871029,Finnish Footbag Championships 2006,2006,,Open Singles Routines,1-7,1-19,,8-19 (12 places),extra_in_sheet
+1161888703,Cornell Footbag Jam,2006,,,1-3,,"1,2,3",,missing_middle
+1163624128,Moonin' & Noonin' Beaver Open Post Turkey Day Blues Footbag Golf!,2006,,,1-10,,"1,10",,truncated_tail
+1164034575,Southeastern 4-Square Championship,2006,,,1-4,,"1,2,3,4",,missing_middle
+1163784775,2007 IFPA WORLD FOOTBAG CHAMPIONSHIPS,2007,,Open Singles Routines,1-41,1-34,"33,41",10-34 (14 places),tie_lost
+1163784775,2007 IFPA WORLD FOOTBAG CHAMPIONSHIPS,2007,,Intermediate Singles Routines,1-25,1-8,"9,13,17,21,25",6,tie_lost
+1164845982,The Green Cup 2007 - Presented By Chaos,2007,,,1-18,,1-18 (18 places),,missing_middle
+1167422711,'07 Southeastern Net Championships,2007,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1170456736,"L'Hivernal 2007, The 2007 Windchill",2007,,,1-200,,1-200 (13 places),,truncated_tail
+1172931308,Montreal Spring Jam 2,2007,,Results,1-4,,"1,2,3,4",,missing_middle
+1172931308,Montreal Spring Jam 2,2007,,Best Link,1-4,,"1,2,3,4",,missing_middle
+1173467292,4th annual Montana Freestyle Jam,2007,,Open Shred:30,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1173467292,4th annual Montana Freestyle Jam,2007,,Open Sick 3-Trick,1-6,,"1,2,3,4,5,6",,missing_middle
+1173467292,4th annual Montana Freestyle Jam,2007,,Open Sick Trick,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1173606489,4th Annual JFK Net Battle,2007,,,1-18,,1-18 (16 places),,truncated_tail
+1176318174,2007 U.S. Open Footbag Championships,2007,,Open Sick Trick,1-8,1-7,8,,truncated_tail
+1176318174,2007 U.S. Open Footbag Championships,2007,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1176650845,3rd New Jersey Spike and Shred,2007,,Open Sick 3-Trick,1-4,,"1,2,3,4",,missing_middle
+1177512537,Championnats de France de Footbag,2007,,Open Singles Net,1-15,1-15,,11,extra_in_sheet
+1177512537,Championnats de France de Footbag,2007,,Open Singles Routines,1-7,,"1,2,3,4,5,7",,truncated_tail
+1177512537,Championnats de France de Footbag,2007,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1177512537,Championnats de France de Footbag,2007,,Open Sick Trick,1-4,,"1,2,3,4",,missing_middle
+1177615498,8th Annual Turku Open,2007,,,1-16,,1-16 (16 places),,missing_middle
+1179679872,German Footbag Championships 2007,2007,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1179874637,2007 Montreal Footbag Championships,2007,,,1-5,,"1,2,3,4,5",,missing_middle
+1180373807,Finnish Footbag Championships 2007,2007,,Open Singles Routines,1-6,1-20,,7-20 (14 places),extra_in_sheet
+1180373807,Finnish Footbag Championships 2007,2007,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1180496320,20th Annual Vancouver Open Net Footbag Tournament,2007,,,1-4,,"1,2,3,4",,missing_middle
+1181021804,ShrEdmonton Freestyle Assembly 2007,2007,,,1-111,,"1,2,3,4,5,6,7,9,10,111",,truncated_tail
+1181021804,ShrEdmonton Freestyle Assembly 2007,2007,,Kyle Hewitt,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1182542776,Funtastik Summer Classic,2007,,,1-17,,1-17 (17 places),,missing_middle
+1183729267,9e Open de France de Footbag,2007,,Open Singles Routines,1-17,1-32,,10-32 (21 places),extra_in_sheet
+1183729267,9e Open de France de Footbag,2007,,Women's Singles Routines,1-5,1-6,,6,extra_in_sheet
+1183729267,9e Open de France de Footbag,2007,,Open Sick 3-Trick,1-12,,1-12 (12 places),,missing_middle
+1183729267,9e Open de France de Footbag,2007,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1185458086,Footbagmania 3007 - Polish Footbag Championships,2007,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1185556078,Austrian Footbag Championships 2007,2007,,Open Singles Routines,1-11,,"1,2,3,4,5,6,7,8,9,11",,truncated_tail
+1185556078,Austrian Footbag Championships 2007,2007,,Open Shred:30,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1189535136,3rd Annual Shred Idaho Jam,2007,,Rippin Run,1,,1,,missing_middle
+1191627566,Cornell Footbag Jam 2,2007,,Intermediate circle,1-4,1-3,4,,truncated_tail
+1192722292,Russian Footbag Freestyle Jam,2007,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1195773772,Zocha Jam 2007,2007,,Women's Singles Routines,1-3,,"1,2,3",,missing_middle
+1195773772,Zocha Jam 2007,2007,,Open Shred:30,1-3,,"1,2,3",,missing_middle
+1195773772,Zocha Jam 2007,2007,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1189467124,Phoenix Open,2008,,,1-9,,"1,2,3,4,5,7,9",,truncated_tail
+1189977929,2008 Southern Regional Footbag Championships,2008,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1193783964,U.S. Open Footbag Championships,2008,,Open Sick 3-Trick,1-4,2-4,1,,missing_middle
+1193783964,U.S. Open Footbag Championships,2008,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1195585401,The 2008 Green Cup Presented by Chaos,2008,,,1-32,,1-32 (32 places),,missing_middle
+1195677906,FC Footstar's 10th anniversary,2008,,,1-3,,"1,2,3",,missing_middle
+1199106237,10th Annual IFPA European Footbag Championships,2008,,Open Singles Routines,1-17,1-48,,10-48 (37 places),extra_in_sheet
+1199106237,10th Annual IFPA European Footbag Championships,2008,,Women's Singles Routines,1-3,,"1,2,3",,missing_middle
+1199106237,10th Annual IFPA European Footbag Championships,2008,,Open Shred:30,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1200325415,Greater Rochester Area Shred Symposium 2008,2008,,DATES AND TIMES,3-12,,"3,6,11,12",,truncated_tail
+1200325415,Greater Rochester Area Shred Symposium 2008,2008,,HOTEL,175,,175,,missing_middle
+1200325415,Greater Rochester Area Shred Symposium 2008,2008,,HOTEL RESERVATIONS,1-3,,"1,2,3",,missing_middle
+1201811757,Southeastern Net Championships,2008,,Official Tournament Results,1-12,,1-12 (11 places),,truncated_tail
+1202118857,JFK March Mayhem,2008,,,1-14,,1-14 (14 places),,missing_middle
+1203102773,The 2008 Windy City Cup,2008,,,1-11,,1-11 (11 places),,missing_middle
+1203102773,The 2008 Windy City Cup,2008,,Windy City Cup Champions,1-2,,"1,2",,missing_middle
+1203604560,CommALaMaison Contest 2008,2008,,,1-17,,"1,2,3,4,5,9,10,11,13,17",,truncated_tail
+1204006435,The 2008 Pro Kicker Windchill,2008,,,1-12,,1-12 (12 places),,missing_middle
+1204904987,RNH Contest 2008,2008,,Open Singles Routines,1-6,1-18,,7-18 (12 places),extra_in_sheet
+1204904987,RNH Contest 2008,2008,,Open Sick 3-Trick,1-4,4,"1,2,3",,missing_middle
+1204904987,RNH Contest 2008,2008,,Open Sick Trick,1-4,,"1,2,3,4",,missing_middle
+1205552627,5th Annual JFK Net Battle,2008,,,1-18,,1-18 (18 places),,missing_middle
+1208345952,9th Annual Turku Open,2008,,,1-22,,1-22 (22 places),,missing_middle
+1208408135,ShrEdmonton Freestyle Assembly 2008,2008,,,1-3,,"1,2,3",,missing_middle
+1212406878,French Footbag Championships 2008,2008,,Open Singles Routines,1-5,,"1,2,3,5",,truncated_tail
+1212769063,24th Annual Midwest Regional Footbag Championships,2008,,,1-3,,"1,2,3",,missing_middle
+1216058526,Funtastik Summer Classic Footbag Tournament,2008,,Open Singles Routines,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1216849705,Texas Statewide Tournament 2008,2008,,Open Sick 3-Trick,1-5,,"1,2,3,4,5",,missing_middle
+1216849705,Texas Statewide Tournament 2008,2008,,Open Sick Trick,1-5,,"1,2,3,4,5",,missing_middle
+1216849705,Texas Statewide Tournament 2008,2008,,Open Circle Contest,1-5,,"1,2,3,4,5",,missing_middle
+1218721346,Memphicago Kick Volley Challenge 1,2008,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1219405634,8th Annual Polish Footbag Championships 2008,2008,,Women's Singles Routines,1-5,,"1,2,3,4,5",,missing_middle
+1219405634,8th Annual Polish Footbag Championships 2008,2008,,Open Shred:30,1-13,,1-13 (13 places),,missing_middle
+1219405634,8th Annual Polish Footbag Championships 2008,2008,,Open Sick 3-Trick,1-2,,"1,2",,missing_middle
+1219405634,8th Annual Polish Footbag Championships 2008,2008,,Open Circle Contest,1-24,1-23,"13,19,24","12,18,23",tie_lost
+1219405634,8th Annual Polish Footbag Championships 2008,2008,,Open 2-Square,1-5,,"1,2,3,4,5",,missing_middle
+1220466807,East Coast Footbag Championships,2008,,Open Singles Routines,1-6,1-3,"4,5,6",,truncated_tail
+1220466807,East Coast Footbag Championships,2008,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1220519679,Finnish Footbag Singles Net Championships,2008,,,1-18,,1-18 (18 places),,missing_middle
+1221506867,JFK Fall Fury,2008,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1222687523,10e Open de France de Footbag,2008,,Open Singles Routines,1-10,1-37,,8-37 (29 places),extra_in_sheet
+1222687523,10e Open de France de Footbag,2008,,Women's Singles Routines,1-2,,"1,2",,missing_middle
+1222687523,10e Open de France de Footbag,2008,,Open Sick 3-Trick,1-7,1-8,"2,3,4,6,7",8,tie_lost
+1222687523,10e Open de France de Footbag,2008,,Open Sick Trick,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1224962900,Zocha Jam 2008,2008,,Open Singles Routines,1-19,,1-19 (12 places),,truncated_tail
+1224962900,Zocha Jam 2008,2008,,Women's Singles Routines,1-3,,"1,2,3",,missing_middle
+1224962900,Zocha Jam 2008,2008,,Intermediate Singles Routines,1-2,,"1,2",,missing_middle
+1224962900,Zocha Jam 2008,2008,,Open Shred:30,1-3,,"1,2,3",,missing_middle
+1224962900,Zocha Jam 2008,2008,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1226938152,Finnish Footbag Championships,2008,,Open Singles Routines,1-6,,"1,2,3,4,5,6",,missing_middle
+1226938152,Finnish Footbag Championships,2008,,Open Shred:30,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1226938152,Finnish Footbag Championships,2008,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1225370942,Frankfurt Footbag Open - *Bembel Cup 2009*,2009,,Frankfurt Footbag Open - Bembel Cup 2009 - results,1-22,,1-22 (22 places),,missing_middle
+1226549669,"""The Mud Island Belt"" 2009 presented by Memphis Footworks",2009,,,1-15,,1-15 (15 places),,missing_middle
+1226679678,30th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,2009,,Open Singles Routines,1-8,1-72,,9-72 (64 places),extra_in_sheet
+1226679678,30th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,2009,,Women's Singles Routines,1-6,1-10,,"7,8,9,10",extra_in_sheet
+1229435305,2009 Windy City Cup presented by CLCK,2009,,,1-11,,1-11 (11 places),,missing_middle
+1230850031,"Montreal's 2009 First Single Net Footbag Championships, presented by AKIQ",2009,,,1-12,,1-12 (12 places),,missing_middle
+1231286017,2009 U.S. Open Footbag Net Championships,2009,,US OPEN RESULTS,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1232474501,2009 Green Cup Presented by Chaos,2009,,,1-30,,1-30 (30 places),,missing_middle
+1233299407,2009 U.S. Open Freestyle Footbag Championships,2009,,Open Singles Routines,1-9,1-9,,6,extra_in_sheet
+1233299407,2009 U.S. Open Freestyle Footbag Championships,2009,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1235149093,RNH Contest 2009,2009,,,1-22,,1-22 (22 places),,missing_middle
+1235253768,2009 Southern Regional Footbag Championships,2009,,Open Singles Routines,1-5,,"1,2,3,4,5",,missing_middle
+1235504528,JFK March Mayhem,2009,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1235653935,11th Annual IFPA European Footbag Championships - Strzelin,2009,,Open Singles Routines,1-21,1-23,,"10,12,14,16,18,19,20,22,23",extra_in_sheet
+1235653935,11th Annual IFPA European Footbag Championships - Strzelin,2009,,Women's Singles Routines,1-7,1-4,"5,6,7",,truncated_tail
+1235653935,11th Annual IFPA European Footbag Championships - Strzelin,2009,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1239056543,"The AkiSphere 2009, presented by AKIQ (Montreal Net)",2009,,,1-21,,1-21 (21 places),,missing_middle
+1239721441,End of Winter Jam,2009,,Letter Contest,1-3,,"1,2,3",,missing_middle
+1240469006,Turku Open 2009,2009,,,1-11,,1-11 (11 places),,missing_middle
+1241011525,2009 French Footbag Championships,2009,,Open Singles Routines,1-7,1-23,,8-23 (16 places),extra_in_sheet
+1242210886,JFK Net Battle,2009,,,1-13,,1-13 (13 places),,missing_middle
+1245793403,Funtastik Summer Classic,2009,,Open Singles Routines,1-5,,"1,2,3,4,5",,missing_middle
+1250478677,Montreal End-of-Summer Jam 1,2009,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1251952403,X-PRO Cup (Copa X-PRO),2009,,,3,,3,,missing_middle
+1251952403,X-PRO Cup (Copa X-PRO),2009,,SINGLES,19,1-19,,1-18 (18 places),extra_in_sheet
+1251952403,X-PRO Cup (Copa X-PRO),2009,,DOUBLES,13,,13,,missing_middle
+1252110023,2009 East-Coast Footbag Championships,2009,,Open Singles Routines,1-5,,"1,2,3,4,5",,missing_middle
+1252110023,2009 East-Coast Footbag Championships,2009,,Open Circle Contest,1-3,,"1,2,3",,missing_middle
+1254829577,Finnish Footbag Championships,2009,,Open Singles Routines,1,1-14,,2-14 (13 places),extra_in_sheet
+1254829577,Finnish Footbag Championships,2009,,Open Circle Contest,1-7,,"1,2,3,4,5,7",,truncated_tail
+1255335697,Prague Net Open,2009,,,1-15,,1-15 (15 places),,missing_middle
+1255957016,Zocha Jam 2009,2009,,Open Singles Routines,1-17,,1-17 (11 places),,truncated_tail
+1255957016,Zocha Jam 2009,2009,,Women's Singles Routines,1-3,,"1,2,3",,missing_middle
+1255957016,Zocha Jam 2009,2009,,Open Shred:30,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1255957016,Zocha Jam 2009,2009,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1257621700,German Footbag Championships 2009,2009,,Open Singles Routines,1-3,1-18,,4-18 (15 places),extra_in_sheet
+1252451527,Funtastik Summer Classic,2010,,Open Singles Routines,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1252451527,Funtastik Summer Classic,2010,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1260368810,Frankfurt Footbag 10th Anniversary Jam,2010,,Teilnehmerfeld,1-11,,1-11 (11 places),,missing_middle
+1260368810,Frankfurt Footbag 10th Anniversary Jam,2010,,Vorgeschichte,14,,14,,missing_middle
+1260368810,Frankfurt Footbag 10th Anniversary Jam,2010,,Loch 4 (Black Wi(n)dow),1,,1,,missing_middle
+1262288759,2010 U.S. Open Footbag Net Championships,2010,,Full Results,1-11,,1-11 (11 places),,missing_middle
+1264098849,2010 Mud Island Belt Presented by Memphis Footworks,2010,,,1-16,,1-16 (16 places),,missing_middle
+1265745512,31st IFPA WORLD FOOTBAG CHAMPIONSHIPS,2010,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1265850138,U. S. Open Freestyle Footbag Championships,2010,,Intermediate Singles Routines,1-2,1-3,,3,extra_in_sheet
+1265850138,U. S. Open Freestyle Footbag Championships,2010,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1265850138,U. S. Open Freestyle Footbag Championships,2010,,Open Circle Contest,1-3,,"1,2,3",,missing_middle
+1267199851,WSF Mistrzostwa Pragi w Grze w Zoske,2010,,Open Sick 3-Trick,1-2,,"1,2",,missing_middle
+1267199851,WSF Mistrzostwa Pragi w Grze w Zoske,2010,,Open 2-Square,1-3,,"1,2,3",,missing_middle
+1267469140,Footcamp 2010,2010,,,1-17,,1-17 (17 places),,missing_middle
+1267718326,3rd Annual Windy City Cup,2010,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1267920908,KICK VOLLEY 02,2010,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1268191383,2010 Southern Regional Footbag Championships,2010,,,1-4,,"1,2,3,4",,missing_middle
+1268338685,II Spanish OPEN,2010,,,1,,1,,missing_middle
+1268407783,2010 East Coast Footbag Championships,2010,,Open Singles Routines,1-6,,"1,2,3,4,5,6",,missing_middle
+1268407783,2010 East Coast Footbag Championships,2010,,Open Sick 3-Trick,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1268407783,2010 East Coast Footbag Championships,2010,,Open Circle Contest,1-7,,"1,2,3,4,5,7",,truncated_tail
+1268445253,2010 Green Cup Presented by Chaos,2010,,,1-24,,1-24 (24 places),,missing_middle
+1269111845,"The King of the Hill 2010, presented by Aki Québec",2010,,,1-12,,1-12 (12 places),,missing_middle
+1269266785,12th Annual IFPA European Footbag Championships - Brussels,2010,,Women's Singles Routines,1-6,1-7,,7,extra_in_sheet
+1269266785,12th Annual IFPA European Footbag Championships - Brussels,2010,,Open 2-Square,1-4,,"1,2,3,4",,missing_middle
+1269860787,March Mayhem 2010,2010,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1270631935,RNH Contest 2010,2010,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1270631935,RNH Contest 2010,2010,,Semi-finals,3,,3,,missing_middle
+1270631935,RNH Contest 2010,2010,,Finals,1-17,,1-17 (17 places),,missing_middle
+1271270281,*Bembel Cup 2010*,2010,,,1-19,,1-19 (19 places),,missing_middle
+1271275118,Turku Open 2010,2010,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1272817638,"The AkiSphere 2010, presented by AKIQ",2010,,Doubles,1-13,1-13,8,,truncated_tail
+1273248665,4th Annual NYFA Freestyle and Net Symposium,2010,,Intermediate Singles Routines,1-2,1-4,,"3,4",extra_in_sheet
+1273248665,4th Annual NYFA Freestyle and Net Symposium,2010,,Open Circle Contest,1-5,1-4,5,,truncated_tail
+1280002674,Finnish Footbag Championships,2010,,Open Singles Routines,1-6,1-11,,"7,8,9,10,11",extra_in_sheet
+1280002674,Finnish Footbag Championships,2010,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1282224512,12th Annual German Footbag Championships,2010,,Open Singles Routines,1-8,1-35,,9-35 (27 places),extra_in_sheet
+1285506605,2010 NYJ/Midwest Regionals Footbag Championships,2010,,,1-5,,"1,2,3,4,5",,missing_middle
+1285989828,Footbag Táchira Cup (Copa Tachira),2010,,Doubles Semifinals,15,1-6,15,"1,2,3,4,5,6",tie_lost
+1286381206,2da. Copa X-PRO,2010,,,1-13,,1-13 (13 places),,missing_middle
+1286644859,Czech Footbag Championship 2010,2010,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1287439208,Naantalin Seudun Mestaruuskilpailut,2010,,,1-4,,"1,2,3,4",,missing_middle
+1288096032,Zocha Jam 2010,2010,,Women's Singles Routines,1-4,,"1,2,3,4",,missing_middle
+1288096032,Zocha Jam 2010,2010,,Open Shred:30,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1288096032,Zocha Jam 2010,2010,,Open Sick 3-Trick,1-6,,"1,2,3,4,5,6",,missing_middle
+1290861524,Bembel Cup 2011: Gimbledon Championships,2011,,,1-21,,1-21 (21 places),,missing_middle
+1293877677,32nd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2011,,Open Singles Net,1-59,1-59,,58,extra_in_sheet
+1293877677,32nd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2011,,Open Mixed Doubles Net,1-14,1-37,,15-37 (23 places),extra_in_sheet
+1294262550,12e Open de France de Footbag,2011,,Open Singles Routines,1-11,1-12,"7,9,11","8,10,12",tie_lost
+1294262550,12e Open de France de Footbag,2011,,Open Circle Contest,1-4,,"1,2,3,4",,missing_middle
+1295262886,2011 Prague Open,2011,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1295842442,US OPEN Footbag Net Championships 2011,2011,,Full IFPA results,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1297811412,11th Annual Polish Footbag Championships 2011,2011,,Open Singles Routines,1-13,1-13,,"10,11,12",extra_in_sheet
+1297811412,11th Annual Polish Footbag Championships 2011,2011,,Intermediate Singles Routines,1-5,1-9,,9,extra_in_sheet
+1297811412,11th Annual Polish Footbag Championships 2011,2011,,Open 2-Square,1-9,,"1,2,3,4,5,9",,truncated_tail
+1297909685,2da Copa Ciencias,2011,,,1-13,,1-13 (13 places),,missing_middle
+1298627369,13th Annual German Footbag Championships,2011,,Open Singles Routines,1-8,1-23,,9-23 (15 places),extra_in_sheet
+1298627369,13th Annual German Footbag Championships,2011,,Open Shred:30,1-4,,"1,2,3,4",,missing_middle
+1299019355,10 years Pieds à Gilles - 7th Swiss Footbag Open,2011,,,1-25,,1-25 (25 places),,missing_middle
+1299532552,4th Annual Windy City Cup Footbag Net Championships,2011,,,1-13,,1-13 (13 places),,missing_middle
+1301675662,2da Copa Venezuela,2011,,,1-18,,1-18 (18 places),,missing_middle
+1301837824,"The AkiSphere 2011, presented by AKIQ",2011,,Open Singles Net,1-14,1-13,14,,truncated_tail
+1301837824,"The AkiSphere 2011, presented by AKIQ",2011,,Open Doubles Net,1-11,1-11,10,,truncated_tail
+1305581560,French Footbag Championships 2011,2011,,Open Singles Routines,1-6,,"1,3,4,5,6",,truncated_tail
+1310408325,24th Annual Vancouver Open & Golf Tournament,2011,,Open Mixed Doubles Net,1-4,1-9,,"5,6,7,8,9",extra_in_sheet
+1311699287,3ra Copa X-PRO,2011,,,1-17,,1-17 (17 places),,missing_middle
+1313351184,2011 East Coast Footbag Championships,2011,,Open Singles Routines,1-7,1-4,"5,6,7",,truncated_tail
+1313351184,2011 East Coast Footbag Championships,2011,,Intermediate Singles Routines,1-3,1-4,,4,extra_in_sheet
+1313351184,2011 East Coast Footbag Championships,2011,,Open Circle Contest,2-4,1-4,,1,extra_in_sheet
+1313351184,2011 East Coast Footbag Championships,2011,,Intermediate Circle Contest,2,1-3,,"1,3",extra_in_sheet
+1314323534,5to Campeonato Suramericano de Footbag,2011,,Open Circle Contest,1-3,,"1,2,3",,missing_middle
+1316280393,8th Annual Wilanow Footbag Open 2011,2011,,Open 2-Square,1-4,,"1,2,3,4",,missing_middle
+1320232300,RNH Contest 2011,2011,,,1-14,,1-14 (14 places),,missing_middle
+1321368279,Finnish Footbag Championships,2011,,,1-17,,1-17 (17 places),,missing_middle
+1319622692,14th FC Footstar anniversary,2012,,Open Singles Routines,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1323272493,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2012,,Open Doubles Routines,1-5,1-7,,"6,7",extra_in_sheet
+1323272493,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2012,,Open Shred:30,1-31,1-31,,28,extra_in_sheet
+1323272493,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2012,,Open Sick 3-Trick,1-21,6-21,1-20 (18 places),,truncated_tail
+1323272493,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2012,,Open Circle Contest,1-32,1-30,"24,32","21,30",tie_lost
+1323272493,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2012,,Women's Circle Contest,1-7,1-6,7,6,tie_lost
+1331667371,Paris Net Battle 2,2012,,Open Doubles Net,1-13,1-22,,"14,15,16,17,18,19,20,21,22",extra_in_sheet
+1336988107,12th Annual IFPA Polish Footbag Championships 2012,2012,,Open Shred:30,1-13,1-15,,"14,15",extra_in_sheet
+1337617980,German Footbag Open (14th Annual German Footbag Championships),2012,,Open Singles Routines,1-8,1-26,,9-26 (18 places),extra_in_sheet
+1337623340,30th Annual East Coast Footbag Championships,2012,,Intermediate Circle Contest,1-4,1-4,,3,extra_in_sheet
+1344593549,IFPA Austrian Footbag Champs 2012,2012,,Women's Singles Routines,1,,1,,missing_middle
+1344593549,IFPA Austrian Footbag Champs 2012,2012,,Open Shred:30,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1346947092,6o Suramericano de Footbag,2012,,Open Singles Routines,2-3,,"2,3",,missing_middle
+1346947092,6o Suramericano de Footbag,2012,,Open Shred:30,2-3,1-3,2,1,tie_lost
+1346947092,6o Suramericano de Footbag,2012,,Open Sick 3-Trick,1-2,,"1,2",,missing_middle
+1346947092,6o Suramericano de Footbag,2012,,Open Sick Trick,2-3,,"2,3",,missing_middle
+1346947092,6o Suramericano de Footbag,2012,,Open Circle Contest,2-3,,"2,3",,missing_middle
+1346948712,1o Torneo Nacional de Footbag,2012,,Open Sick 3-Trick,1-5,2-5,1,,missing_middle
+1346948712,1o Torneo Nacional de Footbag,2012,,Open Sick Trick,1-5,,"1,2,3,4,5",,missing_middle
+1346948712,1o Torneo Nacional de Footbag,2012,,Open Circle Contest,2-5,1-5,,1,extra_in_sheet
+1348171585,Texas State Footbag Championships 2012,2012,,,1-4,,"1,2,3,4",,missing_middle
+1357101984,U.S. OPEN Footbag Net Championships 2013,2013,,Women's Doubles Net,1-5,1-5,4,,truncated_tail
+1357101984,U.S. OPEN Footbag Net Championships 2013,2013,,Open Mixed Doubles Net,1-11,1-11,10,,truncated_tail
+1357101984,U.S. OPEN Footbag Net Championships 2013,2013,,Intermediate Doubles Net,1-6,1-5,6,,truncated_tail
+1357206898,Todexon 14,2013,,Open Shred:30,1-117,1-7,117,,truncated_tail
+1358271250,2013 Green Cup Presented by Chaos,2013,,Open Sick 3-Trick,1-5,5,"1,2,3,4",,missing_middle
+1361207019,34th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2013,,Open Sick 3-Trick,1-7,7,"1,2,3,4,5,6",,missing_middle
+1361239371,Copa San Sebastián,2013,,Open Singles Net,1-10,1-9,10,,truncated_tail
+1361239920,FOOTCAMP 2013,2013,,Open Singles Net,1-15,1-14,15,,truncated_tail
+1362657553,15th Annual IFPA European Footbag Championships,2013,,Open Singles Net,1-29,1-29,"20,28",,truncated_tail
+1362657553,15th Annual IFPA European Footbag Championships,2013,,Open Singles Routines,1-11,1-10,11,,truncated_tail
+1369141018,Burgas Summer Footbag Jam V,2013,,Open Singles Net,1-8,1-6,8,,truncated_tail
+1369141018,Burgas Summer Footbag Jam V,2013,,Open Doubles Net,1-6,1-5,6,,truncated_tail
+1374570632,17th Annual Finnish Footbag Open,2013,,Open Singles Routines,1-10,1-14,,"8,11,12,13,14",extra_in_sheet
+1374570632,17th Annual Finnish Footbag Open,2013,,Open Circle Contest,1-12,,"1,2,3,4,5,6,9,12",,truncated_tail
+1378666423,Danish Footbag Open,2013,,Pool A,1-3,,"1,2,3",,missing_middle
+1378666423,Danish Footbag Open,2013,,Pool B,1-3,,"1,2,3",,missing_middle
+1378666423,Danish Footbag Open,2013,,Pool C,1-4,,"1,2,3,4",,missing_middle
+1378666423,Danish Footbag Open,2013,,Pool D,1-13,,1-13 (12 places),,truncated_tail
+1378666423,Danish Footbag Open,2013,,DANISH CHAMPIONSHIPS,1-3,,"1,2,3",,missing_middle
+1382778441,Austrian Footbag Championships 2013,2013,,,1-10,,"1,2,3,4,5,6,7,10",,truncated_tail
+1389730147,Todexon 15,2014,,Open Sick 3-Trick,1-3,1-7,3,7,tie_lost
+1389730147,Todexon 15,2014,,Open Sick Trick,1-7,1-7,"3,5,6",,truncated_tail
+1391189882,35th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2014,,Open Sick 3-Trick,1-10,10,"1,2,3,4,5,6,7,8,9",,missing_middle
+1393451254,bulgarian open footbag jam part 24,2014,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1394742347,Seventh Annual Windy City Cup Footbag Net Championships,2014,,,1-11,,1-11 (11 places),,missing_middle
+1394773593,2014 Green Cup Presented by Chaos,2014,,Open Sick 3-Trick,1-3,,"1,2,3",,missing_middle
+1399929003,2da Copa Bobston de Footbag Net individual,2014,,Open Singles Net,2-6,,"2,3,6",,truncated_tail
+1405875596,32nd Annual East Coast Footbag Championships,2014,,Open Singles Routines,1-9,1-8,9,,truncated_tail
+1405875596,32nd Annual East Coast Footbag Championships,2014,,Intermediate Singles Routines,1-4,1-3,4,2,tie_lost
+1405875596,32nd Annual East Coast Footbag Championships,2014,,Intermediate Circle Contest,1-6,1-6,,2,extra_in_sheet
+1417000778,RNH Winter Contest 2014,2014,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1415986036,Todexon 16,2015,,Big1,1-3,,"1,2,3",,missing_middle
+1415986036,Todexon 16,2015,,Request,1-3,1-4,,4,extra_in_sheet
+1415986036,Todexon 16,2015,,Junior Contest,1-4,,"1,2,3,4",,missing_middle
+1417735560,36th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2015,,Open Shred:30,1-17,1-17,"2,4,5,7,10,11,12,13",,truncated_tail
+1417735560,36th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2015,,Women's Shred:30,1-6,5-6,"1,2,3,4",,missing_middle
+1430582557,5ta Copa Venezuela,2015,,Open Singles Net,1-13,,1-13 (13 places),,missing_middle
+1430582557,5ta Copa Venezuela,2015,,Open Doubles Net,1-12,,1-12 (12 places),,missing_middle
+1435110091,33rd Annual East Coast Footbag Championships,2015,,Open Singles Net,1-4,1-8,,"5,6,7,8",extra_in_sheet
+1436878168,19th Annual Finnish Footbag Open (FFA 20th anniversary special edition),2015,,,1-13,,1-13 (13 places),,missing_middle
+1439332196,XV IFPA Polish Footbag Championships,2015,,Big One,1-3,,"1,2,3",,missing_middle
+1439332196,XV IFPA Polish Footbag Championships,2015,,Most Rippin Run,1-3,,"1,2,3",,missing_middle
+1439332196,XV IFPA Polish Footbag Championships,2015,,Open Golf,1-9,1-3,"4,5,6,7,8,9",,truncated_tail
+1449217972,2015 Finnish Footbag Championships in Singles Net,2015,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1446571794,FC Footstar's 18th Anniversary,2016,,,1-19,,1-19 (19 places),,missing_middle
+1453384342,Bembel Cup 2016,2016,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1454371285,2016 Mud Island Belt presented by Memphis Footworks,2016,,,1-4,,"1,2,3,4",,missing_middle
+1455047000,9th Annual Windy City Cup Footbag Net Championships,2016,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1458125752,Bulgaria Footbag Open,2016,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1461077179,Zocha Jam 2016,2016,,,1-5,,"1,2,3,4,5",,missing_middle
+1463511970,Akisphere 2016,2016,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1464967908,34th Annual East Coast Footbag Championships,2016,,Intermediate Freestyle Circle Contest,1-5,1-4,5,,truncated_tail
+1466891959,Swiss Footbag Open 2016,2016,,,1-13,,1-13 (13 places),,missing_middle
+1466942562,18th Annual German Footbag Open,2016,,Seeding,1-15,,1-15 (13 places),,truncated_tail
+1467142686,16th Annual Polish Footbag Championships,2016,,Big 1,1-3,,"1,2,3",,missing_middle
+1467142686,16th Annual Polish Footbag Championships,2016,,Rippin Run,1-3,,"1,2,3",,missing_middle
+1471407009,20th Annual Finnish Footbag Open,2016,,,1-5,,"1,2,3,4,5",,missing_middle
+1473932659,Austrian Footbag Championships 2016,2016,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1471686537,38th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2017,2017,,Open Singles Routines,1-21,1-22,,"10,12,14,16,18,19,20,22",extra_in_sheet
+1471686537,38th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2017,2017,,Women's Singles Routines,1-4,1-6,3,"5,6",tie_lost
+1471686537,38th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2017,2017,,Intermediate Singles Routines,1-4,1-9,,"5,6,7,8,9",extra_in_sheet
+1485863923,17th Annual Polish Footbag Championships,2017,,Sick 3,1-9,1-8,9,,truncated_tail
+1485863923,17th Annual Polish Footbag Championships,2017,,Big 1,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1485967222,2017 Mud Belt Presented by Memphis Footworks,2017,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1485970612,Akisphere 2017,2017,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1487797845,19th Annual IFPA European Footbag Championships,2017,,,1-20,,1-20 (20 places),,missing_middle
+1487800738,Stara Zagora Footbag Jam 2017,2017,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1488957997,Swiss Footbag Open 2017,2017,,,1-13,,1-13 (13 places),,missing_middle
+1489248474,Lake Erie Footbag Tournament,2017,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1492354286,Tenth Annual Windy City Cup Footbag Net Championships,2017,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1497678985,Championnat de France de Footbag 2017,2017,,,1-18,,1-18 (18 places),,missing_middle
+1498568502,Austrian Footbag Championships 2017,2017,,,1-14,,"1,2,3,4,5,7,8,9,10,14",,truncated_tail
+1499025778,19th Annual German Footbag Championships 2017,2017,,,1-25,,1-25 (25 places),,missing_middle
+1499168069,Bulgarian Footbag Championships 2017,2017,,,1-22,,"1,2,3,4,5,6,7,22",,truncated_tail
+1509295388,Finnish Footbag Net Championships,2017,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1509295589,Finnish Freestyle Footbag Championships,2017,,,1-5,,"1,2,3,4,5",,missing_middle
+1502997442,Lake Erie Footbag Tournament & Freestyle Jam,2018,,,1-13,,1-13 (13 places),,missing_middle
+1515176008,Copa Medellin De Footbag,2018,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1516978874,RNH Contest 2018,2018,,,1-13,,1-13 (13 places),,missing_middle
+1519215398,39th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2018,2018,,Open Doubles Net,1-24,1-36,"23,24",17-36 (13 places),tie_lost
+1519233007,Bulgarian Footbag Championships 2018,2018,,,1-28,,"1,2,3,4,5,6,7,8,28",,truncated_tail
+1520348349,2018 Mud Belt presented by Memphis Footworks,2018,,,201,,201,,missing_middle
+1520348349,2018 Mud Belt presented by Memphis Footworks,2018,,Results,1-6,,"1,2,3,4,5,6",,missing_middle
+1520596747,Championnat de France de footbag 2018,2018,,,1-12,,1-12 (12 places),,missing_middle
+1524683077,36th Annual East Coast Footbag Championships,2018,,Open Freestyle Routines (2-minute choreographed performance),1-4,,"1,2,3,4",,missing_middle
+1526035381,Bembel Cup 2018 - 10th Anniversary,2018,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1526588580,Akisphere 2018,2018,,,1-15,,1-15 (15 places),,missing_middle
+1527557123,Suramericano de Footbag Net y Freestyle,2018,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1531284609,XVIII Polish Footbag Championships - Krakow 2018,2018,,Overall Polish Freestyle,1-18,,1-18 (18 places),,missing_middle
+1531311472,Open de France 2018,2018,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1536221908,Austrian Footbag Championships 2018,2018,,,1-13,,1-13 (12 places),,truncated_tail
+1537521152,Footbag Finnish Open,2018,,,1-5,,"1,2,3,4,5",,missing_middle
+1537994275,2o Torneo Nacional de Footbag,2018,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1537994275,2o Torneo Nacional de Footbag,2018,,Big One Resultados,1-3,,"1,2,3",,missing_middle
+1529239199,Lake Erie Footbag Tournament,2019,,Doubles,1-12,1-7,"8,9,10,11,12",,truncated_tail
+1529239199,Lake Erie Footbag Tournament,2019,,Footbag Net Novice Doubles,1-11,1,"2,3,4,5,6,7,8,9,10,11",,truncated_tail
+1547415984,40th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2019,2019,,,1-221,,1-221 (41 places),,truncated_tail
+1547720079,Open de France 2019,2019,,,1-15,,1-15 (15 places),,missing_middle
+1549597969,4ta Copa BoBston de Footbag 2019,2019,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1551207285,RNH Contest 2019,2019,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1555631351,US Open Footbag Championships 2019,2019,,,1-19,,1-19 (19 places),,missing_middle
+1556306551,Akisphere 2019,2019,,,1-13,,1-13 (13 places),,missing_middle
+1556730450,I. Basque Tournament of Footbag (Doubles),2019,,Event Details,1-3,,"1,2,3",,missing_middle
+1557144269,11th Bembel Cup 2019 - a jam with friends,2019,,Seeding,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1557144269,11th Bembel Cup 2019 - a jam with friends,2019,,Results,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1557331196,Mud Belt Presented by Memphis Footworks,2019,,,1-3,,"1,2,3",,missing_middle
+1564005204,I. Ereaga Footbag Net Tournament (Doubles) 2019,2019,,,1-4,,"1,2,3,4",,missing_middle
+1566500647,I. Basque Tournament of Footbag Net (Individual),2019,,,1-23,,"1,2,3,4,5,23",,truncated_tail
+1566532030,German Footbag Open 2019,2019,,,1-16,,1-16 (16 places),,missing_middle
+1567551985,XIX Polish Footbag Championships - Krakow 2019,2019,,Open Battles,1-4,2,"1,3,4",,truncated_tail
+1567551985,XIX Polish Footbag Championships - Krakow 2019,2019,,Open Circle Contest,1-4,2,"1,3,4",,truncated_tail
+1567551985,XIX Polish Footbag Championships - Krakow 2019,2019,,Sick 3,1-3,1-5,,"4,5",extra_in_sheet
+1567551985,XIX Polish Footbag Championships - Krakow 2019,2019,,Big 1,1-5,,"1,2,3,4,5",,missing_middle
+1568289502,Bulgarian Footbag Open Vol.2,2019,,Games,1-5,,"1,3,5",,truncated_tail
+1568289502,Bulgarian Footbag Open Vol.2,2019,,Winners,1-6,,"1,2,3,4,5,6",,missing_middle
+1568692191,MedeJam de Footbag 2019,2019,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1568692191,MedeJam de Footbag 2019,2019,,Big One Resultados,1-3,,"1,2,3",,missing_middle
+1568961264,RNH Footbag 20th Anniversary,2019,,,1-20,,1-20 (20 places),,missing_middle
+1574365921,Basque Open Footbag Net Tournament (Doubles),2019,,,1-4,,"1,2,3,4",,missing_middle
+1576342966,Footbag Finnish Open,2019,,Full results,1-6,,"1,2,3,4,5,6",,missing_middle
+1584223469,II.Basque Tournament of Footbag (Net - Individual),2020,,,1-3,,"1,2,3",,missing_middle
+1593340253,I.Bilbao Tournament (Doubles - Net),2020,,,1-4,,"1,2,3,4",,missing_middle
+1598616506,II. Basque Tournament of Footbag Net (Individual),2020,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1628025851,Akisphere 2020,2020,,,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1614772897,Bulgarian Footbag Open 2021,2021,,,1-4,,"1,2,3,4",,missing_middle
+1617902706,III.Basque Tournament of Footba Net (Individual),2021,,,1-5,,"1,2,3,4,5",,missing_middle
+1625854837,39th Annual East Coast Footbag Championships,2021,,,1-3,,"1,2,3",,missing_middle
+1625854837,39th Annual East Coast Footbag Championships,2021,,Open 2 Minute Routines,1-3,2-3,1,,missing_middle
+1628025574,Akisphere 2021,2021,,,1-11,,1-11 (11 places),,missing_middle
+1628596712,II. Basque Tournament of Footbag Net (Doubles),2021,,,1-2,,"1,2",,missing_middle
+1634665636,XXI Polish Footbag Championships - Warsaw 2021,2021,,,1-11,,1-11 (11 places),,missing_middle
+1634665636,XXI Polish Footbag Championships - Warsaw 2021,2021,,Overall,1-3,,"1,2,3",,missing_middle
+1634938934,II.Basque Open Footbag Net Tournament (Doubles),2021,,,1-202,,"1,2,3,4,201,202",,truncated_tail
+1565425638,Swiss Footbag Open 2022,2022,,,1-23,,1-23 (13 places),,truncated_tail
+1645621833,IV.Basque Tournament of Footbag Net (Individual),2022,,Here the results,1-6,,"1,2,3,4,5,6",,missing_middle
+1646387871,41st IFPA WORLD FOOTBAG CHAMPIONSHIPS 2022,2022,,Women's Singles Net,1-6,,"1,2,3,4,5,6",,missing_middle
+1646387871,41st IFPA WORLD FOOTBAG CHAMPIONSHIPS 2022,2022,,Women's Doubles Net,1-3,,"1,2,3",,missing_middle
+1646387871,41st IFPA WORLD FOOTBAG CHAMPIONSHIPS 2022,2022,,Open Mixed Doubles Net,1-6,1-20,,7-20 (14 places),extra_in_sheet
+1647508742,Open de France de Footbag 2022,2022,,,1-13,,1-13 (13 places),,missing_middle
+1649177702,40th Annual East Coast Footbag Championships,2022,,,1-8,,"1,2,3,4,5,6,8",,truncated_tail
+1653152207,Akisphere 2022,2022,,Results,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1653647467,I. Elorrieta Tournament of Footbag Net (Basque Country),2022,,,1-4,,"1,2,3,4",,missing_middle
+1657486956,II. Ereaga Tournament of Footbag Net,2022,,Here the results,1-4,,"1,2,3,4",,missing_middle
+1669556651,III.Basque Tournament of Footbag Net (Doubles),2022,,,1-4,,"1,2,3,4",,missing_middle
+1664206719,2023 US Open,2023,,Special thanks to,1-9,,"1,2,3,4,5,6,7,8,9",,missing_middle
+1664206719,2023 US Open,2023,Emmanuel Bouchard 14240,,1-5,,"1,2,3,4,5",,missing_middle
+1664206719,2023 US Open,2023,Emmanuel Bouchard 14240,"Circle, First place",2-4,,"2,3,4",,missing_middle
+1664206719,2023 US Open,2023,Emmanuel Bouchard 14240,"Routines, First place",2-4,,"2,3,4",,missing_middle
+1664206719,2023 US Open,2023,Emmanuel Bouchard 14240,First place,2,,2,,missing_middle
+1673723574,Bulgarian Footbag Open 2023,2023,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1677285621,V. Basque Tournament of Footbag Net (Individual),2023,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1677937557,13th Bembel Cup 2023,2023,,,1-11,,1-11 (11 places),,missing_middle
+1678957450,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,2023,,Open Singles Net,1-33,1-33,,3,extra_in_sheet
+1678957450,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,2023,,Women's Doubles Net,1-5,1-10,,"6,7,8,9,10",extra_in_sheet
+1678957450,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,2023,,Intermediate Singles Net,1,1-9,,"2,3,4,5,9",extra_in_sheet
+1678957450,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,2023,,Intermediate Doubles Net,1-5,1-5,,2,extra_in_sheet
+1678957450,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,2023,,Master Singles Net,1-5,1-4,5,,truncated_tail
+1686926080,Akisphere,2023,,,1-12,,1-12 (12 places),,missing_middle
+1688144863,41st Annual East Coast Footbag Championships,2023,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1690897570,IV.Basque Tournament of Footbag Net (Doubles),2023,,,1-3,,"1,2,3",,missing_middle
+1692508794,Bulgarian Footbag Championships,2023,,,1-4,,"1,2,3,4",,missing_middle
+1694170899,XXIII Polish Footbag Championships - Warsaw 2023,2023,,,1-11,,1-11 (11 places),,missing_middle
+1694868513,German Footbag Open 2023,2023,,,1-12,,1-12 (12 places),,missing_middle
+1699593640,8vo Suramericano Footbag Net 2023,2023,,,1-26,,1-26 (26 places),,missing_middle
+1700920831,Finnish Footbag Open 2023,2023,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1706036811,43rd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2024,2024,,,1-20,,1-20 (20 places),,missing_middle
+1706536250,14th Bembel Cup 2024 - a jam with friends,2024,,,10-12,,"10,11,12",,missing_middle
+1709070838,Swiss Footbag Open 2024,2024,,,1-12,,1-12 (12 places),,missing_middle
+1709496969,Open de France de Footbag 2024,2024,,,1-12,,1-12 (12 places),,missing_middle
+1711181388,Bulgarian Footbag Open 2024,2024,,Open Singles,1-25,1-4,25,,truncated_tail
+1711182054,24th IFPA European Footbag Championships,2024,,,1-12,,1-12 (12 places),,missing_middle
+1713276656,1era Copa Footbag Net - Altos Mirandinos,2024,,,1-18,,1-18 (17 places),,truncated_tail
+1721038326,RNH Contest 2024,2024,,,1-13,,1-13 (13 places),,missing_middle
+1721817655,VI. Basque Tournament of Footbag Net (Individual),2024,,Results,1-11,,"1,2,3,4,5,6,9,11",,truncated_tail
+1721923932,V.Basque Tournament of Footbag Net (Doubles),2024,,,15,,15,,missing_middle
+1721923932,V.Basque Tournament of Footbag Net (Doubles),2024,,These were the results,1-3,,"1,2,3",,missing_middle
+1722339396,Czech Footbag champioships 2024,2024,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1727756195,24th Polish Footbag Championships - Krakow 2024,2024,,Request,1-3,1-8,,"4,5,6,7,8",extra_in_sheet
+1727756195,24th Polish Footbag Championships - Krakow 2024,2024,,STREET,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1728384115,I. Santutxu Tournament of Footbag (Net),2024,,,1-4,,"1,2,3,4",,missing_middle
+1730420667,5ta Copa Bobston de Footbag Net,2024,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1733755410,Segunda 'Copa Perpetual Flame',2024,,"Cup, held in Caracas, Venezuela",1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1737312020,Canadian Closed,2025,,,28-30,,"28,30",,truncated_tail
+1739036206,Bulgarian Footbag Open 2025,2025,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1740391168,25th IFPA European Footbag Championships 2025,2025,,Open Singles,10-16,1-16,,"1,2,3,4,5,6,7,8,9",extra_in_sheet
+1740391168,25th IFPA European Footbag Championships 2025,2025,,Open Doubles,10-16,1-16,,"1,2,3,4,5,6,7,8,9",extra_in_sheet
+1740419380,Swiss Footbag Open 2025,2025,,,1-15,,1-15 (15 places),,missing_middle
+1741024635,44th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2025,2025,,,1-42,,1-42 (42 places),,missing_middle
+1742511366,VII.Basque Tournament of Footbag Net (Individual),2025,,,1-7,,"1,2,3,4,5,6,7",,missing_middle
+1745298933,Czech Footbag champioships 2025,2025,,,1-5,,"1,2,3,4,5",,missing_middle
+1745686591,Footbag Finnish Open 2024 - Singles Net,2025,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1746737817,Akisphere 2025,2025,,,1-10,,"1,2,3,4,5,6,7,8,9,10",,missing_middle
+1749326277,Footbag Finnish Open,2025,,,1-8,,"1,2,3,4,5,6,7,8",,missing_middle
+1752525121,VI. Basque Tournament of Footbag Net (Doubles),2025,,,1-3,,"1,2,3",,missing_middle
+1753997172,RNH Contest 2025,2025,,,1-14,,1-14 (14 places),,missing_middle
+1756448770,Bulgarian Footbag Championships 2025,2025,,,1-6,,"1,2,3,4,5,6",,missing_middle
+1756448770,Bulgarian Footbag Championships 2025,2025,,Finals,1-21,,"1,2,3,4,5,6,7,8,15,21",,truncated_tail
+1765581778,II.Bilbao Tournament of Footbag (Individual),2025,,,1-5,,"1,2,3,4,5",,missing_middle
+1770923654,VIII.Basque Tournament of Footbag Net (Individual),2026,,,1-5,,"1,2,3,4,5",,missing_middle

@@ -1,0 +1,180 @@
+event_id,event_name,year,issue_class,severity,note,n_placements,n_divisions,has_dup_places,has_round_kw,place_reset_count,has_mirror_manual,results_raw_len
+1001076203,3ème Open de France de Footbag,2001,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Double"", ""Men's Singles"", ""Single"", 3 dup pairs)",22,4,1,0,4,1,2005
+1001942070,Texas State Footbag Championships,2001,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open"")",30,9,1,0,11,1,807
+1011291051,Quebec City Footbag Net Championships 2002,2002,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")",40,4,1,0,0,1,1209
+1011556608,FOOTJAM meets 3BORDERSCUP,2002,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Ladies Freestyle",14,5,1,0,6,1,807
+1016457376,Cinco de Mayo Footbag Fest,2002,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Shred 30"")",28,4,1,0,7,1,1653
+1018812342,Czech Footbag Championships,2002,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Girl's Freestyle",38,6,1,0,8,1,1162
+1019193491,Finnsta City Jam,2002,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Intermediate Freestyle",17,2,1,0,3,1,351
+1021665982,2002 East Coast Footbag Championships,2002,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Novice"")",57,3,1,0,9,1,1738
+1028218784,2002 Texas State Footbag Championships,2002,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Intermediate Golf"", ""Pro Golf"", ""Pro One Minute Consecutives"", 4 dup pairs",53,12,1,0,0,1,1381
+1030830356,4e Open de France de Footbag,2002,OTHER,moderate,"multiple divisions merged (4 affected: ""Open Double Net"", ""Open Shred"", ""Open Single Net"" + 1 more)",52,9,1,0,9,1,2580
+1036653244,2003 Shred Zero Summer Open,2003,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Intermediate 30 Second Shred",9,2,1,0,3,1,523
+1042821772,European Footbag Championships 2003,2003,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Freestyle 33 Play",117,10,1,0,10,1,2554
+1049457912,2003 East Coast Championships - The BIG 2-0,2003,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open Singles"")",80,9,1,0,9,1,2312
+1058877971,"""Kick Til You're Sick"" Fall Freestyle Fest",2003,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Open",12,3,1,0,0,1,602
+1064330873,4. Frankfurt Footbag Open,2003,MERGED_DIVISION_RESULTS,severe,"division results merged (""Doubles Net Open"", ""Singles Net Open"", 4 dup pairs)",34,3,1,0,3,1,887
+1064849293,1st French Footbag Championships,2003,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Double Net"", ""Open Shred"", ""Open ",61,8,1,0,8,1,2568
+1069929277,25th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,2004,POOL_FINALS_MERGED,severe,"pool+finals results merged (6 divisions, 17 dup pairs, 143 affected rows)",244,15,1,0,15,1,7508
+1070734498,TODEXON 5,2004,MERGED_UNLABELLED_DIVISIONS,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Freestyle"")",22,3,1,0,5,1,834
+1080138513,RNH Contest 2004,2004,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Dimwalk>Double Legover>Smudge"", ""Singles Net"", 2 dup pairs)",45,6,1,0,7,1,1983
+1089373321,6e Open de France de Footbag,2004,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Doubl",98,12,1,0,12,1,3088
+1090569022,Montpellier Sunny Jam Open,2004,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Double Net"", ""Simple Net"", 5 dup pairs)",24,2,1,0,2,1,628
+1092073845,Czech Championships 2004,2004,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Freestyle"", ""Open Freesty",44,8,1,0,8,1,913
+1096318324,3rd Annual Seattle Juggling and Footbag Festival,2004,POOL_FINALS_MERGED,moderate,"pool+finals results merged (2 divisions, 11 dup pairs, 29 affected rows)",28,2,1,0,6,1,837
+1102443443,Footbag Fiesta,2005,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Open Big One",41,7,1,0,8,1,940
+1102576153,26th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,2005,POOL_FINALS_MERGED,severe,"pool+finals results merged (3 divisions, 16 dup pairs, 82 affected rows)",238,15,1,0,16,1,6971
+1103297805,2e Championnat de France de Footbag,2005,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Double Net"", ""Sick 3"", ""Simple Net"", 3 dup pairs)",55,15,1,0,15,1,842
+1103724325,RNH Contest 2005,2005,MERGED_DIVISION_RESULTS,severe,"division results merged (""Doubles Net"", ""Routine"", ""Singles Net"", 8 dup pairs)",54,7,1,0,7,1,1231
+1105087209,IFPA Swiss Footbag Open 2005: FootJam05,2005,MERGED_DIVISION_RESULTS,severe,"division results merged (""Open Doubles Net"", ""Open Singles Routines"", ""Women's Singles Routines"", 6 ",70,3,1,0,3,1,2392
+1107290435,The 2005 Montreal International Footbag Championships,2005,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")",30,3,1,0,0,1,856
+1114277529,Czech Footbag Championships,2005,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Freestyle"", ""Open Freesty",32,4,1,0,9,1,1530
+1125936037,7e Open de France de Footbag,2005,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Double Net"", ""Open Singles Freest",111,13,1,0,15,1,4215
+1127155729,Zocha Jam 2005,2005,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Open Double Freestyle",52,6,1,0,0,1,1458
+1131659634,2006 Green Cup Presented by Chaos,2006,MINOR_TIES_MERGED,minor,"minor: 2 duplicate place(s) in ""Open Mixed Doubles",21,4,1,0,5,1,1301
+1135116604,27th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2006,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Doubles Net"", ""Intermedia",268,17,1,0,1,1,8264
+1137347261,7th Annual Colorado Shred Symposium,2006,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Double Spinning Clipper>Scorpions Tail>Whirlwind",26,5,1,0,5,1,932
+1137937282,Czech Footbag Championships,2006,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Net"", ""Rutina Intermediate"", ""Sick 3"", 9 dup pairs)",32,6,1,0,10,1,895
+1137942486,8th Annual IFPA European Footbag Championships,2006,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Golf"", ""Open ",98,12,1,0,13,1,2985
+1138601883,Santa Cruz Invitational,2006,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Shred 30"", ""Sick 1"", ""Sick 3"", 9 dup pairs)",19,3,1,0,9,1,1008
+1143155263,U. S. Open Footbag Championships,2006,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Open Sick 3",75,17,1,0,10,1,2509
+1148241486,2006 Steel City Shred Off,2006,MINOR_TIES_MERGED,minor,"minor: 2 duplicate place(s) in ""Open Rippin' Run",15,5,1,0,7,1,896
+1148374547,Championnats de France 2006,2006,MERGED_DIVISION_RESULTS,severe,"division results merged (""Double Net"", ""Freestyle"", ""Single Net"", 6 dup pairs)",45,4,1,1,3,1,1001
+1149763452,8e OPEN de France de Footbag,2006,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Open Singles Freestyle"", ""Sick 3"", 6 dup pairs)",143,15,1,0,16,1,5448
+1158263300,Zocha Jam 2006,2006,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Open Freestyle"", ""Women Freestyle"", 5 dup pairs)",54,9,1,0,11,1,1523
+1160579826,CommALaMaison Contest 3,2006,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Mini Net",28,1,1,1,5,1,683
+1161871029,Finnish Footbag Championships 2006,2006,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Circle Contest"", ""Open Freestyle"", 3 dup pairs)",62,7,1,0,7,1,1745
+1161888703,Cornell Footbag Jam,2006,MERGED_DIVISION_RESULTS,minor,"division results merged (""[U]Open Circle Competition[/U]"", ""[U]Sick One[/U]"", 5 dup pairs)",11,2,1,0,5,1,380
+1163784775,2007 IFPA WORLD FOOTBAG CHAMPIONSHIPS,2007,POOL_FINALS_MERGED,severe,"pool+finals results merged (9 divisions, 26 dup pairs, 171 affected rows)",269,19,1,1,19,1,8962
+1172931308,Montreal Spring Jam 2,2007,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Intermediate Circle Contest",16,4,1,0,0,1,686
+1176650845,3rd New Jersey Spike and Shred,2007,MERGED_DIVISION_RESULTS,minor,"division results merged (""Freestyle Routines Finals"", 4 dup pairs)",27,4,1,0,3,1,927
+1176844933,Texas Statewide Footbag Tournament 2007,2007,MINOR_TIES_MERGED,minor,"minor: 2 duplicate place(s) in ""Open Golf",10,2,1,0,3,1,485
+1177512537,Championnats de France de Footbag,2007,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Singles Freestyle"", 5 dup pairs)",38,6,1,0,6,1,1363
+1179679872,German Footbag Championships 2007,2007,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Footbag Net Doubles"", ""Footbag Net Single"", 8 dup pairs)",41,4,1,0,6,1,1537
+1182542776,Funtastik Summer Classic,2007,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Open Doubles"", ""Open S",66,13,1,0,11,1,1416
+1183729267,9e Open de France de Footbag,2007,POOL_FINALS_MERGED,severe,"pool+finals results merged (3 divisions, 14 dup pairs, 50 affected rows)",148,14,1,0,16,1,4983
+1185458086,Footbagmania 3007 - Polish Footbag Championships,2007,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Open Golf",51,11,1,0,11,1,1834
+1185556078,Austrian Footbag Championships 2007,2007,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Freestyle"")",41,7,1,1,9,1,1208
+1189345008,5th Annual Wilanow Footbag Open 2007,2007,POOL_FINALS_MERGED,severe,"pool+finals results merged (3 divisions, 10 dup pairs, 41 affected rows)",57,9,1,0,9,1,1272
+1189467124,Phoenix Open,2008,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")",24,3,1,0,3,1,643
+1194517448,2008 IFPA WORLD FOOTBAG CHAMPIONSHIPS,2008,POOL_FINALS_MERGED,severe,"pool+finals results merged (4 divisions, 16 dup pairs, 120 affected rows)",204,9,1,0,9,1,6079
+1195773772,Zocha Jam 2007,2007,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Circle Contest",30,9,1,0,11,1,1072
+1199106237,10th Annual IFPA European Footbag Championships,2008,MERGED_DIVISION_RESULTS,severe,"division results merged (""Open Golf"", ""Open Singles Freestyle"", ""Request Contest"", 7 dup pairs)",172,12,1,0,0,1,6502
+1206161350,Montreal Spring Jam 3,2008,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Request Contest",16,3,1,0,0,1,293
+1212769063,24th Annual Midwest Regional Footbag Championships,2008,MINOR_TIES_MERGED,moderate,"minor: 2 duplicate place(s) in ""Circle Contest",7,2,1,0,0,1,225
+1219405634,8th Annual Polish Footbag Championships 2008,2008,POOL_FINALS_MERGED,severe,"pool+finals results merged (4 divisions, 17 dup pairs, 79 affected rows)",97,10,1,0,12,1,3615
+1220466807,East Coast Footbag Championships,2008,POOL_FINALS_MERGED,moderate,"pool+finals results merged (2 divisions, 10 dup pairs, 25 affected rows)",39,6,1,0,8,1,834
+1222687523,10e Open de France de Footbag,2008,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Open Singles Freestyle"", ""Women Singles Freestyle"", 3 dup pairs)",119,11,1,0,12,1,4177
+1224962900,Zocha Jam 2008,2008,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Freestyle"")",50,10,1,0,13,1,1424
+1226679678,30th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS,2009,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Doubles Net"")",237,20,1,0,20,1,7852
+1228946926,Czech Footbag Championships,2008,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Open Routine"", ""Sick 3"", 4 dup pairs)",35,3,1,0,4,1,831
+1231432184,Todexon 10,2009,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Freestyle"")",63,6,1,0,6,1,1813
+1233299407,2009 U.S. Open Freestyle Footbag Championships,2009,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Women's Circle",32,8,1,0,8,1,1239
+1235149093,RNH Contest 2009,2009,MERGED_DIVISION_RESULTS,severe,"division results merged (""Initial Seeding Open Doubles Net"", 5 dup pairs)",97,7,1,1,14,1,10564
+1235653935,11th Annual IFPA European Footbag Championships - Strzelin,2009,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Fr",135,17,1,0,17,1,4209
+1239721441,End of Winter Jam,2009,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Circle Contest",22,4,1,0,5,1,875
+1241031822,Frisbee Footbag Fest,2009,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Circle"", ""Routine"", 4 dup pairs)",28,4,1,0,0,1,824
+1245404642,6# Swiss Footbag Open,2009,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Open Circle Contest"", ""Open Singles Routines"", ""Women's Singles Routines"",",23,3,1,0,3,1,806
+1251990500,6th Annual Wilanow Footbag Open 2009,2009,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Circle Contest"",",47,5,1,0,5,1,1432
+1252110023,2009 East-Coast Footbag Championships,2009,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Circle"", ""Doubles"", ""Intermediate"" + 2",47,6,1,0,10,1,1010
+1254829577,Finnish Footbag Championships,2009,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Circle Competition"", ""Open Singles Net"", 2 dup pairs)",48,7,1,0,7,1,1298
+1255957016,Zocha Jam 2009,2009,MERGED_DIVISION_RESULTS,severe,"division results merged (""Open Freestyle"", ""Singles Net"", 9 dup pairs)",59,11,1,0,11,1,1544
+1256202918,11e Open de France de Footbag,2010,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Circle Contest"", ""Open Routines"", 3 dup pairs)",137,9,1,0,9,1,3490
+1260368810,Frankfurt Footbag 10th Anniversary Jam,2010,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Results Pro Image Cash Golf",36,2,1,0,3,1,2668
+1265745512,31st IFPA WORLD FOOTBAG CHAMPIONSHIPS,2010,POOL_FINALS_MERGED,severe,"pool+finals results merged (4 divisions, 15 dup pairs, 101 affected rows)",268,20,1,0,21,1,9692
+1267199851,WSF Mistrzostwa Pragi w Grze w Zoske,2010,MERGED_DIVISION_RESULTS,minor,"division results merged (""Footbag Golf"", ""Intermediate Circle Contest"", 5 dup pairs)",55,9,1,0,11,1,1491
+1268407783,2010 East Coast Footbag Championships,2010,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate"", ""Novice"")",44,3,1,0,10,1,1006
+1269111845,"The King of the Hill 2010, presented by Aki Québec",2010,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Net"")",24,1,1,0,2,1,524
+1269266785,12th Annual IFPA European Footbag Championships - Brussels,2010,POOL_FINALS_MERGED,severe,"pool+finals results merged (3 divisions, 12 dup pairs, 56 affected rows)",193,14,1,0,11,1,7512
+1270631935,RNH Contest 2010,2010,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Singles Net"")",51,2,1,1,12,1,7534
+1278603677,10th Annual Polish Footbag Championships 2010,2010,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Circle Contest"",",56,6,1,0,6,1,1646
+1285506605,2010 NYJ/Midwest Regionals Footbag Championships,2010,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Routines",19,3,1,0,5,1,904
+1286644859,Czech Footbag Championship 2010,2010,MINOR_TIES_MERGED,minor,"minor: 2 duplicate place(s) in ""Open Singles Freestyle",20,4,1,0,5,1,465
+1288096032,Zocha Jam 2010,2010,OTHER,severe,"multiple divisions merged (4 affected: ""Circle Contest"", ""Footbag Golf"", ""Open Singles Freestyle"" + ",76,11,1,0,12,1,2030
+1293877677,32nd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2011,POOL_FINALS_MERGED,severe,"pool+finals results merged (10 divisions, 34 dup pairs, 224 affected rows)",381,22,1,0,1,1,11003
+1293877917,13th Annual IFPA European Footbag Championships,2011,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Circl",140,18,1,0,21,1,5658
+1294262550,12e Open de France de Footbag,2011,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Routines"")",114,8,1,0,12,1,6130
+1297811412,11th Annual Polish Footbag Championships 2011,2011,POOL_FINALS_MERGED,severe,"pool+finals results merged (4 divisions, 21 dup pairs, 88 affected rows)",157,11,1,0,13,1,3547
+1305581560,French Footbag Championships 2011,2011,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Singles Net"", 9 dup pairs)",35,2,1,0,5,1,1611
+1314323534,5to Campeonato Suramericano de Footbag,2011,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Footbag Freestyle."", ""Shred 30"", 3 dup pairs)",73,9,1,0,0,1,2848
+1316280393,8th Annual Wilanow Footbag Open 2011,2011,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Circle Contest"", ""Open Routines"", 5 dup pairs)",63,7,1,0,6,1,1969
+1318673467,Austrian Footbag Championships 2011,2011,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Ro",45,4,1,0,4,1,1449
+1323272493,33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS,2012,POOL_FINALS_MERGED,severe,"pool+finals results merged (8 divisions, 28 dup pairs, 132 affected rows)",681,32,1,0,39,1,23737
+1328094862,14th Annual IFPA European Footbag Championships,2012,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Ne",143,10,1,0,10,1,5029
+1330902233,2012 Green Cup Presented by Chaos,2012,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Ne",43,6,1,0,6,1,1353
+1331667371,Paris Net Battle 2,2012,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Net"")",36,1,1,0,4,1,2755
+1335148163,2012 US Open Freestyle Footbag Championships,2012,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Ro",33,4,1,0,4,1,848
+1336988107,12th Annual IFPA Polish Footbag Championships 2012,2012,POOL_FINALS_MERGED,severe,"pool+finals results merged (2 divisions, 13 dup pairs, 35 affected rows)",117,14,1,0,16,1,5214
+1337617980,German Footbag Open (14th Annual German Footbag Championships),2012,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Request"", ""Routine"", 5 dup pairs)",96,10,1,1,7,1,3250
+1344593549,IFPA Austrian Footbag Champs 2012,2012,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Circle Contest"", ""Open Au",52,8,1,0,8,1,1672
+1346948712,1o Torneo Nacional de Footbag,2012,MERGED_UNLABELLED_DIVISIONS,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Freestyle Circle"")",19,3,1,0,4,1,640
+1353223688,Finnish Footbag Open,2012,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Circle Contest",76,8,1,0,10,1,2348
+1357206898,Todexon 14,2013,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Singles Routines"")",34,5,1,0,5,1,1332
+1360305756,2013 U.S. Open Freestyle Footbag Championships,2013,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Ro",16,2,1,0,2,1,411
+1361207019,34th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2013,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open 2-Square"", ""Open Circle Contest"",",199,16,1,0,16,1,7305
+1366375326,WSF Stare Babice Footbag Jam 2013,2013,MERGED_DIVISION_RESULTS,minor,"division results merged (""Request Contest"", 5 dup pairs)",36,4,1,0,5,1,1065
+1371821574,Swiss Jam Zürich,2013,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Freestyle ",37,4,1,0,4,1,1249
+1374570632,17th Annual Finnish Footbag Open,2013,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Circle"", ""Routines"", 3 dup pairs)",63,7,1,0,7,1,1903
+1376036018,13th Annual Polish Footbag Championships 2013,2013,POOL_FINALS_MERGED,severe,"pool+finals results merged (5 divisions, 16 dup pairs, 84 affected rows)",117,13,1,0,16,1,2797
+1389338303,16th Annual IFPA European Footbag Championships,2014,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Ro",88,6,1,0,6,1,3072
+1389730147,Todexon 15,2014,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Circle Contest"", ""Open Singles Ro",33,5,1,0,6,1,1657
+1391189882,35th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2014,POOL_FINALS_MERGED,severe,"pool+finals results merged (8 divisions, 15 dup pairs, 88 affected rows)",246,18,1,0,18,1,9632
+1406219099,14th Annual Polish Footbag Championships 2014,2014,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Shred 30"", ""Sick 3"", 7 dup pairs)",93,20,1,0,22,1,2633
+1415986036,Todexon 16,2015,MERGED_DIVISION_RESULTS,minor,"division results merged (""Request"", ""Sick 3"", 5 dup pairs)",22,4,1,0,6,1,437
+1417735560,36th IFPA WORLD FOOTBAG CHAMPIONSHIPS,2015,POOL_FINALS_MERGED,severe,"pool+finals results merged (5 divisions, 14 dup pairs, 121 affected rows)",273,21,1,0,21,1,10754
+1439332196,XV IFPA Polish Footbag Championships,2015,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Request Contest"", ""Sick 3"", 6 dup pairs)",58,12,1,0,14,1,1472
+1449259560,37th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2016,2016,POOL_FINALS_MERGED,severe,"pool+finals results merged (8 divisions, 68 dup pairs, 172 affected rows)",167,13,1,0,14,1,6569
+1467142686,16th Annual Polish Footbag Championships,2016,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Open Circle Contest"", ""Request Contest"", 5 dup pairs)",47,9,1,0,11,1,1314
+1471686537,38th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2017,2017,MERGED_DIVISION_RESULTS,severe,"division results merged (""2-Square"", ""Masters Doubles Net"", ""Women's Singles Net"", 5 dup pairs)",125,14,1,0,14,1,3231
+1473853257,Malopolska Footbag Championships 2016 // Mistrzostwa Ma³opolski w Zo¶kê 2016,2016,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Doubles Kicking"", ""Footbag Golf"", 5 dup pairs)",42,5,1,0,6,1,1177
+1485863923,17th Annual Polish Footbag Championships,2017,POOL_FINALS_MERGED,severe,"pool+finals results merged (6 divisions, 16 dup pairs, 69 affected rows)",100,11,1,0,12,1,2891
+1487797845,19th Annual IFPA European Footbag Championships,2017,MERGED_DIVISION_RESULTS,severe,"division results merged (""Mixed Doubles Net"", ""Open Routines"", 7 dup pairs)",167,11,1,1,15,1,5646
+1518200935,20th Annual IFPA European Footbag Championships,2018,POOL_FINALS_MERGED,severe,"pool+finals results merged (2 divisions, 12 dup pairs, 35 affected rows)",101,10,1,0,10,1,2515
+1519215398,39th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2018,2018,POOL_FINALS_MERGED,severe,"pool+finals results merged (5 divisions, 19 dup pairs, 78 affected rows)",161,16,1,0,8,1,3813
+1527557123,Suramericano de Footbag Net y Freestyle,2018,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Open Doubles",15,3,1,0,4,1,372
+1537994275,2o Torneo Nacional de Footbag,2018,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Open Doubles",18,3,1,0,2,1,708
+1547415984,40th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2019,2019,POOL_FINALS_MERGED,severe,"pool+finals results merged (4 divisions, 19 dup pairs, 121 affected rows)",294,22,1,0,25,1,7843
+1566532030,German Footbag Open 2019,2019,MERGED_DIVISION_RESULTS,moderate,"division results merged (""2-Square"", ""Freestyle Battles"", 3 dup pairs)",65,7,1,0,7,1,1856
+1567551985,XIX Polish Footbag Championships - Krakow 2019,2019,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Sick 3",74,13,1,0,13,1,2050
+1568692191,MedeJam de Footbag 2019,2019,MINOR_TIES_MERGED,minor,"minor: 2 duplicate place(s) in ""Open Doubles Net",19,3,1,0,2,1,907
+1600984774,XX Polish Footbag Championships - Warsaw 2020,2020,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Circle"", ""Open Doubles Net"", ""Sick3"", 6 dup pairs)",44,6,1,0,0,1,1031
+1646855336,22nd Annual IFPA European Footbag Championships,2022,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Singles Net"")",51,3,1,0,3,1,2062
+1667566506,Refaski Cup 2022,2022,MERGED_UNLABELLED_DIVISIONS,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Net"", ""Open Singles Net"")",13,2,1,0,2,1,1551
+1678957450,42nd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023,2023,MERGED_DIVISION_RESULTS,severe,"division results merged (""Circle Contest"", ""Women's Singles Net"", 9 dup pairs)",141,14,1,0,15,1,4199
+1694170899,XXIII Polish Footbag Championships - Warsaw 2023,2023,POOL_FINALS_MERGED,severe,"pool+finals results merged (4 divisions, 17 dup pairs, 63 affected rows)",85,8,1,0,2,1,1653
+1700920831,Finnish Footbag Open 2023,2023,MERGED_DIVISION_RESULTS,minor,"division results merged (""Singles Net"", 4 dup pairs)",15,2,1,0,3,1,403
+1706036811,43rd Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2024,2024,POOL_FINALS_MERGED,severe,"pool+finals results merged (6 divisions, 15 dup pairs, 86 affected rows)",168,18,1,0,9,1,5074
+1727756195,24th Polish Footbag Championships - Krakow 2024,2024,MERGED_DIVISION_RESULTS,severe,"division results merged (""Open Golf"", ""Open Sick3"", ""Request"", 8 dup pairs)",63,9,1,0,11,1,1485
+1759558836,Memorial Jindry Smoly-Refaski cup 11,2025,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Singles Result",4,1,1,0,1,1,290
+857874500,University of Oregon Footbag Tournament,1997,POOL_FINALS_MERGED,severe,"pool+finals results merged (5 divisions, 17 dup pairs, 36 affected rows)",34,9,1,0,6,1,1973
+857876870,Eugene Celebration Footbag Tournament,1997,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Doubles Golf"", ""Open Doubles Net"", 6 dup pairs)",25,2,1,0,3,1,1429
+857879540,The 15th Annual EAST COAST FOOTBAG CHAMPIONSHIPS,1997,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Doubles Net"", ""Singles Net"", 6 dup pairs)",38,7,1,0,10,1,1866
+857880054,Bedford (Australia) Indoor Footbag Championships,1997,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Open Singles Net",8,1,1,0,0,1,519
+859400929,Montreal International Footbag Championships,1997,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Doubles Net"", ""Open Doubl",29,9,1,0,8,1,1098
+859787898,HEART OF FOOTBAG Freestyle Tournament,1997,MERGED_UNLABELLED_DIVISIONS,minor,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")",37,8,1,0,0,1,1501
+859923755,California State Footbag Championships,1997,MINOR_TIES_MERGED,moderate,"minor: 1 duplicate place(s) in ""Intermediate Doubles",39,6,1,0,2,1,2771
+876336655,Air-A-Zona 2nd Annual Footbag Net Championships,1998,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Mixed Doubles"", """,67,7,1,0,7,1,1506
+876356874,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,1998,POOL_FINALS_MERGED,severe,"pool+finals results merged (6 divisions, 15 dup pairs, 100 affected rows)",148,19,1,0,17,1,4457
+883135865,1998 Winter Windchill Warm-Up (l'Hivernal),1998,MERGED_UNLABELLED_DIVISIONS,minor,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Singl",14,4,1,0,0,1,424
+901349509,18th Annual Beaver Open,1998,MERGED_DIVISION_RESULTS,minor,"division results merged (""Juggle Golf"", ""Unsanctioned Late-Night Fire-Bag Net"", 2 dup pairs)",11,4,1,0,4,1,589
+910551956,1999 Western Regional Footbag Championships,1999,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Novice Dou",106,15,1,0,16,1,4292
+912467534,12th Annual U.S. Open Footbag Net Championships,1999,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Open Doubles Net 10 Teams"", ""Open Singles Net 17 Entrants"", ""Women's Singl",38,8,1,0,0,1,1193
+919703711,13th Annual Vancouver Open Footbag Net Tournament,1999,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Singles"")",57,9,1,0,8,1,1438
+931840905,1st Annual Montana Invitational,1999,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Novice Golf"", ""Novice Overall"", ""Open ",56,12,1,0,12,1,1448
+937727262,California State Footbag Championships,1999,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Doubles Net"", ""Grand Masters Division: :-)"", ""Mixed Net"", 7 dup pairs)",25,5,1,0,7,1,805
+937854594,Turku Tournee 1999,1999,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Doubles Net"", ""Singles Net"", 8 dup pairs)",16,2,1,0,4,1,763
+947026077,The 2nd Annual Philly Open Footbag Championships,2000,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Doubles Net"", ""Freestyle"", ""Singles Net"", 9 dup pairs)",30,5,1,0,10,1,2406
+948198763,European Footbag Championships 2000,2000,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles Freestyle"", ""Open Women's",63,14,1,0,6,1,2786
+948943299,First Annual Arica Open,2000,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Doubles Net",10,2,1,0,3,1,231
+952906680,Montreal International Footbag Championships,2000,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open - Double"", ""Open - Simple"")",51,10,1,0,10,1,1490
+955745735,4th Annual Kansas Footbag Open,2000,MINOR_TIES_MERGED,minor,"minor: 3 duplicate place(s) in ""Doubles Footbag Net",24,8,1,0,8,1,1048
+961626997,Quebec City Footbag Net Championships,2000,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")",30,3,1,0,0,1,852
+972427576,L'Hivernal (The Windchill) Footbag Tournament,2001,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Singles Net"", ""Open Doubl",58,7,1,0,7,1,2227
+974683678,COLORADO SHRED SYMPOSIUM 2,2001,MINOR_TIES_MERGED,minor,"minor: 1 duplicate place(s) in ""Intermediate Shred",26,1,1,0,2,1,905
+980502839,European Footbag Championships,2001,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Intermediate Doubles Net",50,12,1,0,13,1,1719
+981560223,Swiss Footbag Championships (FootJam),2001,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Mens Open Freestyle"", 6 dup pairs)",116,9,1,1,18,1,6224
+988434364,2001 Southern Regional Footbag Championships,2001,MERGED_UNLABELLED_DIVISIONS,moderate,"Open/Intermediate results merged under unlabelled divisions (""Intermediate Freestyle"", ""Open Golf"", ",56,12,1,0,12,1,1354
+989875090,Chicago Inner Circle Museum of Science and Industry Jam,2001,MINOR_TIES_MERGED,minor,"minor: 2 duplicate place(s) in ""30 Second Shred",11,4,1,0,5,1,1122
+991285803,Montreal International Footbag Net Championships 2001,2001,MERGED_UNLABELLED_DIVISIONS,severe,"Open/Intermediate results merged under unlabelled divisions (""Open Doubles"", ""Open Singles"")",40,3,1,0,4,1,1166
+996293200,Australian Footbag Championships,2001,MINOR_TIES_MERGED,moderate,"minor: 3 duplicate place(s) in ""Doubles Freestyle",20,3,1,0,0,1,935
+999985344,Estonian Footbag Championships,2001,MERGED_DIVISION_RESULTS,moderate,"division results merged (""Footbag Freestyle Overall"", ""Footbag Net Estonia"", 9 dup pairs)",35,3,1,0,4,1,940

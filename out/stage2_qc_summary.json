@@ -1,0 +1,59 @@
+{
+  "stage": "stage2",
+  "total_records": 815,
+  "total_errors": 0,
+  "total_warnings": 55,
+  "total_info": 305,
+  "counts_by_check": {
+    "host_club_contains_location": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 196
+    },
+    "host_club_multiple_locations": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 6
+    },
+    "place_does_not_start_at_1": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 28
+    },
+    "place_large_gap": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 46
+    },
+    "player_has_admin_text": {
+      "ERROR": 0,
+      "WARN": 0,
+      "INFO": 29
+    },
+    "cv_freestyle_event_no_freestyle_divs": {
+      "ERROR": 0,
+      "WARN": 1,
+      "INFO": 0
+    },
+    "player_duplicate_in_team": {
+      "ERROR": 0,
+      "WARN": 1,
+      "INFO": 0
+    },
+    "player_has_month_name": {
+      "ERROR": 0,
+      "WARN": 2,
+      "INFO": 0
+    },
+    "date_missing": {
+      "ERROR": 0,
+      "WARN": 48,
+      "INFO": 0
+    },
+    "location_missing": {
+      "ERROR": 0,
+      "WARN": 3,
+      "INFO": 0
+    }
+  }
+}

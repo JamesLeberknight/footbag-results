@@ -1,0 +1,22 @@
+{
+  "events_processed": 772,
+  "lines_processed": 36362,
+  "lines_skipped_by_classifier": 11857,
+  "trick_mentions": 1635,
+  "trick_mentions_resolved": 1602,
+  "trick_mentions_direct": 918,
+  "trick_mentions_context_window": 710,
+  "trick_mentions_team_line": 0,
+  "tricks_masked_by_longer_match": 438,
+  "score_mentions": 389,
+  "scores_rejected": 2,
+  "score_type_breakdown": {
+    "raw_integer": 285,
+    "freestyle_judging": 68,
+    "golf_score": 34,
+    "reject": 2
+  },
+  "trick_sequences": 923,
+  "unique_unresolved_names": 25,
+  "trick_lexicon_size": 85
+}

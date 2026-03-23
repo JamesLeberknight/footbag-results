@@ -1,0 +1,21 @@
+chain_id,event_id,year,person_id,person_canon,match_type,attribution_confidence,sequence_index,original_tokens,merged_to,merge_method,adds
+1050745947_33,1050745947,2003,d31e8ab0-0924-5e2c-b3f8-560279e37c9a,Franck Rémy,,direct,0,stepping|osis,stepping osis,dict_match,4
+1124840254_19,1124840254,2005,ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,,context_window,0,pixie|legover,pixie legover,inferred,3
+1137347261_12,1137347261,2006,e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,,context_window,0,pixie|butterfly,dimwalk,alias_match,4
+1138601883_31,1138601883,2006,513c8bcf-4c53-5b90-8c71-a823c1f917a2,Stu Sapia,,direct,0,pixie|pickup,pixie pickup,inferred,3
+1148241486_29,1148241486,2006,448d4c37-75f4-5396-bd2f-544dd0ab967c,Alex Verget,,direct,0,stepping|drifter,stepping drifter,dict_match,4
+1163784775_295,1163784775,2007,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,,context_window,0,paradox|torque,paradox torque,dict_match,5
+1173467292_51,1173467292,2007,48268322-19d9-5180-aac2-241293167d21,Nick Landes,,direct,0,gyro|whirl,gyro whirl,dict_match,4
+1219405634_125,1219405634,2008,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,,context_window,1,ducking|whirl,ducking whirl,dict_match,4
+1267199851_66,1267199851,2010,ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,,direct,0,gyro|swirl,gyro swirl,inferred,4
+1337617980_86,1337617980,2012,f52e0fe8-4eff-5532-9af4-14124f1e92ee,Matthias Lino Schmidt,,direct,1,paradox|whirl,paradox whirl,dict_match,4
+1417735560_217,1417735560,2015,ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,,direct,0,pixie|butterfly,dimwalk,alias_match,4
+1417735560_218,1417735560,2015,,,,direct,1,ducking|whirl,ducking whirl,dict_match,4
+1417735560_219,1417735560,2015,3de01059-2378-5f56-910f-08e61f3294a1,Roy Klein,,direct,0,ducking|legover,ducking legover,inferred,3
+1518200935_28,1518200935,2018,9a67acb8-d69e-565c-9a52-ca308a6babc0,Janis Thal,,context_window,0,atomic|whirl,atomic whirl,inferred,5
+1518200935_29,1518200935,2018,700e0ec0-94b9-5de3-b9a9-8d40a3645de3,Patrik Cerny,,direct,0,ducking|whirl,ducking whirl,dict_match,4
+1623054449_70,1623054449,2021,dfc35597-39c1-5425-8b94-6e24dbc24696,Cass Taylor,,direct,0,pixie|whirl,pixie whirl,inferred,4
+1623054449_89,1623054449,2021,4c4087a3-79f1-5d9a-bf12-ab7262d18014,Diego Velazquez,,direct,0,pixie|whirl,pixie whirl,inferred,4
+1623054449_93,1623054449,2021,b6e28eb4-9de6-52a6-bde7-4ffaaa488933,Christoph Alexander,,context_window,0,ducking|butterfly,ducking butterfly,dict_match,4
+1623054449_94,1623054449,2021,b6e28eb4-9de6-52a6-bde7-4ffaaa488933,Christoph Alexander,,context_window,0,ducking|butterfly,ducking butterfly,dict_match,4
+1623054449_99,1623054449,2021,32577a59-fe63-5834-9b4f-16f930fecfec,DANIEL CADAVID,,context_window,0,ducking|clipper,ducking clipper,dict_match,3

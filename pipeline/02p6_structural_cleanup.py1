@@ -1,0 +1,63 @@
+import pandas as pd
+
+KANSAS_EVENT_ID = 955745735
+
+CITY_TOKENS = {
+    "Wichita KS", "Austin TX", "Hebron NE", "McPherson KS"
+}
+
+def is_city(token):
+    return token.strip() in CITY_TOKENS
+
+def split_display(s):
+    if not isinstance(s, str) or "/" not in s:
+        return None, None
+    a, b = [x.strip() for x in s.split("/", 1)]
+    return a, b
+
+def is_singles_division(div):
+    d = div.lower()
+    return any(x in d for x in ["freestyle", "golf", "consecutive", "singles"])
+
+def is_doubles_division(div):
+    return "double" in div.lower()
+
+def run():
+
+    df = pd.read_csv("out/Placements_Flat.csv")
+
+    mask = df["event_id"] == KANSAS_EVENT_ID
+
+    for idx, row in df[mask].iterrows():
+
+        disp = row.get("team_display_name")
+        division = row.get("division", "")
+
+        name, partner = split_display(disp)
+
+        if not name or not partner:
+            continue
+
+        if not is_city(partner):
+            continue
+
+        # --- CASE A: singles → convert ---
+        if is_singles_division(division):
+
+            df.at[idx, "competitor_type"] = "player"
+            df.at[idx, "person_canon"] = name
+            df.at[idx, "team_display_name"] = ""
+            df.at[idx, "team_person_key"] = ""
+
+        # --- CASE B: doubles → fix partner ---
+        elif is_doubles_division(division):
+
+            df.at[idx, "team_display_name"] = f"{name} / [UNKNOWN PARTNER]"
+            df.at[idx, "team_person_key"] = ""
+
+    df.to_csv("out/Placements_Flat.csv", index=False)
+
+    print("Kansas structural cleanup applied.")
+
+if __name__ == "__main__":
+    run()

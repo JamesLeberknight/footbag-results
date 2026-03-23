@@ -1,0 +1,74 @@
+event_id,year,event_name,pattern_family,recommended_disposition,short_note
+859787898,1997,HEART OF FOOTBAG Freestyle Tournament,OVERRIDE_OK,ACCEPT,RFO divergence expected; stage2 mirrors legacy file
+857874500,1997,University of Oregon Footbag Tournament,OVERRIDE_OK,ACCEPT,RFO divergence expected; legacy file is canonical
+884112176,1998,The 1st Annual Fighting Illini Footbag Festival,OVERRIDE_OK,ACCEPT,RFO divergence expected
+876356874,1998,WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS,OVERRIDE_OK,ACCEPT,RFO divergence expected
+937854594,1999,Turku Tournee 1999,OVERRIDE_OK,ACCEPT,RFO divergence expected
+915561090,1999,WORLD FOOTBAG CHAMPIONSHIPS,OVERRIDE_OK,ACCEPT,1999 Worlds fully recovered via RFO
+947196813,2000,New Zealand Footbag Championships,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1035817350,2002,New South Wales Footbag Championships,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1022992222,2002,Shred Zero Summer Open 2002,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1032602594,2002,Victorian Footbag Championships,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1044624680,2003,2003 Southeastern Regional Championships,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1046985067,2003,2003 Steel City Footbag Open,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1061453080,2003,Australian East Coast Regionals,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1036298726,2003,Colorado Shred Symposium 4,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1096695238,2004,2nd Annual UMaine Hacky Sack Club Tournament,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1070954568,2004,5th Annual Colorado Shred Symposium,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1103297805,2005,2e Championnat de France de Footbag,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1163784775,2007,2007 IFPA WORLD FOOTBAG CHAMPIONSHIPS,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1189345008,2007,5th Annual Wilanow Footbag Open 2007,OVERRIDE_OK,ACCEPT,RFO divergence expected
+1376036018,2013,13th Annual Polish Footbag Championships 2013,OVERRIDE_OK,ACCEPT,RFO divergence expected
+857879540,1997,The 15th Annual EAST COAST FOOTBAG CHAMPIONSHIPS,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Doubles Net + Singles Net merged; 6 dup pairs
+937727262,1999,California State Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,3 divs merged incl. Grand Masters; 7 dup pairs
+948198763,2000,European Footbag Championships 2000,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open/Intermediate merged under unlabelled freestyle divs
+948943299,2000,First Annual Arica Open,KNOWN_ISSUE_MINOR,ACCEPT,1 dup place in Doubles Net; minor anomaly
+955745735,2000,4th Annual Kansas Footbag Open,KNOWN_ISSUE_MINOR,ACCEPT,3 dup places in Doubles Net; minor anomaly
+980502839,2001,European Footbag Championships,KNOWN_ISSUE_MINOR,ACCEPT,3 dup places in Intermediate Doubles Net only; minor anomaly
+996293200,2001,Australian Footbag Championships,KNOWN_ISSUE_MINOR,ACCEPT,3 dup places in Doubles Freestyle only; minor anomaly
+1001942070,2001,Texas State Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open/Intermediate merged under Intermediate/Open divs
+1021665982,2002,2002 East Coast Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open/Intermediate merged under unlabelled divs; structural source ambiguity
+1016457376,2002,Cinco de Mayo Footbag Fest,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Intermediate div merged; 3 dup pairs
+1018812342,2002,Czech Footbag Championships,KNOWN_ISSUE_MINOR,ACCEPT,3 dup places in Girl's Freestyle; minor anomaly
+1019193491,2002,Finnsta City Jam,KNOWN_ISSUE_MINOR,ACCEPT,1 dup place in Intermediate Freestyle; minor anomaly
+1058877971,2003,"""Kick Til You're Sick"" Fall Freestyle Fest",KNOWN_ISSUE_MINOR,ACCEPT,3 dup places in Open; minor anomaly
+1070734498,2004,TODEXON 5,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open/Intermediate merged under Open Singles Freestyle
+1137937282,2006,Czech Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Net+Rutina Intermediate+Sick 3 merged; 9 dup pairs
+1131659634,2006,2006 Green Cup Presented by Chaos,KNOWN_ISSUE_MINOR,ACCEPT,2 dup places in Open Mixed Doubles; minor anomaly
+1185556078,2007,Austrian Footbag Championships 2007,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open/Intermediate merged under Open Freestyle
+1176650845,2007,3rd New Jersey Spike and Shred,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Freestyle Routines Finals merged; 4 dup pairs
+1220466807,2008,East Coast Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Pool+finals merged; 25 affected rows in 2 divs
+1252110023,2009,2009 East-Coast Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open/Intermediate merged + 2 more merged divs; complex source layout
+1241031822,2009,Frisbee Footbag Fest,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Circle + Routine merged; 4 dup pairs
+1268407783,2010,2010 East Coast Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open/Intermediate merged under Intermediate/Novice labels
+1270631935,2010,RNH Contest 2010,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open Doubles + Open Singles merged; 9 dup pairs
+1285506605,2010,2010 NYJ/Midwest Regionals Footbag Championships,KNOWN_ISSUE_MINOR,ACCEPT,3 dup places in Routines only; minor anomaly
+1286644859,2010,Czech Footbag Championship 2010,KNOWN_ISSUE_MINOR,ACCEPT,2 dup places in Open Singles Freestyle; minor anomaly
+1305581560,2011,French Footbag Championships 2011,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Singles Net merged; 9 dup pairs
+1314323534,2011,5to Campeonato Suramericano de Footbag,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Freestyle + Shred 30 merged; 3 dup pairs
+1391189882,2014,35th IFPA WORLD FOOTBAG CHAMPIONSHIPS,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Pool+finals merged; 88 affected rows across 8 divs — source structure
+1417735560,2015,36th IFPA WORLD FOOTBAG CHAMPIONSHIPS,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Pool+finals merged; 121 affected rows across 5 divs — source structure
+1449259560,2016,37th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS 2016,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,"Pool+finals merged; 172 affected rows, 68 dup pairs — source structure"
+1487797845,2017,19th Annual IFPA European Footbag Championships,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Mixed Doubles + Open Routines merged; 7 dup pairs
+1527557123,2018,Suramericano de Footbag Net y Freestyle,KNOWN_ISSUE_MINOR,ACCEPT,3 dup places in Open Doubles; minor anomaly
+1667566506,2022,Refaski Cup 2022,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Open Doubles + Open Singles merged under unlabelled divs
+1700920831,2023,Finnish Footbag Open 2023,KNOWN_ISSUE_MINOR,SOURCE_PARTIAL,Singles Net merged; 4 dup pairs
+1759558836,2025,Memorial Jindry Smoly-Refaski cup 11,KNOWN_ISSUE_MINOR,ACCEPT,1 dup place in Singles Result; minor anomaly
+912467534,1999,12th Annual U.S. Open Footbag Net Championships,METADATA_OVERRIDE,ACCEPT,Override adds location metadata only; results unchanged
+933115858,2000,Colorado Shred Symposium,METADATA_OVERRIDE,ACCEPT,Override adds location metadata only; results unchanged
+1093115479,2004,2nd Annual SoCal Labor Day Jam,METADATA_OVERRIDE,ACCEPT,Override applies; no result data divergence
+1109356644,2005,Funtastik Summer Classic,METADATA_OVERRIDE,ACCEPT,Override applies; no result data divergence
+1149881200,2006,Funtastik Summer Classic Tournament and Festival,METADATA_OVERRIDE,ACCEPT,Override applies; no result data divergence
+1252451527,2010,Funtastik Summer Classic,METADATA_OVERRIDE,ACCEPT,Override applies; no result data divergence
+886044392,1998,12th Annual Vancouver Open Footbag Net Tournament,PBP_STALE,DEFER,PBP v60 adds 6 unresolved rows; promote v60 then re-score
+892446131,1998,Kansas Footbag Open,PBP_STALE,DEFER,PBP v60 adds missing divs as unresolved; promote v60 then re-score
+959353403,2000,2000 Southeast Idaho Footbag Championships,DATA_MISMATCH,SOURCE_PARTIAL,Unknown div contains noise; trailing-colon div name mismatch; source limited
+946940201,2000,East Coast Footbag Championships,DATA_MISMATCH,DEFER,5 genuine missing persons in PBP; promote PBP v60 then re-score
+984694623,2001,1st Montreal Summer Freestyle Challenge,DATA_MISMATCH,DEFER,Old parse: city-as-teammate artifacts; PBP has 8/20 stage2 rows; needs identity work
+974683678,2001,COLORADO SHRED SYMPOSIUM 2,DATA_MISMATCH,DEFER,PBP has 14/26 for Intermediate Shred; PBP v60 adds missing unresolved rows
+1044952105,2003,"L'Hivernal, The Windchill",DATA_MISMATCH,DEFER,PBP has 7/10; Jean→Jean-Francois incomplete identity; needs alias
+1146843672,2006,Montreal Spring Jam,DATA_MISMATCH,ACCEPT,1-row diff (10 vs 9); minor identity resolution gap; data substantially complete
+1218721346,2008,Memphicago Kick Volley Challenge 1,DATA_MISMATCH,ACCEPT,6/8 unresolved persons not in PT; small local event; counts match
+1235653935,2009,11th Annual IFPA European Footbag Championships - Strzelin,DATA_MISMATCH,ACCEPT,135=135 total placements; div name diff is cosmetic (Open vs Open Singles Net)
+1366240051,2013,4ta. Copa Ciencias,DATA_MISMATCH,SOURCE_PARTIAL,9/12 doubles teams unresolved; South American identity gap; partial coverage expected
+1733755410,2024,Segunda 'Copa Perpetual Flame',DATA_MISMATCH,ACCEPT,8=8 placements match exactly; div name diff is cosmetic

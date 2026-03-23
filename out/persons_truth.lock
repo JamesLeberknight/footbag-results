@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-03-21T14:07:14.858448+00:00",
+  "persons_truth": {
+    "file": "Persons_Truth_Final_v47.csv",
+    "rows": 3468,
+    "sha256": "dcd53849727c422e3107547b7416d1b6c28f082a896176c820245a36d0288203"
+  },
+  "persons_unresolved": {
+    "file": "Persons_Unresolved_Organized_v28.csv",
+    "rows": 82,
+    "sha256": "08994633650565de28d4dca95b1c8024eeee6aa14591d528c341f8e40e0f17a7"
+  }
+}

@@ -1,0 +1,936 @@
+person_id,person_canon,trick_canon,trick_type,mentions,first_year,last_year,event_count,sample_event,sample_line
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,whirl,full_trick,11,2006,2008,4,,2- Andrew Grant- blurry whirl> blurry whirl> ps whirl
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,swirl,full_trick,10,2006,2022,9,,2. Damian Gielnicki (Blurry Drifter > Spinning Swirl > Food Processor)
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,whirl,full_trick,9,2007,2022,6,,8. Alexander Trenner ? Sumo > Phoenix > PS Whirl
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,swirl,full_trick,8,2008,2016,7,,1 Evan Gatesman blurry whirling swirl
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,spinning,style_term,7,2006,2022,7,,2. Damian Gielnicki (Blurry Drifter > Spinning Swirl > Food Processor)
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,pixie,style_term,7,2011,2022,7,,"1. Maciek Niczyporuk janiwalk>bedwetter>pixie whirling swirl (5,2)"
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,swirl,full_trick,7,2011,2022,7,,"1. Maciek Niczyporuk janiwalk>bedwetter>pixie whirling swirl (5,2)"
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,blurry whirl,full_trick,7,2006,2008,4,,2- Andrew Grant- blurry whirl> blurry whirl> ps whirl
+b7d020fd-3376-5224-9aa6-d56ae56ad9cb,Taishi Ishida,whirl,full_trick,7,2012,2019,3,,16. Taishi Ishida (Japan) - blurry whirl > PS whirl > PS whirl
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,spinning,style_term,6,2012,2014,4,,10. Brian Sherrill (USA) - double spinning osis > mobius > spinning dyno
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,blender,full_trick,6,2005,2013,4,,2. Felix Zenger (FIN) Double Blender > Superfly > Spinning Blender
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,whirl,full_trick,6,2006,2008,3,,"1. Serge Kaldany ""Pixie Ducking Symposium Whirl"""
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,dimwalk,full_trick,5,2007,2022,5,,2. Damian Gielnicki (Nowe Miasto) Spinning Pdx DLO > Dimwalk Swirl > Marius
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,torque,full_trick,5,2008,2022,5,,1. Damian Gielnicki (Sumo>Alpine Legbeater>Ducking Pdx Torque)
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,whirl,full_trick,5,2003,2015,4,,"5th) Jim Penske: P. Legbeater, Blurry Whirl, P. Torque"
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,whirl,full_trick,5,2007,2007,3,,"1. Byrin Wylie--Surging Ducking Paradox Whirl, Surging Paradox Blender, Gyro"
+2c16c43d-6111-5231-b813-23f20f6ba7a3,Jonathan Schneider,swirl,full_trick,5,2005,2008,3,,1st Jon Schnieder whirling swirl x3
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,ducking,style_term,5,2006,2007,3,,"1. Serge Kaldany ""Pixie Ducking Symposium Whirl"""
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,blurry whirl,full_trick,4,2008,2016,4,,4. Alexander Trenner ? Leg Beater > Blurry Whirl > PS Whirl
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,whirl,full_trick,4,2012,2018,4,,15. Andreas Nawrath (Germany) - bedwetter > dimwalk > PS whirl
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,drifter,full_trick,4,2006,2009,4,,2. Damian Gielnicki (Blurry Drifter > Spinning Swirl > Food Processor)
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,ripwalk,full_trick,4,2006,2013,4,,1. Dustin Rhodes - dimwalk>ripwalk>ps mirage
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,whirl,full_trick,4,2008,2014,4,,3 Dustin Rhodes ripwalk>blurrywhirl>p.s. whirl
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,drifter,full_trick,4,2008,2022,4,,2. Jakub Grabarczyk (Bluury Drifter>Matador>Pdx Torque)
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,spinning,style_term,4,2009,2012,4,,4. Marcin Bujko 42.8 (Spikehammer > Pixie Spinning Osis > Food Processor)
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,ducking,style_term,4,2007,2009,4,,"2. Nick Landes--Spinning Ducking Paradox Barrage, Flipwalk"
+226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,paradox mirage,full_trick,4,2006,2010,4,,3. Sunny Freeman-Genz - legbeater>paradox mirage>paradon
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,ducking,style_term,4,2004,2005,3,,"3. Honza Weber (CZ) ? Ducking Foodprocessor, Slapstick"
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,spinning,style_term,4,2004,2007,3,,2. Jim Penske: whirlygig>spinning whirl>scorpion?s tail
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,whirl,full_trick,4,2003,2006,3,,"8th) Justin Dale: Blurry Dragonflier, Ducking Butterfly, P.S. Whirl"
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,whirl,full_trick,4,2009,2018,3,,4. Marcin Bujko (Ripwarrior > Blurry Whirl > Spinning Pdx Whirl)
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,whirl,full_trick,4,2004,2007,3,,2. Nick Landes: blur>whirl>pdx. drifter
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,pixie,style_term,4,2006,2008,3,,"1. Serge Kaldany ""Pixie Ducking Symposium Whirl"""
+4e7d48ab-1639-5784-bf98-d936a3935489,Gray Chadwick,eggbeater,full_trick,4,2006,2007,2,,1. Gray Chadwick - fairy eggbeater
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,whirl,full_trick,4,2003,2003,1,,"12th) Chad Devlahovich: Scorpion Tail, Blurry Whirl, Osis"
+542be6a9-3b5a-5374-961b-9de19c0def7a,Peter Irish,whirl,full_trick,4,2003,2003,1,,"6th) Peter Irish: Blurry Whirl, P. Troque, P.S. Whirl"
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,superfly,full_trick,3,2009,2016,3,,1. Alexander Trenner (Superfly)
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,mobius,full_trick,3,2012,2014,3,,10. Brian Sherrill (USA) - double spinning osis > mobius > spinning dyno
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,osis,full_trick,3,2012,2014,3,,10. Brian Sherrill (USA) - double spinning osis > mobius > spinning dyno
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,blender,full_trick,3,2007,2007,3,,"1. Byrin Wylie--Surging Ducking Paradox Whirl, Surging Paradox Blender, Gyro"
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,ducking,style_term,3,2007,2008,3,,"1. Byrin Wylie--Surging Ducking Paradox Whirl, Surging Paradox Blender, Gyro"
+c29c4aa7-5b1e-54d1-9435-2a45edfd669c,Christopher Schillem,fusion,full_trick,3,2012,2019,3,,11. Christopher Schillem (Germany) - fury > fusion > PS eggbeater
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,atomic,style_term,3,2008,2009,3,,1. Damian Gielnicki (Sumo > Atomic Drifter > Bedwetter)
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,blur,full_trick,3,2012,2014,3,,19. Dustin Rhodes (USA) - sidewalk > ripwalk > blur
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,blurry whirl,full_trick,3,2013,2014,3,,4. Dustin Rhodes (USA) - blurry whirl > blur > merlin
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,fusion,full_trick,3,2014,2016,3,,1. Evan Gatesman (USA) - blurry far double-pickup > fusion > blurry whirling swirl
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,pickup,full_trick,3,2014,2016,3,,1. Evan Gatesman (USA) - blurry far double-pickup > fusion > blurry whirling swirl
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,superfly,full_trick,3,2005,2006,3,,2. Felix Zenger (FIN) Double Blender > Superfly > Spinning Blender
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,butterfly,full_trick,3,2015,2022,3,,4. Filip Wójcik (Poland) - Fairy Ducking Butterfly > Fog > Pixie Paradon
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,ducking,style_term,3,2015,2022,3,,4. Filip Wójcik (Poland) - Fairy Ducking Butterfly > Fog > Pixie Paradon
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,pixie,style_term,3,2015,2022,3,,4. Filip Wójcik (Poland) - Fairy Ducking Butterfly > Fog > Pixie Paradon
+da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,torque,full_trick,3,2002,2003,3,,2nd: Greg Nelson (Paradox Drifter>Paradox Whirl>Paradox Torque)
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,torque,full_trick,3,2008,2022,3,,2. Jakub Grabarczyk (Bluury Drifter>Matador>Pdx Torque)
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,blender,full_trick,3,2005,2013,3,,3. Jan Weber (CZE) Alpine Legbeater > Blurry Torque > Paradox Blender
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,blurry whirl,full_trick,3,2009,2018,3,,4. Marcin Bujko (Ripwarrior > Blurry Whirl > Spinning Pdx Whirl)
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,food processor,full_trick,3,2009,2012,3,,4. Marcin Bujko 42.8 (Spikehammer > Pixie Spinning Osis > Food Processor)
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,osis,full_trick,3,2009,2012,3,,4. Marcin Bujko 42.8 (Spikehammer > Pixie Spinning Osis > Food Processor)
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,pixie,style_term,3,2009,2012,3,,4. Marcin Bujko 42.8 (Spikehammer > Pixie Spinning Osis > Food Processor)
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,swirl,full_trick,3,2008,2012,3,,2. Milan Benda ? Blurriest Swirl
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,butterfly,full_trick,3,2007,2009,3,,3. Nick Landes (Gyro Ducking Butterfly-P.S. Whirl-Spinning DLO)
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,spinning,style_term,3,2007,2009,3,,"2. Nick Landes--Spinning Ducking Paradox Barrage, Flipwalk"
+b7d020fd-3376-5224-9aa6-d56ae56ad9cb,Taishi Ishida,blurry whirl,full_trick,3,2012,2019,3,,16. Taishi Ishida (Japan) - blurry whirl > PS whirl > PS whirl
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,butterfly,full_trick,3,2001,2002,2,,2 - Brendan Erskine (butterfly>blur>ducking butterfly)
+162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,butterfly,full_trick,3,2003,2004,2,,"17th) Dylan Johnson: Butterfly, P. Mirage, Butterfly"
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,food processor,full_trick,3,2007,2008,2,,2. Justin Dale (Shooting Butterfly-Food Processor-Mind Bender)
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,symposium,style_term,3,2006,2007,2,,2. Kyle Hewitt (Dimwalk-Double Leg Over- Symposium Mirage)
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,mobius,full_trick,3,2003,2006,2,,"7th) Lon Smith: Double-Spinning Clipper, Mobius, Ducking Osis"
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,atomic,style_term,3,2014,2019,2,,6. Pawel Nowak (Poland) - symposium atomic motion
+542be6a9-3b5a-5374-961b-9de19c0def7a,Peter Irish,torque,full_trick,3,2003,2003,2,,5th) Peter Irish: Inspinning Torque
+8a15006e-bc85-5621-bbe6-66090397b7d2,Przemyslaw Pietrzycki,whirl,full_trick,3,2017,2018,2,,6. Przemek Pietrzycki (phoenix>pdx torque>ps whirl)
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,pixie,style_term,3,2007,2007,2,,7. Rory Dawson--Pixie Torque
+8fc44a4b-aa33-5106-8cc6-8f2303bf1b0e,Zac Jackson,ripwalk,full_trick,3,2007,2007,2,,"4. Zac Jackson -- Ripwalk>Pdx Mirage>Legbeater, Ripwalk>Pdx Mirage>DLO"
+743b3110-af5d-5b1d-a489-5f0ebece2abd,Alex Bernstein,whirl,full_trick,3,2008,2008,1,,"1. Alex Bernstein (PS Whirl, Whirlwind, Montage)"
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,blurry whirl,full_trick,3,2003,2003,1,,"12th) Chad Devlahovich: Scorpion Tail, Blurry Whirl, Osis"
+90d8f87f-5a27-5bee-a520-21eef47922bc,Dimitar Dimitrov,symposium,style_term,3,2007,2007,1,,3. Dimitar Dimitrov ? Symposium Tapping Reverse Swirling Toe
+fa005bba-9079-5b6a-9eec-592016d90f66,Greg Solis,butterfly,full_trick,3,2008,2008,1,,"5) Greg Solis (Butterfly > Whirl > Osis, Dimwalk > Osis > Toe, Butterfly > Swirl"
+96973e82-353d-5d53-8275-63fddaaa3bb9,Julien Guil Romiti,whirl,full_trick,3,2008,2008,1,,6. Julien Guil Romiti ? Pixie same Whirl > Paradox Whirl > PS Whirl
+23c6748c-39f8-5ecd-ae9c-c3d83c0bfec6,Luis Monhollon,torque,full_trick,3,2010,2010,1,,3. Luis Monhollon (Paradox Torque-Paradox Torque-Paradox Torque)
+a3b920f0-d00d-56b5-96b2-38afd35715e8,Maximov Pavel,whirl,full_trick,3,2009,2009,1,,Maximov Pavel blurry whirl-blurry whirl-spining ps whirl
+542be6a9-3b5a-5374-961b-9de19c0def7a,Peter Irish,blurry whirl,full_trick,3,2003,2003,1,,"6th) Peter Irish: Blurry Whirl, P. Troque, P.S. Whirl"
+274d2f51-e2d5-5458-be40-6b9211ff813e,Scott Davidson,whirl,full_trick,3,2003,2003,1,,"10th) Scott Davidson: Stepping Whirl, Blurry Whirl, Stepping Whirl"
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,swirl,full_trick,2,2012,2013,2,,3. Aleksi Airinen (Finland) - flurricane > paradon swirl > bedwetter
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,barfly,full_trick,2,2014,2014,2,,5. Alex Dworetzky (USA) - barfly
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,blurry whirl,full_trick,2,2016,2018,2,,2. Andreas Nawrath (Sailing Butterfly > Blurry Whirl > Paradox Torque)
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,butterfly,full_trick,2,2016,2018,2,,2. Andreas Nawrath (Sailing Butterfly > Blurry Whirl > Paradox Torque)
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,dimwalk,full_trick,2,2012,2012,2,,15. Andreas Nawrath (Germany) - bedwetter > dimwalk > PS whirl
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,eggbeater,full_trick,2,2009,2009,2,,2. Arkadiusz Dudziñski ? fury>reaktor>ps eggbeater (S³upsk)
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,fusion,full_trick,2,2009,2012,2,,1. Arkadiusz Dudzinski 44.9 (Beta Bedwetter > Fusion > Food Processor)
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,fusion,full_trick,2,2009,2012,2,,6. Bartosz Bubula (Ripwarrior > Fog > Fusion)
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,swirl,full_trick,2,2012,2012,2,,2. Bartek Bubula - ripped warrior>bedwetter>phoenix swirl
+9ccb1c1b-89e0-5406-9e37-a287f34a84d8,Ben Schmaltz,swirl,full_trick,2,2003,2007,2,,"5th) Ben Schmaltz: Pixie REVERSE Whirling-Swirl (NICE JOB, BEN! - this guy"
+42cfb7b0-8f51-53ff-9721-f4ac4b909290,Brad Nelson,blender,full_trick,2,2002,2002,2,,1st: Brad Nelson (Blurry Whirl>Paradox Torque>Paradox Blender)
+42cfb7b0-8f51-53ff-9721-f4ac4b909290,Brad Nelson,blurry whirl,full_trick,2,2002,2002,2,,1st: Brad Nelson (Blurry Whirl>Paradox Torque>Paradox Blender)
+42cfb7b0-8f51-53ff-9721-f4ac4b909290,Brad Nelson,torque,full_trick,2,2002,2002,2,,1st: Brad Nelson (Blurry Whirl>Paradox Torque>Paradox Blender)
+42cfb7b0-8f51-53ff-9721-f4ac4b909290,Brad Nelson,whirl,full_trick,2,2002,2002,2,,1st: Brad Nelson (Blurry Whirl>Paradox Torque>Paradox Blender)
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,ducking,style_term,2,2001,2002,2,,2 - Brendan Erskine (butterfly>blur>ducking butterfly)
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,spinning,style_term,2,2006,2007,2,,2-Byrin Wylie- spinning swivel
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,torque,full_trick,2,2005,2008,2,,1) Byrin Wylie - Atomic Torque
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,food processor,full_trick,2,2013,2014,2,,2. Chris Dean (USA) - blizzard > fairy ducking butterfly > food processor ; bedwetter > matador > mobius
+c29c4aa7-5b1e-54d1-9435-2a45edfd669c,Christopher Schillem,ducking,style_term,2,2011,2012,2,,1. Christopher Schillem (Stepping Ducking Motor)
+c29c4aa7-5b1e-54d1-9435-2a45edfd669c,Christopher Schillem,eggbeater,full_trick,2,2012,2012,2,,11. Christopher Schillem (Germany) - fury > fusion > PS eggbeater
+c29c4aa7-5b1e-54d1-9435-2a45edfd669c,Christopher Schillem,whirl,full_trick,2,2019,2022,2,,4. Christopher Schillem (Fury>Fusion>PS Whirl)
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,ducking,style_term,2,2008,2009,2,,1. Damian Gielnicki (Sumo>Alpine Legbeater>Ducking Pdx Torque)
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,eggbeater,full_trick,2,2010,2010,2,,2. Damian Gielnicki (Poland) - spinning eggbeater > paradon swirl > symposium
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,stepping,style_term,2,2010,2011,2,,2. Damian Gielnicki (Stepping Reaper > Open Torque > Whirlwind)
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,symposium,style_term,2,2010,2010,2,,2. Damian Gielnicki (Poland) - spinning eggbeater > paradon swirl > symposium
+4d352728-74b6-51db-aa04-1cf6d24b7cc7,Damian Piechocki,blurry whirl,full_trick,2,2005,2007,2,,5. Damian Piechocki: Blurry Whirl > Spining Toe > ATW
+4d352728-74b6-51db-aa04-1cf6d24b7cc7,Damian Piechocki,whirl,full_trick,2,2005,2007,2,,5. Damian Piechocki: Blurry Whirl > Spining Toe > ATW
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,butterfly,full_trick,2,2010,2014,2,,2. Evan Gatesman (Atomic Ducking Butterfly-Ripped Warrior-Blurry Whirling Swirl)
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,spinning,style_term,2,2005,2005,2,,2. Felix Zenger (FIN) Double Blender > Superfly > Spinning Blender
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,whirl,full_trick,2,2005,2005,2,,"2. Felix Zenger (Janiwalker>Blurriest, Blurry Whirl > and it's rewind ;) )"
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,fog,full_trick,2,2015,2018,2,,4. Filip Wójcik (Poland) - Fairy Ducking Butterfly > Fog > Pixie Paradon
+da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,drifter,full_trick,2,2002,2002,2,,2nd: Greg Nelson (Paradox Drifter>Paradox Whirl>Paradox Torque)
+da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,whirl,full_trick,2,2002,2002,2,,2nd: Greg Nelson (Paradox Drifter>Paradox Whirl>Paradox Torque)
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,torque,full_trick,2,2005,2006,2,,2. Honza Weber (Ducking Legbeater>Blurry Torque>Foodprocessor)
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,whirl,full_trick,2,2004,2004,2,,1. Honza Weber fenix ? food prozessor ? paradox symposium whirl
+0f51c65d-c889-5354-8cb7-21bef31c04ca,Jake Milofsky,butterfly,full_trick,2,2002,2002,2,,3rd: Jake Milofsky (Ripwalk>Ducking Butterfly>PS Whirl)
+0f51c65d-c889-5354-8cb7-21bef31c04ca,Jake Milofsky,ducking,style_term,2,2002,2002,2,,3rd: Jake Milofsky (Ripwalk>Ducking Butterfly>PS Whirl)
+0f51c65d-c889-5354-8cb7-21bef31c04ca,Jake Milofsky,ripwalk,full_trick,2,2002,2002,2,,3rd: Jake Milofsky (Ripwalk>Ducking Butterfly>PS Whirl)
+0f51c65d-c889-5354-8cb7-21bef31c04ca,Jake Milofsky,whirl,full_trick,2,2002,2002,2,,3rd: Jake Milofsky (Ripwalk>Ducking Butterfly>PS Whirl)
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,pixie,style_term,2,2011,2012,2,,2. Jakob Wagner (Pixie What)
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,food processor,full_trick,2,2009,2013,2,,5. Jan Weber 42.6 (Alpine Food Processor > Locomotion > Superfly)
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,osis,full_trick,2,2002,2003,2,,3. Jeremy Benton (Blurry Whirl > Osis > Paradox Torque)
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,whirl,full_trick,2,2002,2003,2,,3. Jeremy Benton (Blurry Whirl > Osis > Paradox Torque)
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,blender,full_trick,2,2007,2007,2,,"1. Jim Penske -- Nemesis>Mullet>Spinning Blender, Whirlygig>Spinning"
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,blurry whirl,full_trick,2,2003,2015,2,,"5th) Jim Penske: P. Legbeater, Blurry Whirl, P. Torque"
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,food processor,full_trick,2,2006,2015,2,,3. Jim Penske (Food Processor-Locomotion-Mullet)
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,torque,full_trick,2,2003,2015,2,,"5th) Jim Penske: P. Legbeater, Blurry Whirl, P. Torque"
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,swirl,full_trick,2,2013,2013,2,,2. Jindra Smola (Czech Republic) - Paradon Swirl>mullet>steping torque
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,blurry whirl,full_trick,2,2004,2006,2,,3. Justin Dale: ripped warrior>blurry whirl>blurriest
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,butterfly,full_trick,2,2003,2007,2,,"8th) Justin Dale: Blurry Dragonflier, Ducking Butterfly, P.S. Whirl"
+d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,fog,full_trick,2,2000,2006,2,,3. Ken Somolinos - alpine legbeater>fog>gyro mirage
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,atomic,style_term,2,2006,2007,2,,"1-Kevin Regamy- alpha atomic torque, pandemonium"
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,eggbeater,full_trick,2,2006,2007,2,,1-Kevin Regamy- legbreaker> pdx flail> ss symp eggbeater
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,blurry whirl,full_trick,2,2007,2007,2,,"1. Kyle Hewitt -- Ripped Warrior>Ripwalk>Blurry Whirl, Smear>Dimwalk>DLO"
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,dimwalk,full_trick,2,2006,2007,2,,2. Kyle Hewitt (Dimwalk-Double Leg Over- Symposium Mirage)
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,whirl,full_trick,2,2007,2007,2,,"1. Kyle Hewitt -- Ripped Warrior>Ripwalk>Blurry Whirl, Smear>Dimwalk>DLO"
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,spinning,style_term,2,2003,2006,2,,"7th) Lon Smith: Double-Spinning Clipper, Mobius, Ducking Osis"
+8a740aac-66c5-5fe2-a482-2acd1d1cdc11,Lynton Stephens,blurriest,full_trick,2,2002,2003,2,,1 - Lynton Stephens (Shooting mirage>pixie warrior>blurriest)
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,ripwalk,full_trick,2,2007,2008,2,,-Manna Mpepo (dimwalk> ripwalk> butterfly)
+8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,swirl,full_trick,2,2004,2007,2,,1. Maxime Boucoiran (75 ADDS) Pixie whirling swirl
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,torque,full_trick,2,2009,2012,2,,11. Michal Ostrowski 34.8 (Fairy Ducking Butterfly > Pdx Torque > Pdx Blender)
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,eggbeater,full_trick,2,2008,2014,2,,3. Milan Benda (Fury > Fusion > PS Eggbeater)
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,drifter,full_trick,2,2004,2006,2,,2. Nick Landes: blur>whirl>pdx. drifter
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,gyro,style_term,2,2007,2007,2,,2. Nick Landes -- Gyro Diving Butter>PS Whirl>Void
+70f7b4f9-e8e3-5a08-b540-0924c68a4b20,Olaf Piwowar,food processor,full_trick,2,2009,2009,2,,2. Olaf Piwowar 44.4 (Fusion > Food Processor > Big Apple)
+70f7b4f9-e8e3-5a08-b540-0924c68a4b20,Olaf Piwowar,fusion,full_trick,2,2009,2009,2,,2. Olaf Piwowar 44.4 (Fusion > Food Processor > Big Apple)
+6694222e-0569-530d-a4f2-c7b12aab7a93,Patryk Tenderenda,drifter,full_trick,2,2012,2012,2,,17. Patryk Tenderenda (Poland) - terrage > legbeater > paradox drifter
+8a15006e-bc85-5621-bbe6-66090397b7d2,Przemyslaw Pietrzycki,torque,full_trick,2,2017,2018,2,,6. Przemek Pietrzycki (phoenix>pdx torque>ps whirl)
+82c36f56-236f-4496-826b-cf59a6fcc4ed,Rafal Kaleta,torque,full_trick,2,2010,2016,2,,1. Rafal Kaleta (Poland) - bedwetter > plasma > paradox symposium torque
+b1905548-0ada-590b-8d3b-3264d4e49e99,Santeri Karvinen,eggbeater,full_trick,2,2012,2016,2,,12. Santeri Karvinen (Finland) - fusion > PS eggbeater > pixie torque
+b1905548-0ada-590b-8d3b-3264d4e49e99,Santeri Karvinen,fusion,full_trick,2,2012,2016,2,,12. Santeri Karvinen (Finland) - fusion > PS eggbeater > pixie torque
+b1905548-0ada-590b-8d3b-3264d4e49e99,Santeri Karvinen,pixie,style_term,2,2012,2016,2,,12. Santeri Karvinen (Finland) - fusion > PS eggbeater > pixie torque
+b1905548-0ada-590b-8d3b-3264d4e49e99,Santeri Karvinen,torque,full_trick,2,2012,2016,2,,12. Santeri Karvinen (Finland) - fusion > PS eggbeater > pixie torque
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,pickup,full_trick,2,2015,2019,2,,10. Sergio Garcia (Spain) - Nuclear Same-Side Pickup > Legbeater > Same-Side Legover
+a0bcdd4a-2d77-522f-8f5c-b74c30ade8d2,Thomas Sustrac,ripwalk,full_trick,2,2006,2008,2,,"6. Thomas Sustrac ""Ripwalk"""
+457cdaa2-3ec3-5aed-b340-708420125d7c,Will Digges,swirl,full_trick,2,2006,2008,2,,2. Will Digges (Fury-Phoenix-Blurriest Swirl)
+fc0e50ee-c392-5d00-a7f1-be70b324c749,Adam Cieszkiel,whirl,full_trick,2,2005,2005,1,,2. Adam Cieszkiel: Blurry Whirl >Blurriest > PS Whirl
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,whirl,full_trick,2,2014,2014,1,,3. Alex Dworetzky (USA) - paradox whirl > paradox whirl > barfly
+0b36838e-ef53-5c81-adf5-5dda95b42e84,Andreas Grandi Peier,pixie,style_term,2,2008,2008,1,,2. Andreas Grandi Peier ? Smoke > Fog > Pixie same Swirl
+0b36838e-ef53-5c81-adf5-5dda95b42e84,Andreas Grandi Peier,swirl,full_trick,2,2008,2008,1,,2. Andreas Grandi Peier ? Smoke > Fog > Pixie same Swirl
+38c0f384-29fa-5cd9-b3e7-707e76e7aa9a,Andreas Hoffmann,butterfly,full_trick,2,2009,2009,1,,3. Andreas Hoffmann (Dimwalk > Diving Butterfly > Ducking Butterfly)
+38c0f384-29fa-5cd9-b3e7-707e76e7aa9a,Andreas Hoffmann,ducking,style_term,2,2009,2009,1,,3. Andreas Hoffmann (Dimwalk > Diving Butterfly > Ducking Butterfly)
+66c8ee00-cda8-5430-ba1c-ffb177198d18,Andrew Coleman,legover,full_trick,2,2006,2006,1,,3. Andrew C.: assassin > p. du. legover > p. du. legover
+4ea3ca6a-daf2-5ea6-aa76-f521e7cac688,Augustin Tiffou,legover,full_trick,2,2008,2008,1,,3. Augustin Tiffou ? Dimwalk > drifter > far legover
+0fa81d44-72e1-5170-966c-f4ecadd319a7,Ben Elynn,ripwalk,full_trick,2,2002,2002,1,,3 - Ben Elynn (ripwalk>ripwalk>paradox mirage)
+77de2a9d-0785-5fea-bc31-e614ae622492,Benny Kellman,spinning,style_term,2,2007,2007,1,,2nd - Benny Kellman - Diving Clipper > Spinning Clipper > Spinning Paradox Dragonfly
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,blurry whirl,full_trick,2,2007,2007,1,,2- Byrin Wylie (blurry whirl> blurry whirl> blurriest)
+c1c401e4-2560-5f81-9f5b-8c866a93eb12,Cody Rushing,dimwalk,full_trick,2,2008,2008,1,,"1) Cody Rushing (Blur > Dimwalk > Whirling Swirl, Smear > Dimwalk > Barrage)"
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,butterfly,full_trick,2,2001,2001,1,,3rd - Dan Ednie (pixie butterfly>paradox mirage>pixie butterfly)
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,pixie,style_term,2,2001,2001,1,,3rd - Dan Ednie (pixie butterfly>paradox mirage>pixie butterfly)
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,whirl,full_trick,2,2003,2003,1,,2. Dan Ednie - ripwalk>blurry whirl>PS whirl
+eb6c8019-8a66-5c39-942f-47e75377cc38,Danny Iachini,legover,full_trick,2,2003,2003,1,,1st: Danny Iachini (Quantum Legover>Atomic Legover>Legbeater)
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,atomsmasher,full_trick,2,2003,2003,1,,"2nd) Daryl Genz: P. Legbeater, Sumo (P. Atomsmasher), Pixie Ducking Butterfly"
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,butterfly,full_trick,2,2003,2003,1,,"2nd) Daryl Genz: P. Legbeater, Sumo (P. Atomsmasher), Pixie Ducking Butterfly"
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,ducking,style_term,2,2003,2003,1,,"2nd) Daryl Genz: P. Legbeater, Sumo (P. Atomsmasher), Pixie Ducking Butterfly"
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,pixie,style_term,2,2003,2003,1,,"2nd) Daryl Genz: P. Legbeater, Sumo (P. Atomsmasher), Pixie Ducking Butterfly"
+90d8f87f-5a27-5bee-a520-21eef47922bc,Dimitar Dimitrov,whirl,full_trick,2,2007,2007,1,,7. Dimitar Dimitrov ? Symposium Quantum Mirage > Symposium Whirl > PS Whirl
+bc25cbb5-3010-58ac-8bba-b7b745d309dd,Evan Lovely,ripwalk,full_trick,2,2004,2004,1,,3. Evan Lovely: dimwalk>ripwalk>ripwalk
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,symposium,style_term,2,2013,2013,1,,1. Felix Zenger (Finland) - alpine legbeater > pogo symposium (full symposium) paradox twirl > surging blender
+a737859a-35f6-51c8-9cd1-d5f54f88b8dd,Gosia Debska,butterfly,full_trick,2,2010,2010,1,,3. Gosia Debska (Butterfly-Butterfly-Osis)
+da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,blender,full_trick,2,2003,2003,1,,"16th) Greg Nelson: P. Blender, P. Blender, Osis"
+fa005bba-9079-5b6a-9eec-592016d90f66,Greg Solis,dimwalk,full_trick,2,2008,2008,1,,"5) Greg Solis (Butterfly > Whirl > Osis, Dimwalk > Osis > Toe, Butterfly > Swirl"
+fa005bba-9079-5b6a-9eec-592016d90f66,Greg Solis,osis,full_trick,2,2008,2008,1,,"5) Greg Solis (Butterfly > Whirl > Osis, Dimwalk > Osis > Toe, Butterfly > Swirl"
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,pixie,style_term,2,2005,2005,1,,"1. Honza Weber (Pixie Mobius, Superego, Alpine Foodprocessor)"
+5c134542-d0b3-55f2-8c4c-413ccb2e9d15,Ilja Mitrofanov,whirl,full_trick,2,2005,2005,1,,3. Ilja Mitrofanov (Blurry Whirl > Paradox Whirl > Whirlwind)
+e34eef4f-ee11-5919-ba62-9db5d0489e83,Ivan Iakimenko,butterfly,full_trick,2,2018,2018,1,,7. Ivan Iakimenko (Butterfly > Pdx Mirage > Butterfly)
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,whirl,full_trick,2,2007,2007,1,,"2. Jake Wren--Blurriest, Spinning Whirl, Sumo, Blurry Whirl"
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,food processor,full_trick,2,2012,2012,1,,1. Jakob Wagner (Pixie Ducking Paradon > Food Processor > Mullet)
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,drifter,full_trick,2,2003,2003,1,,"2nd) Jim Penske: P. Legbeater, Blurry Drifter, P.S. Whirl"
+a16f307e-68d5-5ad4-be8f-234aeefc45fc,Joel Roset,legover,full_trick,2,2007,2007,1,,4. Joel Roset ? Pixie Double Legover > Terraging Legover > Dolomite
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,whirl,full_trick,2,2019,2019,1,,16. Johnny Sarah (Blurry Whirl)
+2c16c43d-6111-5231-b813-23f20f6ba7a3,Jonathan Schneider,ripwalk,full_trick,2,2008,2008,1,,2) Jon Schneider (Ripwalk > Ripwalk > Infinity Swirl)
+16aae952-d265-5e4d-81b8-5474f6c43802,Jorden Moir,whirl,full_trick,2,2005,2005,1,,"2nd Jorden Moir don't remember his either, maybe blurry whirl > ps whirl >"
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,symposium,style_term,2,2007,2007,1,,"5. Kevin Regamy--Sailing ss Eggbeater, Symposium Atomic ss Symposium Illusion"
+f07b9590-cb35-55ba-8277-3e9c15e177d0,Krystian Bubula,butterfly,full_trick,2,2015,2015,1,,9. Krystian Bubula (Poland) - Ripwalk > Ducking Butterfly > Whirl
+f07b9590-cb35-55ba-8277-3e9c15e177d0,Krystian Bubula,ducking,style_term,2,2015,2015,1,,9. Krystian Bubula (Poland) - Ripwalk > Ducking Butterfly > Whirl
+a6ac429b-c0c0-5339-bebd-6330299e5b0f,Lee Byrd,ripwalk,full_trick,2,2004,2004,1,,5. Lee Byrd: double atw>butterfly>ripwalk
+6afe2e47-df47-5055-bba0-0aa2341d43e0,Max Boucoiran,butterfly,full_trick,2,2003,2003,1,,1. Max Boucoiran (75 ADDS) : Diving Butterfly >Ducking Butterfly >
+a3b920f0-d00d-56b5-96b2-38afd35715e8,Maximov Pavel,blurry whirl,full_trick,2,2009,2009,1,,Maximov Pavel blurry whirl-blurry whirl-spining ps whirl
+437d9bc1-f872-5687-9191-689dccedb6d0,Michal Biarda,pixie,style_term,2,2009,2009,1,,10. Michal Biarda 36.7 (Rooted Pixie Legover > Quantum Illusion > Pixie Dada Curve)
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,spinning,style_term,2,2013,2013,1,,3. Milan Benda ? Spinning Ducking Spinning Osis
+3de01059-2378-5f56-910f-08e61f3294a1,Roy Klein,pixie,style_term,2,2015,2015,1,,7. Roy Klein (The Netherlands) - Ducking Pdx Mirage > Double Legover > Pixie Whirl
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,whirl,full_trick,2,2002,2002,1,,2. Ryan Mulroney (Blurry Whirl > Paradox Symposium Whirl > Whirlwind)
+274d2f51-e2d5-5458-be40-6b9211ff813e,Scott Davidson,stepping,style_term,2,2003,2003,1,,"10th) Scott Davidson: Stepping Whirl, Blurry Whirl, Stepping Whirl"
+fae56cbd-e8c0-51a4-8f97-f61222a27d07,Shawnell Tolliver,double around the world,full_trick,2,2008,2008,1,,"4. Shawnell Tolliver (Dyno, Double Around the World)"
+2387456b-26ab-5254-ad15-2c78d59c4c71,Siegert Stefan,legover,full_trick,2,2004,2004,1,,4 Siegert Stefan (Symp. Quantum Legover - Slapping Legover - Frantic
+78d0c91f-b1ec-572e-855b-a7d3f706f8b7,Stefan Siegert,legover,full_trick,2,2012,2012,1,,3. Stefan Siegert (Toe Ripwalk > Bubba Beater > Frantic Legover)
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,butterfly,full_trick,2,2003,2003,1,,"1st) Sunil Jani: High-Stepping Butterfly, P. Dragonflier, Eggbeater"
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,eggbeater,full_trick,2,2003,2003,1,,"1st) Sunil Jani: High-Stepping Butterfly, P. Dragonflier, Eggbeater"
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,stepping,style_term,2,2003,2003,1,,"1st) Sunil Jani: High-Stepping Butterfly, P. Dragonflier, Eggbeater"
+a9518594-35d9-53cd-8e8d-a7bc4de94236,Sébastien Maillet,ducking,style_term,2,2008,2008,1,,4. Sébastien Maillet ? Ducking clipper > drifter > far legover
+6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,Tina Aeberli,whirl,full_trick,2,2007,2007,1,,9. Tina Aeberli ? Blurry Whirl > PS Whirl > Whirling Swirl
+6c5ddac5-178d-56b9-a514-ee66d1b24a16,Tony Whitney,whirl,full_trick,2,2007,2007,1,,1) Tony Whitney : smear > dimwalk > ps whirl
+98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,whirl,full_trick,2,2014,2014,1,,2. Václav Klouda (Czech Republic) - atomic ducking whirl > spinning ps whirl > montage
+457cdaa2-3ec3-5aed-b340-708420125d7c,Will Digges,blurry whirl,full_trick,2,2008,2008,1,,1 - Will Digges (Alpine Blurry Whirl > Janiwalker > Whirlygig)
+457cdaa2-3ec3-5aed-b340-708420125d7c,Will Digges,whirl,full_trick,2,2008,2008,1,,1 - Will Digges (Alpine Blurry Whirl > Janiwalker > Whirlygig)
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,whirl,full_trick,2,2007,2007,1,,"4. Zeb Jackson--Spinning Ducking Butter, Blurry Whirl, Zulu Osis"
+766ba8a6-f9b8-5be2-b501-6a034451d8ac,Aaron Orton,blender,full_trick,1,2007,2007,1,,1. Aaron Orton (Surging Blender)
+fc0e50ee-c392-5d00-a7f1-be70b324c749,Adam Cieszkiel,blurriest,full_trick,1,2005,2005,1,,2. Adam Cieszkiel: Blurry Whirl >Blurriest > PS Whirl
+fc0e50ee-c392-5d00-a7f1-be70b324c749,Adam Cieszkiel,blurry whirl,full_trick,1,2005,2005,1,,2. Adam Cieszkiel: Blurry Whirl >Blurriest > PS Whirl
+de72051a-f92e-5e3c-b161-af9028b11492,Adam Greenwood,atomic,style_term,1,2007,2007,1,,3) Adam Greenwood : atomic catwalk > blur > tripwalk
+de72051a-f92e-5e3c-b161-af9028b11492,Adam Greenwood,blur,full_trick,1,2007,2007,1,,3) Adam Greenwood : atomic catwalk > blur > tripwalk
+aa5f0e41-79db-5da1-a7dd-d47f3bd16cc2,Adrian Dick,blur,full_trick,1,2001,2001,1,,1st - Adrian Dick (Legbeater>blur>paradon swirl)
+aa5f0e41-79db-5da1-a7dd-d47f3bd16cc2,Adrian Dick,swirl,full_trick,1,2001,2001,1,,1st - Adrian Dick (Legbeater>blur>paradon swirl)
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,butterfly,full_trick,1,2006,2006,1,,7. Aleksi Airinen pixie butterfly > ripwalk > pdx whirl
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,food processor,full_trick,1,2013,2013,1,,1. Aleksi Airinen ? Flurricane > Paradon Swirl > Food Processor
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,pixie,style_term,1,2006,2006,1,,7. Aleksi Airinen pixie butterfly > ripwalk > pdx whirl
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,ripwalk,full_trick,1,2006,2006,1,,7. Aleksi Airinen pixie butterfly > ripwalk > pdx whirl
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,whirl,full_trick,1,2006,2006,1,,7. Aleksi Airinen pixie butterfly > ripwalk > pdx whirl
+743b3110-af5d-5b1d-a489-5f0ebece2abd,Alex Bernstein,blurry whirl,full_trick,1,2008,2008,1,,1. Alex Bernstein (Blurry Whirl-PS Whirl- Spinning Osis)
+743b3110-af5d-5b1d-a489-5f0ebece2abd,Alex Bernstein,osis,full_trick,1,2008,2008,1,,1. Alex Bernstein (Blurry Whirl-PS Whirl- Spinning Osis)
+743b3110-af5d-5b1d-a489-5f0ebece2abd,Alex Bernstein,spinning,style_term,1,2008,2008,1,,1. Alex Bernstein (Blurry Whirl-PS Whirl- Spinning Osis)
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,ducking,style_term,1,2008,2008,1,,3. Alex Dworetzky (Spinning Clipper-Infinity- Ducking Clipper
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,ducking clipper,full_trick,1,2008,2008,1,,3. Alex Dworetzky (Spinning Clipper-Infinity- Ducking Clipper
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,legover,full_trick,1,2014,2014,1,,4. Alex Dworetzky (USA) - clipper > infinity > legover
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,pickup,full_trick,1,2012,2012,1,,20. Alex Dworetzky (USA) - pickup > far clipper > far clipper
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,spinning,style_term,1,2008,2008,1,,3. Alex Dworetzky (Spinning Clipper-Infinity- Ducking Clipper
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,spinning clipper,full_trick,1,2008,2008,1,,3. Alex Dworetzky (Spinning Clipper-Infinity- Ducking Clipper
+337dc937-b022-51ef-8470-99fff306e2c9,Alex Dworetzky,superfly,full_trick,1,2008,2008,1,,2. Alex Dworetzky (Superfly)
+0d90bb3c-6c67-5057-9ac2-d85f9f94fa26,Alex Lopez,blender,full_trick,1,2012,2012,1,,1. ALEX LOPEZ: spin whirl>blender>mobius
+0d90bb3c-6c67-5057-9ac2-d85f9f94fa26,Alex Lopez,mobius,full_trick,1,2012,2012,1,,1. ALEX LOPEZ: spin whirl>blender>mobius
+0d90bb3c-6c67-5057-9ac2-d85f9f94fa26,Alex Lopez,whirl,full_trick,1,2012,2012,1,,1. ALEX LOPEZ: spin whirl>blender>mobius
+448d4c37-75f4-5396-bd2f-544dd0ab967c,Alex Verget,drifter,full_trick,1,2006,2006,1,,3) Alex Verget - stepping clipper>drifter>drop
+448d4c37-75f4-5396-bd2f-544dd0ab967c,Alex Verget,stepping,style_term,1,2006,2006,1,,3) Alex Verget - stepping clipper>drifter>drop
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,ducking,style_term,1,2008,2008,1,,7. Alexander Trenner ? Paradox Ducking Swirl
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,swirl,full_trick,1,2008,2008,1,,7. Alexander Trenner ? Paradox Ducking Swirl
+be733240-4c4d-553c-9df4-4c47b38a19e4,Allan Haggett,blurry whirl,full_trick,1,2003,2003,1,,Allan Haggett (BC) (Ripped Warrior-Blurry Whirl-Stepping Swivel)
+be733240-4c4d-553c-9df4-4c47b38a19e4,Allan Haggett,fog,full_trick,1,2003,2003,1,,"4th) Allan Hagget: Fog, Legbeater, P. Torque"
+be733240-4c4d-553c-9df4-4c47b38a19e4,Allan Haggett,stepping,style_term,1,2003,2003,1,,Allan Haggett (BC) (Ripped Warrior-Blurry Whirl-Stepping Swivel)
+be733240-4c4d-553c-9df4-4c47b38a19e4,Allan Haggett,torque,full_trick,1,2003,2003,1,,"4th) Allan Hagget: Fog, Legbeater, P. Torque"
+be733240-4c4d-553c-9df4-4c47b38a19e4,Allan Haggett,whirl,full_trick,1,2003,2003,1,,Allan Haggett (BC) (Ripped Warrior-Blurry Whirl-Stepping Swivel)
+0b36838e-ef53-5c81-adf5-5dda95b42e84,Andreas Grandi Peier,ducking,style_term,1,2008,2008,1,,4. Andreas Grandi Peier ? Pixie Ducking Paradox Swirl
+0b36838e-ef53-5c81-adf5-5dda95b42e84,Andreas Grandi Peier,fog,full_trick,1,2008,2008,1,,2. Andreas Grandi Peier ? Smoke > Fog > Pixie same Swirl
+38c0f384-29fa-5cd9-b3e7-707e76e7aa9a,Andreas Hoffmann,dimwalk,full_trick,1,2009,2009,1,,3. Andreas Hoffmann (Dimwalk > Diving Butterfly > Ducking Butterfly)
+38c0f384-29fa-5cd9-b3e7-707e76e7aa9a,Andreas Hoffmann,osis,full_trick,1,2009,2009,1,,2. Andreas Hoffmann (Pendulous Ducking Osis)
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,blender,full_trick,1,2018,2018,1,,4. Andreas Nawrath (Sailing Butterfly > Blurry Whirl > Spinning Pdx Blender)
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,legover,full_trick,1,2014,2014,1,,7. Andreas Nawrath (Germany) - jumproping magellan > jumproping pixie legover > clipper
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,pixie,style_term,1,2014,2014,1,,7. Andreas Nawrath (Germany) - jumproping magellan > jumproping pixie legover > clipper
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,spinning,style_term,1,2018,2018,1,,4. Andreas Nawrath (Sailing Butterfly > Blurry Whirl > Spinning Pdx Blender)
+4beb2ce2-19e8-5443-9b5b-e221febea787,Andreas Nawrath,torque,full_trick,1,2016,2016,1,,2. Andreas Nawrath (Sailing Butterfly > Blurry Whirl > Paradox Torque)
+44c23e21-b920-58a7-90d9-80dcf5d60093,Andrew Dunford,ripwalk,full_trick,1,2007,2007,1,,3-Andrew Dunford (ripwalk)
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,eggbeater,full_trick,1,2007,2007,1,,4. Andrew Grant--Stepping Paradox Symposium Eggbeater
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,food processor,full_trick,1,2006,2006,1,,"3-Andrew Grant- fury, symple food processor"
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,ripwalk,full_trick,1,2007,2007,1,,3- Andrew Grant (blurry whirl> ripwalk> ps whirl)
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,stepping,style_term,1,2007,2007,1,,4. Andrew Grant--Stepping Paradox Symposium Eggbeater
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,symposium,style_term,1,2007,2007,1,,4. Andrew Grant--Stepping Paradox Symposium Eggbeater
+17a27155-b5bc-5c72-ac90-602127a1ed24,Andy Nawrath,mobius,full_trick,1,2025,2025,1,,4. Andy Nawrath (DE) - Mobius >
+00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,blurry whirl,full_trick,1,2009,2009,1,,3. Anssi Sundberg 43.2 (Scorpion´s Tail > Blurry Whirl > Vertigo)
+00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,butterfly,full_trick,1,2014,2014,1,,7. Anssi Sundberg (Finland) - badger (symposium butterfly swirl)
+00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,swirl,full_trick,1,2014,2014,1,,7. Anssi Sundberg (Finland) - badger (symposium butterfly swirl)
+00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,symposium,style_term,1,2014,2014,1,,7. Anssi Sundberg (Finland) - badger (symposium butterfly swirl)
+00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,whirl,full_trick,1,2009,2009,1,,3. Anssi Sundberg 43.2 (Scorpion´s Tail > Blurry Whirl > Vertigo)
+5153f93f-1e75-5497-82c6-bf804faf6476,Anton Britting,mobius,full_trick,1,2019,2019,1,,15. Anton Britting (Mobius)
+5153f93f-1e75-5497-82c6-bf804faf6476,Anton Britting,whirl,full_trick,1,2015,2015,1,,14. Anton Britting (USA) - PS Whirl
+0a33a41b-8363-572e-90a0-39ae1e107ede,Arek Stanek,food processor,full_trick,1,2019,2019,1,,5. Arek Stanek (Food Processor>Janiwalker>PDX Torque)
+0a33a41b-8363-572e-90a0-39ae1e107ede,Arek Stanek,torque,full_trick,1,2019,2019,1,,5. Arek Stanek (Food Processor>Janiwalker>PDX Torque)
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,atomic,style_term,1,2009,2009,1,,3. Arkadiusz Dudziñski (Sumo > Atomic Whirl > PS Eggbeater)
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,food processor,full_trick,1,2009,2009,1,,1. Arkadiusz Dudzinski 44.9 (Beta Bedwetter > Fusion > Food Processor)
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,torque,full_trick,1,2008,2008,1,,2. Arkadiusz Dudziñski (Fury > Reactor > PS Torque)
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,whirl,full_trick,1,2009,2009,1,,3. Arkadiusz Dudziñski (Sumo > Atomic Whirl > PS Eggbeater)
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,ducking,style_term,1,2018,2018,1,,1. Arkadiusz Stanek - Foodprocessor > janiwalker > ducking pdx torque
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,gyro,style_term,1,2017,2017,1,,4. Arkadiusz Stanek (gyro baroque)
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,mobius,full_trick,1,2017,2017,1,,2. Arkadiusz Stanek (foodprocessor>mobius>mulet)
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,torque,full_trick,1,2018,2018,1,,1. Arkadiusz Stanek - Foodprocessor > janiwalker > ducking pdx torque
+abe227f2-b4d5-5baa-9f72-2b6dfa32036e,Artur Pichura,fusion,full_trick,1,2012,2012,1,,11. Artur Pichura (Frontside Fusion) (Poland)
+0dd4fbff-3e80-5779-853a-4e9a4189878a,Ashley Danowski,blurry whirl,full_trick,1,2008,2008,1,,1. Ashley Danowski (Blurry Whirl)
+0dd4fbff-3e80-5779-853a-4e9a4189878a,Ashley Danowski,whirl,full_trick,1,2008,2008,1,,1. Ashley Danowski (Blurry Whirl)
+816ccebb-84e4-551e-b7bb-d6517dd88e83,Asmus Helms,legover,full_trick,1,2016,2016,1,,9. Asmus Helms (ATW > Legover > Clipper)
+71501d92-2a94-5c78-9fe7-8cc7c58de04b,Augustin Tiffaud,atomic,style_term,1,2006,2006,1,,"2. Augustin Tiffaud ""Atomic Ducking Butterfly"""
+71501d92-2a94-5c78-9fe7-8cc7c58de04b,Augustin Tiffaud,butterfly,full_trick,1,2006,2006,1,,"2. Augustin Tiffaud ""Atomic Ducking Butterfly"""
+71501d92-2a94-5c78-9fe7-8cc7c58de04b,Augustin Tiffaud,ducking,style_term,1,2006,2006,1,,"2. Augustin Tiffaud ""Atomic Ducking Butterfly"""
+4ea3ca6a-daf2-5ea6-aa76-f521e7cac688,Augustin Tiffou,dimwalk,full_trick,1,2008,2008,1,,3. Augustin Tiffou ? Dimwalk > drifter > far legover
+4ea3ca6a-daf2-5ea6-aa76-f521e7cac688,Augustin Tiffou,drifter,full_trick,1,2008,2008,1,,3. Augustin Tiffou ? Dimwalk > drifter > far legover
+4ea3ca6a-daf2-5ea6-aa76-f521e7cac688,Augustin Tiffou,tapping,style_term,1,2008,2008,1,,2. Augustin Tiffou ? Tapping double legover
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,blurry whirl,full_trick,1,2010,2010,1,,1. Bartosz Bubula (Alpine Blurry Whirl > Bedwetter > Open Near Symposium Double
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,ducking,style_term,1,2012,2012,1,,3. Bartosz Bubula (Alpin Legbeater> Bedwetter> Pixie Ducking Swirl) (Poland)
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,fog,full_trick,1,2009,2009,1,,6. Bartosz Bubula (Ripwarrior > Fog > Fusion)
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,pixie,style_term,1,2012,2012,1,,3. Bartosz Bubula (Alpin Legbeater> Bedwetter> Pixie Ducking Swirl) (Poland)
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,symposium,style_term,1,2010,2010,1,,1. Bartosz Bubula (Alpine Blurry Whirl > Bedwetter > Open Near Symposium Double
+e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,whirl,full_trick,1,2010,2010,1,,1. Bartosz Bubula (Alpine Blurry Whirl > Bedwetter > Open Near Symposium Double
+cb2f5aeb-165a-5e47-96a0-b80622a0d252,Ben Barrows,dimwalk,full_trick,1,2006,2006,1,,3. ben barrows - smog>dimwalk>ps whirl
+cb2f5aeb-165a-5e47-96a0-b80622a0d252,Ben Barrows,whirl,full_trick,1,2006,2006,1,,3. ben barrows - smog>dimwalk>ps whirl
+0fa81d44-72e1-5170-966c-f4ecadd319a7,Ben Elynn,paradox mirage,full_trick,1,2002,2002,1,,3 - Ben Elynn (ripwalk>ripwalk>paradox mirage)
+9ccb1c1b-89e0-5406-9e37-a287f34a84d8,Ben Schmaltz,pixie,style_term,1,2003,2003,1,,"5th) Ben Schmaltz: Pixie REVERSE Whirling-Swirl (NICE JOB, BEN! - this guy"
+9ccb1c1b-89e0-5406-9e37-a287f34a84d8,Ben Schmaltz,symposium,style_term,1,2007,2007,1,,6. Ben Schmaltz (Blurry Symposium Reverse Whirling Swirl)
+f825bd42-5056-55c5-8a4c-ba0788615e01,Ben Skaggs,torque,full_trick,1,2008,2008,1,,2 Ben Skaggs blurrywhirl>p.s. whirl>paradox torque
+f825bd42-5056-55c5-8a4c-ba0788615e01,Ben Skaggs,whirl,full_trick,1,2008,2008,1,,2 Ben Skaggs blurrywhirl>p.s. whirl>paradox torque
+77de2a9d-0785-5fea-bc31-e614ae622492,Benny Kellman,spinning clipper,full_trick,1,2007,2007,1,,2nd - Benny Kellman - Diving Clipper > Spinning Clipper > Spinning Paradox Dragonfly
+c448d0ea-1fd7-5477-89bf-ef54258ab246,Bob Glasser,pixie,style_term,1,2002,2002,1,,type of pixie duck that'd throw me back again. Bob Glasser came with his fairy
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,blur,full_trick,1,2002,2002,1,,2 - Brendan Erskine (butterfly>blur>ducking butterfly)
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,osis,full_trick,1,2003,2003,1,,1. Brendan Erskine - Helical mirage (frigid osis set sailing mirage)
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,paradox mirage,full_trick,1,2001,2001,1,,4th - Brendan Erskine (toe set dlo>ducking butterfly>paradox mirage)
+96456a6d-5895-58ab-8175-9408424e79d1,Brett Campbell,fog,full_trick,1,2005,2005,1,,3) Brett Campbell - Beta Fog
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,ducking,style_term,1,2014,2014,1,,1. Brian Sherrill (USA) - spinning ducking osis > mobius > spender
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,gyro,style_term,1,2013,2013,1,,3. Brian Sherrill (USA) - double spinning clipper > spinning whirl > gyro double legover
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,legover,full_trick,1,2013,2013,1,,3. Brian Sherrill (USA) - double spinning clipper > spinning whirl > gyro double legover
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,spinning clipper,full_trick,1,2013,2013,1,,3. Brian Sherrill (USA) - double spinning clipper > spinning whirl > gyro double legover
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,spinning whirl,full_trick,1,2013,2013,1,,3. Brian Sherrill (USA) - double spinning clipper > spinning whirl > gyro double legover
+11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,whirl,full_trick,1,2013,2013,1,,3. Brian Sherrill (USA) - double spinning clipper > spinning whirl > gyro double legover
+4db4e8fb-1a65-50c3-93ac-0c7b5ee74e3d,Budás Bálint,dimwalk,full_trick,1,2005,2005,1,,4. Budás Bálint (Dimwalk>Foodprocessor>PS Whirl)
+4db4e8fb-1a65-50c3-93ac-0c7b5ee74e3d,Budás Bálint,whirl,full_trick,1,2005,2005,1,,4. Budás Bálint (Dimwalk>Foodprocessor>PS Whirl)
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,atomic,style_term,1,2005,2005,1,,1) Byrin Wylie - Atomic Torque
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,blurriest,full_trick,1,2007,2007,1,,2- Byrin Wylie (blurry whirl> blurry whirl> blurriest)
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,fusion,full_trick,1,2008,2008,1,,1) Byrin Wylie - sumo > fusion > symp torque
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,gyro,style_term,1,2007,2007,1,,"1. Byrin Wylie--Surging Ducking Paradox Whirl, Surging Paradox Blender, Gyro"
+97dfde65-956c-5842-994d-05a877c49182,Cale McCoy,ducking,style_term,1,2010,2010,1,,1. Cale McCoy (Ducking Leg Over-Pixie Leg Over-Phoenix)
+97dfde65-956c-5842-994d-05a877c49182,Cale McCoy,pixie,style_term,1,2010,2010,1,,1. Cale McCoy (Ducking Leg Over-Pixie Leg Over-Phoenix)
+40b58c8d-2350-5041-8600-e392b511e0bc,Carlos Terraza,pixie,style_term,1,2012,2012,1,,3. CARLOS TERRAZA: pixie symp whirl
+40b58c8d-2350-5041-8600-e392b511e0bc,Carlos Terraza,whirl,full_trick,1,2012,2012,1,,3. CARLOS TERRAZA: pixie symp whirl
+81a671cd-b6f6-5d6e-997e-21d885cf8ae8,Caro Bourgouin,drifter,full_trick,1,2008,2008,1,,"2. Caro Bouroin (Paradox Drifter, Matador)"
+dfc35597-39c1-5425-8b94-6e24dbc24696,Cass Taylor,butterfly,full_trick,1,2013,2013,1,,6. Cassandra Taylor (Canada) - smear > butterfly > paradox whirl
+dfc35597-39c1-5425-8b94-6e24dbc24696,Cass Taylor,smear,full_trick,1,2013,2013,1,,6. Cassandra Taylor (Canada) - smear > butterfly > paradox whirl
+dfc35597-39c1-5425-8b94-6e24dbc24696,Cass Taylor,whirl,full_trick,1,2013,2013,1,,6. Cassandra Taylor (Canada) - smear > butterfly > paradox whirl
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,flurry,full_trick,1,2003,2003,1,,"5th) Chad Devlahovich: Spinning Whirl, Blurry Whirl, Flurry"
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,osis,full_trick,1,2003,2003,1,,"12th) Chad Devlahovich: Scorpion Tail, Blurry Whirl, Osis"
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,spinning,style_term,1,2003,2003,1,,"5th) Chad Devlahovich: Spinning Whirl, Blurry Whirl, Flurry"
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,spinning whirl,full_trick,1,2003,2003,1,,"5th) Chad Devlahovich: Spinning Whirl, Blurry Whirl, Flurry"
+b268c49e-eef5-54f8-8ed5-16d8b5ffb62a,Chad Rassmuson,pickup,full_trick,1,1999,1999,1,,1.Chad Rassmuson / Brian Pickup
+e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,dimwalk,full_trick,1,2007,2007,1,,3rd - Chris Balch - Ducking Clipper > Gyro Mirage > Dimwalk
+e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,ducking,style_term,1,2007,2007,1,,3rd - Chris Balch - Ducking Clipper > Gyro Mirage > Dimwalk
+e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,ducking clipper,full_trick,1,2007,2007,1,,3rd - Chris Balch - Ducking Clipper > Gyro Mirage > Dimwalk
+e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,gyro,style_term,1,2007,2007,1,,3rd - Chris Balch - Ducking Clipper > Gyro Mirage > Dimwalk
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,blurry whirl,full_trick,1,2014,2014,1,,2. Chris Dean (USA) - blurry whirl > matador > food processor
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,butterfly,full_trick,1,2013,2013,1,,2. Chris Dean (USA) - blizzard > fairy ducking butterfly > food processor ; bedwetter > matador > mobius
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,ducking,style_term,1,2013,2013,1,,2. Chris Dean (USA) - blizzard > fairy ducking butterfly > food processor ; bedwetter > matador > mobius
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,fusion,full_trick,1,2014,2014,1,,3. Chris Dean (USA) - fusion
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,mobius,full_trick,1,2013,2013,1,,2. Chris Dean (USA) - blizzard > fairy ducking butterfly > food processor ; bedwetter > matador > mobius
+43ddd1ca-e004-5d37-b4b5-38cd81bde3c2,Chris Dean,whirl,full_trick,1,2014,2014,1,,2. Chris Dean (USA) - blurry whirl > matador > food processor
+94439b1d-8eff-55ce-8c58-05cb5817dfb3,Chris Hall,butterfly,full_trick,1,2006,2006,1,,3) Chris Hall - butterfly
+d53d0dae-9c1e-5773-a133-e42829b7a2ae,Chris Miller,butterfly,full_trick,1,2006,2006,1,,2) Chris Miller - ducking clipper>pdx mirage>butterfly
+d53d0dae-9c1e-5773-a133-e42829b7a2ae,Chris Miller,ducking,style_term,1,2006,2006,1,,2) Chris Miller - ducking clipper>pdx mirage>butterfly
+d53d0dae-9c1e-5773-a133-e42829b7a2ae,Chris Miller,ducking clipper,full_trick,1,2006,2006,1,,2) Chris Miller - ducking clipper>pdx mirage>butterfly
+e3d94c0b-8963-5e74-bc7c-5efb703a22b4,Christian Britting,atomsmasher,full_trick,1,2019,2019,1,,11. Christian Britting (Atomsmasher>DLO>ss Whirl)
+e3d94c0b-8963-5e74-bc7c-5efb703a22b4,Christian Britting,dimwalk,full_trick,1,2019,2019,1,,17. Christian Britting (Dimwalk)
+e3d94c0b-8963-5e74-bc7c-5efb703a22b4,Christian Britting,whirl,full_trick,1,2019,2019,1,,11. Christian Britting (Atomsmasher>DLO>ss Whirl)
+394a211f-8a34-5966-9187-defb845177d3,Christopher Larndorfer,dimwalk,full_trick,1,2008,2008,1,,7. Christoph Larndorfer ? Paradox Double Legover > Dimwalk > PS Whirl
+394a211f-8a34-5966-9187-defb845177d3,Christopher Larndorfer,legover,full_trick,1,2008,2008,1,,7. Christoph Larndorfer ? Paradox Double Legover > Dimwalk > PS Whirl
+394a211f-8a34-5966-9187-defb845177d3,Christopher Larndorfer,whirl,full_trick,1,2008,2008,1,,7. Christoph Larndorfer ? Paradox Double Legover > Dimwalk > PS Whirl
+c29c4aa7-5b1e-54d1-9435-2a45edfd669c,Christopher Schillem,atomic,style_term,1,2012,2012,1,,"1. Christopher Schillem (Your Grandma, Atomic Ducking Motor)"
+c29c4aa7-5b1e-54d1-9435-2a45edfd669c,Christopher Schillem,stepping,style_term,1,2011,2011,1,,1. Christopher Schillem (Stepping Ducking Motor)
+c1c401e4-2560-5f81-9f5b-8c866a93eb12,Cody Rushing,blur,full_trick,1,2008,2008,1,,"1) Cody Rushing (Blur > Dimwalk > Whirling Swirl, Smear > Dimwalk > Barrage)"
+c1c401e4-2560-5f81-9f5b-8c866a93eb12,Cody Rushing,pixie,style_term,1,2008,2008,1,,"2) Cody Rushing (Pixie Whirl, Reactor)"
+c1c401e4-2560-5f81-9f5b-8c866a93eb12,Cody Rushing,smear,full_trick,1,2008,2008,1,,"1) Cody Rushing (Blur > Dimwalk > Whirling Swirl, Smear > Dimwalk > Barrage)"
+c1c401e4-2560-5f81-9f5b-8c866a93eb12,Cody Rushing,swirl,full_trick,1,2008,2008,1,,"1) Cody Rushing (Blur > Dimwalk > Whirling Swirl, Smear > Dimwalk > Barrage)"
+c1c401e4-2560-5f81-9f5b-8c866a93eb12,Cody Rushing,whirl,full_trick,1,2008,2008,1,,"2) Cody Rushing (Pixie Whirl, Reactor)"
+6814ebbf-d3d7-5489-b71b-9f4128847219,Cristoph Alexander,ducking,style_term,1,2019,2019,1,,12. Cristoph Alexander (Diving Clipper>Ducking Clipper>Whirl)
+6814ebbf-d3d7-5489-b71b-9f4128847219,Cristoph Alexander,ducking clipper,full_trick,1,2019,2019,1,,12. Cristoph Alexander (Diving Clipper>Ducking Clipper>Whirl)
+6814ebbf-d3d7-5489-b71b-9f4128847219,Cristoph Alexander,whirl,full_trick,1,2019,2019,1,,12. Cristoph Alexander (Diving Clipper>Ducking Clipper>Whirl)
+256ba155-76d2-5920-b2d6-04d6ff39fab6,DANIEL BOYLE,blur,full_trick,1,2015,2015,1,,8. Daniel Boyle (Australia) - Dimwalk > Blur > Paradon
+256ba155-76d2-5920-b2d6-04d6ff39fab6,DANIEL BOYLE,dimwalk,full_trick,1,2015,2015,1,,8. Daniel Boyle (Australia) - Dimwalk > Blur > Paradon
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,food processor,full_trick,1,2006,2006,1,,2. Damian Gielnicki (Blurry Drifter > Spinning Swirl > Food Processor)
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,gyro,style_term,1,2010,2010,1,,2.Damian Gielnicki (gyro ilussion>toe ss rev. swirl>ss reaper)
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,pixie,style_term,1,2022,2022,1,,2. Damian Gielnicki (Poland) - Phoenix spinning dlo pixie torque
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,blurry whirl,full_trick,1,2003,2003,1,,2. Dan Ednie - ripwalk>blurry whirl>PS whirl
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,paradox mirage,full_trick,1,2001,2001,1,,3rd - Dan Ednie (pixie butterfly>paradox mirage>pixie butterfly)
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,ripwalk,full_trick,1,2003,2003,1,,2. Dan Ednie - ripwalk>blurry whirl>PS whirl
+4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,butterfly,full_trick,1,2003,2003,1,,2nd: Danny Greer (Smear>Double Around the World>Butterfly)
+4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,double around the world,full_trick,1,2003,2003,1,,2nd: Danny Greer (Smear>Double Around the World>Butterfly)
+4e7dc073-b469-5740-821c-76e0ee26a3d1,Dan Greer,smear,full_trick,1,2003,2003,1,,2nd: Danny Greer (Smear>Double Around the World>Butterfly)
+c4f8c15d-687e-505e-b60a-84e25fd2a045,Dan Reed,butterfly,full_trick,1,2004,2004,1,,4. Dan Reed: Fairy butterfly
+c4f8c15d-687e-505e-b60a-84e25fd2a045,Dan Reed,whirl,full_trick,1,2004,2004,1,,4. Dan Reed: paradon>pdx. Mirage>toe whirl
+eb6c8019-8a66-5c39-942f-47e75377cc38,Danny Iachini,atomic,style_term,1,2003,2003,1,,1st: Danny Iachini (Quantum Legover>Atomic Legover>Legbeater)
+bd9a2c9a-1554-5238-929d-c876342007a3,Danny Petrick,butterfly,full_trick,1,2006,2006,1,,1) Danny Petrick - pixie legover>butterfly>reverse whirl
+bd9a2c9a-1554-5238-929d-c876342007a3,Danny Petrick,legover,full_trick,1,2006,2006,1,,1) Danny Petrick - pixie legover>butterfly>reverse whirl
+bd9a2c9a-1554-5238-929d-c876342007a3,Danny Petrick,pixie,style_term,1,2006,2006,1,,1) Danny Petrick - pixie legover>butterfly>reverse whirl
+bd9a2c9a-1554-5238-929d-c876342007a3,Danny Petrick,ripwalk,full_trick,1,2006,2006,1,,2) Danny Petrick - ripwalk
+bd9a2c9a-1554-5238-929d-c876342007a3,Danny Petrick,whirl,full_trick,1,2006,2006,1,,1) Danny Petrick - pixie legover>butterfly>reverse whirl
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,blurry whirl,full_trick,1,2007,2007,1,,"3. Daryl Genz -- Matador>Sumo>Phoenix, Blurry Whirl>Pdx Torque>Pdx Mirage"
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,smear,full_trick,1,2015,2015,1,,10. Daryl Genz (USA) - Smear with two footbags
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,torque,full_trick,1,2007,2007,1,,"3. Daryl Genz -- Matador>Sumo>Phoenix, Blurry Whirl>Pdx Torque>Pdx Mirage"
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,whirl,full_trick,1,2007,2007,1,,"3. Daryl Genz -- Matador>Sumo>Phoenix, Blurry Whirl>Pdx Torque>Pdx Mirage"
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,blazing,style_term,1,2006,2006,1,,1) David Clavens (Blazing Torque)
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,blender,full_trick,1,2006,2006,1,,1) David Clavens - whirlygig>whirlwind>spinning paradox blender
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,blurriest,full_trick,1,2013,2013,1,,1. David Clavens (USA) - whirlwalk > blurriest > bs bedwetter ; nemesis > ps whirling swirl > spender
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,spinning,style_term,1,2006,2006,1,,1) David Clavens - whirlygig>whirlwind>spinning paradox blender
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,swirl,full_trick,1,2013,2013,1,,1. David Clavens (USA) - whirlwalk > blurriest > bs bedwetter ; nemesis > ps whirling swirl > spender
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,torque,full_trick,1,2006,2006,1,,1) David Clavens (Blazing Torque)
+17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,butterfly,full_trick,1,2007,2007,1,,2) Denton Louis : butterfly
+17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,legover,full_trick,1,2007,2007,1,,2) Denton Louis : legover > mirage > clip
+17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,osis,full_trick,1,2008,2008,1,,2) Denton Louis - ripwalk > osis > mirage
+17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,ripwalk,full_trick,1,2008,2008,1,,2) Denton Louis - ripwalk > osis > mirage
+74978bc4-6b20-544a-8fa1-cf37ec444c4f,Dexter Struz,whirl,full_trick,1,2006,2006,1,,3. Dexter Struz (Sumo > Tapdown > PS Whirl)
+4c4087a3-79f1-5d9a-bf12-ab7262d18014,Diego Velazquez,food processor,full_trick,1,2012,2012,1,,1. DIEGO ALEJANDRO VELASQUEZ: Food processor
+90d8f87f-5a27-5bee-a520-21eef47922bc,Dimitar Dimitrov,symposium whirl,full_trick,1,2007,2007,1,,7. Dimitar Dimitrov ? Symposium Quantum Mirage > Symposium Whirl > PS Whirl
+90d8f87f-5a27-5bee-a520-21eef47922bc,Dimitar Dimitrov,tapping,style_term,1,2007,2007,1,,3. Dimitar Dimitrov ? Symposium Tapping Reverse Swirling Toe
+9e51cb21-c122-54b7-93a6-8f5a3b69365c,Dominik Knoll,whirl,full_trick,1,2009,2009,1,,3. Dominik Knoll (PS Whirl)
+b3a275df-fe1c-58b4-967b-d0396cec4211,Dominik Šimků,blender,full_trick,1,2022,2022,1,,3. Dominik Simku (Czech Republic) - Whirlygig whirlwind spinning blender
+b3a275df-fe1c-58b4-967b-d0396cec4211,Dominik Šimků,spinning,style_term,1,2022,2022,1,,3. Dominik Simku (Czech Republic) - Whirlygig whirlwind spinning blender
+4c3321eb-1528-530b-8f38-c42260d9af08,Donner Oleg,blurriest,full_trick,1,2004,2004,1,,3 Donner Oleg (Pixie Tapping Butter - Pdx legbeater - Blurriest)
+4c3321eb-1528-530b-8f38-c42260d9af08,Donner Oleg,pixie,style_term,1,2004,2004,1,,3 Donner Oleg (Pixie Tapping Butter - Pdx legbeater - Blurriest)
+4c3321eb-1528-530b-8f38-c42260d9af08,Donner Oleg,tapping,style_term,1,2004,2004,1,,3 Donner Oleg (Pixie Tapping Butter - Pdx legbeater - Blurriest)
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,dimwalk,full_trick,1,2006,2006,1,,1. Dustin Rhodes - dimwalk>ripwalk>ps mirage
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,drifter,full_trick,1,2014,2014,1,,4. Dustin Rhodes (USA) - front-side blurry drifter
+58bb3c4a-1a60-537d-ba4e-55de294abd8c,Dustin Rhodes,mobius,full_trick,1,2013,2013,1,,5. Dustin Rhodes (USA) - blurry whirl > ripwalk > mobius
+16a8976e-c728-586a-835b-08b5255a744c,Dylan Govender,pixie,style_term,1,2003,2003,1,,1. Dylan Govender - pixie parradon
+162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,torque,full_trick,1,2006,2006,1,,1. Dylan Johnson (Paradox Torque)
+162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,whirl,full_trick,1,2007,2007,1,,3. Dylan Johnson (P.S. Whirl)
+7e031708-3cc3-5262-bf0c-0fa9c10a67bc,Egorov Andrey,blurry whirl,full_trick,1,2009,2009,1,,2 Egorov Andrey alpline blurry whirl
+7e031708-3cc3-5262-bf0c-0fa9c10a67bc,Egorov Andrey,whirl,full_trick,1,2009,2009,1,,2 Egorov Andrey alpline blurry whirl
+c8aa0d72-fc62-5da2-94ab-b7eabd58ae19,Eric Chang,butterfly,full_trick,1,2006,2006,1,,1. Eric Chang - clipper>legover>butterfly
+c8aa0d72-fc62-5da2-94ab-b7eabd58ae19,Eric Chang,ducking,style_term,1,2008,2008,1,,"5. Eric Chang (Budda Beater, Stepping Op. Osis, Ducking Osising Walkover)"
+c8aa0d72-fc62-5da2-94ab-b7eabd58ae19,Eric Chang,legover,full_trick,1,2006,2006,1,,1. Eric Chang - clipper>legover>butterfly
+c8aa0d72-fc62-5da2-94ab-b7eabd58ae19,Eric Chang,osis,full_trick,1,2008,2008,1,,"5. Eric Chang (Budda Beater, Stepping Op. Osis, Ducking Osising Walkover)"
+c8aa0d72-fc62-5da2-94ab-b7eabd58ae19,Eric Chang,stepping,style_term,1,2008,2008,1,,"5. Eric Chang (Budda Beater, Stepping Op. Osis, Ducking Osising Walkover)"
+10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,blurriest,full_trick,1,2003,2003,1,,"3rd) Ethan Husted: Blurriest, P. DLO, Pixie Whirl"
+10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,eggbeater,full_trick,1,2003,2003,1,,"Ethan Husted (OR, USA) (Shooting Eggbeater)"
+10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,pixie,style_term,1,2003,2003,1,,"3rd) Ethan Husted: Blurriest, P. DLO, Pixie Whirl"
+10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,torque,full_trick,1,2015,2015,1,,12. Ethan Husted (USA) - Blurry Torque
+10854ae3-60d7-51a7-ad9a-36033b541bd9,Ethan Husted,whirl,full_trick,1,2003,2003,1,,"3rd) Ethan Husted: Blurriest, P. DLO, Pixie Whirl"
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,atomic,style_term,1,2010,2010,1,,2. Evan Gatesman (Atomic Ducking Butterfly-Ripped Warrior-Blurry Whirling Swirl)
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,blender,full_trick,1,2015,2015,1,,1. Evan Gatesman (USA) - Swirling Double Blender
+be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,ducking,style_term,1,2010,2010,1,,2. Evan Gatesman (Atomic Ducking Butterfly-Ripped Warrior-Blurry Whirling Swirl)
+bc25cbb5-3010-58ac-8bba-b7b745d309dd,Evan Lovely,dimwalk,full_trick,1,2004,2004,1,,3. Evan Lovely: dimwalk>ripwalk>ripwalk
+e7531f0e-b30b-573c-81cb-86d73b75f88e,Fanda Hájek,atomic,style_term,1,2004,2004,1,,4. Fanda Hájek: Atomic Elipse; Alpine Legbeater.
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,blurriest,full_trick,1,2005,2005,1,,"2. Felix Zenger (Janiwalker>Blurriest, Blurry Whirl > and it's rewind ;) )"
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,blurry whirl,full_trick,1,2005,2005,1,,"2. Felix Zenger (Janiwalker>Blurriest, Blurry Whirl > and it's rewind ;) )"
+04a43526-37ba-5ea0-a01c-8e357a694c42,Felix Zenger,butterfly,full_trick,1,2005,2005,1,,2. Felix Zenger (surging butterfly>janiwalker>superfly)
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,dimwalk,full_trick,1,2014,2014,1,,6. Filip Wójcik (Poland) - phoenix > stepping same-side legover > dimwalk
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,legover,full_trick,1,2014,2014,1,,6. Filip Wójcik (Poland) - phoenix > stepping same-side legover > dimwalk
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,osis,full_trick,1,2016,2016,1,,5. Filip Wójcik (Phasing Osis > Blurry Whip > Torque Srew)
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,stepping,style_term,1,2014,2014,1,,6. Filip Wójcik (Poland) - phoenix > stepping same-side legover > dimwalk
+6d948954-90cb-5446-9a60-9d4ca0ef4734,Filip Wojcik,torque,full_trick,1,2016,2016,1,,5. Filip Wójcik (Phasing Osis > Blurry Whip > Torque Srew)
+0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,butterfly,full_trick,1,2006,2006,1,,3. Fletcher Funk (Zulu Butterfly)
+0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,ducking,style_term,1,2006,2006,1,,1. Fletcher Funk (Ripwalk-Ducking Clipper-Whirl)
+0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,ducking clipper,full_trick,1,2006,2006,1,,1. Fletcher Funk (Ripwalk-Ducking Clipper-Whirl)
+0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,ripwalk,full_trick,1,2006,2006,1,,1. Fletcher Funk (Ripwalk-Ducking Clipper-Whirl)
+0539e096-7911-5237-8814-b514ed5442e2,Fletcher Funk,whirl,full_trick,1,2006,2006,1,,1. Fletcher Funk (Ripwalk-Ducking Clipper-Whirl)
+d31e8ab0-0924-5e2c-b3f8-560279e37c9a,Franck Rémy,barfly,full_trick,1,2003,2003,1,,2. Franck Rémy (75 ADDS) : Stepping Eclipse > Osis > Barfly
+d31e8ab0-0924-5e2c-b3f8-560279e37c9a,Franck Rémy,osis,full_trick,1,2003,2003,1,,2. Franck Rémy (75 ADDS) : Stepping Eclipse > Osis > Barfly
+d31e8ab0-0924-5e2c-b3f8-560279e37c9a,Franck Rémy,stepping,style_term,1,2003,2003,1,,2. Franck Rémy (75 ADDS) : Stepping Eclipse > Osis > Barfly
+414acac1-acb2-58f9-9c40-c0f8a8f2d70c,Fred Touzelet,pixie,style_term,1,2006,2006,1,,"4. Fred Touzelet ""Pixie same Whirl"""
+414acac1-acb2-58f9-9c40-c0f8a8f2d70c,Fred Touzelet,whirl,full_trick,1,2006,2006,1,,"4. Fred Touzelet ""Pixie same Whirl"""
+079f9c62-8932-55ad-8ae9-204ed637793f,Gabriel Gaudette,butterfly,full_trick,1,2001,2001,1,,-Gabriel Gaudette with Pixie Ducking Butterfly
+079f9c62-8932-55ad-8ae9-204ed637793f,Gabriel Gaudette,ducking,style_term,1,2001,2001,1,,-Gabriel Gaudette with Pixie Ducking Butterfly
+079f9c62-8932-55ad-8ae9-204ed637793f,Gabriel Gaudette,pixie,style_term,1,2001,2001,1,,-Gabriel Gaudette with Pixie Ducking Butterfly
+2512e04d-9d40-5794-9807-5cbf616df0a6,Gielnicki Damian,dimwalk,full_trick,1,2007,2007,1,,1. Gielnicki Damian (Spinning pdx DLO > Dimwalk Swirl > Marius)
+2512e04d-9d40-5794-9807-5cbf616df0a6,Gielnicki Damian,spinning,style_term,1,2007,2007,1,,1. Gielnicki Damian (Spinning pdx DLO > Dimwalk Swirl > Marius)
+2512e04d-9d40-5794-9807-5cbf616df0a6,Gielnicki Damian,swirl,full_trick,1,2007,2007,1,,1. Gielnicki Damian (Spinning pdx DLO > Dimwalk Swirl > Marius)
+10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,mobius,full_trick,1,2006,2006,1,,2) Gordon Bevier - sumo>alpine legbeater>mobius
+10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,stepping,style_term,1,2006,2006,1,,2) Gordon Bevier - Torch-r-rack (stepping superfly)
+10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,superfly,full_trick,1,2006,2006,1,,2) Gordon Bevier - Torch-r-rack (stepping superfly)
+a737859a-35f6-51c8-9cd1-d5f54f88b8dd,Gosia Debska,osis,full_trick,1,2010,2010,1,,3. Gosia Debska (Butterfly-Butterfly-Osis)
+4e7d48ab-1639-5784-bf98-d936a3935489,Gray Chadwick,blur,full_trick,1,2007,2007,1,,"2. Gray Chadwick -- Fairy Butter>Ripwalk>PS Eggbeater, Blur>Dimmiest>Bubbabeater"
+4e7d48ab-1639-5784-bf98-d936a3935489,Gray Chadwick,ripwalk,full_trick,1,2007,2007,1,,"2. Gray Chadwick -- Fairy Butter>Ripwalk>PS Eggbeater, Blur>Dimmiest>Bubbabeater"
+4e7d48ab-1639-5784-bf98-d936a3935489,Gray Chadwick,smear,full_trick,1,2006,2006,1,,2. Gray Chadwick - smudge>smear>paradon
+4e7d48ab-1639-5784-bf98-d936a3935489,Gray Chadwick,symposium,style_term,1,2007,2007,1,,"1. Gray Chadwick--PS Eggbeater, Fairy Symposium Eggbeater"
+da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,osis,full_trick,1,2003,2003,1,,"16th) Greg Nelson: P. Blender, P. Blender, Osis"
+fa005bba-9079-5b6a-9eec-592016d90f66,Greg Solis,ducking,style_term,1,2008,2008,1,,"4) Greg Solis (Ducking Butterfly, Dimwalk)"
+fa005bba-9079-5b6a-9eec-592016d90f66,Greg Solis,swirl,full_trick,1,2008,2008,1,,"5) Greg Solis (Butterfly > Whirl > Osis, Dimwalk > Osis > Toe, Butterfly > Swirl"
+fa005bba-9079-5b6a-9eec-592016d90f66,Greg Solis,whirl,full_trick,1,2008,2008,1,,"5) Greg Solis (Butterfly > Whirl > Osis, Dimwalk > Osis > Toe, Butterfly > Swirl"
+ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,ripwalk,full_trick,1,2003,2003,1,,3. Grischa Tellenbach (RNH Footbag) : Ripwalk > Spinning Clipper >
+ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,spinning,style_term,1,2003,2003,1,,3. Grischa Tellenbach (RNH Footbag) : Ripwalk > Spinning Clipper >
+ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,spinning clipper,full_trick,1,2003,2003,1,,3. Grischa Tellenbach (RNH Footbag) : Ripwalk > Spinning Clipper >
+ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,torque,full_trick,1,2004,2004,1,,3. Grischa Tellenbach (RNH Footbag) Paradox torque
+ec1d5118-cd4b-591f-a84a-04bbe20868bc,Grischa Tellenbach,whirl,full_trick,1,2007,2007,1,,4. Grischa Tellenbach ? Leg over (PS Whirl)
+d31ec18e-4fa1-5538-8eac-b7d5fcab24c6,Hannia Mickiewicz,dimwalk,full_trick,1,2010,2010,1,,1. Hania Mickiewicz (Dimwalk-Ripwalk-Paradox Whirl)
+d31ec18e-4fa1-5538-8eac-b7d5fcab24c6,Hannia Mickiewicz,ripwalk,full_trick,1,2010,2010,1,,1. Hania Mickiewicz (Dimwalk-Ripwalk-Paradox Whirl)
+d31ec18e-4fa1-5538-8eac-b7d5fcab24c6,Hannia Mickiewicz,whirl,full_trick,1,2010,2010,1,,1. Hania Mickiewicz (Dimwalk-Ripwalk-Paradox Whirl)
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,atomic,style_term,1,2004,2004,1,,2. Honza Weber: Atomic Ducking Whirl.
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,blender,full_trick,1,2005,2005,1,,3. Honza Weber (Steping Ducking Paradox Blender = Alpine Foodprocessor)
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,fog,full_trick,1,2005,2005,1,,2. Honza Weber (Alpine Legbeater > Fog > Pixie Spinning Osis)
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,mobius,full_trick,1,2005,2005,1,,"1. Honza Weber (Pixie Mobius, Superego, Alpine Foodprocessor)"
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,osis,full_trick,1,2005,2005,1,,2. Honza Weber (Alpine Legbeater > Fog > Pixie Spinning Osis)
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,spinning,style_term,1,2005,2005,1,,2. Honza Weber (Alpine Legbeater > Fog > Pixie Spinning Osis)
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,superfly,full_trick,1,2006,2006,1,,2 Honza Weber blurry torque> foodprocessor > superfly
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,symposium,style_term,1,2004,2004,1,,1. Honza Weber fenix ? food prozessor ? paradox symposium whirl
+0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,symposium whirl,full_trick,1,2004,2004,1,,1. Honza Weber fenix ? food prozessor ? paradox symposium whirl
+a0b21552-454a-5667-a2dd-cadedd749e8d,Ian Brill,atomic,style_term,1,2002,2002,1,,symposium quantum set that mad my jaw drop; and Ian Brill came with his atomic
+a0b21552-454a-5667-a2dd-cadedd749e8d,Ian Brill,symposium,style_term,1,2002,2002,1,,symposium quantum set that mad my jaw drop; and Ian Brill came with his atomic
+5c134542-d0b3-55f2-8c4c-413ccb2e9d15,Ilja Mitrofanov,blurry whirl,full_trick,1,2005,2005,1,,3. Ilja Mitrofanov (Blurry Whirl > Paradox Whirl > Whirlwind)
+3123701a-43bd-5273-8472-ba332dc67fed,JUAN BERNARDO PALACIOS LEMOS,legover,full_trick,1,2012,2012,1,,4. JUAN BERNARDO PALACIOS: far legover
+1bfb569c-6400-5fbb-aca1-66b0cfb3abc3,Jacob Wren,ripwalk,full_trick,1,2007,2007,1,,3. Jacob Wren -- Ripwalk>Whirl>Spinning Butter
+1bfb569c-6400-5fbb-aca1-66b0cfb3abc3,Jacob Wren,spinning,style_term,1,2007,2007,1,,3. Jacob Wren -- Ripwalk>Whirl>Spinning Butter
+1bfb569c-6400-5fbb-aca1-66b0cfb3abc3,Jacob Wren,whirl,full_trick,1,2007,2007,1,,3. Jacob Wren -- Ripwalk>Whirl>Spinning Butter
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,blurriest,full_trick,1,2007,2007,1,,"2. Jake Wren--Blurriest, Spinning Whirl, Sumo, Blurry Whirl"
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,blurry whirl,full_trick,1,2007,2007,1,,"2. Jake Wren--Blurriest, Spinning Whirl, Sumo, Blurry Whirl"
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,ripwalk,full_trick,1,2007,2007,1,,2. Jake Wren (Paradon-Ripwalk-Down Double Down)
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,spinning,style_term,1,2007,2007,1,,"2. Jake Wren--Blurriest, Spinning Whirl, Sumo, Blurry Whirl"
+67f14498-b4d7-54f4-ad8a-3a4d95ccbd24,Jake Wren,spinning whirl,full_trick,1,2007,2007,1,,"2. Jake Wren--Blurriest, Spinning Whirl, Sumo, Blurry Whirl"
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,blender,full_trick,1,2006,2006,1,,4. Jakob Wagner (Zulu Dimwalk > Rev.Swirling Symp.Whirl > Blender)
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,dimwalk,full_trick,1,2006,2006,1,,4. Jakob Wagner (Zulu Dimwalk > Rev.Swirling Symp.Whirl > Blender)
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,ducking,style_term,1,2012,2012,1,,1. Jakob Wagner (Pixie Ducking Paradon > Food Processor > Mullet)
+c90a00eb-95d7-5375-a769-b71cbce34d87,Jakob Wagner,whirl,full_trick,1,2006,2006,1,,4. Jakob Wagner (Zulu Dimwalk > Rev.Swirling Symp.Whirl > Blender)
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,blurry whirl,full_trick,1,2007,2007,1,,5. Jakub Grabarczyk (Nowe Miasto) Spinning Ducking Butterfly > Blurry Whirl >
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,butterfly,full_trick,1,2007,2007,1,,5. Jakub Grabarczyk (Nowe Miasto) Spinning Ducking Butterfly > Blurry Whirl >
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,ducking,style_term,1,2007,2007,1,,5. Jakub Grabarczyk (Nowe Miasto) Spinning Ducking Butterfly > Blurry Whirl >
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,mobius,full_trick,1,2010,2010,1,,4. Jakub Grabarczyk (Blurry Drifter > Nuclear Near Whip > Mobius)
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,ripwalk,full_trick,1,2022,2022,1,,5. Jakub Grabarczyk (Poland) - Ripwalk pdx drifter torque
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,spinning,style_term,1,2007,2007,1,,5. Jakub Grabarczyk (Nowe Miasto) Spinning Ducking Butterfly > Blurry Whirl >
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,whirl,full_trick,1,2007,2007,1,,5. Jakub Grabarczyk (Nowe Miasto) Spinning Ducking Butterfly > Blurry Whirl >
+7a8314b4-2af9-584d-bd79-4af7a74d9c21,Jakub Mosciszewski,pixie,style_term,1,2022,2022,1,,7.Jakub Mosciszewski (Poland)(phoenix-bedwetter-pixie paradon)
+0da84e00-c9f5-5d23-82b6-9ec1e759c74c,Jakub Worek,barfly,full_trick,1,2017,2017,1,,7. Jakub Worek (backside bedwetter>paradon>barfly)
+49ad435e-3398-59da-985c-65ce0612bdd3,Jan Brekle,barfly,full_trick,1,2012,2012,1,,6. Jan Brekle (Paradon > Barfly > Far Swirl)
+49ad435e-3398-59da-985c-65ce0612bdd3,Jan Brekle,ducking,style_term,1,2012,2012,1,,6. Jan Brekle (Fairy Ducking Rake)
+49ad435e-3398-59da-985c-65ce0612bdd3,Jan Brekle,swirl,full_trick,1,2012,2012,1,,6. Jan Brekle (Paradon > Barfly > Far Swirl)
+256b88e4-da63-5d81-9d58-b25baaed9823,Jan Dexter Struz,blurry whirl,full_trick,1,2008,2008,1,,5. Jan Dexter Struz ? Blurry Whirl > Spining Legover > Symposium Mirage
+256b88e4-da63-5d81-9d58-b25baaed9823,Jan Dexter Struz,legover,full_trick,1,2008,2008,1,,5. Jan Dexter Struz ? Blurry Whirl > Spining Legover > Symposium Mirage
+256b88e4-da63-5d81-9d58-b25baaed9823,Jan Dexter Struz,symposium,style_term,1,2008,2008,1,,5. Jan Dexter Struz ? Blurry Whirl > Spining Legover > Symposium Mirage
+256b88e4-da63-5d81-9d58-b25baaed9823,Jan Dexter Struz,torque,full_trick,1,2008,2008,1,,6. Jan Dexter Struz ? Blurry Torque / Whirly Gig
+256b88e4-da63-5d81-9d58-b25baaed9823,Jan Dexter Struz,whirl,full_trick,1,2008,2008,1,,5. Jan Dexter Struz ? Blurry Whirl > Spining Legover > Symposium Mirage
+446b5d82-318c-5584-8834-66ec244c20cb,Jan Vlcek,ducking,style_term,1,2007,2007,1,,2. Jan Vlcek ? Ripped Warrior > Food Processor > Ducking Swirl
+446b5d82-318c-5584-8834-66ec244c20cb,Jan Vlcek,food processor,full_trick,1,2007,2007,1,,2. Jan Vlcek ? Ripped Warrior > Food Processor > Ducking Swirl
+446b5d82-318c-5584-8834-66ec244c20cb,Jan Vlcek,swirl,full_trick,1,2007,2007,1,,2. Jan Vlcek ? Ripped Warrior > Food Processor > Ducking Swirl
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,atomic,style_term,1,2013,2013,1,,1. Jan Weber (Czech Republic) - Atomic Ducking dd>step Blender>Wrilygig
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,ducking,style_term,1,2013,2013,1,,1. Jan Weber (Czech Republic) - Atomic Ducking dd>step Blender>Wrilygig
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,fusion,full_trick,1,2012,2012,1,,1. Jan Weber (Czech Republic) - alpine fusion > stepping blender > barroque-screw
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,stepping,style_term,1,2012,2012,1,,1. Jan Weber (Czech Republic) - alpine fusion > stepping blender > barroque-screw
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,superfly,full_trick,1,2009,2009,1,,5. Jan Weber 42.6 (Alpine Food Processor > Locomotion > Superfly)
+1e09ba09-ec4b-5961-8b95-e0d638dc4f5c,Jan Weber,torque,full_trick,1,2005,2005,1,,3. Jan Weber (CZE) Alpine Legbeater > Blurry Torque > Paradox Blender
+9d69ef20-b1c0-5b65-91f2-4da140883053,Jane Jones,osis,full_trick,1,2003,2003,1,,"13th) Jane Jones: Torque, Ripwalk, Spinning Osis"
+9d69ef20-b1c0-5b65-91f2-4da140883053,Jane Jones,ripwalk,full_trick,1,2003,2003,1,,"13th) Jane Jones: Torque, Ripwalk, Spinning Osis"
+9d69ef20-b1c0-5b65-91f2-4da140883053,Jane Jones,spinning,style_term,1,2003,2003,1,,"13th) Jane Jones: Torque, Ripwalk, Spinning Osis"
+9d69ef20-b1c0-5b65-91f2-4da140883053,Jane Jones,torque,full_trick,1,2003,2003,1,,"13th) Jane Jones: Torque, Ripwalk, Spinning Osis"
+34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,blurry whirl,full_trick,1,2009,2009,1,,8. Jay Boychuk 38.7 (Pixie Paradon > Blurry Whirl > Mobius)
+34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,mobius,full_trick,1,2009,2009,1,,8. Jay Boychuk 38.7 (Pixie Paradon > Blurry Whirl > Mobius)
+34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,pixie,style_term,1,2009,2009,1,,8. Jay Boychuk 38.7 (Pixie Paradon > Blurry Whirl > Mobius)
+34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,ripwalk,full_trick,1,2008,2008,1,,3 - Jay Boychuk (Ripwalk)
+34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,whirl,full_trick,1,2009,2009,1,,8. Jay Boychuk 38.7 (Pixie Paradon > Blurry Whirl > Mobius)
+54d24f68-96bf-5837-bdaa-02e3d0774e76,Jean Phillipe Labbé,symposium,style_term,1,2005,2005,1,,1) Jean Phillipe Labbé - Rooted Symposium Reverse Whirl
+54d24f68-96bf-5837-bdaa-02e3d0774e76,Jean Phillipe Labbé,whirl,full_trick,1,2005,2005,1,,1) Jean Phillipe Labbé - Rooted Symposium Reverse Whirl
+e97530df-f440-5740-8ff4-2206df644d85,Jeremiah Bechard,pixie,style_term,1,2004,2004,1,,3. Jeremiah Bechard: phoenix and pixie firefly
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,blender,full_trick,1,2003,2003,1,,"5th) Jeremy Benton: Stepping P.S. Blender (""S"" means 'simple' = 7 phat ADDZ)"
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,blurry whirl,full_trick,1,2002,2002,1,,3. Jeremy Benton (Blurry Whirl > Osis > Paradox Torque)
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,spinning,style_term,1,2003,2003,1,,"14th) Jeremy Benton: Ripwarrior, P. Whirl, Spinning Osis"
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,stepping,style_term,1,2003,2003,1,,"5th) Jeremy Benton: Stepping P.S. Blender (""S"" means 'simple' = 7 phat ADDZ)"
+e5048c10-39e3-5f80-8b88-0512fb2d8089,Jeremy Benton,torque,full_trick,1,2002,2002,1,,3. Jeremy Benton (Blurry Whirl > Osis > Paradox Torque)
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,drifter,full_trick,1,2007,2007,1,,2. Jeremy Masselis : -Crispy Torque>Pdx Drifter>Whirling swirl -Pdx
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,fog,full_trick,1,2009,2009,1,,1. Jeremy Masselis (Fog > Smoke > Mullet)
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,legover,full_trick,1,2007,2007,1,,10. Jeremy Masselis ? Paradox Double Legover > Double ATW inside > Symposium
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,swirl,full_trick,1,2007,2007,1,,2. Jeremy Masselis : -Crispy Torque>Pdx Drifter>Whirling swirl -Pdx
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,symposium,style_term,1,2007,2007,1,,10. Jeremy Masselis ? Paradox Double Legover > Double ATW inside > Symposium
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,torque,full_trick,1,2007,2007,1,,2. Jeremy Masselis : -Crispy Torque>Pdx Drifter>Whirling swirl -Pdx
+5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,parkwalk,full_trick,1,2003,2003,1,,3. Jeremy O'Wheel - parkwalk>ripwalk>PS whirl
+5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,ripwalk,full_trick,1,2003,2003,1,,3. Jeremy O'Wheel - parkwalk>ripwalk>PS whirl
+5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,whirl,full_trick,1,2003,2003,1,,3. Jeremy O'Wheel - parkwalk>ripwalk>PS whirl
+ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,butterfly,full_trick,1,2006,2006,1,,"1-Jess Archer- ducking butterfly, smear"
+ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,drifter,full_trick,1,2006,2006,1,,1- Jess Archer- parkwalk> pickup> drifter
+ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,ducking,style_term,1,2006,2006,1,,"1-Jess Archer- ducking butterfly, smear"
+ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,parkwalk,full_trick,1,2006,2006,1,,1- Jess Archer- parkwalk> pickup> drifter
+ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,pickup,full_trick,1,2006,2006,1,,1- Jess Archer- parkwalk> pickup> drifter
+ac873358-cd16-58eb-81c0-5c9b798de252,Jess Archer,smear,full_trick,1,2006,2006,1,,"1-Jess Archer- ducking butterfly, smear"
+3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,ducking,style_term,1,2007,2007,1,,2-Jessica Archer (ducking osis)
+3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,legover,full_trick,1,2005,2005,1,,2) Jessica Archer - Pdx Mirage/ Pixie Legover
+3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,osis,full_trick,1,2007,2007,1,,2-Jessica Archer (ducking osis)
+3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,pixie,style_term,1,2005,2005,1,,2) Jessica Archer - Pdx Mirage/ Pixie Legover
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,ducking,style_term,1,2003,2003,1,,1st) Jim Penske: Blurry Ducking P. Drifter
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,flurry,full_trick,1,2006,2006,1,,1. Jim Penske - scorpion's tail>swifter>flurry
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,pixie,style_term,1,2008,2008,1,,"1. Jim Penske (Fission-Pixie Double Down-PS Whirling Swirl, Whirly"
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,spinning whirl,full_trick,1,2004,2004,1,,2. Jim Penske: whirlygig>spinning whirl>scorpion?s tail
+4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,swirl,full_trick,1,2008,2008,1,,"1. Jim Penske (Fission-Pixie Double Down-PS Whirling Swirl, Whirly"
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,atomic,style_term,1,2014,2014,1,,2. Jindra Smola (Czech Republic) - super ego (atomic ducking symposium whirl)
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,ducking,style_term,1,2014,2014,1,,2. Jindra Smola (Czech Republic) - super ego (atomic ducking symposium whirl)
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,pixie,style_term,1,2013,2013,1,,3. Jindra Smola (Czech Republic) - pixie paradon swirl > mullet > gravedigger
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,symposium,style_term,1,2014,2014,1,,2. Jindra Smola (Czech Republic) - super ego (atomic ducking symposium whirl)
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,symposium whirl,full_trick,1,2014,2014,1,,2. Jindra Smola (Czech Republic) - super ego (atomic ducking symposium whirl)
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,torque,full_trick,1,2013,2013,1,,2. Jindra Smola (Czech Republic) - Paradon Swirl>mullet>steping torque
+0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,whirl,full_trick,1,2014,2014,1,,2. Jindra Smola (Czech Republic) - super ego (atomic ducking symposium whirl)
+80b8a17d-8f44-5571-881e-cd86f3c5c49e,Jochen Bauer,ripwalk,full_trick,1,2004,2004,1,,6. Jochen Bauer aka Doctor Jay (All) Toe set ripwalk
+a16f307e-68d5-5ad4-be8f-234aeefc45fc,Joel Roset,pixie,style_term,1,2007,2007,1,,4. Joel Roset ? Pixie Double Legover > Terraging Legover > Dolomite
+0f3711ce-8884-5d1c-a612-ac106a4864cf,John Fanuzzi,butterfly,full_trick,1,2008,2008,1,,4) John Fanuzzi (DATW > Butterfly > Dyno)
+0f3711ce-8884-5d1c-a612-ac106a4864cf,John Fanuzzi,ducking,style_term,1,2008,2008,1,,3) John Fanuzzi (Pixie Ducking Osis)
+0f3711ce-8884-5d1c-a612-ac106a4864cf,John Fanuzzi,osis,full_trick,1,2008,2008,1,,3) John Fanuzzi (Pixie Ducking Osis)
+0f3711ce-8884-5d1c-a612-ac106a4864cf,John Fanuzzi,pixie,style_term,1,2008,2008,1,,3) John Fanuzzi (Pixie Ducking Osis)
+ac5e2112-c6cb-58f1-869d-6f6f8a63d13b,John Mahood,atomic,style_term,1,2006,2006,1,,3) John Mahood - atomic muted clipper>rev-up>ss symp whirl
+ac5e2112-c6cb-58f1-869d-6f6f8a63d13b,John Mahood,whirl,full_trick,1,2006,2006,1,,3) John Mahood - atomic muted clipper>rev-up>ss symp whirl
+db9f32dc-4dab-560e-aa3f-0acfd32fcd7d,John Suderman,butterfly,full_trick,1,2013,2013,1,,4. John Suderman (Canada) - nuclear same-side butterfly > tombstone > diving symposium whirl
+db9f32dc-4dab-560e-aa3f-0acfd32fcd7d,John Suderman,symposium,style_term,1,2013,2013,1,,4. John Suderman (Canada) - nuclear same-side butterfly > tombstone > diving symposium whirl
+db9f32dc-4dab-560e-aa3f-0acfd32fcd7d,John Suderman,symposium whirl,full_trick,1,2013,2013,1,,4. John Suderman (Canada) - nuclear same-side butterfly > tombstone > diving symposium whirl
+db9f32dc-4dab-560e-aa3f-0acfd32fcd7d,John Suderman,whirl,full_trick,1,2013,2013,1,,4. John Suderman (Canada) - nuclear same-side butterfly > tombstone > diving symposium whirl
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,blurry whirl,full_trick,1,2019,2019,1,,16. Johnny Sarah (Blurry Whirl)
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,butterfly,full_trick,1,2019,2019,1,,10. Johnny Sarah (Fairy Butterfly>Ripwalk>Spinning Whirl)
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,ripwalk,full_trick,1,2019,2019,1,,10. Johnny Sarah (Fairy Butterfly>Ripwalk>Spinning Whirl)
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,spinning,style_term,1,2019,2019,1,,10. Johnny Sarah (Fairy Butterfly>Ripwalk>Spinning Whirl)
+c2c56323-1121-5a07-8416-5aca5fa1ce00,Johnny Sarah,spinning whirl,full_trick,1,2019,2019,1,,10. Johnny Sarah (Fairy Butterfly>Ripwalk>Spinning Whirl)
+bc6d80b2-d45e-52cb-b713-0714a1dc46ca,Jon Bean,blurry whirl,full_trick,1,2004,2004,1,,1. Jon Bean: smog>butterfly>blurry whirl
+bc6d80b2-d45e-52cb-b713-0714a1dc46ca,Jon Bean,butterfly,full_trick,1,2004,2004,1,,1. Jon Bean: smog>butterfly>blurry whirl
+bc6d80b2-d45e-52cb-b713-0714a1dc46ca,Jon Bean,drifter,full_trick,1,2004,2004,1,,1. Jon Bean: blurry drifter
+bc6d80b2-d45e-52cb-b713-0714a1dc46ca,Jon Bean,whirl,full_trick,1,2004,2004,1,,1. Jon Bean: smog>butterfly>blurry whirl
+6efdb5a3-bd47-5d5c-be3e-991001358bde,Jon Zaleski,whirl,full_trick,1,2003,2003,1,,Jon Zaleski (Assassin > Fairy Whirl > Vortex)
+2c16c43d-6111-5231-b813-23f20f6ba7a3,Jonathan Schneider,osis,full_trick,1,2007,2007,1,,1st - Jonathan Schneider - Torque > Infinity Swirl > Spinning Osis
+2c16c43d-6111-5231-b813-23f20f6ba7a3,Jonathan Schneider,spinning,style_term,1,2007,2007,1,,1st - Jonathan Schneider - Torque > Infinity Swirl > Spinning Osis
+2c16c43d-6111-5231-b813-23f20f6ba7a3,Jonathan Schneider,torque,full_trick,1,2007,2007,1,,1st - Jonathan Schneider - Torque > Infinity Swirl > Spinning Osis
+16aae952-d265-5e4d-81b8-5474f6c43802,Jorden Moir,blurry whirl,full_trick,1,2005,2005,1,,"2nd Jorden Moir don't remember his either, maybe blurry whirl > ps whirl >"
+16aae952-d265-5e4d-81b8-5474f6c43802,Jorden Moir,swirl,full_trick,1,2008,2008,1,,2 - Jorden Moir (Janiwalker > Bedwetter > Paradon Swirl)
+7ed2abb4-f9f2-5432-9511-b62ce1a09957,Julian Sinnl,pixie,style_term,1,2015,2015,1,,2. Julian Sinnl (Austria) - Pixie Same-Side Whirl
+7ed2abb4-f9f2-5432-9511-b62ce1a09957,Julian Sinnl,whirl,full_trick,1,2015,2015,1,,2. Julian Sinnl (Austria) - Pixie Same-Side Whirl
+2f3d1d48-2e06-57f0-bca0-5211c668f88f,Julien Appolonio,legover,full_trick,1,2007,2007,1,,13. Julien Appolonio ? Pixie Double Legover
+2f3d1d48-2e06-57f0-bca0-5211c668f88f,Julien Appolonio,pixie,style_term,1,2007,2007,1,,13. Julien Appolonio ? Pixie Double Legover
+96973e82-353d-5d53-8275-63fddaaa3bb9,Julien Guil Romiti,pixie,style_term,1,2008,2008,1,,6. Julien Guil Romiti ? Pixie same Whirl > Paradox Whirl > PS Whirl
+ad56005f-3da3-5f45-99c3-a691e7e6773c,Julien Romiti,paradox mirage,full_trick,1,2007,2007,1,,12. Julien Romiti ? Paradox Whirl > Paradox Mirage > Legbeater
+ad56005f-3da3-5f45-99c3-a691e7e6773c,Julien Romiti,pixie,style_term,1,2007,2007,1,,10. Julien Romiti ? Pixie Torque
+ad56005f-3da3-5f45-99c3-a691e7e6773c,Julien Romiti,torque,full_trick,1,2007,2007,1,,10. Julien Romiti ? Pixie Torque
+ad56005f-3da3-5f45-99c3-a691e7e6773c,Julien Romiti,whirl,full_trick,1,2007,2007,1,,12. Julien Romiti ? Paradox Whirl > Paradox Mirage > Legbeater
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,blurriest,full_trick,1,2004,2004,1,,3. Justin Dale: ripped warrior>blurry whirl>blurriest
+91dbdc03-080b-5170-a2b4-6fcbc7b4f053,Justin Dale,ducking,style_term,1,2003,2003,1,,"8th) Justin Dale: Blurry Dragonflier, Ducking Butterfly, P.S. Whirl"
+eb025239-b9ab-5cef-9307-7639f88a225a,Karim Daouk,blurry whirl,full_trick,1,2007,2007,1,,6. Karim Daouk ? Blurry Drifter > Blurry Whirl > Paradox Whirling Swirl
+eb025239-b9ab-5cef-9307-7639f88a225a,Karim Daouk,drifter,full_trick,1,2007,2007,1,,6. Karim Daouk ? Blurry Drifter > Blurry Whirl > Paradox Whirling Swirl
+eb025239-b9ab-5cef-9307-7639f88a225a,Karim Daouk,swirl,full_trick,1,2007,2007,1,,6. Karim Daouk ? Blurry Drifter > Blurry Whirl > Paradox Whirling Swirl
+eb025239-b9ab-5cef-9307-7639f88a225a,Karim Daouk,whirl,full_trick,1,2007,2007,1,,6. Karim Daouk ? Blurry Drifter > Blurry Whirl > Paradox Whirling Swirl
+d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,gyro,style_term,1,2006,2006,1,,3. Ken Somolinos - alpine legbeater>fog>gyro mirage
+2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,blur,full_trick,1,2003,2003,1,,"11th) Kenny Shults: Ripwalk, P.S. Whirl, Symposium Blur"
+2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,ripwalk,full_trick,1,2003,2003,1,,"11th) Kenny Shults: Ripwalk, P.S. Whirl, Symposium Blur"
+2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,symposium,style_term,1,2003,2003,1,,"11th) Kenny Shults: Ripwalk, P.S. Whirl, Symposium Blur"
+2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,whirl,full_trick,1,2003,2003,1,,"11th) Kenny Shults: Ripwalk, P.S. Whirl, Symposium Blur"
+cb0ef33f-3d90-5767-a574-f4f1adb9c66b,Kev McGrogan,butterfly,full_trick,1,2004,2004,1,,6. Kev McGrogan: pixie legover>butterfly>DLO
+cb0ef33f-3d90-5767-a574-f4f1adb9c66b,Kev McGrogan,legover,full_trick,1,2004,2004,1,,6. Kev McGrogan: pixie legover>butterfly>DLO
+cb0ef33f-3d90-5767-a574-f4f1adb9c66b,Kev McGrogan,pixie,style_term,1,2004,2004,1,,6. Kev McGrogan: pixie legover>butterfly>DLO
+cb0ef33f-3d90-5767-a574-f4f1adb9c66b,Kev McGrogan,ripwalk,full_trick,1,2004,2004,1,,6. Kev McGrogan: ripwalk (both sides)
+ad54afe3-3f18-5862-87d1-4e02e4fbf9fd,Kevin Crowley,blur,full_trick,1,2004,2004,1,,1. Kevin Crowly: Blur>Smear>Pixie butterfly
+ad54afe3-3f18-5862-87d1-4e02e4fbf9fd,Kevin Crowley,butterfly,full_trick,1,2004,2004,1,,1. Kevin Crowly: Blur>Smear>Pixie butterfly
+ad54afe3-3f18-5862-87d1-4e02e4fbf9fd,Kevin Crowley,food processor,full_trick,1,2007,2007,1,,5) Kevin Crowley: food processor
+ad54afe3-3f18-5862-87d1-4e02e4fbf9fd,Kevin Crowley,pixie,style_term,1,2004,2004,1,,1. Kevin Crowly: Blur>Smear>Pixie butterfly
+ad54afe3-3f18-5862-87d1-4e02e4fbf9fd,Kevin Crowley,smear,full_trick,1,2004,2004,1,,1. Kevin Crowly: Blur>Smear>Pixie butterfly
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,dimwalk,full_trick,1,2007,2007,1,,4. Kevin Regamy -- Smog>Sailing ss Mirage>Dimwalk
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,pixie,style_term,1,2007,2007,1,,5) Kevin Regamey : flail > symp egg > pixie flail
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,torque,full_trick,1,2006,2006,1,,"1-Kevin Regamy- alpha atomic torque, pandemonium"
+f07b9590-cb35-55ba-8277-3e9c15e177d0,Krystian Bubula,ripwalk,full_trick,1,2015,2015,1,,9. Krystian Bubula (Poland) - Ripwalk > Ducking Butterfly > Whirl
+f07b9590-cb35-55ba-8277-3e9c15e177d0,Krystian Bubula,symposium,style_term,1,2015,2015,1,,3. Krystian Bubula (Poland) - Ducking Symposium Butterfly
+f07b9590-cb35-55ba-8277-3e9c15e177d0,Krystian Bubula,whirl,full_trick,1,2015,2015,1,,9. Krystian Bubula (Poland) - Ripwalk > Ducking Butterfly > Whirl
+ddf2f704-a4d2-5653-a82a-45987d37645c,Krzysztof Sobótka,eggbeater,full_trick,1,2012,2012,1,,4. Krzysztof Sobótka (Terraging Symp. Eggbeater) (Poland)
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,atomic,style_term,1,2007,2007,1,,3. Kyle Hewitt--Symposium Atomic ss Symposium Mirage
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,butterfly,full_trick,1,2007,2007,1,,4. Kyle Hewitt (Fairy Ducking Butterfly)
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,ducking,style_term,1,2007,2007,1,,4. Kyle Hewitt (Fairy Ducking Butterfly)
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,osis,full_trick,1,2007,2007,1,,3. Kyle Hewitt (Phoenix-Blurry Whirl-Osis)
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,ripwalk,full_trick,1,2007,2007,1,,"1. Kyle Hewitt -- Ripped Warrior>Ripwalk>Blurry Whirl, Smear>Dimwalk>DLO"
+9f9142e1-95ac-511a-b996-7873698c7818,Kyle Hewitt,smear,full_trick,1,2007,2007,1,,"1. Kyle Hewitt -- Ripped Warrior>Ripwalk>Blurry Whirl, Smear>Dimwalk>DLO"
+b20ba292-aa4b-5271-817a-d1a80bcb4d65,Kyle Warren,pixie,style_term,1,2008,2008,1,,3) Kyle Warren - pixie clipper > diving clipper > toe stall
+ee569024-9b98-5ae0-8f39-8f0a97d99dfa,Lasse Salmenhaara,blender,full_trick,1,2001,2001,1,,"1. Lasse Salmenhaara, Helsinki, Finland - Ripped warrior -> Pdx blender!!!!!"
+69667b03-2f4f-55b7-9c2f-79a5b60f362b,Lauri Airinen,superfly,full_trick,1,2013,2013,1,,2. Lauri Airinen ? Superfly Swirl
+69667b03-2f4f-55b7-9c2f-79a5b60f362b,Lauri Airinen,swirl,full_trick,1,2013,2013,1,,2. Lauri Airinen ? Superfly Swirl
+69667b03-2f4f-55b7-9c2f-79a5b60f362b,Lauri Airinen,symposium,style_term,1,2013,2013,1,,2. Lauri Airinen ? Blurry Symposium Whirl > Whirlwind > Spender
+69667b03-2f4f-55b7-9c2f-79a5b60f362b,Lauri Airinen,symposium whirl,full_trick,1,2013,2013,1,,2. Lauri Airinen ? Blurry Symposium Whirl > Whirlwind > Spender
+69667b03-2f4f-55b7-9c2f-79a5b60f362b,Lauri Airinen,whirl,full_trick,1,2013,2013,1,,2. Lauri Airinen ? Blurry Symposium Whirl > Whirlwind > Spender
+a6ac429b-c0c0-5339-bebd-6330299e5b0f,Lee Byrd,butterfly,full_trick,1,2004,2004,1,,5. Lee Byrd: double atw>butterfly>ripwalk
+775b1aa9-1f18-5a84-8b92-57c693806da9,Lee S.,blender,full_trick,1,2006,2006,1,,2. Lee S.: phoenix > ripwalk > blender
+775b1aa9-1f18-5a84-8b92-57c693806da9,Lee S.,ripwalk,full_trick,1,2006,2006,1,,2. Lee S.: phoenix > ripwalk > blender
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,blurriest,full_trick,1,2003,2003,1,,"1st) Lon Smith: Blurry Drifter, Mobius, Blurriest"
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,drifter,full_trick,1,2003,2003,1,,"1st) Lon Smith: Blurry Drifter, Mobius, Blurriest"
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,ducking,style_term,1,2003,2003,1,,"7th) Lon Smith: Double-Spinning Clipper, Mobius, Ducking Osis"
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,osis,full_trick,1,2003,2003,1,,"7th) Lon Smith: Double-Spinning Clipper, Mobius, Ducking Osis"
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,spinning clipper,full_trick,1,2003,2003,1,,"7th) Lon Smith: Double-Spinning Clipper, Mobius, Ducking Osis"
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,torque,full_trick,1,2008,2008,1,,4. Lon Smith (Blurry Torque-PS Whirl-Whirlwind)
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,whirl,full_trick,1,2008,2008,1,,4. Lon Smith (Blurry Torque-PS Whirl-Whirlwind)
+23c6748c-39f8-5ecd-ae9c-c3d83c0bfec6,Luis Monhollon,ducking,style_term,1,2007,2007,1,,6. Luis Monhollon -- Ducking Butter>Gyro Butter>In-Spinning Butter
+23c6748c-39f8-5ecd-ae9c-c3d83c0bfec6,Luis Monhollon,gyro,style_term,1,2007,2007,1,,6. Luis Monhollon -- Ducking Butter>Gyro Butter>In-Spinning Butter
+23c6748c-39f8-5ecd-ae9c-c3d83c0bfec6,Luis Monhollon,spinning,style_term,1,2007,2007,1,,6. Luis Monhollon -- Ducking Butter>Gyro Butter>In-Spinning Butter
+8a740aac-66c5-5fe2-a482-2acd1d1cdc11,Lynton Stephens,pixie,style_term,1,2002,2002,1,,1 - Lynton Stephens (Shooting mirage>pixie warrior>blurriest)
+8a740aac-66c5-5fe2-a482-2acd1d1cdc11,Lynton Stephens,torque,full_trick,1,2003,2003,1,,1. Lynton Stephens - legbeater>blurriest>paradox torque
+28f922a5-5d62-5473-b08e-3cd2ef6f74fe,Maciej Bujko,ripwalk,full_trick,1,2018,2018,1,,8. Maciej Bujko - Phoenix > ripwalk > bedwetter
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,butterfly,full_trick,1,2017,2017,1,,3. Maciek Niczyporuk (nemesis | clownface | stepping butterfly symposium
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,stepping,style_term,1,2017,2017,1,,3. Maciek Niczyporuk (nemesis | clownface | stepping butterfly symposium
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,symposium,style_term,1,2017,2017,1,,3. Maciek Niczyporuk (nemesis | clownface | stepping butterfly symposium
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,ducking,style_term,1,2022,2022,1,,6. Maciej Pietrzycki (Poland) - Ripwalk ducking osis torque
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,legover,full_trick,1,2018,2018,1,,9. Maciej Pietrzycki - Pixie legover > DLO > crossbody rake
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,osis,full_trick,1,2022,2022,1,,6. Maciej Pietrzycki (Poland) - Ripwalk ducking osis torque
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,pixie,style_term,1,2018,2018,1,,9. Maciej Pietrzycki - Pixie legover > DLO > crossbody rake
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,ripwalk,full_trick,1,2022,2022,1,,6. Maciej Pietrzycki (Poland) - Ripwalk ducking osis torque
+94fa84c1-d2d6-52df-a224-c318a0e3771c,Maciej Pietrzycki,torque,full_trick,1,2022,2022,1,,6. Maciej Pietrzycki (Poland) - Ripwalk ducking osis torque
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,butterfly,full_trick,1,2007,2007,1,,-Manna Mpepo (dimwalk> ripwalk> butterfly)
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,dimwalk,full_trick,1,2007,2007,1,,-Manna Mpepo (dimwalk> ripwalk> butterfly)
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,drifter,full_trick,1,2008,2008,1,,1) Manna Mpepo - blurry drifter
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,ducking,style_term,1,2008,2008,1,,1) Manna Mpepo - Pixie ducking clip > osis > ripwalk
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,osis,full_trick,1,2008,2008,1,,1) Manna Mpepo - Pixie ducking clip > osis > ripwalk
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,pixie,style_term,1,2008,2008,1,,1) Manna Mpepo - Pixie ducking clip > osis > ripwalk
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,fog,full_trick,1,2012,2012,1,,4. Marcin Bujko (Poland) - fog > pixie spinning osis > food processor
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,mobius,full_trick,1,2010,2010,1,,3. Marcin Bujko (Poland) - pixie spinning osis > food processor > mobius
+21154756-b8d4-512e-872a-c5b206fac8d3,Marcin Staron,barfly,full_trick,1,2009,2009,1,,"9. Marcin Staroñ (Blur > Legbeater > Barfly, Blizzard > Legbeater > Blurriest)"
+21154756-b8d4-512e-872a-c5b206fac8d3,Marcin Staron,blur,full_trick,1,2009,2009,1,,"9. Marcin Staroñ (Blur > Legbeater > Barfly, Blizzard > Legbeater > Blurriest)"
+21154756-b8d4-512e-872a-c5b206fac8d3,Marcin Staron,blurriest,full_trick,1,2009,2009,1,,"9. Marcin Staroñ (Blur > Legbeater > Barfly, Blizzard > Legbeater > Blurriest)"
+05e1eec0-b3f1-5728-8ad2-831de4fc204f,Marco Hartig,pixie,style_term,1,2016,2016,1,,6. Marco Hartig (Pixie Double Down > Stepping Whip > Paradox Torque)
+05e1eec0-b3f1-5728-8ad2-831de4fc204f,Marco Hartig,stepping,style_term,1,2016,2016,1,,6. Marco Hartig (Pixie Double Down > Stepping Whip > Paradox Torque)
+05e1eec0-b3f1-5728-8ad2-831de4fc204f,Marco Hartig,torque,full_trick,1,2016,2016,1,,6. Marco Hartig (Pixie Double Down > Stepping Whip > Paradox Torque)
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,blender,full_trick,1,2017,2017,1,,8. Mariusz Wilk (alpine blurry whirl>spinning clipper>blender)
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,blurry whirl,full_trick,1,2017,2017,1,,8. Mariusz Wilk (alpine blurry whirl>spinning clipper>blender)
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,fusion,full_trick,1,2012,2012,1,,9. Mariusz Wilk (Poland) - bedwetter > fusion > spender
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,spinning,style_term,1,2017,2017,1,,8. Mariusz Wilk (alpine blurry whirl>spinning clipper>blender)
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,spinning clipper,full_trick,1,2017,2017,1,,8. Mariusz Wilk (alpine blurry whirl>spinning clipper>blender)
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,swirl,full_trick,1,2019,2019,1,,8. Mariusz Wilk (Blurry Whirling Swirl)
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,whirl,full_trick,1,2017,2017,1,,8. Mariusz Wilk (alpine blurry whirl>spinning clipper>blender)
+4aacc030-1054-5a9e-82e9-96a8e7887435,Martin Sladek,butterfly,full_trick,1,2004,2004,1,,8. Martin Sládek: Zoid Diving Butterfly; Zoid Gyro Mirage
+4aacc030-1054-5a9e-82e9-96a8e7887435,Martin Sladek,gyro,style_term,1,2004,2004,1,,8. Martin Sládek: Zoid Diving Butterfly; Zoid Gyro Mirage
+db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,pixie,style_term,1,2009,2009,1,,2. Mateusz Janicki (Sunilwalker > Spikehammer > Pixie Symp. Whirl)
+db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,whirl,full_trick,1,2009,2009,1,,2. Mateusz Janicki (Sunilwalker > Spikehammer > Pixie Symp. Whirl)
+ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,butterfly,full_trick,1,2015,2015,1,,5. Mathieu Gauthier (Canada) - Bedwetter > Pixie Whirl > Butterfly Rev. Swirl
+ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,pixie,style_term,1,2015,2015,1,,5. Mathieu Gauthier (Canada) - Bedwetter > Pixie Whirl > Butterfly Rev. Swirl
+ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,swirl,full_trick,1,2015,2015,1,,5. Mathieu Gauthier (Canada) - Bedwetter > Pixie Whirl > Butterfly Rev. Swirl
+ecd47dee-6803-5d73-b31c-dcb9860e767e,Mathieu Gauthier,whirl,full_trick,1,2015,2015,1,,5. Mathieu Gauthier (Canada) - Bedwetter > Pixie Whirl > Butterfly Rev. Swirl
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,blazing,style_term,1,2014,2014,1,,1. Matt Kemmer (USA) - blazing drifter
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,blur,full_trick,1,2008,2008,1,,3 - Matt Kemmer (Spinning Paradox Mirage > Toe Blur > Symposium Whirl)
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,drifter,full_trick,1,2014,2014,1,,1. Matt Kemmer (USA) - blazing drifter
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,paradox mirage,full_trick,1,2008,2008,1,,3 - Matt Kemmer (Spinning Paradox Mirage > Toe Blur > Symposium Whirl)
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,spinning,style_term,1,2008,2008,1,,3 - Matt Kemmer (Spinning Paradox Mirage > Toe Blur > Symposium Whirl)
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,symposium,style_term,1,2008,2008,1,,3 - Matt Kemmer (Spinning Paradox Mirage > Toe Blur > Symposium Whirl)
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,symposium whirl,full_trick,1,2008,2008,1,,3 - Matt Kemmer (Spinning Paradox Mirage > Toe Blur > Symposium Whirl)
+3e78df68-5425-5d48-a88a-3bf59fe2934f,Matt Kemmer,whirl,full_trick,1,2008,2008,1,,3 - Matt Kemmer (Spinning Paradox Mirage > Toe Blur > Symposium Whirl)
+a4299d6f-ea7b-54a5-9523-f16ba89259df,Matt Mclaren,dimwalk,full_trick,1,2008,2008,1,,3. Matt Mclaren (Dimwalk Swirl)
+a4299d6f-ea7b-54a5-9523-f16ba89259df,Matt Mclaren,swirl,full_trick,1,2008,2008,1,,3. Matt Mclaren (Dimwalk Swirl)
+f3627296-7396-580c-90ac-ad13b76da7b5,Matthew Kemmer,gyro,style_term,1,2018,2018,1,,7. Matthew Kemmer - Nuclear legover > fairy whirl > gyro rev swirl
+f3627296-7396-580c-90ac-ad13b76da7b5,Matthew Kemmer,legover,full_trick,1,2018,2018,1,,7. Matthew Kemmer - Nuclear legover > fairy whirl > gyro rev swirl
+f3627296-7396-580c-90ac-ad13b76da7b5,Matthew Kemmer,swirl,full_trick,1,2018,2018,1,,7. Matthew Kemmer - Nuclear legover > fairy whirl > gyro rev swirl
+f3627296-7396-580c-90ac-ad13b76da7b5,Matthew Kemmer,tapping,style_term,1,2019,2019,1,,6. Matthew Kemmer (Tapping Twirl)
+f3627296-7396-580c-90ac-ad13b76da7b5,Matthew Kemmer,whirl,full_trick,1,2018,2018,1,,7. Matthew Kemmer - Nuclear legover > fairy whirl > gyro rev swirl
+f52e0fe8-4eff-5532-9af4-14124f1e92ee,Matthias Lino Schmidt,blurriest,full_trick,1,2012,2012,1,,5. Matthias Lino Schmidt (Blurriest Rake)
+f52e0fe8-4eff-5532-9af4-14124f1e92ee,Matthias Lino Schmidt,drifter,full_trick,1,2012,2012,1,,4. Matthias Lino Schmidt (Paradox Drifter > Paradox DLO > Symp. Whirl)
+f52e0fe8-4eff-5532-9af4-14124f1e92ee,Matthias Lino Schmidt,whirl,full_trick,1,2012,2012,1,,4. Matthias Lino Schmidt (Paradox Drifter > Paradox DLO > Symp. Whirl)
+6afe2e47-df47-5055-bba0-0aa2341d43e0,Max Boucoiran,ducking,style_term,1,2003,2003,1,,1. Max Boucoiran (75 ADDS) : Diving Butterfly >Ducking Butterfly >
+ce7e0e5a-0d7f-542c-8d5d-fb4895184909,Max Kerkhoff,blur,full_trick,1,2004,2004,1,,4. Max Kerkhoff bluriest ? blur ? motion
+ce7e0e5a-0d7f-542c-8d5d-fb4895184909,Max Kerkhoff,flurry,full_trick,1,2006,2006,1,,5. Max Kerkhoff janiwalker > flurry > pixie ss dod
+ce7e0e5a-0d7f-542c-8d5d-fb4895184909,Max Kerkhoff,pixie,style_term,1,2006,2006,1,,5. Max Kerkhoff janiwalker > flurry > pixie ss dod
+8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,pixie,style_term,1,2004,2004,1,,1. Maxime Boucoiran (75 ADDS) Pixie whirling swirl
+8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,whirl,full_trick,1,2007,2007,1,,3. Maxime Boucoiran ? Diving Whirl
+fee1cb85-f33e-525c-a1f1-7d7cf652d6d3,Michael Nielson,dimwalk,full_trick,1,2006,2006,1,,7. Michael Nielsen (Smear > Dimwalk > Spinning Clipper)
+fee1cb85-f33e-525c-a1f1-7d7cf652d6d3,Michael Nielson,smear,full_trick,1,2006,2006,1,,7. Michael Nielsen (Smear > Dimwalk > Spinning Clipper)
+fee1cb85-f33e-525c-a1f1-7d7cf652d6d3,Michael Nielson,spinning,style_term,1,2006,2006,1,,7. Michael Nielsen (Smear > Dimwalk > Spinning Clipper)
+fee1cb85-f33e-525c-a1f1-7d7cf652d6d3,Michael Nielson,spinning clipper,full_trick,1,2006,2006,1,,7. Michael Nielsen (Smear > Dimwalk > Spinning Clipper)
+437d9bc1-f872-5687-9191-689dccedb6d0,Michal Biarda,legover,full_trick,1,2009,2009,1,,10. Michal Biarda 36.7 (Rooted Pixie Legover > Quantum Illusion > Pixie Dada Curve)
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,blender,full_trick,1,2009,2009,1,,11. Michal Ostrowski 34.8 (Fairy Ducking Butterfly > Pdx Torque > Pdx Blender)
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,butterfly,full_trick,1,2009,2009,1,,11. Michal Ostrowski 34.8 (Fairy Ducking Butterfly > Pdx Torque > Pdx Blender)
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,ducking,style_term,1,2009,2009,1,,11. Michal Ostrowski 34.8 (Fairy Ducking Butterfly > Pdx Torque > Pdx Blender)
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,swirl,full_trick,1,2014,2014,1,,3. Michal Ostrowski (Poland) - phoenix swirl
+da3fbe76-ba2d-51ee-a019-97e7ba93089a,Michal Ostrowski,whirl,full_trick,1,2012,2012,1,,14. Michal Ostrowski (Poland) - phoenix > paradox torque > PS whirl
+746cc216-852b-5788-bdf3-7b08b853664c,Mike Stokely,butterfly,full_trick,1,2008,2008,1,,3) Mike Stokely (Toe Diving Butterfly > PDX Illusion > Symp Mirage)
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,atomic,style_term,1,2013,2013,1,,5. Mikko Lepisto ? Atomic Blender
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,barfly,full_trick,1,2014,2014,1,,5. Mikko Lepisto (Germany) - barfly swirl
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,blender,full_trick,1,2013,2013,1,,5. Mikko Lepisto ? Atomic Blender
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,blurry whirl,full_trick,1,2016,2016,1,,4. Mikko Lepistö (Matador > Blurry Whirl > Paradox Torque)
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,swirl,full_trick,1,2014,2014,1,,5. Mikko Lepisto (Germany) - barfly swirl
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,torque,full_trick,1,2016,2016,1,,4. Mikko Lepistö (Matador > Blurry Whirl > Paradox Torque)
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,whirl,full_trick,1,2016,2016,1,,4. Mikko Lepistö (Matador > Blurry Whirl > Paradox Torque)
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,blurriest,full_trick,1,2008,2008,1,,2. Milan Benda ? Blurriest Swirl
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,ducking,style_term,1,2013,2013,1,,3. Milan Benda ? Spinning Ducking Spinning Osis
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,food processor,full_trick,1,2007,2007,1,,3. Milan Benda ? Jany Walker > Food Processor > Superfly
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,fusion,full_trick,1,2008,2008,1,,3. Milan Benda (Fury > Fusion > PS Eggbeater)
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,mobius,full_trick,1,2012,2012,1,,2. Milan Benda (Czech Republic) - genesis > PS whirling swirl > mobius-screw
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,osis,full_trick,1,2013,2013,1,,3. Milan Benda ? Spinning Ducking Spinning Osis
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,superfly,full_trick,1,2007,2007,1,,3. Milan Benda ? Jany Walker > Food Processor > Superfly
+11d957ec-ccf4-5fe5-b749-e80806fc0e3a,Nate Linscott,ducking,style_term,1,2003,2003,1,,"swirling gyro mirage!! Nate Linscott spining ducking osis, Kevin Richey pdx"
+11d957ec-ccf4-5fe5-b749-e80806fc0e3a,Nate Linscott,gyro,style_term,1,2003,2003,1,,"swirling gyro mirage!! Nate Linscott spining ducking osis, Kevin Richey pdx"
+11d957ec-ccf4-5fe5-b749-e80806fc0e3a,Nate Linscott,osis,full_trick,1,2003,2003,1,,"swirling gyro mirage!! Nate Linscott spining ducking osis, Kevin Richey pdx"
+0cddd9e7-73d7-57d8-a99a-1d401206165a,Nathan Bonslaver,barfly,full_trick,1,2019,2019,1,,7. Nathan Bonslaver (Blazing Barfly)
+0cddd9e7-73d7-57d8-a99a-1d401206165a,Nathan Bonslaver,blazing,style_term,1,2019,2019,1,,7. Nathan Bonslaver (Blazing Barfly)
+0cddd9e7-73d7-57d8-a99a-1d401206165a,Nathan Bonslaver,fog,full_trick,1,2019,2019,1,,6. Nathan Bonslaver (Fog>Dimmiest>PDX Torque)
+0cddd9e7-73d7-57d8-a99a-1d401206165a,Nathan Bonslaver,torque,full_trick,1,2019,2019,1,,6. Nathan Bonslaver (Fog>Dimmiest>PDX Torque)
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,blur,full_trick,1,2004,2004,1,,2. Nick Landes: blur>whirl>pdx. drifter
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,osis,full_trick,1,2009,2009,1,,6. Nick Landes 42.2 (Nuclear Osis > Spinning Ducking Butterfly > Symp. Whirling
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,symposium,style_term,1,2007,2007,1,,5. Nick Landes (Nuclear Symposium Whirl)
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,symposium whirl,full_trick,1,2007,2007,1,,5. Nick Landes (Nuclear Symposium Whirl)
+48268322-19d9-5180-aac2-241293167d21,Nick Landes,torque,full_trick,1,2008,2008,1,,3. Nick Landes (Nuclear Paradox Torque)
+baab18da-920b-51d7-984d-688c23e82219,Nick Laroche,spinning,style_term,1,2005,2005,1,,3rd Nick Laroche spinning whirl > flail > dolomite
+baab18da-920b-51d7-984d-688c23e82219,Nick Laroche,spinning whirl,full_trick,1,2005,2005,1,,3rd Nick Laroche spinning whirl > flail > dolomite
+baab18da-920b-51d7-984d-688c23e82219,Nick Laroche,whirl,full_trick,1,2005,2005,1,,3rd Nick Laroche spinning whirl > flail > dolomite
+c9fc7508-8c52-5188-b931-9ca02ee55ddc,Nick Miller,butterfly,full_trick,1,2003,2003,1,,3rd: Nick Miller (Smear>Butterfly>DLO)
+c9fc7508-8c52-5188-b931-9ca02ee55ddc,Nick Miller,smear,full_trick,1,2003,2003,1,,3rd: Nick Miller (Smear>Butterfly>DLO)
+700e0ec0-94b9-5de3-b9a9-8d40a3645de3,Patrik Cerny,ducking,style_term,1,2018,2018,1,,4. Patrik Cerny (Pixie Ducking Cliper>Ps Whirl>Double Spin. Cliper)
+700e0ec0-94b9-5de3-b9a9-8d40a3645de3,Patrik Cerny,pixie,style_term,1,2018,2018,1,,4. Patrik Cerny (Pixie Ducking Cliper>Ps Whirl>Double Spin. Cliper)
+700e0ec0-94b9-5de3-b9a9-8d40a3645de3,Patrik Cerny,whirl,full_trick,1,2018,2018,1,,4. Patrik Cerny (Pixie Ducking Cliper>Ps Whirl>Double Spin. Cliper)
+9d12fe41-0154-57a6-b312-5f3b46f621b5,Pavel Motorov,fusion,full_trick,1,2012,2012,1,,3. Pavel Motorov - shooting pdx mirage>fusion>mullet
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,blurry whirl,full_trick,1,2014,2014,1,,3. Pawel Nowak (Poland) - frontside legbeater > double dyno > blurry whirl
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,ducking,style_term,1,2019,2019,1,,3. Pawel Nowak (Atomic Motion>Locomotion>Ducking Symp. Dyno)
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,symposium,style_term,1,2014,2014,1,,6. Pawel Nowak (Poland) - symposium atomic motion
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,whirl,full_trick,1,2014,2014,1,,3. Pawel Nowak (Poland) - frontside legbeater > double dyno > blurry whirl
+7a8ebf46-3df4-5114-9913-7154c9e52708,Pekka Raitio,symposium,style_term,1,2001,2001,1,,"1. Pekka Raitio, Järvenpää, Finland - Blurry symposium whirl"
+7a8ebf46-3df4-5114-9913-7154c9e52708,Pekka Raitio,symposium whirl,full_trick,1,2001,2001,1,,"1. Pekka Raitio, Järvenpää, Finland - Blurry symposium whirl"
+7a8ebf46-3df4-5114-9913-7154c9e52708,Pekka Raitio,whirl,full_trick,1,2001,2001,1,,"1. Pekka Raitio, Järvenpää, Finland - Blurry symposium whirl"
+416e8b3a-f738-5d7f-8e22-89a74a41e538,Peter Holoien,swirl,full_trick,1,2008,2008,1,,3 Peter Holoien paradon swirl
+542be6a9-3b5a-5374-961b-9de19c0def7a,Peter Irish,blur,full_trick,1,2004,2004,1,,4. Peter Irish: blurry backside blur
+542be6a9-3b5a-5374-961b-9de19c0def7a,Peter Irish,mobius,full_trick,1,2003,2003,1,,"6th) Peter Irish: Blurry Whirl, Mobius, Blurry Whirl"
+cceb5e54-aea1-5282-ac59-6074119056bb,Piotr Kurt,blur,full_trick,1,2007,2007,1,,7. Piotr Kurt (Olsztyn) Dimwalk > Blur > Legbeater
+cceb5e54-aea1-5282-ac59-6074119056bb,Piotr Kurt,dimwalk,full_trick,1,2007,2007,1,,7. Piotr Kurt (Olsztyn) Dimwalk > Blur > Legbeater
+27906256-df7d-5101-8427-d2735d2bda7a,Pomanov Andrey,ducking,style_term,1,2009,2009,1,,1 Pomanov Andrey spinning ducking motion
+27906256-df7d-5101-8427-d2735d2bda7a,Pomanov Andrey,spinning,style_term,1,2009,2009,1,,1 Pomanov Andrey spinning ducking motion
+cd863f34-51f1-52ff-b4a8-516d262e99eb,Radek Turek,ripwalk,full_trick,1,2009,2009,1,,8. Radek Turek (Ripwarrior > Ripwalk > Whirr)
+82c36f56-236f-4496-826b-cf59a6fcc4ed,Rafal Kaleta,symposium,style_term,1,2010,2010,1,,1. Rafal Kaleta (Poland) - bedwetter > plasma > paradox symposium torque
+e09eba43-2564-572c-a7a1-335c4653964f,Randy Magliocca,torque,full_trick,1,2003,2003,1,,"Randy Magliocca for B. Torque, Whirlwind & heinous combos (go PRO!!!!)"
+26098074-1c3e-5e3c-8c61-2b7eb8f32eda,Reid Strieller,spinning,style_term,1,2006,2006,1,,"2) Reid Strieller (Spinning Paradox Merlin, Maelstrom Rake)"
+9585ffd8-cc96-528e-ba4a-4211da8cef00,Rene Ruehr,torque,full_trick,1,2012,2012,1,,2. Rene Ruehr (Surging Paradox Torque)
+ab216b72-e80d-526e-ba50-e8dd93866623,Ricky Moran,butterfly,full_trick,1,2003,2003,1,,"15th) Ricky Moran: Fairy Butterfly, Ripwalk, P. Drifter"
+ab216b72-e80d-526e-ba50-e8dd93866623,Ricky Moran,drifter,full_trick,1,2003,2003,1,,"15th) Ricky Moran: Fairy Butterfly, Ripwalk, P. Drifter"
+ab216b72-e80d-526e-ba50-e8dd93866623,Ricky Moran,ducking,style_term,1,2004,2004,1,,2. Ricky Moran: ducking marius
+ab216b72-e80d-526e-ba50-e8dd93866623,Ricky Moran,ripwalk,full_trick,1,2003,2003,1,,"15th) Ricky Moran: Fairy Butterfly, Ripwalk, P. Drifter"
+218b51ae-f5be-5230-bb26-10aa2981036c,Riku Ahola,swirl,full_trick,1,2005,2005,1,,5. Riku Ahola (FIN) Blizzard > Phoenix > Symposium Whirling Swirl
+218b51ae-f5be-5230-bb26-10aa2981036c,Riku Ahola,symposium,style_term,1,2005,2005,1,,5. Riku Ahola (FIN) Blizzard > Phoenix > Symposium Whirling Swirl
+02e78072-c966-56b4-8a92-f64bb3b778cd,Rob Fuller,ducking,style_term,1,2003,2003,1,,Rob Fuller (Ducking Scorpions Tail)
+71475c85-2292-5764-b481-1c24bd73bda6,Robinson Sustrac,symposium,style_term,1,2006,2006,1,,"5. Robinson Sustrac ""Symposium Whirl"""
+71475c85-2292-5764-b481-1c24bd73bda6,Robinson Sustrac,symposium whirl,full_trick,1,2006,2006,1,,"5. Robinson Sustrac ""Symposium Whirl"""
+71475c85-2292-5764-b481-1c24bd73bda6,Robinson Sustrac,whirl,full_trick,1,2006,2006,1,,"5. Robinson Sustrac ""Symposium Whirl"""
+d5f5db2b-ce60-529e-a488-cf14e8dfdeee,Roman Huber,blender,full_trick,1,2018,2018,1,,6. Roman Huber (PS Whirl > Pdx Torque > Pdx Blender)
+d5f5db2b-ce60-529e-a488-cf14e8dfdeee,Roman Huber,torque,full_trick,1,2018,2018,1,,6. Roman Huber (PS Whirl > Pdx Torque > Pdx Blender)
+d5f5db2b-ce60-529e-a488-cf14e8dfdeee,Roman Huber,whirl,full_trick,1,2018,2018,1,,6. Roman Huber (PS Whirl > Pdx Torque > Pdx Blender)
+39dac0e1-9d56-515a-b0a9-2c64055c08e8,Ronny Schimmel,ducking,style_term,1,2014,2014,1,,8. Ronny Schimmel (Spain) - clipper-set same-side mirage > illusion > ducking mirage
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,blur,full_trick,1,2007,2007,1,,1- Rory Dawson (pheonix> bs blur> toe inspinning butterfly)
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,butterfly,full_trick,1,2007,2007,1,,1- Rory Dawson (pheonix> bs blur> toe inspinning butterfly)
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,dimwalk,full_trick,1,2008,2008,1,,3) Rory Dawson - dimwalk swirl
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,ducking,style_term,1,2007,2007,1,,7) Rory Dawson : pixie ducking symple pickup
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,osis,full_trick,1,2007,2007,1,,5. Rory Dawson -- Phoenix>Stepping PS Mirage>Pixie Osis
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,pickup,full_trick,1,2007,2007,1,,7) Rory Dawson : pixie ducking symple pickup
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,stepping,style_term,1,2007,2007,1,,5. Rory Dawson -- Phoenix>Stepping PS Mirage>Pixie Osis
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,swirl,full_trick,1,2008,2008,1,,3) Rory Dawson - dimwalk swirl
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,torque,full_trick,1,2007,2007,1,,7. Rory Dawson--Pixie Torque
+3de01059-2378-5f56-910f-08e61f3294a1,Roy Klein,butterfly,full_trick,1,2015,2015,1,,13. Roy Klein (The Netherlands) - Pixie Slapping Butterfly
+3de01059-2378-5f56-910f-08e61f3294a1,Roy Klein,ducking,style_term,1,2015,2015,1,,7. Roy Klein (The Netherlands) - Ducking Pdx Mirage > Double Legover > Pixie Whirl
+3de01059-2378-5f56-910f-08e61f3294a1,Roy Klein,legover,full_trick,1,2015,2015,1,,7. Roy Klein (The Netherlands) - Ducking Pdx Mirage > Double Legover > Pixie Whirl
+3de01059-2378-5f56-910f-08e61f3294a1,Roy Klein,whirl,full_trick,1,2015,2015,1,,7. Roy Klein (The Netherlands) - Ducking Pdx Mirage > Double Legover > Pixie Whirl
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,blurry whirl,full_trick,1,2002,2002,1,,2. Ryan Mulroney (Blurry Whirl > Paradox Symposium Whirl > Whirlwind)
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,flurry,full_trick,1,2004,2004,1,,1. Ryan Mulroney: flurry>dolomite>whirlwind
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,symposium,style_term,1,2002,2002,1,,2. Ryan Mulroney (Blurry Whirl > Paradox Symposium Whirl > Whirlwind)
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,symposium whirl,full_trick,1,2002,2002,1,,2. Ryan Mulroney (Blurry Whirl > Paradox Symposium Whirl > Whirlwind)
+e5ae5d7c-8286-5afd-9fc9-1fd50a059ff2,Sam Potter,food processor,full_trick,1,2007,2007,1,,7. Sam Potter (Food Processor)
+e1b0b026-9914-5ebb-8321-fe835ac96c25,Scott Bevier,blurry whirl,full_trick,1,2007,2007,1,,4. Scott Bevier (Sumo-Fairy Beater-Blurry Whirl)
+e1b0b026-9914-5ebb-8321-fe835ac96c25,Scott Bevier,whirl,full_trick,1,2007,2007,1,,4. Scott Bevier (Sumo-Fairy Beater-Blurry Whirl)
+274d2f51-e2d5-5458-be40-6b9211ff813e,Scott Davidson,blurry whirl,full_trick,1,2003,2003,1,,"10th) Scott Davidson: Stepping Whirl, Blurry Whirl, Stepping Whirl"
+ff11acf4-ec1e-5574-b33d-febf3bbd0bf6,Scott Ellenberger,butterfly,full_trick,1,2006,2006,1,,4-Scott Ellenberger- zoid butterfly
+ff11acf4-ec1e-5574-b33d-febf3bbd0bf6,Scott Ellenberger,smear,full_trick,1,2007,2007,1,,4-Scott Ellenberger (smear)
+a6250c4f-61e5-541c-994d-c39f2d43beb7,Sean Thompson,ducking,style_term,1,2004,2004,1,,2. Sean Thompson: double dyno and ducking x-body sole
+a6250c4f-61e5-541c-994d-c39f2d43beb7,Sean Thompson,ripwalk,full_trick,1,2004,2004,1,,2. Sean Thompson: ripwalk>x-body sole>dyno
+ef2c88aa-ab9e-58d1-b4c9-1374e77859eb,Sebastian Ceballos,blur,full_trick,1,2022,2022,1,,8.Sebastian Ceballos (Columbia)(blur-legbeater-ducking rake)
+ef2c88aa-ab9e-58d1-b4c9-1374e77859eb,Sebastian Ceballos,ducking,style_term,1,2022,2022,1,,8.Sebastian Ceballos (Columbia)(blur-legbeater-ducking rake)
+6dd904b7-11c6-5d62-af34-dad61040e67e,Sebastien Duchesne,legover,full_trick,1,2000,2000,1,,3. Sebastien Duschenes - Paradon to Paradox-Double-Legover
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,blurry whirl,full_trick,1,2008,2008,1,,1. Serge Kaldany ? Pixie whirl > blurry whirl > PS whirl
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,symposium,style_term,1,2006,2006,1,,"1. Serge Kaldany ""Pixie Ducking Symposium Whirl"""
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,symposium whirl,full_trick,1,2006,2006,1,,"1. Serge Kaldany ""Pixie Ducking Symposium Whirl"""
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,torque,full_trick,1,2007,2007,1,,1. Serge Kaldany ? Quantum Ducking Torque = Quartz
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,blurriest,full_trick,1,2015,2015,1,,1. Sergio Garcia (Spain) - Blurriest
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,blurry whirl,full_trick,1,2019,2019,1,,8. Sergio Garcia (PDX Tapping Pickup>Fairy Butterfly>Blurry Whirl)
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,butterfly,full_trick,1,2019,2019,1,,8. Sergio Garcia (PDX Tapping Pickup>Fairy Butterfly>Blurry Whirl)
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,legover,full_trick,1,2015,2015,1,,10. Sergio Garcia (Spain) - Nuclear Same-Side Pickup > Legbeater > Same-Side Legover
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,tapping,style_term,1,2019,2019,1,,8. Sergio Garcia (PDX Tapping Pickup>Fairy Butterfly>Blurry Whirl)
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,whirl,full_trick,1,2019,2019,1,,8. Sergio Garcia (PDX Tapping Pickup>Fairy Butterfly>Blurry Whirl)
+78d0c91f-b1ec-572e-855b-a7d3f706f8b7,Stefan Siegert,ripwalk,full_trick,1,2012,2012,1,,3. Stefan Siegert (Toe Ripwalk > Bubba Beater > Frantic Legover)
+78d0c91f-b1ec-572e-855b-a7d3f706f8b7,Stefan Siegert,symposium,style_term,1,2012,2012,1,,4. Stefan Siegert (Symposium Quantum Quantum Legover)
+6f5650e6-0134-57af-8400-e9c3ce72e333,Steve Cline,whirl,full_trick,1,2008,2008,1,,"4. Steve Cline (Phoenix, Paradox Whirl)"
+513c8bcf-4c53-5b90-8c71-a823c1f917a2,Stu Sapia,pickup,full_trick,1,2006,2006,1,,3. Stu Sapia - pixie>toe>pickup
+513c8bcf-4c53-5b90-8c71-a823c1f917a2,Stu Sapia,pixie,style_term,1,2006,2006,1,,3. Stu Sapia - pixie>toe>pickup
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,blurriest,full_trick,1,2002,2002,1,,1. Sunil Jani (Jani-Walker > Blurriest > Flurry)
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,flurry,full_trick,1,2002,2002,1,,1. Sunil Jani (Jani-Walker > Blurriest > Flurry)
+226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,blur,full_trick,1,2008,2008,1,,"3. Sunny Freeman Genz (Paradon, Legbeater, Double Pick Up, Blur)"
+226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,butterfly,full_trick,1,2010,2010,1,,2. Sunny Freeman Genz (Butterfly-Paradon-Paradox Mirage)
+a9518594-35d9-53cd-8e8d-a7bc4de94236,Sébastien Maillet,drifter,full_trick,1,2008,2008,1,,4. Sébastien Maillet ? Ducking clipper > drifter > far legover
+a9518594-35d9-53cd-8e8d-a7bc4de94236,Sébastien Maillet,ducking clipper,full_trick,1,2008,2008,1,,4. Sébastien Maillet ? Ducking clipper > drifter > far legover
+a9518594-35d9-53cd-8e8d-a7bc4de94236,Sébastien Maillet,legover,full_trick,1,2008,2008,1,,4. Sébastien Maillet ? Ducking clipper > drifter > far legover
+a9518594-35d9-53cd-8e8d-a7bc4de94236,Sébastien Maillet,osis,full_trick,1,2008,2008,1,,3. Sébastien Maillet ? Ducking osis
+5c162da2-c670-5845-a3d6-a2ed097eb59b,Søren Nøhr Thomsen,dimwalk,full_trick,1,2006,2006,1,,6. Søren Nøhr Thomsen (Dimwalk > Ripwalk > ... )
+5c162da2-c670-5845-a3d6-a2ed097eb59b,Søren Nøhr Thomsen,ripwalk,full_trick,1,2006,2006,1,,6. Søren Nøhr Thomsen (Dimwalk > Ripwalk > ... )
+a0bcdd4a-2d77-522f-8f5c-b74c30ade8d2,Thomas Sustrac,whirl,full_trick,1,2008,2008,1,,2. Thomas Sustrac ? ripwalk > whirl > dyno
+5e7aee36-aee8-5e0f-8ba5-3e955de284f3,Timo Aarnio,butterfly,full_trick,1,2001,2001,1,,"2. Timo Aarnio, Järvenpää, Finland - Diving Butterfly"
+6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,Tina Aeberli,blurry whirl,full_trick,1,2007,2007,1,,9. Tina Aeberli ? Blurry Whirl > PS Whirl > Whirling Swirl
+6c84f5b5-7da4-5b72-bdd7-453421a3c3d8,Tina Aeberli,swirl,full_trick,1,2007,2007,1,,9. Tina Aeberli ? Blurry Whirl > PS Whirl > Whirling Swirl
+7c17dac5-be0b-5fc2-a537-2c8d02be9019,Tobias Larsen,blur,full_trick,1,2006,2006,1,,5. Tobias Larsen (Blur > Dimwalk > Foodprocessor)
+7c17dac5-be0b-5fc2-a537-2c8d02be9019,Tobias Larsen,dimwalk,full_trick,1,2006,2006,1,,5. Tobias Larsen (Blur > Dimwalk > Foodprocessor)
+5dd45023-8247-57f7-be12-df4702a96951,Tom Kotsakos,gyro,style_term,1,2010,2010,1,,2. Tom Kotsakos :-p - Highest level: 12 (gyro DLO > merlin)
+8d376e28-be86-516e-9b65-b313e8085989,Tomas Konecny,barfly,full_trick,1,2012,2012,1,,18. Tomas Konecny (Czech Republic) - {barfly/ripwalk} > ducking butterfly > paradox whirl
+8d376e28-be86-516e-9b65-b313e8085989,Tomas Konecny,butterfly,full_trick,1,2012,2012,1,,18. Tomas Konecny (Czech Republic) - {barfly/ripwalk} > ducking butterfly > paradox whirl
+8d376e28-be86-516e-9b65-b313e8085989,Tomas Konecny,ducking,style_term,1,2012,2012,1,,18. Tomas Konecny (Czech Republic) - {barfly/ripwalk} > ducking butterfly > paradox whirl
+8d376e28-be86-516e-9b65-b313e8085989,Tomas Konecny,ripwalk,full_trick,1,2012,2012,1,,18. Tomas Konecny (Czech Republic) - {barfly/ripwalk} > ducking butterfly > paradox whirl
+8d376e28-be86-516e-9b65-b313e8085989,Tomas Konecny,whirl,full_trick,1,2012,2012,1,,18. Tomas Konecny (Czech Republic) - {barfly/ripwalk} > ducking butterfly > paradox whirl
+98945320-03c6-5cb1-8dbd-886ce1019bb9,Toni Pääkkönen,blurriest,full_trick,1,2012,2012,1,,13. Toni Pääkkönen (Finland) - blurry whirl > blurriest > bedwetter
+98945320-03c6-5cb1-8dbd-886ce1019bb9,Toni Pääkkönen,blurry whirl,full_trick,1,2012,2012,1,,13. Toni Pääkkönen (Finland) - blurry whirl > blurriest > bedwetter
+98945320-03c6-5cb1-8dbd-886ce1019bb9,Toni Pääkkönen,whirl,full_trick,1,2012,2012,1,,13. Toni Pääkkönen (Finland) - blurry whirl > blurriest > bedwetter
+6c5ddac5-178d-56b9-a514-ee66d1b24a16,Tony Whitney,dimwalk,full_trick,1,2007,2007,1,,1) Tony Whitney : smear > dimwalk > ps whirl
+6c5ddac5-178d-56b9-a514-ee66d1b24a16,Tony Whitney,smear,full_trick,1,2007,2007,1,,1) Tony Whitney : smear > dimwalk > ps whirl
+28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,blurry whirl,full_trick,1,2003,2003,1,,"9th) Tuan Vu: Blurry Whirl, Spinning Butterfly, Paradox Torque"
+28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,butterfly,full_trick,1,2003,2003,1,,"9th) Tuan Vu: Blurry Whirl, Spinning Butterfly, Paradox Torque"
+28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,spinning,style_term,1,2003,2003,1,,"9th) Tuan Vu: Blurry Whirl, Spinning Butterfly, Paradox Torque"
+28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,torque,full_trick,1,2003,2003,1,,"9th) Tuan Vu: Blurry Whirl, Spinning Butterfly, Paradox Torque"
+28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,whirl,full_trick,1,2003,2003,1,,"9th) Tuan Vu: Blurry Whirl, Spinning Butterfly, Paradox Torque"
+171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,fusion,full_trick,1,2013,2013,1,,3. Tuomas Riisalo ? Fusion > Symposium Torque > Mullet
+171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,symposium,style_term,1,2013,2013,1,,3. Tuomas Riisalo ? Fusion > Symposium Torque > Mullet
+171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,torque,full_trick,1,2013,2013,1,,3. Tuomas Riisalo ? Fusion > Symposium Torque > Mullet
+98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,atomic,style_term,1,2014,2014,1,,2. Václav Klouda (Czech Republic) - atomic ducking whirl > spinning ps whirl > montage
+98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,ducking,style_term,1,2014,2014,1,,2. Václav Klouda (Czech Republic) - atomic ducking whirl > spinning ps whirl > montage
+98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,spinning,style_term,1,2014,2014,1,,2. Václav Klouda (Czech Republic) - atomic ducking whirl > spinning ps whirl > montage
+98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,swirl,full_trick,1,2015,2015,1,,1. Václav Klouda (Czech Republic) - Montage > Furious Flail > DOD Swirl
+98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,symposium,style_term,1,2015,2015,1,,2. Václav Klouda (Czech Republic) - Symposium Whirr
+8b1e5ce1-b6be-58dd-90c3-02bafdb34ec6,Vašek Klouda,flurry,full_trick,1,2004,2004,1,,1 Klouda Vasek (Janiwalker-Superfly-Frontside Symp. Flurry)
+8b1e5ce1-b6be-58dd-90c3-02bafdb34ec6,Vašek Klouda,superfly,full_trick,1,2004,2004,1,,1 Klouda Vasek (Janiwalker-Superfly-Frontside Symp. Flurry)
+205ca842-1055-506b-8c48-118afc6ae681,Verena Lenneis,food processor,full_trick,1,2015,2015,1,,1. Verena Lenneis (Austria) - Food Processor
+ac1ba46f-f0b2-522d-839c-6b342f20719f,Weber Honza,blender,full_trick,1,2004,2004,1,,2 Weber Honza (Alpine Legbeater - Fog - Pixie same Blender)
+ac1ba46f-f0b2-522d-839c-6b342f20719f,Weber Honza,fog,full_trick,1,2004,2004,1,,2 Weber Honza (Alpine Legbeater - Fog - Pixie same Blender)
+ac1ba46f-f0b2-522d-839c-6b342f20719f,Weber Honza,pixie,style_term,1,2004,2004,1,,2 Weber Honza (Alpine Legbeater - Fog - Pixie same Blender)
+457cdaa2-3ec3-5aed-b340-708420125d7c,Will Digges,blurriest,full_trick,1,2006,2006,1,,2. Will Digges (Fury-Phoenix-Blurriest Swirl)
+457cdaa2-3ec3-5aed-b340-708420125d7c,Will Digges,pixie,style_term,1,2008,2008,1,,2 - Will Digges (Pixie Paradon Swirl)
+476887f6-85fc-57b7-a603-24eb701cc219,Willie Digges,blurriest,full_trick,1,2006,2006,1,,3. Willie Digges- blurriest swirl
+476887f6-85fc-57b7-a603-24eb701cc219,Willie Digges,swirl,full_trick,1,2006,2006,1,,3. Willie Digges- blurriest swirl
+2fe08509-fcb3-5ecd-8828-40411bc4a036,Wojciech Jamski,blurry whirl,full_trick,1,2009,2009,1,,7. Wojciech Jamski (Blurry Whirl > Whirling Swirl > Superfly)
+2fe08509-fcb3-5ecd-8828-40411bc4a036,Wojciech Jamski,superfly,full_trick,1,2009,2009,1,,7. Wojciech Jamski (Blurry Whirl > Whirling Swirl > Superfly)
+2fe08509-fcb3-5ecd-8828-40411bc4a036,Wojciech Jamski,swirl,full_trick,1,2009,2009,1,,7. Wojciech Jamski (Blurry Whirl > Whirling Swirl > Superfly)
+2fe08509-fcb3-5ecd-8828-40411bc4a036,Wojciech Jamski,whirl,full_trick,1,2009,2009,1,,7. Wojciech Jamski (Blurry Whirl > Whirling Swirl > Superfly)
+0c38b19f-43e0-57ab-9f24-a19fdfeefabb,Wojtek Ignaczak,stepping,style_term,1,2005,2005,1,,4. Wojtek Ignaczak: Phoneix > Sidewalk > Stepping far Dyno
+0c38b19f-43e0-57ab-9f24-a19fdfeefabb,Wojtek Ignaczak,torque,full_trick,1,2005,2005,1,,6. Wojtek Ignaczak: Pixi Torque
+9082387f-8ab5-5fc8-8017-e9d13731aeb8,Worek Jakub,eggbeater,full_trick,1,2007,2007,1,,2. Worek Jakub (Sailing Eggbeater)
+97d60d0e-3503-5814-8b1d-3fe6bb6bff86,Yacine Merzouk,legover,full_trick,1,2000,2000,1,,2. Yacine Merzouk - Paradox-Double-Legover to Atom-Smasher
+97d60d0e-3503-5814-8b1d-3fe6bb6bff86,Yacine Merzouk,whirl,full_trick,1,2001,2001,1,,-Yacine Merzouk with Vortex to PS Whirl
+a26afc0f-bd6e-5139-b55a-6bc85585f68c,Ylugin Alexey,atomic,style_term,1,2009,2009,1,,Ylugin Alexey legbeater-stepping legover-atomic ducking butterfly
+a26afc0f-bd6e-5139-b55a-6bc85585f68c,Ylugin Alexey,butterfly,full_trick,1,2009,2009,1,,Ylugin Alexey legbeater-stepping legover-atomic ducking butterfly
+a26afc0f-bd6e-5139-b55a-6bc85585f68c,Ylugin Alexey,ducking,style_term,1,2009,2009,1,,Ylugin Alexey legbeater-stepping legover-atomic ducking butterfly
+a26afc0f-bd6e-5139-b55a-6bc85585f68c,Ylugin Alexey,legover,full_trick,1,2009,2009,1,,Ylugin Alexey legbeater-stepping legover-atomic ducking butterfly
+a26afc0f-bd6e-5139-b55a-6bc85585f68c,Ylugin Alexey,stepping,style_term,1,2009,2009,1,,Ylugin Alexey legbeater-stepping legover-atomic ducking butterfly
+8fc44a4b-aa33-5106-8cc6-8f2303bf1b0e,Zac Jackson,atom smasher,full_trick,1,2007,2007,1,,2. Zac Jackson (Frontside Atom Smasher)
+8fc44a4b-aa33-5106-8cc6-8f2303bf1b0e,Zac Jackson,butterfly,full_trick,1,2007,2007,1,,4. Zac Jackson (Ripwalk-Paradox Mirage-Ducking Butterfly)
+8fc44a4b-aa33-5106-8cc6-8f2303bf1b0e,Zac Jackson,ducking,style_term,1,2007,2007,1,,4. Zac Jackson (Ripwalk-Paradox Mirage-Ducking Butterfly)
+8fc44a4b-aa33-5106-8cc6-8f2303bf1b0e,Zac Jackson,paradox mirage,full_trick,1,2007,2007,1,,4. Zac Jackson (Ripwalk-Paradox Mirage-Ducking Butterfly)
+8fc44a4b-aa33-5106-8cc6-8f2303bf1b0e,Zac Jackson,pixie,style_term,1,2007,2007,1,,5. Zac Jackson--Double Pixie
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,blurry whirl,full_trick,1,2007,2007,1,,"4. Zeb Jackson--Spinning Ducking Butter, Blurry Whirl, Zulu Osis"
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,dimwalk,full_trick,1,2007,2007,1,,5. Zeb Jackson -- Smear>Dimwalk>Whirl
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,ducking,style_term,1,2007,2007,1,,"4. Zeb Jackson--Spinning Ducking Butter, Blurry Whirl, Zulu Osis"
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,osis,full_trick,1,2007,2007,1,,"4. Zeb Jackson--Spinning Ducking Butter, Blurry Whirl, Zulu Osis"
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,smear,full_trick,1,2007,2007,1,,5. Zeb Jackson -- Smear>Dimwalk>Whirl
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,spinning,style_term,1,2007,2007,1,,"4. Zeb Jackson--Spinning Ducking Butter, Blurry Whirl, Zulu Osis"
+348ea683-38f2-54ab-ad04-db29a37bb687,Zeb Jackson,torque,full_trick,1,2007,2007,1,,7) Zeb Jackson : spin clip > torque > butter
+c28e51bd-80f9-5972-869c-25ebfc5e30f1,dustin yanofsky,atomsmasher,full_trick,1,2006,2006,1,,5. dustin yanofsky - atomsmasher>smear>dimwalk
+c28e51bd-80f9-5972-869c-25ebfc5e30f1,dustin yanofsky,dimwalk,full_trick,1,2006,2006,1,,5. dustin yanofsky - atomsmasher>smear>dimwalk
+c28e51bd-80f9-5972-869c-25ebfc5e30f1,dustin yanofsky,smear,full_trick,1,2006,2006,1,,5. dustin yanofsky - atomsmasher>smear>dimwalk
+d7085185-43b6-553a-8e5a-a1984e69eb4b,lee sickle,ripwalk,full_trick,1,2006,2006,1,,2. lee sickle - phoenix>ripwalk>spin du. clipper
+6bf8de31-451d-56f1-a9c8-ddc36c17faea,trey lykins,eggbeater,full_trick,1,2006,2006,1,,1. trey lykins - symp. eggbeater>paradon>pdx.flail

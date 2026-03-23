@@ -1,0 +1,60 @@
+from pathlib import Path
+import pandas as pd
+import shutil
+import re
+
+# -----------------------
+# CONFIG
+# -----------------------
+SRC_DIR = Path("early_data/preprocessed_pages/raw_images_for_manual_crop_rotation2")
+DST_DIR = Path("early_data/preprocessed_pages/final")
+
+INVENTORY = Path("early_data/page_inventory/fbw_page_inventory.csv")
+
+DST_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def parse_filename(source_file):
+    """
+    Extract Vol / No from original filename
+    """
+    if not source_file:
+        return None
+
+    m = re.search(r'Vol\.\s*(\d+)\s*No\.\s*(\d+)', source_file, re.I)
+    if m:
+        vol = int(m.group(1))
+        num = int(m.group(2))
+        return f"FBW_V{vol:02d}_N{num:02d}"
+    return None
+
+
+def main():
+    df = pd.read_csv(INVENTORY)
+
+    for _, row in df.iterrows():
+        slide_num = int(row["slide_num"])
+        source_file = str(row.get("source_file", ""))
+
+        src = SRC_DIR / f"Slide{slide_num}.jpg"
+
+        if not src.exists():
+            print(f"Missing: {src}")
+            continue
+
+        base = parse_filename(source_file)
+
+        if base:
+            new_name = f"{base}_p{slide_num:03d}.jpg"
+        else:
+            new_name = f"UNKNOWN_p{slide_num:03d}.jpg"
+
+        dst = DST_DIR / new_name
+
+        shutil.copy(src, dst)
+
+        print(f"{src.name} → {new_name}")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,147 @@
+person_id,person_canon,score_mentions,scored_events,min_score,max_score,avg_score,first_year,last_year,sample_event,sample_line
+12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,8,2,67.0,587.0,260.25,1998,1999,,1. James Roberts - 67
+4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,8,3,16.8,160.0,86.65,2009,2017,,"6. Mariusz Wilk - 144,83 (Warszawa)"
+24ffb4bb-a58e-54d8-b0d9-06b989c794cd,Alexander Trenner,8,2,15.8,158.0,56.15,2007,2017,,4. Alexander Trenner - 31
+06f90b62-5f4a-5350-9066-047a5e66ccb1,Jim Derricott,6,3,32.0,462.0,307.3333333333333,1997,1999,,4. Jim Derricott - 428
+b692f69a-35c0-5cdf-b786-a3ce86d7d9d6,Derric Scalf,6,2,73.0,417.0,189.0,1998,1999,,4. Derric Scalf - 73
+e53e759e-e2e1-589b-a5b2-4c95e89b8e8c,Rory Dawson,6,2,3.0,173.6,92.86666666666667,2005,2008,,5) Rory Dawson - 102. 1
+64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,6,3,27.0,57.0,38.666666666666664,1998,1999,,4. Greg Durrett - 27
+cc144a17-3ed0-5c64-9305-e9a45fa00290,Dan Ednie,5,2,126.13,375.0,230.22600000000003,2002,2003,,Dan Ednie - 126.13
+b6cd9486-0b87-582f-ad50-e5c4da573a20,Rick Kom,4,2,571.0,669.0,620.0,1997,1998,,1. Rick Kom - 571
+26349aa8-a1ff-5e6a-bff5-f93a89d20c68,Tricia George,4,2,67.0,646.0,356.5,1997,1999,,3. Tricia George - 67
+619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,4,2,606.0,627.0,616.5,1997,1998,,2. Richard Cook - 606
+9c808a76-9232-5aef-9536-149543c18ba0,Chris Eckley,4,2,519.0,528.0,523.5,1997,1999,,2. Chris Eckley - 519
+27569bfc-a9e1-58c3-845b-ba0a01f4d9d7,François Leh,4,1,36.0,395.0,215.5,1999,1999,,1. François Leh - 36
+b39aea2d-6370-5381-88ec-ffc5a9d3f9de,Ian Pritchard,4,1,51.7,357.0,204.35,2003,2003,,3. Ian Pritchard - 357
+2fba2bff-d73a-5082-ad4c-b956439788bd,Geoff Hand,4,2,30.0,289.0,159.5,1999,1999,,3.Geoff Hand - 289
+8606f658-92cd-570c-bf5e-2865de4a9b48,Andrew Grant,4,2,162.0,178.8,170.4,2005,2008,,1) Andrew Grant - 162.0
+bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,4,2,118.3,160.3,139.3,2005,2008,,3) Byrin Wylie - 118.3
+b41cedc4-cb5f-5d49-899f-5a04af4092da,Klemenz Längauer,4,1,29.0,110.0,69.5,2007,2007,,3. Klemens Längauer - 29
+9cd9cd3b-f4f9-5444-8dcc-46f60e41fb59,Manna Mpepo,4,1,1.0,99.0,50.0,2008,2008,,1) Manna Mpepo- 99.0
+40fa16ff-a418-5da9-914e-3a09e231f2a7,Bill Langbehn,4,2,24.0,66.0,45.0,1997,1998,,2. Bill Langbehn - 66
+b54020bc-1a1a-5d23-89e1-34617b3514fa,Jim Fitzgerald,4,2,47.0,56.0,51.5,1997,1999,,1. Jim Fitzgerald - 56 * new course record
+e2a90d21-3f84-5e96-b568-8750b69ca493,Ali Djastranj,4,1,26.0,51.0,38.5,2007,2007,,1. Ali Dastrandj - 26
+6a237359-73fe-5fa8-a76c-569a610a0e3f,Jim Cobb,4,2,31.0,31.0,31.0,1997,1999,,3. Jim Cobb - 31
+b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,4,2,26.0,29.0,27.5,1997,1998,,1. Steve Dusablon - 29
+9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,4,1,19.9,22.3,21.1,2017,2017,,1. Pawel Nowak - 19.9
+33021da9-34aa-56fa-95f2-f31a6b2b6bca,Krystof Maler,4,1,19.1,21.5,20.3,2017,2017,,2. Krystof Maler - 19.1
+97d088ee-48f7-5920-b973-94cc1deb0b66,Juho Marjo,4,1,18.2,21.1,19.65,2017,2017,,1. Juho Marjo - 21.1
+8859edda-82f6-5013-97d0-1057cb8bdd3b,Arkadiusz Stanek,4,1,18.9,20.8,19.85,2017,2017,,2. Arkadiusz Stanek - 18.9
+8e2c07e2-aeb8-5325-be31-ffcc452944ec,Mikko Lepisto,4,1,14.5,17.6,16.05,2017,2017,,2. Mikko Lepistö - 14.5
+e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,3,2,1.0,173.33,115.88666666666667,1998,2001,,2 Eric Wulff- 1 drop
+2b72150a-23a0-5c22-864d-86e32a01f185,Brendan Erskine,3,2,80.3,95.17,85.25666666666666,2002,2003,,Brendan Erskine- 95.17
+299071d7-2781-514f-93b1-6b7a7059ab8a,Evanne Lemarche,2,1,619.0,619.0,619.0,1997,1997,,1. Evanne Lamarche - 619
+0ddc5084-452c-5a5c-825c-50f47856bda3,Matt Strong,2,1,545.0,545.0,545.0,1999,1999,,2.Matt Strong - 545
+edb6c68e-0005-5eea-8207-bd2fdc8d97f3,Ian Dubman,2,1,514.0,514.0,514.0,1999,1999,,1.Ian Dubman - 514
+9af9fa47-67ea-5376-8875-71bf24016a7a,Nathan Rhoads,2,1,511.0,511.0,511.0,1997,1997,,3. Nathan Rhoads - 511
+6242c3ff-6b9f-5cff-a5c8-32794fce31c0,Brandon Finger,2,1,501.0,501.0,501.0,1999,1999,,2.Brandon Finger - 501
+ad1a4e9d-727b-50be-8dbb-4fbccafcc00b,Jason Peppin,2,1,499.0,499.0,499.0,1998,1998,,1. Jason Peppin - 499
+5176d834-f522-5281-b627-3ab2fe8cf644,Noah Wilson,2,1,485.0,485.0,485.0,1999,1999,,2. Noah Wilson - 485
+63846eb8-93a6-5795-a5bb-a9538ef3f1ee,Ariel Santesteban,2,1,467.0,467.0,467.0,1999,1999,,3.Ariel Santesteban - 467
+247929d0-57bc-5f9c-bff5-c4557d471b42,Mike Grueter,2,1,459.0,459.0,459.0,1997,1997,,3. Mike Grueter - 459
+1739ca69-640a-52e9-8266-1a96cc39ca49,Dyalan Govender,2,1,412.0,412.0,412.0,2003,2003,,1. Dyalan Govender - 412
+16147b02-0dc5-57ff-b625-057bce8be7cd,Matthew Davis,2,1,383.0,383.0,383.0,1998,1998,,2. Matthew Davis - 383
+6008126d-4385-5973-bf29-56f0563088f6,Wally Victory,2,1,321.0,321.0,321.0,1999,1999,,1.Wally Victory - 321
+9ab59f0e-0eb2-5249-a60d-6583d51aa2c0,Doug Willis,2,1,251.0,251.0,251.0,1997,1997,,1. Doug Willis - 251
+0b3204c8-7e99-586e-aeb2-4186d0901fe3,Milan Benda,2,1,246.0,246.0,246.0,2009,2009,,1. Milan Benda - 246 (Czechy)
+009aeef3-6da5-52f9-919d-4de94f6410e4,Katrina Schultz,2,1,242.0,242.0,242.0,2003,2003,,4. Katrina Schultz - 242
+6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,2,1,240.0,240.0,240.0,2009,2009,,1. Arkadiusz Dudziñski - 240 pkt
+033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,2,1,232.0,232.0,232.0,2006,2006,,1) David Clavens - 232
+4cf390be-81e9-586c-95c7-aa90dd752ba8,Ryan Mulroney,2,1,211.41,211.41,211.41,2001,2001,,1. Ryan Mulroney - 211.41
+10573dc4-31ee-5440-9df4-a68d11bd4801,Gordon Bevier,2,1,210.0,210.0,210.0,2006,2006,,2) Gordon Bevier - 210
+3568ce18-bf1b-55b6-aefd-61f65f55b08c,Jakub Grabarczyk,2,1,195.0,195.0,195.0,2009,2009,,2. Jakub Grabarczyk - 195 pkt
+be1b4187-c73a-58a6-beb7-1bba61be3f28,Paul Cronjaeger,2,1,186.0,186.0,186.0,2007,2007,,"1. Paul Cronjäger - 186,06"
+4f0fcdbc-8dfe-51fc-b92c-b3cda4dd0c00,Marcin Bujko,2,1,183.0,183.0,183.0,2009,2009,,3. Marcin Bujko - 183 pkt
+60860e34-935d-5bb0-b718-a430fa4a142e,Lon Smith,2,1,180.97,180.97,180.97,2001,2001,,2. Lon Smith - 180.97
+ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,2,1,180.0,180.0,180.0,2009,2009,,4. Damian Gielnicki - 180 pkt
+0c7a541a-eae6-5ffc-9b9b-3ff86bf3941c,Brian McKenzie,2,1,172.13,172.13,172.13,2001,2001,,4. Brian McKenzie - 172.13
+db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,2,1,158.0,158.0,158.0,2009,2009,,6. Mateusz Janicki - 158 pkt
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,2,1,155.17,155.17,155.17,2001,2001,,5. Daryl Genz - 155.17
+ea4b97b8-2ee0-516b-94ce-ccdf349463da,Caleb Abraham,2,1,152.0,152.0,152.0,2006,2006,,3) Caleb Abraham - 152
+8f15594c-f3f9-53d9-bfe5-409e746b7c29,Sunil Jani,2,1,139.66,139.66,139.66,2001,2001,,6. Sunil Jani - 139.66
+a8489587-4463-53fe-b8d2-4717ee6ef01a,Forest Schrodt,2,1,139.64,139.64,139.64,2001,2001,,7. Forest Schrodt - 139.64
+9585ffd8-cc96-528e-ba4a-4211da8cef00,Rene Ruehr,2,1,138.0,138.0,138.0,2007,2007,,"3. Rene Rühr - 138,83"
+919f3417-97e3-574a-9f85-f0aafc57539e,Ahren Gehrman,2,1,134.71,134.71,134.71,2001,2001,,8. Ahren Gehrman - 134.71
+6be990dc-a556-51ae-b2f1-78d9b38c1d8e,Toby Robinson,2,1,130.63,130.63,130.63,2001,2001,,9. Toby Robinson - 130.63
+96456a6d-5895-58ab-8175-9408424e79d1,Brett Campbell,2,1,128.9,128.9,128.9,2005,2005,,2) Brett Campbell - 128.9
+5ee61cde-2c01-5c24-9f87-e4f7554a35c3,Jeremy O'Wheel,2,1,117.1,117.1,117.1,2003,2003,,2. Jeremy O'Wheel - 117.1
+401af1f3-a976-5403-9740-210e2849f159,Maciej Niczyporuk,2,1,113.0,113.0,113.0,2009,2009,,8. Maciej Niczyporuk - 113 pkt
+ce087533-3219-53b2-b800-4ca3e1bb4274,Dave Neill,2,1,102.0,102.0,102.0,1999,1999,,1.Dave Neill - 102
+e886f2c6-2560-5f06-9077-d0dcb41614a6,Avery McCombs,2,1,101.68,101.68,101.68,2001,2001,,10. Avery McCombs - 101.68
+2daa07f5-d830-521e-af6e-4a39cd094e92,Chad Devlahovich,2,1,99.31,99.31,99.31,2001,2001,,11. Chad Devlahovich - 99.31
+92d46e52-ae22-54a4-a848-fe8cdb118f30,Richard Abshire,2,1,97.92,97.92,97.92,2001,2001,,12. Richard Abshire - 97.92
+d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,2,1,94.34,94.34,94.34,2001,2001,,13. Ken Somolinos - 94.34
+0cc59803-c375-5573-8a7c-90201837b32b,Cameron Kennedy,2,1,94.15,94.15,94.15,2001,2001,,14. Cameron Kennedy - 94.15
+162332af-26d3-557e-9bf8-ff21c226fbaf,Dylan Johnson,2,1,84.0,84.0,84.0,2006,2006,,2. Dylan Johnson - 84
+226d0da7-f659-5870-a9ac-6bff94c85319,Sunny Freeman-Genz,2,1,75.5,75.5,75.5,2006,2006,,3. Sunny Freeman Genz- 75.5
+a50d8f07-9139-5fe3-9bed-fc4723872d4e,Shannon Anderson,2,1,74.0,74.0,74.0,2001,2001,,7. Shannon Anderson--74
+4cbec9a2-d07a-5400-b645-ce6e573e93b2,Chrisoph Larndorfer,2,1,73.0,73.0,73.0,2007,2007,,"6. Chrisoph Larndorfer - 73,38"
+6bddaecf-3335-5caf-ab0c-51a97fce26e2,Steve Smith,2,1,72.0,72.0,72.0,1999,1999,,1.Steve Smith - 72
+e0f19cce-5d6a-5f62-847a-bd05ef24b11b,Jeremy Keller Auburn,2,1,71.0,71.0,71.0,1998,1998,,3. Jeremy Keller - 71
+051c1b5e-f34d-5e7b-a27c-50f94324c96d,Eric Burgess,2,1,70.0,70.0,70.0,1998,1998,,2. Eric Burgess - 70
+eae790d9-83f5-5339-8828-c641f33ec86d,Nathan Pipenberg,2,1,69.0,69.0,69.0,2006,2006,,3) Nathan Pipenberg - 69
+e8aa88b0-f630-555a-ac0c-60d033607464,Chris Balch,2,1,66.46,66.46,66.46,2006,2006,,4. Chris Balch - 66.46
+6a885ca2-769c-5b8e-9b4b-d94b60f94246,Nick Jaros,2,1,62.0,62.0,62.0,1999,1999,,3. Nick Jaros - 62
+26e40173-e0b2-5d76-99b7-61a202886550,Melissa Schneider,2,1,57.93,57.93,57.93,2001,2001,,15. Melissa Schneider - 57.93
+17fc25c9-e348-5e57-8e6a-e3e974cc28e9,Denton Louis,2,1,57.0,57.0,57.0,2008,2008,,2) Denton Louis- 57.0
+3eebd90a-e974-54b7-9ae7-16c7352c8e91,Mark Husted,2,1,55.91,55.91,55.91,2001,2001,,16. Mark Husted - 55.91
+2196c6c7-92a7-5243-a1b9-278c2c8f33e4,Hugh Harrell,2,1,54.0,54.0,54.0,1999,1999,,2. Hugh Harrell - 54
+b1f1ebbc-9b2a-58f9-bb36-6c8b6d751f19,Ben Little,2,1,53.0,53.0,53.0,1999,1999,,1. Ben Little - 53
+1fcbaa9b-9f74-56eb-9429-7f9d46f5c722,Brent Allard,2,1,53.0,53.0,53.0,1999,1999,,3. Brent Allard - 53
+e8e76f56-0e5f-5873-902d-2c5eb571ecc0,Dave Wedertz,2,1,50.0,50.0,50.0,1999,1999,,2. Dave Wedertz - 50
+a45f9d77-e16f-524c-99b4-d75cb23648db,Mark Roberts,2,1,49.5,49.5,49.5,2003,2003,,2. Mark Roberts - 49.5
+d5e3365e-ca56-5337-84fd-eaac9b7d7de4,Erik Magnusson,2,1,49.2,49.2,49.2,2005,2005,,1) Erik Magnusson - 49.2
+b99dcaef-c269-5484-adc1-790a4512adb5,Cameron Carnegie,2,1,47.0,47.0,47.0,1997,1997,,3. Cameran Carnegie - 47
+6fbf0925-b1f2-5ca4-b314-d29ce081219b,Darlene Goodridge,2,1,47.0,47.0,47.0,1997,1997,,2. Darlene Goodridge - 47
+be913bdb-7b5c-51c2-9e11-afa2c03b7297,Mike Jauss,2,1,46.25,46.25,46.25,2001,2001,,17. Mike Jauss - 46.25
+02439d85-0006-551d-a25b-434d61071e9c,Jason Kingsley,2,1,46.0,46.0,46.0,1997,1997,,1. Jason Kingsley - 46
+c256196e-aeb4-5011-9dce-81719a307619,Erroll Stryker,2,1,44.0,44.0,44.0,2003,2003,,5. Errol Stryker-44
+86e02868-8a77-5e1f-9783-e7b43e95ddb2,Jason Varvaro,2,1,44.0,44.0,44.0,2003,2003,,3. Jason Varvaro- 44 (tie breaker)
+38235b83-a291-534d-ae4b-6ba8c6d6bf67,Matt Vilade,2,1,44.0,44.0,44.0,2003,2003,,4. Matt Vilade- 44
+edb7ff85-0dae-5590-b5df-ac61cd472031,Ben Kellman,2,1,42.0,42.0,42.0,2003,2003,,2. Ben Kellman- 42
+1e11a981-de87-536a-abdb-31030a1ce540,Effram Press,2,1,41.0,41.0,41.0,2003,2003,,1. Effram Press- 41
+0bf96614-8396-5c18-bdb0-501af1fa9c81,Aaron Gregg,2,1,39.0,39.0,39.0,1997,1997,,2. Aaron Gregg - 39
+881eff63-e268-508d-8416-86d6979230f3,Nathan Martinez,2,1,38.16,38.16,38.16,2001,2001,,18. Nathan Martinez - 38.16
+8cf04727-1ddc-5d6a-9680-9581a4466522,André Lemaire,2,1,38.0,38.0,38.0,1999,1999,,3. Andre Lemaire - 38
+6e298b9e-2cc2-50d3-9665-50993e5564d5,Gibson Holub,2,1,38.0,38.0,38.0,1999,1999,,2. Gibson Holub - 38 (tie concession)
+b20ba292-aa4b-5271-817a-d1a80bcb4d65,Kyle Warren,2,1,37.7,37.7,37.7,2008,2008,,3) Kyle Warren - 37.7
+995b3cb0-5d4d-5695-9413-3c7d4110f481,Jon Felix,2,1,37.0,37.0,37.0,2003,2003,,4. Jon Felix- 37
+ceb19bce-3ebd-5c57-bebb-aa545ba79aa6,Jon Hayduk,2,1,36.0,36.0,36.0,1997,1997,,1. Jon Hayduk - 36
+e5eca718-d710-54a4-a38a-9b3df2de3a21,Matt Matson,2,1,36.0,36.0,36.0,2005,2005,,1. Matt Matson- 36
+de3e9581-85a2-520b-92e5-d48c0d7f8bd2,Jeremy Walters,2,1,35.0,35.0,35.0,2003,2003,,3. Jeremy Walters- 35
+5812096d-611b-5ca7-a4c0-bc30d45b67f4,Rick Bates,2,1,35.0,35.0,35.0,2000,2000,,1. Rick Bates - 35
+3ff6ba8b-ae30-553e-81f9-18538fb5c86b,Jessica Archer,2,1,33.3,33.3,33.3,2005,2005,,2) Jessica Archer - 33.3
+98e6bef0-c1f7-5bb2-b99c-a31a359e2540,Dr. Mike Stefanelli,2,1,31.0,31.0,31.0,1997,1997,,"2. Dr. Mike Stefanelli - 31 (3-Way tie, 1 hole playoff)"
+53335424-f4eb-5933-8b9b-939b6f177ea2,Scott Milne,2,1,31.0,31.0,31.0,1997,1997,,4. Scott Milne - 31
+08ecb6e2-5ae2-539e-a4be-41cb2d98524b,Garth Smith,2,1,30.0,30.0,30.0,2003,2003,,2. Garth Smith- 30 prize
+3e46c4db-089a-55ed-a5ff-f0ce0ed793f3,Jamie Lepley,2,1,29.0,29.0,29.0,2003,2003,,1. Jamie Lepley- 29 $50
+600c7e31-01f3-50f4-9a65-c79c13691920,Bernhard Leiner,2,1,28.0,28.0,28.0,2007,2007,,2. Bernhard Leiner - 28
+97771593-c865-5ac9-b7bf-c76ba6159476,Greg Potts,2,1,27.0,27.0,27.0,1998,1998,,3. Greg Potts - 27 (tie concession)
+02095322-bd6e-52a6-9f2d-6b5a7a527eae,Jana Sassakova,2,1,20.4,20.4,20.4,2017,2017,,2. Jana Sassakova - 20.4
+a737859a-35f6-51c8-9cd1-d5f54f88b8dd,Gosia Debska,2,1,17.9,17.9,17.9,2017,2017,,3. Gosia Debska - 17.9
+e528ca88-e462-5870-bd7f-45fb49bfbcfc,Arthur Ledain,2,1,17.3,17.3,17.3,2017,2017,,3. Arthur Ledain - 17.3
+7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,2,1,16.8,16.8,16.8,2017,2017,,3. Aleksi Airinen - 16.8
+171e6321-c025-5483-af9d-c92b2ee04806,Tuomas Riisalo,2,1,14.3,14.3,14.3,2017,2017,,3. Tuomas Riisalo - 14.3
+766b89e4-c947-5434-b6b1-d590bd9929e3,Nina Stuppacher,2,1,14.2,14.2,14.2,2017,2017,,4. Nina Stuppacher - 14.2
+0f60f82c-75c9-552f-b962-5832d5cda779,Sergio Garcia,2,1,14.2,14.2,14.2,2017,2017,,4. Sergio Garcia - 14.2
+a81adde6-197e-5067-872a-b05092e75cf9,Nis Petersen,2,1,12.5,12.5,12.5,2017,2017,,5. Nis Petersen - 12.5
+7a8c8b83-9ae8-5b65-8f1f-6923058cc237,Dorota Wojtasiuk,2,1,12.3,12.3,12.3,2017,2017,,5. Dorota Wojtasiuk - 12.3
+403742dd-27cb-5ebc-a0db-4382eaccfe64,Sergio Hernandez,2,1,11.4,11.4,11.4,2017,2017,,5. Sergio Hernandez - 11.4
+32bbbcf6-957d-5549-9658-1aa7c742aa74,Felix Vogelsanger,2,1,10.0,10.0,10.0,2017,2017,,6. Felix Vogelsanger - 10.0
+08bad299-35e4-5311-a847-3f7d78cbeef6,Nico Gasser,2,1,9.4,9.4,9.4,2017,2017,,4. Nico Gasser - 9.4
+d25f994e-0337-5fc5-923d-8f1c88d4a44d,Flurin Bischoff,2,1,8.5,8.5,8.5,2017,2017,,5. Flurin Bischoff - 8.5
+8000b520-2bfb-5767-86a7-b5c8eefc7651,Silwan Daouk,2,1,8.3,8.3,8.3,2017,2017,,4. Silwan Daouk - 8.3
+0b0dbf15-8800-5001-81b5-bb9a2f088118,Sergio Martin,2,1,8.1,8.1,8.1,2017,2017,,5. Sergio Martin - 8.1
+f1e2640c-48ae-588d-99bc-7b55713191f0,Manu Bouchard,2,1,6.0,6.0,6.0,2000,2000,,"1. Manu Bouchard - 6 years in a row!! (Montreal, Quebec - AQAF)"
+6c912402-7d0e-580d-938c-7c6542c48bb1,Kevin Regamey,2,1,4.0,4.0,4.0,2008,2008,,1) Kevin Regamey - 4 games
+9c72f8f3-a7a1-5151-85f4-fa78ad055fcc,Paul Agostinelli,1,1,585.0,585.0,585.0,2008,2008,,Paul Agostinelli - 585-309-1518
+93d75393-13d7-55c0-b23e-cf0c9a077583,Becca English Ross,1,1,574.0,574.0,574.0,1999,1999,,2. Becca English-Ross - 574
+8983b558-9cb9-5a25-bb28-589435a8f34e,Serge Kaldany,1,1,183.0,183.0,183.0,2007,2007,,"1- Serge Kaldany : 183,97"
+3d55febf-188e-59cb-96a0-64e670b3316c,Jeff Lopes,1,1,141.04,141.04,141.04,2002,2002,,1st: Jeff Lopes-141.04
+1f864e5e-28bc-5370-8f30-49bc3c65c64c,Jeremy Masselis,1,1,123.0,123.0,123.0,2007,2007,,"2- Jeremy Masselis : 123,34"
+8069a4cf-1543-5a0a-bf83-92edff9e120f,Maxime Boucoiran,1,1,118.0,118.0,118.0,2007,2007,,"3- Maxime Boucoiran : 118,46"
+887e181f-a3e4-5842-a6b8-05ec686b4e5b,Derek Vandall,1,1,112.36,112.36,112.36,2002,2002,,2nd: Derek Vandall-112.36
+552a9fb8-e63c-5f87-b431-06f68b0a1323,Chris Gregory,1,1,96.0,96.0,96.0,2002,2002,,1st: Chris Gregory-96.00
+25e41527-c521-5b2c-804e-a02fd2d532c5,Jamie Lloyd,1,1,83.78,83.78,83.78,2002,2002,,2nd: Jamie Lloyd-83.78
+92038581-bf67-512b-8d09-c41ce57276ba,Brian Johnson,1,1,72.42,72.42,72.42,2002,2002,,3rd: Brian Johnson-72.42
+5034c206-0e8f-58e6-8845-776e6b7a57e4,Alex Davidson,1,1,32.0,32.0,32.0,2009,2009,,Alex Davidson - 32 (and personal best of 102)

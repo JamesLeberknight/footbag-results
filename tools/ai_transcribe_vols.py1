@@ -1,0 +1,79 @@
+import os
+import time
+import pandas as pd
+import google.generativeai as genai
+from pathlib import Path
+
+# --- CONFIG ---
+GENAI_API_KEY = "AIzaSyC7vR3ZlMeMc8cS7n_mMGQD280WBqsJJa0" # Replace with your actual key
+ROOT = Path(__file__).resolve().parent.parent
+TILED_DIR = ROOT / "out" / "vlm_prep"
+TRUTH_CSV = ROOT / "inputs" / "Persons_Truth.csv"
+RESULTS_DIR = ROOT / "out" / "vlm_results"
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+genai.configure(api_key=GENAI_API_KEY)
+model = genai.GenerativeModel('gemini-1.5-pro')
+
+def load_grounding_data():
+    print("Loading Persons Truth for grounding...")
+    df = pd.read_csv(TRUTH_CSV)
+    # Join all canon names and aliases into a single reference block
+    names = df['person_canon'].dropna().unique().tolist()
+    return ", ".join(names)
+
+def transcribe_tiles():
+    grounding_list = load_grounding_data()
+    
+    # Get all tiles created by the prep script
+    tiles = sorted([f for f in os.listdir(TILED_DIR) if f.endswith(".jpg")])
+    
+    # Process by page (grouping TL, TR, BL, BR)
+    pages = {}
+    for t in tiles:
+        page_id = t.rsplit("_", 1)[0]
+        if page_id not in pages: pages[page_id] = []
+        pages[page_id].append(t)
+
+    for page_id, tile_group in pages.items():
+        output_file = RESULTS_DIR / f"{page_id}_transcription.md"
+        if output_file.exists(): continue # Skip already processed pages
+
+        print(f"Processing {page_id}...")
+        
+        # Upload images to Gemini
+        uploaded_files = []
+        for tile in tile_group:
+            img_path = TILED_DIR / tile
+            sample_file = genai.upload_file(path=img_path, display_name=tile)
+            uploaded_files.append(sample_file)
+
+        # Wait for files to be processed by the API
+        while any(f.state.name == "PROCESSING" for f in uploaded_files):
+            time.sleep(2)
+            for i, f in enumerate(uploaded_files):
+                uploaded_files[i] = genai.get_file(f.name)
+
+        # The "Master Prompt"
+        prompt = [
+            f"You are a footbag historian. Use this 'Persons Truth' list to resolve blurry text: {grounding_list}",
+            "Attached are 4 quadrants of a magazine page. Transcribe all result tables.",
+            "If a name is blurry but matches a name in the Truth list, use the Truth list spelling.",
+            "Format: Return as a clean Markdown table. Include Event Name, Rank, Name, and Score/Result.",
+            *uploaded_files
+        ]
+
+        try:
+            response = model.generate_content(prompt)
+            with open(output_file, "w") as f:
+                f.write(response.text)
+            print(f"Successfully saved {page_id}")
+        except Exception as e:
+            print(f"Error on {page_id}: {e}")
+
+        # Clean up uploaded files from the cloud to save space
+        for f in uploaded_files:
+            genai.delete_file(f.name)
+
+if __name__ == "__main__":
+    transcribe_tiles()

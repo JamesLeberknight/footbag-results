@@ -1,0 +1,105 @@
+row_key,field,issue,match,value
+event_disciplines.csv:open_freestyle_rou_tines,discipline_name,U+FFFD replacement character [SOURCE_LOSS],'�',Open Freestyle Rou�Tines
+event_disciplines.csv:womens_freestyle_rou_tines,discipline_name,U+FFFD replacement character [SOURCE_LOSS],'�',Women's Freestyle Rou�Tines
+event_disciplines.csv:mixed_dou_bles_rou_tines,discipline_name,U+FFFD replacement character [SOURCE_LOSS],'�',Mixed Dou�Bles Rou�Tines
+event_disciplines.csv:open_dou_bles_rou_tines,discipline_name,U+FFFD replacement character [SOURCE_LOSS],'�',Open Dou�Bles Rou�Tines
+event_disciplines.csv:open_cir_cle_con_test,discipline_name,U+FFFD replacement character [SOURCE_LOSS],'�',Open Cir�Cle Con�Test
+event_disciplines.csv:womens_cir_cle_con_test,discipline_name,U+FFFD replacement character [SOURCE_LOSS],'�',Women's Cir�Cle Con�Test
+event_result_participants.csv:open_singles_freestyle,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Marc Girard-Larivi�re (CAN)
+event_result_participants.csv:open_singles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Oskari Forst�n
+event_result_participants.csv:open_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Andr� Lemaire
+event_result_participants.csv:mixed_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Genevi�ve Bousquet
+event_result_participants.csv:women_open_singles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Genevi�ve Bousquet
+event_result_participants.csv:women_open_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Genevi�ve Bousquet
+event_result_participants.csv:intermediate_singles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Fran�ois Pelletier
+event_result_participants.csv:intermediate_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Fran�ois Leh
+event_result_participants.csv:open_freestyle_routines,display_name,?-prefix encoding fallback [SOFT],'?D',"Jan ?Dexter? Struz (Prague, CZ)"
+event_result_participants.csv:open_freestyle_shred_30_sec,display_name,?-prefix encoding fallback [SOFT],'?D',"Jan ?Dexter? Struz (Prague, CZ)"
+event_result_participants.csv:open_shred,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Mikko Lepist�
+event_result_participants.csv:womens_freestyle,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Jule B�hm
+event_result_participants.csv:intermediate_freestyle,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Hector K�hler (FIN)
+event_result_participants.csv:womens_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',J. B�hm (SUI)
+event_result_participants.csv:golf_amateur,display_name,?-prefix encoding fallback [SOFT],'?H',Joe ?Hollywood? Lepley
+event_result_participants.csv:b_division_doubles_net,display_name,?-prefix encoding fallback [SOFT],'?C',?Crazy? Mike Craig
+event_result_participants.csv:open_doubles_freestyle,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Klemenz L�ngauer
+event_result_participants.csv:shred_30,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Ren� Ruhr
+event_result_participants.csv:open_golf,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Michał R�g
+event_result_participants.csv:circle_contest,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Krzysztof Sob�tka
+event_result_participants.csv:shred30,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Krzysztof Sob�tka
+event_result_participants.csv:open_singles_routines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',V�clav Klouda (Czech Republic)
+event_result_participants.csv:open_2_square,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Jean-Fran�ois B�langer (Canada)
+event_result_participants.csv:open_womens_singles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Genevi�ve Bousquet (Canada)
+event_result_participants.csv:womens_singles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Genevi�ve Bousquet CAN
+event_result_participants.csv:open_circle_contest,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Toni P��kk�nen FIN
+event_result_participants.csv:open_shred_30,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Rene R�hr GER
+event_result_participants.csv:open_request_contest,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Va�ek Klouda CZE
+event_result_participants.csv:open_doubles_routines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Martin Sl�dek
+event_result_participants.csv:intermediate_singles_routines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel GER
+event_result_participants.csv:intermediate_shred_30,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel GER
+event_result_participants.csv:intermediate_request_contest,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel GER
+event_result_participants.csv:mixed_doubles_routines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Kinga Gw�źdź
+event_result_participants.csv:sick_3,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Krzysztof Sob�tka (Poland)
+event_result_participants.csv:2_square,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Krzysztof Sob�tka (Poland)
+event_result_participants.csv:golf,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Michał R�g (Poland)
+event_result_participants.csv:open_freestyle_rou_tines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Aleksi Airi�nen
+event_result_participants.csv:womens_freestyle_rou_tines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Hanna Mick�iewicz
+event_result_participants.csv:mixed_dou_bles_rou_tines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Mał�gorzata Dęb�ska
+event_result_participants.csv:open_dou_bles_rou_tines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Mar�tin Sladek
+event_result_participants.csv:open_cir_cle_con_test,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Damian Giel�nicki
+event_result_participants.csv:womens_shred_30,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Hanna Mick�iewicz
+event_result_participants.csv:womens_cir_cle_con_test,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Hanna Mick�iewicz
+event_result_participants.csv:request_contest,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Krzysztof Sob�tka
+event_result_participants.csv:open_mix_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Micha� R�g
+event_result_participants.csv:footbag_golf,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Micha� R�g
+event_result_participants.csv:women_singles_routines,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Ma�gorzata Ol�dzka
+event_result_participants.csv:open_battle,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Jakub Mo�ciszewski
+event_result_participants.csv:mixed_doubles,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Ale� Pelko
+event_result_participants.csv:open_doubles,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Ale� Pelko
+event_result_participants.csv:open_singles,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Ale� Pelko
+event_result_participants.csv:open_circle,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Filip W�jcik
+event_result_participants.csv:request_10,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',V�clav Klouda
+event_result_participants.csv:battle_contest,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Pawe� Nowak
+event_result_participants.csv:open_mixed_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Piia Tantarim�ki
+event_result_participants.csv:singles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Michał R�g
+event_result_participants.csv:doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Michał R�g
+event_result_participants.csv:freestyle_overall,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Filip W�jcik
+event_result_participants.csv:last_man_standing,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Filip W�jcik
+event_result_participants.csv:battles,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Filip W�jcik
+event_result_participants.csv:sick3,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Filip W�jcik
+event_result_participants.csv:master_singles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',St�phane Tailleur (CAN)
+event_result_participants.csv:master_doubles_net,display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Chris L�w (GER)
+Placements_Flat.csv:1176318174,team_display_name,?-prefix encoding fallback [SOFT],'?C',Brett Milliken / ?Crazy? Mike Craig
+Placements_Flat.csv:1069929277,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Marc Girard-Larivi�re
+Placements_Flat.csv:1069929277,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Jake Leong / Andr� Lemaire
+Placements_Flat.csv:1102576153,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Toni P��kk�nen
+Placements_Flat.csv:1102576153,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Florian G�tze / Patrick Schrickel
+Placements_Flat.csv:1163784775,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Fran�ois Pelletier
+Placements_Flat.csv:1163784775,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Gilles Demers / Fran�ois Pelletier
+Placements_Flat.csv:1183729267,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel
+Placements_Flat.csv:1183729267,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel / Sven Depoilly
+Placements_Flat.csv:1219405634,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Michał R�g
+Placements_Flat.csv:1265745512,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',V�clav Klouda
+Placements_Flat.csv:1265745512,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',S�bastien Duchesne / Philippe Lessard
+Placements_Flat.csv:1269266785,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel
+Placements_Flat.csv:1269266785,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel / Steve Kuntze
+Placements_Flat.csv:1293877677,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Oskari Forst�n / Tuomas K�rki
+Placements_Flat.csv:1293877677,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Tuomas K�rki FIN
+Placements_Flat.csv:1323272493,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Oskari Forst�n / Jani Sakari Markkanen
+Placements_Flat.csv:1323272493,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Tuomas K�rki
+Placements_Flat.csv:1323272493,division_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Open Freestyle Rou�Tines
+Placements_Flat.csv:1336988107,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Krzysztof Sob�tka
+Placements_Flat.csv:1336988107,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Kinga Gw�źdź / Rafal Kaleta
+Placements_Flat.csv:1376036018,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Wiktor D�bski.
+Placements_Flat.csv:1376036018,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Wojciech Jamski / Wiktor D�bski
+Placements_Flat.csv:1485863923,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Wiktor D�bski
+Placements_Flat.csv:1485863923,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Wiktor D�bski / Wojtek Jamski
+Placements_Flat.csv:1518200935,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Steve Kuntze / Robin P�chel
+Placements_Flat.csv:1518200935,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Robin P�chel
+Placements_Flat.csv:1519215398,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',S�bastien Maillet
+Placements_Flat.csv:1519215398,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Luka Weyler-Lavall�e / Sarah Femmel
+Placements_Flat.csv:1547415984,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Rafa� Kaleta
+Placements_Flat.csv:1547415984,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Tuomas K�rki / Matti Pohjola
+Placements_Flat.csv:1694170899,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Michał R�g
+Placements_Flat.csv:1694170899,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Michał R�g / Micha Klimczak
+Placements_Flat.csv:1706036811,person_canon,U+FFFD replacement character [SOURCE_LOSS],'�',Fran�ois Pelletier
+Placements_Flat.csv:1706036811,team_display_name,U+FFFD replacement character [SOURCE_LOSS],'�',Emmanuel Bouchard / Fran�ois Pelletier

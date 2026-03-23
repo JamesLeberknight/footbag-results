@@ -1,166 +1,99 @@
-############################
-# Pipeline outputs (generated — never commit)
-# out/ contents are ignored individually so out/canonical/ can be committed
-############################
-out/*.csv
-out/*.json
-out/*.jsonl
-out/*.html
-out/*.md
-out/*.lock
-out/audit/
-out/backfill_candidates.csv
-out/backfill_resolutions.csv
-out/encoding_corruption_report.csv
-out/final_validation/
-out/final_verification/
-out/member_id_enrichment/
-out/mvfp_seed/
-out/noise_aggregates/
-out/noise_features/
-out/old_results_import_audit.jsonl
-out/qc/
-out/qc_reports/
-out/review/
-out/stage2_canonical_events.csv
-out/stage2_players.csv
-index.csv
-index_raw.csv
-
-############################
-# Mirror (distribute via GitHub Release — not committed)
-############################
-mirror
-mirror/
-mirror_full/
-mirror_out/
-mirror.log
-mirror.tar.xz
-mirror_progress.json
-*.tar
-*.tar.gz
-*.tar.xz
-*.zip
-
-############################
-# Excel workbooks (generated)
-############################
-*.xlsx
-
-############################
-# Identity lock (generated sentinel only)
-############################
-overrides/person_aliases.lock
-overrides/*.lnk
-inputs/identity_lock_archive/*
-
-############################
-# Python / runtime
-############################
+# =========================================================
+# Python / Environment
+# =========================================================
 __pycache__/
-*.py[cod]
 *.pyc
-.ipynb_checkpoints/
-
-############################
-# Virtual environments
-############################
-.venv/
-venv/
-footbag_venv/
-
-############################
-# Editor / OS noise
-############################
-.vscode/
-.idea/
-*.code-workspace
-.DS_Store
-Thumbs.db
-*:Zone.Identifier
-*.lnk
-*.py1
-
-############################
-# Legacy / archived scripts (not pipeline)
-############################
-legacy/
-scripts/
-
-############################
-# Pipeline seed / experimental scripts (not part of release pipeline)
-############################
-pipeline/06_build_mvfp_seed.py
-
-############################
-# Root-level scratch / one-off QC scripts and data files
-############################
-qc_*.py
-qc_*.csv
-qc_spreadsheet_gate.py
-alias-candidates.txt
-host_clubs.csv
-location_canon_full_final.csv
-validate_*.py
-
-############################
-# Scratch inputs (intermediate files placed in inputs/ by mistake)
-############################
-inputs/persons_truth.csv
-inputs/persons_truth_merged.csv
-
-############################
-# Canonical freeze snapshots (local dev artifact)
-############################
-out/canonical_freeze/
-
-############################
-# Miscellaneous dev artifacts
-############################
-robots_cache.json
+*.pyo
+*.pyd
 *.log
 *.tmp
-*.patch
-*.bak
-*BAK
-*~
-old_csv_files/
-python_files_old/
-junk_md/
-Claude_old_md_files/
-release_bundle/
-reviews/
-baselines/
-githib-pswd.txt
-*_progress.json
-05_make_intermediate_release_v2.py
 
-############################
-# Freestyle report (narrative doc, not pipeline artifact)
-############################
-FREESTYLE_EVOLUTION_REPORT.md
+# virtual environments
+venv/
+.venv/
+env/
+footbag_venv/
 
-############################
-# early_data — image folders (large binary files; not committed)
-# CSV/doc/script files under early_data/ ARE tracked
-############################
+# =========================================================
+# OS / Editor
+# =========================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================================================
+# Large / Raw Image Data (CRITICAL)
+# =========================================================
+
+# raw scans (never commit)
 early_data/raw_pages/
 early_data/preprocessed_pages/
 
-############################
-# Root-level scratch files / unversioned dev artifacts
-############################
-CLAUDE_v4.md
-your.save
-freestyle_insights.csv
-event_1982_worlds/
-event_2012_usopen_portland_*/
+# intermediate image work
+early_data/preprocessed_pages/**
 
-############################
-# One-off analysis / audit tools (not part of release pipeline)
-############################
-tools/audit_excel_workbooks.py
-tools/compute_statistics.py
-tools/event_comparison_viewer.py
-tools/location_normalization_check.py
-tools/location_post_audit.py
+# =========================================================
+# Generated PPT / image exports
+# =========================================================
+*.pptx
+*.ppt
+*.jpg
+*.jpeg
+*.png
+*.tiff
+
+# (optional) if you want to keep final curated images, comment above and use:
+# !early_data/preprocessed_pages/final/*.jpg
+
+# =========================================================
+# Temporary / Scratch Outputs
+# =========================================================
+
+# Gemini intermediate outputs (optional)
+early_data/review/*.json
+
+# QC scratch files
+early_data/review/tmp/
+early_data/review/debug/
+
+# =========================================================
+# Keep FINAL DATA (IMPORTANT)
+# =========================================================
+
+# DO NOT IGNORE THESE — they are your deliverables
+!early_data/event_blocks/
+!early_data/placements/
+!early_data/old_results/
+!early_data/canonical/
+!early_data/identity/
+
+# =========================================================
+# Spreadsheets (decide policy)
+# =========================================================
+
+# If large / frequently regenerated:
+# early_data/out/*.xlsx
+
+# If you want to keep the final deliverable:
+!early_data/out/footbag_results_pre1997_recovery.xlsx
+
+# =========================================================
+# Archives / dumps
+# =========================================================
+*.zip
+*.tar
+*.gz
+
+# =========================================================
+# Safety: ignore everything in early_data by default (optional advanced)
+# then explicitly allow what you want (commented out for now)
+# =========================================================
+# early_data/*
+# !early_data/event_blocks/
+# !early_data/placements/
+# !early_data/old_results/
+# !early_data/canonical/
+# !early_data/identity/
+# !early_data/docs/
+# !early_data/out/

@@ -1,0 +1,158 @@
+{
+  "trick_mentions_total": 1635,
+  "trick_mentions_resolved": 1602,
+  "direct_attribution_rate": 0.5615,
+  "context_window_attribution_rate": 0.4343,
+  "masked_trick_rate": 0.2113,
+  "score_mentions_total": 389,
+  "score_mentions_resolved": 358,
+  "score_type_breakdown": {
+    "raw_integer": 285,
+    "freestyle_judging": 68,
+    "golf_score": 34,
+    "reject": 2
+  },
+  "players_with_trick_profiles": 267,
+  "players_with_style_profiles": 143,
+  "players_with_score_profiles": 154,
+  "distinct_tricks_total": 66,
+  "distinct_full_tricks": 56,
+  "distinct_style_terms": 10,
+  "cooccurrence_pairs": 359,
+  "top_10_full_tricks": [
+    {
+      "trick_canon": "whirl",
+      "total_mentions": 155
+    },
+    {
+      "trick_canon": "swirl",
+      "total_mentions": 97
+    },
+    {
+      "trick_canon": "blurry whirl",
+      "total_mentions": 90
+    },
+    {
+      "trick_canon": "torque",
+      "total_mentions": 78
+    },
+    {
+      "trick_canon": "ripwalk",
+      "total_mentions": 61
+    },
+    {
+      "trick_canon": "butterfly",
+      "total_mentions": 59
+    },
+    {
+      "trick_canon": "legover",
+      "total_mentions": 52
+    },
+    {
+      "trick_canon": "mirage",
+      "total_mentions": 49
+    },
+    {
+      "trick_canon": "dimwalk",
+      "total_mentions": 46
+    },
+    {
+      "trick_canon": "blender",
+      "total_mentions": 37
+    }
+  ],
+  "top_10_style_terms": [
+    {
+      "trick_canon": "pixie",
+      "total_mentions": 122
+    },
+    {
+      "trick_canon": "ducking",
+      "total_mentions": 60
+    },
+    {
+      "trick_canon": "spinning",
+      "total_mentions": 56
+    },
+    {
+      "trick_canon": "symposium",
+      "total_mentions": 39
+    },
+    {
+      "trick_canon": "atomic",
+      "total_mentions": 33
+    },
+    {
+      "trick_canon": "stepping",
+      "total_mentions": 29
+    },
+    {
+      "trick_canon": "gyro",
+      "total_mentions": 20
+    },
+    {
+      "trick_canon": "tapping",
+      "total_mentions": 8
+    },
+    {
+      "trick_canon": "blazing",
+      "total_mentions": 4
+    },
+    {
+      "trick_canon": "barraging",
+      "total_mentions": 3
+    }
+  ],
+  "top_10_players_by_trick_mentions": [
+    {
+      "person_id": "4ad82639-801d-5c4b-aae6-f07e5dfe67d2",
+      "person_canon": "Mariusz Wilk",
+      "mentions": 63
+    },
+    {
+      "person_id": "2f3d1d48-2e06-57f0-bca0-5211c668f88f",
+      "person_canon": "Julien Appolonio",
+      "mentions": 48
+    },
+    {
+      "person_id": "ac1268dc-a961-568f-860e-63e9ea815c01",
+      "person_canon": "Damian Gielnicki",
+      "mentions": 46
+    },
+    {
+      "person_id": "0c03e968-f8b4-58fa-94d9-7c5094645d7a",
+      "person_canon": "Honza Weber",
+      "mentions": 43
+    },
+    {
+      "person_id": "4451a36c-41ca-55ab-87f3-d364b6f485ee",
+      "person_canon": "Jan Honza Weber",
+      "mentions": 42
+    },
+    {
+      "person_id": "4d04edec-6cd0-582d-b4e1-e8ead070a8c8",
+      "person_canon": "Jim Penske",
+      "mentions": 42
+    },
+    {
+      "person_id": "78d0c91f-b1ec-572e-855b-a7d3f706f8b7",
+      "person_canon": "Stefan Siegert",
+      "mentions": 39
+    },
+    {
+      "person_id": "bf5ce745-18b5-50b5-87a5-b2af6ffbf21c",
+      "person_canon": "Byrin Wylie",
+      "mentions": 30
+    },
+    {
+      "person_id": "0b3204c8-7e99-586e-aeb2-4186d0901fe3",
+      "person_canon": "Milan Benda",
+      "mentions": 23
+    },
+    {
+      "person_id": "be7a8e7f-f052-5c31-b27b-47d4fee9a265",
+      "person_canon": "Evan Gatesman",
+      "mentions": 22
+    }
+  ]
+}

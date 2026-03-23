@@ -1,0 +1,93 @@
+event_id,year,division_canon,division_category,place,competitor_type,person_id,team_person_key,person_canon,team_display_name,coverage_flag,person_unresolved,norm,division_raw
+1191627566,2007,Intermediate Circle,freestyle,2,team,,0164716f-40d4-5115-a299-fe1dcd4bedb5|adad3f49-3abd-5a3a-b2f8-f21322a679a1,__NON_PERSON__,Matt B. / Pittsburgh PA,complete,,,
+1235149093,2009,Initial Seeding Open Doubles Net,net,1,team,,2eaccb7b-430c-5678-b982-9415b20b24cf|f9df9a35-85ee-5ec3-ac00-fec672f151b1,__NON_PERSON__,Miquel Clemente / Nicolas De Zeeuw II,complete,,,
+1270631935,2010,Open Doubles Net,net,1,team,,57ba7b10-2f5c-5181-8c55-90ba4ce05fc2|ec1d5118-cd4b-591f-a84a-04bbe20868bc,__NON_PERSON__,Grischa Tellenbach / Lino Landau IV,complete,,,
+1323272493,2012,Open Singles Net,net,4,team,,,__NON_PERSON__,Daouk / Karim CH,partial,,,
+1323272493,2012,Open Singles Net,net,5,team,,,__NON_PERSON__,Pohjola / Matti FI,partial,,,
+1323272493,2012,Open Singles Net,net,6,team,,,__NON_PERSON__,Houston / Walt US,partial,,,
+1323272493,2012,Open Singles Net,net,7,team,,,__NON_PERSON__,Lima / Greg FR,partial,,,
+1323272493,2012,Open Singles Net,net,8,team,,,__NON_PERSON__,Kreil / Yves DE,partial,,,
+1323272493,2012,Open Singles Net,net,9,team,,,__NON_PERSON__,Ledain / Arthur FR,partial,,,
+1323272493,2012,Open Singles Net,net,10,team,,,__NON_PERSON__,Alston / Ben US,partial,,,
+1323272493,2012,Open Singles Net,net,12,team,,,__NON_PERSON__,Lezama / Victor VE,partial,,,
+1323272493,2012,Open Singles Net,net,13,team,,,__NON_PERSON__,Rockel / Tammo DE,partial,,,
+1323272493,2012,Open Singles Net,net,14,team,,,__NON_PERSON__,Harris / Jack US,partial,,,
+1323272493,2012,Open Singles Net,net,15,team,,,__NON_PERSON__,Depatie-Pelletier / Francois CA,partial,,,
+1323272493,2012,Open Singles Net,net,16,team,,,__NON_PERSON__,Forsten / Oskari FI,partial,,,
+1323272493,2012,Open Singles Net,net,17,team,,,__NON_PERSON__,Degat / Guillaume FR,partial,,,
+1323272493,2012,Open Singles Net,net,18,team,,edc1b888-82c3-5a59-8e5e-fcf6978d289b,__NON_PERSON__,Da Silva / Roberto VE,partial,,,
+1323272493,2012,Open Singles Net,net,19,team,,,__NON_PERSON__,Fritsch / Antonio DE,partial,,,
+1323272493,2012,Open Singles Net,net,20,team,,,__NON_PERSON__,Debski / Wiktor PL,partial,,,
+1323272493,2012,Open Singles Net,net,21,team,,,__NON_PERSON__,Marquez / Carlos VE,partial,,,
+1323272493,2012,Open Singles Net,net,22,team,,,__NON_PERSON__,Mingard / Yves CH,partial,,,
+1323272493,2012,Open Singles Net,net,23,team,,,__NON_PERSON__,Diaz / Diego VE,partial,,,
+1323272493,2012,Open Singles Net,net,24,team,,,__NON_PERSON__,Mora / Darwins VE,partial,,,
+1323272493,2012,Open Singles Net,net,25,team,,,__NON_PERSON__,Tellenbach / Grischa FR,partial,,,
+1323272493,2012,Open Singles Net,net,26,team,,,__NON_PERSON__,Isackson / Quentin FR,partial,,,
+1323272493,2012,Open Singles Net,net,27,team,,,__NON_PERSON__,Weyler-Lavall�e / Luka CA,partial,,,
+1323272493,2012,Open Singles Net,net,28,team,,,__NON_PERSON__,Jamski / Wojciech PL,partial,,,
+1323272493,2012,Open Singles Net,net,29,team,,,__NON_PERSON__,Lessard / Philippe CA,partial,,,
+1323272493,2012,Open Singles Net,net,30,team,,,__NON_PERSON__,Lagos / Jairo VE,partial,,,
+1323272493,2012,Open Singles Net,net,31,team,,,__NON_PERSON__,Kruse / Manuel DE,partial,,,
+1323272493,2012,Open Singles Net,net,32,team,,,__NON_PERSON__,Voss / Simon DE,partial,,,
+1323272493,2012,Open Singles Net,net,33,team,,,__NON_PERSON__,Martinez / Eduardo VE,partial,,,
+1323272493,2012,Open Singles Net,net,34,team,,,__NON_PERSON__,Hellberg / Hakan SE,partial,,,
+1323272493,2012,Open Singles Net,net,35,team,,,__NON_PERSON__,Lindner / Eurik DE,partial,,,
+1323272493,2012,Open Singles Net,net,36,team,,,__NON_PERSON__,Rousseau / Vincent FR,partial,,,
+1323272493,2012,Open Singles Net,net,37,team,,,__NON_PERSON__,Korff / Johannes DE,partial,,,
+1323272493,2012,Open Singles Net,net,38,team,,,__NON_PERSON__,Barakat / Faris DE,partial,,,
+1323272493,2012,Open Singles Net,net,39,team,,,__NON_PERSON__,Staron / Marcin PL,partial,,,
+1323272493,2012,Open Singles Net,net,41,team,,,__NON_PERSON__,Castro / Nelson VE,partial,,,
+1323272493,2012,Open Singles Net,net,42,team,,,__NON_PERSON__,Z�lli / Renato CH,partial,,,
+1323272493,2012,Open Singles Net,net,43,team,,,__NON_PERSON__,Bock / Christian HR,partial,,,
+1323272493,2012,Open Singles Net,net,44,team,,,__NON_PERSON__,Lirkki / Jani FI,partial,,,
+1323272493,2012,Open Singles Net,net,45,team,,,__NON_PERSON__,Ostwaldt / Felix DE,partial,,,
+1323272493,2012,Open Singles Net,net,46,team,,,__NON_PERSON__,Loreto / Oscar VE,partial,,,
+1323272493,2012,Open Singles Net,net,47,team,,,__NON_PERSON__,Samborowski / Maciej PL,partial,,,
+1323272493,2012,Open Singles Net,net,49,team,,,__NON_PERSON__,Budzik / Damian PL,partial,,,
+1323272493,2012,Open Singles Net,net,50,team,,,__NON_PERSON__,Nold / Stefan DE,partial,,,
+1323272493,2012,Open Singles Net,net,51,team,,,__NON_PERSON__,Klimczak / Micha PL,partial,,,
+1323272493,2012,Open Singles Net,net,52,team,,,__NON_PERSON__,Kaufmann / David DE,partial,,,
+1323272493,2012,Open Singles Net,net,54,team,,,__NON_PERSON__,Rollmann / Simon DE,partial,,,
+1323272493,2012,Open Singles Net,net,55,team,,,__NON_PERSON__,Brunet / Marc FR,partial,,,
+1323272493,2012,Open Singles Net,net,56,team,,,__NON_PERSON__,Koscielny / Piotrek PL,partial,,,
+1323272493,2012,Open Singles Net,net,57,team,,,__NON_PERSON__,Rautenberg / Stephan DE,partial,,,
+1323272493,2012,Open Singles Net,net,58,team,,,__NON_PERSON__,Laakso / Ville FI,partial,,,
+1323272493,2012,Open Singles Net,net,59,team,,,__NON_PERSON__,Andryka / Rafal PL,partial,,,
+1323272493,2012,Open Singles Net,net,60,team,,,__NON_PERSON__,Kuntze / Steve DE,partial,,,
+1323272493,2012,Open Singles Net,net,61,team,,,__NON_PERSON__,P�chel / Robin DE,partial,,,
+1323272493,2012,Open Singles Net,net,61,team,,,__NON_PERSON__,Ignaczak / Wojciech PL,partial,,,
+1323272493,2012,Open Singles Net,net,63,team,,,__NON_PERSON__,Rog / Michal PL,partial,,,
+1323272493,2012,Open Singles Net,net,64,team,,,__NON_PERSON__,Lobankov / Arkady RU,partial,,,
+1323272493,2012,Open Singles Net,net,65,team,,,__NON_PERSON__,Hartmann / Ingo DE,partial,,,
+1323272493,2012,Open Singles Net,net,66,team,,,__NON_PERSON__,Ollivier / Boris FR,partial,,,
+1323272493,2012,Open Singles Net,net,67,team,,,__NON_PERSON__,Grabarczyk / Jakub PL,partial,,,
+1323272493,2012,Open Singles Net,net,68,team,,,__NON_PERSON__,Coblence / Julien FR,partial,,,
+1323272493,2012,Open Singles Net,net,69,team,,,__NON_PERSON__,Hejra / Pavel CZ,partial,,,
+1337617980,2012,Open Singles Net,net,2,team,,c4a13ca3-eb50-50c9-a8e7-dc70e4ace063|037f7f32-66f6-5540-a829-a7d9cff97daf,__NON_PERSON__,Rockel / Tammo DD,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,4,team,,070964b4-a536-5b9a-a902-27c4fb028564|bbc8d94e-c020-5e3f-a45e-0b96a7b8b8a5,__NON_PERSON__,Voss / Simon KI,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,5,team,,fe624a81-67b1-5006-8afc-f64c6ff8f400|3c9fa155-e9a3-57fe-812f-9c06c19ce68f,__NON_PERSON__,Thull / Jonas AC,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,8,team,,f1862146-7275-521e-9f64-01a3f0466e53|964af1a4-a481-569e-9eb2-ce9a7d4b7fdf,__NON_PERSON__,Püchel / Robin DD,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,9,team,,89e59148-9f75-5d7d-b809-f25a8bc3e1bf|8d60f8dd-9831-52b9-a8ec-55e5ecea2c06,__NON_PERSON__,Kuntze / Steve DD,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,12,team,,834db6f4-807a-5802-a7c4-c0091709164d|6132ea93-11a9-5e12-867e-0e69feb54ac7,__NON_PERSON__,Rautenber / Stephan HI,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,14,team,,31db8365-68f1-51b9-b295-f60a32e7cc7b|14e6e067-e0ba-54a9-b778-4de9bc8c0cc9,__NON_PERSON__,Käfer / Andreas AC,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,15,team,,8ba07079-d1ab-5915-8f51-8c18f845fc07|77e0cf0b-778a-5a87-b6b7-248edfc0b406,__NON_PERSON__,Holzmann / Tino DD,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,16,team,,1003b52c-cd12-5344-8132-eb30a0a7e8b3|e3fc8e75-db80-59fe-8c49-a02218f360a6,__NON_PERSON__,Schmidt / Anne DD,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,17,team,,e5a0a3dd-385f-50cf-9cd4-fb70aa768cc8|13651ac9-e67a-5aa2-a7bc-6a607fc3f372,__NON_PERSON__,Häßler / Ulrike HI,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,18,team,,ebd9ce8a-bcd8-566c-ac09-0b30314e7320|b4b700a7-bde3-553f-ac58-48fb09ca5ff2,__NON_PERSON__,Thal / Janis HB,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,20,team,,0ac9dbb9-1fbf-53d2-9efe-b5a8ae9e9b43|ba55da1a-0427-5a32-b678-a8f53f0694ca,__NON_PERSON__,Schmidtke / Benjamin HB,unresolved,,,Open Singles Net
+1337617980,2012,Open Singles Net,net,21,team,,f7c16df2-e972-5a7b-96c8-abb24f5e1509|19d94f96-6ab8-5ba8-88c5-00b8da8cc519,__NON_PERSON__,Brekle / Jan HH,unresolved,,,Open Singles Net
+1337617980,2012,Womens Singles Net,net,2,team,,1003b52c-cd12-5344-8132-eb30a0a7e8b3|e3fc8e75-db80-59fe-8c49-a02218f360a6,__NON_PERSON__,Schmidt / Anne DD,unresolved,,,Womens Singles Net
+1337617980,2012,Womens Singles Net,net,4,team,,e5a0a3dd-385f-50cf-9cd4-fb70aa768cc8|13651ac9-e67a-5aa2-a7bc-6a607fc3f372,__NON_PERSON__,Häßler / Ulrike HI,unresolved,,,Womens Singles Net
+857879540,1997,Open Freestyle,freestyle,5,team,,2824a5fd-45b1-5923-9bcc-a35d9a475770|b31c7815-40c4-5624-8b56-97193218b6e8,__NON_PERSON__,Adrian Verhoef / Vancouver BC,complete,,,
+917741782,1999,Intermediate Freestyle,freestyle,1,team,,19b67790-5eb2-536b-a26d-daf8d7b1d447|26e40173-e0b2-5d76-99b7-61a202886550,__NON_PERSON__,Mel Schneider / Selma IN,complete,,,
+917741782,1999,Intermediate Freestyle,freestyle,2,team,,521886e8-4e99-5e6d-bf81-933805d21b3f|ad089467-1458-5905-9629-a157ff17d3b0,__NON_PERSON__,Mike Collins / Charleston IL,complete,,,
+917741782,1999,Intermediate Freestyle,freestyle,3,team,,86ef065e-819e-52fb-8822-923dfe8c9cda|dfa427fa-4856-52a1-b3b8-12f55a372df7,__NON_PERSON__,Phil Summers / Urbana IL,complete,,,
+917741782,1999,Intermediate Singles Net,net,1,team,,bce6ef23-8142-5cfa-a303-d50b1c5104a7|43a2f5d1-074f-50ef-86e3-426503f61be5,__NON_PERSON__,Josh Vorvel / Sherman IL,unresolved,,,Intermediate Singles Net
+917741782,1999,Intermediate Singles Net,net,2,team,,78b65218-e0c9-5714-bfb2-7f63d06b5b87|336fa17b-a216-5397-9e38-74774d22a906,__NON_PERSON__,Pete Nawara / Chicago IL,unresolved,,,Intermediate Singles Net
+917741782,1999,Intermediate Singles Net,net,3,team,,42c19978-9c48-54ac-bba5-1b7abba846ce|22ffa1c8-4e97-5b4e-902a-3ee0084ab479,__NON_PERSON__,Jeff Cruz / Urbana IL,unresolved,,,Intermediate Singles Net
+917741782,1999,Open Freestyle,freestyle,1,team,,da2cbc95-e09b-5a22-9baf-00e25552c9b6|dce9d622-9794-5905-9d83-959296154a17,__NON_PERSON__,Greg Nelson / Milan MI,complete,,,
+917741782,1999,Open Freestyle,freestyle,2,team,,4972a04c-1a6c-5c12-af8e-6c2df00e3264|ad089467-1458-5905-9629-a157ff17d3b0,__NON_PERSON__,Frank Gutowski / Charleston IL,complete,,,
+917741782,1999,Open Freestyle,freestyle,3,team,,3207e42c-e99e-58e4-9c8c-d722dec54bed|736e1cde-c0c3-5703-bae1-17a26d50edcd,__NON_PERSON__,Mike Bellman / Winfield IL,complete,,,
+917741782,1999,Open Singles Net,net,1,team,,e76f3bf6-80a8-5a56-8275-b0e2de084732|a7d4bc4e-a78e-5fde-824b-81ce3f5cfd24,__NON_PERSON__,Steve Smith / Malta IL,unresolved,,,Open Singles Net
+917741782,1999,Open Singles Net,net,3,team,,532d1404-a003-5a2d-a4d7-239bcfd7fefb|5379cb62-30dd-5415-86f6-b5c434e35571,__NON_PERSON__,Tom Whitworth / Charleston IL,unresolved,,,Open Singles Net

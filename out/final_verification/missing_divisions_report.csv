@@ -1,0 +1,23 @@
+event_id,year,event_name,division,source_count,source_max_place,best_fuzzy_match,best_fuzzy_score,canonical_div_count,is_source_partial,blocker_type
+1061453080,2003,Australian East Coast Regionals,Intermediate Shred 30,3,3,,0.682,6,False,BLOCKER
+1079605499,2004,6th Annual IFPA European Footbag Championships,"Womens Singles Freestyle [Very, Very Close (1-4)]",11,11,,0.592,9,False,BLOCKER
+1079605499,2004,6th Annual IFPA European Footbag Championships,Shred30,6,4,,0.667,9,False,BLOCKER
+1092073845,2004,Czech Championships 2004,Shred 30,3,3,,0.435,8,False,BLOCKER
+1103297805,2005,2e Championnat de France de Footbag,Open Shred 30,3,3,,0.64,16,False,BLOCKER
+1134914723,2006,RNH Contest 2006,Open Shred 30,6,6,,0.64,10,False,BLOCKER
+1156283186,2006,The Hackrifice Open 2006,Intermediate Shred 30,1,1,,0.727,7,False,BLOCKER
+1181021804,2007,ShrEdmonton Freestyle Assembly 2007,Inter Sick1,1,2,,0.667,3,False,BLOCKER
+1216058526,2008,Funtastik Summer Classic Footbag Tournament,Unknown,1,23,,0.19,8,False,BLOCKER
+1231432184,2009,Todexon 10,Open Singles Routines,26,24,,0.744,4,False,BLOCKER
+1231432184,2009,Todexon 10,Women's Singles Routines,3,3,,0.703,4,False,BLOCKER
+1235653935,2009,11th Annual IFPA European Footbag Championships - Strzelin,Unknown,1,11,,0.261,17,False,BLOCKER
+1295842442,2011,US OPEN Footbag Net Championships 2011,Unknown,10,10,,0.211,7,False,BLOCKER
+1321869570,2012,Todexon 13,Open Sick 3-Trick,8,8,,0.526,6,False,BLOCKER
+1435110091,2015,33rd Annual East Coast Footbag Championships,Unknown,1,13,,0.261,7,False,BLOCKER
+1473932659,2016,Austrian Footbag Championships 2016,Open Circle Contest,4,4,,0.733,5,False,BLOCKER
+859400929,1997,Montreal International Footbag Championships,Unknown,1,47,,0.261,8,False,BLOCKER
+859787898,1997,HEART OF FOOTBAG Freestyle Tournament,Shred Skills Contest Final Results,1,1,,0.741,7,False,BLOCKER
+892446131,1998,Kansas Footbag Open,Unknown,1,2,,0.308,4,False,BLOCKER
+920579000,1999,East Coast Footbag Championships,And Qdog Pro Footbag.,1,1,,0.324,7,False,BLOCKER
+947196813,2000,New Zealand Footbag Championships,Unknown,1,1,,0.267,14,False,BLOCKER
+979816633,2001,1st Hungarian Footbag Cup,Doubles,4,4,,0.3,2,False,BLOCKER
