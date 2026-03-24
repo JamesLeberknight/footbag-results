@@ -187,7 +187,6 @@ FREESTYLE_EVOLUTION_REPORT.md
 early_data/review/tmp/
 early_data/review/debug/
 early_data/review/*.json
-early_data/records/passback_raw_input.txt
 
 # =========================================================
 # Pipeline seed (experimental — not part of release pipeline)
