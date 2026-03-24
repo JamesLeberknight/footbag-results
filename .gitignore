@@ -7,10 +7,16 @@ __pycache__/
 *.pyd
 *.log
 *.tmp
+*.patch
+*.bak
+*BAK
+*~
+.ipynb_checkpoints/
 
-# virtual environments
+# Virtual environments
 venv/
 .venv/
+.venv_qc/
 env/
 footbag_venv/
 
@@ -21,89 +27,169 @@ footbag_venv/
 Thumbs.db
 .vscode/
 .idea/
-
-# =========================================================
-# Large / Raw Image Data (CRITICAL)
-# =========================================================
-
-# raw scans (never commit)
-early_data/raw_pages/
-early_data/preprocessed_pages/
-
-# intermediate image work
-early_data/preprocessed_pages/**
-
-# =========================================================
-# Generated PPT / image exports
-# =========================================================
-*.pptx
-*.ppt
-*.jpg
-*.jpeg
-*.png
-*.tiff
-
-# (optional) if you want to keep final curated images, comment above and use:
-# !early_data/preprocessed_pages/final/*.jpg
-
-# =========================================================
-# Temporary / Scratch Outputs
-# =========================================================
-
-# Gemini intermediate outputs (optional)
-early_data/review/*.json
-
-# QC scratch files
-early_data/review/tmp/
-early_data/review/debug/
-
-# =========================================================
-# Keep FINAL DATA (IMPORTANT)
-# =========================================================
-
-# DO NOT IGNORE THESE — they are your deliverables
-!early_data/event_blocks/
-!early_data/placements/
-!early_data/old_results/
-!early_data/canonical/
-!early_data/identity/
-
-# =========================================================
-# Spreadsheets (decide policy)
-# =========================================================
-
-# If large / frequently regenerated:
-# early_data/out/*.xlsx
-
-# If you want to keep the final deliverable:
-!early_data/out/footbag_results_pre1997_recovery.xlsx
+*.code-workspace
+*.lnk
+*:Zone.Identifier
 
 # =========================================================
 # Archives / dumps
 # =========================================================
 *.zip
 *.tar
+*.tar.gz
+*.tar.xz
 *.gz
 
 # =========================================================
-# Safety: ignore everything in early_data by default (optional advanced)
-# then explicitly allow what you want (commented out for now)
+# Spreadsheets (generated — not committed)
 # =========================================================
-# early_data/*
-# !early_data/event_blocks/
-# !early_data/placements/
-# !early_data/old_results/
-# !early_data/canonical/
-# !early_data/identity/
-# !early_data/docs/
-# !early_data/out/
-# images (ignore everywhere)
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+
+# =========================================================
+# Image data (large binary files)
+# =========================================================
 *.jpg
 *.jpeg
 *.png
 *.tiff
-early_data/preprocessed_pages/
+
+# =========================================================
+# Large / Raw Image Data — early_data (CRITICAL: never commit)
+# =========================================================
 early_data/raw_pages/
-*.pptx
-# Windows zone identifier junk
-*:Zone.Identifier
+early_data/preprocessed_pages/
+
+# =========================================================
+# Mirror (distribute via GitHub Release — not committed)
+# =========================================================
+mirror/
+mirror_full/
+mirror_out/
+mirror.log
+mirror.tar.xz
+mirror_progress.json
+
+# =========================================================
+# Pipeline outputs (generated — most not committed)
+# out/canonical/ IS committed (primary deliverable)
+# out/canonical_all/ IS committed (merged deliverable)
+# =========================================================
+out/*.csv
+out/*.json
+out/*.jsonl
+out/*.html
+out/*.md
+out/*.lock
+out/audit/
+out/backfill_candidates.csv
+out/backfill_resolutions.csv
+out/canonical_freeze/
+out/encoding_corruption_report.csv
+out/final_validation/
+out/final_verification/
+out/member_id_enrichment/
+out/mvfp_seed/
+out/noise_aggregates/
+out/noise_features/
+out/old_results_import_audit.jsonl
+out/qc/
+out/qc_reports/
+out/review/
+out/stage2_canonical_events.csv
+out/stage2_players.csv
+
+# =========================================================
+# Identity lock (generated sentinel only)
+# =========================================================
+overrides/person_aliases.lock
+
+# Older identity lock versions — only current versions tracked
+inputs/identity_lock_archive/*
+inputs/identity_lock/Placements_ByPerson_v6*.csv
+inputs/identity_lock/Placements_ByPerson_v7[0-8].csv
+inputs/identity_lock/Persons_Truth_Final_v[0-3]*.csv
+inputs/identity_lock/Persons_Truth_Final_v4[0-6].csv
+
+# =========================================================
+# Legacy / archived scripts (reference only — not pipeline)
+# =========================================================
+legacy/
+scripts/
+
+# =========================================================
+# Root-level scratch / one-off QC scripts and outputs
+# (run_qc_gate.py calls these as optional checks from cwd)
+# =========================================================
+qc_*.py
+qc_*.csv
+qc_spreadsheet_gate.py
+alias-candidates.txt
+host_clubs.csv
+index.csv
+index_raw.csv
+person_alias_candidates.csv
+freestyle_insights.csv
+*.py1
+
+# =========================================================
+# Root-level one-off dev scripts (not pipeline)
+# =========================================================
+02p7_alias_detector.py
+02p7_person_resolution.py
+create_lean.py
+diagnose_workbook_display_issues.py
+excel_crop_workflow.py
+load_images.py
+make_raw_ppt.py
+manual_crop_gui.py
+update_workbook_event_ids.py
+validate_magazine_logic.py
+
+# =========================================================
+# One-off analysis / audit tools in tools/ (not release pipeline)
+# =========================================================
+tools/audit_excel_workbooks.py
+tools/compute_statistics.py
+tools/event_comparison_viewer.py
+tools/location_normalization_check.py
+tools/location_post_audit.py
+
+# =========================================================
+# Scratch inputs (intermediate files in inputs/ by mistake)
+# =========================================================
+inputs/persons_truth.csv
+inputs/persons_truth_merged.csv
+
+# =========================================================
+# Misc dev artifacts
+# =========================================================
+robots_cache.json
+old_csv_files/
+python_files_old/
+junk_md/
+Claude_old_md_files/
+release_bundle/
+reviews/
+baselines/
+githib-pswd.txt
+*_progress.json
+your.save
+CLAUDE_v4.md
+CLAUDE.mdbak
+FREESTYLE_EVOLUTION_REPORT.md
+
+# =========================================================
+# Early data — keep CSV/script/doc files; ignore scratch
+# =========================================================
+early_data/review/tmp/
+early_data/review/debug/
+early_data/review/*.json
+early_data/records/passback_raw_input.txt
+
+# =========================================================
+# Pipeline seed (experimental — not part of release pipeline)
+# =========================================================
+pipeline/06_build_mvfp_seed.py

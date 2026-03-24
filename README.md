@@ -136,17 +136,28 @@ Pre-1997 reconstruction follows a **separate workflow** and is not yet part of t
 ## Repository Structure (Simplified)
 
 ```
-pipeline/           # core pipeline scripts (stages 01–05p5)
-tools/              # QC, identity resolution, workbook builder, viewer, patch scripts
-qc/                 # per-check QC modules and master orchestrator
-inputs/             # curated source data and overrides
-  identity_lock/    # immutable lock snapshots (Persons_Truth, Placements_ByPerson)
+pipeline/               # core pipeline scripts (stages 01–05p5)
+tools/                  # QC, identity resolution, workbook builder, viewer
+  run_qc_gate.py        # authoritative QC gate (run after every release build)
+  build_final_workbook_v13.py
+  event_comparison_viewerV10.py
+  archive/              # old patch scripts and superseded viewer versions
+qc/                     # per-check QC modules
+inputs/                 # curated source data and overrides
+  identity_lock/        # immutable lock snapshots (Persons_Truth v47, PBP v85)
+overrides/              # person aliases, event metadata overrides, known issues
 out/
-  canonical/        # AUTHORITATIVE output: events, results, participants, persons CSVs
-overrides/          # person aliases, event metadata overrides, known issues
+  canonical/            # AUTHORITATIVE post-1997 output (CSVs committed to git)
+  canonical_all/        # merged pre+post-1997 dataset (CSVs committed to git)
+early_data/             # pre-1997 historical reconstruction (separate pipeline)
+  scripts/              # 13 numbered recovery scripts (01–13)
+  canonical/            # pre-1997 working canonical state
+  final_pre1997/        # release-ready pre-1997 artifacts (v1.0)
+  docs/                 # workflow guides (PRE1997_WORKFLOW.md, OUTPUTS.md)
+legacy_data/            # historical result files used by parser overrides
 ```
 
-The `mirror/` directory (raw HTML source) is **not committed** — it is distributed as a release asset (`mirror.tar.gz`) and must be extracted locally before running the rebuild stage.
+The `mirror/` (raw HTML source) is **not committed** — distribute as release asset and extract locally before running the rebuild stage.
 
 
 ---
@@ -171,9 +182,10 @@ Outputs from this effort are:
 
 ## Status
 
-- ✅ Post-1997 dataset published and stable
-- 🚧 Pre-1997 recovery in progress
-- 🔄 Continuous QC and incremental improvements
+- ✅ Post-1997 dataset published and stable (v2.15.0, PT v47, PBP v85)
+- ✅ Pre-1997 dataset v1.0 finalized (32 events, 1980–1996, expert-reviewed)
+- ✅ Merged canonical dataset available (`out/canonical_all/`)
+- ✅ Footbag trick records layer (`early_data/records/`)
 
 ---
 
