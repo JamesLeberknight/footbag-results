@@ -1,213 +1,185 @@
 # Footbag Results Dataset & Reconstruction Project
 
-**Current release: v2.15.0**
+**Current release: v3.0.0**
 
 ## Overview
 
-This repository contains a canonical, reproducible dataset of footbag competition results, along with tools for data extraction, normalization, quality control, and analysis.
+This repository contains a canonical, reproducible dataset of footbag competition results spanning **1980–present**, produced from two source tracks merged into a single authoritative output.
 
-The project is now structured around **two distinct tracks**:
+---
 
-### 1. Post-1997 Mirror-Era Dataset (Published)
+## Primary Deliverables
 
-- **Status:** Complete (for defined scope)
+### 1. Merged Canonical Dataset — `out/canonical_all/`
+
+The authoritative relational dataset combining PRE1997 reconstruction and POST1997 mirror data:
+
+| File | Rows | Description |
+|------|------|-------------|
+| `events.csv` | 810 | All official events (1980–2025) |
+| `event_disciplines.csv` | 4,136 | All disciplines |
+| `event_results.csv` | 27,040 | All result rows |
+| `event_result_participants.csv` | 35,189 | All participants |
+| `persons.csv` | 3,482 | All persons |
+
+- Unified slug-based `event_id` system (`YYYY_event_city`)
+- `event_type = "worlds"` standardized across all 49 world championship events
+- Cross-table referential integrity validated (0 orphans)
+- QC gate: PASS
+
+### 2. Merged Spreadsheet — `Footbag_Results_Merged_FINAL.xlsx`
+
+Human-readable Excel workbook covering 1980–present:
+
+- Year sheets for every year from 1980 to 2026
+- Worlds events visually highlighted with banner row
+- Incomplete events flagged in red
+- Discipline hierarchy visually subordinated under event headers
+- EVENT INDEX with hyperlinks to every year sheet
+- PLAYER SUMMARY with BAP nickname
+- STATISTICS section (dataset overview, worlds by year, placements by discipline)
+
+### 3. Event Comparison Viewer — `out/merged_event_viewer.html`
+
+Side-by-side QC tool comparing raw mirror source text against canonical placements:
+
+- 810 events (exactly matching canonical_all)
+- Single slug-based event_id throughout
+- Search, filter by QC status, keyboard navigation
+- Reason tags on suspicious rows (TRUNCATED, SURNAME_MISMATCH, etc.)
+
+---
+
+## Source Tracks
+
+### Post-1997 Mirror-Era (Primary)
+
 - **Coverage:** 1997–present
-- **Source:** Footbag.org mirror (internet-era records)
-- **Quality:** High-confidence, reproducible
+- **Source:** Footbag.org mirror
+- **Status:** Complete, identity-locked (PT v47 / PBP v85)
+- **Events:** 781 published
 
-This is the **primary published dataset** and the recommended source for:
-- community use
-- statistical analysis
-- downstream database applications
+### Pre-1997 Historical Recovery
 
----
-
-### 2. Pre-1997 Historical Recovery (Ongoing)
-
-- **Status:** Incomplete, under active development
-- **Sources:**
-  - Footbag World magazine (FBW) image extraction
-  - `OLD_RESULTS.txt`
-  - manual reconstruction and review
-
-This effort is **evidence-based and provenance-driven**.  
-Recovered data is not yet considered complete or release-quality.
-
----
-
-## Output Artifacts
-
-The project produces the following **official outputs**:
-
-### 1. Community Spreadsheet (Post-1997)
-
-- Clean, human-readable Excel workbook
-- Organized by year
-- Includes:
-  - event results
-  - player summaries
-  - statistics
-  - freestyle insights
-
-This is the **primary public-facing deliverable**.
-
----
-
-### 2. Canonical CSV Dataset
-
-Relational dataset suitable for database ingestion:
-
-- `events.csv`
-- `event_results.csv`
-- `event_result_participants.csv`
-- `persons.csv`
-- `event_disciplines.csv`
-
-This dataset is:
-- normalized
-- deterministic
-- version-controlled
-
----
-
-### 3. HTML Event Comparison Viewer
-
-A purpose-built QC tool for validating event-level data.
-
-Features:
-- side-by-side comparison of raw vs canonical results
-- mismatch highlighting
-- structured event inspection
-
-This viewer is a **core artifact**, not just a diagnostic tool.  
-It enables:
-- human validation
-- rapid QA of transformations
-- confidence in final outputs
+- **Coverage:** 1980–1996
+- **Sources:** Footbag World magazine, `OLD_RESULTS.txt`, expert review
+- **Status:** v1.0 finalized (29 events, expert-reviewed by Bruce Guettich)
+- **Events:** 29 included in merged dataset
 
 ---
 
 ## Data Coverage
 
-| Era        | Coverage | Status       |
-|------------|----------|-------------|
-| 1997–present | High     | Complete (for scope) |
-| Pre-1997   | Partial  | Under reconstruction |
-
-Important:
-
-- The post-1997 dataset is the **only fully validated release**
-- Pre-1997 data is **incomplete and evolving**
-- No attempt is made to present early data as a complete historical record
+| Era | Events | Placements | Status |
+|-----|--------|------------|--------|
+| 1980–1996 | 29 | 731 | v1.0 finalized |
+| 1997–2025 | 781 | 27,348 | Complete, locked |
+| **Total** | **810** | **28,079** | **Published** |
 
 ---
 
 ## Data Philosophy
 
-This project follows strict data engineering principles:
-
-- **No guessing**
-- **Provenance-first**
-- **Deterministic outputs**
-- **Reproducibility over completeness**
-
-When uncertainty exists:
-> Data is left incomplete rather than inferred.
+- **No guessing** — unknown data stays unknown
+- **Provenance-first** — every record traceable to source
+- **Deterministic outputs** — identical inputs produce identical outputs
+- **Reproducibility over completeness** — partial accurate data beats fabricated completeness
 
 ---
 
-## Pipeline Overview
+## Event ID System
 
-The pipeline transforms raw sources into canonical outputs:
-
-1. Parse source data (mirror HTML, legacy files)
-2. Normalize events, divisions, and results
-3. Resolve player identities
-4. Generate canonical relational dataset
-5. Produce spreadsheet outputs
-6. Validate using event comparison viewer
-
-The pipeline is stable for the post-1997 dataset.
-
-Pre-1997 reconstruction follows a **separate workflow** and is not yet part of the finalized release pipeline.
-
----
-
-## Repository Structure (Simplified)
+All events use a single slug-based identifier:
 
 ```
-pipeline/               # core pipeline scripts (stages 01–05p5)
-tools/                  # QC, identity resolution, workbook builder, viewer
-  run_qc_gate.py        # authoritative QC gate (run after every release build)
-  build_final_workbook_v13.py
-  event_comparison_viewerV10.py
-  archive/              # old patch scripts and superseded viewer versions
-qc/                     # per-check QC modules
-inputs/                 # curated source data and overrides
-  identity_lock/        # immutable lock snapshots (Persons_Truth v47, PBP v85)
-overrides/              # person aliases, event metadata overrides, known issues
+YYYY_event_city      # e.g. 2003_worlds_prague, 1986_worlds_golden
+YYYY_event           # fallback when city unknown, e.g. 1993_worlds
+```
+
+Rules:
+- Lowercase only
+- Underscores only
+- City derived from location data; omitted if unknown
+- No legacy numeric IDs anywhere in outputs
+
+### Worlds Mapping
+
+| Era | Rule | Example |
+|-----|------|---------|
+| 1980–1982 | NHSA = authoritative worlds | `1981_worlds` |
+| 1983 | Dual worlds (NHSA + WFA) | `1983_worlds_nhsa`, `1983_worlds_wfa` |
+| 1984–1989 | WFA worlds (city known 1986–1989) | `1988_worlds_golden` |
+| 1990–1996 | Single worlds per year | `1993_worlds` |
+| 1997+ | Single worlds per year | `2003_worlds_prague` |
+
+---
+
+## Pipeline
+
+```
+pipeline/               # core pipeline (stages 01–05p5)
+tools/
+  build_appsafe_merged.py      # merge PRE1997 + POST1997 → canonical_all/
+  build_merged_feeds.py        # produce merged CSV feeds
+  build_merged_workbook_v14.py # build merged Excel workbook
+  event_comparison_viewerV10.py# build QC HTML viewer
+  cleanup_event_ids.py         # apply surgical event_id renames
+  rename_worlds_event_ids.py   # standardize worlds slug conventions
+  run_qc_gate.py               # authoritative QC gate
+early_data/             # pre-1997 reconstruction pipeline
+  scripts/              # 13 numbered recovery scripts
+  canonical/            # pre-1997 canonical tables
+  out/                  # pre-1997 feeds (early_stage2_feed, early_placements_feed)
 out/
-  canonical/            # AUTHORITATIVE post-1997 output (CSVs committed to git)
-  canonical_all/        # merged pre+post-1997 dataset (CSVs committed to git)
-early_data/             # pre-1997 historical reconstruction (separate pipeline)
-  scripts/              # 13 numbered recovery scripts (01–13)
-  canonical/            # pre-1997 working canonical state
-  final_pre1997/        # release-ready pre-1997 artifacts (v1.0)
-  docs/                 # workflow guides (PRE1997_WORKFLOW.md, OUTPUTS.md)
-legacy_data/            # historical result files used by parser overrides
+  canonical/            # post-1997 authoritative CSVs (committed)
+  canonical_all/        # merged canonical CSVs (committed)
+inputs/
+  identity_lock/        # immutable identity snapshots (PT v47 / PBP v85)
+overrides/              # person aliases, event metadata, known issues
+legacy_data/            # parser override result files
 ```
 
-The `mirror/` (raw HTML source) is **not committed** — distribute as release asset and extract locally before running the rebuild stage.
+### Rebuild Merged Outputs
 
+After any canonical data change:
+
+```bash
+python3 tools/build_appsafe_merged.py        # merge PRE+POST1997 → canonical_all/
+python3 tools/build_merged_feeds.py          # regenerate merged feeds
+python3 tools/build_merged_workbook_v14.py   # rebuild spreadsheet
+python3 tools/event_comparison_viewerV10.py  # rebuild viewer
+```
 
 ---
 
-## Pre-1997 Recovery Project
+## Repository Notes
 
-This is a separate effort focused on reconstructing early footbag history.
+- `mirror/` — not committed; distribute as GitHub Release asset
+- `out/canonical_all_union/` — build artifact only; not committed
+- `*.xlsx` — generated outputs; not committed
+- `out/merged_*.csv` — generated feeds; not committed
 
-Key characteristics:
+---
 
-- Source-driven (FBW images, legacy text)
-- Requires OCR / AI-assisted extraction
-- Human-in-the-loop validation
-- Strong provenance tracking
+## Identity Lock (Post-1997)
 
-Outputs from this effort are:
-- incomplete
-- subject to revision
-- not yet merged into the primary dataset
+| File | Version | Rows |
+|------|---------|------|
+| `Persons_Truth_Final_v47.csv` | v47 | 3,468 |
+| `Persons_Unresolved_Organized_v28.csv` | v28 | 82 |
+| `Placements_ByPerson_v85.csv` | v85 | 27,980 |
 
 ---
 
 ## Status
 
-- ✅ Post-1997 dataset published and stable (v2.15.0, PT v47, PBP v85)
-- ✅ Pre-1997 dataset v1.0 finalized (32 events, 1980–1996, expert-reviewed)
-- ✅ Merged canonical dataset available (`out/canonical_all/`)
-- ✅ Footbag trick records layer (`early_data/records/`)
-
----
-
-## Intended Use
-
-This dataset is designed for:
-
-- footbag community reference
-- historical analysis
-- statistical modeling
-- database-backed applications
-
----
-
-## Contributing
-
-Contributions are welcome, especially for:
-
-- early data recovery (pre-1997)
-- data validation
-- identity resolution (player matching)
-- pipeline improvements
+- ✅ Merged canonical dataset published (`out/canonical_all/`) — 810 events, 1980–2025
+- ✅ Merged spreadsheet built (`Footbag_Results_Merged_FINAL.xlsx`)
+- ✅ Event comparison viewer updated (810 events, slug IDs)
+- ✅ Unified slug event_id system — no legacy numeric IDs
+- ✅ Worlds classification: `event_type = "worlds"` for all 49 world championship events
+- ✅ Pre-1997 v1.0 finalized (29 events, expert-reviewed)
+- ✅ Post-1997 dataset locked (PT v47 / PBP v85)
 
 ---
 
@@ -215,12 +187,3 @@ Contributions are welcome, especially for:
 
 Dataset: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 Pipeline code: MIT
-
----
-
-## Notes
-
-This project represents an ongoing effort to preserve and structure footbag competition history.
-
-The post-1997 dataset provides a reliable foundation.  
-The early-era reconstruction remains an open challenge.

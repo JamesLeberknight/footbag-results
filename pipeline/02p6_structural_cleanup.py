@@ -16,6 +16,12 @@ def _norm(s: str) -> str:
     return " ".join(str(s).lower().split())
 
 
+def _is_doubles_div(div: str) -> bool:
+    """Return True if division name indicates a doubles format (handles 'Dbl' abbreviation)."""
+    d = div.lower()
+    return "doubles" in d or re.search(r'\bdbl\b', d) is not None
+
+
 def _ascii_fold(s: str) -> str:
     """Lowercase + strip diacritics + collapse whitespace for fuzzy matching.
     Also strips superscript digits (e.g. ³) which appear as corrupt glyph
@@ -325,7 +331,7 @@ def patch_file(path: str):
             & (df["team_display_name"].fillna("").str.contains(" / ", regex=False))
             & (df["person_canon"].fillna("") != "")
             & (df["person_canon"].fillna("") != "__NON_PERSON__")
-            & (df["division_canon"].fillna("").str.contains("doubles", case=False))
+            & (df["division_canon"].fillna("").apply(_is_doubles_div))
         )
         for idx in df[mask_a].index:
             row = df.loc[idx]
@@ -378,8 +384,8 @@ def patch_file(path: str):
                 ))
 
         def _is_doubles_player_row(r):
-            div = normalize_blank(r.get("division_canon", "")).lower()
-            if "doubles" not in div:
+            div = normalize_blank(r.get("division_canon", ""))
+            if not _is_doubles_div(div):
                 return False
             if any(kw in div for kw in ("golf", "americano", "singles")):
                 return False
@@ -404,8 +410,8 @@ def patch_file(path: str):
         def _is_superseded_doubles_player(r):
             if r.get("competitor_type", "") != "player":
                 return False
-            div = normalize_blank(r.get("division_canon", "")).lower()
-            if "doubles" not in div:
+            div = normalize_blank(r.get("division_canon", ""))
+            if not _is_doubles_div(div):
                 return False
             if any(kw in div for kw in ("golf", "americano", "singles")):
                 return False
@@ -449,8 +455,8 @@ def patch_file(path: str):
         for _, _r in df.iterrows():
             if _r.get("competitor_type", "") != "player":
                 continue
-            div = normalize_blank(_r.get("division_canon", "")).lower()
-            if "doubles" in div:
+            div = normalize_blank(_r.get("division_canon", ""))
+            if _is_doubles_div(div):
                 continue
             pc = normalize_blank(_r.get("person_canon", ""))
             if not pc or pc == "__NON_PERSON__":
@@ -469,8 +475,8 @@ def patch_file(path: str):
         def _is_team_superseded_by_player(r):
             if r.get("competitor_type", "") != "team":
                 return False
-            div = normalize_blank(r.get("division_canon", "")).lower()
-            if "doubles" in div:
+            div = normalize_blank(r.get("division_canon", ""))
+            if _is_doubles_div(div):
                 return False
             tdn = normalize_blank(r.get("team_display_name", ""))
             if " / " not in tdn:

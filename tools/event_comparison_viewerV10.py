@@ -56,11 +56,10 @@ csv.field_size_limit(sys.maxsize)
 
 ROOT           = Path(__file__).resolve().parent.parent
 OUT            = ROOT / "out"
-STAGE2_CSV     = OUT / "stage2_canonical_events.csv"
-PF_CSV         = OUT / "Placements_Flat.csv"
+STAGE2_CSV     = OUT / "merged_stage2.csv"
+PF_CSV         = OUT / "merged_placements_flat.csv"
 QUARANTINE_CSV = ROOT / "inputs" / "review_quarantine_events.csv"
-SCAN_INDEX_CSV = ROOT / "inputs" / "magazine_scan_index.csv"
-OUT_HTML       = OUT / "event_comparison_viewer.html"
+OUT_HTML       = OUT / "merged_event_viewer.html"
 
 # ── String utilities ───────────────────────────────────────────────────────────
 
@@ -704,22 +703,8 @@ def load_quarantine():
     return q
 
 
-def load_scan_index():
-    idx = {}
-    if not SCAN_INDEX_CSV.exists():
-        return idx
-    with open(SCAN_INDEX_CSV, newline='', encoding='utf-8') as f:
-        for r in csv.DictReader(f):
-            eid   = r.get('event_id', '')
-            fname = r.get('source_file', '')
-            if eid:
-                idx[eid] = fname
-            fuzzy = f"{r.get('year')}_{r.get('event_name', '')}".lower().replace(' ', '')
-            idx[fuzzy] = fname
-    return idx
-
-
 def load_pf():
+    """Return PF rows indexed by numeric event_id (as string) — same key as stage2 event_id."""
     pf: dict[str, list] = defaultdict(list)
     if not PF_CSV.exists():
         print(f"WARNING: {PF_CSV} not found — canonical column will be empty.")
@@ -748,7 +733,7 @@ def _qc_status(qc: dict) -> str:
     return 'green'
 
 
-def load_events(quarantine, scan_index, pf):
+def load_events(quarantine, pf):
     events = []
     if not STAGE2_CSV.exists():
         print(f"ERROR: {STAGE2_CSV} not found.")
@@ -756,24 +741,23 @@ def load_events(quarantine, scan_index, pf):
 
     with open(STAGE2_CSV, newline='', encoding='utf-8') as f:
         for r in csv.DictReader(f):
-            eid   = r['event_id']
-            year  = r.get('year', '')
-            name  = r.get('event_name', '')
-            fuzzy = f"{year}_{name}".lower().replace(' ', '')
+            numeric_eid = r['event_id']               # numeric (POST1997) or slug (PRE1997)
+            event_id    = r.get('event_key', '') or numeric_eid  # canonical slug — primary key
+            year        = r.get('year', '')
+            name        = r.get('event_name', '')
 
-            raw_text         = r.get('results_raw', '')
-            pf_rows          = pf.get(eid, [])
-            aligned, qc_sum  = build_aligned_rows(raw_text, pf_rows)
+            raw_text        = r.get('results_raw', '')
+            pf_rows         = pf.get(numeric_eid, [])  # join on numeric ID (works for both eras)
+            aligned, qc_sum = build_aligned_rows(raw_text, pf_rows)
 
             events.append({
-                'id':       eid,
-                'year':     year,
-                'name':     name,
-                'scan_jpg': scan_index.get(eid) or scan_index.get(fuzzy, ''),
-                'q':        quarantine.get(eid, ''),
-                'rows':     aligned,
-                'qc':       qc_sum,
-                'qs':       _qc_status(qc_sum),
+                'id':   event_id,    # canonical slug only
+                'year': year,
+                'name': name,
+                'q':    quarantine.get(numeric_eid, ''),
+                'rows': aligned,
+                'qc':   qc_sum,
+                'qs':   _qc_status(qc_sum),
             })
 
     return sorted(events, key=lambda x: (x['year'], x['name']), reverse=True)
@@ -785,7 +769,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Footbag Event Comparison — Mirror vs Canonical (V10)</title>
+  <title>Footbag Event Comparison — Mirror vs Canonical</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -825,10 +809,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     #nav button:disabled { opacity: 0.35; cursor: default; }
     #nav-pos { font-size: 11px; opacity: 0.75; min-width: 70px; text-align: center; }
 
-    /* ── 3-column body ── */
+    /* ── 2-column body ── */
     #body {
       display: grid;
-      grid-template-columns: 250px 1fr 300px;
+      grid-template-columns: 250px 1fr;
       overflow: hidden;
     }
 
@@ -869,8 +853,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       flex-direction: column; background: #fff;
     }
     #cmp-title {
-      padding: 5px 10px; background: #f0f4f8;
+      padding: 5px 10px 2px; background: #f0f4f8;
       font-size: 12px; font-weight: bold; color: #1a3a5c;
+      flex-shrink: 0;
+    }
+    #cmp-eventkey {
+      padding: 1px 10px 5px; background: #f0f4f8;
+      font-size: 10px; font-family: monospace; color: #5a7a9c;
       border-bottom: 1px solid #d0d8e0; flex-shrink: 0;
     }
 
@@ -967,39 +956,12 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     .reason-tag.EXTRA_TOKENS      { background: #17a2b8; color: #fff; }
     .reason-tag.MISSING_NAME      { background: #6c757d; color: #fff; }
 
-    /* ── Scan pane ── */
-    #scan-pane {
-      background: #2d2d2d; display: flex;
-      flex-direction: column; border-left: 1px solid #3a3a3a;
-    }
-    #scan-toolbar {
-      background: #1e1e1e; padding: 6px 10px;
-      display: flex; gap: 8px; color: white;
-      font-size: 11px; align-items: center;
-      flex-shrink: 0; border-bottom: 1px solid #111;
-    }
-    #scan-toolbar button {
-      padding: 2px 9px; cursor: pointer;
-      background: #444; color: white;
-      border: 1px solid #555; border-radius: 3px; font-size: 13px;
-    }
-    #scan-toolbar button:hover { background: #555; }
-    #scan-fname { opacity: 0.45; margin-left: auto; font-size: 10px; }
-    #viewport {
-      flex: 1; overflow: auto;
-      display: flex; justify-content: center;
-      align-items: flex-start; padding: 20px;
-    }
-    #scan-img {
-      transition: transform 0.2s;
-      box-shadow: 0 0 20px #000;
-      transform-origin: center center; max-width: 100%;
-    }
+    /* Scan pane deferred — not rendered */
   </style>
 </head>
 <body>
   <div id="hdr">
-    <strong>Footbag Event Comparison — Mirror vs Canonical (V10)</strong>
+    <strong>Footbag Event Comparison — Mirror vs Canonical</strong>
     <input type="text" id="search" placeholder="Search events…" oninput="filterList()">
     <select id="qc-filter" onchange="filterList()">
       <option value="">All</option>
@@ -1020,6 +982,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
     <div id="cmp-pane">
       <div id="cmp-title">Select an event from the list</div>
+      <div id="cmp-eventkey"></div>
       <div id="qc-bar"></div>
       <div id="legend">
         <span class="leg"><span class="leg-box" style="background:#fff"></span>exact</span>
@@ -1045,21 +1008,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       </div>
     </div>
 
-    <div id="scan-pane">
-      <div id="scan-toolbar">
-        <button onclick="rotate(-90)">↺</button>
-        <button onclick="rotate(90)">↻</button>
-        <span id="scan-fname">No scan</span>
-      </div>
-      <div id="viewport">
-        <img id="scan-img" style="display:none;">
-      </div>
-    </div>
   </div>
 
   <script>
     const EVENTS = %EVENTS_JSON%;
-    let rotation = 0, filtered = EVENTS, currentIndex = 0;
+    let filtered = EVENTS, currentIndex = 0;
 
     function esc(s) {
       return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -1120,7 +1073,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       const q  = document.getElementById('search').value.toLowerCase();
       const qs = document.getElementById('qc-filter').value;
       filtered = EVENTS.filter(e => {
-        if (q  && !(e.year+' '+e.name).toLowerCase().includes(q)) return false;
+        if (q  && !(e.year+' '+e.name+' '+e.id).toLowerCase().includes(q)) return false;
         if (qs && e.qs !== qs) return false;
         return true;
       });
@@ -1145,6 +1098,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 
       document.getElementById('cmp-title').textContent =
         ev.year + ' ' + ev.name + (ev.q ? '  ⚑ QUARANTINED: ' + ev.q : '');
+      document.getElementById('cmp-eventkey').textContent = ev.id;
 
       const grid = document.getElementById('cmp-grid');
       const rows = ev.rows || [];
@@ -1155,9 +1109,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
       } else {
         const parts = [];
         for (const r of rows) {
-          // Left cell: always plain text
           parts.push(`<div class="cmp-cell left" data-t="${r.t}">${esc(r.l)}</div>`);
-          // Right cell: plain text + optional reason tag
           let right = esc(r.r);
           if (r.reason) {
             right += `<span class="reason-tag ${r.reason}">${r.reason.replace('_',' ')}</span>`;
@@ -1166,26 +1118,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         }
         grid.innerHTML = parts.join('');
       }
-
-      rotation = 0;
-      const img = document.getElementById('scan-img');
-      img.style.transform = 'rotate(0deg)';
-      img.style.margin = '0';
-      document.getElementById('scan-fname').textContent = ev.scan_jpg || 'No scan';
-      if (ev.scan_jpg) {
-        img.src = 'scans/' + ev.scan_jpg;
-        img.style.display = 'block';
-      } else {
-        img.style.display = 'none';
-      }
       document.getElementById('cmp-scroll').scrollTop = 0;
-    }
-
-    function rotate(d) {
-      rotation += d;
-      const img = document.getElementById('scan-img');
-      img.style.transform = `rotate(${rotation}deg)`;
-      img.style.margin = (Math.abs(rotation)/90)%2===1 ? '150px 0' : '0';
     }
 
     document.addEventListener('keydown', e => {
@@ -1207,12 +1140,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 def main():
     print("Loading quarantine…")
     quarantine = load_quarantine()
-    print("Loading scan index…")
-    scan_index = load_scan_index()
     print("Loading Placements_Flat…")
     pf = load_pf()
     print("Building aligned rows…")
-    events = load_events(quarantine, scan_index, pf)
+    events = load_events(quarantine, pf)
 
     total_exact      = sum(e['qc']['exact']             for e in events)
     total_norm       = sum(e['qc']['norm']              for e in events)

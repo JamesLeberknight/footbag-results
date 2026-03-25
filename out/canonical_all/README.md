@@ -1,11 +1,19 @@
-# Footbag Results — Merged Canonical Dataset
+# Footbag Results — Official Merged Canonical Dataset
 
-Unified view of historical footbag competition results combining:
+This is the **official merged canonical dataset** combining historical footbag
+competition results from both the PRE1997 reconstruction and the POST1997 mirror.
 
-- **POST-1997** — primary, production dataset (footbag.org mirror)
-- **PRE-1997** — historical reconstruction from FBW magazine scans, IFAB summaries, OLD_RESULTS.txt
+Suitable for application ingestion, database loading, and downstream tooling.
 
-Datasets are preserved side-by-side for provenance and auditability.
+---
+
+## Coverage
+
+| Source | Years | Events | Disciplines | Result rows |
+|--------|-------|--------|-------------|-------------|
+| PRE-1997 reconstruction | 1980–1996 | 29 | 304 | 741 |
+| POST-1997 mirror | 1997–present | 781 | 3,832 | 26,299 |
+| **Combined** | **1980–present** | **810** | **4,136** | **27,040** |
 
 ---
 
@@ -13,75 +21,101 @@ Datasets are preserved side-by-side for provenance and auditability.
 
 | File | Rows | Description |
 |------|------|-------------|
-| `events_all.csv` | 846 | 32 pre-1997 + 814 post-1997 canonical events |
-| `event_disciplines_all.csv` | 4,344 | 308 pre-1997 + 4,036 post-1997 disciplines |
-| `event_results_all.csv` | 27,416 | 755 pre-1997 + 26,661 post-1997 result rows |
-| `event_result_participants_all.csv` | 35,720 | 1,141 pre-1997 + 34,579 post-1997 participants |
-| `persons_all.csv` | 3,482 | 3,468 post-1997 + 14 PRE1997_ONLY persons |
-
-All files share a `data_source` column: `PRE1997` or `POST1997`.
+| `events.csv` | 810 | All official events |
+| `event_disciplines.csv` | 4,136 | All disciplines |
+| `event_results.csv` | 27,040 | All result rows |
+| `event_result_participants.csv` | 35,189 | All participants |
+| `persons.csv` | 3,482 | All persons |
+| `validation_summary.txt` | — | Build validation report |
 
 ---
 
 ## Schema
 
-### events_all.csv
+### events.csv
 `event_id, event_name, year, event_type, location, start_date, end_date, city, region, country, host_club, status, validation_status, num_placements, source_types, data_source`
 
-### event_disciplines_all.csv
+### event_disciplines.csv
 `event_id, discipline, discipline_name, discipline_category, team_type, sort_order, coverage_flag, total_placements, notes, data_source`
 
-### event_results_all.csv
+### event_results.csv
 `event_id, discipline, discipline_name, placement, player_raw, team_raw, score_text, source_type, data_source, result_row_id`
 
-### event_result_participants_all.csv
+### event_result_participants.csv
 `event_id, discipline, placement, participant_order, display_name, player_name_raw, person_id, team_person_key, resolution_status, data_source`
 
-### persons_all.csv
+### persons.csv
 `person_id, person_canon, source_scope, ifpa_member_id, bap_member, bap_nickname, bap_induction_year, fbhof_member, fbhof_induction_year, first_year, last_year, country, data_source`
+
+---
+
+## Event ID System
+
+All events use a single slug-based identifier:
+
+```
+YYYY_event_city      # e.g. 2003_worlds_prague, 1986_worlds_golden
+YYYY_event           # fallback when city unknown, e.g. 1993_worlds
+```
+
+No legacy numeric IDs appear in this dataset.
+
+---
+
+## Worlds Classification
+
+All 49 world championship events have `event_type = "worlds"`:
+
+| Era | Events | Notes |
+|-----|--------|-------|
+| 1980–1982 | 3 × NHSA (authoritative worlds) + 3 displaced generics | NHSA = `YYYY_worlds`; displaced = `YYYY_worlds_<city>` |
+| 1983 | NHSA + WFA + displaced generic | Dual-worlds year |
+| 1984–1992 | WFA worlds | Golden, CO (1986–1989); unknown city otherwise |
+| 1993–1996 | IFAB worlds | Palo Alto, CA (1994); unknown otherwise |
+| 1997–2025 | Modern worlds | Full location data |
 
 ---
 
 ## Key Concepts
 
-### `data_source` filter
-```sql
--- Modern dataset only
-WHERE data_source = 'POST1997'
+### `data_source` field
+- `PRE1997` — evidence-based reconstruction from FBW magazine scans, IFAB summaries, OLD_RESULTS.txt
+- `POST1997` — footbag.org mirror dataset (authoritative for 1997+)
 
--- Historical reconstruction only
-WHERE data_source = 'PRE1997'
+### PRE1997 takes precedence for year < 1997
 
--- Full combined dataset (no filter)
-```
+For events before 1997, the PRE1997 reconstructed records are authoritative.
+POST1997 legacy stubs for the same real-world championships have been suppressed
+from this official view to avoid duplicate early-year records.
 
-### Persons by scope
-| `source_scope` | Description |
+Suppressed events are retained in `out/canonical_all_union/` for audit purposes.
+
+### `source_scope` in persons.csv
+| Value | Meaning |
 |---|---|
-| `POST1997` | Appears only in modern dataset |
-| `PRE1997_AND_POST1997` | Appears in both datasets |
-| `PRE1997_ONLY` | Historical player, no modern records |
-
-### Dual representation of early events
-For years before 1997, two versions of the same real-world event may exist:
-- **POST1997 legacy stub** — minimal placeholder (e.g., `1980_worlds_oregon_city`)
-- **PRE1997 reconstruction** — rich evidence-based record (e.g., `WORLD_CHAMPIONSHIPS_1980`)
-
-These are **not duplicates to merge** — they represent different fidelity levels.
+| `POST1997` | Person appears only in modern dataset |
+| `PRE1997_AND_POST1997` | Person appears in both datasets |
+| `PRE1997_ONLY` | Historical player with no modern records |
 
 ---
 
-## Data Integrity
+## Provenance-preserving union
 
-Built by `early_data/scripts/12_build_enrichment_and_merged.py`.
-Validation: 0 errors on last run (referential integrity PASS).
+The full union (including suppressed POST1997 early stubs) is in:
+
+`out/canonical_all_union/`
+
+Do not use the union for downstream applications — it contains intentional overlaps.
 
 ---
 
-## Coverage
+## Built by
 
-| Dataset | Years | Events | Disciplines | Placements |
-|---------|-------|--------|-------------|------------|
-| PRE-1997 | 1980–1996 | 32 | 308 | 755 |
-| POST-1997 | 1997–present | 814 | 4,036 | 26,661 |
-| Combined | 1980–present | 846 | 4,344 | 27,416 |
+`tools/build_appsafe_merged.py` — reads from `out/canonical_all_union/` and
+applies the early-overlap filter rule to produce this official dataset.
+
+Rebuild command:
+```bash
+python3 tools/build_appsafe_merged.py
+python3 tools/build_merged_feeds.py
+```

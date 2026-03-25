@@ -4,7 +4,6 @@ event_id,year,division_canon,place,competitor_type,name_display,reason_excluded,
 1739036206,2025,Singles Net,8,player,Ognyan,unmapped_identity,yes
 1739036206,2025,Singles Net,9,player,Alex,unmapped_identity,yes
 1740391168,2025,Open Singles,14,player,Jean,unmapped_identity,yes
-1740419380,2025,Americano Doubles Net,7,player,Jean,unmapped_identity,yes
 1740419380,2025,Open Singles Net,7,player,Jean,unmapped_identity,yes
 1741024635,2025,2-Square,10,player,Cyril,unmapped_identity,yes
 1741024635,2025,Footbag Golf,17,player,Pauline,unmapped_identity,yes
@@ -1155,9 +1154,6 @@ event_id,year,division_canon,place,competitor_type,name_display,reason_excluded,
 876591529,1998,Women's Intermediate Singles Footbag Net,3,player,Marie,unmapped_identity,yes
 883135865,1998,Intermediate Singles Net,1,player,Pierre,unmapped_identity,yes
 884112176,1998,Open Freestyle,1,player,"""Nato""",unmapped_identity,yes
-886044392,1998,Open Doubles Golf,1,player,Jim Fitzgerald (OR) Adam Hutchinson,unmapped_identity,yes
-886044392,1998,Open Doubles Golf,2,player,Scott Milne (BC) Chard Cook,unmapped_identity,yes
-886044392,1998,Open Doubles Golf,3,player,Jon Hayduk (BC) Sean Flynn,unmapped_identity,yes
 892446131,1998,Novice,1,player,Heather Van Hoesen,unmapped_identity,yes
 892446131,1998,Unknown,2,player,Annual Mountain Dew's,unmapped_identity,yes
 899077904,1998,Intermediate Footbag Golf,3,player,Dan,unmapped_identity,yes

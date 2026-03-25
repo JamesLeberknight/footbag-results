@@ -30,8 +30,8 @@ player_id,name_raw,name_clean,person_id,person_canon,issue_type,appearances,evid
 ,,,eed84f3b-135b-5604-b3ab-954258ad3ba5,Tre L.,not_presentable,1,not_presentable_strict,fix name or add alias
 ,,,cafcd1b7-1e6c-54a2-befb-09e51f1f9813,Forra,not_presentable,0,not_presentable_strict,fix name or add alias
 ,,,b7d34e83-8e42-5007-8c3a-0fab964e1160,Rorz,not_presentable,0,not_presentable_strict,fix name or add alias
-,__NON_PERSON__,__NON_PERSON__,,,unmapped_player_id,8250,no alias in person_aliases.csv,add alias
-,Jean,Jean,,,unmapped_player_id,42,no alias in person_aliases.csv,add alias
+,__NON_PERSON__,__NON_PERSON__,,,unmapped_player_id,8273,no alias in person_aliases.csv,add alias
+,Jean,Jean,,,unmapped_player_id,41,no alias in person_aliases.csv,add alias
 ,Jakub Mosciszewski,Jakub Mosciszewski,,,unmapped_player_id,20,no alias in person_aliases.csv,add alias
 ,Filip Wojcik,Filip Wojcik,,,unmapped_player_id,19,no alias in person_aliases.csv,add alias
 ,Krzysztof Sobótka,Krzysztof Sobótka,,,unmapped_player_id,18,no alias in person_aliases.csv,add alias
@@ -431,7 +431,6 @@ player_id,name_raw,name_clean,person_id,person_canon,issue_type,appearances,evid
 ,Jim Cobb (Seattle,Jim Cobb (Seattle,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Jim Derricott,Jim Derricott,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Jim Derricott (Vancouver,Jim Derricott (Vancouver,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
-,Jim Fitzgerald (OR) Adam Hutchinson,Jim Fitzgerald (OR) Adam Hutchinson,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,"Jim McCoppin, VA","Jim McCoppin, VA",,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Jim Pomey (Cary,Jim Pomey (Cary,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Jir,Jir,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
@@ -439,7 +438,6 @@ player_id,name_raw,name_clean,person_id,person_canon,issue_type,appearances,evid
 ,Jody Welch (Mountain View,Jody Welch (Mountain View,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Johannes Korff,Johannes Korff,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Johnny Sarah,Johnny Sarah,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
-,Jon Hayduk (BC) Sean Flynn,Jon Hayduk (BC) Sean Flynn,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Jonas Thull,Jonas Thull,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Jonathan Schei�der,Jonathan Schei�der,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Jonathan Schneider (Boulder,Jonathan Schneider (Boulder,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
@@ -674,7 +672,6 @@ player_id,name_raw,name_clean,person_id,person_canon,issue_type,appearances,evid
 ,Schmidt,Schmidt,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Scott Ellenberger,Scott Ellenberger,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Scott K,Scott K,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
-,Scott Milne (BC) Chard Cook,Scott Milne (BC) Chard Cook,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Scott Milne (Vancouver,Scott Milne (Vancouver,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Scott Woodward,Scott Woodward,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)
 ,Seb,Seb,,,unmapped_player_id,1,no alias in person_aliases.csv,accept as unresolved (single appearance)

@@ -1,488 +1,309 @@
 event_id,discipline,discipline_name,discipline_category,team_type,sort_order,coverage_flag,total_placements,notes,data_source
-00659874b9,Doubles Net,Doubles Net,,,,,3,,PRE1997
-00659874b9,Golf,Golf,,,,,3,,PRE1997
-00659874b9,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-00659874b9,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-00659874b9,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-00659874b9,Open Golf,Open Golf,,,,,3,,PRE1997
-00659874b9,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
-00659874b9,Open Sgls Freestyle,Open Sgls Freestyle,,,,,1,,PRE1997
-00659874b9,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-00659874b9,Open Team Freestyle,Open Team Freestyle,,,,,2,,PRE1997
-00659874b9,Singles,Singles,,,,,3,,PRE1997
-00659874b9,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997
-00659874b9,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
-00659874b9,Singles Net,Singles Net,,,,,3,,PRE1997
-00659874b9,Team,Team,,,,,3,,PRE1997
-00659874b9,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
-00659874b9,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-00659874b9,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
-00659874b9,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-00659874b9,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
-069f7909e7,Open Dbls Consecutive,Open Dbls Consecutive,,,,,1,,PRE1997
-069f7909e7,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-069f7909e7,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
-069f7909e7,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-069f7909e7,Women's Dbls Net,Women's Dbls Net,,,,,1,,PRE1997
-069f7909e7,Women's Sgls Net,Women's Sgls Net,,,,,1,,PRE1997
-07e711d92a,Men's Overall,Men's Overall,,,,,1,,PRE1997
-07e711d92a,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-07e711d92a,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-07e711d92a,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-07e711d92a,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-07e711d92a,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-07e711d92a,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-07e711d92a,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-07e711d92a,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-07e711d92a,Women's Overall,Women's Overall,,,,,1,,PRE1997
-07e711d92a,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-0a43031545,Open Singles,Open Singles,,,,,1,,PRE1997
-0e1499ab21,Men's Overall,Men's Overall,,,,,1,,PRE1997
-0e1499ab21,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-0e1499ab21,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-0e1499ab21,Open Golf,Open Golf,,,,,3,,PRE1997
-0e1499ab21,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
-0e1499ab21,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-0e1499ab21,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-0e1499ab21,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-0e1499ab21,Singles,Singles,,,,,3,,PRE1997
-0e1499ab21,Team,Team,,,,,3,,PRE1997
-0e1499ab21,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-0e1499ab21,Women's Overall,Women's Overall,,,,,1,,PRE1997
-0e1499ab21,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-0e1499ab21,Women's Team Freestyle,Women's Team Freestyle,,,,,3,,PRE1997
-d272be24f7,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
-d272be24f7,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-15782bd1d5,Men's Overall,Men's Overall,,,,,1,,PRE1997
-15782bd1d5,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-15782bd1d5,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-15782bd1d5,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-15782bd1d5,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-15782bd1d5,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-15782bd1d5,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-15782bd1d5,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-15782bd1d5,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-15782bd1d5,Women's Overall,Women's Overall,,,,,1,,PRE1997
-15782bd1d5,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-1c74083104,Men's Overall,Men's Overall,,,,,1,,PRE1997
-1c74083104,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-1c74083104,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-1c74083104,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-1c74083104,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-1c74083104,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-1c74083104,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-1c74083104,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-1c74083104,Singles,Singles,,,,,3,,PRE1997
-1c74083104,Team,Team,,,,,3,,PRE1997
-1c74083104,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-1c74083104,Women's Overall,Women's Overall,,,,,1,,PRE1997
-1c74083104,Women's Sgls Freestyle,Women's Sgls Freestyle,,,,,1,,PRE1997
-1c74083104,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-1c74083104,Women's Team Freestyle,Women's Team Freestyle,,,,,2,,PRE1997
-1e36e7ca92,,,,,,,3,,PRE1997
-1e36e7ca92,Doubles Net,Doubles Net,,,,,3,,PRE1997
-1e36e7ca92,Freestyle,Freestyle,,,,,3,,PRE1997
-1e36e7ca92,Golf,Golf,,,,,3,,PRE1997
-1e36e7ca92,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
-1e36e7ca92,Intermediate Freestyle,Intermediate Freestyle,,,,,1,,PRE1997
-1e36e7ca92,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
-1e36e7ca92,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-1e36e7ca92,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-1e36e7ca92,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-1e36e7ca92,Open Golf,Open Golf,,,,,3,,PRE1997
-1e36e7ca92,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-1e36e7ca92,Open Sgls Freestyle,Open Sgls Freestyle,,,,,1,,PRE1997
-1e36e7ca92,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-1e36e7ca92,Open Team Freestyle,Open Team Freestyle,,,,,1,,PRE1997
-1e36e7ca92,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
-1e36e7ca92,Singles Net,Singles Net,,,,,3,,PRE1997
-1e36e7ca92,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-1e36e7ca92,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
-1e36e7ca92,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-1e36e7ca92,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
-1faddf6c05,Men's Overall,Men's Overall,,,,,1,,PRE1997
-1faddf6c05,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-1faddf6c05,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-1faddf6c05,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-1faddf6c05,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-1faddf6c05,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-1faddf6c05,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-1faddf6c05,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-1faddf6c05,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-1faddf6c05,Women's Overall,Women's Overall,,,,,1,,PRE1997
-1faddf6c05,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-334c632f6e,Men's Overall,Men's Overall,,,,,1,,PRE1997
-334c632f6e,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-334c632f6e,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-334c632f6e,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-334c632f6e,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-334c632f6e,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-334c632f6e,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-334c632f6e,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-334c632f6e,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-334c632f6e,Women's Overall,Women's Overall,,,,,1,,PRE1997
-334c632f6e,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-5c386b7dea,Open Singles,Open Singles,,,,,1,,PRE1997
-6cd9e5b635,Advanced Doubles Net,Advanced Doubles Net,,,,,3,,PRE1997
-6cd9e5b635,Advanced Singles Net,Advanced Singles Net,,,,,3,,PRE1997
-6cd9e5b635,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,3,,PRE1997
-6cd9e5b635,Doubles One-Pass Consecutive Kicks,Doubles One-Pass Consecutive Kicks,,,,,3,,PRE1997
-6cd9e5b635,Golf,Golf,,,,,3,,PRE1997
-6cd9e5b635,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
-6cd9e5b635,Intermediate Freestyle,Intermediate Freestyle,,,,,1,,PRE1997
-6cd9e5b635,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
-6cd9e5b635,Men's Overall,Men's Overall,,,,,1,,PRE1997
-6cd9e5b635,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-6cd9e5b635,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
-6cd9e5b635,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
-6cd9e5b635,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
-6cd9e5b635,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
-6cd9e5b635,Ultra Doubles Net,Ultra Doubles Net,,,,,3,,PRE1997
-6cd9e5b635,Ultra Singles Net,Ultra Singles Net,,,,,3,,PRE1997
-6cd9e5b635,Women's Doubles Consecutive Kicks,Women's Doubles Consecutive Kicks,,,,,2,,PRE1997
-6cd9e5b635,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
-6cd9e5b635,Women's Doubles One-Pass Consecutive Kicks,Women's Doubles One-Pass Consecutive Kicks,,,,,2,,PRE1997
-6cd9e5b635,Women's Freestyle,Women's Freestyle,,,,,3,,PRE1997
-6cd9e5b635,Women's Golf,Women's Golf,,,,,3,,PRE1997
-6cd9e5b635,Women's Overall,Women's Overall,,,,,1,,PRE1997
-6cd9e5b635,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,3,,PRE1997
-6cd9e5b635,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
-6cd9e5b635,Women's Ultra Singles Net,Women's Ultra Singles Net,,,,,3,,PRE1997
-334c632f6e,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-6dc440629d,Men's Overall,Men's Overall,,,,,1,,PRE1997
-6dc440629d,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-6dc440629d,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-6dc440629d,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-6dc440629d,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-6dc440629d,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-6dc440629d,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-6dc440629d,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-6dc440629d,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-6dc440629d,Women's Overall,Women's Overall,,,,,1,,PRE1997
-6dc440629d,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-76340820ba,Men's Overall,Men's Overall,,,,,1,,PRE1997
-76340820ba,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-76340820ba,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-76340820ba,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-76340820ba,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-76340820ba,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-76340820ba,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-76340820ba,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-76340820ba,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-76340820ba,Women's Overall,Women's Overall,,,,,1,,PRE1997
-76340820ba,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-76498d51d2,Doubles Net,Doubles Net,,,,,3,,PRE1997
-76498d51d2,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
-76498d51d2,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
-76498d51d2,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-76498d51d2,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-76498d51d2,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-76498d51d2,Open Golf,Open Golf,,,,,3,,PRE1997
-76498d51d2,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
-76498d51d2,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-76498d51d2,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-76498d51d2,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-76498d51d2,Singles,Singles,,,,,3,,PRE1997
-76498d51d2,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
-76498d51d2,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
-76498d51d2,Singles Net,Singles Net,,,,,3,,PRE1997
-76498d51d2,Team,Team,,,,,3,,PRE1997
-76498d51d2,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
-76498d51d2,Women's Consecutive Kicks,Women's Consecutive Kicks,,,,,3,,PRE1997
-76498d51d2,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
-76498d51d2,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
-76ff377548,Open Doubles Net,Open Doubles Net,,,,,1,,PRE1997
-76ff377548,Open Singles Net,Open Singles Net,,,,,2,,PRE1997
-77aa0f8390,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-7f20a87202,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-8396ba09ac,Open Singles,Open Singles,,,,,2,,PRE1997
-8667de3590,Men's Overall,Men's Overall,,,,,1,,PRE1997
-8667de3590,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-8667de3590,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-8667de3590,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-8667de3590,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-8667de3590,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-8667de3590,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-8667de3590,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-8667de3590,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-8667de3590,Women's Overall,Women's Overall,,,,,1,,PRE1997
-8667de3590,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-88ab188635,Advanced Doubles Net,Advanced Doubles Net,,,,,3,,PRE1997
-88ab188635,Advanced Singles Net,Advanced Singles Net,,,,,3,,PRE1997
-88ab188635,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,3,,PRE1997
-88ab188635,Doubles One-Pass Consecutive Kicks,Doubles One-Pass Consecutive Kicks,,,,,3,,PRE1997
-88ab188635,Golf,Golf,,,,,3,,PRE1997
-88ab188635,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
-88ab188635,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
-88ab188635,Men's Overall,Men's Overall,,,,,3,,PRE1997
-88ab188635,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-88ab188635,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
-88ab188635,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-88ab188635,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
-88ab188635,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
-88ab188635,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
-88ab188635,Ultra Doubles Net,Ultra Doubles Net,,,,,3,,PRE1997
-88ab188635,Ultra Singles Net,Ultra Singles Net,,,,,3,,PRE1997
-88ab188635,Women's Doubles Consecutive Kicks,Women's Doubles Consecutive Kicks,,,,,3,,PRE1997
-88ab188635,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
-88ab188635,Women's Doubles One-Pass Consecutive Kicks,Women's Doubles One-Pass Consecutive Kicks,,,,,3,,PRE1997
-88ab188635,Women's Freestyle,Women's Freestyle,,,,,3,,PRE1997
-88ab188635,Women's Golf,Women's Golf,,,,,3,,PRE1997
-88ab188635,Women's Overall,Women's Overall,,,,,3,,PRE1997
-88ab188635,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,3,,PRE1997
-88ab188635,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
-8667de3590,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
-8667de3590,Open Singles Net,Open Singles Net,,,,,2,,PRE1997
-b9d35c4646,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-af9e865ed5,Open Singles,Open Singles,,,,,2,,PRE1997
-b4b6a194e2,Men's Overall,Men's Overall,,,,,1,,PRE1997
-b4b6a194e2,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-b4b6a194e2,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-b4b6a194e2,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-b4b6a194e2,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-b4b6a194e2,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-b4b6a194e2,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-b4b6a194e2,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-b4b6a194e2,Singles,Singles,,,,,3,,PRE1997
-b4b6a194e2,Team,Team,,,,,3,,PRE1997
-b4b6a194e2,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-b4b6a194e2,Women's Overall,Women's Overall,,,,,1,,PRE1997
-b4b6a194e2,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-b4b6a194e2,Women's Team Freestyle,Women's Team Freestyle,,,,,2,,PRE1997
-b9540daaab,Doubles Net,Doubles Net,,,,,3,,PRE1997
-b9540daaab,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
-b9540daaab,Intermediate Singles Consecutive Kicks,Intermediate Singles Consecutive Kicks,,,,,1,,PRE1997
-b9540daaab,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
-b9540daaab,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997
-b9540daaab,Singles Net,Singles Net,,,,,3,,PRE1997
-b9540daaab,Team Consecutive Kicks,Team Consecutive Kicks,,,,,1,,PRE1997
-b9540daaab,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
-b9540daaab,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,1,,PRE1997
-b9d35c4646,Men's Overall,Men's Overall,,,,,1,,PRE1997
-b9d35c4646,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-b9d35c4646,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-b9d35c4646,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-b9d35c4646,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-b9d35c4646,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-b9d35c4646,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-b9d35c4646,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-b9d35c4646,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-b9d35c4646,Women's Overall,Women's Overall,,,,,1,,PRE1997
-b9d35c4646,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-bb975bff1d,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,1,,PRE1997
-bb975bff1d,Doubles Net,Doubles Net,,,,,3,,PRE1997
-bb975bff1d,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997
-bb975bff1d,Singles Net,Singles Net,,,,,3,,PRE1997
-bc88796233,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-bc88796233,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
-bc88796233,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-bc88796233,Open Team Consecutive,Open Team Consecutive,,,,,1,,PRE1997
-bc88796233,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-bc88796233,Women's Sgls Consecutive,Women's Sgls Consecutive,,,,,1,,PRE1997
-bc88796233,Women's Sgls Net,Women's Sgls Net,,,,,1,,PRE1997
-d272be24f7,Men's Overall,Men's Overall,,,,,1,,PRE1997
-d272be24f7,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-d272be24f7,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-d272be24f7,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-d272be24f7,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-d272be24f7,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-d272be24f7,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-d272be24f7,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-d272be24f7,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-d272be24f7,Women's Overall,Women's Overall,,,,,1,,PRE1997
-d272be24f7,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-b4b6a194e2,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
-b4b6a194e2,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-e04899bee1,Men's Overall,Men's Overall,,,,,1,,PRE1997
-e04899bee1,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
-e04899bee1,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
-e04899bee1,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
-e04899bee1,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
-e04899bee1,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
-e04899bee1,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
-e04899bee1,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-e04899bee1,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
-e04899bee1,Women's Overall,Women's Overall,,,,,1,,PRE1997
-e04899bee1,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
-e41e20722d,Open Doubles,Open Doubles,,,,,1,,PRE1997
-e753e2a15c,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
-f771c4ef26,Open Singles,Open Singles,,,,,1,,PRE1997
-1980_worlds_oregon_city,open_doubles,Open Doubles,net,doubles,1,complete,1,,POST1997
-1980_worlds_oregon_city,open_singles,Open Singles,net,singles,2,complete,1,,POST1997
-1980_worlds_memphis,advanced_doubles,Advanced Doubles,net,doubles,1,complete,1,,POST1997
-1980_worlds_memphis,advanced_singles,Advanced Singles,net,singles,2,complete,1,,POST1997
-1980_worlds_memphis,freestyle,Freestyle,freestyle,singles,3,complete,3,,POST1997
-1980_worlds_memphis,mixed_doubles,Mixed Doubles,net,doubles,4,complete,1,,POST1997
-1980_worlds_memphis,open_doubles,Open Doubles,net,doubles,5,complete,1,,POST1997
-1980_worlds_memphis,open_singles,Open Singles,freestyle,singles,6,complete,1,,POST1997
-1980_worlds_memphis,womens_doubles,Women's Doubles,net,doubles,7,complete,1,,POST1997
-1980_worlds_memphis,womens_singles,Women's Singles,net,singles,8,complete,1,,POST1997
+1983_worlds_wfa,Doubles Net,Doubles Net,,,,,3,,PRE1997
+1983_worlds_wfa,Golf,Golf,,,,,3,,PRE1997
+1983_worlds_wfa,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
+1983_worlds_wfa,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1983_worlds_wfa,Open Golf,Open Golf,,,,,3,,PRE1997
+1983_worlds_wfa,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
+1983_worlds_wfa,Open Sgls Freestyle,Open Sgls Freestyle,,,,,1,,PRE1997
+1983_worlds_wfa,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,,,,,2,,PRE1997
+1983_worlds_wfa,Singles,Singles,,,,,3,,PRE1997
+1983_worlds_wfa,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997
+1983_worlds_wfa,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
+1983_worlds_wfa,Singles Net,Singles Net,,,,,3,,PRE1997
+1983_worlds_wfa,Team,Team,,,,,3,,PRE1997
+1983_worlds_wfa,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
+1983_worlds_wfa,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
+1983_worlds_wfa,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1983_worlds_wfa,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
+1992_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1992_worlds,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1992_worlds,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1992_worlds,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1992_worlds,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1992_worlds,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1992_worlds,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1992_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1992_worlds,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1992_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1992_worlds,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1983_oregon_state,Open Singles,Open Singles,,,,,1,,PRE1997
+1984_wfa_nationals,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1984_wfa_nationals,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1984_wfa_nationals,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1984_wfa_nationals,Open Golf,Open Golf,,,,,3,,PRE1997
+1984_wfa_nationals,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
+1984_wfa_nationals,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1984_wfa_nationals,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1984_wfa_nationals,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1984_wfa_nationals,Singles,Singles,,,,,3,,PRE1997
+1984_wfa_nationals,Team,Team,,,,,3,,PRE1997
+1984_wfa_nationals,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1984_wfa_nationals,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1984_wfa_nationals,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1984_wfa_nationals,Women's Team Freestyle,Women's Team Freestyle,,,,,3,,PRE1997
+1988_worlds_golden,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
+1988_worlds_golden,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1990_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1990_worlds,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1990_worlds,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1990_worlds,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1990_worlds,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1990_worlds,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1990_worlds,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1990_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1990_worlds,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1990_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1990_worlds,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1985_wfa_nationals,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1985_wfa_nationals,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1985_wfa_nationals,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1985_wfa_nationals,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1985_wfa_nationals,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1985_wfa_nationals,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1985_wfa_nationals,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1985_wfa_nationals,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1985_wfa_nationals,Singles,Singles,,,,,3,,PRE1997
+1985_wfa_nationals,Team,Team,,,,,3,,PRE1997
+1985_wfa_nationals,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1985_wfa_nationals,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1985_wfa_nationals,Women's Sgls Freestyle,Women's Sgls Freestyle,,,,,1,,PRE1997
+1985_wfa_nationals,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1985_wfa_nationals,Women's Team Freestyle,Women's Team Freestyle,,,,,2,,PRE1997
+1982_worlds,,,,,,,3,,PRE1997
+1982_worlds,Doubles Net,Doubles Net,,,,,3,,PRE1997
+1982_worlds,Freestyle,Freestyle,,,,,3,,PRE1997
+1982_worlds,Golf,Golf,,,,,3,,PRE1997
+1982_worlds,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
+1982_worlds,Intermediate Freestyle,Intermediate Freestyle,,,,,1,,PRE1997
+1982_worlds,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
+1982_worlds,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1982_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
+1982_worlds,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1982_worlds,Open Golf,Open Golf,,,,,3,,PRE1997
+1982_worlds,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1982_worlds,Open Sgls Freestyle,Open Sgls Freestyle,,,,,1,,PRE1997
+1982_worlds,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1982_worlds,Open Team Freestyle,Open Team Freestyle,,,,,1,,PRE1997
+1982_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
+1982_worlds,Singles Net,Singles Net,,,,,3,,PRE1997
+1982_worlds,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1982_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
+1982_worlds,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1982_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
+1995_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1995_worlds,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1995_worlds,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1995_worlds,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1995_worlds,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1995_worlds,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1995_worlds,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1995_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1995_worlds,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1995_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1995_worlds,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1989_worlds_golden,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1989_worlds_golden,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1989_worlds_golden,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1989_worlds_golden,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1989_worlds_golden,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1989_worlds_golden,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1989_worlds_golden,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1989_worlds_golden,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1989_worlds_golden,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1989_worlds_golden,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1984_worlds,Advanced Doubles Net,Advanced Doubles Net,,,,,3,,PRE1997
+1984_worlds,Advanced Singles Net,Advanced Singles Net,,,,,3,,PRE1997
+1984_worlds,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,3,,PRE1997
+1984_worlds,Doubles One-Pass Consecutive Kicks,Doubles One-Pass Consecutive Kicks,,,,,3,,PRE1997
+1984_worlds,Golf,Golf,,,,,3,,PRE1997
+1984_worlds,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
+1984_worlds,Intermediate Freestyle,Intermediate Freestyle,,,,,1,,PRE1997
+1984_worlds,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
+1984_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1984_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
+1984_worlds,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
+1984_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
+1984_worlds,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
+1984_worlds,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
+1984_worlds,Ultra Doubles Net,Ultra Doubles Net,,,,,3,,PRE1997
+1984_worlds,Ultra Singles Net,Ultra Singles Net,,,,,3,,PRE1997
+1984_worlds,Women's Doubles Consecutive Kicks,Women's Doubles Consecutive Kicks,,,,,2,,PRE1997
+1984_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
+1984_worlds,Women's Doubles One-Pass Consecutive Kicks,Women's Doubles One-Pass Consecutive Kicks,,,,,2,,PRE1997
+1984_worlds,Women's Freestyle,Women's Freestyle,,,,,3,,PRE1997
+1984_worlds,Women's Golf,Women's Golf,,,,,3,,PRE1997
+1984_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1984_worlds,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,3,,PRE1997
+1984_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
+1984_worlds,Women's Ultra Singles Net,Women's Ultra Singles Net,,,,,3,,PRE1997
+1989_worlds_golden,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1996_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1996_worlds,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1996_worlds,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1996_worlds,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1996_worlds,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1996_worlds,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1996_worlds,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1996_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1996_worlds,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1996_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1996_worlds,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1991_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1991_worlds,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1991_worlds,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1991_worlds,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1991_worlds,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1991_worlds,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1991_worlds,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1991_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1991_worlds,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1991_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1991_worlds,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Doubles Net,Doubles Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
+1983_worlds_nhsa,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
+1983_worlds_nhsa,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Open Golf,Open Golf,,,,,3,,PRE1997
+1983_worlds_nhsa,Open Sgls Consecutive,Open Sgls Consecutive,,,,,1,,PRE1997
+1983_worlds_nhsa,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1983_worlds_nhsa,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1983_worlds_nhsa,Singles,Singles,,,,,3,,PRE1997
+1983_worlds_nhsa,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
+1983_worlds_nhsa,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
+1983_worlds_nhsa,Singles Net,Singles Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Team,Team,,,,,3,,PRE1997
+1983_worlds_nhsa,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
+1983_worlds_nhsa,Women's Consecutive Kicks,Women's Consecutive Kicks,,,,,3,,PRE1997
+1983_worlds_nhsa,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
+1983_worlds_nhsa,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
+1983_worlds_portland,Open Doubles Net,Open Doubles Net,,,,,1,,PRE1997
+1983_worlds_portland,Open Singles Net,Open Singles Net,,,,,2,,PRE1997
+1984_euro_champs,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1988_us_nationals,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1980_worlds_clackamas,Open Singles,Open Singles,,,,,2,,PRE1997
+1987_worlds_golden,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1987_worlds_golden,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1987_worlds_golden,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1987_worlds_golden,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1987_worlds_golden,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1987_worlds_golden,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1987_worlds_golden,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1987_worlds_golden,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1987_worlds_golden,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1987_worlds_golden,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1985_worlds,Advanced Doubles Net,Advanced Doubles Net,,,,,3,,PRE1997
+1985_worlds,Advanced Singles Net,Advanced Singles Net,,,,,3,,PRE1997
+1985_worlds,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,3,,PRE1997
+1985_worlds,Doubles One-Pass Consecutive Kicks,Doubles One-Pass Consecutive Kicks,,,,,3,,PRE1997
+1985_worlds,Golf,Golf,,,,,3,,PRE1997
+1985_worlds,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
+1985_worlds,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
+1985_worlds,Men's Overall,Men's Overall,,,,,3,,PRE1997
+1985_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
+1985_worlds,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
+1985_worlds,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1985_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
+1985_worlds,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
+1985_worlds,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
+1985_worlds,Ultra Doubles Net,Ultra Doubles Net,,,,,3,,PRE1997
+1985_worlds,Ultra Singles Net,Ultra Singles Net,,,,,3,,PRE1997
+1985_worlds,Women's Doubles Consecutive Kicks,Women's Doubles Consecutive Kicks,,,,,3,,PRE1997
+1985_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
+1985_worlds,Women's Doubles One-Pass Consecutive Kicks,Women's Doubles One-Pass Consecutive Kicks,,,,,3,,PRE1997
+1985_worlds,Women's Freestyle,Women's Freestyle,,,,,3,,PRE1997
+1985_worlds,Women's Golf,Women's Golf,,,,,3,,PRE1997
+1985_worlds,Women's Overall,Women's Overall,,,,,3,,PRE1997
+1985_worlds,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,3,,PRE1997
+1985_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
+1987_worlds_golden,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
+1987_worlds_golden,Open Singles Net,Open Singles Net,,,,,2,,PRE1997
+1994_worlds_palo_alto,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1981_worlds_portland,Open Singles,Open Singles,,,,,2,,PRE1997
+1986_worlds_golden,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1986_worlds_golden,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1986_worlds_golden,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1986_worlds_golden,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1986_worlds_golden,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1986_worlds_golden,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1986_worlds_golden,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1986_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1986_worlds_golden,Singles,Singles,,,,,3,,PRE1997
+1986_worlds_golden,Team,Team,,,,,3,,PRE1997
+1986_worlds_golden,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1986_worlds_golden,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1986_worlds_golden,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1986_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,,,,,2,,PRE1997
+1981_worlds,Doubles Net,Doubles Net,,,,,3,,PRE1997
+1981_worlds,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
+1981_worlds,Intermediate Singles Consecutive Kicks,Intermediate Singles Consecutive Kicks,,,,,1,,PRE1997
+1981_worlds,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
+1981_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997
+1981_worlds,Singles Net,Singles Net,,,,,3,,PRE1997
+1981_worlds,Team Consecutive Kicks,Team Consecutive Kicks,,,,,1,,PRE1997
+1981_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
+1981_worlds,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,1,,PRE1997
+1994_worlds_palo_alto,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1994_worlds_palo_alto,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1994_worlds_palo_alto,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1994_worlds_palo_alto,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1994_worlds_palo_alto,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1994_worlds_palo_alto,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1994_worlds_palo_alto,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1994_worlds_palo_alto,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1994_worlds_palo_alto,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1994_worlds_palo_alto,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1980_worlds,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,1,,PRE1997
+1980_worlds,Doubles Net,Doubles Net,,,,,3,,PRE1997
+1980_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997
+1980_worlds,Singles Net,Singles Net,,,,,3,,PRE1997
+1988_worlds_golden,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1988_worlds_golden,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1988_worlds_golden,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1988_worlds_golden,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1988_worlds_golden,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1988_worlds_golden,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1988_worlds_golden,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1988_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1988_worlds_golden,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1988_worlds_golden,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1988_worlds_golden,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1986_worlds_golden,Open Freestyle,Open Freestyle,,,,,1,,PRE1997
+1986_worlds_golden,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1993_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997
+1993_worlds,Mixed Dbls Net,Mixed Dbls Net,,,,,3,,PRE1997
+1993_worlds,Open Dbls Consecutive,Open Dbls Consecutive,,,,,3,,PRE1997
+1993_worlds,Open Dbls Net,Open Dbls Net,,,,,3,,PRE1997
+1993_worlds,Open Sgls Consecutive,Open Sgls Consecutive,,,,,3,,PRE1997
+1993_worlds,Open Sgls Freestyle,Open Sgls Freestyle,,,,,3,,PRE1997
+1993_worlds,Open Sgls Net,Open Sgls Net,,,,,3,,PRE1997
+1993_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
+1993_worlds,Women's Dbls Net,Women's Dbls Net,,,,,3,,PRE1997
+1993_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997
+1993_worlds,Women's Sgls Net,Women's Sgls Net,,,,,3,,PRE1997
+1982_western_regionals,Open Doubles,Open Doubles,,,,,1,,PRE1997
+1987_euro_champs,Open Singles Net,Open Singles Net,,,,,1,,PRE1997
+1982_worlds_portland,Open Singles,Open Singles,,,,,1,,PRE1997
 1980_western_states,freestyle,Freestyle,freestyle,singles,1,complete,3,,POST1997
 1980_western_states,open_doubles_net,Open Doubles Net,net,doubles,2,complete,3,,POST1997
 1980_western_states,open_singles_net,Open Singles Net,net,singles,3,complete,3,,POST1997
 1980_western_states,womens_singles,Women's Singles,freestyle,singles,4,complete,3,,POST1997
-1980_worlds_oregon_city_2,advanced_doubles,Advanced Doubles,freestyle,doubles,1,complete,1,,POST1997
-1980_worlds_oregon_city_2,advanced_singles,Advanced Singles,freestyle,singles,2,complete,1,,POST1997
-1980_worlds_oregon_city_2,doubles_consecutive_kicks,Doubles Consecutive Kicks,sideline,doubles,3,partial,1,,POST1997
-1980_worlds_oregon_city_2,doubles_net,Doubles Net,net,doubles,4,partial,3,,POST1997
-1980_worlds_oregon_city_2,freestyle,Freestyle,freestyle,singles,5,complete,3,,POST1997
-1980_worlds_oregon_city_2,mixed_doubles,Mixed Doubles,freestyle,doubles,6,complete,1,,POST1997
-1980_worlds_oregon_city_2,open_doubles,Open Doubles,freestyle,doubles,7,complete,1,,POST1997
-1980_worlds_oregon_city_2,singles_consecutive_kicks,Singles Consecutive Kicks,sideline,singles,8,partial,1,,POST1997
-1980_worlds_oregon_city_2,singles_net,Singles Net,net,singles,9,partial,3,,POST1997
-1980_worlds_oregon_city_2,womens_doubles,Women's Doubles,freestyle,doubles,10,complete,1,,POST1997
-1980_worlds_oregon_city_2,womens_singles,Women's Singles,freestyle,singles,11,complete,1,,POST1997
-1980_worlds_memphis_2,freestyle,Freestyle,freestyle,singles,1,complete,3,,POST1997
-1980_worlds_memphis_2,mixed_doubles,Mixed Doubles,freestyle,doubles,2,complete,1,,POST1997
-1980_worlds_memphis_2,open_doubles_net,Open Doubles Net,net,doubles,3,complete,3,,POST1997
-1980_worlds_memphis_2,open_singles_net,Open Singles Net,net,singles,4,complete,3,,POST1997
-1980_worlds_memphis_2,womens_singles,Women's Singles,freestyle,singles,5,complete,1,,POST1997
-1981_worlds_rohnert_park,advanced_doubles,Advanced Doubles,net,doubles,1,complete,1,,POST1997
-1981_worlds_rohnert_park,advanced_singles,Advanced Singles,net,singles,2,complete,1,,POST1997
-1981_worlds_rohnert_park,intermediate_singles,Intermediate Singles,net,singles,3,complete,1,,POST1997
-1981_worlds_rohnert_park,novice_singles,Novice Singles,net,singles,4,complete,1,,POST1997
-1981_worlds_rohnert_park,open_doubles,Open Doubles,net,doubles,5,complete,1,,POST1997
-1981_worlds_rohnert_park,singles_consecutive,Singles Consecutive,sideline,singles,6,complete,1,,POST1997
-1981_worlds_rohnert_park,team_freestyle,Team Freestyle,freestyle,doubles,7,complete,1,,POST1997
-1981_worlds_rohnert_park,womens_consecutive,Women's Consecutive,sideline,singles,8,complete,1,,POST1997
-1981_worlds_rohnert_park,womens_singles,Women's Singles,net,singles,9,complete,1,,POST1997
 1981_worlds_portland,freestyle_singles,Freestyle Singles,freestyle,singles,1,complete,1,,POST1997
 1981_worlds_portland,open_doubles,Open Doubles,net,doubles,2,complete,1,,POST1997
 1981_worlds_portland,open_singles,Open Singles,net,singles,3,complete,1,,POST1997
 1981_worlds_portland,womens_singles,Women's Singles,net,singles,4,complete,1,,POST1997
 1981_texas_state,open_singles_net,Open Singles Net,net,singles,1,complete,2,,POST1997
-1981_worlds_oregon_city,advanced_doubles,Advanced Doubles,freestyle,doubles,1,complete,1,,POST1997
-1981_worlds_oregon_city,advanced_singles,Advanced Singles,freestyle,singles,2,complete,1,,POST1997
-1981_worlds_oregon_city,doubles_net,Doubles Net,net,doubles,3,partial,3,,POST1997
-1981_worlds_oregon_city,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,4,partial,1,,POST1997
-1981_worlds_oregon_city,intermediate_singles_consecutive_kicks,Intermediate Singles Consecutive Kicks,sideline,singles,5,partial,1,,POST1997
-1981_worlds_oregon_city,intermediate_singles_net,Intermediate Singles Net,net,singles,6,complete,1,,POST1997
-1981_worlds_oregon_city,novice_singles,Novice Singles,freestyle,singles,7,complete,1,,POST1997
-1981_worlds_oregon_city,open_doubles,Open Doubles,freestyle,doubles,8,complete,1,,POST1997
-1981_worlds_oregon_city,singles_consecutive_kicks,Singles Consecutive Kicks,sideline,singles,9,partial,1,,POST1997
-1981_worlds_oregon_city,singles_net,Singles Net,net,singles,10,partial,3,,POST1997
-1981_worlds_oregon_city,team_consecutive_kicks,Team Consecutive Kicks,sideline,doubles,11,partial,1,,POST1997
-1981_worlds_oregon_city,team_freestyle,Team Freestyle,freestyle,singles,12,complete,1,,POST1997
-1981_worlds_oregon_city,womens_consecutive,Women's Consecutive,net,singles,13,complete,1,,POST1997
-1981_worlds_oregon_city,womens_doubles_net,Women's Doubles Net,net,doubles,14,partial,3,,POST1997
-1981_worlds_oregon_city,womens_singles,Women's Singles,freestyle,singles,15,complete,1,,POST1997
-1981_worlds_oregon_city,womens_singles_consecutive_kicks,Women's Singles Consecutive Kicks,sideline,singles,16,partial,1,,POST1997
-1981_worlds_san_dimas,consecutive_kicks,Consecutive Kicks,net,singles,1,complete,1,,POST1997
-1981_worlds_san_dimas,distance_one_step,Distance One-Step,net,singles,2,complete,1,,POST1997
-1981_worlds_san_dimas,mixed_doubles,Mixed Doubles,freestyle,doubles,3,complete,1,,POST1997
-1981_worlds_san_dimas,open_doubles_net,Open Doubles Net,net,doubles,4,complete,3,,POST1997
-1981_worlds_san_dimas,open_singles_net,Open Singles Net,net,singles,5,complete,3,,POST1997
-1981_worlds_san_dimas,womens_singles,Women's Singles,freestyle,singles,6,complete,1,,POST1997
-1982_worlds_san_diego,singles_freestyle,Singles Freestyle,freestyle,singles,1,complete,2,,POST1997
-1982_worlds_san_diego,team_freestyle,Team Freestyle,freestyle,doubles,2,complete,2,,POST1997
-1982_worlds_golden,advanced_singles,Advanced Singles,net,singles,1,complete,1,,POST1997
-1982_worlds_golden,freestyle_singles,Freestyle Singles,freestyle,singles,2,complete,1,,POST1997
-1982_worlds_golden,open_doubles,Open Doubles,net,doubles,3,complete,1,,POST1997
-1982_worlds_golden,open_singles,Open Singles,net,singles,4,complete,1,,POST1997
-1982_worlds_golden,team_freestyle,Team Freestyle,freestyle,doubles,5,complete,1,,POST1997
-1982_worlds_golden,womens_singles,Women's Singles,net,singles,6,complete,1,,POST1997
-1982_rocky_mountain,freestyle,Freestyle,freestyle,singles,1,complete,1,,POST1997
-1982_rocky_mountain,open_doubles_net,Open Doubles Net,net,doubles,2,complete,1,,POST1997
-1982_worlds_oregon_city,doubles_net,Doubles Net,net,doubles,1,partial,3,,POST1997
-1982_worlds_oregon_city,freestyle,Freestyle,freestyle,doubles,2,partial,3,,POST1997
-1982_worlds_oregon_city,golf,Golf,golf,singles,3,partial,3,,POST1997
-1982_worlds_oregon_city,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,4,complete,1,,POST1997
-1982_worlds_oregon_city,intermediate_freestyle,Intermediate Freestyle,freestyle,singles,5,partial,1,,POST1997
-1982_worlds_oregon_city,intermediate_singles_net,Intermediate Singles Net,net,singles,6,complete,1,,POST1997
-1982_worlds_oregon_city,mixed_doubles_net,Mixed Doubles Net,net,doubles,7,partial,3,,POST1997
-1982_worlds_oregon_city,singles_consecutive_kicks,Singles Consecutive Kicks,sideline,singles,8,partial,3,,POST1997
-1982_worlds_oregon_city,singles_freestyle,Singles Freestyle,freestyle,singles,9,complete,2,,POST1997
-1982_worlds_oregon_city,singles_net,Singles Net,net,singles,10,partial,3,,POST1997
-1982_worlds_oregon_city,team_freestyle,Team Freestyle,freestyle,singles,11,complete,2,,POST1997
-1982_worlds_oregon_city,womens_doubles_net,Women's Doubles Net,net,doubles,12,partial,3,,POST1997
-1982_worlds_oregon_city,womens_singles_net,Women's Singles Net,net,singles,13,partial,3,,POST1997
 1982_worlds_portland,open_singles_net,Open Singles Net,net,singles,1,complete,1,,POST1997
-1982_worlds_san_francisco,open_doubles_net,Open Doubles Net,net,doubles,1,complete,3,,POST1997
-1982_worlds_san_francisco,open_singles_net,Open Singles Net,net,singles,2,complete,3,,POST1997
-1982_worlds_san_francisco,womens_singles,Women's Singles,freestyle,singles,3,complete,1,,POST1997
-1983_worlds_golden,advanced_doubles,Advanced Doubles,net,doubles,1,complete,1,,POST1997
-1983_worlds_golden,advanced_singles,Advanced Singles,net,singles,2,complete,2,,POST1997
-1983_worlds_golden,doubles_ultra,Doubles Ultra,net,doubles,3,complete,1,,POST1997
-1983_worlds_golden,freestyle_singles,Freestyle Singles,freestyle,singles,4,complete,1,,POST1997
-1983_worlds_golden,mixed_doubles,Mixed Doubles,net,doubles,5,complete,1,,POST1997
-1983_worlds_golden,open_doubles,Open Doubles,net,doubles,6,complete,1,,POST1997
-1983_worlds_golden,open_singles,Open Singles,net,singles,7,complete,2,,POST1997
-1983_worlds_golden,open_singles_consecutive,Open Singles Consecutive,sideline,singles,8,complete,1,,POST1997
-1983_worlds_golden,open_team,Open Team,unknown,doubles,9,complete,1,,POST1997
-1983_worlds_golden,singles_consecutive,Singles Consecutive,sideline,singles,10,complete,1,,POST1997
-1983_worlds_golden,singles_ultra,Singles Ultra,net,singles,11,complete,1,,POST1997
-1983_worlds_golden,team_freestyle,Team Freestyle,freestyle,doubles,12,complete,1,,POST1997
-1983_worlds_golden,womens_doubles,Women's Doubles,net,doubles,13,complete,2,,POST1997
-1983_worlds_golden,womens_freestyle,Women's Freestyle,freestyle,singles,14,complete,1,,POST1997
-1983_worlds_golden,womens_singles,Women's Singles,net,singles,15,complete,2,,POST1997
 1983_secret_underground,open_freestyle,Open Freestyle,freestyle,singles,1,complete,1,,POST1997
-1983_worlds_boulder,advanced_doubles,Advanced Doubles,freestyle,doubles,1,complete,1,,POST1997
-1983_worlds_boulder,advanced_singles,Advanced Singles,freestyle,singles,2,complete,1,,POST1997
-1983_worlds_boulder,doubles_net,Doubles Net,net,doubles,3,partial,3,,POST1997
-1983_worlds_boulder,doubles_ultra,Doubles Ultra,freestyle,singles,4,complete,1,,POST1997
-1983_worlds_boulder,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,5,complete,1,,POST1997
-1983_worlds_boulder,intermediate_singles_net,Intermediate Singles Net,net,singles,6,complete,1,,POST1997
-1983_worlds_boulder,mixed_doubles_net,Mixed Doubles Net,net,doubles,7,partial,3,,POST1997
-1983_worlds_boulder,open_singles,Open Singles,freestyle,singles,8,complete,1,,POST1997
-1983_worlds_boulder,open_team,Open Team,freestyle,singles,9,complete,1,,POST1997
-1983_worlds_boulder,singles_consecutive_kicks,Singles Consecutive Kicks,sideline,singles,10,partial,3,,POST1997
-1983_worlds_boulder,singles_freestyle,Singles Freestyle,freestyle,singles,11,partial,3,,POST1997
-1983_worlds_boulder,singles_net,Singles Net,net,singles,12,partial,3,,POST1997
-1983_worlds_boulder,singles_ultra,Singles Ultra,freestyle,singles,13,complete,1,,POST1997
-1983_worlds_boulder,team_freestyle,Team Freestyle,freestyle,doubles,14,partial,3,,POST1997
-1983_worlds_boulder,womens_consecutive_kicks,Women's Consecutive Kicks,sideline,singles,15,partial,3,,POST1997
-1983_worlds_boulder,womens_doubles,Women's Doubles,freestyle,doubles,16,complete,1,,POST1997
-1983_worlds_boulder,womens_doubles_consecutive,Women's Doubles Consecutive,net,doubles,17,complete,1,,POST1997
-1983_worlds_boulder,womens_doubles_net,Women's Doubles Net,net,doubles,18,partial,3,,POST1997
-1983_worlds_boulder,womens_freestyle,Women's Freestyle,freestyle,singles,19,complete,1,,POST1997
-1983_worlds_boulder,womens_singles,Women's Singles,freestyle,singles,20,complete,1,,POST1997
-1983_worlds_boulder,womens_singles_net,Women's Singles Net,net,singles,21,partial,3,,POST1997
-1983_worlds_boulder_2,doubles_net,Doubles Net,net,doubles,1,complete,3,,POST1997
-1983_worlds_boulder_2,golf,Golf,golf,singles,2,complete,3,,POST1997
-1983_worlds_boulder_2,mixed_doubles_net,Mixed Doubles Net,net,doubles,3,complete,3,,POST1997
-1983_worlds_boulder_2,singles_consecutive_kicks,Singles Consecutive Kicks,sideline,singles,4,complete,1,,POST1997
-1983_worlds_boulder_2,singles_freestyle,Singles Freestyle,freestyle,singles,5,partial,3,,POST1997
-1983_worlds_boulder_2,singles_net,Singles Net,net,singles,6,complete,3,,POST1997
-1983_worlds_boulder_2,team_freestyle,Team Freestyle,freestyle,doubles,7,partial,3,,POST1997
-1983_worlds_boulder_2,womens_doubles_net,Women's Doubles Net,net,doubles,8,complete,3,,POST1997
-1983_worlds_boulder_2,womens_singles_net,Women's Singles Net,net,singles,9,complete,3,,POST1997
-1983_worlds_oregon_city,open_doubles_net,Open Doubles Net,net,doubles,1,complete,3,,POST1997
-1983_worlds_oregon_city,open_singles_net,Open Singles Net,net,singles,2,complete,3,,POST1997
-1983_worlds_oregon_city,womens_singles,Women's Singles,freestyle,singles,3,complete,1,,POST1997
-1984_worlds_golden,advanced_singles,Advanced Singles,net,singles,1,complete,1,,POST1997
-1984_worlds_golden,freestyle_singles,Freestyle Singles,freestyle,singles,2,complete,1,,POST1997
-1984_worlds_golden,open_doubles,Open Doubles,net,doubles,3,complete,1,,POST1997
-1984_worlds_golden,open_singles,Open Singles,net,singles,4,complete,1,,POST1997
-1984_worlds_golden,singles_consecutive,Singles Consecutive,sideline,singles,5,complete,1,,POST1997
-1984_worlds_golden,team_freestyle,Team Freestyle,freestyle,doubles,6,complete,1,,POST1997
-1984_worlds_golden,womens_singles,Women's Singles,net,singles,7,complete,1,,POST1997
-1984_eurochamp,open_singles_net,Open Singles Net,net,singles,1,complete,2,,POST1997
-1984_worlds_boulder,advanced_doubles_net,Advanced Doubles Net,net,doubles,1,partial,3,,POST1997
-1984_worlds_boulder,advanced_singles_net,Advanced Singles Net,net,singles,2,partial,3,,POST1997
-1984_worlds_boulder,doubles_consecutive_kicks,Doubles Consecutive Kicks,sideline,doubles,3,partial,3,,POST1997
-1984_worlds_boulder,doubles_one_pass_consecutive_kicks,Doubles One-Pass Consecutive Kicks,sideline,doubles,4,partial,3,,POST1997
-1984_worlds_boulder,golf,Golf,golf,singles,5,partial,3,,POST1997
-1984_worlds_boulder,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,6,complete,1,,POST1997
-1984_worlds_boulder,intermediate_freestyle,Intermediate Freestyle,freestyle,doubles,7,complete,1,,POST1997
-1984_worlds_boulder,intermediate_singles_net,Intermediate Singles Net,net,singles,8,complete,1,,POST1997
-1984_worlds_boulder,mens_overall,Men's Overall,net,singles,9,partial,1,,POST1997
-1984_worlds_boulder,mixed_doubles_net,Mixed Doubles Net,net,doubles,10,partial,3,,POST1997
-1984_worlds_boulder,singles_consecutive_kicks,Singles Consecutive Kicks,sideline,singles,11,partial,3,,POST1997
-1984_worlds_boulder,singles_freestyle,Singles Freestyle,freestyle,singles,12,partial,3,,POST1997
-1984_worlds_boulder,team_freestyle,Team Freestyle,freestyle,doubles,13,partial,3,,POST1997
-1984_worlds_boulder,ultra_doubles_net,Ultra Doubles Net,net,doubles,14,partial,3,,POST1997
-1984_worlds_boulder,ultra_singles_net,Ultra Singles Net,net,singles,15,partial,3,,POST1997
-1984_worlds_boulder,womens_doubles_consecutive_kicks,Women's Doubles Consecutive Kicks,sideline,doubles,16,partial,2,,POST1997
-1984_worlds_boulder,womens_doubles_net,Women's Doubles Net,net,doubles,17,partial,3,,POST1997
-1984_worlds_boulder,womens_doubles_one_pass_consecutive_kicks,Women's Doubles One-Pass Consecutive Kicks,sideline,doubles,18,complete,2,,POST1997
-1984_worlds_boulder,womens_freestyle,Women's Freestyle,freestyle,doubles,19,partial,3,,POST1997
-1984_worlds_boulder,womens_golf,Women's Golf,golf,singles,20,partial,3,,POST1997
-1984_worlds_boulder,womens_overall,Women's Overall,net,singles,21,partial,1,,POST1997
-1984_worlds_boulder,womens_singles_consecutive_kicks,Women's Singles Consecutive Kicks,sideline,singles,22,partial,3,,POST1997
-1984_worlds_boulder,womens_singles_net,Women's Singles Net,net,singles,23,partial,3,,POST1997
-1984_worlds_boulder,womens_ultra_singles_net,Women's Ultra Singles Net,net,singles,24,partial,3,,POST1997
-1984_worlds_oregon_city,open_singles_net,Open Singles Net,net,singles,1,complete,3,,POST1997
-1984_worlds_oregon_city,womens_singles,Women's Singles,freestyle,singles,2,complete,1,,POST1997
 1985_holiday,singles_freestyle,Singles Freestyle,freestyle,singles,1,complete,2,,POST1997
 1985_holiday,team_freestyle,Team Freestyle,freestyle,doubles,2,complete,2,,POST1997
 1985_eastregion,advanced_doubles_net,Advanced Doubles Net,net,doubles,1,complete,3,,POST1997
@@ -524,29 +345,6 @@ f771c4ef26,Open Singles,Open Singles,,,,,1,,PRE1997
 1985_western_national_indoor,open_singles_net,Open Singles Net,net,singles,4,complete,2,,POST1997
 1985_western_national_indoor,unknown,Unknown,freestyle,singles,5,complete,2,,POST1997
 1985_western_states,freestyle,Freestyle,freestyle,singles,1,complete,1,,POST1997
-1985_worlds_golden,advanced_doubles_net,Advanced Doubles Net,net,doubles,1,partial,2,,POST1997
-1985_worlds_golden,advanced_singles_net,Advanced Singles Net,net,singles,2,partial,3,,POST1997
-1985_worlds_golden,doubles_consecutive_kicks,Doubles Consecutive Kicks,sideline,doubles,3,partial,3,,POST1997
-1985_worlds_golden,doubles_one_pass_consecutive_kicks,Doubles One-Pass Consecutive Kicks,sideline,doubles,4,partial,2,,POST1997
-1985_worlds_golden,golf,Golf,golf,singles,5,partial,3,,POST1997
-1985_worlds_golden,intermediate_singles_net,Intermediate Singles Net,net,singles,6,complete,1,,POST1997
-1985_worlds_golden,mens_overall,Men's Overall,net,singles,7,partial,3,,POST1997
-1985_worlds_golden,mixed_doubles_net,Mixed Doubles Net,net,doubles,8,partial,1,,POST1997
-1985_worlds_golden,singles_consecutive_kicks,Singles Consecutive Kicks,sideline,singles,9,partial,3,,POST1997
-1985_worlds_golden,singles_freestyle,Singles Freestyle,freestyle,singles,10,partial,3,,POST1997
-1985_worlds_golden,team_freestyle,Team Freestyle,freestyle,doubles,11,partial,2,,POST1997
-1985_worlds_golden,ultra_doubles_net,Ultra Doubles Net,net,doubles,12,partial,2,,POST1997
-1985_worlds_golden,ultra_singles_net,Ultra Singles Net,net,singles,13,partial,3,,POST1997
-1985_worlds_golden,womens_doubles_consecutive_kicks,Women's Doubles Consecutive Kicks,sideline,doubles,14,partial,3,,POST1997
-1985_worlds_golden,womens_doubles_net,Women's Doubles Net,net,doubles,15,partial,1,,POST1997
-1985_worlds_golden,womens_doubles_one_pass_consecutive_kicks,Women's Doubles One-Pass Consecutive Kicks,sideline,doubles,16,partial,2,,POST1997
-1985_worlds_golden,womens_freestyle,Women's Freestyle,freestyle,doubles,17,partial,1,,POST1997
-1985_worlds_golden,womens_golf,Women's Golf,golf,singles,18,partial,3,,POST1997
-1985_worlds_golden,womens_overall,Women's Overall,net,singles,19,partial,3,,POST1997
-1985_worlds_golden,womens_singles_consecutive_kicks,Women's Singles Consecutive Kicks,sideline,singles,20,partial,3,,POST1997
-1985_worlds_golden,womens_singles_net,Women's Singles Net,net,singles,21,partial,3,,POST1997
-1985_worlds_golden_2,open_doubles_net,Open Doubles Net,net,doubles,1,complete,1,,POST1997
-1985_worlds_golden_2,open_singles_net,Open Singles Net,net,singles,2,complete,1,,POST1997
 1986_eastregion,advanced_doubles_net,Advanced Doubles Net,net,doubles,1,complete,3,,POST1997
 1986_eastregion,advanced_singles_net,Advanced Singles Net,net,singles,2,complete,3,,POST1997
 1986_eastregion,beginners_doubles_net,Beginners Doubles Net,net,doubles,3,complete,3,,POST1997
@@ -562,7 +360,6 @@ f771c4ef26,Open Singles,Open Singles,,,,,1,,PRE1997
 1986_worlds_golden,open_doubles_net,Open Doubles Net,net,doubles,1,complete,1,,POST1997
 1986_worlds_golden,open_singles_net,Open Singles Net,net,singles,2,complete,1,,POST1997
 1987_eastregion,freestyle,Freestyle,freestyle,singles,1,complete,1,,POST1997
-1987_eurochamp_munich,open_singles_net,Open Singles Net,net,singles,1,complete,1,,POST1997
 1987_worlds_golden,open_doubles_net,Open Doubles Net,net,doubles,1,complete,1,,POST1997
 1987_worlds_golden,open_singles_net,Open Singles Net,net,singles,2,complete,1,,POST1997
 1988_california_state,open_doubles_net,Open Doubles Net,net,doubles,1,complete,1,,POST1997
@@ -578,7 +375,6 @@ f771c4ef26,Open Singles,Open Singles,,,,,1,,PRE1997
 1990_eastregion,open_one_pass_consecutive,Open One Pass Consecutive,sideline,doubles,9,complete,3,,POST1997
 1990_eastregion,open_singles_net,Open Singles Net,net,singles,10,complete,3,,POST1997
 1990_eastregion,open_singles_timed_consecutive,Open Singles Timed Consecutive,sideline,singles,11,complete,3,,POST1997
-1990_worlds_golden,open_doubles_net,Open Doubles Net,net,doubles,1,complete,1,,POST1997
 1991_eastregion,intermediate_5_minute_timed_consecutive,Intermediate 5 Minute Timed Consecutive,sideline,singles,1,complete,3,,POST1997
 1991_eastregion,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,2,complete,3,,POST1997
 1991_eastregion,intermediate_freestyle,Intermediate Freestyle,freestyle,singles,3,complete,3,,POST1997
@@ -591,11 +387,7 @@ f771c4ef26,Open Singles,Open Singles,,,,,1,,PRE1997
 1991_eastregion,open_golf,Open Golf,golf,singles,10,complete,3,,POST1997
 1991_eastregion,open_one_pass_consecutive,Open One Pass Consecutive,sideline,doubles,11,complete,3,,POST1997
 1991_eastregion,open_singles_net,Open Singles Net,net,singles,12,complete,3,,POST1997
-1991_worlds_vancouver,open_singles_net,Open Singles Net,net,singles,1,complete,1,,POST1997
-1992_worlds_montreal,freestyle,Freestyle,freestyle,singles,1,complete,1,,POST1997
-1994_worlds_san_francisco,open_singles_net,Open Singles Net,net,singles,1,complete,1,,POST1997
 1995_eurochamp,open_singles_net,Open Singles Net,net,singles,1,complete,1,,POST1997
-1995_worlds_menlo_park,freestyle,Freestyle,freestyle,singles,1,complete,1,,POST1997
 1997_worlds_vancouver,golf_doubles_open,Golf Doubles Open,golf,doubles,1,complete,3,,POST1997
 1997_worlds_vancouver,golf_singles_advanced,Golf Singles Advanced,golf,singles,2,complete,2,,POST1997
 1997_worlds_vancouver,golf_singles_open,Golf Singles Open,golf,singles,3,complete,3,,POST1997
@@ -1368,27 +1160,27 @@ f771c4ef26,Open Singles,Open Singles,,,,,1,,PRE1997
 2001_westregion,open_singles_net,Open Singles Net,net,singles,9,complete,20,,POST1997
 2001_westregion,womens_doubles_net,Women's Doubles Net,net,doubles,10,complete,4,,POST1997
 2001_westregion,womens_singles_net,Women's Singles Net,net,singles,11,complete,6,,POST1997
-2001_worlds_san_francisco_bay_area,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,1,complete,6,,POST1997
-2001_worlds_san_francisco_bay_area,intermediate_golf,Intermediate Golf,golf,singles,2,complete,3,,POST1997
-2001_worlds_san_francisco_bay_area,intermediate_singles_freestyle,Intermediate Singles Freestyle,freestyle,singles,3,mostly_complete,21,,POST1997
-2001_worlds_san_francisco_bay_area,intermediate_singles_net,Intermediate Singles Net,net,singles,4,mostly_complete,14,,POST1997
-2001_worlds_san_francisco_bay_area,open_doubles_distance_one_pass,Open Doubles Distance One-Pass,sideline,doubles,5,complete,6,,POST1997
-2001_worlds_san_francisco_bay_area,open_doubles_freestyle,Open Doubles Freestyle,freestyle,doubles,6,complete,6,,POST1997
-2001_worlds_san_francisco_bay_area,open_doubles_net,Open Doubles Net,net,doubles,7,mostly_complete,26,,POST1997
-2001_worlds_san_francisco_bay_area,open_golf,Open Golf,golf,singles,8,complete,3,,POST1997
-2001_worlds_san_francisco_bay_area,open_mixed_doubles_freestyle,Open Mixed Doubles Freestyle,freestyle,doubles,9,complete,5,,POST1997
-2001_worlds_san_francisco_bay_area,open_mixed_doubles_net,Open Mixed Doubles Net,net,doubles,10,complete,12,,POST1997
-2001_worlds_san_francisco_bay_area,open_shred_30,Open Shred 30,freestyle,singles,11,complete,3,,POST1997
-2001_worlds_san_francisco_bay_area,open_singles_freestyle,Open Singles Freestyle,freestyle,singles,12,partial,29,,POST1997
-2001_worlds_san_francisco_bay_area,open_singles_net,Open Singles Net,net,singles,13,complete,35,,POST1997
-2001_worlds_san_francisco_bay_area,open_timed_consecutives,Open Timed Consecutives,sideline,singles,14,complete,5,,POST1997
-2001_worlds_san_francisco_bay_area,womens_doubles_distance_one_pass,Women's Doubles Distance One-Pass,sideline,doubles,15,complete,2,,POST1997
-2001_worlds_san_francisco_bay_area,womens_doubles_net,Women's Doubles Net,net,doubles,16,complete,6,,POST1997
-2001_worlds_san_francisco_bay_area,womens_golf,Women's Golf,golf,singles,17,complete,2,,POST1997
-2001_worlds_san_francisco_bay_area,womens_shred_30,Women's Shred 30,freestyle,singles,18,complete,3,,POST1997
-2001_worlds_san_francisco_bay_area,womens_singles_freestyle,Women's Singles Freestyle,freestyle,singles,19,complete,3,,POST1997
-2001_worlds_san_francisco_bay_area,womens_singles_net,Women's Singles Net,net,singles,20,complete,10,,POST1997
-2001_worlds_san_francisco_bay_area,womens_timed_consecutives,Women's Timed Consecutives,sideline,singles,21,complete,3,,POST1997
+2001_worlds_san_francisco,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,1,complete,6,,POST1997
+2001_worlds_san_francisco,intermediate_golf,Intermediate Golf,golf,singles,2,complete,3,,POST1997
+2001_worlds_san_francisco,intermediate_singles_freestyle,Intermediate Singles Freestyle,freestyle,singles,3,mostly_complete,21,,POST1997
+2001_worlds_san_francisco,intermediate_singles_net,Intermediate Singles Net,net,singles,4,mostly_complete,14,,POST1997
+2001_worlds_san_francisco,open_doubles_distance_one_pass,Open Doubles Distance One-Pass,sideline,doubles,5,complete,6,,POST1997
+2001_worlds_san_francisco,open_doubles_freestyle,Open Doubles Freestyle,freestyle,doubles,6,complete,6,,POST1997
+2001_worlds_san_francisco,open_doubles_net,Open Doubles Net,net,doubles,7,mostly_complete,26,,POST1997
+2001_worlds_san_francisco,open_golf,Open Golf,golf,singles,8,complete,3,,POST1997
+2001_worlds_san_francisco,open_mixed_doubles_freestyle,Open Mixed Doubles Freestyle,freestyle,doubles,9,complete,5,,POST1997
+2001_worlds_san_francisco,open_mixed_doubles_net,Open Mixed Doubles Net,net,doubles,10,complete,12,,POST1997
+2001_worlds_san_francisco,open_shred_30,Open Shred 30,freestyle,singles,11,complete,3,,POST1997
+2001_worlds_san_francisco,open_singles_freestyle,Open Singles Freestyle,freestyle,singles,12,partial,29,,POST1997
+2001_worlds_san_francisco,open_singles_net,Open Singles Net,net,singles,13,complete,35,,POST1997
+2001_worlds_san_francisco,open_timed_consecutives,Open Timed Consecutives,sideline,singles,14,complete,5,,POST1997
+2001_worlds_san_francisco,womens_doubles_distance_one_pass,Women's Doubles Distance One-Pass,sideline,doubles,15,complete,2,,POST1997
+2001_worlds_san_francisco,womens_doubles_net,Women's Doubles Net,net,doubles,16,complete,6,,POST1997
+2001_worlds_san_francisco,womens_golf,Women's Golf,golf,singles,17,complete,2,,POST1997
+2001_worlds_san_francisco,womens_shred_30,Women's Shred 30,freestyle,singles,18,complete,3,,POST1997
+2001_worlds_san_francisco,womens_singles_freestyle,Women's Singles Freestyle,freestyle,singles,19,complete,3,,POST1997
+2001_worlds_san_francisco,womens_singles_net,Women's Singles Net,net,singles,20,complete,10,,POST1997
+2001_worlds_san_francisco,womens_timed_consecutives,Women's Timed Consecutives,sideline,singles,21,complete,3,,POST1997
 2002_queensland_challenge,intermediate_1min_30_sec,Intermediate 1Min 30 Sec,freestyle,singles,1,complete,5,,POST1997
 2002_eastregion,intermediate,Intermediate,freestyle,doubles,1,complete,11,,POST1997
 2002_eastregion,novice,Novice,freestyle,singles,2,complete,41,,POST1997
@@ -2927,7 +2719,7 @@ f771c4ef26,Open Singles,Open Singles,,,,,1,,PRE1997
 2010_funtastik_summer,singles_net_intermediate,Singles Net- Intermediate,net,singles,10,complete,7,,POST1997
 2010_kick_volley_02,open_doubles_net,Open Doubles Net,net,doubles,1,complete,9,,POST1997
 2010_march_mayhem,open_doubles_net,Open Doubles Net,net,doubles,1,complete,7,,POST1997
-2010_naantalin_seudun_mestaruuskilpailut,open_doubles_net,Open Doubles Net,net,doubles,1,complete,4,,POST1997
+2010_naantali_mestaruuskilpailut,open_doubles_net,Open Doubles Net,net,doubles,1,complete,4,,POST1997
 2010_orange_d_em,open_single_net,Open Single Net,net,singles,1,complete,13,,POST1997
 2010_rnh_contest,open_doubles_net,Open Doubles Net,net,doubles,1,complete,21,,POST1997
 2010_rnh_contest,open_singles_net,Open Singles Net,net,singles,2,complete,17,,POST1997

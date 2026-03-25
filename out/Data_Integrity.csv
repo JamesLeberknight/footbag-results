@@ -1,7 +1,7 @@
 category,metric,value,notes
-Placements,Total in source (raw),27735,Before Gate 1
-Placements,Surviving Gate 1,27735,No rejections at Gate 1
-Placements,In Analytics_Safe_Surface,16141,Coverage-filtered + identity-locked
+Placements,Total in source (raw),27722,Before Gate 1
+Placements,Surviving Gate 1,27722,No rejections at Gate 1
+Placements,In Analytics_Safe_Surface,16119,Coverage-filtered + identity-locked
 Placements,Unresolved identity,0,person_unresolved == true
 Persons,Total (Gate 3),3468,"Presentable, non-synthetic, non-duplicate"
 Persons,Excluded in Gate 3,15,All exclusion reasons

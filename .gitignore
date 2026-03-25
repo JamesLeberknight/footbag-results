@@ -86,6 +86,9 @@ out/*.lock
 out/audit/
 out/backfill_candidates.csv
 out/backfill_resolutions.csv
+out/canonical_all_union/
+out/canonical_all_appsafe/
+out/pdf_compare/
 out/canonical_freeze/
 out/encoding_corruption_report.csv
 out/final_validation/
