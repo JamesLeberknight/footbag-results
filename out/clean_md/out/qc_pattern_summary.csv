@@ -1,6 +1,0 @@
-issue_class,count,severe,moderate,minor,has_round_kw,has_mirror_manual,has_dup_places,recommended_fix
-MERGED_UNLABELLED_DIVISIONS,58,28,25,5,2,58,58,parser: detect level headers (Open/Intermediate) within division block
-MERGED_DIVISION_RESULTS,55,11,37,7,5,55,55,parser: detect division boundary when placement resets within same header
-MINOR_TIES_MERGED,37,0,12,25,1,37,37,parser: detect merged gender blocks; or manual RESULTS_FILE_OVERRIDE
-POOL_FINALS_MERGED,27,25,2,0,1,27,27,RESULTS_FILE_OVERRIDE for events with Manually Entered Results section
-OTHER,2,1,1,0,0,2,2,manual review
