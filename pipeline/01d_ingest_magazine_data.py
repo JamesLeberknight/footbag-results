@@ -2,6 +2,11 @@
 """
 pipeline/01d_ingest_magazine_data.py
 ─────────────────────────────────────
+PIPELINE LANE: PRE-1997 HISTORICAL
+  Not part of the post-1997 production rebuild.
+  Magazine-derived event data belongs to the pre-1997 historical recovery
+  pipeline (run_early_pipeline.sh). The post-1997 rebuild uses mirror only.
+
 Ingests inputs/magazine_ingestion_comprehensive.csv into the pipeline.
 
 Actions:

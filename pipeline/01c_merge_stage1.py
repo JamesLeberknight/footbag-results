@@ -2,11 +2,17 @@
 """
 01c_merge_stage1.py
 
+PIPELINE LANE: POST-1997 PRODUCTION (mirror-only in production)
+  In the post-1997 production rebuild only out/stage1_raw_events_mirror.csv
+  is present. Missing source files are skipped gracefully (logged in summary).
+  OLD_RESULTS / FBW / magazine sources are PRE-1997 pipeline concerns and are
+  not part of the production rebuild.
+
 Deterministic, validated merge of Stage 1 raw events from multiple sources:
-- out/stage1_raw_events_mirror.csv   (from 01_parse_mirror.py)
-- out/stage1_raw_events_old.csv      (from 01b_import_old_results.py)
-- out/stage1_raw_events_fbw.csv      (from 01b2_merge_FBW_Data.py)
-- out/stage1_raw_events_magazine.csv (from 01d_ingest_magazine_data.py)
+- out/stage1_raw_events_mirror.csv   (from 01_parse_mirror.py)        ← production
+- out/stage1_raw_events_old.csv      (from 01b_import_old_results.py) ← pre-1997 only
+- out/stage1_raw_events_fbw.csv      (from 01b2_merge_FBW_Data.py)    ← pre-1997 only
+- out/stage1_raw_events_magazine.csv (from 01d_ingest_magazine_data.py) ← pre-1997 only
 
 Policy:
 - Schema Uniformity: All input headers must match exactly.

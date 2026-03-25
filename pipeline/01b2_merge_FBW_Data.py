@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-01b2_merge_FBW_Data.py — Prepare Magazine data for the Stage 1 Merge
+01b2_merge_FBW_Data.py — Prepare FBW magazine data for the stage-1 merge
+
+PIPELINE LANE: PRE-1997 HISTORICAL
+  Not part of the post-1997 production rebuild.
+  Magazine-derived event data belongs to the pre-1997 historical recovery
+  pipeline (run_early_pipeline.sh). The post-1997 rebuild uses mirror only.
 
 Converts inputs/magazine_ingestion.csv into a stage1-compatible CSV
 (out/stage1_raw_events_fbw.csv) that 01c_merge_stage1.py can merge

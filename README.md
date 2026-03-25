@@ -114,40 +114,105 @@ Rules:
 
 ---
 
-## Pipeline
+## Pipeline Architecture
+
+The pipeline has three distinct lanes. Each lane has its own runner and output directory.
+
+### Lane 1 — Post-1997 Production
+
+**Source: mirror only** (`mirror/www.footbag.org/`)
+
+All authoritative post-1997 event data comes from the footbag.org HTML mirror. OLD_RESULTS, FBW magazine data, and magazine ingestion scripts are **not** part of this pipeline.
 
 ```
-pipeline/               # core pipeline (stages 01–05p5)
-tools/
-  build_appsafe_merged.py      # merge PRE1997 + POST1997 → canonical_all/
-  build_merged_feeds.py        # produce merged CSV feeds
-  build_merged_workbook_v14.py # build merged Excel workbook
-  event_comparison_viewerV10.py# build QC HTML viewer
-  cleanup_event_ids.py         # apply surgical event_id renames
-  rename_worlds_event_ids.py   # standardize worlds slug conventions
-  run_qc_gate.py               # authoritative QC gate
-early_data/             # pre-1997 reconstruction pipeline
-  scripts/              # 13 numbered recovery scripts
-  canonical/            # pre-1997 canonical tables
-  out/                  # pre-1997 feeds (early_stage2_feed, early_placements_feed)
+Stage 01   01_parse_mirror.py              parse HTML mirror → stage1_raw_events_mirror.csv
+Stage 01c  01c_merge_stage1.py             merge stage-1 sources (mirror-only in production)
+Stage 02   02_canonicalize_results.py      structured placements → stage2_canonical_events.csv
+Stage 02p5 02p5_player_token_cleanup.py    apply identity lock (PT v47 / PBP v85)
+Stage 02p6 02p6_structural_cleanup.py      artifact removal + structural fixes
+Stage 03   03_build_excel.py               canonical Excel workbook
+Stage 04   04_build_analytics.py           analytics + coverage flags + lock sentinel
+Stage 01b1 01b1_merge_consecutives.py      [AUXILIARY] merge trick-record reference data
+Stage 04B  tools/build_final_workbook_v13  community Excel workbook
+Stage 05   05_export_canonical_csv.py      export out/canonical/*.csv  ← AUTHORITATIVE
+Stage 05p5 05p5_remediate_canonical.py     final integrity pass
+```
+
+Runner: `./run_pipeline.sh [rebuild|release|qc|all]`
+
+### Lane 2 — Pre-1997 Historical Recovery
+
+**Sources: FBW magazine scans, OLD_RESULTS.txt, Gemini JSON extractions**
+
+Completely isolated from the post-1997 pipeline. Outputs live in `early_data/`.
+
+```
+Stage 04  04_json_to_csv.py               Gemini JSON → event_blocks + placements
+Stage 05  05_build_historical_dataset.py  cross-source grouping + OLD_RESULTS merge
+Stage 06  06_identity_resolution.py       match raw names → Persons_Truth
+Stage 07  07_build_early_release.py       V1 canonical CSVs + workbook
+Stage 08  08_build_review_package.py      human review package
+Stage 09  09_apply_decisions.py           apply review decisions → V2
+Stage 10  10_build_early_comparison_feed  viewer feed files
+Stage 11  11_finalize_pre1997.py          v1.0 release artifacts → early_data/final_pre1997/
+Stage 12  12_build_enrichment_and_merged  person enrichment + canonical_all_union/
+Stage 13  13_parse_passback_records.py    trick/record data (optional)
+```
+
+Runner: `./run_early_pipeline.sh [ingest|canonical|identity|release|review|apply|feed|finalize]`
+
+### Lane 3 — Merged Build
+
+**Requires: both post-1997 and pre-1997 pipelines complete**
+
+Combines `out/canonical/` (post-1997) and `early_data/canonical/` (pre-1997) into a single 1980–present dataset.
+
+```
+tools/build_appsafe_merged.py      overlap suppression → out/canonical_all/
+tools/build_merged_feeds.py        merged CSV feeds for workbook/viewer
+tools/build_merged_workbook_v14.py merged Excel workbook (1980–present)
+tools/event_comparison_viewerV10.py merged event comparison viewer
+```
+
+Runner: `./run_pipeline.sh merged`
+
+Precondition: `out/canonical_all_union/` must exist (built by `early_data/scripts/12_build_enrichment_and_merged.py`).
+
+### Pipeline Scripts — Lane Classification
+
+| Script | Lane | Role |
+|--------|------|------|
+| `pipeline/01_parse_mirror.py` | Post-1997 | Parse mirror HTML |
+| `pipeline/01c_merge_stage1.py` | Post-1997 | Merge stage-1 sources |
+| `pipeline/02_canonicalize_results.py` | Post-1997 | Canonicalize placements |
+| `pipeline/02p5_player_token_cleanup.py` | Post-1997 | Apply identity lock |
+| `pipeline/02p6_structural_cleanup.py` | Post-1997 | Structural fixes |
+| `pipeline/03_build_excel.py` | Post-1997 | Canonical workbook |
+| `pipeline/04_build_analytics.py` | Post-1997 | Analytics + lock sentinel |
+| `pipeline/05_export_canonical_csv.py` | Post-1997 | Export canonical CSVs |
+| `pipeline/05p5_remediate_canonical.py` | Post-1997 | Final remediation |
+| `pipeline/01b1_merge_consecutives.py` | **Auxiliary** | Trick-record reference data |
+| `pipeline/01b_import_old_results.py` | **Pre-1997** | Convert OLD_RESULTS.txt |
+| `pipeline/01b2_merge_FBW_Data.py` | **Pre-1997** | Convert FBW magazine CSV |
+| `pipeline/01d_ingest_magazine_data.py` | **Pre-1997** | Magazine ingestion |
+
+### Repository Layout
+
+```
+pipeline/               post-1997 production pipeline scripts
+early_data/
+  scripts/              pre-1997 reconstruction pipeline (stages 04–13)
+  canonical/            pre-1997 canonical tables
+  out/                  pre-1997 feeds + viewer outputs
+tools/                  merged build + QC tools
 out/
-  canonical/            # post-1997 authoritative CSVs (committed)
-  canonical_all/        # merged canonical CSVs (committed)
+  canonical/            post-1997 authoritative CSVs  ← committed
+  canonical_all/        merged canonical CSVs          ← committed
 inputs/
-  identity_lock/        # immutable identity snapshots (PT v47 / PBP v85)
-overrides/              # person aliases, event metadata, known issues
-legacy_data/            # parser override result files
-```
-
-### Rebuild Merged Outputs
-
-After any canonical data change:
-
-```bash
-python3 tools/build_appsafe_merged.py        # merge PRE+POST1997 → canonical_all/
-python3 tools/build_merged_feeds.py          # regenerate merged feeds
-python3 tools/build_merged_workbook_v14.py   # rebuild spreadsheet
-python3 tools/event_comparison_viewerV10.py  # rebuild viewer
+  identity_lock/        immutable identity snapshots (PT v47 / PBP v85)
+overrides/              person aliases, event metadata, known issues
+legacy_data/            RESULTS_FILE_OVERRIDE source files (parser)
+qc/                     QC module (qc_master.py + checks)
 ```
 
 ---

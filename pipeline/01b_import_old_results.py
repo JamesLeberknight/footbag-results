@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """
-01b_import_old_results.py — One-time importer for OLD_RESULTS.txt
+01b_import_old_results.py — Import OLD_RESULTS.txt into stage-1 format
+
+PIPELINE LANE: PRE-1997 HISTORICAL
+  Not part of the post-1997 production rebuild.
+  The pre-1997 pipeline (early_data/scripts/05_build_historical_dataset.py)
+  reads OLD_RESULTS.txt directly. This script exists as a utility for
+  feeding legacy data into the stage-1 merge if needed.
 
 Goal:
   Convert OLD_RESULTS.txt into rows that look like out/stage1_raw_events.csv

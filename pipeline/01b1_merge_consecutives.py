@@ -2,6 +2,11 @@
 """
 pipeline/01b1_merge_consecutives.py — Merge consecutive kicks reference data
 
+PIPELINE LANE: AUXILIARY / REFERENCE
+  Not part of event ingestion. Merges trick-record reference CSVs for the
+  Trick Records sheet in the community workbook (stage 04B).
+  Run after stage 04 and before stage 04B (see run_pipeline.sh release).
+
 Combines the legacy base file with any append files found in inputs/.
 Append files win on sort_order conflicts (they are the authoritative/
 improved versions). Normalizes float-exported numbers back to integers.
