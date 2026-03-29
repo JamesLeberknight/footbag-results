@@ -15,6 +15,11 @@ Fixes (in order):
                             (event_key, discipline_key, placement, participant_order) unique
   5. Ghost Partnering     — for doubles disciplines still missing a partner slot,
                             insert __UNKNOWN_PARTNER__ at participant_order=2
+  6. Sequential Placement Normalization (doubles only) — for doubles disciplines where a
+                            placement slot has ≠2 participants, regroup consecutive
+                            participants into sequential paired slots and ghost-partner
+                            any remainder.  Singles ties (multiple participants at the
+                            same placement number) are source-accurate and preserved as-is.
 
 Keep-doubles override:
   Create inputs/keep_doubles_overrides.csv with columns event_key, discipline_key
@@ -26,12 +31,19 @@ Input/output: out/canonical/ (repo-relative)
 
 import csv
 import re
+import unicodedata
+import uuid
 from collections import defaultdict
 from pathlib import Path
 
 ROOT      = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "out" / "canonical"
 OVERRIDES = ROOT / "inputs" / "keep_doubles_overrides.csv"
+
+# Platform canonical input — script 07 reads from here directly.
+# Set to None to skip the mirror write.
+_FB_BW = Path.home() / "projects" / "fb-bw" / "legacy_data" / "event_results" / "canonical_input"
+PLATFORM_OUT = _FB_BW if _FB_BW.parent.exists() else None
 
 csv.field_size_limit(10 * 1024 * 1024)
 
@@ -57,10 +69,14 @@ def load(name: str) -> tuple[list[dict], list[str]]:
 
 
 def save(name: str, rows: list[dict], fieldnames: list[str]) -> None:
-    with open(CANONICAL / name, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        w.writeheader()
-        w.writerows(rows)
+    for dest in [CANONICAL, PLATFORM_OUT]:
+        if dest is None:
+            continue
+        dest.mkdir(parents=True, exist_ok=True)
+        with open(dest / name, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            w.writeheader()
+            w.writerows(rows)
     print(f"  Saved {name} ({len(rows):,} rows)")
 
 
@@ -291,14 +307,15 @@ print(f"  Valid team slots kept:  {len(valid_slots):,}")
 print(f"  Results removed:        {before_results - len(results):,}")
 print(f"  Participants removed:   {before_participants - len(participants):,}")
 
-# ── Fix 6: Sequential Placement Normalization ─────────────────────────────────
-# For any discipline where a placement slot has the wrong number of participants
-# (>1 for singles, ≠2 for doubles), renumber all placements in that discipline
-# sequentially so each slot gets exactly the expected count.
-# Singles: each participant gets its own placement (1, 2, 3, ...).
-# Doubles: participants are grouped into consecutive pairs, each pair is a team
-# at one sequential placement.  Lone remainders get a ghost partner.
+# ── Fix 6: Sequential Placement Normalization (doubles only) ──────────────────
+# For doubles disciplines where a placement slot has ≠2 participants, regroup
+# all participants into consecutive pairs assigned sequential placements.
+# Lone remainders receive a ghost __UNKNOWN_PARTNER__.
 # Preserves original placement in notes as "seq_from:<N>" when changed.
+#
+# Singles disciplines are NOT renumbered here.  Multiple participants at the same
+# placement number represent an explicit source tie (e.g. 5,5,5,8) and must be
+# preserved exactly.  The QC gate treats such cases as warns, not hard failures.
 
 print("\n[Fix 6] Sequential placement normalization...")
 
@@ -337,9 +354,14 @@ for r in results:
 
 for (ek, dk), place_groups in disc_slots.items():
     tt = team_type_lookup.get((ek, dk), "singles")
-    expected = 2 if tt == "doubles" else 1
 
-    has_violation = any(len(rows) != expected for _, rows in place_groups)
+    # Singles: multiple participants at the same placement = valid tie.  Never renumber.
+    # Doubles: each slot must have exactly 2 participants; regroup if violated.
+    if tt == "singles":
+        has_violation = False
+    else:
+        has_violation = any(len(rows) != 2 for _, rows in place_groups)
+
     if not has_violation:
         # No change — copy all rows verbatim
         for _, rows in place_groups:
@@ -354,6 +376,7 @@ for (ek, dk), place_groups in disc_slots.items():
                     })
         continue
 
+    # Only doubles disciplines reach here (singles always takes the no-violation path above).
     normalized_groups += 1
     normalized_participants += sum(len(rows) for _, rows in place_groups)
 
@@ -363,32 +386,7 @@ for (ek, dk), place_groups in disc_slots.items():
         sorted_rows = sorted(rows, key=lambda r: int(r["participant_order"]))
         all_rows.extend(sorted_rows)
 
-    if tt == "singles":
-        # Each participant → own sequential placement, participant_order = 1
-        next_place = 1
-        for row in all_rows:
-            orig = row["placement"]
-            new_row = dict(row)
-            new_row["placement"] = str(next_place)
-            new_row["participant_order"] = "1"
-            if orig != str(next_place):
-                note = f"seq_from:{orig}"
-                new_row["notes"] = (new_row["notes"] + ";" + note).lstrip(";")
-                seq_normalized += 1
-            rk = (ek, dk, str(next_place))
-            new_participants_6.append(new_row)
-            if rk not in new_results_map:
-                old_rk = (ek, dk, orig)
-                base = results_by_key.get(old_rk, {
-                    "event_key": ek, "discipline_key": dk, "placement": orig,
-                    "score_text": "", "notes": "", "source": "",
-                })
-                new_result = dict(base)
-                new_result["placement"] = str(next_place)
-                new_results_map[rk] = new_result
-            next_place += 1
-
-    else:  # doubles
+    if True:  # doubles
         # Group into teams of 2 (consecutive pairs), assign sequential placements
         next_place = 1
         i = 0
@@ -453,6 +451,429 @@ print(f"  Participants renumbered: {seq_normalized:,}")
 print(f"[Fix 6] placement-normalized groups: {normalized_groups}")
 print(f"[Fix 6] placement-normalized participants: {normalized_participants}")
 
+# ── Person ID remap: confirmed aliases ────────────────────────────────────────
+# Ellis Piltz (73f415ee) confirmed == Eliot Piltz Galán (1685a8aa) 2026-03-27.
+# Remap all canonical participants and remove the orphan person entry.
+
+_PERSON_REMAP = {
+    "73f415ee-765e-55ec-bde1-247d6b97eba6": "1685a8aa-0446-562c-bfe0-186e50c8c93b",
+}
+
+_alias_remapped = 0
+for row in participants:
+    old_id = row.get("person_id", "")
+    if old_id in _PERSON_REMAP:
+        new_id = _PERSON_REMAP[old_id]
+        row["person_id"] = new_id
+        row["display_name"] = person_name_map.get(new_id, row["display_name"])
+        _alias_remapped += 1
+
+# Remove orphan person rows that were remapped away
+_remap_old_ids = set(_PERSON_REMAP.keys())
+_still_used = {r.get("person_id", "") for r in participants}
+persons = [p for p in persons if p["person_id"] not in (_remap_old_ids - _still_used)]
+
+if _alias_remapped:
+    print(f"\n[Alias remap] {_alias_remapped} participant row(s) remapped; "
+          f"{len(_PERSON_REMAP)} merged person(s) removed from persons.csv")
+
+# ── Inject verified_new events (non-mirror, 2002) ─────────────────────────────
+#
+# Source: verified_new/Résultats Hivernal 2002 .doc
+#         (email chain Archambault/Cote, corrections confirmed)
+# Source: verified_new/2002-07-21 Championnat International 2002.doc
+#         (Yves Archambault email to announce@footbag.org, 2002-07-22)
+# Both confirmed "pas publié sur Footbag.org" — not in mirror.
+# Injected here as authoritative non-mirror canonical records.
+
+print("\n[Inject] Adding verified_new 2002 events...")
+
+# Guard: skip injection if already present (idempotent)
+existing_event_keys = {e["event_key"] for e in events}
+
+# ── New person: Jean-Philippe Rochefort ────────────────────────────────────────
+_JPR_ID = "b8fab5e2-d6d3-482b-b062-0f0394d9bd75"
+if _JPR_ID not in {p["person_id"] for p in persons}:
+    new_person_row = {f: "" for f in fields_persons}
+    new_person_row["person_id"]       = _JPR_ID
+    new_person_row["person_name"]     = "Jean-Philippe Rochefort"
+    new_person_row["first_year"]      = "2002"
+    new_person_row["last_year"]       = "2002"
+    new_person_row["event_count"]     = "1"
+    new_person_row["placement_count"] = "2"
+    new_person_row["bap_member"]      = "0"
+    new_person_row["fbhof_member"]    = "0"
+    persons.append(new_person_row)
+    print(f"  Added person: Jean-Philippe Rochefort ({_JPR_ID})")
+
+# ── Event: 2002 Windchill (L'Hivernal) ────────────────────────────────────────
+_EK1 = "2002_montreal_hivernal"
+if _EK1 not in existing_event_keys:
+    events.append({f: "" for f in fields_events} | {
+        "event_key":   _EK1,
+        "year":        "2002",
+        "event_name":  "2002 Windchill (L'Hivernal)",
+        "event_slug":  "2002_windchill_lhivernal",
+        "start_date":  "2002-04-06",
+        "end_date":    "2002-04-07",
+        "city":        "Montreal",
+        "region":      "Quebec",
+        "country":     "Canada",
+        "host_club":   "Cégep du Vieux-Montréal",
+        "event_type":  "net",
+        "status":      "completed",
+        "notes":       "Not published on Footbag.org; verified from email (Archambault/Cote 2002-05)",
+        "source":      "verified_new",
+    })
+
+    # disciplines
+    disciplines.append({f: "" for f in fields_disciplines} | {
+        "event_key":         _EK1,
+        "discipline_key":    "open_singles_net",
+        "discipline_name":   "Open Singles Net",
+        "discipline_category": "net",
+        "team_type":         "singles",
+        "sort_order":        "1",
+        "coverage_flag":     "complete",
+    })
+    disciplines.append({f: "" for f in fields_disciplines} | {
+        "event_key":         _EK1,
+        "discipline_key":    "open_doubles_net",
+        "discipline_name":   "Open Doubles Net",
+        "discipline_category": "net",
+        "team_type":         "doubles",
+        "sort_order":        "2",
+        "coverage_flag":     "complete",
+    })
+
+    # results — Open Singles Net (placements 1-16, 3-way tie at 14)
+    # Ties share a placement number; each tied player gets sequential participant_order.
+    # One result row per unique placement; multiple participant rows per tied placement.
+    _hivernal_singles = [
+        # (placement, pid, name)
+        ("1",  "691f48a0-1dbd-5ef5-99ea-13615a7437d2", "Yves Archambault"),
+        ("2",  "7c5778f0-6847-58e6-9e37-09967ef3db13", "P.T. Lovern"),
+        ("3",  "6d50650f-7f41-5484-894f-74986085f48b", "Martin Cote"),
+        ("4",  "d0fd4b0a-a59e-525d-a918-eefb16c70e80", "Martin Graton"),
+        ("5",  "f569a985-6548-5b3d-9322-5e2c764bcc11", "Robert Lavigne"),
+        ("6",  "184a06bb-be96-5120-9a7c-1676f2b01a2a", "Jean-Francois Lemieux"),
+        ("7",  "c312c02d-8a8c-5c73-8b68-65fc9e3fa453", "Benjamin Rochon"),
+        ("8",  "2caf7286-2a00-5527-8ec3-313132cf469b", "Mario Vaillancourt"),
+        ("9",  "d7ee4909-a76d-5639-aa82-ce4a8a7a53ba", "Stephane Comeau"),
+        ("10", "f2ce846c-fa31-52e4-a88e-d8f7bccbe92e", "Maude Landreville"),
+        ("11", "68829443-e056-5536-a236-83479656d2cc", "Eric Cote"),
+        ("12", "87216aed-3048-50f7-8c54-d7e9e7bb52f3", "Philippe Lessard"),
+        ("13", _JPR_ID,                                 "Jean-Philippe Rochefort"),
+        ("14", "738cbf71-ad21-598f-a5b3-afdb8bdf543d", "Ted Fritsch"),
+        ("14", "96b72fe6-ed2f-5d70-8a49-2e2d38b31e5f", "Alexandre Belanger"),
+        ("14", "e5b5852c-6792-5d2b-a8e6-b754be9ae2bd", "Samuel Cloutier"),
+    ]
+    _seen_singles_plc: dict[str, int] = {}
+    for plc, _pid, _name in _hivernal_singles:
+        if plc not in _seen_singles_plc:
+            results.append({f: "" for f in fields_results} | {
+                "event_key":      _EK1,
+                "discipline_key": "open_singles_net",
+                "placement":      plc,
+                "source":         "verified_new",
+            })
+            _seen_singles_plc[plc] = 0
+        _seen_singles_plc[plc] += 1
+        participants.append({f: "" for f in fields_participants} | {
+            "event_key":         _EK1,
+            "discipline_key":    "open_singles_net",
+            "placement":         plc,
+            "participant_order": str(_seen_singles_plc[plc]),
+            "display_name":      _name,
+            "person_id":         _pid,
+        })
+
+    # results — Open Doubles Net (placements 1-9; source has 3-way tie at 7)
+    # QC requires exactly 2 participants per doubles placement, so tied teams
+    # are assigned sequential placements (7, 8, 9) with notes documenting the tie.
+    _hivernal_doubles = [
+        # (placement, p1id, p1name, p2id, p2name, notes)
+        ("1", "f1e2640c-48ae-588d-99bc-7b55713191f0", "Manu Bouchard",
+               "39bc6c51-d2e0-5930-8677-51828c12de14", "Andy Ronald", ""),
+        ("2", "c312c02d-8a8c-5c73-8b68-65fc9e3fa453", "Benjamin Rochon",
+               "184a06bb-be96-5120-9a7c-1676f2b01a2a", "Jean-Francois Lemieux", ""),
+        ("3", "6d50650f-7f41-5484-894f-74986085f48b", "Martin Cote",
+               "f569a985-6548-5b3d-9322-5e2c764bcc11", "Robert Lavigne", ""),
+        ("4", "691f48a0-1dbd-5ef5-99ea-13615a7437d2", "Yves Archambault",
+               "7c5778f0-6847-58e6-9e37-09967ef3db13", "P.T. Lovern", ""),
+        ("5", "fea99a91-ae13-5cb1-b87f-3c352783dc2e", "Genevieve Bousquet",
+               "f2ce846c-fa31-52e4-a88e-d8f7bccbe92e", "Maude Landreville", ""),
+        ("6", "2caf7286-2a00-5527-8ec3-313132cf469b", "Mario Vaillancourt",
+               "d0fd4b0a-a59e-525d-a918-eefb16c70e80", "Martin Graton", ""),
+        ("7", "d7ee4909-a76d-5639-aa82-ce4a8a7a53ba", "Stephane Comeau",
+               "96b72fe6-ed2f-5d70-8a49-2e2d38b31e5f", "Alexandre Belanger", "tied-7th"),
+        ("8", "68829443-e056-5536-a236-83479656d2cc", "Eric Cote",
+               "87216aed-3048-50f7-8c54-d7e9e7bb52f3", "Philippe Lessard", "tied-7th"),
+        ("9", "e5b5852c-6792-5d2b-a8e6-b754be9ae2bd", "Samuel Cloutier",
+               _JPR_ID,                                 "Jean-Philippe Rochefort", "tied-7th"),
+    ]
+    for plc, p1id, p1n, p2id, p2n, note in _hivernal_doubles:
+        results.append({f: "" for f in fields_results} | {
+            "event_key":      _EK1,
+            "discipline_key": "open_doubles_net",
+            "placement":      plc,
+            "notes":          note,
+            "source":         "verified_new",
+        })
+        participants.append({f: "" for f in fields_participants} | {
+            "event_key":         _EK1,
+            "discipline_key":    "open_doubles_net",
+            "placement":         plc,
+            "participant_order": "1",
+            "display_name":      p1n,
+            "person_id":         p1id,
+        })
+        participants.append({f: "" for f in fields_participants} | {
+            "event_key":         _EK1,
+            "discipline_key":    "open_doubles_net",
+            "placement":         plc,
+            "participant_order": "2",
+            "display_name":      p2n,
+            "person_id":         p2id,
+        })
+
+    print(f"  Added event: {_EK1} (2 disciplines, 14 singles + 9 doubles placements)")
+
+# ── Event: 2002 Montreal International Footbag Championships ──────────────────
+_EK2 = "2002_montreal_international"
+if _EK2 not in existing_event_keys:
+    events.append({f: "" for f in fields_events} | {
+        "event_key":   _EK2,
+        "year":        "2002",
+        "event_name":  "2002 Montreal International Footbag Championships",
+        "event_slug":  "2002_montreal_international_footbag_championships",
+        "start_date":  "2002-07-21",
+        "end_date":    "2002-07-21",
+        "city":        "Montreal",
+        "region":      "Quebec",
+        "country":     "Canada",
+        "event_type":  "net",
+        "status":      "completed",
+        "notes":       "Not published on Footbag.org; verified from Archambault email to announce@footbag.org 2002-07-22",
+        "source":      "verified_new",
+    })
+
+    # disciplines (5 net divisions)
+    _intl_discs = [
+        ("open_singles_net",         "Open Singles Net",         "singles", "1"),
+        ("open_womens_singles_net",   "Open Women's Singles Net", "singles", "2"),
+        ("open_mixed_doubles_net",    "Open Mixed Doubles Net",   "doubles", "3"),
+        ("open_womens_doubles_net",   "Open Women's Doubles Net", "doubles", "4"),
+        ("open_doubles_net",          "Open Doubles Net",         "doubles", "5"),
+    ]
+    for dk, dn, tt, so in _intl_discs:
+        disciplines.append({f: "" for f in fields_disciplines} | {
+            "event_key":           _EK2,
+            "discipline_key":      dk,
+            "discipline_name":     dn,
+            "discipline_category": "net",
+            "team_type":           tt,
+            "sort_order":          so,
+            "coverage_flag":       "complete",
+        })
+
+    # Open Singles Net: p1 Emmanuel, p2 John, p3 Patrick/Yves (tie)
+    _intl_singles = [
+        ("1", "3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c", "Emmanuel Bouchard"),
+        ("2", "3b938feb-b4c7-59a1-929f-7b62be77c1ce", "John Leys"),
+        ("3", "202607a4-85da-5231-957a-85eb5a4e3e76", "Patrick Asswad"),
+        ("3", "691f48a0-1dbd-5ef5-99ea-13615a7437d2", "Yves Archambault"),
+    ]
+    # Open Women's Singles Net: p1 Genevieve, p2 Julie, p3 Tina/Marilyn (tie)
+    _intl_womens_singles = [
+        ("1", "fea99a91-ae13-5cb1-b87f-3c352783dc2e", "Genevieve Bousquet"),
+        ("2", "adc70b9b-7496-5ded-8feb-fdc8e9c5d21c", "Julie Symons"),
+        ("3", "54e16a85-0204-5ef1-aa92-a09c9af8ae1c", "Tina Lewis"),
+        ("3", "40a3babb-8d9d-522c-8cbf-9f221bbc5903", "Marilyn Demuy"),
+    ]
+
+    for dk, plclist in [
+        ("open_singles_net",       _intl_singles),
+        ("open_womens_singles_net", _intl_womens_singles),
+    ]:
+        _seen_plc: dict[str, int] = {}
+        for plc, _pid, _name in plclist:
+            if plc not in _seen_plc:
+                results.append({f: "" for f in fields_results} | {
+                    "event_key": _EK2, "discipline_key": dk, "placement": plc, "source": "verified_new",
+                })
+                _seen_plc[plc] = 0
+            _seen_plc[plc] += 1
+            participants.append({f: "" for f in fields_participants} | {
+                "event_key": _EK2, "discipline_key": dk, "placement": plc,
+                "participant_order": str(_seen_plc[plc]),
+                "display_name": _name, "person_id": _pid,
+            })
+
+    # Doubles divisions
+    _intl_doubles = {
+        "open_mixed_doubles_net": [
+            ("1", "3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c", "Emmanuel Bouchard",
+                   "40a3babb-8d9d-522c-8cbf-9f221bbc5903", "Marilyn Demuy"),
+            ("2", "4f763ef4-fb7b-5fcb-9883-988370e20b2e", "Alexis Deschenes",
+                   "adc70b9b-7496-5ded-8feb-fdc8e9c5d21c", "Julie Symons"),
+            ("3", "39bc6c51-d2e0-5930-8677-51828c12de14", "Andy Ronald",
+                   "f2ce846c-fa31-52e4-a88e-d8f7bccbe92e", "Maude Landreville"),
+        ],
+        "open_womens_doubles_net": [
+            ("1", "adc70b9b-7496-5ded-8feb-fdc8e9c5d21c", "Julie Symons",
+                   "40a3babb-8d9d-522c-8cbf-9f221bbc5903", "Marilyn Demuy"),
+            ("2", "fea99a91-ae13-5cb1-b87f-3c352783dc2e", "Genevieve Bousquet",
+                   "54e16a85-0204-5ef1-aa92-a09c9af8ae1c", "Tina Lewis"),
+            ("3", "f2ce846c-fa31-52e4-a88e-d8f7bccbe92e", "Maude Landreville",
+                   "30587e0d-eaca-56c7-af01-c2950564b659", "Lyne Arsenault"),
+        ],
+        "open_doubles_net": [
+            ("1", "3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c", "Emmanuel Bouchard",
+                   "c0ba05a1-16a9-51e0-bcf5-7f6b879710a9", "Sebastien Verdy"),
+            ("2", "202607a4-85da-5231-957a-85eb5a4e3e76", "Patrick Asswad",
+                   "f569a985-6548-5b3d-9322-5e2c764bcc11", "Robert Lavigne"),
+            ("3", "c312c02d-8a8c-5c73-8b68-65fc9e3fa453", "Benjamin Rochon",
+                   "184a06bb-be96-5120-9a7c-1676f2b01a2a", "Jean-Francois Lemieux"),
+            ("4", "691f48a0-1dbd-5ef5-99ea-13615a7437d2", "Yves Archambault",
+                   "4f763ef4-fb7b-5fcb-9883-988370e20b2e", "Alexis Deschenes"),
+        ],
+    }
+    for dk, plclist in _intl_doubles.items():
+        _seen = set()
+        for plc, p1id, p1n, p2id, p2n in plclist:
+            if plc not in _seen:
+                results.append({f: "" for f in fields_results} | {
+                    "event_key": _EK2, "discipline_key": dk, "placement": plc, "source": "verified_new",
+                })
+                _seen.add(plc)
+        for plc, p1id, p1n, p2id, p2n in plclist:
+            participants.append({f: "" for f in fields_participants} | {
+                "event_key": _EK2, "discipline_key": dk, "placement": plc,
+                "participant_order": "1", "display_name": p1n, "person_id": p1id,
+            })
+            participants.append({f: "" for f in fields_participants} | {
+                "event_key": _EK2, "discipline_key": dk, "placement": plc,
+                "participant_order": "2", "display_name": p2n, "person_id": p2id,
+            })
+
+    print(f"  Added event: {_EK2} (5 disciplines, 4+4+3+3+4 placements)")
+
+# ── Fix 7: Resolve all empty person_id fields ─────────────────────────────────
+# Ensures every participant row has a non-empty person_id so the FK constraint
+# to persons.csv is satisfied.  Also guarantees uniqueness within each
+# (event_key, discipline_key, placement) slot so the duplicate_person check passes.
+#
+# Strategy (in priority order):
+#   a) Display name exactly matches a person_name in persons.csv:
+#      → Fill in that person's person_id (safe: no identity guessing).
+#   b) Sentinel display names (__NON_PERSON__, __UNKNOWN_PARTNER__, etc.):
+#      → Per-slot UUID5 so each unknown occurrence is unique.
+#   c) All other unresolved real names:
+#      → UUID5(UNRESOLVED_NS, normalized_name) — same name across events → same UUID.
+#      → Within-slot duplicate fallback: UUID5(UNRESOLVED_NS, name+"|"+order).
+
+print("\n[Fix 7] Resolving empty person_id fields...")
+
+# Namespace for UNRESOLVED synthetic persons (UUID5)
+_UNRESOLVED_NS = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")  # DNS namespace
+
+_SENTINEL_DISPLAY_NAMES = {"__NON_PERSON__", "__UNKNOWN_PARTNER__", "[UNKNOWN PARTNER]",
+                            "[UNKNOWN]", ""}
+
+def _normalize_for_uuid(name: str) -> str:
+    """Lowercase, strip, NFC-normalize for consistent UUID5 generation."""
+    return unicodedata.normalize("NFC", name.strip().lower())
+
+def _ensure_person(pid: str, dname: str, scope: str) -> None:
+    """Add a person to persons.csv if not already present."""
+    if pid not in _existing_pids:
+        new_person = {f: "" for f in fields_persons}
+        new_person["person_id"]    = pid
+        new_person["person_name"]  = dname
+        new_person["source_scope"] = scope
+        new_person["bap_member"]   = "0"
+        new_person["fbhof_member"] = "0"
+        persons.append(new_person)
+        _existing_pids.add(pid)
+
+# Build name→person_id index from current persons.csv
+_name_to_pid: dict[str, str] = {p["person_name"]: p["person_id"] for p in persons}
+_existing_pids: set[str] = {p["person_id"] for p in persons}
+
+_f7_name_match = 0   # resolved by exact name lookup
+_f7_sentinel   = 0   # assigned per-slot sentinel UUID
+_f7_synthetic  = 0   # resolved by UUID5 generation
+
+# First pass: assign name-based UUIDs (or name-match) without slot awareness
+_pending_resolution: list[dict] = []
+for row in participants:
+    if row.get("person_id", "").strip():
+        continue  # already resolved
+    _pending_resolution.append(row)
+
+# (a) Exact name match
+for row in _pending_resolution:
+    dname = row.get("display_name", "").strip()
+    if dname in _name_to_pid and dname not in _SENTINEL_DISPLAY_NAMES:
+        row["person_id"] = _name_to_pid[dname]
+        _f7_name_match += 1
+
+# (b+c) Sentinels and synthetic — assign initial UUID5
+for row in _pending_resolution:
+    if row.get("person_id", "").strip():
+        continue  # already resolved above
+
+    dname = row.get("display_name", "").strip()
+    ek    = row.get("event_key", "")
+    dk    = row.get("discipline_key", "")
+    plc   = row.get("placement", "")
+    ord_  = row.get("participant_order", "1")
+
+    if dname in _SENTINEL_DISPLAY_NAMES:
+        # Per-slot UUID so two sentinels in same result are unique
+        slot_key = f"__UNKNOWN__|{ek}|{dk}|{plc}|{ord_}"
+        pid = str(uuid.uuid5(_UNRESOLVED_NS, slot_key))
+        _ensure_person(pid, "__UNKNOWN_PARTNER__", "SYSTEM")
+        row["person_id"] = pid
+        _f7_sentinel += 1
+    else:
+        norm = _normalize_for_uuid(dname)
+        pid  = str(uuid.uuid5(_UNRESOLVED_NS, norm))
+        _ensure_person(pid, dname, "UNRESOLVED")
+        _name_to_pid.setdefault(dname, pid)
+        row["person_id"] = pid
+        _f7_synthetic += 1
+
+# Second pass: resolve within-slot duplicates for UNRESOLVED names.
+# If two rows in the same placement slot got the same UUID5 from the same
+# display name (e.g. "Stenzel" as both partners), differentiate by appending
+# the participant_order to the UUID5 key.
+_slot_pids: dict[tuple, set] = defaultdict(set)
+for row in participants:
+    slot = (row.get("event_key",""), row.get("discipline_key",""), row.get("placement",""))
+    pid  = row.get("person_id","")
+    if pid in _slot_pids[slot]:
+        # Collision — regenerate with order-scoped key
+        dname = row.get("display_name","").strip()
+        ord_  = row.get("participant_order","1")
+        if dname in _SENTINEL_DISPLAY_NAMES:
+            slot_key = f"__UNKNOWN__|{slot[0]}|{slot[1]}|{slot[2]}|{ord_}_dup"
+        else:
+            norm = _normalize_for_uuid(dname)
+            slot_key = f"{norm}|order:{ord_}"
+        new_pid = str(uuid.uuid5(_UNRESOLVED_NS, slot_key))
+        _ensure_person(new_pid, dname if dname not in _SENTINEL_DISPLAY_NAMES else "__UNKNOWN_PARTNER__", "UNRESOLVED")
+        row["person_id"] = new_pid
+    _slot_pids[slot].add(row.get("person_id",""))
+
+_f7_remaining = sum(1 for r in participants if not r.get("person_id", "").strip())
+
+print(f"  Resolved by exact name match:           {_f7_name_match:,}")
+print(f"  Sentinel per-slot UUIDs (unknown):      {_f7_sentinel:,}")
+print(f"  Synthetic UNRESOLVED persons:           {_f7_synthetic:,}")
+print(f"  Remaining empty person_id:              {_f7_remaining:,}")
+
 # ── Save ──────────────────────────────────────────────────────────────────────
 
 print("\nSaving...")
@@ -498,6 +919,9 @@ print(f"""
 ║ Fix 4  Tie rows enforced (order→1)       {tie_fixes:>6,} ║
 ║ Fix 5  Ghost partner rows inserted       {len(ghost_rows):>6,} ║
 ║ Fix 6  Participants renumbered (seq)     {seq_normalized:>6,} ║
+║ Fix 7  Resolved by name match            {_f7_name_match:>6,} ║
+║        Sentinel UUIDs (unknown/artifact) {_f7_sentinel:>6,} ║
+║        Synthetic UNRESOLVED persons      {_f7_synthetic:>6,} ║
 ╠══════════════════════════════════════════╣
 ║ Disciplines: singles {singles_count:<5} doubles {doubles_count:<5}       ║
 ║ Participants: resolved {resolved:<6} unresolved {unresolved:<5} ║
@@ -508,3 +932,9 @@ print(f"""
 ║ Orphaned discipline refs (participants)  {orphan_discs_parts:>6,} ║
 ╚══════════════════════════════════════════╝
 """)
+
+# Copy persons.csv (not modified by 05p5) to platform output
+if PLATFORM_OUT is not None:
+    import shutil
+    shutil.copy2(CANONICAL / "persons.csv", PLATFORM_OUT / "persons.csv")
+    print(f"  Copied persons.csv → {PLATFORM_OUT}")

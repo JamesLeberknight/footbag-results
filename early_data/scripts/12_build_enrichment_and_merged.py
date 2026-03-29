@@ -140,7 +140,7 @@ EVENTS_ALL_FIELDS = [
 ]
 
 
-def build_events_all(pre_events, post_events, post_results):
+def build_events_all(pre_events, post_events, post_results, exclude_post_event_ids):
     """Merge event tables into unified events_all."""
     rows = []
 
@@ -170,8 +170,10 @@ def build_events_all(pre_events, post_events, post_results):
             "data_source":       "PRE1997",
         })
 
-    # Post-1997 events
+    # Post-1997 events — skip those superseded by pre-1997 lane
     for e in post_events:
+        if e["event_key"] in exclude_post_event_ids:
+            continue
         loc_parts = [e.get("city", ""), e.get("region", ""), e.get("country", "")]
         location  = ", ".join(p for p in loc_parts if p)
         rows.append({
@@ -212,14 +214,15 @@ RESULTS_ALL_FIELDS = [
 ]
 
 
-def build_results_all(pre_results, post_results, disc_name_idx):
+def build_results_all(pre_results, post_results, disc_name_idx, hex_to_slug, exclude_post_event_ids):
     """Merge event_results tables."""
     rows = []
 
-    # Pre-1997 results
+    # Pre-1997 results — translate hex canonical_event_id → slug where needed
     for r in pre_results:
+        eid = hex_to_slug.get(r["canonical_event_id"], r["canonical_event_id"])
         rows.append({
-            "event_id":      r["canonical_event_id"],
+            "event_id":      eid,
             "discipline":    r["division_raw"],
             "discipline_name": r["division_raw"],
             "placement":     r["place"],
@@ -231,8 +234,10 @@ def build_results_all(pre_results, post_results, disc_name_idx):
             "result_row_id": r["result_id"],
         })
 
-    # Post-1997 results (event_key + discipline_key + placement = natural key)
+    # Post-1997 results — skip events superseded by pre-1997 lane
     for r in post_results:
+        if r["event_key"] in exclude_post_event_ids:
+            continue
         disc_key  = r["discipline_key"]
         disc_name = disc_name_idx.get((r["event_key"], disc_key), disc_key)
         rows.append({
@@ -267,18 +272,19 @@ PARTICIPANTS_ALL_FIELDS = [
 ]
 
 
-def build_participants_all(pre_parts, post_parts):
+def build_participants_all(pre_parts, post_parts, hex_to_slug, exclude_post_event_ids):
     """Merge participant tables."""
     rows = []
 
-    # Pre-1997 participants
+    # Pre-1997 participants — translate hex canonical_event_id → slug where needed
     # Group by (canonical_event_id, division_raw, place) to assign participant_order
     pre_ord: dict = defaultdict(int)
     for p in pre_parts:
-        key = (p["canonical_event_id"], p["division_raw"], p["place"])
+        eid = hex_to_slug.get(p["canonical_event_id"], p["canonical_event_id"])
+        key = (eid, p["division_raw"], p["place"])
         pre_ord[key] += 1
         rows.append({
-            "event_id":          p["canonical_event_id"],
+            "event_id":          eid,
             "discipline":        p["division_raw"],
             "placement":         p["place"],
             "participant_order": str(pre_ord[key]),
@@ -290,8 +296,10 @@ def build_participants_all(pre_parts, post_parts):
             "data_source":       "PRE1997",
         })
 
-    # Post-1997 participants
+    # Post-1997 participants — skip events superseded by pre-1997 lane
     for p in post_parts:
+        if p["event_key"] in exclude_post_event_ids:
+            continue
         rows.append({
             "event_id":          p["event_key"],
             "discipline":        p["discipline_key"],
@@ -324,7 +332,7 @@ DISCIPLINES_ALL_FIELDS = [
 ]
 
 
-def build_disciplines_all(pre_discs, post_discs, post_results):
+def build_disciplines_all(pre_discs, post_discs, post_results, hex_to_slug, exclude_post_event_ids):
     """
     Merge event_disciplines tables into unified disciplines_all.
 
@@ -335,10 +343,11 @@ def build_disciplines_all(pre_discs, post_discs, post_results):
     """
     rows = []
 
-    # Pre-1997 disciplines — minimal schema, fill blanks for post-only fields
+    # Pre-1997 disciplines — translate hex IDs → slugs, fill blanks for post-only fields
     for d in pre_discs:
+        eid = hex_to_slug.get(d["canonical_event_id"], d["canonical_event_id"])
         rows.append({
-            "event_id":            d["canonical_event_id"],
+            "event_id":            eid,
             "discipline":          d["division_raw"],
             "discipline_name":     d["division_raw"],
             "discipline_category": "",
@@ -355,8 +364,10 @@ def build_disciplines_all(pre_discs, post_discs, post_results):
         (r["event_key"], r["discipline_key"]) for r in post_results
     )
 
-    # Post-1997 disciplines
+    # Post-1997 disciplines — skip events superseded by pre-1997 lane
     for d in post_discs:
+        if d["event_key"] in exclude_post_event_ids:
+            continue
         key = (d["event_key"], d["discipline_key"])
         rows.append({
             "event_id":            d["event_key"],
@@ -538,7 +549,7 @@ def main():
     pre_results  = read_csv(FINAL / "event_results_pre1997.csv")
     pre_parts    = read_csv(FINAL / "event_result_participants_pre1997.csv")
     pre_persons  = read_csv(FINAL / "persons_pre1997.csv")
-    pre_discs    = read_csv(EARLY / "canonical" / "event_disciplines_pre1997.csv")
+    pre_discs    = read_csv(FINAL / "event_disciplines_pre1997.csv")
 
     # Load post-1997
     post_events  = read_csv(ROOT / "out/canonical/events.csv")
@@ -557,6 +568,23 @@ def main():
     post_persons_idx = {p["person_id"]: p for p in post_persons}
     disc_name_idx    = {(d["event_key"], d["discipline_key"]): d["discipline_name"]
                         for d in post_discs}
+
+    # Build hex→slug map: some pre-1997 results/participants use legacy hex IDs
+    # rather than the slug canonical_event_id stored in events_pre1997.csv.
+    hex_to_slug = {}
+    for e in pre_events:
+        h = e.get("legacy_hex_id", "").strip()
+        if h:
+            hex_to_slug[h] = e["canonical_event_id"]
+
+    # Events present in PRE1997 lane supersede any mirror copies in POST1997.
+    # Build exclusion set of post-1997 event_keys that match pre-1997 slugs.
+    pre_event_slug_set = {e["canonical_event_id"] for e in pre_events}
+    post_event_keys    = {e["event_key"] for e in post_events}
+    exclude_post_event_ids = pre_event_slug_set & post_event_keys
+    if exclude_post_event_ids:
+        print(f"  Excluding {len(exclude_post_event_ids)} post-1997 event(s) superseded "
+              f"by pre-1997 lane: {sorted(exclude_post_event_ids)}")
 
     # ── Part 1: Enrichment ─────────────────────────────────────────────────
     print("\n--- PART 1: Build person enrichment ---")
@@ -580,10 +608,10 @@ def main():
     # ── Part 2: Merged canonical ───────────────────────────────────────────
     print("\n--- PART 2: Build merged canonical dataset ---")
 
-    events_all  = build_events_all(pre_events, post_events, post_results)
-    discs_all   = build_disciplines_all(pre_discs, post_discs, post_results)
-    results_all = build_results_all(pre_results, post_results, disc_name_idx)
-    parts_all   = build_participants_all(pre_parts, post_parts)
+    events_all  = build_events_all(pre_events, post_events, post_results, exclude_post_event_ids)
+    discs_all   = build_disciplines_all(pre_discs, post_discs, post_results, hex_to_slug, exclude_post_event_ids)
+    results_all = build_results_all(pre_results, post_results, disc_name_idx, hex_to_slug, exclude_post_event_ids)
+    parts_all   = build_participants_all(pre_parts, post_parts, hex_to_slug, exclude_post_event_ids)
     persons_all = build_persons_all(pre_persons, post_persons, post_persons_idx)
 
     write_csv(OUT_ALL / "events_all.csv",                    events_all,  EVENTS_ALL_FIELDS)

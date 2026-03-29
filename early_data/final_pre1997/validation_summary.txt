@@ -1,27 +1,27 @@
 PRE-1997 Historical Footbag Dataset — Validation Summary
 Dataset version: v1.0
-Generated: 2026-03-23
+Generated: 2026-03-27
 
 ========================================================
 EVENT COVERAGE
 ========================================================
-  Canonical events (year < 1997): 32
+  Canonical events (year < 1997): 29
   Years covered:                  1980–1996
-  Source placement rows:          755
-  Participant rows (expanded):    1141
+  Source placement rows:          731
+  Participant rows (expanded):    1109
 
 CROSS-SOURCE VALIDATION
 ----------------------------------------
-  CONFIRMED_MULTI_SOURCE         12
-  SINGLE_SOURCE                  20
+  CONFIRMED_MULTI_SOURCE         15
+  SINGLE_SOURCE                  14
   CONFLICT                       0
 
 IDENTITY RESOLUTION
 ----------------------------------------
-  MATCHED                   1086
-  AUTOACCEPTED              21
+  MATCHED                   1061
+  AUTOACCEPTED              15
   NEW_PLAYER                30
-  UNRESOLVED                3
+  UNRESOLVED                2
   NOISE                     1
 
 ALIAS STATUS BREAKDOWN
@@ -41,8 +41,8 @@ PERSONS TABLE
 
 YEAR DISTRIBUTION
 ----------------------------------------
-  1980   4 events     27 participants
-  1981   3 events     44 participants
+  1980   2 events     14 participants
+  1981   2 events     25 participants
   1982   3 events     80 participants
   1983   4 events    179 participants
   1984   3 events    150 participants

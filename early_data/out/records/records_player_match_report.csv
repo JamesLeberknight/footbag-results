@@ -1,41 +1,41 @@
 player,player_norm,match_status,matched_person_id,matched_person_name,match_source,records_count
-Aleksi Airinen,aleksi airinen,matched,7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,alias,2
-Ales Zelinka,ales zelinka,matched,f2e73bec-d859-51b9-8312-edb5a473e83e,Ales Zelinka,alias,1
-Anssi Sundberg,anssi sundberg,matched,00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,alias,12
-Bartosz Bubula,bartosz bubula,matched,e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,alias,1
-Ben Skaggs,ben skaggs,matched,f825bd42-5056-55c5-8a4c-ba0788615e01,Ben Skaggs,alias,1
-Brian Sherrill,brian sherrill,matched,11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,alias,3
-Byrin Wylie,byrin wylie,matched,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,alias,5
-Damian Gielnicki,damian gielnicki,matched,ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,alias,2
-David Clavens,david clavens,matched,033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,alias,12
-Derek Littlefield,derek littlefield,matched,720e2139-027a-5e14-ab81-e82e84c1c44b,Derek Littlefield,alias,20
-Evan Gatesman,evan gatesman,matched,be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,alias,15
+Aleksi Airinen,aleksi airinen,matched,7c74c3f5-dc54-5e47-8365-e84497f4c943,Aleksi Airinen,persons_truth,2
+Ales Zelinka,ales zelinka,matched,f2e73bec-d859-51b9-8312-edb5a473e83e,Ales Zelinka,persons_truth,1
+Anssi Sundberg,anssi sundberg,matched,00d8d056-e8a7-5229-97bf-e0cb3b881cd8,Anssi Sundberg,persons_truth,12
+Bartosz Bubula,bartosz bubula,matched,e719220a-29e0-5844-869b-58c53a0b88b9,Bartosz Bubula,persons_truth,1
+Ben Skaggs,ben skaggs,matched,f825bd42-5056-55c5-8a4c-ba0788615e01,Ben Skaggs,persons_truth,1
+Brian Sherrill,brian sherrill,matched,11542335-67de-5fd2-9d43-5f2b55ea1fef,Brian Sherrill,persons_truth,3
+Byrin Wylie,byrin wylie,matched,bf5ce745-18b5-50b5-87a5-b2af6ffbf21c,Byrin Wylie,persons_truth,5
+Damian Gielnicki,damian gielnicki,matched,ac1268dc-a961-568f-860e-63e9ea815c01,Damian Gielnicki,persons_truth,2
+David Clavens,david clavens,matched,033a8589-0c98-5729-a8b4-068c4efcf025,David Clavens,persons_truth,12
+Derek Littlefield,derek littlefield,matched,720e2139-027a-5e14-ab81-e82e84c1c44b,Derek Littlefield,persons_truth,20
+Evan Gatesman,evan gatesman,matched,be7a8e7f-f052-5c31-b27b-47d4fee9a265,Evan Gatesman,persons_truth,15
 Honza,honza,matched,0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,alias,1
-Honza Weber,honza weber,matched,0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,alias,2
-Jakub Mosciszewski,jakub mosciszewski,matched,7a8314b4-2af9-584d-bd79-4af7a74d9c21,Jakub Mosciszewski,alias,8
-Jakub Worek,jakub worek,matched,0da84e00-c9f5-5d23-82b6-9ec1e759c74c,Jakub Worek,alias,12
-Jay Boychuk,jay boychuk,matched,34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,alias,1
-Jim Penske,jim penske,matched,4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,alias,24
+Honza Weber,honza weber,matched,0c03e968-f8b4-58fa-94d9-7c5094645d7a,Honza Weber,persons_truth,2
+Jakub Mosciszewski,jakub mosciszewski,matched,7a8314b4-2af9-584d-bd79-4af7a74d9c21,Jakub Mosciszewski,persons_truth,8
+Jakub Worek,jakub worek,matched,0da84e00-c9f5-5d23-82b6-9ec1e759c74c,Jakub Worek,persons_truth,12
+Jay Boychuk,jay boychuk,matched,34f17114-99b7-5320-b4ed-10a6813859ac,Jay Boychuk,persons_truth,1
+Jim Penske,jim penske,matched,4d04edec-6cd0-582d-b4e1-e8ead070a8c8,Jim Penske,persons_truth,24
 Jindra Smola,jindra smola,matched,0c1d57ac-f8a6-5c3e-a66f-eac82c8a5df4,Jindrich Smola,alias,2
-Josh Munstermann,josh munstermann,unresolved,,,none,1
-Ken Somolinos,ken somolinos,matched,d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,alias,12
-Kenzo Ogawa,kenzo ogawa,unresolved,,,none,1
+Josh Munstermann,josh munstermann,matched,620f26e0-fbe6-5a9e-a182-4da67faa4c8a,Josh Munstermann,persons_truth,1
+Ken Somolinos,ken somolinos,matched,d1aace44-cd92-5b85-9ed1-fe4afb2cd502,Ken Somolinos,persons_truth,12
+Kenzo Ogawa,kenzo ogawa,matched,2f39fd4a-b780-598d-b1b9-55bb7af030a0,Kenzo Ogawa,persons_truth,1
 Krzysztof Sobotka,krzysztof sobotka,matched,edad1160-ea50-5050-a4ea-930d31faace5,Krzysztof Sobotka,alias,4
 Maruisz Wilk,maruisz wilk,matched,4ad82639-801d-5c4b-aae6-f07e5dfe67d2,Mariusz Wilk,alias,2
-Mateusz Janicki,mateusz janicki,matched,db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,alias,1
-Mathias Blau,mathias blau,matched,f4d65667-f58f-5213-a2a3-6b985aa50dc5,Mathias Blau,alias,1
-Nate Linscott,nate linscott,matched,11d957ec-ccf4-5fe5-b749-e80806fc0e3a,Nate Linscott,alias,1
-Nathan Pipenberg,nathan pipenberg,matched,eae790d9-83f5-5339-8828-c641f33ec86d,Nathan Pipenberg,alias,2
-Nick Landes,nick landes,matched,48268322-19d9-5180-aac2-241293167d21,Nick Landes,alias,3
+Mateusz Janicki,mateusz janicki,matched,db71b1dc-51bc-54e5-9360-1d186c8f1cad,Mateusz Janicki,persons_truth,1
+Mathias Blau,mathias blau,matched,f4d65667-f58f-5213-a2a3-6b985aa50dc5,Mathias Blau,persons_truth,1
+Nate Linscott,nate linscott,matched,11d957ec-ccf4-5fe5-b749-e80806fc0e3a,Nate Linscott,persons_truth,1
+Nathan Pipenberg,nathan pipenberg,matched,eae790d9-83f5-5339-8828-c641f33ec86d,Nathan Pipenberg,persons_truth,2
+Nick Landes,nick landes,matched,48268322-19d9-5180-aac2-241293167d21,Nick Landes,persons_truth,3
 Nick Polini,nick polini,matched,872b93ec-1cd4-51c6-bd10-09c3ceeecec6,Nick Polini,alias,5
-Norek,norek,unresolved,,,none,18
-Patryk Tenderenda,patryk tenderenda,matched,6694222e-0569-530d-a4f2-c7b12aab7a93,Patryk Tenderenda,alias,1
-Pawel Nowak,pawel nowak,matched,9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,alias,4
+Norek,norek,matched,6513b145-8a4a-556a-a04f-981d95db2d70,Arkadiusz Dudzinski,alias,18
+Patryk Tenderenda,patryk tenderenda,matched,6694222e-0569-530d-a4f2-c7b12aab7a93,Patryk Tenderenda,persons_truth,1
+Pawel Nowak,pawel nowak,matched,9fccb3a3-3408-518a-aacb-43d9678fcce4,Pawel Nowak,persons_truth,4
 Przemysław Pietrzycki,przemys aw pietrzycki,matched,8a15006e-bc85-5621-bbe6-66090397b7d2,Przemyslaw Pietrzycki,alias,1
-Ryan Thomas,ryan thomas,matched,8519ad8c-7103-5eee-97c4-a08a9895da57,Ryan Thomas,alias,1
-SkyLon Smith,skylon smith,unresolved,,,none,17
-Taishi Ishida,taishi ishida,matched,b7d020fd-3376-5224-9aa6-d56ae56ad9cb,Taishi Ishida,alias,1
+Ryan Thomas,ryan thomas,matched,8519ad8c-7103-5eee-97c4-a08a9895da57,Ryan Thomas,persons_truth,1
+SkyLon Smith,skylon smith,matched,6d31249c-55d4-5afa-b2d9-09d5a1e44878,SkyLon Smith,persons_truth,17
+Taishi Ishida,taishi ishida,matched,b7d020fd-3376-5224-9aa6-d56ae56ad9cb,Taishi Ishida,persons_truth,1
 TJ Boutorwick,tj boutorwick,matched,ddea539c-7117-54c1-94f4-ae804f5fc6eb,T.J. Boutorwick,alias,2
-Tuukka Antikainen,tuukka antikainen,matched,dfd9c592-0f50-582b-8e8c-fcb60d9c2bb8,Tuukka Antikainen,alias,1
+Tuukka Antikainen,tuukka antikainen,matched,dfd9c592-0f50-582b-8e8c-fcb60d9c2bb8,Tuukka Antikainen,persons_truth,1
 Vasek Klouda,vasek klouda,matched,98ce4e04-05ca-56ca-b8c6-83f51c164c89,Vaclav Klouda,alias,1
-Yosshi Yamamoto,yosshi yamamoto,unresolved,,,none,1
+Yosshi Yamamoto,yosshi yamamoto,matched,ec76819c-889e-5732-9cd0-9d956128d421,Yoshihito Yamamoto,alias,1

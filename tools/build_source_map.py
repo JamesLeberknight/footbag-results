@@ -42,6 +42,8 @@ MAGAZINE_INDEX      = ROOT / "inputs/magazine_scan_index.csv"
 MAGAZINE_INGESTION  = ROOT / "inputs/magazine_ingestion_comprehensive_v1.csv"
 SCAN_DIR            = ROOT / "out/scans"
 CROP_DIR            = ROOT / "out/manual_crops_raw"
+PREP_DIR            = ROOT / "out/preprocessed"          # PREP_*.png from full scans
+CROP_PREP_DIR       = ROOT / "out/manual_crops_prepped"  # PREP_*.png from manual crops
 
 OUT_DIR             = ROOT / "out/pdf_compare"
 OUT_MAP             = OUT_DIR / "event_to_source_map.json"
@@ -164,6 +166,46 @@ def resolve_jpg(source_jpg: str) -> tuple[str | None, str]:
                 return str(f.relative_to(ROOT)), "inferred"
 
     return source_jpg, "inferred"  # filename known but file not found at expected path
+
+
+# ---------------------------------------------------------------------------
+# Preprocessed image resolution
+# ---------------------------------------------------------------------------
+def resolve_preprocessed(jpg_path: str | None) -> tuple[str | None, str]:
+    """
+    Given a raw jpg_path (relative to ROOT, as stored in source map),
+    find the corresponding preprocessed PNG in out/preprocessed/ or
+    out/manual_crops_prepped/.
+
+    Naming convention (deterministic, no guessing):
+      out/scans/CLEAN_X.jpeg        → out/preprocessed/PREP_X.png
+      out/manual_crops_raw/X.jpeg   → out/manual_crops_prepped/PREP_X.png
+
+    Returns (relative_path_from_root, status) where status is one of:
+      'resolved'   – file found on disk
+      'unresolved' – no preprocessed version found
+    """
+    if not jpg_path:
+        return None, "unresolved"
+
+    p = Path(jpg_path)
+    filename = p.name
+    parent   = str(p.parent)
+
+    if "scans" in parent:
+        # Strip leading CLEAN_ prefix, swap extension to .png, add PREP_
+        bare = filename[6:] if filename.startswith("CLEAN_") else filename
+        stem = bare.rsplit(".", 1)[0]
+        prep = PREP_DIR / f"PREP_{stem}.png"
+        if prep.exists():
+            return str(prep.relative_to(ROOT)), "resolved"
+    elif "manual_crops_raw" in parent:
+        stem = filename.rsplit(".", 1)[0]
+        prep = CROP_PREP_DIR / f"PREP_{stem}.png"
+        if prep.exists():
+            return str(prep.relative_to(ROOT)), "resolved"
+
+    return None, "unresolved"
 
 
 # ---------------------------------------------------------------------------
@@ -291,6 +333,7 @@ def main() -> None:
             "scan_jpg":             None,
             "jpg_path":             None,
             "jpg_link_status":      "unresolved",
+            "preprocessed_path":    None,
             "status":               "not_found",
         }
 
@@ -332,10 +375,12 @@ def main() -> None:
                 "supplementary_csv": str(MAGAZINE_INGESTION.relative_to(ROOT))
                     if matching_ingestion else None,
             }
-            entry["scan_jpg"]        = src_jpg or None
-            entry["jpg_path"]        = jpg_path
-            entry["jpg_link_status"] = jpg_status
-            entry["status"]          = "mapped"
+            entry["scan_jpg"]           = src_jpg or None
+            entry["jpg_path"]           = jpg_path
+            entry["jpg_link_status"]    = jpg_status
+            prep_path, _ = resolve_preprocessed(jpg_path)
+            entry["preprocessed_path"] = prep_path
+            entry["status"]             = "mapped"
 
             if jpg_status == "resolved":
                 stat_jpg_resolved += 1
@@ -379,10 +424,11 @@ def main() -> None:
                     "division_overlap":   [],  # pdf divisions_raw often empty
                 },
             }
-            entry["scan_jpg"]        = None
-            entry["jpg_path"]        = None   # no individual page JPG extracted
-            entry["jpg_link_status"] = "inferred"  # page ref in PDF
-            entry["status"]          = "mapped"
+            entry["scan_jpg"]           = None
+            entry["jpg_path"]           = None   # no individual page JPG extracted
+            entry["jpg_link_status"]    = "inferred"  # page ref in PDF
+            entry["preprocessed_path"]  = None   # PDF source — no scan to preprocess
+            entry["status"]             = "mapped"
 
             stat_jpg_inferred += 1
             stat_pdf          += 1
@@ -445,9 +491,11 @@ def main() -> None:
                     },
                     "source_refs": source_refs,
                 }
-                entry["scan_jpg"]        = jpg_fn
-                entry["jpg_path"]        = jpg_path_found
-                entry["jpg_link_status"] = jpg_status_found
+                entry["scan_jpg"]           = jpg_fn
+                entry["jpg_path"]           = jpg_path_found
+                entry["jpg_link_status"]    = jpg_status_found
+                prep_path, _ = resolve_preprocessed(jpg_path_found)
+                entry["preprocessed_path"] = prep_path
                 entry["status"]          = "mapped" if best_score >= 0.65 else "low_confidence"
 
                 stat_ingestion_name += 1
