@@ -31,8 +31,6 @@ Input/output: out/canonical/ (repo-relative)
 
 import csv
 import re
-import unicodedata
-import uuid
 from collections import defaultdict
 from pathlib import Path
 
@@ -759,120 +757,165 @@ if _EK2 not in existing_event_keys:
 
     print(f"  Added event: {_EK2} (5 disciplines, 4+4+3+3+4 placements)")
 
-# ── Fix 7: Resolve all empty person_id fields ─────────────────────────────────
-# Ensures every participant row has a non-empty person_id so the FK constraint
-# to persons.csv is satisfied.  Also guarantees uniqueness within each
-# (event_key, discipline_key, placement) slot so the duplicate_person check passes.
+# ── Fix 7: Resolve remaining empty person_id fields ───────────────────────────
+# Strategy (canonical-only — no synthetic persons):
+#   a) Display name exactly matches a person_name in persons.csv (all PT persons):
+#      → Fill in that person's person_id.  Safe: no identity guessing.
+#   Sentinels (__NON_PERSON__, __UNKNOWN_PARTNER__, etc.) and names with no
+#   exact PT match are left with person_id="" — the QC gate treats these as
+#   "unresolved participant" (not orphan) and does not flag them as hard-fail.
 #
-# Strategy (in priority order):
-#   a) Display name exactly matches a person_name in persons.csv:
-#      → Fill in that person's person_id (safe: no identity guessing).
-#   b) Sentinel display names (__NON_PERSON__, __UNKNOWN_PARTNER__, etc.):
-#      → Per-slot UUID5 so each unknown occurrence is unique.
-#   c) All other unresolved real names:
-#      → UUID5(UNRESOLVED_NS, normalized_name) — same name across events → same UUID.
-#      → Within-slot duplicate fallback: UUID5(UNRESOLVED_NS, name+"|"+order).
+# NOTE: Synthetic UNRESOLVED / per-slot UUID5 persons have been removed.
+# Those caused alias rows and noise to leak into persons.csv as fake person rows,
+# violating the canonical-only contract.  Stage 05's _clean_pid now resolves
+# player-level UUIDs → PT person_ids, so only genuinely unresolvable names
+# (noise, city artifacts, single-name fragments) reach this stage with empty ids.
 
-print("\n[Fix 7] Resolving empty person_id fields...")
-
-# Namespace for UNRESOLVED synthetic persons (UUID5)
-_UNRESOLVED_NS = uuid.UUID("6ba7b810-9dad-11d1-80b4-00c04fd430c8")  # DNS namespace
+print("\n[Fix 7] Resolving remaining empty person_id fields (canonical-only)...")
 
 _SENTINEL_DISPLAY_NAMES = {"__NON_PERSON__", "__UNKNOWN_PARTNER__", "[UNKNOWN PARTNER]",
                             "[UNKNOWN]", ""}
 
-def _normalize_for_uuid(name: str) -> str:
-    """Lowercase, strip, NFC-normalize for consistent UUID5 generation."""
-    return unicodedata.normalize("NFC", name.strip().lower())
-
-def _ensure_person(pid: str, dname: str, scope: str) -> None:
-    """Add a person to persons.csv if not already present."""
-    if pid not in _existing_pids:
-        new_person = {f: "" for f in fields_persons}
-        new_person["person_id"]    = pid
-        new_person["person_name"]  = dname
-        new_person["source_scope"] = scope
-        new_person["bap_member"]   = "0"
-        new_person["fbhof_member"] = "0"
-        persons.append(new_person)
-        _existing_pids.add(pid)
-
-# Build name→person_id index from current persons.csv
+# Build name→person_id index from current persons.csv (PT-only at this point)
 _name_to_pid: dict[str, str] = {p["person_name"]: p["person_id"] for p in persons}
-_existing_pids: set[str] = {p["person_id"] for p in persons}
 
-_f7_name_match = 0   # resolved by exact name lookup
-_f7_sentinel   = 0   # assigned per-slot sentinel UUID
-_f7_synthetic  = 0   # resolved by UUID5 generation
+_f7_name_match = 0   # resolved by exact canonical name lookup
+_f7_left_empty = 0   # left unresolved (genuinely unresolvable — allowed by QC)
 
-# First pass: assign name-based UUIDs (or name-match) without slot awareness
-_pending_resolution: list[dict] = []
 for row in participants:
     if row.get("person_id", "").strip():
-        continue  # already resolved
-    _pending_resolution.append(row)
-
-# (a) Exact name match
-for row in _pending_resolution:
+        continue  # already resolved by stage 05 or earlier fix
     dname = row.get("display_name", "").strip()
-    if dname in _name_to_pid and dname not in _SENTINEL_DISPLAY_NAMES:
+    if dname and dname not in _SENTINEL_DISPLAY_NAMES and dname in _name_to_pid:
         row["person_id"] = _name_to_pid[dname]
         _f7_name_match += 1
-
-# (b+c) Sentinels and synthetic — assign initial UUID5
-for row in _pending_resolution:
-    if row.get("person_id", "").strip():
-        continue  # already resolved above
-
-    dname = row.get("display_name", "").strip()
-    ek    = row.get("event_key", "")
-    dk    = row.get("discipline_key", "")
-    plc   = row.get("placement", "")
-    ord_  = row.get("participant_order", "1")
-
-    if dname in _SENTINEL_DISPLAY_NAMES:
-        # Per-slot UUID so two sentinels in same result are unique
-        slot_key = f"__UNKNOWN__|{ek}|{dk}|{plc}|{ord_}"
-        pid = str(uuid.uuid5(_UNRESOLVED_NS, slot_key))
-        _ensure_person(pid, "__UNKNOWN_PARTNER__", "SYSTEM")
-        row["person_id"] = pid
-        _f7_sentinel += 1
     else:
-        norm = _normalize_for_uuid(dname)
-        pid  = str(uuid.uuid5(_UNRESOLVED_NS, norm))
-        _ensure_person(pid, dname, "UNRESOLVED")
-        _name_to_pid.setdefault(dname, pid)
-        row["person_id"] = pid
-        _f7_synthetic += 1
-
-# Second pass: resolve within-slot duplicates for UNRESOLVED names.
-# If two rows in the same placement slot got the same UUID5 from the same
-# display name (e.g. "Stenzel" as both partners), differentiate by appending
-# the participant_order to the UUID5 key.
-_slot_pids: dict[tuple, set] = defaultdict(set)
-for row in participants:
-    slot = (row.get("event_key",""), row.get("discipline_key",""), row.get("placement",""))
-    pid  = row.get("person_id","")
-    if pid in _slot_pids[slot]:
-        # Collision — regenerate with order-scoped key
-        dname = row.get("display_name","").strip()
-        ord_  = row.get("participant_order","1")
-        if dname in _SENTINEL_DISPLAY_NAMES:
-            slot_key = f"__UNKNOWN__|{slot[0]}|{slot[1]}|{slot[2]}|{ord_}_dup"
-        else:
-            norm = _normalize_for_uuid(dname)
-            slot_key = f"{norm}|order:{ord_}"
-        new_pid = str(uuid.uuid5(_UNRESOLVED_NS, slot_key))
-        _ensure_person(new_pid, dname if dname not in _SENTINEL_DISPLAY_NAMES else "__UNKNOWN_PARTNER__", "UNRESOLVED")
-        row["person_id"] = new_pid
-    _slot_pids[slot].add(row.get("person_id",""))
+        # Leave person_id="" — sentinel, noise, or genuinely unknown participant.
+        # QC gate excludes empty person_id from orphan checks (unresolved ≠ orphan).
+        _f7_left_empty += 1
 
 _f7_remaining = sum(1 for r in participants if not r.get("person_id", "").strip())
 
-print(f"  Resolved by exact name match:           {_f7_name_match:,}")
-print(f"  Sentinel per-slot UUIDs (unknown):      {_f7_sentinel:,}")
-print(f"  Synthetic UNRESOLVED persons:           {_f7_synthetic:,}")
-print(f"  Remaining empty person_id:              {_f7_remaining:,}")
+print(f"  Resolved by exact canonical name match: {_f7_name_match:,}")
+print(f"  Left unresolved (empty person_id):      {_f7_left_empty:,}")
+print(f"  Remaining empty person_id (pre-Fix8):   {_f7_remaining:,}")
+
+# ── Fix 8: Remove artifact participants + orphaned result rows ─────────────────
+# Participants with blank person_id whose display_name is a parsing artifact
+# (single word, city/state/country, club name, parenthetical fragment, geographic
+# garbage) are REMOVED.  These are not people; keeping them corrupts statistics.
+# After removal, event_result rows that end up with zero participants are also
+# removed (orphaned result → no data at that placement).
+#
+# Legitimate sentinels are KEPT:
+#   __NON_PERSON__, __UNKNOWN_PARTNER__, [UNKNOWN PARTNER]
+# Single-name fragments (Jean, Juha) that look like real first names are also
+# REMOVED — unidentifiable and cannot be attributed.
+
+print("\n[Fix 8] Removing artifact participants and orphaned results...")
+
+import re as _re
+
+_KEEP_SENTINELS = {"__NON_PERSON__", "__UNKNOWN_PARTNER__", "[UNKNOWN PARTNER]",
+                   "[UNKNOWN]", ""}
+
+# Known geographic/artifact keywords (multi-word patterns)
+_GEO_PATTERN = _re.compile(
+    r"\b(canada|quebec|province|ontario|colombie|nova\s+scotia|state\s+college|"
+    r"mountain\s+view|phoenix|montreal|australia|new\s+zealand)\b",
+    _re.I,
+)
+_CLUB_PATTERN = _re.compile(
+    r"\b(club|association|academy|federation|footbag\s+\w+)\b", _re.I
+)
+_PAREN_PATTERN = _re.compile(r"[()]")
+_TRAILING_FRAG = _re.compile(r"\b(and|or)\s*$", _re.I)
+_STATE_FRAG    = _re.compile(r"^[A-Z]{2}\)?\s*[-–]?\s*(canada|and|or)?\s*$")
+
+
+def _is_artifact(name: str) -> bool:
+    """Return True if name is a parsing artifact that should be removed."""
+    n = name.strip()
+    if not n or n in _KEEP_SENTINELS:
+        return False
+    # Single word (no spaces) — covers "Jean", "Juha", "California", "Poland"
+    if " " not in n:
+        return True
+    # Contains parentheses — leftover fragment from split team notation
+    if _PAREN_PATTERN.search(n):
+        return True
+    # Club / federation names
+    if _CLUB_PATTERN.search(n):
+        return True
+    # Geographic garbage (city, province, country combinations)
+    if _GEO_PATTERN.search(n):
+        return True
+    # Trailing conjunction fragment — "BC) and", "AB) or"
+    if _TRAILING_FRAG.search(n):
+        return True
+    # Short state/province abbreviation fragments — "GA)", "BC)", "AB)"
+    if _STATE_FRAG.match(n):
+        return True
+    return False
+
+
+# Build doubles slot set — artifacts in doubles results become [UNKNOWN PARTNER]
+# rather than being removed (doubles need exactly 2 participants).
+_doubles_slots: set[tuple[str, str]] = {
+    (r["event_key"], r["discipline_key"])
+    for r in disciplines
+    if r.get("team_type") == "doubles"
+}
+
+# First pass: remove artifact participants from singles; sentinel-ize in doubles
+_f8_removed = 0
+_f8_sentineled = 0
+clean_participants = []
+for row in participants:
+    pid   = row.get("person_id", "").strip()
+    dname = row.get("display_name", "").strip()
+    if not pid and _is_artifact(dname):
+        slot = (row.get("event_key", ""), row.get("discipline_key", ""))
+        if slot in _doubles_slots:
+            # Replace with explicit unknown sentinel — preserves doubles structure
+            row["display_name"] = "[UNKNOWN PARTNER]"
+            clean_participants.append(row)
+            _f8_sentineled += 1
+        else:
+            _f8_removed += 1   # singles/other — remove entirely
+    else:
+        clean_participants.append(row)
+
+participants = clean_participants
+
+# Second pass: remove event_result rows that now have zero participants
+_result_keys_with_parts: set[tuple[str, str, str]] = {
+    (r["event_key"], r["discipline_key"], r["placement"])
+    for r in participants
+}
+_f8_orphan_results = 0
+clean_results = []
+for row in results:
+    rk = (row["event_key"], row["discipline_key"], row["placement"])
+    if rk in _result_keys_with_parts:
+        clean_results.append(row)
+    else:
+        _f8_orphan_results += 1
+results = clean_results
+
+# Renumber participant_order within each result slot after removals
+from collections import defaultdict as _defaultdict
+_slot_counter: dict[tuple[str, str, str], int] = _defaultdict(int)
+for row in participants:
+    slot = (row["event_key"], row["discipline_key"], row["placement"])
+    _slot_counter[slot] += 1
+    row["participant_order"] = str(_slot_counter[slot])
+
+_f8_remaining = sum(1 for r in participants if not r.get("person_id", "").strip())
+print(f"  Artifact participants removed:      {_f8_removed:,}")
+print(f"  Artifact participants→sentinel:    {_f8_sentineled:,}")
+print(f"  Orphaned result rows removed:      {_f8_orphan_results:,}")
+print(f"  Remaining empty person_id:         {_f8_remaining:,}")
 
 # ── Save ──────────────────────────────────────────────────────────────────────
 
@@ -919,9 +962,8 @@ print(f"""
 ║ Fix 4  Tie rows enforced (order→1)       {tie_fixes:>6,} ║
 ║ Fix 5  Ghost partner rows inserted       {len(ghost_rows):>6,} ║
 ║ Fix 6  Participants renumbered (seq)     {seq_normalized:>6,} ║
-║ Fix 7  Resolved by name match            {_f7_name_match:>6,} ║
-║        Sentinel UUIDs (unknown/artifact) {_f7_sentinel:>6,} ║
-║        Synthetic UNRESOLVED persons      {_f7_synthetic:>6,} ║
+║ Fix 7  Resolved by exact name match      {_f7_name_match:>6,} ║
+║        Left unresolved (empty pid)       {_f7_left_empty:>6,} ║
 ╠══════════════════════════════════════════╣
 ║ Disciplines: singles {singles_count:<5} doubles {doubles_count:<5}       ║
 ║ Participants: resolved {resolved:<6} unresolved {unresolved:<5} ║

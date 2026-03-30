@@ -26,11 +26,11 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from datetime import date
 
-ROOT     = Path(__file__).resolve().parents[2]
-EARLY    = ROOT / "early_data"
-FINAL    = EARLY / "final_pre1997"
-ENRICH   = EARLY / "enrichment"
-OUT_ALL  = ROOT / "out" / "canonical_all"
+ROOT      = Path(__file__).resolve().parents[2]
+EARLY     = ROOT / "early_data"
+FINAL     = EARLY / "final_pre1997"
+ENRICH    = EARLY / "enrichment"
+OUT_ALL   = ROOT / "out" / "canonical_all_union"  # provenance-preserving union
 
 ENRICH.mkdir(exist_ok=True)
 OUT_ALL.mkdir(exist_ok=True)
@@ -39,6 +39,21 @@ TODAY = date.today().isoformat()
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
+
+def _canonicalize_div_abbrevs(name: str) -> str:
+    """Expand common pre-1997 division abbreviations to canonical long form.
+
+    Normalizes:
+      Dbls   → Doubles
+      Sgls   → Singles
+      Dobles → Doubles  (Spanish)
+    Preserves surrounding text and casing of other words.
+    """
+    name = re.sub(r"\bdbls\b",   "Doubles", name, flags=re.IGNORECASE)
+    name = re.sub(r"\bsgls\b",   "Singles", name, flags=re.IGNORECASE)
+    name = re.sub(r"\bdobles\b", "Doubles", name, flags=re.IGNORECASE)
+    return name
+
 
 def read_csv(path):
     with open(path, newline="", encoding="utf-8") as f:
@@ -221,10 +236,11 @@ def build_results_all(pre_results, post_results, disc_name_idx, hex_to_slug, exc
     # Pre-1997 results — translate hex canonical_event_id → slug where needed
     for r in pre_results:
         eid = hex_to_slug.get(r["canonical_event_id"], r["canonical_event_id"])
+        div_canon = _canonicalize_div_abbrevs(r["division_raw"])
         rows.append({
             "event_id":      eid,
-            "discipline":    r["division_raw"],
-            "discipline_name": r["division_raw"],
+            "discipline":    div_canon,
+            "discipline_name": div_canon,
             "placement":     r["place"],
             "player_raw":    r.get("player_raw", ""),
             "team_raw":      r.get("team_raw", ""),
@@ -281,11 +297,12 @@ def build_participants_all(pre_parts, post_parts, hex_to_slug, exclude_post_even
     pre_ord: dict = defaultdict(int)
     for p in pre_parts:
         eid = hex_to_slug.get(p["canonical_event_id"], p["canonical_event_id"])
-        key = (eid, p["division_raw"], p["place"])
+        div_canon = _canonicalize_div_abbrevs(p["division_raw"])
+        key = (eid, div_canon, p["place"])
         pre_ord[key] += 1
         rows.append({
             "event_id":          eid,
-            "discipline":        p["division_raw"],
+            "discipline":        div_canon,
             "placement":         p["place"],
             "participant_order": str(pre_ord[key]),
             "display_name":      p["person_canon"] or p["player_name_raw"],
@@ -343,13 +360,19 @@ def build_disciplines_all(pre_discs, post_discs, post_results, hex_to_slug, excl
     """
     rows = []
 
-    # Pre-1997 disciplines — translate hex IDs → slugs, fill blanks for post-only fields
+    # Pre-1997 disciplines — translate hex IDs → slugs, fill blanks for post-only fields.
+    # After abbreviation expansion some source names collapse to the same canonical name
+    # (e.g. "Mixed Dbls Net" and "Mixed Doubles Net" both → "Mixed Doubles Net").
+    # Deduplicate by keeping the row with the highest total_placements for each key.
+    pre_disc_seen: dict = {}  # (event_id, discipline) → row index in rows
     for d in pre_discs:
         eid = hex_to_slug.get(d["canonical_event_id"], d["canonical_event_id"])
-        rows.append({
+        div_canon = _canonicalize_div_abbrevs(d["division_raw"])
+        key = (eid, div_canon)
+        new_row = {
             "event_id":            eid,
-            "discipline":          d["division_raw"],
-            "discipline_name":     d["division_raw"],
+            "discipline":          div_canon,
+            "discipline_name":     div_canon,
             "discipline_category": "",
             "team_type":           "",
             "sort_order":          "",
@@ -357,7 +380,18 @@ def build_disciplines_all(pre_discs, post_discs, post_results, hex_to_slug, excl
             "total_placements":    d["total_placements"],
             "notes":               "",
             "data_source":         "PRE1997",
-        })
+        }
+        if key in pre_disc_seen:
+            # Keep the row with the higher total_placements
+            existing = rows[pre_disc_seen[key]]
+            try:
+                if int(d["total_placements"] or 0) > int(existing["total_placements"] or 0):
+                    rows[pre_disc_seen[key]] = new_row
+            except (ValueError, TypeError):
+                pass  # keep existing on parse error
+        else:
+            pre_disc_seen[key] = len(rows)
+            rows.append(new_row)
 
     # Derive placement counts per (event_key, discipline_key) from post-1997 results
     post_plc_count: Counter = Counter(
@@ -614,11 +648,11 @@ def main():
     parts_all   = build_participants_all(pre_parts, post_parts, hex_to_slug, exclude_post_event_ids)
     persons_all = build_persons_all(pre_persons, post_persons, post_persons_idx)
 
-    write_csv(OUT_ALL / "events_all.csv",                    events_all,  EVENTS_ALL_FIELDS)
-    write_csv(OUT_ALL / "event_disciplines_all.csv",         discs_all,   DISCIPLINES_ALL_FIELDS)
-    write_csv(OUT_ALL / "event_results_all.csv",             results_all, RESULTS_ALL_FIELDS)
-    write_csv(OUT_ALL / "event_result_participants_all.csv", parts_all,   PARTICIPANTS_ALL_FIELDS)
-    write_csv(OUT_ALL / "persons_all.csv",                   persons_all, PERSONS_ALL_FIELDS)
+    write_csv(OUT_ALL / "events.csv",                    events_all,  EVENTS_ALL_FIELDS)
+    write_csv(OUT_ALL / "event_disciplines.csv",         discs_all,   DISCIPLINES_ALL_FIELDS)
+    write_csv(OUT_ALL / "event_results.csv",             results_all, RESULTS_ALL_FIELDS)
+    write_csv(OUT_ALL / "event_result_participants.csv", parts_all,   PARTICIPANTS_ALL_FIELDS)
+    write_csv(OUT_ALL / "persons.csv",                   persons_all, PERSONS_ALL_FIELDS)
 
     # ── Part 3: Validation ─────────────────────────────────────────────────
     print("\n--- PART 3: Validation ---")

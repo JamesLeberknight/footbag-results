@@ -15,12 +15,12 @@ For year >= 1997: all POST1997 events are kept unchanged.
 
 EVENT COUNTS
 ------------
-  Original merged events:           843
-  App-safe events:                  810
-  POST1997 early events suppressed: 33
-  POST1997 early events kept:       18
-  PRE1997 events:                   29
-  POST1997 modern (>=1997):         763
+  Original merged events:           839
+  App-safe events:                  812
+  POST1997 early events suppressed: 27
+  POST1997 early events kept:       19
+  PRE1997 events:                   28
+  POST1997 modern (>=1997):         765
 
 SUPPRESSED POST1997 EVENTS
 --------------------------
@@ -29,13 +29,11 @@ SUPPRESSED POST1997 EVENTS
   1980 | 1980_worlds_oregon_city             | 1980 World Footbag Championships
   1980 | 1980_worlds_oregon_city_2           | World Championships 1980 (NHSA)
   1981 | 1981_worlds_oregon_city             | World Championships 1981 (NHSA)
-  1981 | 1981_worlds_portland                | 1981 World Footbag Championships
   1981 | 1981_worlds_rohnert_park            | 1981 World Footbag Championships
   1981 | 1981_worlds_san_dimas               | World Footbag Championships 1981 (IFAB/FBW)
   1982 | 1982_rocky_mountain                 | Rocky Mountain Open 1982
   1982 | 1982_worlds_golden                  | 1982 World Footbag Championships
   1982 | 1982_worlds_oregon_city             | World Championships 1982 (NHSA)
-  1982 | 1982_worlds_portland                | World Footbag Championships
   1982 | 1982_worlds_san_diego               | 1982 World Footbag Championships
   1982 | 1982_worlds_san_francisco           | World Footbag Championships 1982 (IFAB)
   1983 | 1983_worlds_boulder                 | World Championships 1983 (NHSA)
@@ -48,15 +46,11 @@ SUPPRESSED POST1997 EVENTS
   1984 | 1984_worlds_oregon_city             | World Footbag Championships 1984 (IFAB)
   1985 | 1985_worlds_golden                  | World Championships 1985
   1985 | 1985_worlds_golden_2                | World Footbag Championships 1985 (FBW)
-  1986 | 1986_worlds_golden                  | World Footbag Championships 1986
   1987 | 1987_eurochamp_munich               | European Footbag Championships 1987
-  1987 | 1987_worlds_golden                  | World Footbag Championships 1987
-  1989 | 1989_worlds_golden                  | World Footbag Championships 1989
   1990 | 1990_worlds_golden                  | World Footbag Championships 1990
   1991 | 1991_worlds_vancouver               | World Footbag Championships 1991
   1992 | 1992_worlds_montreal                | World Footbag Championships 1992
   1994 | 1994_worlds_san_francisco           | World Footbag Championships 1994
-  1995 | 1995_worlds_menlo_park              | World Footbag Championships 1995
 
 KEPT POST1997 EARLY EVENTS (no PRE1997 equivalent)
 ---------------------------------------------------
@@ -78,6 +72,7 @@ KEPT POST1997 EARLY EVENTS (no PRE1997 equivalent)
   1990 | 1990_eastregion                     | East Coast Footbag Championships - 8th Annual - 1990
   1991 | 1991_eastregion                     | East Coast Footbag Championships - 1991 - 9th Annual
   1995 | 1995_eurochamp                      | European Open 1995
+  1995 | 1995_worlds_menlo_park              | World Footbag Championships 1995
 
 REFERENTIAL INTEGRITY
 ---------------------
@@ -104,15 +99,13 @@ EARLY CHAMPIONSHIP OVERLAP CHECK (app-safe)
   1985 | WFA_NATIONALS                  | PRE1997 | 1985 WFA National Championships
   1986 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1986 WFA World Championships
   1987 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1987 WFA World Championships
-  1988 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1988 WFA World Championships
   1989 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1989 WFA World Championships
   1990 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1990 WFA World Championships
   1991 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1991 WFA World Championships
   1992 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1992 WFA World Championships
   1993 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1993 IFAB World Championships
   1994 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1994 IFAB World Championships
-  1995 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1995 IFAB World Championships
-  1996 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1996 IFAB World Championships
+  1996 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1996 World Footbag Championships
 
 No true duplicate championship overlaps remain in the app-safe view.
 (Multiple PRE1997 entries per year reflect distinct historical organizations.)

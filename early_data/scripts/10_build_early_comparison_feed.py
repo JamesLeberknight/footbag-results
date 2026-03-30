@@ -78,6 +78,21 @@ def _norm_div(s: str) -> str:
     return s
 
 
+def _canonicalize_div_abbrevs(name: str) -> str:
+    """Expand common pre-1997 division abbreviations to canonical long form.
+
+    Normalizes:
+      Dbls  → Doubles
+      Sgls  → Singles
+      Dobles → Doubles  (Spanish abbreviation)
+    Preserves surrounding text and original casing of other words.
+    """
+    name = re.sub(r"\bdbls\b",   "Doubles", name, flags=re.IGNORECASE)
+    name = re.sub(r"\bsgls\b",   "Singles", name, flags=re.IGNORECASE)
+    name = re.sub(r"\bdobles\b", "Doubles", name, flags=re.IGNORECASE)
+    return name
+
+
 def _div_category(division_raw: str) -> str:
     """Rough division categorization for pre-1997 raw names."""
     n = division_raw.lower()
@@ -198,6 +213,7 @@ def build_pf_rows(canonical_event_id: str, year: str, validation_status: str,
         place_int = int(place_str) if place_str.isdigit() else 0
         div_cat   = _div_category(div_raw)
         div_norm  = _norm_div(div_raw)
+        div_canon = _canonicalize_div_abbrevs(div_raw)
 
         if len(pparts) == 1:
             # Singles placement
@@ -208,7 +224,7 @@ def build_pf_rows(canonical_event_id: str, year: str, validation_status: str,
             rows.append({
                 "event_id":         canonical_event_id,
                 "year":             year,
-                "division_canon":   div_raw,
+                "division_canon":   div_canon,
                 "division_category": div_cat,
                 "place":            place_int,
                 "competitor_type":  "player",
@@ -236,7 +252,7 @@ def build_pf_rows(canonical_event_id: str, year: str, validation_status: str,
             rows.append({
                 "event_id":         canonical_event_id,
                 "year":             year,
-                "division_canon":   div_raw,
+                "division_canon":   div_canon,
                 "division_category": div_cat,
                 "place":            place_int,
                 "competitor_type":  "team",

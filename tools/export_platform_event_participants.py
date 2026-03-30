@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 
 in_path = Path("/home/james/projects/FOOTBAG_DATA/out/release_publication/event_result_participants.csv")
-out_path = Path("/home/james/projects/fb-bw/legacy_data/event_results/canonical_input/event_result_participants.csv")
+out_path = Path("/home/james/projects/footbag-platform/legacy_data/event_results/canonical_input/event_result_participants.csv")
 out_path.parent.mkdir(parents=True, exist_ok=True)
 
 df = pd.read_csv(in_path, dtype=str).fillna("")
@@ -18,7 +18,9 @@ out = pd.DataFrame({
 
     "placement": df["placement"].astype(str).str.strip(),
     "participant_order": df["participant_order"].astype(str).str.strip(),
-    "display_name": df["display_name"].astype(str).str.strip(),
+    "display_name": df["display_name"].astype(str).str.strip().replace(
+        {"__NON_PERSON__": "Unknown", "[UNKNOWN PARTNER]": "Unknown", "__UNKNOWN_PARTNER__": "Unknown"}
+    ),
     "person_id": df["person_id"].astype(str).str.strip(),
     "team_person_key": df["team_person_key"].astype(str).str.strip(),
 

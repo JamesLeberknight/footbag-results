@@ -6,6 +6,60 @@ This project follows a structured, versioned release approach for dataset output
 
 ---
 
+## [v3.2.0] — 2026-03-30 — Identity Resolution Hardening
+
+### Summary
+
+Improved person identity resolution in the canonical export pipeline, eliminating ~400 previously
+unresolved participants caused by encoding artifacts, stale alias IDs, and abbreviated names.
+
+### Person Resolution Improvements — `pipeline/05_export_canonical_csv.py`
+
+- `_norm_name()` now strips U+FFFD (Unicode replacement character) before normalization — fixes
+  mojibake `team_display_name` members like `Fran\uFFFDois Pelletier` → correctly resolves as François Pelletier
+- `resolve_person_id()` now strips trailing parenthetical country/state suffixes on fallback lookup
+  (e.g. `Filip Wójcik (Poland)` → `Filip Wojcik`) — fixed 66 participants
+- `clean_display_str()` now applied to team member names before resolution so display_name is also clean
+
+### Artifact Removal — `pipeline/05p5_remediate_canonical.py` (Fix 8)
+
+- Participants with blank `person_id` and artifact display_names (single words, geo names, club names,
+  names with parentheticals) are removed from singles disciplines and replaced with `[UNKNOWN PARTNER]`
+  sentinel in doubles disciplines
+- Removed 76 artifact participants; sentineled 589; removed 10 orphaned result rows
+
+### New Aliases — `overrides/person_aliases.csv` (+24 entries)
+
+- Stale ID recovery: J/J. Lentz→Jack Lentz, E/E. Bouchard→Emmanuel Bouchard, V/V. Bradley→Vincent Bradley,
+  Y/Y. Archambault→Yves Archambault, Jan Zimmerman→Jan Zimmermann, Matthias Schmidt→Matthias Lino Schmidt,
+  Roman Belozerov→Roman Belozerovin, Lisa Amengual→Lisa Amenguale
+- Name variants: David Bernard→Dave Bernard, Bruce Guettlich→Bruce Guettich, E/E. Wulff→Eric Wulff,
+  Gosia Nyc→Gosia Nycz, Carlos Mrquez→Carlos Marquez
+- Encoding corruptions: Arturo Pińango, Paulina Brzezińska, Małgorzata Nycz, Wiktor Dbski, Pawe Ro ek
+
+### Dataset Counts (merged canonical_all/)
+
+| Table | v3.1 | v3.2 |
+|-------|------|------|
+| events | ~810 | 812 |
+| event_disciplines | ~3,900 | 4,112 |
+| event_results | ~23,800 | 24,932 |
+| event_result_participants | ~34,444 | 35,237 |
+| persons | ~3,482 | 3,490 |
+
+### Identity Resolution (post-1997 canonical only)
+
+| Metric | v3.1 | v3.2 |
+|--------|------|------|
+| Total participants | 34,655 | 34,578 |
+| Resolved (has person_id) | ~32,500 | 33,064 (95.6%) |
+| Blank — sentinels | — | 959 |
+| Blank — genuine unknowns | ~2,100 | 555 |
+
+QC gate: **PASS** (0 hard failures)
+
+---
+
 ## [v3.0.0] — 2026-03-25 — Merged Canonical Dataset Published
 
 ### Summary

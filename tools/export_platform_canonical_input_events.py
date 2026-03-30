@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Export release_publication/events.csv → fb-bw canonical_input/events.csv
+Export release_publication/events.csv → footbag-platform canonical_input/events.csv
 in the platform schema expected by 07_build_mvfp_seed_full.py.
 
 Source: out/release_publication/events.csv  (761 filtered events, PRE+POST1997)
@@ -25,7 +25,7 @@ def main() -> None:
     )
     ap.add_argument(
         "--output",
-        default="/home/james/projects/fb-bw/legacy_data/event_results/canonical_input/events.csv",
+        default="/home/james/projects/footbag-platform/legacy_data/event_results/canonical_input/events.csv",
         help="Destination platform canonical_input events.csv",
     )
     args = ap.parse_args()

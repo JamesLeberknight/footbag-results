@@ -34,6 +34,7 @@ Output columns (PF-compatible):
 """
 
 import csv
+import re
 import unicodedata
 from collections import defaultdict
 from pathlib import Path
@@ -53,6 +54,50 @@ VALID_STATUSES = {"completed", "historical"}
 
 _SENTINEL_NAMES = {"__UNKNOWN_PARTNER__", "__NON_PERSON__", "[UNKNOWN PARTNER]",
                    "[UNKNOWN]", "Unknown", ""}
+
+
+# ── Presentability check (mirrors 04_build_analytics.py) ────────────────────
+
+_RE_ALLOWED_CHARS = re.compile(r"^[A-Za-zÀ-ÖØ-öø-ÿ\u0100-\u017F\x27\u2019 .-]+$")
+_RE_BAD_TOKENS = re.compile(
+    r"\b(usa|canada|germany|ger|fin|cz|victory|points?|scratch|results?|open|"
+    r"place|position|playoff|rank|pixie|ducking|paradox|swirl|torque|and|with|plus)\b",
+    re.IGNORECASE,
+)
+_RE_SEPARATORS = re.compile(r"[+/\\=]")
+_RE_SINGLE_INITIAL = re.compile(r"^[A-Za-z]\.$")
+_RE_MULTI_INITIAL = re.compile(r"^[A-Za-z](?:\.[A-Za-z])+\.$")
+_PRESENTABLE_ALLOWLIST = frozenset({"Wally Victory", "Kendall KIC", "Greg RNH", "Toxic Tom B."})
+
+
+def _is_presentable(s: str) -> bool:
+    t = unicodedata.normalize("NFKC", s).strip()
+    if not t:
+        return False
+    if t in _PRESENTABLE_ALLOWLIST:
+        return True
+    if _RE_SEPARATORS.search(t):
+        return False
+    if any(ch.isdigit() for ch in t):
+        return False
+    if not _RE_ALLOWED_CHARS.match(t):
+        return False
+    if _RE_BAD_TOKENS.search(t):
+        return False
+    parts = t.split()
+    if not (2 <= len(parts) <= 4):
+        return False
+    last = len(parts) - 1
+    for i, p in enumerate(parts):
+        if len(p) == 1:
+            return False
+        if _RE_SINGLE_INITIAL.match(p) and i == last:
+            return False
+        if _RE_MULTI_INITIAL.match(p) and i == last:
+            return False
+        if p.isupper() and len(p) == 3:
+            return False
+    return True
 
 
 def _norm(s: str) -> str:
@@ -267,10 +312,7 @@ _rel_parts  = [p for p in parts_raw  if (p["event_id"], p["discipline"]) in vali
 _pname_field_rel = "person_name" if "person_name" in persons_raw[0] else "person_canon"
 _rel_persons = [
     p for p in persons_raw
-    if p.get(_pname_field_rel, "").strip()
-    and p[_pname_field_rel] not in _SENTINEL_NAMES
-    and p[_pname_field_rel].lower() not in {"unknown", ""}
-    and not p[_pname_field_rel].startswith("__")
+    if _is_presentable(p.get(_pname_field_rel, ""))
 ]
 
 def _write_csv(path: Path, rows: list[dict], fieldnames: list[str]) -> None:

@@ -2342,6 +2342,10 @@ def canonicalize_division(division_raw: str) -> str:
     div = re.sub(r'[?\ufffd]+$', '', div).strip()
     # 5. Trailing ":" (colon carried over from division header detection)
     div = div.rstrip(':').strip()
+    # 6. Normalize common abbreviations: dbls→Doubles, sgls→Singles, dobles→Doubles
+    div = re.sub(r"\bdbls\b",   "Doubles", div, flags=re.IGNORECASE)
+    div = re.sub(r"\bsgls\b",   "Singles", div, flags=re.IGNORECASE)
+    div = re.sub(r"\bdobles\b", "Doubles", div, flags=re.IGNORECASE)
     return smart_title(" ".join(div.split()))
 
 

@@ -1,6 +1,6 @@
 # Footbag Results Dataset
 
-**Current release: v3.0.0**
+**Current release: v3.2.0**
 
 A canonical, reproducible dataset of footbag competition results spanning **1980–present**, combining post-1997 mirror data with pre-1997 historical reconstruction.
 
@@ -14,26 +14,26 @@ The authoritative publication-ready relational dataset, fully resolved and QC-va
 
 | File | Rows | Description |
 |------|------|-------------|
-| `events.csv` | 761 | Published events (1980–2026) |
-| `event_disciplines.csv` | 3,661 | Qualifying disciplines (≥3 placements) |
-| `event_results.csv` | 24,327 | Placement rows |
-| `event_result_participants.csv` | 34,444 | Participant rows |
-| `persons.csv` | 4,861 | Canonically identified persons |
+| `events.csv` | 812 | Published events (1980–2026) |
+| `event_disciplines.csv` | 4,112 | Qualifying disciplines (≥3 placements) |
+| `event_results.csv` | 24,932 | Placement rows |
+| `event_result_participants.csv` | 35,237 | Participant rows |
+| `persons.csv` | 3,490 | Canonically identified persons |
 
 QC gate: **PASS** (0 hard failures)
 
 ### Published vs Documented: What the Counts Mean
 
-839 events are documented in the archive. Not all appear in the published results:
+841 events are documented in the archive. Not all appear in the published results:
 
 | Category | Count | Reason |
 |----------|-------|--------|
-| **Published** | **761** | Have qualifying results (≥3 placements in ≥1 discipline) |
+| **Published** | **812** | Have qualifying results (≥3 placements in ≥1 discipline) |
 | No results | 30 | Posted on Footbag.org but no competitive results recorded |
 | All-sparse | 39 | Every discipline has fewer than 3 placements |
 | Pre-1997 sparse | 9 | Historical events with only 1–2 surviving placements |
 | **Quarantined** | **9** | Structural ambiguity prevents deterministic parsing |
-| **Total documented** | **839** | |
+| **Total documented** | **841** | |
 
 Excluded and quarantined events are listed in the workbook's **EXCLUDED EVENTS** sheet with reasons. Quarantined events appear in the **EVENT INDEX** highlighted in red.
 
@@ -104,7 +104,7 @@ Where sources conflict (e.g. Footbag.org vs magazine), the more specific and ver
 The dataset includes two distinct types of competition data:
 
 ### 1. Event Placement Results (primary)
-Results from sanctioned footbag competitions — who placed where at which event. This is the main dataset (761 events, 24,327 placements).
+Results from sanctioned footbag competitions — who placed where at which event. This is the main dataset (812 events, 24,932 placements).
 
 ### 2. Trick-Specific Consecutive Records (separate)
 World records for individual footbag tricks (e.g. highest consecutive count for a given move). Sourced from [Passback Footbag](https://www.passbackfootbag.com/records), not from competition events.
@@ -129,7 +129,7 @@ Human-readable Excel workbook covering 1980–2026:
 | EXCLUDED EVENTS | All 78 events not in published results, with reasons |
 | CORRECTIONS | Verified historical corrections (1987/1995/1996 Worlds) |
 | STATISTICS | Career podiums, wins, event counts, career spans |
-| EVENT INDEX | All 839 documented events — green=published, gray=excluded, red=quarantined |
+| EVENT INDEX | All 841 documented events — green=published, gray=excluded, red=quarantined |
 | PLAYER SUMMARY | Per-player wins, podiums, placements, events competed |
 | CONSECUTIVE RECORDS | Competition-based consecutives world records |
 | RECORDS SUMMARY | Trick-specific world records (from Passback) |
@@ -147,14 +147,14 @@ Human-readable Excel workbook covering 1980–2026:
 - **Coverage:** 1997–present
 - **Source:** Footbag.org mirror archive
 - **Status:** Complete, identity-locked (PT v47 / PBP v85)
-- **Published events:** 742
+- **Published events:** 781
 
 ### Pre-1997 Historical Recovery
 
 - **Coverage:** 1980–1996
 - **Sources:** Footbag World magazine, `OLD_RESULTS.txt`, Footbag.org archive, expert review
 - **Status:** v1.0 finalized (expert-reviewed by Bruce Guettich)
-- **Published events:** 19
+- **Published events:** 31
 
 ---
 

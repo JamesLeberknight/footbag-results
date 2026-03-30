@@ -90,8 +90,9 @@ def _norm(s: str) -> str:
 # Manual overrides: honor-CSV name  →  person_canon (exact string)
 # Extend this dict whenever a new mismatch is found.
 _HONOR_OVERRIDES: dict[str, str] = {
-    "ken shults":               "Kenneth Shults",
-    "kenny shults":             "Kenneth Shults",
+    "ken shults":               "Kenny Shults",
+    "kenny shults":             "Kenny Shults",
+    "kenneth shults":           "Kenny Shults",
     "vasek klouda":             "Václav Klouda",
     "vaclav (vasek) klouda":    "Václav Klouda",
     "tina aberli":              "Tina Aeberli",
@@ -1705,11 +1706,20 @@ def build_placements_for_year_sheets(pf_rows: list[dict],
         if eid:
             by_event[eid].append(r)
 
+    def _norm_div_abbrevs(name: str) -> str:
+        """Expand pre-1997 division abbreviations so legacy CSVs don't split visually."""
+        import re as _re
+        name = _re.sub(r"\bdbls\b",   "Doubles", name, flags=_re.IGNORECASE)
+        name = _re.sub(r"\bsgls\b",   "Singles", name, flags=_re.IGNORECASE)
+        name = _re.sub(r"\bdobles\b", "Doubles", name, flags=_re.IGNORECASE)
+        return name
+
     result: dict = {}
     for eid, rows in by_event.items():
         by_div: dict = defaultdict(list)
         for r in rows:
             dc = (r.get("division_canon") or "").strip() or "Unknown"
+            dc = _norm_div_abbrevs(dc)
             by_div[dc].append(r)
 
         div_result: dict = {}
@@ -2308,6 +2318,684 @@ FRONT_SHEETS_COPY = {
 # Sheets rebuilt or newly created (not copied from v11)
 SHEETS_REBUILT = {"README", "STATISTICS", "FREESTYLE INSIGHTS"}
 
+# ── Canonical-all statistics engine ───────────────────────────────────────────
+
+CANONICAL_ALL_DIR = os.path.join(BASE_DIR, "out", "canonical_all")
+
+# Event types that count as World Championships
+_WORLDS_TYPES = frozenset({
+    "worlds", "WORLD_CHAMPIONSHIPS", "WFA_WORLD_CHAMPIONSHIPS",
+    "IFAB_WORLD_CHAMPIONSHIPS",
+})
+
+# Pre-1997 "nationals" events that were effectively world championships
+_WORLDS_ALSO = frozenset({
+    "NHSA_NATIONALS",  # 1980–1984 NHSA Nationals = world level
+})
+
+
+def _gender_cat(disc_name: str) -> str:
+    dn = disc_name.lower()
+    if any(w in dn for w in ("women", "woman", "ladies")):
+        return "WOMEN"
+    if "mixed" in dn:
+        return "MIXED"
+    return "OPEN"
+
+
+def _dtype(disc_cat: str) -> str:
+    dc = (disc_cat or "").lower().strip()
+    if dc == "freestyle":
+        return "FREESTYLE"
+    if dc == "sideline":
+        return "SIDELINE"
+    if dc == "golf":
+        return "GOLF"
+    return "NET"
+
+
+def _era(year: int) -> str:
+    if year < 1990:
+        return "1980s"
+    if year < 2000:
+        return "1990s"
+    if year < 2010:
+        return "2000s"
+    if year < 2020:
+        return "2010s"
+    return "2020s+"
+
+
+def _is_worlds_ctype(event_type: str, event_id: str) -> bool:
+    if event_type in _WORLDS_TYPES:
+        return True
+    if event_id in _WORLDS_SLUG_OVERRIDES:
+        return True
+    return False
+
+
+def load_canonical_stats():
+    """
+    Load canonical_all CSVs and build enriched per-placement records.
+    Returns (records, pid_to_canon, events_list, persons_list) where each
+    record is a dict with fields:
+      person_id, canon, event_id, year, event_type, placement,
+      disc_name, disc_cat, team_type, gender_cat, dtype, is_worlds, era
+    """
+    participants = load_csv(os.path.join(CANONICAL_ALL_DIR, "event_result_participants.csv"))
+    disciplines  = load_csv(os.path.join(CANONICAL_ALL_DIR, "event_disciplines.csv"))
+    events_list  = load_csv(os.path.join(CANONICAL_ALL_DIR, "events.csv"))
+    persons_list = load_csv(os.path.join(CANONICAL_ALL_DIR, "persons.csv"))
+
+    print(f"  canonical_all: {len(participants)} participants, {len(disciplines)} disciplines, "
+          f"{len(events_list)} events, {len(persons_list)} persons")
+
+    # Build lookup tables
+    disc_meta: dict[tuple, dict] = {}
+    for d in disciplines:
+        disc_meta[(d["event_id"], d["discipline"])] = d
+
+    event_meta: dict[str, dict] = {e["event_id"]: e for e in events_list}
+
+    pid_to_canon: dict[str, str] = {
+        p["person_id"]: p["person_canon"]
+        for p in persons_list if p.get("person_id")
+    }
+
+    # Build enriched records
+    records = []
+    for p in participants:
+        pid = p.get("person_id", "").strip()
+        if not pid or pid == "__NON_PERSON__":
+            continue
+        canon = pid_to_canon.get(pid, "")
+        if not canon or canon == "__NON_PERSON__":
+            continue
+
+        try:
+            placement = int(p.get("placement", 0) or 0)
+        except (ValueError, TypeError):
+            placement = 0
+        if placement <= 0:
+            continue
+
+        eid = p.get("event_id", "")
+        disc_key = p.get("discipline", "")
+
+        dm = disc_meta.get((eid, disc_key), {})
+        disc_name = dm.get("discipline_name", disc_key) or disc_key
+        disc_cat  = dm.get("discipline_category", "") or ""
+        team_type = dm.get("team_type", "") or ""
+
+        em = event_meta.get(eid, {})
+        year_str   = em.get("year", "") or ""
+        event_type = em.get("event_type", "") or ""
+
+        try:
+            year = int(year_str)
+        except (ValueError, TypeError):
+            year = 0
+
+        records.append({
+            "person_id":  pid,
+            "canon":      canon,
+            "event_id":   eid,
+            "year":       year,
+            "event_type": event_type,
+            "event_name": em.get("event_name", ""),
+            "placement":  placement,
+            "disc_key":   disc_key,
+            "disc_name":  disc_name,
+            "disc_cat":   disc_cat,
+            "team_type":  team_type,
+            "gender_cat": _gender_cat(disc_name),
+            "dtype":      _dtype(disc_cat),
+            "is_worlds":  _is_worlds_ctype(event_type, eid),
+            "era":        _era(year) if year else "unknown",
+        })
+
+    return records, pid_to_canon, events_list, persons_list
+
+
+def _agg_bucket() -> dict:
+    return {"p1": 0, "p2": 0, "p3": 0, "events": set(), "years": set()}
+
+
+def _add_to_bucket(bucket: dict, placement: int, event_id: str, year: int) -> None:
+    if placement == 1:
+        bucket["p1"] += 1
+    elif placement == 2:
+        bucket["p2"] += 1
+    elif placement == 3:
+        bucket["p3"] += 1
+    if event_id:
+        bucket["events"].add(event_id)
+    if year:
+        bucket["years"].add(year)
+
+
+def compute_canonical_stats(records: list[dict]) -> dict[str, dict]:
+    """
+    Aggregate per-person statistics from canonical_all records.
+    Returns {person_id: stats_dict}.
+    """
+    stats: dict[str, dict] = {}
+
+    for r in records:
+        pid       = r["person_id"]
+        placement = r["placement"]
+        eid       = r["event_id"]
+        year      = r["year"]
+        gender    = r["gender_cat"]
+        dtype     = r["dtype"]
+        era       = r["era"]
+        is_worlds = r["is_worlds"]
+
+        if pid not in stats:
+            stats[pid] = {
+                "canon":    r["canon"],
+                "total":    _agg_bucket(),
+                "by_cat":   {g: _agg_bucket() for g in ("OPEN", "WOMEN", "MIXED")},
+                "by_dtype": {t: _agg_bucket() for t in ("NET", "FREESTYLE", "SIDELINE", "GOLF")},
+                "worlds":   _agg_bucket(),
+                "by_era":   {},
+                "all_events": set(),
+                "all_years":  set(),
+            }
+
+        s = stats[pid]
+        s["all_events"].add(eid)
+        if year:
+            s["all_years"].add(year)
+
+        if placement <= 3:
+            _add_to_bucket(s["total"], placement, eid, year)
+            if gender in s["by_cat"]:
+                _add_to_bucket(s["by_cat"][gender], placement, eid, year)
+            if dtype in s["by_dtype"]:
+                _add_to_bucket(s["by_dtype"][dtype], placement, eid, year)
+            if is_worlds:
+                _add_to_bucket(s["worlds"], placement, eid, year)
+
+            if era not in ("unknown",):
+                if era not in s["by_era"]:
+                    s["by_era"][era] = _agg_bucket()
+                _add_to_bucket(s["by_era"][era], placement, eid, year)
+
+        # Also track event participation regardless of placement (for career stats)
+        # (already done via s["all_events"])
+
+    return stats
+
+
+def _podium_total(bucket: dict) -> int:
+    return bucket["p1"] + bucket["p2"] + bucket["p3"]
+
+
+def _top_n(stats: dict, key_fn, n: int = 30) -> list[tuple]:
+    """
+    Sort persons by key_fn(stat_dict), return top-n as
+    [(canon, stat_dict), ...].
+    """
+    ranked = [
+        (s["canon"], s)
+        for s in stats.values()
+        if s["canon"]
+    ]
+    ranked.sort(key=lambda x: (-key_fn(x[1]), x[0].lower()))
+    return ranked[:n]
+
+
+def _lb_section_podiums(ws, row: int, title: str,
+                        ranked: list[tuple], bucket_key: str,
+                        top: int = 25) -> int:
+    """Write a podium leaderboard section to ws, return next row."""
+    row = _section(ws, row, title)
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total Podiums")
+    for rank, (canon, s) in enumerate(ranked[:top], 1):
+        b = s[bucket_key] if isinstance(s.get(bucket_key), dict) else s
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    return row + 2
+
+
+def _lb_section_wins(ws, row: int, title: str,
+                     ranked: list[tuple], bucket_key: str,
+                     top: int = 25) -> int:
+    """Write a wins-only leaderboard section, return next row."""
+    row = _section(ws, row, title)
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Wins")
+    for rank, (canon, s) in enumerate(ranked[:top], 1):
+        b = s[bucket_key] if isinstance(s.get(bucket_key), dict) else s
+        if b["p1"] == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"])
+    return row + 2
+
+
+# ── LEADERBOARDS sheet ────────────────────────────────────────────────────────
+
+def build_leaderboards(wb: Workbook, stats: dict[str, dict]) -> None:
+    sheet_name = "LEADERBOARDS"
+    if sheet_name in wb.sheetnames:
+        del wb[sheet_name]
+    # Insert after STATISTICS
+    if "STATISTICS" in wb.sheetnames:
+        idx = wb.sheetnames.index("STATISTICS") + 1
+    else:
+        idx = 3
+    ws = wb.create_sheet(sheet_name, idx)
+
+    _w(ws, 1, 1, "PODIUM & WIN LEADERBOARDS", font=FONT_TITLE, align=ALIGN_LEFT)
+    _w(ws, 2, 1,
+       "All-time career podiums and wins, by division category.  "
+       "Doubles partners each receive individual credit.",
+       font=FONT_DATA, align=ALIGN_LEFT)
+    row = 4
+
+    TOP = 25
+
+    # ── OVERALL ──────────────────────────────────────────────────────────────
+    row = _section(ws, row, "OVERALL — MOST CAREER PODIUMS")
+    row += 1
+    overall_pod = _top_n(stats, lambda s: _podium_total(s["total"]))
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(overall_pod[:TOP], 1):
+        b = s["total"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    row = _section(ws, row, "OVERALL — MOST CAREER WINS")
+    row += 1
+    overall_wins = _top_n(stats, lambda s: s["total"]["p1"])
+    row = _hrow(ws, row, "Rank", "Player", "Wins")
+    for rank, (canon, s) in enumerate(overall_wins[:TOP], 1):
+        if s["total"]["p1"] == 0:
+            break
+        row = _drow(ws, row, rank, canon, s["total"]["p1"])
+    row += 2
+
+    # ── OPEN ─────────────────────────────────────────────────────────────────
+    open_pod = _top_n(stats, lambda s: _podium_total(s["by_cat"]["OPEN"]))
+    row = _section(ws, row, "OPEN DIVISIONS — MOST CAREER PODIUMS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(open_pod[:TOP], 1):
+        b = s["by_cat"]["OPEN"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    open_wins = _top_n(stats, lambda s: s["by_cat"]["OPEN"]["p1"])
+    row = _section(ws, row, "OPEN DIVISIONS — MOST CAREER WINS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Wins")
+    for rank, (canon, s) in enumerate(open_wins[:TOP], 1):
+        if s["by_cat"]["OPEN"]["p1"] == 0:
+            break
+        row = _drow(ws, row, rank, canon, s["by_cat"]["OPEN"]["p1"])
+    row += 2
+
+    # ── WOMEN'S ───────────────────────────────────────────────────────────────
+    wom_pod = _top_n(stats, lambda s: _podium_total(s["by_cat"]["WOMEN"]))
+    row = _section(ws, row, "WOMEN'S DIVISIONS — MOST CAREER PODIUMS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(wom_pod[:TOP], 1):
+        b = s["by_cat"]["WOMEN"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    wom_wins = _top_n(stats, lambda s: s["by_cat"]["WOMEN"]["p1"])
+    row = _section(ws, row, "WOMEN'S DIVISIONS — MOST CAREER WINS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Wins")
+    for rank, (canon, s) in enumerate(wom_wins[:TOP], 1):
+        if s["by_cat"]["WOMEN"]["p1"] == 0:
+            break
+        row = _drow(ws, row, rank, canon, s["by_cat"]["WOMEN"]["p1"])
+    row += 2
+
+    # ── MIXED ─────────────────────────────────────────────────────────────────
+    mix_pod = _top_n(stats, lambda s: _podium_total(s["by_cat"]["MIXED"]))
+    row = _section(ws, row, "MIXED DIVISIONS — MOST CAREER PODIUMS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(mix_pod[:TOP], 1):
+        b = s["by_cat"]["MIXED"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    mix_wins = _top_n(stats, lambda s: s["by_cat"]["MIXED"]["p1"])
+    row = _section(ws, row, "MIXED DIVISIONS — MOST CAREER WINS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Wins")
+    for rank, (canon, s) in enumerate(mix_wins[:TOP], 1):
+        if s["by_cat"]["MIXED"]["p1"] == 0:
+            break
+        row = _drow(ws, row, rank, canon, s["by_cat"]["MIXED"]["p1"])
+    row += 2
+
+    ws.column_dimensions["A"].width = 6
+    ws.column_dimensions["B"].width = 34
+    ws.column_dimensions["C"].width = 8
+    ws.column_dimensions["D"].width = 8
+    ws.column_dimensions["E"].width = 8
+    ws.column_dimensions["F"].width = 12
+    ws.freeze_panes = "A4"
+    print(f"  {sheet_name} sheet written")
+
+
+# ── WORLDS STATS sheet ────────────────────────────────────────────────────────
+
+def build_worlds_stats(wb: Workbook, stats: dict[str, dict],
+                       records: list[dict]) -> None:
+    sheet_name = "WORLDS STATS"
+    if sheet_name in wb.sheetnames:
+        del wb[sheet_name]
+    if "LEADERBOARDS" in wb.sheetnames:
+        idx = wb.sheetnames.index("LEADERBOARDS") + 1
+    else:
+        idx = 4
+    ws = wb.create_sheet(sheet_name, idx)
+
+    _w(ws, 1, 1, "WORLDS CHAMPIONSHIP STATISTICS", font=FONT_TITLE, align=ALIGN_LEFT)
+    _w(ws, 2, 1,
+       "Covers all World Footbag Championships: NHSA Nationals (1980–1984), "
+       "WFA Worlds (1986–1992), IFAB Worlds (1993–1996), IFPA Worlds (1997–present).",
+       font=FONT_DATA, align=ALIGN_LEFT)
+    row = 4
+    TOP = 25
+
+    # ── Overall Worlds podiums ────────────────────────────────────────────────
+    w_pod = _top_n(stats, lambda s: _podium_total(s["worlds"]))
+    row = _section(ws, row, "MOST WORLDS CHAMPIONSHIP PODIUMS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(w_pod[:TOP], 1):
+        b = s["worlds"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    # ── Worlds wins ───────────────────────────────────────────────────────────
+    w_wins = _top_n(stats, lambda s: s["worlds"]["p1"])
+    row = _section(ws, row, "MOST WORLDS CHAMPIONSHIP WINS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Wins")
+    for rank, (canon, s) in enumerate(w_wins[:TOP], 1):
+        if s["worlds"]["p1"] == 0:
+            break
+        row = _drow(ws, row, rank, canon, s["worlds"]["p1"])
+    row += 2
+
+    # ── Women's Worlds leaders ────────────────────────────────────────────────
+    # Build per-person women's worlds bucket from records
+    ww_stats: dict[str, dict] = {}
+    for r in records:
+        if not r["is_worlds"] or r["gender_cat"] != "WOMEN":
+            continue
+        pid = r["person_id"]
+        if pid not in ww_stats:
+            ww_stats[pid] = {"canon": r["canon"], "b": _agg_bucket()}
+        if r["placement"] <= 3:
+            _add_to_bucket(ww_stats[pid]["b"], r["placement"], r["event_id"], r["year"])
+
+    ww_pod = sorted(
+        [(v["canon"], v["b"]) for v in ww_stats.values() if _podium_total(v["b"]) > 0],
+        key=lambda x: (-_podium_total(x[1]), x[0].lower())
+    )
+    row = _section(ws, row, "WOMEN'S WORLDS CHAMPIONSHIP LEADERS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, b) in enumerate(ww_pod[:TOP], 1):
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    # ── World Champions list ──────────────────────────────────────────────────
+    # One row per (year, discipline) winner at a Worlds event
+    worlds_wins: list[tuple] = []
+    # Track seen (event_id, disc_key) to avoid duplicate participant_orders
+    seen_result: set[tuple] = set()
+    for r in records:
+        if not r["is_worlds"] or r["placement"] != 1:
+            continue
+        key = (r["event_id"], r["disc_key"])
+        if key in seen_result:
+            # Doubles: both partners are gold — aggregate display
+            # We already added this placement, now add partner name
+            for entry in worlds_wins:
+                if entry[0] == r["year"] and entry[2] == r["event_id"] and entry[3] == r["disc_key"]:
+                    # Append partner
+                    entry_list = list(entry)
+                    if r["canon"] not in entry_list[5]:
+                        entry_list[5] = entry_list[5] + " / " + r["canon"]
+                    worlds_wins[worlds_wins.index(entry)] = tuple(entry_list)
+                    break
+        else:
+            seen_result.add(key)
+            worlds_wins.append((
+                r["year"],
+                r["event_name"],
+                r["event_id"],
+                r["disc_key"],
+                r["disc_name"],
+                r["canon"],
+            ))
+
+    worlds_wins.sort(key=lambda x: (x[0], x[4].lower()))
+
+    row = _section(ws, row, "WORLD CHAMPIONS — ALL TIME")
+    row += 1
+    row = _hrow(ws, row, "Year", "Event", "Division", "Champion(s)")
+    for (year, ename, eid, dkey, dname, champs) in worlds_wins:
+        row = _drow(ws, row, year or "?", ename, dname, champs)
+    row += 2
+
+    # Column widths chosen to work for both the podium tables and the World Champions list:
+    # A=Rank/Year(6), B=Player/Event(40), C=Gold/Division(28), D=Silver/Champion(40),
+    # E=Bronze(8), F=Total(10)
+    ws.column_dimensions["A"].width = 6
+    ws.column_dimensions["B"].width = 40
+    ws.column_dimensions["C"].width = 28
+    ws.column_dimensions["D"].width = 40
+    ws.column_dimensions["E"].width = 8
+    ws.column_dimensions["F"].width = 10
+
+    ws.freeze_panes = "A4"
+    print(f"  {sheet_name} sheet written ({len(worlds_wins)} world champion entries)")
+
+
+# ── DISCIPLINE LEADERS sheet ──────────────────────────────────────────────────
+
+def build_discipline_leaders(wb: Workbook, stats: dict[str, dict],
+                             records: list[dict]) -> None:
+    sheet_name = "DISCIPLINE LEADERS"
+    if sheet_name in wb.sheetnames:
+        del wb[sheet_name]
+    if "WORLDS STATS" in wb.sheetnames:
+        idx = wb.sheetnames.index("WORLDS STATS") + 1
+    else:
+        idx = 5
+    ws = wb.create_sheet(sheet_name, idx)
+
+    _w(ws, 1, 1, "DISCIPLINE LEADERS & ERA LEADERBOARDS", font=FONT_TITLE, align=ALIGN_LEFT)
+    row = 3
+    TOP = 25
+
+    # ── Net discipline ────────────────────────────────────────────────────────
+    net_pod = _top_n(stats, lambda s: _podium_total(s["by_dtype"]["NET"]))
+    row = _section(ws, row, "NET DISCIPLINE — MOST CAREER PODIUMS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(net_pod[:TOP], 1):
+        b = s["by_dtype"]["NET"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    # ── Freestyle discipline ──────────────────────────────────────────────────
+    fs_pod = _top_n(stats, lambda s: _podium_total(s["by_dtype"]["FREESTYLE"]))
+    row = _section(ws, row, "FREESTYLE DISCIPLINE — MOST CAREER PODIUMS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(fs_pod[:TOP], 1):
+        b = s["by_dtype"]["FREESTYLE"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    # ── Sideline discipline ───────────────────────────────────────────────────
+    sl_pod = _top_n(stats, lambda s: _podium_total(s["by_dtype"]["SIDELINE"]))
+    row = _section(ws, row, "SIDELINE DISCIPLINE — MOST CAREER PODIUMS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+    for rank, (canon, s) in enumerate(sl_pod[:TOP], 1):
+        b = s["by_dtype"]["SIDELINE"]
+        if _podium_total(b) == 0:
+            break
+        row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+    row += 2
+
+    # ── Era leaderboards ──────────────────────────────────────────────────────
+    eras = ["1980s", "1990s", "2000s", "2010s", "2020s+"]
+    for era_label in eras:
+        era_ranked = sorted(
+            [(s["canon"], s["by_era"].get(era_label, _agg_bucket()))
+             for s in stats.values()
+             if s.get("canon") and _podium_total(s["by_era"].get(era_label, _agg_bucket())) > 0],
+            key=lambda x: (-_podium_total(x[1]), x[0].lower())
+        )
+        if not era_ranked:
+            continue
+        row = _section(ws, row, f"{era_label} ERA LEADERS — MOST PODIUMS")
+        row += 1
+        row = _hrow(ws, row, "Rank", "Player", "Gold", "Silver", "Bronze", "Total")
+        for rank, (canon, b) in enumerate(era_ranked[:TOP], 1):
+            row = _drow(ws, row, rank, canon, b["p1"], b["p2"], b["p3"], _podium_total(b))
+        row += 2
+
+    ws.column_dimensions["A"].width = 6
+    ws.column_dimensions["B"].width = 34
+    ws.column_dimensions["C"].width = 8
+    ws.column_dimensions["D"].width = 8
+    ws.column_dimensions["E"].width = 8
+    ws.column_dimensions["F"].width = 12
+    ws.freeze_panes = "A3"
+    print(f"  {sheet_name} sheet written")
+
+
+# ── CAREER STATS sheet ────────────────────────────────────────────────────────
+
+def build_career_stats(wb: Workbook, stats: dict[str, dict],
+                       records: list[dict]) -> None:
+    sheet_name = "CAREER STATS"
+    if sheet_name in wb.sheetnames:
+        del wb[sheet_name]
+    if "DISCIPLINE LEADERS" in wb.sheetnames:
+        idx = wb.sheetnames.index("DISCIPLINE LEADERS") + 1
+    else:
+        idx = 6
+    ws = wb.create_sheet(sheet_name, idx)
+
+    _w(ws, 1, 1, "CAREER STATISTICS", font=FONT_TITLE, align=ALIGN_LEFT)
+    row = 3
+    TOP = 25
+
+    # ── Longest careers ───────────────────────────────────────────────────────
+    career_rows = []
+    for s in stats.values():
+        years = s["all_years"]
+        if not years:
+            continue
+        yf, yl = min(years), max(years)
+        span = yl - yf
+        if span > 0:
+            career_rows.append((s["canon"], yf, yl, span))
+    career_rows.sort(key=lambda x: (-x[3], x[0].lower()))
+
+    row = _section(ws, row, "LONGEST COMPETITIVE CAREERS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "First Year", "Last Year", "Career Span")
+    for rank, (canon, yf, yl, span) in enumerate(career_rows[:TOP], 1):
+        row = _drow(ws, row, rank, canon, yf, yl, span)
+    row += 2
+
+    # ── Most events competed ──────────────────────────────────────────────────
+    events_rows = sorted(
+        [(s["canon"], len(s["all_events"])) for s in stats.values() if s.get("canon")],
+        key=lambda x: (-x[1], x[0].lower())
+    )
+    row = _section(ws, row, "MOST EVENTS COMPETED")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Events")
+    for rank, (canon, cnt) in enumerate(events_rows[:TOP], 1):
+        if cnt == 0:
+            break
+        row = _drow(ws, row, rank, canon, cnt)
+    row += 2
+
+    # ── Most women's events competed ──────────────────────────────────────────
+    wom_events: dict[str, set] = {}
+    for r in records:
+        if r["gender_cat"] != "WOMEN":
+            continue
+        pid = r["person_id"]
+        wom_events.setdefault(pid, set()).add(r["event_id"])
+
+    pid_to_canon = {s["canon"]: pid for pid, s in stats.items() for s in [s]}
+    wom_events_rows = sorted(
+        [(stats[pid]["canon"], len(eids))
+         for pid, eids in wom_events.items()
+         if pid in stats],
+        key=lambda x: (-x[1], x[0].lower())
+    )
+    row = _section(ws, row, "MOST EVENTS COMPETED — WOMEN'S DIVISIONS")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Events")
+    for rank, (canon, cnt) in enumerate(wom_events_rows[:TOP], 1):
+        if cnt == 0:
+            break
+        row = _drow(ws, row, rank, canon, cnt)
+    row += 2
+
+    # ── Most Worlds events ────────────────────────────────────────────────────
+    worlds_events_rows = sorted(
+        [(s["canon"], len(s["worlds"]["events"]))
+         for s in stats.values()
+         if s.get("canon") and s["worlds"]["events"]],
+        key=lambda x: (-x[1], x[0].lower())
+    )
+    row = _section(ws, row, "MOST WORLDS CHAMPIONSHIPS COMPETED")
+    row += 1
+    row = _hrow(ws, row, "Rank", "Player", "Worlds Events")
+    for rank, (canon, cnt) in enumerate(worlds_events_rows[:TOP], 1):
+        if cnt == 0:
+            break
+        row = _drow(ws, row, rank, canon, cnt)
+    row += 2
+
+    ws.column_dimensions["A"].width = 6
+    ws.column_dimensions["B"].width = 34
+    ws.column_dimensions["C"].width = 12
+    ws.column_dimensions["D"].width = 12
+    ws.column_dimensions["E"].width = 14
+    ws.freeze_panes = "A3"
+    print(f"  {sheet_name} sheet written")
+
 
 def main():
 
@@ -2351,8 +3039,25 @@ def main():
     print("\nBuilding DATA NOTES sheet...")
     build_data_notes(out_wb, fffd_count=_fffd_count, quarantine_count=len(yr_quarantine))
 
+    print("\nLoading canonical_all for statistics...")
+    canon_records, _c_pid_canon, _c_events, _c_persons = load_canonical_stats()
+    canon_stats = compute_canonical_stats(canon_records)
+    print(f"  {len(canon_records)} enriched records, {len(canon_stats)} persons with stats")
+
     print("\nBuilding STATISTICS sheet...")
     build_statistics(out_wb, pf_rows, pt_rows, events_dict=yr_events)
+
+    print("\nBuilding LEADERBOARDS sheet...")
+    build_leaderboards(out_wb, canon_stats)
+
+    print("\nBuilding WORLDS STATS sheet...")
+    build_worlds_stats(out_wb, canon_stats, canon_records)
+
+    print("\nBuilding DISCIPLINE LEADERS sheet...")
+    build_discipline_leaders(out_wb, canon_stats, canon_records)
+
+    print("\nBuilding CAREER STATS sheet...")
+    build_career_stats(out_wb, canon_stats, canon_records)
 
     print("\nBuilding PLAYER SUMMARY sheet...")
     build_player_summary(out_wb, pt_rows, placement_stats, bap_map, member_id_map)

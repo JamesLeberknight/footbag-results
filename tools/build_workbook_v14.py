@@ -1657,11 +1657,20 @@ def build_placements_for_year_sheets(pf_rows: list[dict],
         if eid:
             by_event[eid].append(r)
 
+    def _norm_div_abbrevs(name: str) -> str:
+        """Expand common abbreviations so legacy bad CSVs don't split visually."""
+        import re as _re
+        name = _re.sub(r"\bdbls\b",   "Doubles", name, flags=_re.IGNORECASE)
+        name = _re.sub(r"\bsgls\b",   "Singles", name, flags=_re.IGNORECASE)
+        name = _re.sub(r"\bdobles\b", "Doubles", name, flags=_re.IGNORECASE)
+        return name
+
     result: dict = {}
     for eid, rows in by_event.items():
         by_div: dict = defaultdict(list)
         for r in rows:
             dc = (r.get("division_canon") or "").strip() or "Unknown"
+            dc = _norm_div_abbrevs(dc)
             by_div[dc].append(r)
 
         div_result: dict = {}
@@ -1711,6 +1720,7 @@ def build_placements_for_year_sheets(pf_rows: list[dict],
                     fixed = _canonicalize_display(fixed, canon_by_norm)
                 entries.append((place_int, fixed, cat))
 
+            entries = _collapse_exploded_doubles(dc, entries)
             if entries:
                 div_result[dc] = entries
 
@@ -1718,6 +1728,56 @@ def build_placements_for_year_sheets(pf_rows: list[dict],
             result[eid] = div_result
 
     return result
+
+
+# ---------------------------------------------------------------------------
+# Presentation-layer helper: collapse "exploded doubles" for year sheets
+# ---------------------------------------------------------------------------
+
+_DOUBLES_DIV_KEYWORDS = ("dbl", "double", "pairs")
+
+def _collapse_exploded_doubles(div_name: str, entries: list) -> list:
+    """
+    Presentation-only fix: when a doubles division is stored as individual
+    tied placements (1,A), (1,B), (2,C), (2,D) instead of team rows, merge
+    each same-placement pair into a single display row: (1, "A / B").
+
+    Conservative — returns entries unchanged unless ALL of:
+      1. Division name contains a doubles keyword ("dbl", "double", "pairs")
+      2. Total entry count is even and >= 2
+      3. Every place appears exactly 2 times (clean pairs throughout)
+      4. No display string already contains " / " (not already a team row)
+      5. Adjacent pair rows are in place-sorted order (guaranteed by caller)
+    """
+    div_lower = div_name.lower()
+    if not any(kw in div_lower for kw in _DOUBLES_DIV_KEYWORDS):
+        return entries
+
+    if not entries or len(entries) % 2 != 0:
+        return entries
+
+    # Bail if any row already looks like a merged team display
+    if any(" / " in display for _, display, _ in entries):
+        return entries
+
+    # Every place must appear exactly twice
+    place_counts = Counter(p for p, _, _ in entries)
+    if not all(c == 2 for c in place_counts.values()):
+        return entries
+
+    # Walk pairs in sorted order
+    merged = []
+    i = 0
+    while i < len(entries):
+        place, disp_a, cat = entries[i]
+        if i + 1 >= len(entries) or entries[i + 1][0] != place:
+            # Unexpected — abort the whole merge to be safe
+            return entries
+        disp_b = entries[i + 1][1]
+        merged.append((place, f"{disp_a} / {disp_b}", cat))
+        i += 2
+
+    return merged
 
 
 _EMPTY_PARTNER = re.compile(r'\s*/\s*\(\)|\(\)\s*/\s*')

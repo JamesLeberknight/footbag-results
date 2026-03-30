@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 
 in_path = Path("/home/james/projects/FOOTBAG_DATA/out/release_publication/event_results.csv")
-out_path = Path("/home/james/projects/fb-bw/legacy_data/event_results/canonical_input/event_results.csv")
+out_path = Path("/home/james/projects/footbag-platform/legacy_data/event_results/canonical_input/event_results.csv")
 out_path.parent.mkdir(parents=True, exist_ok=True)
 
 df = pd.read_csv(in_path, dtype=str).fillna("")

@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 
 in_path = Path("/home/james/projects/FOOTBAG_DATA/out/release_publication/persons.csv")
-out_path = Path("/home/james/projects/fb-bw/legacy_data/event_results/canonical_input/persons.csv")
+out_path = Path("/home/james/projects/footbag-platform/legacy_data/event_results/canonical_input/persons.csv")
 out_path.parent.mkdir(parents=True, exist_ok=True)
 
 df = pd.read_csv(in_path, dtype=str).fillna("")
@@ -10,6 +10,7 @@ df = pd.read_csv(in_path, dtype=str).fillna("")
 out = pd.DataFrame({
     "person_id": df["person_id"].astype(str).str.strip(),
     "person_name": df["person_canon"].astype(str).str.strip(),
+    "ifpa_member_id": df["ifpa_member_id"].astype(str).str.strip() if "ifpa_member_id" in df.columns else "",
     "country": df["country"].astype(str).str.strip(),
     "first_year": df["first_year"].astype(str).str.strip(),
     "last_year": df["last_year"].astype(str).str.strip(),

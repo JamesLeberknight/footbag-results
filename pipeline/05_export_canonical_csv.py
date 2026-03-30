@@ -212,11 +212,27 @@ def write_csv(path: Path, fieldnames: list[str], rows: list[dict]) -> None:
     print(f"  Wrote {path.name} ({len(rows):,} rows)")
 
 
+# ── Name normalization for PT lookup ──────────────────────────────────────────
+# Strip diacritics including Polish ł (not NFD-decomposable), Norwegian ø, etc.
+_TRANSLITERATE = str.maketrans("łŁøØđĐðÞŋ", "lLoOdDdTn")
+
+def _norm_name(s: str) -> str:
+    """Normalize a player name for PT lookup.
+    Handles: U+FFFD replacement chars (mojibake), transliteration (ł→l etc.),
+    NFD diacritic stripping, lowercase."""
+    # Strip U+FFFD replacement characters (corrupt encoding artifact from mirror)
+    # so "Fran\uFFFDois" → "Franois" which matches the alias key.
+    s = s.replace("\ufffd", "").replace("\u00ad", "")
+    s = s.translate(_TRANSLITERATE)
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    return re.sub(r"\s+", " ", s.lower().strip())
+
 # ── Load Persons_Truth — build resolution indexes ─────────────────────────────
 
 print("Loading Persons_Truth.csv...")
 token_to_person: dict[str, str] = {}   # player_token_uuid → effective_person_id
-names_to_person: dict[str, str] = {}   # norm(player_name_seen) → effective_person_id
+names_to_person: dict[str, str] = {}   # _norm_name(player_name_seen) → effective_person_id
 pt_rows: list[dict] = []
 with open(OUT / "Persons_Truth.csv", newline="", encoding="utf-8") as f:
     for row in csv.DictReader(f):
@@ -226,18 +242,57 @@ with open(OUT / "Persons_Truth.csv", newline="", encoding="utf-8") as f:
             tok = tok.strip()
             if tok:
                 token_to_person[tok] = pid
+        # Always index the canonical name itself (player_names_seen may not include it)
+        _canon = row.get("person_canon", "").strip()
+        if _canon:
+            names_to_person[_norm_name(_canon)] = pid
         for name in row["player_names_seen"].split(" | "):
             name = name.strip()
             if name:
-                n = name.lower().strip()
-                n = re.sub(r"\s+", " ", n)
-                names_to_person[n] = pid
-print(f"  {len(pt_rows):,} persons, {len(token_to_person):,} tokens, {len(names_to_person):,} names indexed")
+                names_to_person[_norm_name(name)] = pid
+        # Also index aliases_presentable so alias forms resolve without a PT rebuild.
+        for alias in row.get("aliases_presentable", "").split(" | "):
+            alias = alias.strip()
+            if alias and len(alias) > 3:
+                names_to_person.setdefault(_norm_name(alias), pid)
+
+print(f"  {len(pt_rows):,} persons, {len(token_to_person):,} tokens, {len(names_to_person):,} names indexed (pre-aliases)")
 
 # player_ids_seen lookup (for persons.csv export)
 pt_player_ids: dict[str, str] = {}    # effective_person_id → pipe-sep player_ids_seen
 for row in pt_rows:
     pt_player_ids[row["effective_person_id"]] = row["player_ids_seen"]
+
+# Valid PT person_id set — used by _clean_pid to reject player-level UUIDs not in PT
+_pt_person_ids: set[str] = {r["effective_person_id"] for r in pt_rows}
+
+# ── Load person_aliases.csv — extend resolution index ─────────────────────────
+# Stale IDs (pre-merge) are recovered by matching _norm_name(person_canon) against PT.
+_pt_by_norm_canon: dict[str, str] = {_norm_name(r["person_canon"]): r["effective_person_id"]
+                                      for r in pt_rows}
+_aliases_csv = Path(__file__).parent.parent / "overrides" / "person_aliases.csv"
+_aliases_loaded = _aliases_stale_recovered = _aliases_stale_lost = 0
+if _aliases_csv.exists():
+    with open(_aliases_csv, newline="", encoding="utf-8") as _f:
+        for _row in csv.DictReader(_f):
+            _alias = _row.get("alias", "").strip()
+            _pid   = _row.get("person_id", "").strip()
+            _canon = _row.get("person_canon", "").strip()
+            if not _alias:
+                continue
+            # Recover stale IDs: if person_id not in PT, look up by canon
+            if _pid not in _pt_person_ids:
+                _pid = _pt_by_norm_canon.get(_norm_name(_canon), "")
+                if _pid:
+                    _aliases_stale_recovered += 1
+                else:
+                    _aliases_stale_lost += 1
+                    continue
+            names_to_person.setdefault(_norm_name(_alias), _pid)
+            _aliases_loaded += 1
+    print(f"  person_aliases.csv: {_aliases_loaded} loaded, "
+          f"{_aliases_stale_recovered} stale-recovered, {_aliases_stale_lost} lost")
+    print(f"  {len(names_to_person):,} total names in resolution index")
 
 # ── Load member_id assignments ─────────────────────────────────────────────────
 
@@ -256,19 +311,28 @@ else:
     print(f"  (member_id_assignments.csv not found — skipping)")
 
 
+_TRAILING_PAREN = re.compile(r"\s*\([^)]+\)\s*$")
+
 def resolve_person_id(player_id: str | None, player_name: str) -> str:
     """
     Three-level resolution:
       1. player_id (UUID5 token) → PT player_ids_seen  (exact, fast)
       2. norm(player_name)       → PT player_names_seen  (catches alias variants)
+      2b. strip trailing (Country/State) suffix and retry
       3. "" — genuinely unresolved (noise, handles, city names, etc.)
     """
     if player_id and player_id in token_to_person:
         return token_to_person[player_id]
     if player_name:
-        n = re.sub(r"\s+", " ", player_name.lower().strip())
+        n = _norm_name(player_name)
         if n in names_to_person:
             return names_to_person[n]
+        # Strip trailing parenthetical (e.g. "Name (Poland)" → "Name")
+        stripped = _TRAILING_PAREN.sub("", player_name).strip()
+        if stripped != player_name:
+            n2 = _norm_name(stripped)
+            if n2 in names_to_person:
+                return names_to_person[n2]
     return ""
 
 
@@ -886,11 +950,21 @@ for row in sorted_rows:
     )
 
     def _clean_pid(pid: str, name: str) -> str:
-        """Return a valid UUID person_id, or "" if malformed/unresolvable."""
+        """Return a valid PT person_id UUID, or "" if not in PT / unresolvable.
+
+        Rejects player-level UUIDs that were never mapped to a PT effective_person_id
+        (i.e. participants that 02p5 could not resolve).  Falls back to name-based
+        PT resolution so alias variants (e.g. "Kenny Shults" → PT "Kenneth Shults")
+        are still captured here.
+        """
         if not pid or pid == "__NON_PERSON__":
             return ""
         if _UUID_RE.match(pid):
-            return pid
+            if pid in _pt_person_ids:
+                return pid          # directly in PT — use as-is
+            # Valid UUID but not a PT person_id (unresolved player token from 02p5).
+            # Try to recover via name lookup before giving up.
+            return resolve_person_id(None, name) or ""
         # Malformed (pipe-separated composite key, truncated |? token, etc.)
         # Try to re-resolve from the canonical name via PT.
         return resolve_person_id(None, name) or ""
@@ -925,7 +999,8 @@ for row in sorted_rows:
             # Expand into individual participant entries by splitting on " / ".
             if person_name == "__NON_PERSON__":
                 if tdm:
-                    members = [m.strip() for m in tdm.split(" / ") if m.strip()]
+                    members = [clean_display_str(m.strip())
+                               for m in tdm.split(" / ") if m.strip()]
                 else:
                     members = [person_name]   # preserve as __NON_PERSON__ placeholder
                 entries = [(m, resolve_person_id(None, m) or "", "") for m in members]
@@ -961,7 +1036,12 @@ for row in sorted_rows:
 
         # event_result_participants.csv — one row per resolved individual
         for (m_name, m_pid, m_tpk) in entries:
-            dedup_key = (event_key, disc_key, place, m_name)
+            # Dedup by person_id when resolved (catches same person entered under
+            # different name spellings, e.g. team row "Chris Siebert" + player row
+            # "Chris Seibert" both resolving to the same PT person_id).
+            # Fall back to display_name for unresolved entries (empty person_id).
+            dedup_val = m_pid if m_pid else m_name
+            dedup_key = (event_key, disc_key, place, dedup_val)
             if dedup_key in seen_participants:
                 continue
             seen_participants.add(dedup_key)
