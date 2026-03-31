@@ -657,9 +657,8 @@ def build_era_leaders(wb: Workbook, raw_results, events, discs, persons) -> None
 def build_player_stats(wb: Workbook, stats: dict, persons: dict) -> None:
     ws = wb.create_sheet("PLAYER STATS")
 
-    headers = ["Player", "Country", "First Year", "Last Year",
-               "Events", "Wins", "Podiums", "BAP", "FBHOF"]
-    widths  = [34, 18, 11, 11, 9, 9, 9, 6, 6]
+    headers = ["Player", "Nickname", "Country", "Events", "Wins", "Podiums", "BAP", "FBHOF"]
+    widths  = [34, 22, 18, 9, 9, 9, 6, 6]
     for i, (h, w) in enumerate(zip(headers, widths), 1):
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = "B2"
@@ -678,9 +677,8 @@ def build_player_stats(wb: Workbook, stats: dict, persons: dict) -> None:
         fill = FILL_BOTH if bap and hof else (FILL_HOF if hof else (FILL_BAP if bap else None))
         rows_out.append((
             p["person_canon"],
+            p.get("bap_nickname", ""),
             p.get("country", ""),
-            s.get("year_first", p.get("first_year", "")),
-            s.get("year_last",  p.get("last_year",  "")),
             s.get("events",   0),
             s.get("wins",     0),
             s.get("podiums",  0),
