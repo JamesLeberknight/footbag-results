@@ -822,11 +822,11 @@ _KEEP_SENTINELS = {"__NON_PERSON__", "__UNKNOWN_PARTNER__", "[UNKNOWN PARTNER]",
 # Known geographic/artifact keywords (multi-word patterns)
 _GEO_PATTERN = _re.compile(
     r"\b(canada|quebec|province|ontario|colombie|nova\s+scotia|state\s+college|"
-    r"mountain\s+view|phoenix|montreal|australia|new\s+zealand)\b",
+    r"mountain\s+view|phoenix|montreal|australia|new\s+zealand|republic)\b",
     _re.I,
 )
 _CLUB_PATTERN = _re.compile(
-    r"\b(club|association|academy|federation|footbag\s+\w+)\b", _re.I
+    r"\b(club|association|academy|federation|footbag\s+\w+|imagepunkt)\b", _re.I
 )
 _PAREN_PATTERN = _re.compile(r"[()]")
 _TRAILING_FRAG = _re.compile(r"\b(and|or)\s*$", _re.I)

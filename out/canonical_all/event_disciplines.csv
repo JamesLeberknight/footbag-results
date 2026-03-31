@@ -415,7 +415,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 1997_california_state,novice_doubles,Novice Doubles,net,doubles,4,complete,3,,POST1997
 1997_california_state,open_doubles_net,Open Doubles Net,net,doubles,5,complete,12,,POST1997
 1997_california_state,open_singles_freestyle,Open Singles Freestyle,freestyle,singles,6,complete,4,,POST1997
-1997_eugene_celebration,doubles_golf,Doubles Golf,golf,doubles,1,complete,2,,POST1997
+1997_eugene_celebration,doubles_golf,Doubles Golf,golf,doubles,1,complete,4,,POST1997
 1997_eugene_celebration,open_doubles_net,Open Doubles Net,net,doubles,2,complete,8,,POST1997
 1997_finnish,doubles_net,Doubles Net,net,doubles,1,complete,4,,POST1997
 1997_finnish,freestyle,Freestyle,freestyle,singles,2,mostly_complete,5,,POST1997
@@ -854,11 +854,11 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2000_colorado_shred_symposium,intermediate,Intermediate,freestyle,singles,2,complete,4,,POST1997
 2000_eastregion,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,1,complete,2,,POST1997
 2000_eastregion,intermediate_freestyle,Intermediate Freestyle,freestyle,singles,2,complete,3,,POST1997
-2000_eastregion,intermediate_golf,Intermediate Golf,golf,singles,3,complete,2,,POST1997
+2000_eastregion,intermediate_golf,Intermediate Golf,golf,singles,3,complete,1,,POST1997
 2000_eastregion,intermediate_singles_net,Intermediate Singles Net,net,singles,4,complete,3,,POST1997
-2000_eastregion,novice_freestyle,Novice Freestyle,freestyle,singles,5,complete,2,,POST1997
+2000_eastregion,novice_freestyle,Novice Freestyle,freestyle,singles,5,complete,1,,POST1997
 2000_eastregion,open_doubles_net,Open Doubles Net,net,doubles,6,complete,3,,POST1997
-2000_eastregion,open_freestyle,Open Freestyle,freestyle,singles,7,complete,3,,POST1997
+2000_eastregion,open_freestyle,Open Freestyle,freestyle,singles,7,complete,2,,POST1997
 2000_eastregion,open_golf,Open Golf,golf,doubles,8,complete,3,,POST1997
 2000_eastregion,open_singles_net,Open Singles Net,net,singles,9,complete,2,,POST1997
 2000_emeraldcity,golf,Golf,golf,singles,1,complete,1,,POST1997
@@ -1185,7 +1185,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2002_worlds_san_francisco,womens_singles_net,Women's Singles Net,net,singles,6,mostly_complete,9,,POST1997
 2002_footbagjam_frankfurt,doubles_net_open,Doubles Net Open,net,doubles,1,mostly_complete,8,,POST1997
 2002_footbagjam_frankfurt,singles_freestyle_open,Singles Freestyle Open,freestyle,singles,2,complete,6,,POST1997
-2002_footbagjam_frankfurt,singles_net_open,Singles Net Open,net,singles,3,complete,9,,POST1997
+2002_footbagjam_frankfurt,singles_net_open,Singles Net Open,net,singles,3,complete,8,,POST1997
 2002_de_france_de,intermediate_single_freestyle,Intermediate Single Freestyle,freestyle,singles,1,complete,12,,POST1997
 2002_de_france_de,open_double_net,Open Double Net,net,doubles,2,complete,4,,POST1997
 2002_de_france_de,open_shred,Open Shred,freestyle,singles,3,mostly_complete,10,,POST1997
@@ -1472,7 +1472,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2004_de_france,singles_net,Singles Net,net,doubles,4,complete,1,,POST1997
 2004_de_france,womens_freestyle_routines,Women's Freestyle - Routines,freestyle,singles,5,partial,2,,POST1997
 2004_de_france_de,doubles_freestyle,Doubles Freestyle,freestyle,doubles,1,complete,4,,POST1997
-2004_de_france_de,golf,Golf,golf,singles,2,complete,3,,POST1997
+2004_de_france_de,golf,Golf,golf,singles,2,complete,2,,POST1997
 2004_de_france_de,intermediate_freestyle,Intermediate Freestyle,freestyle,singles,3,complete,7,,POST1997
 2004_de_france_de,intermediate_singles_net,Intermediate Singles Net,net,singles,4,partial,8,,POST1997
 2004_de_france_de,mixed_doubles_net,Mixed Doubles Net,net,doubles,5,complete,5,,POST1997
@@ -2313,7 +2313,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2008_usopen_portland,womens_big_trick,Women's Big Trick,freestyle,singles,15,complete,3,,POST1997
 2008_usopen_portland,womens_routines,Women's Routines,freestyle,singles,16,complete,5,,POST1997
 2008_usopen_portland,womens_shred_30,Women's Shred 30,freestyle,singles,17,complete,3,,POST1997
-2008_usopen_portland,womens_sick_3,Women's Sick 3,freestyle,singles,18,partial,2,,POST1997
+2008_usopen_portland,womens_sick_3,Women's Sick 3,freestyle,singles,18,partial,1,,POST1997
 2008_zocha,2_square,2 Square,sideline,singles,1,complete,3,,POST1997
 2008_zocha,circle_contest,Circle Contest,freestyle,singles,2,complete,3,,POST1997
 2008_zocha,doubles_freestyle,Doubles Freestyle,freestyle,doubles,3,complete,3,,POST1997
@@ -2667,7 +2667,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2010_t_chira_copa,singles,Singles,net,singles,2,complete,12,,POST1997
 2010_again_in_zara,freestyle,Freestyle,freestyle,singles,1,complete,1,,POST1997
 2010_again_in_zara,open_net_doubles,Open Net Doubles,net,doubles,2,complete,7,,POST1997
-2010_again_in_zara,open_net_singles,Open Net Singles,net,singles,3,complete,5,,POST1997
+2010_again_in_zara,open_net_singles,Open Net Singles,net,singles,3,complete,4,,POST1997
 2010_footcamp,open_doubles,Open Doubles,net,doubles,1,complete,9,,POST1997
 2010_footcamp,open_singles,Open Singles,net,singles,2,complete,17,,POST1997
 2010_frankfurt_anniversary,results_open_double_net,Results Open Double Net,net,doubles,1,complete,12,,POST1997
@@ -2713,7 +2713,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2010_u_s,womens_routines,Women's Routines,freestyle,singles,8,complete,3,,POST1997
 2010_footbagjam_stara_zagora,freestyle,Freestyle,freestyle,singles,1,complete,1,,POST1997
 2010_footbagjam_stara_zagora,open_net_doubles,Open Net Doubles,net,doubles,2,complete,8,,POST1997
-2010_footbagjam_stara_zagora,open_net_singles,Open Net Singles,net,singles,3,complete,4,,POST1997
+2010_footbagjam_stara_zagora,open_net_singles,Open Net Singles,net,singles,3,complete,3,,POST1997
 2010_wsf_mistrzostwa_pragi,creative_sick_3,Creative Sick 3,freestyle,singles,1,complete,3,,POST1997
 2010_wsf_mistrzostwa_pragi,doubles_net,Doubles Net,net,doubles,2,complete,9,,POST1997
 2010_wsf_mistrzostwa_pragi,footbag_golf,Footbag Golf,golf,singles,3,complete,3,,POST1997
@@ -2874,7 +2874,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2011_austrian,open_singles_routines,Open Singles Routines,freestyle,singles,3,mostly_complete,13,,POST1997
 2011_austrian,womens_singles_routines,Women's Singles Routines,freestyle,singles,4,complete,4,,POST1997
 2011_bembel_gimbledon,doubles_net,Doubles Net,net,doubles,1,complete,22,,POST1997
-2011_bembel_gimbledon,golf,Golf,golf,singles,2,mostly_complete,8,,POST1997
+2011_bembel_gimbledon,golf,Golf,golf,singles,2,mostly_complete,6,,POST1997
 2011_finnish,doubles_net,Doubles Net,net,doubles,1,complete,10,,POST1997
 2011_finnish,singles_net,Singles Net,net,singles,2,complete,17,,POST1997
 2011_footcamp,open_singles_net,Open Singles Net,net,singles,1,complete,11,,POST1997

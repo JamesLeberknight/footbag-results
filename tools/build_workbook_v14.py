@@ -494,6 +494,23 @@ def build_readme(wb: Workbook, quarantine_count: int = 0,
 
 # ── STATISTICS sheet ───────────────────────────────────────────────────────────
 
+def _stats_hrow(ws, row: int, *headers) -> int:
+    """Header row with hidden person_id in col A, visible headers from col B."""
+    _w(ws, row, 1, "person_id", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+    for col, h in enumerate(headers, 2):
+        _w(ws, row, col, h, font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+    return row + 1
+
+
+def _stats_drow(ws, row: int, pid: str, *values) -> int:
+    """Data row with hidden person_id in col A, visible values from col B."""
+    _w(ws, row, 1, pid, font=FONT_DATA, align=ALIGN_LEFT)
+    for col, v in enumerate(values, 2):
+        align = ALIGN_RIGHT if isinstance(v, (int, float)) else ALIGN_LEFT
+        _w(ws, row, col, v, font=FONT_DATA, align=align)
+    return row + 1
+
+
 def build_statistics(wb: Workbook, pf_rows: list[dict], pt_rows: list[dict]) -> None:
     if "STATISTICS" in wb.sheetnames:
         del wb["STATISTICS"]
@@ -546,7 +563,7 @@ def build_statistics(wb: Workbook, pf_rows: list[dict], pt_rows: list[dict]) -> 
 
     # ── Table helpers ─────────────────────────────────────────────────────────
     row_num = 1
-    _w(ws, row_num, 1, "STATISTICS", font=FONT_TITLE, align=ALIGN_LEFT)
+    _w(ws, row_num, 2, "STATISTICS", font=FONT_TITLE, align=ALIGN_LEFT)
     row_num += 2
 
     TOP_N = 25
@@ -554,50 +571,50 @@ def build_statistics(wb: Workbook, pf_rows: list[dict], pt_rows: list[dict]) -> 
     # ── 1. Most Career Podiums ────────────────────────────────────────────────
     row_num = _section(ws, row_num, "MOST CAREER PODIUMS")
     row_num += 1
-    row_num = _hrow(ws, row_num, "Player", "1st", "2nd", "3rd", "Total Podiums")
+    row_num = _stats_hrow(ws, row_num, "Player", "1st", "2nd", "3rd", "Total Podiums")
     podium_rows = [
-        (pid_to_canon.get(pid, pid),
+        (pid, pid_to_canon.get(pid, pid),
          d[1], d[2], d[3], d[1] + d[2] + d[3])
         for pid, d in podiums.items()
         if d[1] + d[2] + d[3] > 0
     ]
-    podium_rows.sort(key=lambda x: (-x[4], x[0].lower()))
-    for canon, p1, p2, p3, total in podium_rows[:TOP_N]:
-        row_num = _drow(ws, row_num, canon, p1, p2, p3, total)
+    podium_rows.sort(key=lambda x: (-x[5], x[1].lower()))
+    for pid, canon, p1, p2, p3, total in podium_rows[:TOP_N]:
+        row_num = _stats_drow(ws, row_num, pid, canon, p1, p2, p3, total)
     row_num += 2
 
     # ── 2. Most Event Wins ────────────────────────────────────────────────────
     row_num = _section(ws, row_num, "MOST EVENT WINS")
     row_num += 1
-    row_num = _hrow(ws, row_num, "Player", "Wins")
+    row_num = _stats_hrow(ws, row_num, "Player", "Wins")
     wins_rows = [
-        (pid_to_canon.get(pid, pid), d[1])
+        (pid, pid_to_canon.get(pid, pid), d[1])
         for pid, d in podiums.items()
         if d[1] > 0
     ]
-    wins_rows.sort(key=lambda x: (-x[1], x[0].lower()))
-    for canon, wins in wins_rows[:TOP_N]:
-        row_num = _drow(ws, row_num, canon, wins)
+    wins_rows.sort(key=lambda x: (-x[2], x[1].lower()))
+    for pid, canon, wins in wins_rows[:TOP_N]:
+        row_num = _stats_drow(ws, row_num, pid, canon, wins)
     row_num += 2
 
     # ── 3. Most Events Competed ───────────────────────────────────────────────
     row_num = _section(ws, row_num, "MOST EVENTS COMPETED")
     row_num += 1
-    row_num = _hrow(ws, row_num, "Player", "Events Competed")
+    row_num = _stats_hrow(ws, row_num, "Player", "Events Competed")
     events_rows = [
-        (pid_to_canon.get(pid, pid), len(eids))
+        (pid, pid_to_canon.get(pid, pid), len(eids))
         for pid, eids in events_by_pid.items()
         if pid in valid_pids
     ]
-    events_rows.sort(key=lambda x: (-x[1], x[0].lower()))
-    for canon, count in events_rows[:TOP_N]:
-        row_num = _drow(ws, row_num, canon, count)
+    events_rows.sort(key=lambda x: (-x[2], x[1].lower()))
+    for pid, canon, count in events_rows[:TOP_N]:
+        row_num = _stats_drow(ws, row_num, pid, canon, count)
     row_num += 2
 
     # ── 4. Longest Competitive Careers ───────────────────────────────────────
     row_num = _section(ws, row_num, "LONGEST COMPETITIVE CAREERS")
     row_num += 1
-    row_num = _hrow(ws, row_num,
+    row_num = _stats_hrow(ws, row_num,
                     "Player", "First Event Year", "Last Event Year", "Career Span (Years)")
     career_rows = []
     for pid, years in years_by_pid.items():
@@ -605,10 +622,10 @@ def build_statistics(wb: Workbook, pf_rows: list[dict], pt_rows: list[dict]) -> 
             continue
         yf, yl = min(years), max(years)
         span = yl - yf
-        career_rows.append((pid_to_canon.get(pid, pid), yf, yl, span))
-    career_rows.sort(key=lambda x: (-x[3], x[0].lower()))
-    for canon, yf, yl, span in career_rows[:TOP_N]:
-        row_num = _drow(ws, row_num, canon, yf, yl, span)
+        career_rows.append((pid, pid_to_canon.get(pid, pid), yf, yl, span))
+    career_rows.sort(key=lambda x: (-x[4], x[1].lower()))
+    for pid, canon, yf, yl, span in career_rows[:TOP_N]:
+        row_num = _stats_drow(ws, row_num, pid, canon, yf, yl, span)
     row_num += 2
 
     # ── 5. Events by Year ─────────────────────────────────────────────────────
@@ -618,15 +635,151 @@ def build_statistics(wb: Workbook, pf_rows: list[dict], pt_rows: list[dict]) -> 
     for year in sorted(events_by_year):
         row_num = _drow(ws, row_num, year, len(events_by_year[year]))
 
-    # Column widths
-    ws.column_dimensions["A"].width = 30
-    ws.column_dimensions["B"].width = 10
-    ws.column_dimensions["C"].width = 14
+    # Column A hidden (person_id), visible data in B onwards
+    ws.column_dimensions["A"].hidden = True
+    ws.column_dimensions["B"].width = 30
+    ws.column_dimensions["C"].width = 10
     ws.column_dimensions["D"].width = 14
-    ws.column_dimensions["E"].width = 16
+    ws.column_dimensions["E"].width = 14
+    ws.column_dimensions["F"].width = 16
 
-    ws.freeze_panes = "A2"
+    ws.freeze_panes = "B2"
     print("  STATISTICS sheet written")
+
+
+# ── ERA LEADERS ───────────────────────────────────────────────────────────────
+
+_ERAS = [
+    ("1980s", 1980, 1989),
+    ("1990s", 1990, 1999),
+    ("2000s", 2000, 2009),
+    ("2010s", 2010, 2019),
+    ("2020s", 2020, 2029),
+]
+
+
+def build_era_leaders(wb: Workbook, pf_rows: list[dict], pt_rows: list[dict]) -> None:
+    if "ERA LEADERS" in wb.sheetnames:
+        del wb["ERA LEADERS"]
+    # Insert after STATISTICS
+    if "STATISTICS" in wb.sheetnames:
+        idx = wb.sheetnames.index("STATISTICS") + 1
+    else:
+        idx = 2
+    ws = wb.create_sheet("ERA LEADERS", idx)
+
+    valid_pids: set[str] = {
+        r.get("effective_person_id", "") for r in pt_rows if is_real_person(r)
+    }
+    pid_to_canon: dict[str, str] = {
+        r.get("effective_person_id", ""): r.get("person_canon", "")
+        for r in pt_rows if r.get("effective_person_id")
+    }
+
+    from collections import defaultdict
+
+    row_num = 1
+    _w(ws, row_num, 2, "ERA LEADERS", font=FONT_TITLE, align=ALIGN_LEFT)
+    row_num += 2
+
+    TOP_N = 10
+
+    for era_label, y1, y2 in _ERAS:
+        # Aggregate for this era only
+        podiums:       dict[str, dict] = defaultdict(lambda: {1: 0, 2: 0, 3: 0})
+        events_by_pid: dict[str, set]  = defaultdict(set)
+
+        for row in pf_rows:
+            pid = row.get("person_id", "")
+            if not pid or pid not in valid_pids:
+                continue
+            try:
+                year = int(row.get("year", 0) or 0)
+            except (ValueError, TypeError):
+                continue
+            if not (y1 <= year <= y2):
+                continue
+            eid = row.get("event_id", "")
+            try:
+                place = int(row.get("place", 0) or 0)
+            except (ValueError, TypeError):
+                place = 0
+            if eid:
+                events_by_pid[pid].add(eid)
+            if 1 <= place <= 3:
+                podiums[pid][place] += 1
+
+        # Section header
+        _w(ws, row_num, 1, era_label, font=FONT_SECTION, fill=FILL_SECTION, align=ALIGN_LEFT)
+        ws.merge_cells(start_row=row_num, start_column=1,
+                       end_row=row_num, end_column=8)
+        row_num += 1
+
+        # Most wins
+        _w(ws, row_num, 2, "Most Wins", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 1, "person_id", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 3, "Wins", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        row_num += 1
+        wins_rows = sorted(
+            [(pid, pid_to_canon.get(pid, pid), d[1]) for pid, d in podiums.items() if d[1] > 0],
+            key=lambda x: (-x[2], x[1].lower())
+        )
+        for pid, canon, wins in wins_rows[:TOP_N]:
+            _w(ws, row_num, 1, pid, font=FONT_DATA, align=ALIGN_LEFT)
+            _w(ws, row_num, 2, canon, font=FONT_DATA, align=ALIGN_LEFT)
+            _w(ws, row_num, 3, wins, font=FONT_DATA, align=ALIGN_RIGHT)
+            row_num += 1
+        row_num += 1
+
+        # Most podiums
+        _w(ws, row_num, 2, "Most Podiums", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 1, "person_id", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 3, "1st", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 4, "2nd", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 5, "3rd", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 6, "Total", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        row_num += 1
+        pod_rows = sorted(
+            [(pid, pid_to_canon.get(pid, pid), d[1], d[2], d[3], d[1]+d[2]+d[3])
+             for pid, d in podiums.items() if d[1]+d[2]+d[3] > 0],
+            key=lambda x: (-x[5], x[1].lower())
+        )
+        for pid, canon, p1, p2, p3, total in pod_rows[:TOP_N]:
+            _w(ws, row_num, 1, pid, font=FONT_DATA, align=ALIGN_LEFT)
+            _w(ws, row_num, 2, canon, font=FONT_DATA, align=ALIGN_LEFT)
+            _w(ws, row_num, 3, p1, font=FONT_DATA, align=ALIGN_RIGHT)
+            _w(ws, row_num, 4, p2, font=FONT_DATA, align=ALIGN_RIGHT)
+            _w(ws, row_num, 5, p3, font=FONT_DATA, align=ALIGN_RIGHT)
+            _w(ws, row_num, 6, total, font=FONT_DATA, align=ALIGN_RIGHT)
+            row_num += 1
+        row_num += 1
+
+        # Most events
+        _w(ws, row_num, 2, "Most Events Competed", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 1, "person_id", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        _w(ws, row_num, 3, "Events", font=FONT_HEADER, fill=FILL_HEADER, align=ALIGN_LEFT)
+        row_num += 1
+        ev_rows = sorted(
+            [(pid, pid_to_canon.get(pid, pid), len(eids)) for pid, eids in events_by_pid.items()],
+            key=lambda x: (-x[2], x[1].lower())
+        )
+        for pid, canon, count in ev_rows[:TOP_N]:
+            _w(ws, row_num, 1, pid, font=FONT_DATA, align=ALIGN_LEFT)
+            _w(ws, row_num, 2, canon, font=FONT_DATA, align=ALIGN_LEFT)
+            _w(ws, row_num, 3, count, font=FONT_DATA, align=ALIGN_RIGHT)
+            row_num += 1
+        row_num += 2
+
+    # Column A hidden (person_id), visible data in B onwards
+    ws.column_dimensions["A"].hidden = True
+    ws.column_dimensions["B"].width = 30
+    ws.column_dimensions["C"].width = 10
+    ws.column_dimensions["D"].width = 8
+    ws.column_dimensions["E"].width = 8
+    ws.column_dimensions["F"].width = 8
+
+    ws.freeze_panes = "B2"
+    print("  ERA LEADERS sheet written")
 
 
 # ── PLAYER SUMMARY ────────────────────────────────────────────────────────────
@@ -2734,6 +2887,9 @@ def main():
 
     print("\nBuilding STATISTICS sheet...")
     build_statistics(out_wb, pf_rows, pt_rows)
+
+    print("\nBuilding ERA LEADERS sheet...")
+    build_era_leaders(out_wb, pf_rows, pt_rows)
 
     print("\nBuilding PLAYER SUMMARY sheet...")
     build_player_summary(out_wb, pt_rows, placement_stats, bap_map, member_id_map)
