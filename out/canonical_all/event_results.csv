@@ -16,9 +16,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1982_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Greg Cortopassi/Rita Buckley,,FBW,PRE1997,550ca7ceb6
 1982_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Gary Laut,,,FBW,PRE1997,42aa4ad24e
 1982_worlds,Open Team Freestyle,Open Team Freestyle,1,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,01cc7044c6
-1982_worlds,Open Singles Consecutive,Open Singles Consecutive,1,Kenny Shults,,,FBW,PRE1997,590eadc6cb
-1982_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Andy Linder,,,FBW,PRE1997,079c2f8370
-1982_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Gary Laut,,,FBW,PRE1997,5a70962dc8
 1982_worlds,Open Golf,Open Golf,1,Mike Harding,,,FBW,PRE1997,4a28098dc0
 1982_worlds,Open Golf,Open Golf,2,Kenny Shults,,,FBW,PRE1997,a8e4d54e96
 1982_worlds,Open Golf,Open Golf,3,Greg Cortopassi,,,FBW,PRE1997,9e1a4ac3b3
@@ -59,7 +56,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1983_worlds_wfa,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,FBW,PRE1997,e411db61e7
 1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,1,,Gary Laut/Mag Hughes/Jim Caveney/Greg Cortopassi,,FBW,PRE1997,bc8c601231
 1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,2,,Jack Schoolcraft/Will Squire,,FBW,PRE1997,7b716dc32f
-1983_worlds_wfa,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,70305348fe
 1983_worlds_wfa,Open Golf,Open Golf,1,Kenny Shults,,,FBW,PRE1997,49d69f136c
 1983_worlds_wfa,Open Golf,Open Golf,2,?,,,FBW,PRE1997,3ddbe28d53
 1983_worlds_wfa,Open Golf,Open Golf,3,?,,,FBW,PRE1997,3be65a8b51
@@ -150,7 +146,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1986_worlds_golden,Open Team Freestyle,Open Team Freestyle,3,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,d61031d6fe
 1986_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,1,,Tricia George/Jodi Sebastian,,FBW,PRE1997,94f03e5ba5
 1986_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,2,,Constance Constable/Kim Era,,FBW,PRE1997,caae46db4a
-1986_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,9a6d30681d
 1986_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,2,Pat Castle,,,FBW,PRE1997,712301f2d0
 1986_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,3,Fred Barnum,,,FBW,PRE1997,d2686fd87e
 1986_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,0a9c19486a
@@ -193,7 +188,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,a1cdd3b8e8
 1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,2,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,0902659759
 1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,3,,Scott Cleere/Brent Welch,,FBW,PRE1997,5e60d67cc0
-1989_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,7d648aa282
 1989_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,2,John Lind,,,FBW,PRE1997,dd2c751001
 1989_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,3,Greg Cortopassi,,,FBW,PRE1997,4c68812b66
 1989_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,5d6f336445
@@ -221,8 +215,7 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1990_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Jim Fitzgerald,,,FBW,PRE1997,dab52e3910
 1990_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,37f8febf08
 1990_worlds,Open Team Freestyle,Open Team Freestyle,2,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,38a20ae73c
-1990_worlds,Open Team Freestyle,Open Team Freestyle,3,,Scott Cleere/Andy Linder,,FBW,PRE1997,866e822855
-1990_worlds,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,cb8e377361
+1990_worlds,Open Team Freestyle,Open Team Freestyle,3,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,866e822855
 1990_worlds,Open Singles Consecutive,Open Singles Consecutive,2,John Lind,,,FBW,PRE1997,79e7509cea
 1990_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Rick Reese,,,FBW,PRE1997,3034700fb7
 1990_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,0676580b88
@@ -246,12 +239,11 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1991_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Nancy Reynolds/Mag Hughes,,FBW,PRE1997,1a2e93a0ae
 1991_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Linda Burt/Kenny Shults,,FBW,PRE1997,1c7e2cc3b7
 1991_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Brent Welch,,,FBW,PRE1997,95e3efa41f
-1991_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,49189e7843
-1991_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Jim Fitzgerald,,,FBW,PRE1997,8b48ba4513
+1991_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Andy Linder,,,FBW,PRE1997,49189e7843
+1991_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Dennis Ross,,,FBW,PRE1997,8b48ba4513
 1991_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,1a29c0e1f0
-1991_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/Andy Linder,,FBW,PRE1997,5a9872f948
+1991_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,5a9872f948
 1991_worlds,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,,FBW,PRE1997,7d981ac0ce
-1991_worlds,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,eed1531305
 1991_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Rick Reese,,,FBW,PRE1997,2c0d79d873
 1991_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Ted Martens,,,FBW,PRE1997,e11ad34796
 1991_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,d6a0cdf547
@@ -278,9 +270,8 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1992_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,8a7064e753
 1992_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Brent Welch,,,FBW,PRE1997,2e96ea689d
 1992_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,830360837e
-1992_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/Andy Linder,,FBW,PRE1997,c41b5a7697
+1992_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,c41b5a7697
 1992_worlds,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,,FBW,PRE1997,c3f6a2547f
-1992_worlds,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,7a870cf995
 1992_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Ted Martens,,,FBW,PRE1997,6c9f549a03
 1992_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Rick Reese,,,FBW,PRE1997,b617481fe3
 1992_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,385d46bc42
@@ -307,9 +298,8 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1993_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,b4c5c7c9c5
 1993_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Torgeir Rygh,,,FBW,PRE1997,0d7c39158a
 1993_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,5b9b7255f1
-1993_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/Andy Linder,,FBW,PRE1997,393ea10b01
+1993_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,393ea10b01
 1993_worlds,Open Team Freestyle,Open Team Freestyle,3,,Torgeir Rygh/Sindre Madsen,,FBW,PRE1997,55af40455b
-1993_worlds,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,77545950d9
 1993_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Rick Reese,,,FBW,PRE1997,5a51ce9375
 1993_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Ted Martens,,,FBW,PRE1997,745f954cd8
 1993_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,9b31bdfbb7
@@ -336,9 +326,8 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,c92061e1ce
 1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,3,Torgeir Rygh,,,FBW,PRE1997,d4e756a0bd
 1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,54c07e79c9
-1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/Andy Linder,,FBW,PRE1997,abad56fa83
+1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,abad56fa83
 1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,,FBW,PRE1997,1bd3a0d366
-1994_worlds_palo_alto,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,02b217f91f
 1994_worlds_palo_alto,Open Singles Consecutive,Open Singles Consecutive,2,Rick Reese,,,FBW,PRE1997,543db049ad
 1994_worlds_palo_alto,Open Singles Consecutive,Open Singles Consecutive,3,Ted Martens,,,FBW,PRE1997,f194e49f4f
 1994_worlds_palo_alto,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,e8f42ef1bc
@@ -632,7 +621,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,1,,,,FBW_V05_N02,PRE1997,bbffd8bf78
 1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,2,,,,FBW_V05_N02,PRE1997,51e97b0321
 1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,3,,,,FBW_V05_N02,PRE1997,add9793d9d
-1987_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,1,,,,FBW_V05_N02,PRE1997,f049610d9a
 1987_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,2,,,,FBW_V05_N02,PRE1997,eaa8576ec5
 1987_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,3,,,,FBW_V05_N02,PRE1997,f225e65ead
 1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,1,,,,FBW_V05_N02,PRE1997,a13e185a84
@@ -725,7 +713,6 @@ montreal_1995_footbag_champs,Open Freestyle Singles,Open Freestyle Singles,3,,,,
 montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,1,,,,verified_new/worlds95.txt,PRE1997,ee983f0299
 montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,2,,,,verified_new/worlds95.txt,PRE1997,13ce8af2ef
 montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,verified_new/worlds95.txt,PRE1997,a13523a426
-1980_western_states,freestyle,Freestyle,1,,,,MIRROR,POST1997,1980_western_states|freestyle|1
 1980_western_states,freestyle,Freestyle,2,,,,MIRROR,POST1997,1980_western_states|freestyle|2
 1980_western_states,freestyle,Freestyle,3,,,,MIRROR,POST1997,1980_western_states|freestyle|3
 1980_western_states,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,1980_western_states|open_doubles_net|1

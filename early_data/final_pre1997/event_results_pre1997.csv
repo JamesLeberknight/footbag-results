@@ -16,9 +16,6 @@ a3c659f467,1982_worlds,Women's Sgls Net,2,Carolyn Ramondie,,38240bb7ec,FBW
 550ca7ceb6,1982_worlds,Mixed Dbls Net,3,,Greg Cortopassi/Rita Buckley,38240bb7ec,FBW
 42aa4ad24e,1982_worlds,Open Sgls Freestyle,1,Gary Laut,,38240bb7ec,FBW
 01cc7044c6,1982_worlds,Open Team Freestyle,1,,Bruce Guettich/Greg Cortopassi,38240bb7ec,FBW
-590eadc6cb,1982_worlds,Open Sgls Consecutive,1,Kenny Shults,,38240bb7ec,FBW
-079c2f8370,1982_worlds,Open Sgls Consecutive,2,Andy Linder,,38240bb7ec,FBW
-5a70962dc8,1982_worlds,Open Sgls Consecutive,3,Gary Laut,,38240bb7ec,FBW
 4a28098dc0,1982_worlds,Open Golf,1,Mike Harding,,38240bb7ec,FBW
 a8e4d54e96,1982_worlds,Open Golf,2,Kenny Shults,,38240bb7ec,FBW
 9e1a4ac3b3,1982_worlds,Open Golf,3,Greg Cortopassi,,38240bb7ec,FBW
@@ -59,7 +56,6 @@ c007d6733b,1983_worlds_wfa,Mixed Dbls Net,3,,Nancy Reynolds/Constance Constable,
 e411db61e7,1983_worlds_wfa,Open Sgls Freestyle,1,Kenny Shults,,d7766289c6,FBW
 bc8c601231,1983_worlds_wfa,Open Team Freestyle,1,,Gary Laut/Mag Hughes/Jim Caveney/Greg Cortopassi,d7766289c6,FBW
 7b716dc32f,1983_worlds_wfa,Open Team Freestyle,2,,Jack Schoolcraft/Will Squire,d7766289c6,FBW
-70305348fe,1983_worlds_wfa,Open Sgls Consecutive,1,Andy Linder,,d7766289c6,FBW
 49d69f136c,1983_worlds_wfa,Open Golf,1,Kenny Shults,,d7766289c6,FBW
 3ddbe28d53,1983_worlds_wfa,Open Golf,2,?,,d7766289c6,FBW
 3be65a8b51,1983_worlds_wfa,Open Golf,3,?,,d7766289c6,FBW
@@ -150,7 +146,6 @@ fc8c9ac9bd,1986_worlds_golden,Open Team Freestyle,2,,Scott Cleere/Bill Bethurum,
 d61031d6fe,1986_worlds_golden,Open Team Freestyle,3,,Jim Fitzgerald/Jack Schoolcraft,549ebc61ff,FBW
 94f03e5ba5,1986_worlds_golden,Women's Team Freestyle,1,,Tricia George/Jodi Sebastian,549ebc61ff,FBW
 caae46db4a,1986_worlds_golden,Women's Team Freestyle,2,,Constance Constable/Kim Era,549ebc61ff,FBW
-9a6d30681d,1986_worlds_golden,Open Sgls Consecutive,1,Andy Linder,,549ebc61ff,FBW
 712301f2d0,1986_worlds_golden,Open Sgls Consecutive,2,Pat Castle,,549ebc61ff,FBW
 d2686fd87e,1986_worlds_golden,Open Sgls Consecutive,3,Fred Barnum,,549ebc61ff,FBW
 0a9c19486a,1986_worlds_golden,Open Dbls Consecutive,1,,Jack Schoolcraft/Pat Castle,549ebc61ff,FBW
@@ -193,7 +188,6 @@ a4f5089357,1989_worlds_golden,Open Sgls Freestyle,2,Dennis Ross,,b96b9c63a4,FBW
 a1cdd3b8e8,1989_worlds_golden,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,b96b9c63a4,FBW
 0902659759,1989_worlds_golden,Open Team Freestyle,2,,Bruce Guettich/Greg Cortopassi,b96b9c63a4,FBW
 5e60d67cc0,1989_worlds_golden,Open Team Freestyle,3,,Scott Cleere/Brent Welch,b96b9c63a4,FBW
-7d648aa282,1989_worlds_golden,Open Sgls Consecutive,1,Andy Linder,,b96b9c63a4,FBW
 dd2c751001,1989_worlds_golden,Open Sgls Consecutive,2,John Lind,,b96b9c63a4,FBW
 4c68812b66,1989_worlds_golden,Open Sgls Consecutive,3,Greg Cortopassi,,b96b9c63a4,FBW
 5d6f336445,1989_worlds_golden,Open Dbls Consecutive,1,,Jack Schoolcraft/Pat Castle,b96b9c63a4,FBW
@@ -221,8 +215,7 @@ bc5976d437,1990_worlds,Mixed Dbls Net,2,,Nancy Reynolds/Mag Hughes,b7e7f86a9d,FB
 dab52e3910,1990_worlds,Open Sgls Freestyle,3,Jim Fitzgerald,,b7e7f86a9d,FBW
 37f8febf08,1990_worlds,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,b7e7f86a9d,FBW
 38a20ae73c,1990_worlds,Open Team Freestyle,2,,Bruce Guettich/Greg Cortopassi,b7e7f86a9d,FBW
-866e822855,1990_worlds,Open Team Freestyle,3,,Scott Cleere/Andy Linder,b7e7f86a9d,FBW
-cb8e377361,1990_worlds,Open Sgls Consecutive,1,Andy Linder,,b7e7f86a9d,FBW
+866e822855,1990_worlds,Open Team Freestyle,3,,Scott Cleere/[UNKNOWN PARTNER],b7e7f86a9d,FBW
 79e7509cea,1990_worlds,Open Sgls Consecutive,2,John Lind,,b7e7f86a9d,FBW
 3034700fb7,1990_worlds,Open Sgls Consecutive,3,Rick Reese,,b7e7f86a9d,FBW
 0676580b88,1990_worlds,Open Dbls Consecutive,1,,Jack Schoolcraft/Pat Castle,b7e7f86a9d,FBW
@@ -246,12 +239,11 @@ f34a1645c0,1991_worlds,Women's Dbls Net,1,,Nancy Reynolds/Tricia George,4ba49ad4
 1a2e93a0ae,1991_worlds,Mixed Dbls Net,2,,Nancy Reynolds/Mag Hughes,4ba49ad48c,FBW
 1c7e2cc3b7,1991_worlds,Mixed Dbls Net,3,,Linda Burt/Kenny Shults,4ba49ad48c,FBW
 95e3efa41f,1991_worlds,Open Sgls Freestyle,1,Brent Welch,,4ba49ad48c,FBW
-49189e7843,1991_worlds,Open Sgls Freestyle,2,Dennis Ross,,4ba49ad48c,FBW
-8b48ba4513,1991_worlds,Open Sgls Freestyle,3,Jim Fitzgerald,,4ba49ad48c,FBW
+49189e7843,1991_worlds,Open Sgls Freestyle,2,Andy Linder,,4ba49ad48c,FBW
+8b48ba4513,1991_worlds,Open Sgls Freestyle,3,Dennis Ross,,4ba49ad48c,FBW
 1a29c0e1f0,1991_worlds,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,4ba49ad48c,FBW
-5a9872f948,1991_worlds,Open Team Freestyle,2,,Scott Cleere/Andy Linder,4ba49ad48c,FBW
+5a9872f948,1991_worlds,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],4ba49ad48c,FBW
 7d981ac0ce,1991_worlds,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,4ba49ad48c,FBW
-eed1531305,1991_worlds,Open Sgls Consecutive,1,Andy Linder,,4ba49ad48c,FBW
 2c0d79d873,1991_worlds,Open Sgls Consecutive,2,Rick Reese,,4ba49ad48c,FBW
 e11ad34796,1991_worlds,Open Sgls Consecutive,3,Ted Martens,,4ba49ad48c,FBW
 d6a0cdf547,1991_worlds,Open Dbls Consecutive,1,,Jack Schoolcraft/Pat Castle,4ba49ad48c,FBW
@@ -278,9 +270,8 @@ b32d793aaa,1992_worlds,Mixed Dbls Net,1,,Tricia George/Dave Robinson,0cd3989fa3,
 8a7064e753,1992_worlds,Open Sgls Freestyle,2,Dennis Ross,,0cd3989fa3,FBW
 2e96ea689d,1992_worlds,Open Sgls Freestyle,3,Brent Welch,,0cd3989fa3,FBW
 830360837e,1992_worlds,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,0cd3989fa3,FBW
-c41b5a7697,1992_worlds,Open Team Freestyle,2,,Scott Cleere/Andy Linder,0cd3989fa3,FBW
+c41b5a7697,1992_worlds,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],0cd3989fa3,FBW
 c3f6a2547f,1992_worlds,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,0cd3989fa3,FBW
-7a870cf995,1992_worlds,Open Sgls Consecutive,1,Andy Linder,,0cd3989fa3,FBW
 6c9f549a03,1992_worlds,Open Sgls Consecutive,2,Ted Martens,,0cd3989fa3,FBW
 b617481fe3,1992_worlds,Open Sgls Consecutive,3,Rick Reese,,0cd3989fa3,FBW
 385d46bc42,1992_worlds,Open Dbls Consecutive,1,,Jack Schoolcraft/Pat Castle,0cd3989fa3,FBW
@@ -307,9 +298,8 @@ d4e6d2c622,1993_worlds,Mixed Dbls Net,1,,Tricia George/Dave Robinson,392abf2112,
 b4c5c7c9c5,1993_worlds,Open Sgls Freestyle,2,Dennis Ross,,392abf2112,FBW
 0d7c39158a,1993_worlds,Open Sgls Freestyle,3,Torgeir Rygh,,392abf2112,FBW
 5b9b7255f1,1993_worlds,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,392abf2112,FBW
-393ea10b01,1993_worlds,Open Team Freestyle,2,,Scott Cleere/Andy Linder,392abf2112,FBW
+393ea10b01,1993_worlds,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],392abf2112,FBW
 55af40455b,1993_worlds,Open Team Freestyle,3,,Torgeir Rygh/Sindre Madsen,392abf2112,FBW
-77545950d9,1993_worlds,Open Sgls Consecutive,1,Andy Linder,,392abf2112,FBW
 5a51ce9375,1993_worlds,Open Sgls Consecutive,2,Rick Reese,,392abf2112,FBW
 745f954cd8,1993_worlds,Open Sgls Consecutive,3,Ted Martens,,392abf2112,FBW
 9b31bdfbb7,1993_worlds,Open Dbls Consecutive,1,,Jack Schoolcraft/Pat Castle,392abf2112,FBW
@@ -336,9 +326,8 @@ cd7264586f,1994_worlds_palo_alto,Mixed Dbls Net,3,,Linda Burt/Kenny Shults,dbe60
 c92061e1ce,1994_worlds_palo_alto,Open Sgls Freestyle,2,Dennis Ross,,dbe602bdaa,FBW
 d4e756a0bd,1994_worlds_palo_alto,Open Sgls Freestyle,3,Torgeir Rygh,,dbe602bdaa,FBW
 54c07e79c9,1994_worlds_palo_alto,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,dbe602bdaa,FBW
-abad56fa83,1994_worlds_palo_alto,Open Team Freestyle,2,,Scott Cleere/Andy Linder,dbe602bdaa,FBW
+abad56fa83,1994_worlds_palo_alto,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],dbe602bdaa,FBW
 1bd3a0d366,1994_worlds_palo_alto,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,dbe602bdaa,FBW
-02b217f91f,1994_worlds_palo_alto,Open Sgls Consecutive,1,Andy Linder,,dbe602bdaa,FBW
 543db049ad,1994_worlds_palo_alto,Open Sgls Consecutive,2,Rick Reese,,dbe602bdaa,FBW
 f194e49f4f,1994_worlds_palo_alto,Open Sgls Consecutive,3,Ted Martens,,dbe602bdaa,FBW
 e8f42ef1bc,1994_worlds_palo_alto,Open Dbls Consecutive,1,,Jack Schoolcraft/Pat Castle,dbe602bdaa,FBW
@@ -632,7 +621,6 @@ d4415c65aa,8667de3590,Open Dbls Net,1,,,,FBW_V05_N02
 bbffd8bf78,8667de3590,Open Sgls Freestyle,1,,,,FBW_V05_N02
 51e97b0321,8667de3590,Open Sgls Freestyle,2,,,,FBW_V05_N02
 add9793d9d,8667de3590,Open Sgls Freestyle,3,,,,FBW_V05_N02
-f049610d9a,8667de3590,Open Sgls Consecutive,1,,,,FBW_V05_N02
 eaa8576ec5,8667de3590,Open Sgls Consecutive,2,,,,FBW_V05_N02
 f225e65ead,8667de3590,Open Sgls Consecutive,3,,,,FBW_V05_N02
 a13e185a84,8667de3590,Open Dbls Consecutive,1,,,,FBW_V05_N02

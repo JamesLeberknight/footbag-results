@@ -61,9 +61,9 @@ KEPT POST1997 EARLY EVENTS (no PRE1997 equivalent)
   1985 | 1985_floodbag_finals                | Floodbag Finals
   1985 | 1985_footbagjam                     | Greatest Lakes Footbag Open
   1985 | 1985_holiday                        | 1985 Holiday Classic
-  1985 | 1985_mountainregion                 | WFA Rocky Mountain Regionals
+  1985 | 1985_mountainregion                 | Cabin Fever Classic
   1985 | 1985_st_valentines_day              | St. Valentines Day Footbag Massacre
-  1985 | 1985_western_national_indoor        | Western National Indoor Footbag Freestyle Championship
+  1985 | 1985_western_national_indoor        | Oak Park - Chicago Open
   1985 | 1985_western_states                 | Western States Footbag Championships 1985
   1986 | 1986_eastregion                     | East Coast Footbag Championships - 4th Annual - 1986
   1986 | 1986_sunshine_state                 | Sunshine State Open 1986
@@ -95,7 +95,7 @@ EARLY CHAMPIONSHIP OVERLAP CHECK (app-safe)
   1983 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1983 World Footbag Championships
   1984 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1984
   1984 | WFA_NATIONALS                  | PRE1997 | 1984 WFA National Championships
-  1985 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1985
+  1985 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1985
   1985 | WFA_NATIONALS                  | PRE1997 | 1985 WFA National Championships
   1986 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1986 WFA World Championships
   1987 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1987 WFA World Championships

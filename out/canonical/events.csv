@@ -29,8 +29,8 @@ event_key,legacy_event_id,year,event_name,event_slug,start_date,end_date,city,re
 1985_floodbag_finals,9972848,1985,Floodbag Finals,floodbag_finals,,,Vancouver,,Washington,,net,completed,,mirror
 1985_footbagjam,9918278,1985,Greatest Lakes Footbag Open,greatest_lakes_footbag_open,,,Boulder,,Colorado,,net,completed,,mirror
 1985_st_valentines_day,9958186,1985,St. Valentines Day Footbag Massacre,st_valentines_day_footbag_massacre,,,Fort Collins,,Colorado,,mixed,completed,,mirror
-1985_mountainregion,9980521,1985,WFA Rocky Mountain Regionals,wfa_rocky_mountain_regionals,,,Kansas City,,Missouri,,freestyle,completed,,mirror
-1985_western_national_indoor,9940469,1985,Western National Indoor Footbag Freestyle Championship,western_national_indoor_footbag_freestyle_championship,,,Chicago,,Illinois,,net,completed,,mirror
+1985_mountainregion,9980521,1985,Cabin Fever Classic,wfa_rocky_mountain_regionals,,,Kansas City,,Missouri,,freestyle,completed,,mirror
+1985_western_national_indoor,9940469,1985,Oak Park - Chicago Open,western_national_indoor_footbag_freestyle_championship,,,Chicago,,Illinois,,net,completed,,mirror
 1985_western_states,2001985004,1985,Western States Footbag Championships 1985,western_states_footbag_championships_1985,,,Portland,Oregon,United States,,freestyle,completed,FBW-V5N1,mirror
 1985_worlds_golden,2001985001,1985,World Championships 1985,world_championships_1985,,,Golden,Colorado,United States,WFA,mixed,completed,,mirror
 1985_worlds_golden_2,2001985005,1985,World Footbag Championships 1985 (FBW),world_footbag_championships_1985_fbw,,,Golden,Colorado,United States,,net,completed,FBW-V4N2; Golden CO,mirror

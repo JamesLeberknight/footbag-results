@@ -78,7 +78,6 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1982_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
 1982_worlds,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997
 1982_worlds,Open Golf,Open Golf,,,,,3,,PRE1997
-1982_worlds,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997
 1982_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,1,,PRE1997
 1982_worlds,Open Singles Net,Open Singles Net,,,,,3,,PRE1997
 1982_worlds,Open Team Freestyle,Open Team Freestyle,,,,,1,,PRE1997
@@ -270,7 +269,7 @@ montreal_1995_footbag_champs,Open Net Singles,Open Net Singles,,,,,3,,PRE1997
 montreal_1995_footbag_champs,Open Net Doubles,Open Net Doubles,,,,,3,,PRE1997
 montreal_1995_footbag_champs,Open Freestyle Singles,Open Freestyle Singles,,,,,3,,PRE1997
 montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3,,PRE1997
-1980_western_states,freestyle,Freestyle,freestyle,singles,1,complete,3,,POST1997
+1980_western_states,freestyle,Freestyle,freestyle,singles,1,complete,2,,POST1997
 1980_western_states,open_doubles_net,Open Doubles Net,net,doubles,2,complete,3,,POST1997
 1980_western_states,open_singles_net,Open Singles Net,net,singles,3,complete,3,,POST1997
 1980_western_states,womens_singles,Women's Singles,freestyle,singles,4,complete,3,,POST1997

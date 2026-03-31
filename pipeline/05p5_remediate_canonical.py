@@ -917,6 +917,62 @@ print(f"  Artifact participants→sentinel:    {_f8_sentineled:,}")
 print(f"  Orphaned result rows removed:      {_f8_orphan_results:,}")
 print(f"  Remaining empty person_id:         {_f8_remaining:,}")
 
+# ── Andy Linder corrections (S-17, S-18, S-19) ───────────────────────────────
+# S-17: Remove Andy Linder from 1980_western_states / freestyle / p1 (+ cascade)
+# S-18: Rename 1985_mountainregion event_name → "Cabin Fever Classic"
+# S-19: Rename 1985_western_national_indoor event_name → "Oak Park - Chicago Open"
+
+print("\n[Andy Linder corrections] S-17/S-18/S-19...")
+
+_ANDY_ID = "64a7a989-aa2c-5a58-b141-e8378be4a962"
+
+# S-17: remove Andy participant from 1980_western_states / freestyle / p1
+_s17_before = len(participants)
+participants = [
+    row for row in participants
+    if not (
+        row["event_key"] == "1980_western_states"
+        and row["discipline_key"] == "freestyle"
+        and row["placement"] == "1"
+        and row.get("person_id", "") == _ANDY_ID
+    )
+]
+_s17_removed = _s17_before - len(participants)
+
+# Cascade: remove orphaned result rows
+_result_keys_with_parts2: set[tuple[str, str, str]] = {
+    (r["event_key"], r["discipline_key"], r["placement"]) for r in participants
+}
+_s17_cascade = 0
+clean_results2 = []
+for _row in results:
+    _rk = (_row["event_key"], _row["discipline_key"], _row["placement"])
+    if _rk in _result_keys_with_parts2:
+        clean_results2.append(_row)
+    else:
+        _s17_cascade += 1
+results = clean_results2
+
+print(f"  S-17: Andy removed from 1980_western_states/freestyle/p1: {_s17_removed}")
+print(f"  S-17: Orphaned result rows cascaded:                       {_s17_cascade}")
+
+# S-18: Rename 1985_mountainregion
+_s18_count = 0
+for _ev in events:
+    if _ev["event_key"] == "1985_mountainregion":
+        _ev["event_name"] = "Cabin Fever Classic"
+        _s18_count += 1
+
+# S-19: Rename 1985_western_national_indoor
+_s19_count = 0
+for _ev in events:
+    if _ev["event_key"] == "1985_western_national_indoor":
+        _ev["event_name"] = "Oak Park - Chicago Open"
+        _s19_count += 1
+
+print(f"  S-18: 1985_mountainregion renamed: {_s18_count}")
+print(f"  S-19: 1985_western_national_indoor renamed: {_s19_count}")
+
 # ── Save ──────────────────────────────────────────────────────────────────────
 
 print("\nSaving...")
