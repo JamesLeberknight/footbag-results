@@ -2,17 +2,9 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1983_worlds_wfa,Doubles Net,Doubles Net,,,,,3,,PRE1997
 1983_worlds_wfa,Golf,Golf,,,,,3,,PRE1997
 1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-1983_worlds_wfa,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997
-1983_worlds_wfa,Open Golf,Open Golf,,,,,3,,PRE1997
-1983_worlds_wfa,Open Singles Consecutive,Open Singles Consecutive,,,,,1,,PRE1997
-1983_worlds_wfa,Open Singles Freestyle,Open Singles Freestyle,,,,,1,,PRE1997
-1983_worlds_wfa,Open Singles Net,Open Singles Net,,,,,3,,PRE1997
-1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,,,,,2,,PRE1997
-1983_worlds_wfa,Singles,Singles,,,,,3,,PRE1997
 1983_worlds_wfa,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997
 1983_worlds_wfa,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
 1983_worlds_wfa,Singles Net,Singles Net,,,,,3,,PRE1997
-1983_worlds_wfa,Team,Team,,,,,3,,PRE1997
 1983_worlds_wfa,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
 1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
 1983_worlds_wfa,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
@@ -68,7 +60,6 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1985_wfa_nationals,Women's Singles Freestyle,Women's Singles Freestyle,,,,,1,,PRE1997
 1985_wfa_nationals,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997
 1985_wfa_nationals,Women's Team Freestyle,Women's Team Freestyle,,,,,2,,PRE1997
-1982_worlds,,,,,,,3,,PRE1997
 1982_worlds,Doubles Net,Doubles Net,,,,,3,,PRE1997
 1982_worlds,Freestyle,Freestyle,,,,,3,,PRE1997
 1982_worlds,Golf,Golf,,,,,3,,PRE1997
@@ -76,11 +67,6 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1982_worlds,Intermediate Freestyle,Intermediate Freestyle,,,,,1,,PRE1997
 1982_worlds,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
 1982_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-1982_worlds,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997
-1982_worlds,Open Golf,Open Golf,,,,,3,,PRE1997
-1982_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,1,,PRE1997
-1982_worlds,Open Singles Net,Open Singles Net,,,,,3,,PRE1997
-1982_worlds,Open Team Freestyle,Open Team Freestyle,,,,,1,,PRE1997
 1982_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
 1982_worlds,Singles Net,Singles Net,,,,,3,,PRE1997
 1982_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997
@@ -136,17 +122,9 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1983_worlds_nhsa,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997
 1983_worlds_nhsa,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997
 1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997
-1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997
-1983_worlds_nhsa,Open Golf,Open Golf,,,,,3,,PRE1997
-1983_worlds_nhsa,Open Singles Consecutive,Open Singles Consecutive,,,,,1,,PRE1997
-1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997
-1983_worlds_nhsa,Open Singles Net,Open Singles Net,,,,,3,,PRE1997
-1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997
-1983_worlds_nhsa,Singles,Singles,,,,,3,,PRE1997
 1983_worlds_nhsa,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997
 1983_worlds_nhsa,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997
 1983_worlds_nhsa,Singles Net,Singles Net,,,,,3,,PRE1997
-1983_worlds_nhsa,Team,Team,,,,,3,,PRE1997
 1983_worlds_nhsa,Team Freestyle,Team Freestyle,,,,,3,,PRE1997
 1983_worlds_nhsa,Women's Consecutive Kicks,Women's Consecutive Kicks,,,,,3,,PRE1997
 1983_worlds_nhsa,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997

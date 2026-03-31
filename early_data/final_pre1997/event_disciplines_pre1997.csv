@@ -1,23 +1,12 @@
 canonical_event_id,division_raw,total_placements
 1983_worlds_wfa,Doubles Net,3
 1983_worlds_wfa,Golf,3
-1983_worlds_wfa,Mixed Dbls Net,3
 1983_worlds_wfa,Mixed Doubles Net,3
-1983_worlds_wfa,Open Dbls Net,3
-1983_worlds_wfa,Open Golf,3
-1983_worlds_wfa,Open Sgls Consecutive,1
-1983_worlds_wfa,Open Sgls Freestyle,1
-1983_worlds_wfa,Open Sgls Net,3
-1983_worlds_wfa,Open Team Freestyle,2
-1983_worlds_wfa,Singles,3
 1983_worlds_wfa,Singles Consecutive Kicks,1
 1983_worlds_wfa,Singles Freestyle,3
 1983_worlds_wfa,Singles Net,3
-1983_worlds_wfa,Team,3
 1983_worlds_wfa,Team Freestyle,3
-1983_worlds_wfa,Women's Dbls Net,3
 1983_worlds_wfa,Women's Doubles Net,3
-1983_worlds_wfa,Women's Sgls Net,3
 1983_worlds_wfa,Women's Singles Net,3
 1992_worlds,Men's Overall,1
 1992_worlds,Mixed Dbls Net,3
@@ -71,25 +60,16 @@ canonical_event_id,division_raw,total_placements
 1985_wfa_nationals,Women's Sgls Freestyle,1
 1985_wfa_nationals,Women's Sgls Net,3
 1985_wfa_nationals,Women's Team Freestyle,2
-1982_worlds,,3
 1982_worlds,Doubles Net,3
 1982_worlds,Freestyle,3
 1982_worlds,Golf,3
 1982_worlds,Intermediate Doubles Net,1
 1982_worlds,Intermediate Freestyle,1
 1982_worlds,Intermediate Singles Net,1
-1982_worlds,Mixed Dbls Net,3
 1982_worlds,Mixed Doubles Net,3
-1982_worlds,Open Dbls Net,3
-1982_worlds,Open Golf,3
-1982_worlds,Open Sgls Freestyle,1
-1982_worlds,Open Sgls Net,3
-1982_worlds,Open Team Freestyle,1
 1982_worlds,Singles Consecutive Kicks,3
 1982_worlds,Singles Net,3
-1982_worlds,Women's Dbls Net,3
 1982_worlds,Women's Doubles Net,3
-1982_worlds,Women's Sgls Net,3
 1982_worlds,Women's Singles Net,3
 1989_worlds_golden,Men's Overall,1
 1989_worlds_golden,Mixed Dbls Net,3
@@ -142,19 +122,10 @@ canonical_event_id,division_raw,total_placements
 1983_worlds_nhsa,Doubles Net,3
 1983_worlds_nhsa,Intermediate Doubles Net,1
 1983_worlds_nhsa,Intermediate Singles Net,1
-1983_worlds_nhsa,Mixed Dbls Net,3
 1983_worlds_nhsa,Mixed Doubles Net,3
-1983_worlds_nhsa,Open Dbls Net,3
-1983_worlds_nhsa,Open Golf,3
-1983_worlds_nhsa,Open Sgls Consecutive,1
-1983_worlds_nhsa,Open Sgls Freestyle,3
-1983_worlds_nhsa,Open Sgls Net,3
-1983_worlds_nhsa,Open Team Freestyle,3
-1983_worlds_nhsa,Singles,3
 1983_worlds_nhsa,Singles Consecutive Kicks,3
 1983_worlds_nhsa,Singles Freestyle,3
 1983_worlds_nhsa,Singles Net,3
-1983_worlds_nhsa,Team,3
 1983_worlds_nhsa,Team Freestyle,3
 1983_worlds_nhsa,Women's Consecutive Kicks,3
 1983_worlds_nhsa,Women's Doubles Net,3

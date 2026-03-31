@@ -1,64 +1,4 @@
 event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,source_type,data_source,result_row_id
-1982_worlds,Open Singles Net,Open Singles Net,1,Kenny Shults,,,FBW,PRE1997,b83a963033
-1982_worlds,Open Singles Net,Open Singles Net,2,Billy Hayne,,,FBW,PRE1997,877c97aef7
-1982_worlds,Open Singles Net,Open Singles Net,3,Bruce Guettich,,,FBW,PRE1997,37989f1a5c
-1982_worlds,Open Doubles Net,Open Doubles Net,1,,Mag Hughes/Billy Hayne,,FBW,PRE1997,9313635c5c
-1982_worlds,Open Doubles Net,Open Doubles Net,2,,Kenny Shults/Walt Mason,,FBW,PRE1997,334795941e
-1982_worlds,Open Doubles Net,Open Doubles Net,3,,Fred Kipley/Gary Preston,,FBW,PRE1997,b0d6bf4c8f
-1982_worlds,Women's Singles Net,Women's Singles Net,1,Cheryl Hughes,,,FBW,PRE1997,609f3f30fb
-1982_worlds,Women's Singles Net,Women's Singles Net,2,Carolyn Ramondie,,,FBW,PRE1997,a3c659f467
-1982_worlds,Women's Singles Net,Women's Singles Net,3,Karen Gunther,,,FBW,PRE1997,69ca6270c5
-1982_worlds,Women's Doubles Net,Women's Doubles Net,1,,Carolyn Ramondie/Lori Jean Tarr,,FBW,PRE1997,0f4334650b
-1982_worlds,Women's Doubles Net,Women's Doubles Net,2,,Rita Buckley/Alex Frazier,,FBW,PRE1997,315223983f
-1982_worlds,Women's Doubles Net,Women's Doubles Net,3,,Karen Uppinghouse/Cheryl Hughes,,FBW,PRE1997,14aed77b21
-1982_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Mag Hughes/Alex Frazier,,FBW,PRE1997,4c06cfa01a
-1982_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Billy Hayne/Cheryl Hughes,,FBW,PRE1997,6b4eb67eec
-1982_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Greg Cortopassi/Rita Buckley,,FBW,PRE1997,550ca7ceb6
-1982_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Gary Laut,,,FBW,PRE1997,42aa4ad24e
-1982_worlds,Open Team Freestyle,Open Team Freestyle,1,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,01cc7044c6
-1982_worlds,Open Golf,Open Golf,1,Mike Harding,,,FBW,PRE1997,4a28098dc0
-1982_worlds,Open Golf,Open Golf,2,Kenny Shults,,,FBW,PRE1997,a8e4d54e96
-1982_worlds,Open Golf,Open Golf,3,Greg Cortopassi,,,FBW,PRE1997,9e1a4ac3b3
-1983_worlds_nhsa,Open Singles Net,Open Singles Net,1,Mag Hughes,,,FBW,PRE1997,98a0e0aebf
-1983_worlds_nhsa,Open Singles Net,Open Singles Net,2,Kenny Shults,,,FBW,PRE1997,ff052ef614
-1983_worlds_nhsa,Open Singles Net,Open Singles Net,3,Dave Robinson,,,FBW,PRE1997,6f121bebd8
-1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,1,,Mag Hughes/Billy Hayne,,FBW,PRE1997,14b96b52ca
-1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,2,,Greg Cortopassi/Bruce Guettich,,FBW,PRE1997,e66d08c1e2
-1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,3,,Kevin Courtney/Dave Robinson,,FBW,PRE1997,f25ed8fc0d
-1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,1,,Lori Jean Tarr/Bruce Guettich,,FBW,PRE1997,4242fb6a3f
-1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,2,,Shannon Aubin/Dave Robinson,,FBW,PRE1997,bd781aaad0
-1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,3,,Tricia George/Tim Fitzgerald,,FBW,PRE1997,5874e1bf64
-1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,1,Jack Schoolcraft,,,FBW,PRE1997,79878edcf8
-1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,2,Jim Caveney,,,FBW,PRE1997,bb2bdb9655
-1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,3,Bill Bethurum,,,FBW,PRE1997,f3e4c16336
-1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,1,,Kenny Shults/Gary Laut/Jim Caveney,,FBW,PRE1997,7ba709391b
-1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,2,,Kevin Courtney/Dave Robinson/Reed Gray,,FBW,PRE1997,244d6dfb22
-1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,3,,Robert Conover/Jim Fitzgerald,,FBW,PRE1997,da78f9c7c0
-1983_worlds_nhsa,Open Singles Consecutive,Open Singles Consecutive,1,Jack Schoolcraft,,,FBW,PRE1997,c53ba9c763
-1983_worlds_nhsa,Open Golf,Open Golf,1,Mike Harding,,,FBW,PRE1997,09a648931b
-1983_worlds_nhsa,Open Golf,Open Golf,2,Tim Mackey,,,FBW,PRE1997,92050a27bc
-1983_worlds_nhsa,Open Golf,Open Golf,3,Kenny Shults,,,FBW,PRE1997,11aadc2902
-1983_worlds_wfa,Open Singles Net,Open Singles Net,1,Kenny Shults,,,FBW,PRE1997,56f1486137
-1983_worlds_wfa,Open Singles Net,Open Singles Net,2,Dave Robinson,,,FBW,PRE1997,30f480459f
-1983_worlds_wfa,Open Singles Net,Open Singles Net,3,Steve Fennell,,,FBW,PRE1997,c96d2d93b1
-1983_worlds_wfa,Open Doubles Net,Open Doubles Net,1,,Kenny Shults/Mike Harding,,FBW,PRE1997,aef0975903
-1983_worlds_wfa,Open Doubles Net,Open Doubles Net,2,,Dave Hill/Dave Robinson,,FBW,PRE1997,ee27ec484c
-1983_worlds_wfa,Open Doubles Net,Open Doubles Net,3,,Bob Swerdlick/Mike Puderbaugh,,FBW,PRE1997,18784d3a47
-1983_worlds_wfa,Women's Singles Net,Women's Singles Net,1,Lori Jean Tarr,,,FBW,PRE1997,2cfcf50581
-1983_worlds_wfa,Women's Singles Net,Women's Singles Net,2,Nancy Reynolds,,,FBW,PRE1997,72db0e5877
-1983_worlds_wfa,Women's Singles Net,Women's Singles Net,3,Tricia George,,,FBW,PRE1997,5a3a7abe3b
-1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,1,,Lori Jean Tarr/Rita Buckley,,FBW,PRE1997,1f67f0c371
-1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,2,,Shannon Aubin/Tricia George,,FBW,PRE1997,e519f2aaa8
-1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,3,,Karin Atogpian/Constance Constable,,FBW,PRE1997,478f6e64b7
-1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,1,,Nancy Reynolds/Constance Constable,,FBW,PRE1997,30722f65b5
-1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,2,,Tricia George/Jody Grace,,FBW,PRE1997,c7bf90d101
-1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,3,,Nancy Reynolds/Constance Constable,,FBW,PRE1997,c007d6733b
-1983_worlds_wfa,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,FBW,PRE1997,e411db61e7
-1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,1,,Gary Laut/Mag Hughes/Jim Caveney/Greg Cortopassi,,FBW,PRE1997,bc8c601231
-1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,2,,Jack Schoolcraft/Will Squire,,FBW,PRE1997,7b716dc32f
-1983_worlds_wfa,Open Golf,Open Golf,1,Kenny Shults,,,FBW,PRE1997,49d69f136c
-1983_worlds_wfa,Open Golf,Open Golf,2,?,,,FBW,PRE1997,3ddbe28d53
-1983_worlds_wfa,Open Golf,Open Golf,3,?,,,FBW,PRE1997,3be65a8b51
 1984_wfa_nationals,Men's Overall,Men's Overall,1,Mag Hughes,,,FBW,PRE1997,6028337f94
 1984_wfa_nationals,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,3bfec0b873
 1984_wfa_nationals,Open Singles Net,Open Singles Net,1,Mag Hughes,,,FBW,PRE1997,844292e07d
@@ -353,21 +293,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1988_us_nationals,Open Singles Net,Open Singles Net,1,Ken Eldrick,,,FBW,PRE1997,07f409af99
 1989_worlds_golden,Open Singles Net,Open Singles Net,1,Ken Eldrick,,,FBW,PRE1997,2f5e54aecf
 1994_worlds_palo_alto,Open Singles Net,Open Singles Net,1,Steve Fennell,,,FBW,PRE1997,6a25514e3d
-1982_worlds,,,1,Greg Cortopassi/Bruce Guettich,,,OLD_RESULTS,PRE1997,db9777f4d0
-1982_worlds,,,2,Gary Lautt,,,OLD_RESULTS,PRE1997,7f9a866e8f
-1982_worlds,,,3,Jack Schoolcraft/Reed Gray,,,OLD_RESULTS,PRE1997,81e6c01524
-1983_worlds_nhsa,Singles,Singles,1,Ken Shults,,,OLD_RESULTS,PRE1997,a32e53a1a7
-1983_worlds_nhsa,Singles,Singles,2,Andy Linder,,,OLD_RESULTS,PRE1997,c3f154cd8f
-1983_worlds_nhsa,Singles,Singles,3,Jeff Johnson,,,OLD_RESULTS,PRE1997,789d80aefe
-1983_worlds_nhsa,Team,Team,1,Greg Cortopassi/Mag Hughes/Gary Lautt/Jim Caveney,,,OLD_RESULTS,PRE1997,c90b7e93b6
-1983_worlds_nhsa,Team,Team,2,David Robinson/Kevin Courtney/Reed Gray/Jim Fitzgerald,,,OLD_RESULTS,PRE1997,959ee3f490
-1983_worlds_nhsa,Team,Team,3,Jack Schoolcraft/Will Squire,,,OLD_RESULTS,PRE1997,85981a677a
-1983_worlds_wfa,Singles,Singles,1,Jack Schoolcraft,,,OLD_RESULTS,PRE1997,1656965262
-1983_worlds_wfa,Singles,Singles,2,Jim Caveney,,,OLD_RESULTS,PRE1997,c7ac99298d
-1983_worlds_wfa,Singles,Singles,3,Bill Bethurum,,,OLD_RESULTS,PRE1997,794b39dcc0
-1983_worlds_wfa,Team,Team,1,Gary Lautt/Jim Caveney/Ken Shults,,,OLD_RESULTS,PRE1997,c6d7082cea
-1983_worlds_wfa,Team,Team,2,David Robinson/Kevin Courtney/Reed Gray,,,OLD_RESULTS,PRE1997,f6a4e0012f
-1983_worlds_wfa,Team,Team,3,Jim Fitzgerald/Robert Conover,,,OLD_RESULTS,PRE1997,a3daabe31e
 1984_wfa_nationals,Singles,Singles,1,Andy Linder,,,OLD_RESULTS,PRE1997,8f812c74e9
 1984_wfa_nationals,Singles,Singles,2,Ken Shults,,,OLD_RESULTS,PRE1997,8e747f9b50
 1984_wfa_nationals,Singles,Singles,3,Jack Schoolcraft,,,OLD_RESULTS,PRE1997,3979c1e38d
