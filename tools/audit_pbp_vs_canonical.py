@@ -259,28 +259,51 @@ def build_pbp_slot_index(pbp_df: pd.DataFrame) -> dict[tuple, int]:
 
 def build_pipeline_index(
     pipeline_df: pd.DataFrame,
-) -> tuple[dict[tuple, list[pd.Series]], dict[tuple, list[pd.Series]]]:
+) -> tuple[dict, dict, dict, set]:
     """
-    Build two lookup indexes over the post-02p6 pipeline output.
+    Build lookup indexes over the post-02p6 pipeline output.
 
-    norm_index:  tier-1-NORMALIZED key → list of pipeline rows at that slot
-    exact_index: tier-1-EXACT key      → list of pipeline rows at that slot
-
-    Both maps support tier-2 content filtering within the returned row lists.
+    norm_index:     tier-1-NORMALIZED key → list of pipeline rows at that slot
+    exact_index:    tier-1-EXACT key      → list of pipeline rows at that slot
+    pid_slot_index: tier-1-NORMALIZED key → set of person_ids at that slot
+                    (used to match renamed players by person_id when tier-2
+                    string match fails; only populated when pipeline has person_id)
+    team_slot_set:  set of (event_id, div_norm, place) tuples where the pipeline
+                    has at least one team row (used to detect PP2_TRANSFORM: player
+                    rows in doubles that were converted to team rows by pre-pass 2)
 
     Using two separate indexes (norm vs. exact) allows match_type to be
     determined: EXACT if raw division_canon matched, NORMALIZED_DIVISION if
     artifact stripping was required.
     """
-    norm_index:  dict[tuple, list] = defaultdict(list)
-    exact_index: dict[tuple, list] = defaultdict(list)
+    norm_index:     dict[tuple, list] = defaultdict(list)
+    exact_index:    dict[tuple, list] = defaultdict(list)
+    pid_slot_index: dict[tuple, set]  = defaultdict(set)
+    team_slot_set:  set[tuple]        = set()
+
+    has_person_id = "person_id" in pipeline_df.columns
 
     for _, row in pipeline_df.iterrows():
-        norm_index[_tier1_norm_key(row)].append(row)
-        exact_index[_tier1_exact_key(row)].append(row)
+        norm_key  = _tier1_norm_key(row)
+        exact_key = _tier1_exact_key(row)
+        norm_index[norm_key].append(row)
+        exact_index[exact_key].append(row)
+
+        # person_id index — enables matching by ID when person_canon was renamed
+        if has_person_id:
+            pid = nb(row.get("person_id", ""))
+            if pid:
+                pid_slot_index[norm_key].add(pid)
+
+        # team slot set — marks slots that have team rows (PP2_TRANSFORM detection)
+        if nb(row.get("competitor_type", "")) == "team":
+            eid_ = nb(row.get("event_id", ""))
+            div_ = normalize_division(nb(row.get("division_canon", "")))
+            pl_  = normalize_place(row.get("place", ""))
+            team_slot_set.add((eid_, div_, pl_))
 
     # Convert to plain dict to prevent accidental defaultdict extension later
-    return dict(norm_index), dict(exact_index)
+    return dict(norm_index), dict(exact_index), dict(pid_slot_index), team_slot_set
 
 
 # ── Per-row matching ───────────────────────────────────────────────────────────
@@ -289,20 +312,28 @@ def _match_row(
     pbp_row: pd.Series,
     norm_index: dict[tuple, list],
     exact_index: dict[tuple, list],
+    pid_slot_index: dict[tuple, set],
+    team_slot_set: set[tuple],
 ) -> tuple[str, str, str, int, int]:
     """
     Match a single PBP v85 row against the pipeline indexes.
 
-    Matching is two-tiered:
-      Tier 1 — slot: (event_id, division_canon_normalized, place, competitor_type)
-      Tier 2 — content: (person_canon, team_display_name) within Tier-1 matches
-
-    EXACT division match is preferred over NORMALIZED match.  If neither yields
-    a tier-2 content match, the row is ABSENT.
+    Matching proceeds in three passes:
+      Pass A — tier-1 slot + tier-2 content (person_canon/team_display_name string match)
+               Prefers EXACT division match over NORMALIZED_DIVISION.
+      Pass B — person_id match: if non-blank person_id exists, check whether that
+               person_id appears in the pipeline at the same normalized tier-1 slot.
+               Handles renamed players (PT v44→v47 renames) whose person_canon no
+               longer matches the PBP string but whose UUID is unchanged.
+               match_type = PERSON_ID
+      Pass C — PP2_TRANSFORM: player rows in doubles divisions converted to team
+               rows by pre-pass 2.  Checks whether the pipeline has any team row at
+               the same (event_id, div_norm, place) regardless of competitor_type.
+               match_type = PP2_TRANSFORM
 
     Returns:
         status              — PRESENT | ABSENT_SLOT_COVERED | ABSENT_NO_COVERAGE
-        match_type          — EXACT | NORMALIZED_DIVISION | NONE
+        match_type          — EXACT | NORMALIZED_DIVISION | PERSON_ID | PP2_TRANSFORM | NONE
         match_multiplicity  — SINGLE | MULTIPLE | NONE
         pipeline_match_count   — count of tier-2 content matches in pipeline
         slot_row_count_in_pipeline — count of rows sharing normalized tier-1 slot
@@ -338,6 +369,32 @@ def _match_row(
     n_matched = len(matched)
 
     if n_matched == 0:
+        # ── Pass B: person_id match ─────────────────────────────────────────────
+        # When tier-2 string match fails but the row has a non-blank person_id,
+        # check whether that exact person_id appears in the pipeline at the same
+        # normalized tier-1 slot.  This catches players whose person_canon was
+        # updated in PT (renames) — the UUID is stable even when the display name
+        # changed between PBP v85 and the current pipeline output.
+        pbp_pid = nb(pbp_row.get("person_id", ""))
+        if pbp_pid:
+            slot_pids = pid_slot_index.get(t1_norm, set())
+            if pbp_pid in slot_pids:
+                return "PRESENT", "PERSON_ID", "SINGLE", 1, slot_count_pipeline
+
+        # ── Pass C: PP2_TRANSFORM ───────────────────────────────────────────────
+        # Pre-pass 2 converts bare player rows in doubles divisions to
+        # [UNKNOWN PARTNER] team rows, changing competitor_type player→team.
+        # The tier-1 key includes competitor_type, so the original player row
+        # appears absent even though the data is present as a team row.
+        # Check: does the pipeline have any team row at (eid, div_norm, place)?
+        if (nb(pbp_row.get("competitor_type", "")) == "player"
+                and _is_doubles_div(nb(pbp_row.get("division_canon", "")))):
+            eid_ = nb(pbp_row.get("event_id", ""))
+            div_ = normalize_division(nb(pbp_row.get("division_canon", "")))
+            pl_  = normalize_place(pbp_row.get("place", ""))
+            if (eid_, div_, pl_) in team_slot_set:
+                return "PRESENT", "PP2_TRANSFORM", "SINGLE", 1, slot_count_pipeline
+
         multiplicity = "NONE"
         status = (
             "ABSENT_NO_COVERAGE"
@@ -362,6 +419,7 @@ def build_investigation_note(
     pbp_row: pd.Series,
     multiplicity: str,
     pipeline_match_count: int,
+    match_type: str = "",
 ) -> str:
     """
     Build the investigation_note string for a row_diff entry.
@@ -369,8 +427,10 @@ def build_investigation_note(
     Populated in steps 1-3:
       - encoding_artifact:{types}        — artifact chars in division_canon
       - multiple_pipeline_matches:{N}    — corruption signal: 2+ pipeline matches
+      - pp2_transform                    — player→team conversion in doubles div
+      - person_id_match                  — matched by UUID after person_canon rename
 
-    Extended in steps 4-5 (not yet implemented):
+    Extended in steps 4-5:
       - european_format_candidate:{conf} — European-name parsing signal
       - cascade_shadow_candidate         — pool-shadow cascade signal
 
@@ -387,6 +447,12 @@ def build_investigation_note(
     # Indicates either a pipeline duplicate or a division-merge collision.
     if multiplicity == "MULTIPLE":
         notes.append(f"multiple_pipeline_matches:{pipeline_match_count}")
+
+    # Signal: matched via one of the improved fallback passes
+    if match_type == "PP2_TRANSFORM":
+        notes.append("pp2_transform:player_converted_to_team_in_doubles")
+    elif match_type == "PERSON_ID":
+        notes.append("person_id_match:player_canon_renamed_in_pt")
 
     return " | ".join(notes)
 
@@ -413,13 +479,15 @@ def compute_row_diff(
     European-format and cascade signals are added in steps 4-5.
     """
     print("\n[Phase 0 / step 2] Building normalized division mapping...")
-    norm_index, exact_index = build_pipeline_index(pipeline_df)
+    norm_index, exact_index, pid_slot_index, team_slot_set = build_pipeline_index(pipeline_df)
     pbp_slot_index = build_pbp_slot_index(pbp_df)
 
     n_norm_slots  = len(norm_index)
     n_exact_slots = len(exact_index)
     print(f"  Pipeline norm-index slots:  {n_norm_slots:,}")
     print(f"  Pipeline exact-index slots: {n_exact_slots:,}")
+    print(f"  Pipeline pid-index slots:   {len(pid_slot_index):,}")
+    print(f"  Pipeline team-slot entries: {len(team_slot_set):,}")
     if n_norm_slots != n_exact_slots:
         print(
             f"  NOTE: {n_norm_slots - n_exact_slots} slot(s) collapsed by normalization "
@@ -439,10 +507,10 @@ def compute_row_diff(
         t1_norm  = _tier1_norm_key(pbp_row)
 
         status, match_type, multiplicity, match_count, slot_pipeline = _match_row(
-            pbp_row, norm_index, exact_index
+            pbp_row, norm_index, exact_index, pid_slot_index, team_slot_set
         )
 
-        note = build_investigation_note(pbp_row, multiplicity, match_count)
+        note = build_investigation_note(pbp_row, multiplicity, match_count, match_type)
 
         records.append({
             # ── Traceability ────────────────────────────────────────────────
@@ -508,8 +576,10 @@ def print_row_diff_summary(diff_df: pd.DataFrame) -> None:
 
     n_single    = int((diff_df["match_multiplicity"] == "SINGLE").sum())
     n_multiple  = int((diff_df["match_multiplicity"] == "MULTIPLE").sum())
-    n_norm_div  = int((diff_df["match_type"] == "NORMALIZED_DIVISION").sum())
     n_exact     = int((diff_df["match_type"] == "EXACT").sum())
+    n_norm_div  = int((diff_df["match_type"] == "NORMALIZED_DIVISION").sum())
+    n_pid       = int((diff_df["match_type"] == "PERSON_ID").sum())
+    n_pp2       = int((diff_df["match_type"] == "PP2_TRANSFORM").sum())
 
     # Primary consistency check: PRESENT + ABSENT must equal total PBP rows
     count_check = "PASS" if n_present + n_absent == total else "FAIL"
@@ -529,6 +599,8 @@ def print_row_diff_summary(diff_df: pd.DataFrame) -> None:
     print("  --- Match breakdown ---")
     print(f"  EXACT matches:               {n_exact:>8,}")
     print(f"  NORMALIZED_DIVISION matches: {n_norm_div:>8,}  ← encoding artifact candidates")
+    print(f"  PERSON_ID matches:           {n_pid:>8,}  ← renamed players found by UUID")
+    print(f"  PP2_TRANSFORM matches:       {n_pp2:>8,}  ← player→team in doubles")
     print()
     print("  --- Signals ---")
     print(f"  MULTIPLE pipeline matches:   {n_multiple:>8,}  ← potential corruption")
@@ -1682,6 +1754,8 @@ def write_audit_summary(
     n_covered   = int((diff_df["status"] == "ABSENT_SLOT_COVERED").sum())
     n_no_cov    = int((diff_df["status"] == "ABSENT_NO_COVERAGE").sum())
     n_absent    = n_covered + n_no_cov
+    n_pid_match = int((diff_df["match_type"] == "PERSON_ID").sum())
+    n_pp2_match = int((diff_df["match_type"] == "PP2_TRANSFORM").sum())
 
     # ── Section 1 ──────────────────────────────────────────────────────────────
     s("=== ROW COUNT CONSISTENCY ===")
@@ -1708,6 +1782,10 @@ def write_audit_summary(
     s(f"  Note: ABSENT ({n_absent:,}) > net diff ({net_diff:,}) by {pipeline_adds:,}")
     s(f"        — 02p6 adds ~{pipeline_adds:,} new rows not present in PBP v85")
     s(f"          (expected; not a diff logic error)")
+    s()
+    s("  --- Improved match breakdown (among PRESENT rows) ---")
+    s(f"  PERSON_ID matches:             {n_pid_match:>8,}  ← renamed players found by UUID")
+    s(f"  PP2_TRANSFORM matches:         {n_pp2_match:>8,}  ← player→team in doubles div")
     s()
 
     # ── Section 2 ──────────────────────────────────────────────────────────────
@@ -1798,6 +1876,8 @@ def write_audit_summary(
     # UNKNOWN attribution
     n_unk = int((attr_df["attribution"] == "UNKNOWN").sum()) if not attr_df.empty else 0
     s(f"  UNKNOWN attribution:        {n_unk:>5} rows  ← require separate investigation")
+    s(f"  (PERSON_ID + PP2_TRANSFORM matches reclassified to PRESENT in row diff:")
+    s(f"   {n_pid_match:>5} PERSON_ID  +  {n_pp2_match:>5} PP2_TRANSFORM  =  {n_pid_match + n_pp2_match:>5} total audit blind spots resolved)")
     s()
 
     # ── Section 4: Consistency checks ──────────────────────────────────────────
@@ -1863,13 +1943,15 @@ def write_audit_summary(
         c6 = True
     s(chk(c6, "All ABSENT_NO_COVERAGE rows have slot_row_count_in_pipeline = 0"))
 
-    # 7. All PRESENT rows have match_type != NONE
+    # 7. All PRESENT rows have match_type in known set (EXACT, NORMALIZED_DIVISION,
+    #    PERSON_ID, PP2_TRANSFORM) — i.e. not NONE
+    valid_match_types = {"EXACT", "NORMALIZED_DIVISION", "PERSON_ID", "PP2_TRANSFORM"}
     present_df = diff_df[diff_df["status"] == "PRESENT"]
     if not present_df.empty:
-        c7 = (present_df["match_type"] != "NONE").all()
+        c7 = present_df["match_type"].isin(valid_match_types).all()
     else:
         c7 = True
-    s(chk(c7, "All PRESENT rows have match_type != NONE"))
+    s(chk(c7, "All PRESENT rows have match_type in {EXACT, NORM_DIV, PERSON_ID, PP2_TRANSFORM}"))
 
     all_pass = all([c1, not dupes, c3, c4, c5, c6, c7])
     s()
