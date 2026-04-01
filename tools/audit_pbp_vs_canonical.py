@@ -103,8 +103,11 @@ def normalize_division(name: str) -> str:
     Strip all known artifact characters from a division_canon value and
     collapse internal whitespace.
 
-    The normalized form is used ONLY for tier-1 slot matching.  It is never
-    written as a canonical value and never modifies any pipeline file.
+    This is the DISPLAY normalizer — used for the division_canon_normalized
+    output column and for PBP-internal grouping.  It preserves original
+    casing so that output files remain human-readable.
+
+    Do NOT use this for tier-1 key comparison; use _normalize_div_key() instead.
     """
     if not isinstance(name, str):
         return ""
@@ -112,6 +115,35 @@ def normalize_division(name: str) -> str:
     for char in ARTIFACT_CHARS:
         s = s.replace(char, "")
     return " ".join(s.split())
+
+
+def _normalize_div_key(name: str) -> str:
+    """
+    Full normalization for tier-1 slot-key comparison.
+    Extends normalize_division() with two additional passes:
+
+    1. Lowercase — makes matching case-insensitive so that encoding artifacts
+       that corrupt capitalisation (e.g. U+00AD removal leaving "CirCle")
+       collapse to the same key as the clean pipeline form ("circle contest").
+
+    2. Possessive apostrophe-s removal — normalises "Women's" → "womens" and
+       "Master's" → "masters" so that PBP v85 bare forms ("Womens Singles Net")
+       match their pipeline counterparts ("Women's Singles Net").
+       Only the straight ASCII apostrophe U+0027 is handled here; U+2019
+       (curly apostrophe) is already stripped by normalize_division().
+
+    NOT applied: token-order normalisation.  Sorting tokens alphabetically would
+    collapse genuinely distinct divisions (e.g. "Open Singles Net" vs
+    "Net Open Singles") that legitimately differ in some event contexts.
+    Word-order variants (14 rows across 5 events) are left for manual review.
+
+    This function is used ONLY to build and query the tier-1 slot index.
+    It is never written to any output file.
+    """
+    s = normalize_division(name)   # strip artifacts, collapse whitespace
+    s = s.lower()
+    s = re.sub(r"'s\b", "s", s)   # "women's" → "womens", "master's" → "masters"
+    return s
 
 
 def detect_artifacts(name: str) -> str:
@@ -206,13 +238,19 @@ def load_inputs(args: argparse.Namespace) -> dict[str, pd.DataFrame]:
 
 def _tier1_norm_key(row: pd.Series) -> tuple[str, str, str, str]:
     """
-    Tier-1 normalized key: (event_id, division_canon_normalized, place, competitor_type).
-    division_canon is stripped of artifact characters before use as a key.
-    This key is used for slot-level matching and slot population counts.
+    Tier-1 normalized key: (event_id, div_key, place, competitor_type).
+
+    div_key is produced by _normalize_div_key(): artifact chars stripped,
+    lowercased, possessive apostrophe-s removed.  This makes the key
+    case-insensitive and apostrophe-agnostic so that:
+      - encoding artifact residue ("CirCle") matches clean form ("circle contest")
+      - bare "Womens Singles Net" matches "Women's Singles Net"
+
+    This key is used ONLY for slot-level matching and slot population counts.
     """
     return (
         nb(row.get("event_id", "")),
-        normalize_division(nb(row.get("division_canon", ""))),
+        _normalize_div_key(nb(row.get("division_canon", ""))),
         normalize_place(row.get("place", "")),
         nb(row.get("competitor_type", "")),
     )
@@ -296,9 +334,10 @@ def build_pipeline_index(
                 pid_slot_index[norm_key].add(pid)
 
         # team slot set — marks slots that have team rows (PP2_TRANSFORM detection)
+        # Must use _normalize_div_key() to match what _match_row() looks up.
         if nb(row.get("competitor_type", "")) == "team":
             eid_ = nb(row.get("event_id", ""))
-            div_ = normalize_division(nb(row.get("division_canon", "")))
+            div_ = _normalize_div_key(nb(row.get("division_canon", "")))
             pl_  = normalize_place(row.get("place", ""))
             team_slot_set.add((eid_, div_, pl_))
 
@@ -390,7 +429,7 @@ def _match_row(
         if (nb(pbp_row.get("competitor_type", "")) == "player"
                 and _is_doubles_div(nb(pbp_row.get("division_canon", "")))):
             eid_ = nb(pbp_row.get("event_id", ""))
-            div_ = normalize_division(nb(pbp_row.get("division_canon", "")))
+            div_ = _normalize_div_key(nb(pbp_row.get("division_canon", "")))
             pl_  = normalize_place(pbp_row.get("place", ""))
             if (eid_, div_, pl_) in team_slot_set:
                 return "PRESENT", "PP2_TRANSFORM", "SINGLE", 1, slot_count_pipeline
@@ -598,7 +637,7 @@ def print_row_diff_summary(diff_df: pd.DataFrame) -> None:
     print()
     print("  --- Match breakdown ---")
     print(f"  EXACT matches:               {n_exact:>8,}")
-    print(f"  NORMALIZED_DIVISION matches: {n_norm_div:>8,}  ← encoding artifact candidates")
+    print(f"  NORMALIZED_DIVISION matches: {n_norm_div:>8,}  ← artifact/apostrophe/case normalization applied")
     print(f"  PERSON_ID matches:           {n_pid:>8,}  ← renamed players found by UUID")
     print(f"  PP2_TRANSFORM matches:       {n_pp2:>8,}  ← player→team in doubles")
     print()
@@ -1776,12 +1815,21 @@ def write_audit_summary(
     primary_check = "PASS" if n_present + n_absent == n_pbp else "FAIL"
     s(f"  PRESENT + ABSENT = PBP total (primary): {primary_check}")
     s()
-    # Informational: ABSENT > net diff because 02p6 adds new rows not in PBP v85
-    # (e.g. [UNKNOWN PARTNER] team rows from pre-pass 2 conversions).
+    # Informational: relationship between ABSENT count and net diff.
+    # Before normalization improvements: ABSENT > net diff because 02p6 adds
+    # new rows (e.g. [UNKNOWN PARTNER] team rows).
+    # After normalization improvements: ABSENT may be ≤ net diff when pipeline
+    # slots are matched by >1 PBP row under different division name variants
+    # (apostrophe/case normalization collapses variants to the same slot).
     pipeline_adds = n_absent - net_diff
-    s(f"  Note: ABSENT ({n_absent:,}) > net diff ({net_diff:,}) by {pipeline_adds:,}")
-    s(f"        — 02p6 adds ~{pipeline_adds:,} new rows not present in PBP v85")
-    s(f"          (expected; not a diff logic error)")
+    if pipeline_adds >= 0:
+        s(f"  Note: ABSENT ({n_absent:,}) > net diff ({net_diff:,}) by {pipeline_adds:,}")
+        s(f"        — 02p6 adds ~{pipeline_adds:,} new rows not present in PBP v85")
+        s(f"          (expected; not a diff logic error)")
+    else:
+        s(f"  Note: ABSENT ({n_absent:,}) < net diff ({net_diff:,}) by {-pipeline_adds:,}")
+        s(f"        — {-pipeline_adds:,} pipeline slots matched by >1 PBP row under")
+        s(f"          different division name variants (apostrophe/case normalization)")
     s()
     s("  --- Improved match breakdown (among PRESENT rows) ---")
     s(f"  PERSON_ID matches:             {n_pid_match:>8,}  ← renamed players found by UUID")
