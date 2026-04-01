@@ -726,6 +726,13 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
         "file":    "legacy_data/event_results/1376036018.txt",
         "replace": True,
     },
+    # 2012 33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS — encoding artifacts (U+FFFD in div/player names)
+    # + severely truncated Singles Net (HTML parser got 4/68 Open Singles Net rows).
+    # Override reconstructed from Placements_ByPerson_v85 with European-format names reversed.
+    "1323272493": {
+        "file":    "legacy_data/event_results/1323272493.txt",
+        "replace": True,
+    },
     # 2015/2016/2018 Worlds — manual section only has unofficial Request Contest; reverted.
     # "1391189882", "1417735560", "1449259560": overrides removed 2026-03-10
     # 40th IFPA WORLD FOOTBAG CHAMPIONSHIPS 2019 — pool+finals merged (6 divs, 16 dup pairs)
