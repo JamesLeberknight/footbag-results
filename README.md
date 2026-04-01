@@ -278,3 +278,14 @@ Current Persons Truth: **3,493 rows** (includes 25 PRE1997_ONLY persons added po
 
 Dataset: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 Pipeline code: MIT
+
+## Known Limitations
+
+Some events may appear incomplete due to known parsing limitations in the source data.
+
+In particular:
+- European name formats ("Last, First") may be misinterpreted in some historical results
+- Certain freestyle events (e.g., Circle Contest, Request Contest) may have partial placement coverage due to pool/finals deduplication logic
+- Some divisions (e.g., "Big 1") may be omitted if not recognized by the parser
+
+These cases are documented and prioritized for future improvement, but do not affect the structural integrity of the dataset.

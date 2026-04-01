@@ -79,3 +79,22 @@ Open issues are:
 - intentionally unresolved
 
 They must NOT be silently fixed or guessed.
+## Systematic Pipeline Loss (02p5 / 02p6)
+
+A structural audit identified ~1,400 rows lost during canonicalization.
+
+Primary causes:
+- European name format misparsed as doubles teams
+- Over-aggressive pool/finals deduplication
+- Unrecognized division keywords (e.g., "Big 1")
+- Encoding artifacts (soft hyphens)
+- Partial parsing of manually-entered results blocks
+
+Impact:
+- ~725 participant slots missing
+- affects ~278 events
+- concentrated in certain Worlds events (2000–2013)
+
+Status:
+- documented
+- deferred (requires controlled parser update)
