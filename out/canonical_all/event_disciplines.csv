@@ -1305,10 +1305,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2003_footbagjam_frankfurt,singles_net_open,Singles Net Open,net,singles,3,partial,6,,POST1997
 2003_eastregion_2,5_minute_consecutive_kicks,5 Minute Consecutive Kicks,sideline,singles,1,complete,4,,POST1997
 2003_eastregion_2,intermediate_routines,Intermediate Routines,freestyle,singles,2,complete,3,,POST1997
-2003_eastregion_2,intermediate_sick_trick,Intermediate Sick Trick,freestyle,singles,3,complete,1,,POST1997
-2003_eastregion_2,open_routines,Open Routines,freestyle,singles,4,complete,3,,POST1997
-2003_eastregion_2,open_shred_30,Open Shred 30,freestyle,singles,5,complete,3,,POST1997
-2003_eastregion_2,open_sick_three,Open Sick Three,freestyle,singles,6,complete,3,,POST1997
+2003_eastregion_2,intermediate_shred_30,Intermediate Shred 30,freestyle,singles,3,complete,3,,POST1997
+2003_eastregion_2,intermediate_sick_3,Intermediate Sick 3,freestyle,singles,4,complete,2,,POST1997
+2003_eastregion_2,intermediate_sick_trick,Intermediate Sick Trick,freestyle,singles,5,complete,1,,POST1997
+2003_eastregion_2,open_routines,Open Routines,freestyle,singles,6,complete,3,,POST1997
+2003_eastregion_2,open_shred_30,Open Shred 30,freestyle,singles,7,complete,3,,POST1997
+2003_eastregion_2,open_sick_3,Open Sick 3,freestyle,singles,8,complete,3,,POST1997
+2003_eastregion_2,open_sick_three,Open Sick Three,freestyle,singles,9,complete,3,,POST1997
+2003_eastregion_2,open_sick_trick,Open Sick Trick,freestyle,singles,10,complete,1,,POST1997
 2003_colorado_shred_symposium,intermediate_shred_30,Intermediate Shred 30,freestyle,singles,1,complete,5,,POST1997
 2003_colorado_shred_symposium,open_big_3,Open Big 3,freestyle,singles,2,complete,6,,POST1997
 2003_colorado_shred_symposium,open_most_rippin_run,Open Most Rippin' Run,freestyle,singles,3,complete,5,,POST1997
@@ -1468,8 +1472,9 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2004_eurochamp_copenhagen,open_golf,Open Golf,golf,singles,6,mostly_complete,7,,POST1997
 2004_eurochamp_copenhagen,open_single_net,Open Single Net,net,singles,7,complete,4,,POST1997
 2004_eurochamp_copenhagen,open_singles_freestyle,Open Singles Freestyle,freestyle,singles,8,complete,8,,POST1997
-2004_eurochamp_copenhagen,shred30,Shred30,freestyle,doubles,9,partial,1,,POST1997
+2004_eurochamp_copenhagen,shred30,Shred30,freestyle,singles,9,partial,1,,POST1997
 2004_eurochamp_copenhagen,womens_shred30,Women's Shred30,freestyle,singles,10,complete,3,,POST1997
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",freestyle,singles,11,complete,11,,POST1997
 2004_finnish_helsinki,intermediate_freestyle,Intermediate Freestyle,freestyle,singles,1,complete,6,,POST1997
 2004_finnish_helsinki,open_doubles_net,Open Doubles Net,net,doubles,2,complete,15,,POST1997
 2004_finnish_helsinki,open_freestyle,Open Freestyle,freestyle,singles,3,complete,17,,POST1997
@@ -1873,12 +1878,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2006_rnh_contest,mini_net,Mini Net,net,singles,2,complete,2,,POST1997
 2006_rnh_contest,mixte_double_net,Mixte Double Net,net,doubles,3,complete,3,,POST1997
 2006_rnh_contest,open_routines,Open Routines,freestyle,singles,4,complete,7,,POST1997
-2006_rnh_contest,open_sick_trick,Open Sick Trick,freestyle,singles,5,complete,6,,POST1997
-2006_rnh_contest,routine,Routine,freestyle,singles,6,complete,7,,POST1997
-2006_rnh_contest,shred_30_sec,Shred 30 Sec,freestyle,singles,7,complete,6,,POST1997
-2006_rnh_contest,sick_3,Sick 3,freestyle,singles,8,complete,6,,POST1997
-2006_rnh_contest,singles_net,Singles Net,net,singles,9,complete,14,,POST1997
-2006_rnh_contest,womens_singles_net,Women's Singles Net,net,singles,10,complete,3,,POST1997
+2006_rnh_contest,open_shred_30,Open Shred 30,freestyle,singles,5,complete,6,,POST1997
+2006_rnh_contest,open_sick_trick,Open Sick Trick,freestyle,singles,6,complete,6,,POST1997
+2006_rnh_contest,open_singles_net,Open Singles Net,net,singles,7,complete,10,,POST1997
+2006_rnh_contest,routine,Routine,freestyle,singles,8,complete,7,,POST1997
+2006_rnh_contest,shred_30_sec,Shred 30 Sec,freestyle,singles,9,complete,6,,POST1997
+2006_rnh_contest,sick_3,Sick 3,freestyle,singles,10,complete,6,,POST1997
+2006_rnh_contest,singles_net,Singles Net,net,singles,11,complete,14,,POST1997
+2006_rnh_contest,womens_singles_net,Women's Singles Net,net,singles,12,complete,3,,POST1997
 2006_santa_cruz_invitational,shred_30,Shred 30,freestyle,singles,1,complete,3,,POST1997
 2006_santa_cruz_invitational,sick_1,Sick 1,freestyle,singles,2,complete,3,,POST1997
 2006_santa_cruz_invitational,sick_3,Sick 3,freestyle,singles,3,complete,3,,POST1997
@@ -2174,11 +2181,11 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2008_polish,doubles_freestyle_routines,Doubles Freestyle Routines,freestyle,doubles,2,complete,3,,POST1997
 2008_polish,intermediate_freestyle_routines,Intermediate Freestyle Routines,freestyle,singles,3,complete,4,,POST1997
 2008_polish,open_doubles_net,Open Doubles Net,net,doubles,4,complete,3,,POST1997
-2008_polish,open_freestyle_routines,Open Freestyle Routines,freestyle,singles,5,partial,13,,POST1997
-2008_polish,open_golf,Open Golf,golf,singles,6,complete,4,,POST1997
+2008_polish,open_freestyle_routines,Open Freestyle Routines,freestyle,singles,5,partial,14,,POST1997
+2008_polish,open_golf,Open Golf,golf,singles,6,complete,5,,POST1997
 2008_polish,open_single_net,Open Single Net,net,singles,7,complete,2,,POST1997
-2008_polish,shred30,Shred30,freestyle,singles,8,complete,12,,POST1997
-2008_polish,sick3,Sick3,freestyle,singles,9,complete,2,,POST1997
+2008_polish,shred30,Shred30,freestyle,singles,8,complete,13,,POST1997
+2008_polish,sick3,Sick3,freestyle,singles,9,complete,3,,POST1997
 2008_polish,woman_freestyle_routines,Woman Freestyle Routines,freestyle,singles,10,complete,4,,POST1997
 2008_turku,mixed_doubles_net,Mixed Doubles Net,net,doubles,1,complete,5,,POST1997
 2008_turku,open_doubles_net,Open Doubles Net,net,doubles,2,complete,12,,POST1997
@@ -2492,7 +2499,9 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2009_todexon_10,intermediate_freestyle,Intermediate Freestyle,freestyle,singles,1,complete,3,,POST1997
 2009_todexon_10,open_doubles_freestyle,Open Doubles Freestyle,freestyle,doubles,2,complete,3,,POST1997
 2009_todexon_10,open_singles_freestyle,Open Singles Freestyle,freestyle,singles,3,partial,13,,POST1997
-2009_todexon_10,women_singles,Women Singles,freestyle,singles,4,complete,3,,POST1997
+2009_todexon_10,open_singles_routines,Open Singles Routines,freestyle,singles,4,partial,12,,POST1997
+2009_todexon_10,women_singles,Women Singles,freestyle,singles,5,complete,3,,POST1997
+2009_todexon_10,womens_singles_routines,Women's Singles Routines,freestyle,singles,6,complete,2,,POST1997
 2009_turku,mixed_doubles_net,Mixed Doubles Net,net,doubles,1,complete,4,,POST1997
 2009_turku,open_doubles_net,Open Doubles Net,net,doubles,2,complete,11,,POST1997
 2009_turku,open_singles_net,Open Singles Net,net,singles,3,complete,10,,POST1997
@@ -2677,7 +2686,9 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2010_king_hill_aki,open_singles_net,Open Singles Net,net,singles,1,complete,12,,POST1997
 2010_todexon_11,open_doubles_freestyle,Open Doubles Freestyle,freestyle,doubles,1,complete,3,,POST1997
 2010_todexon_11,open_freestyle,Open Freestyle,freestyle,singles,2,complete,9,,POST1997
-2010_todexon_11,women_freestyle,Women Freestyle,freestyle,singles,3,complete,2,,POST1997
+2010_todexon_11,open_singles_routines,Open Singles Routines,freestyle,singles,3,complete,8,,POST1997
+2010_todexon_11,women_freestyle,Women Freestyle,freestyle,singles,4,complete,2,,POST1997
+2010_todexon_11,womens_singles_routines,Women's Singles Routines,freestyle,singles,5,complete,1,,POST1997
 2010_turku,open_doubles_net,Open Doubles Net,net,doubles,1,complete,4,,POST1997
 2010_turku,open_singles_net,Open Singles Net,net,singles,2,complete,6,,POST1997
 2010_u_s,circle,Circle,freestyle,singles,1,complete,3,,POST1997
@@ -2797,9 +2808,9 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2011_copa_venezuela,woman_single_net,Woman Single Net,net,singles,5,complete,4,,POST1997
 2011_worlds_helsinki,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,1,complete,4,,POST1997
 2011_worlds_helsinki,intermediate_request_contest,Intermediate Request Contest,freestyle,singles,2,mostly_complete,5,,POST1997
-2011_worlds_helsinki,intermediate_shred_30,Intermediate Shred:30,freestyle,singles,3,complete,3,,POST1997
+2011_worlds_helsinki,intermediate_shred_30,Intermediate Shred:30,freestyle,singles,3,complete,4,,POST1997
 2011_worlds_helsinki,intermediate_singles_net,Intermediate Singles Net,net,singles,4,complete,5,,POST1997
-2011_worlds_helsinki,intermediate_singles_routines,Intermediate Singles Routines,freestyle,singles,5,complete,4,,POST1997
+2011_worlds_helsinki,intermediate_singles_routines,Intermediate Singles Routines,freestyle,singles,5,complete,5,,POST1997
 2011_worlds_helsinki,masters_singles_net,Masters Singles Net,net,singles,6,complete,4,,POST1997
 2011_worlds_helsinki,mixed_doubles_net,Mixed Doubles Net,net,doubles,7,complete,14,,POST1997
 2011_worlds_helsinki,open_2_square,Open 2-Square,sideline,singles,8,partial,8,,POST1997
@@ -2807,15 +2818,15 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2011_worlds_helsinki,open_doubles_net,Open Doubles Net,net,doubles,10,complete,37,,POST1997
 2011_worlds_helsinki,open_doubles_routines,Open Doubles Routines,freestyle,doubles,11,complete,4,,POST1997
 2011_worlds_helsinki,open_mixed_doubles_routines,Open Mixed Doubles Routines,freestyle,doubles,12,complete,3,,POST1997
-2011_worlds_helsinki,open_request_contest,Open Request Contest,freestyle,singles,13,sparse,13,,POST1997
-2011_worlds_helsinki,open_shred_30,Open Shred:30,freestyle,singles,14,complete,25,,POST1997
+2011_worlds_helsinki,open_request_contest,Open Request Contest,freestyle,singles,13,sparse,14,,POST1997
+2011_worlds_helsinki,open_shred_30,Open Shred:30,freestyle,singles,14,complete,27,,POST1997
 2011_worlds_helsinki,open_sick_3_trick_contest,Open Sick 3-Trick Contest,freestyle,singles,15,mostly_complete,18,,POST1997
-2011_worlds_helsinki,open_singles_net,Open Singles Net,net,singles,16,complete,48,,POST1997
-2011_worlds_helsinki,open_singles_routines,Open Singles Routines,freestyle,singles,17,partial,13,,POST1997
+2011_worlds_helsinki,open_singles_net,Open Singles Net,net,singles,16,complete,59,,POST1997
+2011_worlds_helsinki,open_singles_routines,Open Singles Routines,freestyle,singles,17,partial,15,,POST1997
 2011_worlds_helsinki,womens_circle_contest,Women's Circle Contest,freestyle,singles,18,complete,7,,POST1997
 2011_worlds_helsinki,womens_doubles_net,Women's Doubles Net,net,doubles,19,complete,7,,POST1997
 2011_worlds_helsinki,womens_shred_30,Women's Shred:30,freestyle,singles,20,complete,7,,POST1997
-2011_worlds_helsinki,womens_singles_net,Women's Singles Net,net,singles,21,complete,7,,POST1997
+2011_worlds_helsinki,womens_singles_net,Women's Singles Net,net,singles,21,complete,9,,POST1997
 2011_worlds_helsinki,womens_singles_routines,Women's Singles Routines,freestyle,singles,22,mostly_complete,8,,POST1997
 2011_copa_t_chira,open_doubles_net,Open Doubles Net,net,doubles,1,complete,9,,POST1997
 2011_copa_t_chira,open_singles_net,Open Singles Net,net,singles,2,complete,10,,POST1997
@@ -2893,14 +2904,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2011_usopen_boise,open_sick_3_trick,Open Sick 3-Trick,freestyle,singles,5,complete,1,,POST1997
 2011_usopen_boise,open_sick_trick,Open Sick Trick,freestyle,singles,6,complete,1,,POST1997
 2011_usopen_boise,open_singles_routines,Open Singles Routines,freestyle,singles,7,complete,5,,POST1997
-2012_polish,2_square,2 Square,sideline,singles,1,partial,6,,POST1997
+2012_polish,2_square,2 Square,sideline,singles,1,partial,7,,POST1997
 2012_polish,circle_contest,Circle Contest,freestyle,doubles,2,partial,9,,POST1997
 2012_polish,doubles_routines,Doubles Routines,freestyle,doubles,3,complete,3,,POST1997
-2012_polish,golf,Golf,golf,singles,4,mostly_complete,9,,POST1997
-2012_polish,intermediate_singles_net,Intermediate Singles Net,net,singles,5,complete,3,,POST1997
+2012_polish,golf,Golf,golf,singles,4,mostly_complete,11,,POST1997
+2012_polish,intermediate_singles_net,Intermediate Singles Net,net,singles,5,complete,4,,POST1997
 2012_polish,mixed_doubles_routines,Mixed Doubles Routines,freestyle,doubles,6,complete,4,,POST1997
 2012_polish,open_doubles_net,Open Doubles Net,net,doubles,7,complete,6,,POST1997
-2012_polish,open_freestyle_routines,Open Freestyle Routines,freestyle,singles,8,mostly_complete,8,,POST1997
+2012_polish,open_freestyle_routines,Open Freestyle Routines,freestyle,singles,8,mostly_complete,10,,POST1997
 2012_polish,open_mixed_doubles_net,Open Mixed Doubles Net,net,doubles,9,complete,3,,POST1997
 2012_polish,open_singles_net,Open Singles Net,net,singles,10,complete,12,,POST1997
 2012_polish,shred_30,Shred 30,freestyle,singles,11,mostly_complete,14,,POST1997
@@ -3026,21 +3037,28 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2012_rnh_contest,open_doubles_net,Open Doubles Net,net,doubles,1,complete,6,,POST1997
 2012_rnh_contest,open_singles_net,Open Singles Net,net,singles,2,complete,9,,POST1997
 2012_swiss,intermediate_routine,Intermediate Routine,freestyle,singles,1,complete,3,,POST1997
-2012_swiss,open_circle,Open Circle,freestyle,singles,2,complete,4,,POST1997
-2012_swiss,open_double_net,Open Double Net,net,doubles,3,complete,14,,POST1997
-2012_swiss,open_routine,Open Routine,freestyle,singles,4,complete,8,,POST1997
-2012_swiss,open_single_net,Open Single Net,net,singles,5,complete,16,,POST1997
-2012_swiss,request,Request,freestyle,singles,6,complete,3,,POST1997
-2012_swiss,shred_30,Shred 30,freestyle,singles,7,complete,3,,POST1997
-2012_swiss,woman_circle,Woman Circle,freestyle,singles,8,complete,5,,POST1997
-2012_swiss,woman_routine,Woman Routine,freestyle,singles,9,complete,5,,POST1997
+2012_swiss,intermediate_singles_routines,Intermediate Singles Routines,freestyle,singles,2,complete,2,,POST1997
+2012_swiss,open_circle,Open Circle,freestyle,singles,3,complete,4,,POST1997
+2012_swiss,open_circle_contest,Open Circle Contest,freestyle,singles,4,complete,1,,POST1997
+2012_swiss,open_double_net,Open Double Net,net,doubles,5,complete,14,,POST1997
+2012_swiss,open_routine,Open Routine,freestyle,singles,6,complete,8,,POST1997
+2012_swiss,open_single_net,Open Single Net,net,singles,7,complete,16,,POST1997
+2012_swiss,open_singles_routines,Open Singles Routines,freestyle,singles,8,complete,5,,POST1997
+2012_swiss,request,Request,freestyle,singles,9,complete,3,,POST1997
+2012_swiss,shred_30,Shred 30,freestyle,singles,10,complete,3,,POST1997
+2012_swiss,woman_circle,Woman Circle,freestyle,singles,11,complete,5,,POST1997
+2012_swiss,woman_routine,Woman Routine,freestyle,singles,12,complete,5,,POST1997
+2012_swiss,womens_circle_contest,Women's Circle Contest,freestyle,singles,13,complete,4,,POST1997
+2012_swiss,womens_singles_routines,Women's Singles Routines,freestyle,singles,14,complete,4,,POST1997
 2012_texas_state,doubles_net,Doubles Net,net,doubles,1,complete,4,,POST1997
 2012_mud_island_belt,open_doubles_net,Open Doubles Net,net,doubles,1,complete,10,,POST1997
 2012_mud_island_belt,open_singles_net,Open Singles Net,net,singles,2,complete,11,,POST1997
 2012_todexon_13,open_freestyle,Open Freestyle,freestyle,singles,1,complete,12,,POST1997
-2012_todexon_13,shred_30,Shred 30,freestyle,singles,2,complete,1,,POST1997
-2012_todexon_13,sick_3,Sick 3,freestyle,singles,3,complete,8,,POST1997
-2012_todexon_13,women_freestyle,Women Freestyle,freestyle,singles,4,complete,2,,POST1997
+2012_todexon_13,open_singles_routines,Open Singles Routines,freestyle,singles,2,mostly_complete,10,,POST1997
+2012_todexon_13,shred_30,Shred 30,freestyle,singles,3,complete,1,,POST1997
+2012_todexon_13,sick_3,Sick 3,freestyle,singles,4,complete,8,,POST1997
+2012_todexon_13,women_freestyle,Women Freestyle,freestyle,singles,5,complete,2,,POST1997
+2012_todexon_13,womens_singles_routines,Women's Singles Routines,freestyle,singles,6,complete,2,,POST1997
 2012_turku,open_doubles_net,Open Doubles Net,net,doubles,1,complete,5,,POST1997
 2012_turku,open_singles_net,Open Singles Net,net,singles,2,complete,5,,POST1997
 2012_usopen_portland_2,intermediate_doubles,Intermediate Doubles,net,doubles,1,complete,7,,POST1997
@@ -3057,25 +3075,29 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2013_de_france_de,intermediate_singles_freestyle,Intermediate Singles Freestyle,freestyle,singles,2,complete,3,,POST1997
 2013_de_france_de,intermediate_singles_net,Intermediate Singles Net,net,singles,3,complete,6,,POST1997
 2013_de_france_de,mixed_doubles_net,Mixed Doubles Net,net,doubles,4,complete,8,,POST1997
-2013_de_france_de,open_doubles_net,Open Doubles Net,net,doubles,5,complete,24,,POST1997
-2013_de_france_de,open_singles_freestyle,Open Singles Freestyle,freestyle,singles,6,complete,9,,POST1997
-2013_de_france_de,open_singles_net,Open Singles Net,net,singles,7,complete,30,,POST1997
-2013_de_france_de,request,Request,freestyle,singles,8,complete,3,,POST1997
-2013_de_france_de,shred_30,Shred 30,freestyle,singles,9,complete,2,,POST1997
-2013_de_france_de,womens_singles_freestyle,Women's Singles Freestyle,freestyle,singles,10,complete,3,,POST1997
-2013_de_france_de,womens_singles_net,Women's Singles Net,net,singles,11,complete,7,,POST1997
-2013_polish,circle_contest,Circle Contest,freestyle,singles,1,partial,6,,POST1997
-2013_polish,footbag_golf,Footbag Golf,golf,singles,2,complete,2,,POST1997
+2013_de_france_de,open_circle_contest,Open Circle Contest,freestyle,singles,5,complete,1,,POST1997
+2013_de_france_de,open_doubles_net,Open Doubles Net,net,doubles,6,complete,24,,POST1997
+2013_de_france_de,open_shred_30,Open Shred:30,freestyle,singles,7,mostly_complete,6,,POST1997
+2013_de_france_de,open_singles_freestyle,Open Singles Freestyle,freestyle,singles,8,complete,9,,POST1997
+2013_de_france_de,open_singles_net,Open Singles Net,net,singles,9,complete,30,,POST1997
+2013_de_france_de,open_singles_routines,Open Singles Routines,freestyle,singles,10,complete,8,,POST1997
+2013_de_france_de,request,Request,freestyle,singles,11,complete,3,,POST1997
+2013_de_france_de,shred_30,Shred 30,freestyle,singles,12,complete,2,,POST1997
+2013_de_france_de,womens_singles_freestyle,Women's Singles Freestyle,freestyle,singles,13,complete,3,,POST1997
+2013_de_france_de,womens_singles_net,Women's Singles Net,net,singles,14,complete,7,,POST1997
+2013_de_france_de,womens_singles_routines,Women's Singles Routines,freestyle,singles,15,complete,3,,POST1997
+2013_polish,circle_contest,Circle Contest,freestyle,singles,1,partial,7,,POST1997
+2013_polish,footbag_golf,Footbag Golf,golf,singles,2,complete,3,,POST1997
 2013_polish,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,3,complete,3,,POST1997
 2013_polish,intermediate_routines,Intermediate Routines,freestyle,singles,4,complete,1,,POST1997
-2013_polish,intermediate_singles_net,Intermediate Singles Net,net,singles,5,complete,3,,POST1997
+2013_polish,intermediate_singles_net,Intermediate Singles Net,net,singles,5,complete,7,,POST1997
 2013_polish,open_doubles_net,Open Doubles Net,net,doubles,6,complete,6,,POST1997
 2013_polish,open_mix_doubles_net,Open Mix Doubles Net,net,doubles,7,complete,3,,POST1997
-2013_polish,open_singles_net,Open Singles Net,net,singles,8,complete,8,,POST1997
-2013_polish,open_singles_routines,Open Singles Routines,freestyle,singles,9,mostly_complete,6,,POST1997
+2013_polish,open_singles_net,Open Singles Net,net,singles,8,complete,10,,POST1997
+2013_polish,open_singles_routines,Open Singles Routines,freestyle,singles,9,mostly_complete,9,,POST1997
 2013_polish,request_contest,Request Contest,freestyle,singles,10,partial,6,,POST1997
-2013_polish,shred30,Shred30,freestyle,singles,11,complete,6,,POST1997
-2013_polish,sick_3,Sick 3,freestyle,singles,12,complete,9,,POST1997
+2013_polish,shred30,Shred30,freestyle,singles,11,complete,11,,POST1997
+2013_polish,sick_3,Sick 3,freestyle,singles,12,complete,11,,POST1997
 2013_polish,women_singles_routines,Women Singles Routines,freestyle,singles,13,complete,2,,POST1997
 2013_years_fc_footstar,open_circle_contest,Open Circle Contest,freestyle,singles,1,complete,4,,POST1997
 2013_years_fc_footstar,open_doubles_net,Open Doubles Net,net,doubles,2,complete,21,,POST1997
@@ -3205,14 +3227,21 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2014_polish,double_net,Double Net,net,doubles,2,complete,3,,POST1997
 2014_polish,golf,Golf,golf,singles,3,complete,3,,POST1997
 2014_polish,intermediate_net,Intermediate Net,net,singles,4,complete,3,,POST1997
-2014_polish,open_doubles_net,Open Doubles Net,net,doubles,5,complete,3,,POST1997
-2014_polish,open_routine,Open Routine,freestyle,singles,6,complete,7,,POST1997
-2014_polish,request_contest,Request Contest,freestyle,singles,7,complete,3,,POST1997
-2014_polish,shred_30,Shred 30,freestyle,singles,8,complete,5,,POST1997
-2014_polish,sick_3,Sick 3,freestyle,singles,9,complete,6,,POST1997
-2014_polish,single_net,Single Net,net,singles,10,complete,3,,POST1997
-2014_polish,unknown,Unknown,unknown,singles,11,complete,4,,POST1997
-2014_polish,women_freestyle,Women Freestyle,freestyle,singles,12,complete,2,,POST1997
+2014_polish,open_2_square,Open 2-Square,freestyle,singles,5,complete,4,,POST1997
+2014_polish,open_circle_contest,Open Circle Contest,freestyle,singles,6,partial,2,,POST1997
+2014_polish,open_doubles_net,Open Doubles Net,net,doubles,7,complete,3,,POST1997
+2014_polish,open_rippin_run,Open Rippin' Run,freestyle,singles,8,complete,3,,POST1997
+2014_polish,open_routine,Open Routine,freestyle,singles,9,complete,7,,POST1997
+2014_polish,open_sick_trick,Open Sick Trick,freestyle,singles,10,complete,5,,POST1997
+2014_polish,open_singles_net,Open Singles Net,net,singles,11,complete,3,,POST1997
+2014_polish,open_singles_routines,Open Singles Routines,freestyle,singles,12,complete,7,,POST1997
+2014_polish,request_contest,Request Contest,freestyle,singles,13,complete,3,,POST1997
+2014_polish,shred_30,Shred 30,freestyle,singles,14,complete,5,,POST1997
+2014_polish,sick_3,Sick 3,freestyle,singles,15,complete,6,,POST1997
+2014_polish,single_net,Single Net,net,singles,16,complete,3,,POST1997
+2014_polish,unknown,Unknown,unknown,singles,17,complete,4,,POST1997
+2014_polish,women_freestyle,Women Freestyle,freestyle,singles,18,complete,2,,POST1997
+2014_polish,womens_singles_routines,Women's Singles Routines,freestyle,singles,19,complete,2,,POST1997
 2014_anniversary_rnh_rnh,open_doubles_net,Open Doubles Net,net,doubles,1,complete,16,,POST1997
 2014_anniversary_rnh_rnh,open_mixed_doubles_net,Open Mixed Doubles Net,net,doubles,2,complete,6,,POST1997
 2014_footbagjam_freiburg,open_doubles_net,Open Doubles Net,net,doubles,1,partial,10,,POST1997
@@ -3233,10 +3262,10 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2014_green_chaos,open_singles_routines,Open Singles Routines,freestyle,singles,5,complete,4,,POST1997
 2014_copa_bobston_de,categor_a_intermedio_net_individual,Categoría Intermedio Net Individual,net,singles,1,complete,6,,POST1997
 2014_copa_bobston_de,categor_a_novatos_net_indivudual,Categoría Novatos Net Indivudual,net,singles,2,complete,4,,POST1997
-2014_eastregion,intermediate_circle_contest,Intermediate Circle Contest,freestyle,singles,1,complete,4,,POST1997
+2014_eastregion,intermediate_circle_contest,Intermediate Circle Contest,freestyle,singles,1,complete,5,,POST1997
 2014_eastregion,intermediate_routines,Intermediate Routines,freestyle,singles,2,complete,4,,POST1997
 2014_eastregion,intermediate_singles_net,Intermediate Singles Net,net,singles,3,complete,3,,POST1997
-2014_eastregion,open_circle_contest,Open Circle Contest,freestyle,singles,4,complete,4,,POST1997
+2014_eastregion,open_circle_contest,Open Circle Contest,freestyle,singles,4,complete,5,,POST1997
 2014_eastregion,open_doubles_net,Open Doubles Net,net,doubles,5,complete,7,,POST1997
 2014_eastregion,open_routines,Open Routines,freestyle,singles,6,complete,8,,POST1997
 2014_eastregion,open_singles_net,Open Singles Net,net,singles,7,complete,10,,POST1997
@@ -3292,15 +3321,16 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2014_todexon_15,open_singles_routines,Open Singles Routines,freestyle,singles,5,mostly_complete,11,,POST1997
 2014_u_s,intermediate_circle_contest,Intermediate Circle Contest,freestyle,singles,1,complete,3,,POST1997
 2014_u_s,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,2,complete,4,,POST1997
-2014_u_s,intermediate_singles_net,Intermediate Singles Net,net,singles,3,mostly_complete,2,,POST1997
+2014_u_s,intermediate_singles_net,Intermediate Singles Net,net,singles,3,mostly_complete,4,,POST1997
 2014_u_s,intermediate_singles_routines,Intermediate Singles Routines,freestyle,singles,4,complete,2,,POST1997
 2014_u_s,mixed_doubles_net,Mixed Doubles Net,net,doubles,5,complete,6,,POST1997
 2014_u_s,open_circle_contest,Open Circle Contest,freestyle,singles,6,mostly_complete,6,,POST1997
 2014_u_s,open_doubles_net,Open Doubles Net,net,doubles,7,complete,7,,POST1997
-2014_u_s,open_sick_trick,Open Sick Trick,freestyle,singles,8,complete,5,,POST1997
-2014_u_s,open_singles_net,Open Singles Net,net,singles,9,complete,3,,POST1997
-2014_u_s,open_singles_routines,Open Singles Routines,freestyle,singles,10,complete,6,,POST1997
-2014_u_s,womens_singles_net,Women's Singles Net,net,singles,11,complete,1,,POST1997
+2014_u_s,open_sick_3,Open Sick 3,freestyle,singles,8,complete,5,,POST1997
+2014_u_s,open_sick_trick,Open Sick Trick,freestyle,singles,9,complete,5,,POST1997
+2014_u_s,open_singles_net,Open Singles Net,net,singles,10,complete,7,,POST1997
+2014_u_s,open_singles_routines,Open Singles Routines,freestyle,singles,11,complete,6,,POST1997
+2014_u_s,womens_singles_net,Women's Singles Net,net,singles,12,complete,2,,POST1997
 2014_footbagjam_stara_zagora,freestyle,Freestyle,freestyle,singles,1,complete,5,,POST1997
 2014_footbagjam_stara_zagora,open_doubles_net,Open Doubles Net,net,doubles,2,complete,10,,POST1997
 2014_footbagjam_stara_zagora,open_singles_net,Open Singles Net,net,singles,3,complete,8,,POST1997
@@ -3497,16 +3527,16 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2016_usopen_west_linn,womens_doubles_net,Women's Doubles Net,net,doubles,6,complete,4,,POST1997
 2016_usopen_west_linn,womens_singles_net,Women's Singles Net,net,singles,7,complete,3,,POST1997
 2016_zocha,open_doubles_net,Open Doubles Net,net,doubles,1,complete,5,,POST1997
-2017_polish,2_square,2 Square,sideline,singles,1,complete,3,,POST1997
-2017_polish,circle_contest,Circle Contest,freestyle,singles,2,complete,5,,POST1997
-2017_polish,footbag_golf,Footbag Golf,golf,singles,3,complete,6,,POST1997
-2017_polish,open_battle,Open Battle,freestyle,singles,4,complete,4,,POST1997
+2017_polish,2_square,2 Square,sideline,singles,1,complete,7,,POST1997
+2017_polish,circle_contest,Circle Contest,freestyle,singles,2,complete,6,,POST1997
+2017_polish,footbag_golf,Footbag Golf,golf,singles,3,complete,9,,POST1997
+2017_polish,open_battle,Open Battle,freestyle,singles,4,complete,6,,POST1997
 2017_polish,open_doubles_net,Open Doubles Net,net,doubles,5,complete,6,,POST1997
-2017_polish,open_singles_net,Open Singles Net,net,singles,6,complete,7,,POST1997
-2017_polish,open_singles_routines,Open Singles Routines,freestyle,singles,7,complete,6,,POST1997
-2017_polish,request_contest,Request Contest,freestyle,singles,8,complete,7,,POST1997
-2017_polish,shred_30,Shred 30,freestyle,singles,9,complete,5,,POST1997
-2017_polish,sick_3,Sick 3,freestyle,singles,10,complete,7,,POST1997
+2017_polish,open_singles_net,Open Singles Net,net,singles,6,complete,11,,POST1997
+2017_polish,open_singles_routines,Open Singles Routines,freestyle,singles,7,complete,9,,POST1997
+2017_polish,request_contest,Request Contest,freestyle,singles,8,complete,9,,POST1997
+2017_polish,shred_30,Shred 30,freestyle,singles,9,complete,6,,POST1997
+2017_polish,sick_3,Sick 3,freestyle,singles,10,complete,8,,POST1997
 2017_polish,women_singles_routines,Women Singles Routines,freestyle,singles,11,complete,1,,POST1997
 2017_german,battles,Battles,freestyle,singles,1,complete,8,,POST1997
 2017_german,mixed_doubles_net,Mixed Doubles Net,net,doubles,2,complete,5,,POST1997
@@ -3598,13 +3628,13 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2018_eastregion,open_freestyle_routines,Open Freestyle Routines,freestyle,singles,5,complete,4,,POST1997
 2018_eastregion,open_singles,Open Singles,freestyle,singles,6,complete,4,,POST1997
 2018_worlds_sofia,doubles_freestyle_battles,Doubles Freestyle Battles,freestyle,doubles,1,complete,2,,POST1997
-2018_worlds_sofia,intermediate_singles_net,Intermediate Singles Net,net,singles,2,complete,5,,POST1997
+2018_worlds_sofia,intermediate_singles_net,Intermediate Singles Net,net,singles,2,complete,6,,POST1997
 2018_worlds_sofia,mixed_doubles_net,Mixed Doubles Net,net,doubles,3,complete,10,,POST1997
 2018_worlds_sofia,open_circle,Open Circle,freestyle,singles,4,partial,8,,POST1997
 2018_worlds_sofia,open_freestyle_battles,Open Freestyle Battles,freestyle,singles,5,partial,6,,POST1997
 2018_worlds_sofia,open_freestyle_routines,Open Freestyle Routines,freestyle,singles,6,partial,11,,POST1997
-2018_worlds_sofia,open_singles_net,Open Singles Net,net,singles,7,mostly_complete,28,,POST1997
-2018_worlds_sofia,request_10,Request 10%,freestyle,singles,8,complete,8,,POST1997
+2018_worlds_sofia,open_singles_net,Open Singles Net,net,singles,7,mostly_complete,31,,POST1997
+2018_worlds_sofia,request_10,Request 10%,freestyle,singles,8,complete,10,,POST1997
 2018_worlds_sofia,request_contest,Request Contest,freestyle,singles,9,complete,3,,POST1997
 2018_worlds_sofia,shred30,Shred30,freestyle,singles,10,complete,11,,POST1997
 2018_worlds_sofia,sick1,Sick1,freestyle,singles,11,complete,8,,POST1997
@@ -3674,7 +3704,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2019_worlds_warsaw,battle_contest,Battle Contest,freestyle,singles,2,sparse,8,,POST1997
 2019_worlds_warsaw,double_battles_contest,Double Battles Contest,freestyle,doubles,3,complete,5,,POST1997
 2019_worlds_warsaw,doubles_freestyle_routines,Doubles Freestyle Routines,freestyle,doubles,4,complete,3,,POST1997
-2019_worlds_warsaw,footbag_golf,Footbag Golf,golf,singles,5,complete,2,,POST1997
+2019_worlds_warsaw,footbag_golf,Footbag Golf,golf,singles,5,complete,3,,POST1997
 2019_worlds_warsaw,intermediate_circle,Intermediate Circle,freestyle,singles,6,complete,3,,POST1997
 2019_worlds_warsaw,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,7,complete,3,,POST1997
 2019_worlds_warsaw,intermediate_singles_net,Intermediate Singles Net,net,singles,8,complete,3,,POST1997
@@ -3684,7 +3714,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2019_worlds_warsaw,open_doubles_net,Open Doubles Net,net,doubles,12,complete,27,,POST1997
 2019_worlds_warsaw,open_freestyle_routines,Open Freestyle Routines,freestyle,singles,13,complete,8,,POST1997
 2019_worlds_warsaw,open_mixed_doubles_net,Open Mixed Doubles Net,net,doubles,14,complete,17,,POST1997
-2019_worlds_warsaw,open_singles_net,Open Singles Net,net,singles,15,complete,39,,POST1997
+2019_worlds_warsaw,open_singles_net,Open Singles Net,net,singles,15,complete,40,,POST1997
 2019_worlds_warsaw,request_contest,Request Contest,freestyle,singles,16,partial,13,,POST1997
 2019_worlds_warsaw,shred_30,Shred 30,freestyle,singles,17,complete,22,,POST1997
 2019_worlds_warsaw,sick_1,Sick 1,freestyle,singles,18,complete,17,,POST1997
@@ -3739,7 +3769,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2019_rnh_contest,open_doubles_net,Open Doubles Net,net,doubles,1,complete,9,,POST1997
 2019_rnh_anniversary,mixed_doubles_net,Mixed Doubles Net,net,doubles,1,complete,3,,POST1997
 2019_rnh_anniversary,open_doubles_net,Open Doubles Net,net,doubles,2,complete,12,,POST1997
-2019_rnh_anniversary,open_singles_net,Open Singles Net,net,singles,3,complete,1,,POST1997
+2019_rnh_anniversary,open_singles_net,Open Singles Net,net,singles,3,complete,20,,POST1997
 2019_usopen_boston,circle,Circle,freestyle,singles,1,complete,4,,POST1997
 2019_usopen_boston,intermediate_doubles_net,Intermediate Doubles Net,net,doubles,2,complete,2,,POST1997
 2019_usopen_boston,intermediate_singles_net,Intermediate Singles Net,net,singles,3,complete,2,,POST1997
@@ -3926,12 +3956,12 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,,,,,3
 2023_basque_bilbao_2,tournament_of_footbag_net,Tournament Of Footbag Net,net,singles,2,complete,6,,POST1997
 2023_xxiii_polish_warsaw,battles,Battles,freestyle,singles,1,partial,6,,POST1997
 2023_xxiii_polish_warsaw,doubles_net,Doubles Net,net,doubles,2,complete,5,,POST1997
-2023_xxiii_polish_warsaw,footbag_golf,Footbag Golf,golf,singles,3,complete,2,,POST1997
+2023_xxiii_polish_warsaw,footbag_golf,Footbag Golf,golf,singles,3,complete,3,,POST1997
 2023_xxiii_polish_warsaw,freestyle_overall,Freestyle Overall,freestyle,singles,4,mostly_complete,9,,POST1997
-2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,net,singles,5,complete,10,,POST1997
+2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,net,singles,5,complete,11,,POST1997
 2023_xxiii_polish_warsaw,request_contest,Request Contest,freestyle,singles,6,mostly_complete,9,,POST1997
-2023_xxiii_polish_warsaw,sick3,Sick3,freestyle,singles,7,complete,9,,POST1997
-2023_xxiii_polish_warsaw,singles_net,Singles Net,net,singles,8,complete,6,,POST1997
+2023_xxiii_polish_warsaw,sick3,Sick3,freestyle,singles,7,complete,10,,POST1997
+2023_xxiii_polish_warsaw,singles_net,Singles Net,net,singles,8,complete,8,,POST1997
 2024_bembel_a_with,open_doubles_net,Open Doubles Net,net,doubles,1,complete,12,,POST1997
 2024_1era_copa_altos,open_doubles,Open Doubles,net,doubles,1,complete,9,,POST1997
 2024_1era_copa_altos,open_singles,Open Singles,net,singles,2,mostly_complete,16,,POST1997

@@ -5112,6 +5112,11 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2003_eastregion_2,intermediate_routines,Intermediate Routines,1,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_routines|1
 2003_eastregion_2,intermediate_routines,Intermediate Routines,2,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_routines|2
 2003_eastregion_2,intermediate_routines,Intermediate Routines,3,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_routines|3
+2003_eastregion_2,intermediate_shred_30,Intermediate Shred 30,1,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_shred_30|1
+2003_eastregion_2,intermediate_shred_30,Intermediate Shred 30,2,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_shred_30|2
+2003_eastregion_2,intermediate_shred_30,Intermediate Shred 30,3,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_shred_30|3
+2003_eastregion_2,intermediate_sick_3,Intermediate Sick 3,2,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_sick_3|2
+2003_eastregion_2,intermediate_sick_3,Intermediate Sick 3,3,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_sick_3|3
 2003_eastregion_2,intermediate_sick_trick,Intermediate Sick Trick,1,,,,MIRROR,POST1997,2003_eastregion_2|intermediate_sick_trick|1
 2003_eastregion_2,open_routines,Open Routines,1,,,,MIRROR,POST1997,2003_eastregion_2|open_routines|1
 2003_eastregion_2,open_routines,Open Routines,2,,,,MIRROR,POST1997,2003_eastregion_2|open_routines|2
@@ -5119,9 +5124,13 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2003_eastregion_2,open_shred_30,Open Shred 30,1,,,,MIRROR,POST1997,2003_eastregion_2|open_shred_30|1
 2003_eastregion_2,open_shred_30,Open Shred 30,2,,,,MIRROR,POST1997,2003_eastregion_2|open_shred_30|2
 2003_eastregion_2,open_shred_30,Open Shred 30,3,,,,MIRROR,POST1997,2003_eastregion_2|open_shred_30|3
+2003_eastregion_2,open_sick_3,Open Sick 3,1,,,,MIRROR,POST1997,2003_eastregion_2|open_sick_3|1
+2003_eastregion_2,open_sick_3,Open Sick 3,2,,,,MIRROR,POST1997,2003_eastregion_2|open_sick_3|2
+2003_eastregion_2,open_sick_3,Open Sick 3,3,,,,MIRROR,POST1997,2003_eastregion_2|open_sick_3|3
 2003_eastregion_2,open_sick_three,Open Sick Three,1,,,,MIRROR,POST1997,2003_eastregion_2|open_sick_three|1
 2003_eastregion_2,open_sick_three,Open Sick Three,2,,,,MIRROR,POST1997,2003_eastregion_2|open_sick_three|2
 2003_eastregion_2,open_sick_three,Open Sick Three,3,,,,MIRROR,POST1997,2003_eastregion_2|open_sick_three|3
+2003_eastregion_2,open_sick_trick,Open Sick Trick,1,,,,MIRROR,POST1997,2003_eastregion_2|open_sick_trick|1
 2003_eurochamp_frankfurt,intermediate_doubles_net,Intermediate Doubles Net,1,,,,MIRROR,POST1997,2003_eurochamp_frankfurt|intermediate_doubles_net|1
 2003_eurochamp_frankfurt,intermediate_doubles_net,Intermediate Doubles Net,2,,,,MIRROR,POST1997,2003_eurochamp_frankfurt|intermediate_doubles_net|2
 2003_eurochamp_frankfurt,intermediate_singles_freestyle_33_player,Intermediate Singles Freestyle 33 Player,1,,,,MIRROR,POST1997,2003_eurochamp_frankfurt|intermediate_singles_freestyle_33_player|1
@@ -6023,10 +6032,21 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2004_eurochamp_copenhagen,open_singles_freestyle,Open Singles Freestyle,6,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|open_singles_freestyle|6
 2004_eurochamp_copenhagen,open_singles_freestyle,Open Singles Freestyle,7,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|open_singles_freestyle|7
 2004_eurochamp_copenhagen,open_singles_freestyle,Open Singles Freestyle,8,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|open_singles_freestyle|8
-2004_eurochamp_copenhagen,shred30,Shred30,2,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|shred30|2
+2004_eurochamp_copenhagen,shred30,Shred30,4,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|shred30|4
 2004_eurochamp_copenhagen,womens_shred30,Women's Shred30,1,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_shred30|1
 2004_eurochamp_copenhagen,womens_shred30,Women's Shred30,2,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_shred30|2
 2004_eurochamp_copenhagen,womens_shred30,Women's Shred30,3,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_shred30|3
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",1,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|1
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",2,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|2
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",3,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|3
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",4,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|4
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",5,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|5
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",6,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|6
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",7,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|7
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",8,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|8
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",9,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|9
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",10,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|10
+2004_eurochamp_copenhagen,womens_singles_freestyle_very_very_close_1_4,"Women's Singles Freestyle [Very, Very Close (1-4)]",11,,,,MIRROR,POST1997,2004_eurochamp_copenhagen|womens_singles_freestyle_very_very_close_1_4|11
 2004_finnish_helsinki,intermediate_freestyle,Intermediate Freestyle,1,,,,MIRROR,POST1997,2004_finnish_helsinki|intermediate_freestyle|1
 2004_finnish_helsinki,intermediate_freestyle,Intermediate Freestyle,2,,,,MIRROR,POST1997,2004_finnish_helsinki|intermediate_freestyle|2
 2004_finnish_helsinki,intermediate_freestyle,Intermediate Freestyle,3,,,,MIRROR,POST1997,2004_finnish_helsinki|intermediate_freestyle|3
@@ -8256,12 +8276,28 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2006_rnh_contest,open_routines,Open Routines,5,,,,MIRROR,POST1997,2006_rnh_contest|open_routines|5
 2006_rnh_contest,open_routines,Open Routines,6,,,,MIRROR,POST1997,2006_rnh_contest|open_routines|6
 2006_rnh_contest,open_routines,Open Routines,7,,,,MIRROR,POST1997,2006_rnh_contest|open_routines|7
+2006_rnh_contest,open_shred_30,Open Shred 30,1,,,,MIRROR,POST1997,2006_rnh_contest|open_shred_30|1
+2006_rnh_contest,open_shred_30,Open Shred 30,2,,,,MIRROR,POST1997,2006_rnh_contest|open_shred_30|2
+2006_rnh_contest,open_shred_30,Open Shred 30,3,,,,MIRROR,POST1997,2006_rnh_contest|open_shred_30|3
+2006_rnh_contest,open_shred_30,Open Shred 30,4,,,,MIRROR,POST1997,2006_rnh_contest|open_shred_30|4
+2006_rnh_contest,open_shred_30,Open Shred 30,5,,,,MIRROR,POST1997,2006_rnh_contest|open_shred_30|5
+2006_rnh_contest,open_shred_30,Open Shred 30,6,,,,MIRROR,POST1997,2006_rnh_contest|open_shred_30|6
 2006_rnh_contest,open_sick_trick,Open Sick Trick,1,,,,MIRROR,POST1997,2006_rnh_contest|open_sick_trick|1
 2006_rnh_contest,open_sick_trick,Open Sick Trick,2,,,,MIRROR,POST1997,2006_rnh_contest|open_sick_trick|2
 2006_rnh_contest,open_sick_trick,Open Sick Trick,3,,,,MIRROR,POST1997,2006_rnh_contest|open_sick_trick|3
 2006_rnh_contest,open_sick_trick,Open Sick Trick,4,,,,MIRROR,POST1997,2006_rnh_contest|open_sick_trick|4
 2006_rnh_contest,open_sick_trick,Open Sick Trick,5,,,,MIRROR,POST1997,2006_rnh_contest|open_sick_trick|5
 2006_rnh_contest,open_sick_trick,Open Sick Trick,6,,,,MIRROR,POST1997,2006_rnh_contest|open_sick_trick|6
+2006_rnh_contest,open_singles_net,Open Singles Net,4,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|4
+2006_rnh_contest,open_singles_net,Open Singles Net,5,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|5
+2006_rnh_contest,open_singles_net,Open Singles Net,6,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|6
+2006_rnh_contest,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|7
+2006_rnh_contest,open_singles_net,Open Singles Net,8,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|8
+2006_rnh_contest,open_singles_net,Open Singles Net,9,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|9
+2006_rnh_contest,open_singles_net,Open Singles Net,11,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|11
+2006_rnh_contest,open_singles_net,Open Singles Net,13,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|13
+2006_rnh_contest,open_singles_net,Open Singles Net,14,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|14
+2006_rnh_contest,open_singles_net,Open Singles Net,15,,,,MIRROR,POST1997,2006_rnh_contest|open_singles_net|15
 2006_rnh_contest,routine,Routine,1,,,,MIRROR,POST1997,2006_rnh_contest|routine|1
 2006_rnh_contest,routine,Routine,2,,,,MIRROR,POST1997,2006_rnh_contest|routine|2
 2006_rnh_contest,routine,Routine,3,,,,MIRROR,POST1997,2006_rnh_contest|routine|3
@@ -10542,6 +10578,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2008_polish,open_freestyle_routines,Open Freestyle Routines,5,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|5
 2008_polish,open_freestyle_routines,Open Freestyle Routines,6,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|6
 2008_polish,open_freestyle_routines,Open Freestyle Routines,7,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|7
+2008_polish,open_freestyle_routines,Open Freestyle Routines,8,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|8
 2008_polish,open_freestyle_routines,Open Freestyle Routines,9,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|9
 2008_polish,open_freestyle_routines,Open Freestyle Routines,10,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|10
 2008_polish,open_freestyle_routines,Open Freestyle Routines,13,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|13
@@ -10549,6 +10586,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2008_polish,open_freestyle_routines,Open Freestyle Routines,19,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|19
 2008_polish,open_freestyle_routines,Open Freestyle Routines,22,,,,MIRROR,POST1997,2008_polish|open_freestyle_routines|22
 2008_polish,open_golf,Open Golf,1,,,,MIRROR,POST1997,2008_polish|open_golf|1
+2008_polish,open_golf,Open Golf,2,,,,MIRROR,POST1997,2008_polish|open_golf|2
 2008_polish,open_golf,Open Golf,3,,,,MIRROR,POST1997,2008_polish|open_golf|3
 2008_polish,open_golf,Open Golf,4,,,,MIRROR,POST1997,2008_polish|open_golf|4
 2008_polish,open_golf,Open Golf,5,,,,MIRROR,POST1997,2008_polish|open_golf|5
@@ -10560,6 +10598,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2008_polish,shred30,Shred30,4,,,,MIRROR,POST1997,2008_polish|shred30|4
 2008_polish,shred30,Shred30,5,,,,MIRROR,POST1997,2008_polish|shred30|5
 2008_polish,shred30,Shred30,6,,,,MIRROR,POST1997,2008_polish|shred30|6
+2008_polish,shred30,Shred30,7,,,,MIRROR,POST1997,2008_polish|shred30|7
 2008_polish,shred30,Shred30,8,,,,MIRROR,POST1997,2008_polish|shred30|8
 2008_polish,shred30,Shred30,9,,,,MIRROR,POST1997,2008_polish|shred30|9
 2008_polish,shred30,Shred30,10,,,,MIRROR,POST1997,2008_polish|shred30|10
@@ -10568,6 +10607,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2008_polish,shred30,Shred30,13,,,,MIRROR,POST1997,2008_polish|shred30|13
 2008_polish,sick3,Sick3,1,,,,MIRROR,POST1997,2008_polish|sick3|1
 2008_polish,sick3,Sick3,2,,,,MIRROR,POST1997,2008_polish|sick3|2
+2008_polish,sick3,Sick3,3,,,,MIRROR,POST1997,2008_polish|sick3|3
 2008_polish,woman_freestyle_routines,Woman Freestyle Routines,1,,,,MIRROR,POST1997,2008_polish|woman_freestyle_routines|1
 2008_polish,woman_freestyle_routines,Woman Freestyle Routines,2,,,,MIRROR,POST1997,2008_polish|woman_freestyle_routines|2
 2008_polish,woman_freestyle_routines,Woman Freestyle Routines,4,,,,MIRROR,POST1997,2008_polish|woman_freestyle_routines|4
@@ -12361,9 +12401,23 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2009_todexon_10,open_singles_freestyle,Open Singles Freestyle,17,,,,MIRROR,POST1997,2009_todexon_10|open_singles_freestyle|17
 2009_todexon_10,open_singles_freestyle,Open Singles Freestyle,21,,,,MIRROR,POST1997,2009_todexon_10|open_singles_freestyle|21
 2009_todexon_10,open_singles_freestyle,Open Singles Freestyle,24,,,,MIRROR,POST1997,2009_todexon_10|open_singles_freestyle|24
+2009_todexon_10,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|1
+2009_todexon_10,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|2
+2009_todexon_10,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|3
+2009_todexon_10,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|4
+2009_todexon_10,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|5
+2009_todexon_10,open_singles_routines,Open Singles Routines,7,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|7
+2009_todexon_10,open_singles_routines,Open Singles Routines,8,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|8
+2009_todexon_10,open_singles_routines,Open Singles Routines,9,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|9
+2009_todexon_10,open_singles_routines,Open Singles Routines,13,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|13
+2009_todexon_10,open_singles_routines,Open Singles Routines,17,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|17
+2009_todexon_10,open_singles_routines,Open Singles Routines,21,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|21
+2009_todexon_10,open_singles_routines,Open Singles Routines,24,,,,MIRROR,POST1997,2009_todexon_10|open_singles_routines|24
 2009_todexon_10,women_singles,Women Singles,1,,,,MIRROR,POST1997,2009_todexon_10|women_singles|1
 2009_todexon_10,women_singles,Women Singles,2,,,,MIRROR,POST1997,2009_todexon_10|women_singles|2
 2009_todexon_10,women_singles,Women Singles,3,,,,MIRROR,POST1997,2009_todexon_10|women_singles|3
+2009_todexon_10,womens_singles_routines,Women's Singles Routines,1,,,,MIRROR,POST1997,2009_todexon_10|womens_singles_routines|1
+2009_todexon_10,womens_singles_routines,Women's Singles Routines,2,,,,MIRROR,POST1997,2009_todexon_10|womens_singles_routines|2
 2009_turku,mixed_doubles_net,Mixed Doubles Net,1,,,,MIRROR,POST1997,2009_turku|mixed_doubles_net|1
 2009_turku,mixed_doubles_net,Mixed Doubles Net,2,,,,MIRROR,POST1997,2009_turku|mixed_doubles_net|2
 2009_turku,mixed_doubles_net,Mixed Doubles Net,3,,,,MIRROR,POST1997,2009_turku|mixed_doubles_net|3
@@ -13946,8 +14000,17 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2010_todexon_11,open_freestyle,Open Freestyle,7,,,,MIRROR,POST1997,2010_todexon_11|open_freestyle|7
 2010_todexon_11,open_freestyle,Open Freestyle,8,,,,MIRROR,POST1997,2010_todexon_11|open_freestyle|8
 2010_todexon_11,open_freestyle,Open Freestyle,9,,,,MIRROR,POST1997,2010_todexon_11|open_freestyle|9
+2010_todexon_11,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|1
+2010_todexon_11,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|2
+2010_todexon_11,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|3
+2010_todexon_11,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|4
+2010_todexon_11,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|6
+2010_todexon_11,open_singles_routines,Open Singles Routines,7,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|7
+2010_todexon_11,open_singles_routines,Open Singles Routines,8,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|8
+2010_todexon_11,open_singles_routines,Open Singles Routines,9,,,,MIRROR,POST1997,2010_todexon_11|open_singles_routines|9
 2010_todexon_11,women_freestyle,Women Freestyle,1,,,,MIRROR,POST1997,2010_todexon_11|women_freestyle|1
 2010_todexon_11,women_freestyle,Women Freestyle,2,,,,MIRROR,POST1997,2010_todexon_11|women_freestyle|2
+2010_todexon_11,womens_singles_routines,Women's Singles Routines,2,,,,MIRROR,POST1997,2010_todexon_11|womens_singles_routines|2
 2010_turku,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2010_turku|open_doubles_net|1
 2010_turku,open_doubles_net,Open Doubles Net,2,,,,MIRROR,POST1997,2010_turku|open_doubles_net|2
 2010_turku,open_doubles_net,Open Doubles Net,3,,,,MIRROR,POST1997,2010_turku|open_doubles_net|3
@@ -15717,6 +15780,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,intermediate_request_contest,Intermediate Request Contest,4,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_request_contest|4
 2011_worlds_helsinki,intermediate_request_contest,Intermediate Request Contest,6,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_request_contest|6
 2011_worlds_helsinki,intermediate_shred_30,Intermediate Shred:30,1,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_shred_30|1
+2011_worlds_helsinki,intermediate_shred_30,Intermediate Shred:30,2,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_shred_30|2
 2011_worlds_helsinki,intermediate_shred_30,Intermediate Shred:30,3,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_shred_30|3
 2011_worlds_helsinki,intermediate_shred_30,Intermediate Shred:30,4,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_shred_30|4
 2011_worlds_helsinki,intermediate_singles_net,Intermediate Singles Net,1,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_singles_net|1
@@ -15726,6 +15790,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,intermediate_singles_net,Intermediate Singles Net,5,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_singles_net|5
 2011_worlds_helsinki,intermediate_singles_routines,Intermediate Singles Routines,1,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_singles_routines|1
 2011_worlds_helsinki,intermediate_singles_routines,Intermediate Singles Routines,2,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_singles_routines|2
+2011_worlds_helsinki,intermediate_singles_routines,Intermediate Singles Routines,3,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_singles_routines|3
 2011_worlds_helsinki,intermediate_singles_routines,Intermediate Singles Routines,4,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_singles_routines|4
 2011_worlds_helsinki,intermediate_singles_routines,Intermediate Singles Routines,5,,,,MIRROR,POST1997,2011_worlds_helsinki|intermediate_singles_routines|5
 2011_worlds_helsinki,masters_singles_net,Masters Singles Net,1,,,,MIRROR,POST1997,2011_worlds_helsinki|masters_singles_net|1
@@ -15809,6 +15874,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_mixed_doubles_routines,Open Mixed Doubles Routines,2,,,,MIRROR,POST1997,2011_worlds_helsinki|open_mixed_doubles_routines|2
 2011_worlds_helsinki,open_mixed_doubles_routines,Open Mixed Doubles Routines,3,,,,MIRROR,POST1997,2011_worlds_helsinki|open_mixed_doubles_routines|3
 2011_worlds_helsinki,open_request_contest,Open Request Contest,1,,,,MIRROR,POST1997,2011_worlds_helsinki|open_request_contest|1
+2011_worlds_helsinki,open_request_contest,Open Request Contest,2,,,,MIRROR,POST1997,2011_worlds_helsinki|open_request_contest|2
 2011_worlds_helsinki,open_request_contest,Open Request Contest,3,,,,MIRROR,POST1997,2011_worlds_helsinki|open_request_contest|3
 2011_worlds_helsinki,open_request_contest,Open Request Contest,4,,,,MIRROR,POST1997,2011_worlds_helsinki|open_request_contest|4
 2011_worlds_helsinki,open_request_contest,Open Request Contest,6,,,,MIRROR,POST1997,2011_worlds_helsinki|open_request_contest|6
@@ -15825,6 +15891,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_shred_30,Open Shred:30,2,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|2
 2011_worlds_helsinki,open_shred_30,Open Shred:30,3,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|3
 2011_worlds_helsinki,open_shred_30,Open Shred:30,4,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|4
+2011_worlds_helsinki,open_shred_30,Open Shred:30,5,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|5
 2011_worlds_helsinki,open_shred_30,Open Shred:30,6,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|6
 2011_worlds_helsinki,open_shred_30,Open Shred:30,7,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|7
 2011_worlds_helsinki,open_shred_30,Open Shred:30,8,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|8
@@ -15837,6 +15904,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_shred_30,Open Shred:30,16,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|16
 2011_worlds_helsinki,open_shred_30,Open Shred:30,17,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|17
 2011_worlds_helsinki,open_shred_30,Open Shred:30,18,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|18
+2011_worlds_helsinki,open_shred_30,Open Shred:30,19,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|19
 2011_worlds_helsinki,open_shred_30,Open Shred:30,20,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|20
 2011_worlds_helsinki,open_shred_30,Open Shred:30,21,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|21
 2011_worlds_helsinki,open_shred_30,Open Shred:30,22,,,,MIRROR,POST1997,2011_worlds_helsinki|open_shred_30|22
@@ -15864,11 +15932,15 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_sick_3_trick_contest,Open Sick 3-Trick Contest,17,,,,MIRROR,POST1997,2011_worlds_helsinki|open_sick_3_trick_contest|17
 2011_worlds_helsinki,open_sick_3_trick_contest,Open Sick 3-Trick Contest,18,,,,MIRROR,POST1997,2011_worlds_helsinki|open_sick_3_trick_contest|18
 2011_worlds_helsinki,open_sick_3_trick_contest,Open Sick 3-Trick Contest,19,,,,MIRROR,POST1997,2011_worlds_helsinki|open_sick_3_trick_contest|19
+2011_worlds_helsinki,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|1
+2011_worlds_helsinki,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|2
 2011_worlds_helsinki,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|3
 2011_worlds_helsinki,open_singles_net,Open Singles Net,4,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|4
 2011_worlds_helsinki,open_singles_net,Open Singles Net,5,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|5
 2011_worlds_helsinki,open_singles_net,Open Singles Net,6,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|6
 2011_worlds_helsinki,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|7
+2011_worlds_helsinki,open_singles_net,Open Singles Net,8,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|8
+2011_worlds_helsinki,open_singles_net,Open Singles Net,9,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|9
 2011_worlds_helsinki,open_singles_net,Open Singles Net,10,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|10
 2011_worlds_helsinki,open_singles_net,Open Singles Net,11,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|11
 2011_worlds_helsinki,open_singles_net,Open Singles Net,12,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|12
@@ -15877,6 +15949,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_singles_net,Open Singles Net,15,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|15
 2011_worlds_helsinki,open_singles_net,Open Singles Net,16,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|16
 2011_worlds_helsinki,open_singles_net,Open Singles Net,17,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|17
+2011_worlds_helsinki,open_singles_net,Open Singles Net,18,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|18
 2011_worlds_helsinki,open_singles_net,Open Singles Net,19,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|19
 2011_worlds_helsinki,open_singles_net,Open Singles Net,20,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|20
 2011_worlds_helsinki,open_singles_net,Open Singles Net,21,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|21
@@ -15886,6 +15959,8 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_singles_net,Open Singles Net,25,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|25
 2011_worlds_helsinki,open_singles_net,Open Singles Net,26,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|26
 2011_worlds_helsinki,open_singles_net,Open Singles Net,27,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|27
+2011_worlds_helsinki,open_singles_net,Open Singles Net,28,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|28
+2011_worlds_helsinki,open_singles_net,Open Singles Net,29,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|29
 2011_worlds_helsinki,open_singles_net,Open Singles Net,30,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|30
 2011_worlds_helsinki,open_singles_net,Open Singles Net,31,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|31
 2011_worlds_helsinki,open_singles_net,Open Singles Net,32,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|32
@@ -15896,18 +15971,22 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_singles_net,Open Singles Net,37,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|37
 2011_worlds_helsinki,open_singles_net,Open Singles Net,38,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|38
 2011_worlds_helsinki,open_singles_net,Open Singles Net,39,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|39
+2011_worlds_helsinki,open_singles_net,Open Singles Net,40,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|40
 2011_worlds_helsinki,open_singles_net,Open Singles Net,41,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|41
 2011_worlds_helsinki,open_singles_net,Open Singles Net,42,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|42
 2011_worlds_helsinki,open_singles_net,Open Singles Net,43,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|43
 2011_worlds_helsinki,open_singles_net,Open Singles Net,44,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|44
 2011_worlds_helsinki,open_singles_net,Open Singles Net,45,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|45
+2011_worlds_helsinki,open_singles_net,Open Singles Net,46,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|46
 2011_worlds_helsinki,open_singles_net,Open Singles Net,47,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|47
 2011_worlds_helsinki,open_singles_net,Open Singles Net,48,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|48
 2011_worlds_helsinki,open_singles_net,Open Singles Net,49,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|49
 2011_worlds_helsinki,open_singles_net,Open Singles Net,50,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|50
 2011_worlds_helsinki,open_singles_net,Open Singles Net,51,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|51
+2011_worlds_helsinki,open_singles_net,Open Singles Net,52,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|52
 2011_worlds_helsinki,open_singles_net,Open Singles Net,53,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|53
 2011_worlds_helsinki,open_singles_net,Open Singles Net,54,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|54
+2011_worlds_helsinki,open_singles_net,Open Singles Net,55,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|55
 2011_worlds_helsinki,open_singles_net,Open Singles Net,56,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|56
 2011_worlds_helsinki,open_singles_net,Open Singles Net,57,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|57
 2011_worlds_helsinki,open_singles_net,Open Singles Net,58,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_net|58
@@ -15916,8 +15995,10 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|2
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|3
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|4
+2011_worlds_helsinki,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|5
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|6
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,7,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|7
+2011_worlds_helsinki,open_singles_routines,Open Singles Routines,8,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|8
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,9,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|9
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,13,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|13
 2011_worlds_helsinki,open_singles_routines,Open Singles Routines,17,,,,MIRROR,POST1997,2011_worlds_helsinki|open_singles_routines|17
@@ -15946,6 +16027,8 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2011_worlds_helsinki,womens_shred_30,Women's Shred:30,5,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_shred_30|5
 2011_worlds_helsinki,womens_shred_30,Women's Shred:30,6,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_shred_30|6
 2011_worlds_helsinki,womens_shred_30,Women's Shred:30,7,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_shred_30|7
+2011_worlds_helsinki,womens_singles_net,Women's Singles Net,1,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_singles_net|1
+2011_worlds_helsinki,womens_singles_net,Women's Singles Net,2,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_singles_net|2
 2011_worlds_helsinki,womens_singles_net,Women's Singles Net,3,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_singles_net|3
 2011_worlds_helsinki,womens_singles_net,Women's Singles Net,4,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_singles_net|4
 2011_worlds_helsinki,womens_singles_net,Women's Singles Net,5,,,,MIRROR,POST1997,2011_worlds_helsinki|womens_singles_net|5
@@ -16685,6 +16768,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_paris_battle_2,open_singles_net,Open Singles Net,21,,,,MIRROR,POST1997,2012_paris_battle_2|open_singles_net|21
 2012_paris_battle_2,open_singles_net,Open Singles Net,22,,,,MIRROR,POST1997,2012_paris_battle_2|open_singles_net|22
 2012_polish,2_square,2 Square,1,,,,MIRROR,POST1997,2012_polish|2_square|1
+2012_polish,2_square,2 Square,2,,,,MIRROR,POST1997,2012_polish|2_square|2
 2012_polish,2_square,2 Square,3,,,,MIRROR,POST1997,2012_polish|2_square|3
 2012_polish,2_square,2 Square,4,,,,MIRROR,POST1997,2012_polish|2_square|4
 2012_polish,2_square,2 Square,5,,,,MIRROR,POST1997,2012_polish|2_square|5
@@ -16706,11 +16790,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_polish,golf,Golf,2,,,,MIRROR,POST1997,2012_polish|golf|2
 2012_polish,golf,Golf,3,,,,MIRROR,POST1997,2012_polish|golf|3
 2012_polish,golf,Golf,4,,,,MIRROR,POST1997,2012_polish|golf|4
+2012_polish,golf,Golf,5,,,,MIRROR,POST1997,2012_polish|golf|5
 2012_polish,golf,Golf,6,,,,MIRROR,POST1997,2012_polish|golf|6
 2012_polish,golf,Golf,7,,,,MIRROR,POST1997,2012_polish|golf|7
 2012_polish,golf,Golf,10,,,,MIRROR,POST1997,2012_polish|golf|10
 2012_polish,golf,Golf,11,,,,MIRROR,POST1997,2012_polish|golf|11
+2012_polish,golf,Golf,12,,,,MIRROR,POST1997,2012_polish|golf|12
 2012_polish,golf,Golf,14,,,,MIRROR,POST1997,2012_polish|golf|14
+2012_polish,intermediate_singles_net,Intermediate Singles Net,1,,,,MIRROR,POST1997,2012_polish|intermediate_singles_net|1
 2012_polish,intermediate_singles_net,Intermediate Singles Net,2,,,,MIRROR,POST1997,2012_polish|intermediate_singles_net|2
 2012_polish,intermediate_singles_net,Intermediate Singles Net,3,,,,MIRROR,POST1997,2012_polish|intermediate_singles_net|3
 2012_polish,intermediate_singles_net,Intermediate Singles Net,4,,,,MIRROR,POST1997,2012_polish|intermediate_singles_net|4
@@ -16730,6 +16817,8 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_polish,open_freestyle_routines,Open Freestyle Routines,4,,,,MIRROR,POST1997,2012_polish|open_freestyle_routines|4
 2012_polish,open_freestyle_routines,Open Freestyle Routines,5,,,,MIRROR,POST1997,2012_polish|open_freestyle_routines|5
 2012_polish,open_freestyle_routines,Open Freestyle Routines,6,,,,MIRROR,POST1997,2012_polish|open_freestyle_routines|6
+2012_polish,open_freestyle_routines,Open Freestyle Routines,7,,,,MIRROR,POST1997,2012_polish|open_freestyle_routines|7
+2012_polish,open_freestyle_routines,Open Freestyle Routines,8,,,,MIRROR,POST1997,2012_polish|open_freestyle_routines|8
 2012_polish,open_freestyle_routines,Open Freestyle Routines,9,,,,MIRROR,POST1997,2012_polish|open_freestyle_routines|9
 2012_polish,open_freestyle_routines,Open Freestyle Routines,11,,,,MIRROR,POST1997,2012_polish|open_freestyle_routines|11
 2012_polish,open_mixed_doubles_net,Open Mixed Doubles Net,1,,,,MIRROR,POST1997,2012_polish|open_mixed_doubles_net|1
@@ -16829,10 +16918,13 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_swiss,intermediate_routine,Intermediate Routine,1,,,,MIRROR,POST1997,2012_swiss|intermediate_routine|1
 2012_swiss,intermediate_routine,Intermediate Routine,2,,,,MIRROR,POST1997,2012_swiss|intermediate_routine|2
 2012_swiss,intermediate_routine,Intermediate Routine,3,,,,MIRROR,POST1997,2012_swiss|intermediate_routine|3
+2012_swiss,intermediate_singles_routines,Intermediate Singles Routines,1,,,,MIRROR,POST1997,2012_swiss|intermediate_singles_routines|1
+2012_swiss,intermediate_singles_routines,Intermediate Singles Routines,2,,,,MIRROR,POST1997,2012_swiss|intermediate_singles_routines|2
 2012_swiss,open_circle,Open Circle,1,,,,MIRROR,POST1997,2012_swiss|open_circle|1
 2012_swiss,open_circle,Open Circle,2,,,,MIRROR,POST1997,2012_swiss|open_circle|2
 2012_swiss,open_circle,Open Circle,3,,,,MIRROR,POST1997,2012_swiss|open_circle|3
 2012_swiss,open_circle,Open Circle,4,,,,MIRROR,POST1997,2012_swiss|open_circle|4
+2012_swiss,open_circle_contest,Open Circle Contest,6,,,,MIRROR,POST1997,2012_swiss|open_circle_contest|6
 2012_swiss,open_double_net,Open Double Net,1,,,,MIRROR,POST1997,2012_swiss|open_double_net|1
 2012_swiss,open_double_net,Open Double Net,2,,,,MIRROR,POST1997,2012_swiss|open_double_net|2
 2012_swiss,open_double_net,Open Double Net,3,,,,MIRROR,POST1997,2012_swiss|open_double_net|3
@@ -16871,6 +16963,11 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_swiss,open_single_net,Open Single Net,15,,,,MIRROR,POST1997,2012_swiss|open_single_net|15
 2012_swiss,open_single_net,Open Single Net,16,,,,MIRROR,POST1997,2012_swiss|open_single_net|16
 2012_swiss,open_single_net,Open Single Net,17,,,,MIRROR,POST1997,2012_swiss|open_single_net|17
+2012_swiss,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2012_swiss|open_singles_routines|1
+2012_swiss,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2012_swiss|open_singles_routines|2
+2012_swiss,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2012_swiss|open_singles_routines|3
+2012_swiss,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2012_swiss|open_singles_routines|4
+2012_swiss,open_singles_routines,Open Singles Routines,8,,,,MIRROR,POST1997,2012_swiss|open_singles_routines|8
 2012_swiss,request,Request,1,,,,MIRROR,POST1997,2012_swiss|request|1
 2012_swiss,request,Request,2,,,,MIRROR,POST1997,2012_swiss|request|2
 2012_swiss,request,Request,3,,,,MIRROR,POST1997,2012_swiss|request|3
@@ -16887,6 +16984,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_swiss,woman_routine,Woman Routine,3,,,,MIRROR,POST1997,2012_swiss|woman_routine|3
 2012_swiss,woman_routine,Woman Routine,4,,,,MIRROR,POST1997,2012_swiss|woman_routine|4
 2012_swiss,woman_routine,Woman Routine,5,,,,MIRROR,POST1997,2012_swiss|woman_routine|5
+2012_swiss,womens_circle_contest,Women's Circle Contest,1,,,,MIRROR,POST1997,2012_swiss|womens_circle_contest|1
+2012_swiss,womens_circle_contest,Women's Circle Contest,2,,,,MIRROR,POST1997,2012_swiss|womens_circle_contest|2
+2012_swiss,womens_circle_contest,Women's Circle Contest,4,,,,MIRROR,POST1997,2012_swiss|womens_circle_contest|4
+2012_swiss,womens_circle_contest,Women's Circle Contest,5,,,,MIRROR,POST1997,2012_swiss|womens_circle_contest|5
+2012_swiss,womens_singles_routines,Women's Singles Routines,1,,,,MIRROR,POST1997,2012_swiss|womens_singles_routines|1
+2012_swiss,womens_singles_routines,Women's Singles Routines,3,,,,MIRROR,POST1997,2012_swiss|womens_singles_routines|3
+2012_swiss,womens_singles_routines,Women's Singles Routines,4,,,,MIRROR,POST1997,2012_swiss|womens_singles_routines|4
+2012_swiss,womens_singles_routines,Women's Singles Routines,5,,,,MIRROR,POST1997,2012_swiss|womens_singles_routines|5
 2012_texas_state,doubles_net,Doubles Net,1,,,,MIRROR,POST1997,2012_texas_state|doubles_net|1
 2012_texas_state,doubles_net,Doubles Net,2,,,,MIRROR,POST1997,2012_texas_state|doubles_net|2
 2012_texas_state,doubles_net,Doubles Net,3,,,,MIRROR,POST1997,2012_texas_state|doubles_net|3
@@ -16903,6 +17008,16 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_todexon_13,open_freestyle,Open Freestyle,10,,,,MIRROR,POST1997,2012_todexon_13|open_freestyle|10
 2012_todexon_13,open_freestyle,Open Freestyle,11,,,,MIRROR,POST1997,2012_todexon_13|open_freestyle|11
 2012_todexon_13,open_freestyle,Open Freestyle,12,,,,MIRROR,POST1997,2012_todexon_13|open_freestyle|12
+2012_todexon_13,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|1
+2012_todexon_13,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|2
+2012_todexon_13,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|3
+2012_todexon_13,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|4
+2012_todexon_13,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|5
+2012_todexon_13,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|6
+2012_todexon_13,open_singles_routines,Open Singles Routines,8,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|8
+2012_todexon_13,open_singles_routines,Open Singles Routines,9,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|9
+2012_todexon_13,open_singles_routines,Open Singles Routines,13,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|13
+2012_todexon_13,open_singles_routines,Open Singles Routines,14,,,,MIRROR,POST1997,2012_todexon_13|open_singles_routines|14
 2012_todexon_13,shred_30,Shred 30,1,,,,MIRROR,POST1997,2012_todexon_13|shred_30|1
 2012_todexon_13,sick_3,Sick 3,1,,,,MIRROR,POST1997,2012_todexon_13|sick_3|1
 2012_todexon_13,sick_3,Sick 3,2,,,,MIRROR,POST1997,2012_todexon_13|sick_3|2
@@ -16914,6 +17029,8 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2012_todexon_13,sick_3,Sick 3,8,,,,MIRROR,POST1997,2012_todexon_13|sick_3|8
 2012_todexon_13,women_freestyle,Women Freestyle,1,,,,MIRROR,POST1997,2012_todexon_13|women_freestyle|1
 2012_todexon_13,women_freestyle,Women Freestyle,2,,,,MIRROR,POST1997,2012_todexon_13|women_freestyle|2
+2012_todexon_13,womens_singles_routines,Women's Singles Routines,1,,,,MIRROR,POST1997,2012_todexon_13|womens_singles_routines|1
+2012_todexon_13,womens_singles_routines,Women's Singles Routines,2,,,,MIRROR,POST1997,2012_todexon_13|womens_singles_routines|2
 2012_torneo_footcamp,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2012_torneo_footcamp|open_doubles_net|1
 2012_torneo_footcamp,open_doubles_net,Open Doubles Net,2,,,,MIRROR,POST1997,2012_torneo_footcamp|open_doubles_net|2
 2012_torneo_footcamp,open_doubles_net,Open Doubles Net,3,,,,MIRROR,POST1997,2012_torneo_footcamp|open_doubles_net|3
@@ -17619,6 +17736,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_de_france_de,mixed_doubles_net,Mixed Doubles Net,6,,,,MIRROR,POST1997,2013_de_france_de|mixed_doubles_net|6
 2013_de_france_de,mixed_doubles_net,Mixed Doubles Net,7,,,,MIRROR,POST1997,2013_de_france_de|mixed_doubles_net|7
 2013_de_france_de,mixed_doubles_net,Mixed Doubles Net,8,,,,MIRROR,POST1997,2013_de_france_de|mixed_doubles_net|8
+2013_de_france_de,open_circle_contest,Open Circle Contest,4,,,,MIRROR,POST1997,2013_de_france_de|open_circle_contest|4
 2013_de_france_de,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2013_de_france_de|open_doubles_net|1
 2013_de_france_de,open_doubles_net,Open Doubles Net,2,,,,MIRROR,POST1997,2013_de_france_de|open_doubles_net|2
 2013_de_france_de,open_doubles_net,Open Doubles Net,3,,,,MIRROR,POST1997,2013_de_france_de|open_doubles_net|3
@@ -17643,6 +17761,12 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_de_france_de,open_doubles_net,Open Doubles Net,22,,,,MIRROR,POST1997,2013_de_france_de|open_doubles_net|22
 2013_de_france_de,open_doubles_net,Open Doubles Net,23,,,,MIRROR,POST1997,2013_de_france_de|open_doubles_net|23
 2013_de_france_de,open_doubles_net,Open Doubles Net,24,,,,MIRROR,POST1997,2013_de_france_de|open_doubles_net|24
+2013_de_france_de,open_shred_30,Open Shred:30,1,,,,MIRROR,POST1997,2013_de_france_de|open_shred_30|1
+2013_de_france_de,open_shred_30,Open Shred:30,4,,,,MIRROR,POST1997,2013_de_france_de|open_shred_30|4
+2013_de_france_de,open_shred_30,Open Shred:30,6,,,,MIRROR,POST1997,2013_de_france_de|open_shred_30|6
+2013_de_france_de,open_shred_30,Open Shred:30,7,,,,MIRROR,POST1997,2013_de_france_de|open_shred_30|7
+2013_de_france_de,open_shred_30,Open Shred:30,8,,,,MIRROR,POST1997,2013_de_france_de|open_shred_30|8
+2013_de_france_de,open_shred_30,Open Shred:30,9,,,,MIRROR,POST1997,2013_de_france_de|open_shred_30|9
 2013_de_france_de,open_singles_freestyle,Open Singles Freestyle,1,,,,MIRROR,POST1997,2013_de_france_de|open_singles_freestyle|1
 2013_de_france_de,open_singles_freestyle,Open Singles Freestyle,2,,,,MIRROR,POST1997,2013_de_france_de|open_singles_freestyle|2
 2013_de_france_de,open_singles_freestyle,Open Singles Freestyle,3,,,,MIRROR,POST1997,2013_de_france_de|open_singles_freestyle|3
@@ -17682,6 +17806,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_de_france_de,open_singles_net,Open Singles Net,29,,,,MIRROR,POST1997,2013_de_france_de|open_singles_net|29
 2013_de_france_de,open_singles_net,Open Singles Net,30,,,,MIRROR,POST1997,2013_de_france_de|open_singles_net|30
 2013_de_france_de,open_singles_net,Open Singles Net,31,,,,MIRROR,POST1997,2013_de_france_de|open_singles_net|31
+2013_de_france_de,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|1
+2013_de_france_de,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|2
+2013_de_france_de,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|3
+2013_de_france_de,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|4
+2013_de_france_de,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|5
+2013_de_france_de,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|6
+2013_de_france_de,open_singles_routines,Open Singles Routines,7,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|7
+2013_de_france_de,open_singles_routines,Open Singles Routines,9,,,,MIRROR,POST1997,2013_de_france_de|open_singles_routines|9
 2013_de_france_de,request,Request,1,,,,MIRROR,POST1997,2013_de_france_de|request|1
 2013_de_france_de,request,Request,2,,,,MIRROR,POST1997,2013_de_france_de|request|2
 2013_de_france_de,request,Request,3,,,,MIRROR,POST1997,2013_de_france_de|request|3
@@ -17697,6 +17829,9 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_de_france_de,womens_singles_net,Women's Singles Net,5,,,,MIRROR,POST1997,2013_de_france_de|womens_singles_net|5
 2013_de_france_de,womens_singles_net,Women's Singles Net,6,,,,MIRROR,POST1997,2013_de_france_de|womens_singles_net|6
 2013_de_france_de,womens_singles_net,Women's Singles Net,7,,,,MIRROR,POST1997,2013_de_france_de|womens_singles_net|7
+2013_de_france_de,womens_singles_routines,Women's Singles Routines,1,,,,MIRROR,POST1997,2013_de_france_de|womens_singles_routines|1
+2013_de_france_de,womens_singles_routines,Women's Singles Routines,2,,,,MIRROR,POST1997,2013_de_france_de|womens_singles_routines|2
+2013_de_france_de,womens_singles_routines,Women's Singles Routines,3,,,,MIRROR,POST1997,2013_de_france_de|womens_singles_routines|3
 2013_eastregion,open_circle_contest,Open Circle Contest,1,,,,MIRROR,POST1997,2013_eastregion|open_circle_contest|1
 2013_eastregion,open_circle_contest,Open Circle Contest,2,,,,MIRROR,POST1997,2013_eastregion|open_circle_contest|2
 2013_eastregion,open_circle_contest,Open Circle Contest,3,,,,MIRROR,POST1997,2013_eastregion|open_circle_contest|3
@@ -18116,19 +18251,25 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_paris_battle_3,open_doubles_net,Open Doubles Net,7,,,,MIRROR,POST1997,2013_paris_battle_3|open_doubles_net|7
 2013_polish,circle_contest,Circle Contest,1,,,,MIRROR,POST1997,2013_polish|circle_contest|1
 2013_polish,circle_contest,Circle Contest,2,,,,MIRROR,POST1997,2013_polish|circle_contest|2
+2013_polish,circle_contest,Circle Contest,3,,,,MIRROR,POST1997,2013_polish|circle_contest|3
 2013_polish,circle_contest,Circle Contest,4,,,,MIRROR,POST1997,2013_polish|circle_contest|4
 2013_polish,circle_contest,Circle Contest,5,,,,MIRROR,POST1997,2013_polish|circle_contest|5
 2013_polish,circle_contest,Circle Contest,9,,,,MIRROR,POST1997,2013_polish|circle_contest|9
 2013_polish,circle_contest,Circle Contest,13,,,,MIRROR,POST1997,2013_polish|circle_contest|13
+2013_polish,footbag_golf,Footbag Golf,1,,,,MIRROR,POST1997,2013_polish|footbag_golf|1
 2013_polish,footbag_golf,Footbag Golf,2,,,,MIRROR,POST1997,2013_polish|footbag_golf|2
 2013_polish,footbag_golf,Footbag Golf,3,,,,MIRROR,POST1997,2013_polish|footbag_golf|3
 2013_polish,intermediate_doubles_net,Intermediate Doubles Net,1,,,,MIRROR,POST1997,2013_polish|intermediate_doubles_net|1
 2013_polish,intermediate_doubles_net,Intermediate Doubles Net,2,,,,MIRROR,POST1997,2013_polish|intermediate_doubles_net|2
 2013_polish,intermediate_doubles_net,Intermediate Doubles Net,3,,,,MIRROR,POST1997,2013_polish|intermediate_doubles_net|3
 2013_polish,intermediate_routines,Intermediate Routines,1,,,,MIRROR,POST1997,2013_polish|intermediate_routines|1
+2013_polish,intermediate_singles_net,Intermediate Singles Net,1,,,,MIRROR,POST1997,2013_polish|intermediate_singles_net|1
+2013_polish,intermediate_singles_net,Intermediate Singles Net,2,,,,MIRROR,POST1997,2013_polish|intermediate_singles_net|2
 2013_polish,intermediate_singles_net,Intermediate Singles Net,3,,,,MIRROR,POST1997,2013_polish|intermediate_singles_net|3
 2013_polish,intermediate_singles_net,Intermediate Singles Net,4,,,,MIRROR,POST1997,2013_polish|intermediate_singles_net|4
+2013_polish,intermediate_singles_net,Intermediate Singles Net,5,,,,MIRROR,POST1997,2013_polish|intermediate_singles_net|5
 2013_polish,intermediate_singles_net,Intermediate Singles Net,6,,,,MIRROR,POST1997,2013_polish|intermediate_singles_net|6
+2013_polish,intermediate_singles_net,Intermediate Singles Net,7,,,,MIRROR,POST1997,2013_polish|intermediate_singles_net|7
 2013_polish,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2013_polish|open_doubles_net|1
 2013_polish,open_doubles_net,Open Doubles Net,2,,,,MIRROR,POST1997,2013_polish|open_doubles_net|2
 2013_polish,open_doubles_net,Open Doubles Net,3,,,,MIRROR,POST1997,2013_polish|open_doubles_net|3
@@ -18142,13 +18283,18 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_polish,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,2013_polish|open_singles_net|3
 2013_polish,open_singles_net,Open Singles Net,4,,,,MIRROR,POST1997,2013_polish|open_singles_net|4
 2013_polish,open_singles_net,Open Singles Net,5,,,,MIRROR,POST1997,2013_polish|open_singles_net|5
+2013_polish,open_singles_net,Open Singles Net,6,,,,MIRROR,POST1997,2013_polish|open_singles_net|6
 2013_polish,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2013_polish|open_singles_net|7
+2013_polish,open_singles_net,Open Singles Net,8,,,,MIRROR,POST1997,2013_polish|open_singles_net|8
 2013_polish,open_singles_net,Open Singles Net,9,,,,MIRROR,POST1997,2013_polish|open_singles_net|9
 2013_polish,open_singles_net,Open Singles Net,10,,,,MIRROR,POST1997,2013_polish|open_singles_net|10
 2013_polish,open_singles_net,Open Singles Net,11,,,,MIRROR,POST1997,2013_polish|open_singles_net|11
 2013_polish,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2013_polish|open_singles_routines|1
+2013_polish,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2013_polish|open_singles_routines|2
 2013_polish,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2013_polish|open_singles_routines|3
 2013_polish,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2013_polish|open_singles_routines|4
+2013_polish,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2013_polish|open_singles_routines|5
+2013_polish,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2013_polish|open_singles_routines|6
 2013_polish,open_singles_routines,Open Singles Routines,7,,,,MIRROR,POST1997,2013_polish|open_singles_routines|7
 2013_polish,open_singles_routines,Open Singles Routines,9,,,,MIRROR,POST1997,2013_polish|open_singles_routines|9
 2013_polish,open_singles_routines,Open Singles Routines,10,,,,MIRROR,POST1997,2013_polish|open_singles_routines|10
@@ -18161,9 +18307,15 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_polish,shred30,Shred30,1,,,,MIRROR,POST1997,2013_polish|shred30|1
 2013_polish,shred30,Shred30,2,,,,MIRROR,POST1997,2013_polish|shred30|2
 2013_polish,shred30,Shred30,3,,,,MIRROR,POST1997,2013_polish|shred30|3
+2013_polish,shred30,Shred30,4,,,,MIRROR,POST1997,2013_polish|shred30|4
+2013_polish,shred30,Shred30,5,,,,MIRROR,POST1997,2013_polish|shred30|5
 2013_polish,shred30,Shred30,6,,,,MIRROR,POST1997,2013_polish|shred30|6
+2013_polish,shred30,Shred30,7,,,,MIRROR,POST1997,2013_polish|shred30|7
 2013_polish,shred30,Shred30,8,,,,MIRROR,POST1997,2013_polish|shred30|8
+2013_polish,shred30,Shred30,9,,,,MIRROR,POST1997,2013_polish|shred30|9
 2013_polish,shred30,Shred30,10,,,,MIRROR,POST1997,2013_polish|shred30|10
+2013_polish,shred30,Shred30,11,,,,MIRROR,POST1997,2013_polish|shred30|11
+2013_polish,sick_3,Sick 3,1,,,,MIRROR,POST1997,2013_polish|sick_3|1
 2013_polish,sick_3,Sick 3,2,,,,MIRROR,POST1997,2013_polish|sick_3|2
 2013_polish,sick_3,Sick 3,3,,,,MIRROR,POST1997,2013_polish|sick_3|3
 2013_polish,sick_3,Sick 3,4,,,,MIRROR,POST1997,2013_polish|sick_3|4
@@ -18173,6 +18325,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2013_polish,sick_3,Sick 3,8,,,,MIRROR,POST1997,2013_polish|sick_3|8
 2013_polish,sick_3,Sick 3,9,,,,MIRROR,POST1997,2013_polish|sick_3|9
 2013_polish,sick_3,Sick 3,10,,,,MIRROR,POST1997,2013_polish|sick_3|10
+2013_polish,sick_3,Sick 3,11,,,,MIRROR,POST1997,2013_polish|sick_3|11
 2013_polish,women_singles_routines,Women Singles Routines,1,,,,MIRROR,POST1997,2013_polish|women_singles_routines|1
 2013_polish,women_singles_routines,Women Singles Routines,2,,,,MIRROR,POST1997,2013_polish|women_singles_routines|2
 2013_sixth_windy_city,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2013_sixth_windy_city|open_doubles_net|1
@@ -18647,6 +18800,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_eastregion,intermediate_circle_contest,Intermediate Circle Contest,2,,,,MIRROR,POST1997,2014_eastregion|intermediate_circle_contest|2
 2014_eastregion,intermediate_circle_contest,Intermediate Circle Contest,3,,,,MIRROR,POST1997,2014_eastregion|intermediate_circle_contest|3
 2014_eastregion,intermediate_circle_contest,Intermediate Circle Contest,4,,,,MIRROR,POST1997,2014_eastregion|intermediate_circle_contest|4
+2014_eastregion,intermediate_circle_contest,Intermediate Circle Contest,5,,,,MIRROR,POST1997,2014_eastregion|intermediate_circle_contest|5
 2014_eastregion,intermediate_routines,Intermediate Routines,1,,,,MIRROR,POST1997,2014_eastregion|intermediate_routines|1
 2014_eastregion,intermediate_routines,Intermediate Routines,2,,,,MIRROR,POST1997,2014_eastregion|intermediate_routines|2
 2014_eastregion,intermediate_routines,Intermediate Routines,3,,,,MIRROR,POST1997,2014_eastregion|intermediate_routines|3
@@ -18658,6 +18812,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_eastregion,open_circle_contest,Open Circle Contest,2,,,,MIRROR,POST1997,2014_eastregion|open_circle_contest|2
 2014_eastregion,open_circle_contest,Open Circle Contest,3,,,,MIRROR,POST1997,2014_eastregion|open_circle_contest|3
 2014_eastregion,open_circle_contest,Open Circle Contest,4,,,,MIRROR,POST1997,2014_eastregion|open_circle_contest|4
+2014_eastregion,open_circle_contest,Open Circle Contest,5,,,,MIRROR,POST1997,2014_eastregion|open_circle_contest|5
 2014_eastregion,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2014_eastregion|open_doubles_net|1
 2014_eastregion,open_doubles_net,Open Doubles Net,2,,,,MIRROR,POST1997,2014_eastregion|open_doubles_net|2
 2014_eastregion,open_doubles_net,Open Doubles Net,3,,,,MIRROR,POST1997,2014_eastregion|open_doubles_net|3
@@ -18976,9 +19131,18 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_polish,intermediate_net,Intermediate Net,1,,,,MIRROR,POST1997,2014_polish|intermediate_net|1
 2014_polish,intermediate_net,Intermediate Net,2,,,,MIRROR,POST1997,2014_polish|intermediate_net|2
 2014_polish,intermediate_net,Intermediate Net,3,,,,MIRROR,POST1997,2014_polish|intermediate_net|3
+2014_polish,open_2_square,Open 2-Square,1,,,,MIRROR,POST1997,2014_polish|open_2_square|1
+2014_polish,open_2_square,Open 2-Square,2,,,,MIRROR,POST1997,2014_polish|open_2_square|2
+2014_polish,open_2_square,Open 2-Square,3,,,,MIRROR,POST1997,2014_polish|open_2_square|3
+2014_polish,open_2_square,Open 2-Square,4,,,,MIRROR,POST1997,2014_polish|open_2_square|4
+2014_polish,open_circle_contest,Open Circle Contest,1,,,,MIRROR,POST1997,2014_polish|open_circle_contest|1
+2014_polish,open_circle_contest,Open Circle Contest,4,,,,MIRROR,POST1997,2014_polish|open_circle_contest|4
 2014_polish,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2014_polish|open_doubles_net|1
 2014_polish,open_doubles_net,Open Doubles Net,2,,,,MIRROR,POST1997,2014_polish|open_doubles_net|2
 2014_polish,open_doubles_net,Open Doubles Net,3,,,,MIRROR,POST1997,2014_polish|open_doubles_net|3
+2014_polish,open_rippin_run,Open Rippin' Run,1,,,,MIRROR,POST1997,2014_polish|open_rippin_run|1
+2014_polish,open_rippin_run,Open Rippin' Run,2,,,,MIRROR,POST1997,2014_polish|open_rippin_run|2
+2014_polish,open_rippin_run,Open Rippin' Run,3,,,,MIRROR,POST1997,2014_polish|open_rippin_run|3
 2014_polish,open_routine,Open Routine,1,,,,MIRROR,POST1997,2014_polish|open_routine|1
 2014_polish,open_routine,Open Routine,2,,,,MIRROR,POST1997,2014_polish|open_routine|2
 2014_polish,open_routine,Open Routine,3,,,,MIRROR,POST1997,2014_polish|open_routine|3
@@ -18986,6 +19150,21 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_polish,open_routine,Open Routine,5,,,,MIRROR,POST1997,2014_polish|open_routine|5
 2014_polish,open_routine,Open Routine,6,,,,MIRROR,POST1997,2014_polish|open_routine|6
 2014_polish,open_routine,Open Routine,7,,,,MIRROR,POST1997,2014_polish|open_routine|7
+2014_polish,open_sick_trick,Open Sick Trick,1,,,,MIRROR,POST1997,2014_polish|open_sick_trick|1
+2014_polish,open_sick_trick,Open Sick Trick,2,,,,MIRROR,POST1997,2014_polish|open_sick_trick|2
+2014_polish,open_sick_trick,Open Sick Trick,4,,,,MIRROR,POST1997,2014_polish|open_sick_trick|4
+2014_polish,open_sick_trick,Open Sick Trick,5,,,,MIRROR,POST1997,2014_polish|open_sick_trick|5
+2014_polish,open_sick_trick,Open Sick Trick,6,,,,MIRROR,POST1997,2014_polish|open_sick_trick|6
+2014_polish,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,2014_polish|open_singles_net|1
+2014_polish,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,2014_polish|open_singles_net|2
+2014_polish,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,2014_polish|open_singles_net|3
+2014_polish,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2014_polish|open_singles_routines|1
+2014_polish,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2014_polish|open_singles_routines|2
+2014_polish,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2014_polish|open_singles_routines|3
+2014_polish,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2014_polish|open_singles_routines|4
+2014_polish,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2014_polish|open_singles_routines|5
+2014_polish,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2014_polish|open_singles_routines|6
+2014_polish,open_singles_routines,Open Singles Routines,8,,,,MIRROR,POST1997,2014_polish|open_singles_routines|8
 2014_polish,request_contest,Request Contest,1,,,,MIRROR,POST1997,2014_polish|request_contest|1
 2014_polish,request_contest,Request Contest,2,,,,MIRROR,POST1997,2014_polish|request_contest|2
 2014_polish,request_contest,Request Contest,3,,,,MIRROR,POST1997,2014_polish|request_contest|3
@@ -19009,6 +19188,8 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_polish,unknown,Unknown,4,,,,MIRROR,POST1997,2014_polish|unknown|4
 2014_polish,women_freestyle,Women Freestyle,1,,,,MIRROR,POST1997,2014_polish|women_freestyle|1
 2014_polish,women_freestyle,Women Freestyle,2,,,,MIRROR,POST1997,2014_polish|women_freestyle|2
+2014_polish,womens_singles_routines,Women's Singles Routines,1,,,,MIRROR,POST1997,2014_polish|womens_singles_routines|1
+2014_polish,womens_singles_routines,Women's Singles Routines,2,,,,MIRROR,POST1997,2014_polish|womens_singles_routines|2
 2014_rnh_winter_contest,doubles_net,Doubles Net,1,,,,MIRROR,POST1997,2014_rnh_winter_contest|doubles_net|1
 2014_rnh_winter_contest,doubles_net,Doubles Net,2,,,,MIRROR,POST1997,2014_rnh_winter_contest|doubles_net|2
 2014_rnh_winter_contest,doubles_net,Doubles Net,3,,,,MIRROR,POST1997,2014_rnh_winter_contest|doubles_net|3
@@ -19132,6 +19313,8 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_u_s,intermediate_doubles_net,Intermediate Doubles Net,4,,,,MIRROR,POST1997,2014_u_s|intermediate_doubles_net|4
 2014_u_s,intermediate_singles_net,Intermediate Singles Net,1,,,,MIRROR,POST1997,2014_u_s|intermediate_singles_net|1
 2014_u_s,intermediate_singles_net,Intermediate Singles Net,2,,,,MIRROR,POST1997,2014_u_s|intermediate_singles_net|2
+2014_u_s,intermediate_singles_net,Intermediate Singles Net,3,,,,MIRROR,POST1997,2014_u_s|intermediate_singles_net|3
+2014_u_s,intermediate_singles_net,Intermediate Singles Net,5,,,,MIRROR,POST1997,2014_u_s|intermediate_singles_net|5
 2014_u_s,intermediate_singles_routines,Intermediate Singles Routines,1,,,,MIRROR,POST1997,2014_u_s|intermediate_singles_routines|1
 2014_u_s,intermediate_singles_routines,Intermediate Singles Routines,2,,,,MIRROR,POST1997,2014_u_s|intermediate_singles_routines|2
 2014_u_s,mixed_doubles_net,Mixed Doubles Net,1,,,,MIRROR,POST1997,2014_u_s|mixed_doubles_net|1
@@ -19153,6 +19336,11 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_u_s,open_doubles_net,Open Doubles Net,5,,,,MIRROR,POST1997,2014_u_s|open_doubles_net|5
 2014_u_s,open_doubles_net,Open Doubles Net,6,,,,MIRROR,POST1997,2014_u_s|open_doubles_net|6
 2014_u_s,open_doubles_net,Open Doubles Net,7,,,,MIRROR,POST1997,2014_u_s|open_doubles_net|7
+2014_u_s,open_sick_3,Open Sick 3,1,,,,MIRROR,POST1997,2014_u_s|open_sick_3|1
+2014_u_s,open_sick_3,Open Sick 3,2,,,,MIRROR,POST1997,2014_u_s|open_sick_3|2
+2014_u_s,open_sick_3,Open Sick 3,3,,,,MIRROR,POST1997,2014_u_s|open_sick_3|3
+2014_u_s,open_sick_3,Open Sick 3,4,,,,MIRROR,POST1997,2014_u_s|open_sick_3|4
+2014_u_s,open_sick_3,Open Sick 3,5,,,,MIRROR,POST1997,2014_u_s|open_sick_3|5
 2014_u_s,open_sick_trick,Open Sick Trick,1,,,,MIRROR,POST1997,2014_u_s|open_sick_trick|1
 2014_u_s,open_sick_trick,Open Sick Trick,2,,,,MIRROR,POST1997,2014_u_s|open_sick_trick|2
 2014_u_s,open_sick_trick,Open Sick Trick,3,,,,MIRROR,POST1997,2014_u_s|open_sick_trick|3
@@ -19161,6 +19349,10 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_u_s,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,2014_u_s|open_singles_net|1
 2014_u_s,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,2014_u_s|open_singles_net|2
 2014_u_s,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,2014_u_s|open_singles_net|3
+2014_u_s,open_singles_net,Open Singles Net,4,,,,MIRROR,POST1997,2014_u_s|open_singles_net|4
+2014_u_s,open_singles_net,Open Singles Net,5,,,,MIRROR,POST1997,2014_u_s|open_singles_net|5
+2014_u_s,open_singles_net,Open Singles Net,6,,,,MIRROR,POST1997,2014_u_s|open_singles_net|6
+2014_u_s,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2014_u_s|open_singles_net|7
 2014_u_s,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2014_u_s|open_singles_routines|1
 2014_u_s,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2014_u_s|open_singles_routines|2
 2014_u_s,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2014_u_s|open_singles_routines|3
@@ -19168,6 +19360,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2014_u_s,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2014_u_s|open_singles_routines|5
 2014_u_s,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2014_u_s|open_singles_routines|6
 2014_u_s,womens_singles_net,Women's Singles Net,1,,,,MIRROR,POST1997,2014_u_s|womens_singles_net|1
+2014_u_s,womens_singles_net,Women's Singles Net,2,,,,MIRROR,POST1997,2014_u_s|womens_singles_net|2
 2014_worlds_paris,intermediate_singles_routines,Intermediate Singles Routines,1,,,,MIRROR,POST1997,2014_worlds_paris|intermediate_singles_routines|1
 2014_worlds_paris,intermediate_singles_routines,Intermediate Singles Routines,2,,,,MIRROR,POST1997,2014_worlds_paris|intermediate_singles_routines|2
 2014_worlds_paris,intermediate_singles_routines,Intermediate Singles Routines,3,,,,MIRROR,POST1997,2014_worlds_paris|intermediate_singles_routines|3
@@ -21253,9 +21446,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2017_mud_belt_memphis,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2017_mud_belt_memphis|open_singles_net|7
 2017_mud_belt_memphis,open_singles_net,Open Singles Net,8,,,,MIRROR,POST1997,2017_mud_belt_memphis|open_singles_net|8
 2017_mud_belt_memphis,open_singles_net,Open Singles Net,9,,,,MIRROR,POST1997,2017_mud_belt_memphis|open_singles_net|9
+2017_polish,2_square,2 Square,1,,,,MIRROR,POST1997,2017_polish|2_square|1
+2017_polish,2_square,2 Square,2,,,,MIRROR,POST1997,2017_polish|2_square|2
 2017_polish,2_square,2 Square,3,,,,MIRROR,POST1997,2017_polish|2_square|3
+2017_polish,2_square,2 Square,4,,,,MIRROR,POST1997,2017_polish|2_square|4
 2017_polish,2_square,2 Square,5,,,,MIRROR,POST1997,2017_polish|2_square|5
 2017_polish,2_square,2 Square,6,,,,MIRROR,POST1997,2017_polish|2_square|6
+2017_polish,2_square,2 Square,7,,,,MIRROR,POST1997,2017_polish|2_square|7
+2017_polish,circle_contest,Circle Contest,1,,,,MIRROR,POST1997,2017_polish|circle_contest|1
 2017_polish,circle_contest,Circle Contest,2,,,,MIRROR,POST1997,2017_polish|circle_contest|2
 2017_polish,circle_contest,Circle Contest,3,,,,MIRROR,POST1997,2017_polish|circle_contest|3
 2017_polish,circle_contest,Circle Contest,4,,,,MIRROR,POST1997,2017_polish|circle_contest|4
@@ -21263,12 +21461,17 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2017_polish,circle_contest,Circle Contest,6,,,,MIRROR,POST1997,2017_polish|circle_contest|6
 2017_polish,footbag_golf,Footbag Golf,1,,,,MIRROR,POST1997,2017_polish|footbag_golf|1
 2017_polish,footbag_golf,Footbag Golf,2,,,,MIRROR,POST1997,2017_polish|footbag_golf|2
+2017_polish,footbag_golf,Footbag Golf,3,,,,MIRROR,POST1997,2017_polish|footbag_golf|3
 2017_polish,footbag_golf,Footbag Golf,4,,,,MIRROR,POST1997,2017_polish|footbag_golf|4
 2017_polish,footbag_golf,Footbag Golf,5,,,,MIRROR,POST1997,2017_polish|footbag_golf|5
 2017_polish,footbag_golf,Footbag Golf,6,,,,MIRROR,POST1997,2017_polish|footbag_golf|6
+2017_polish,footbag_golf,Footbag Golf,7,,,,MIRROR,POST1997,2017_polish|footbag_golf|7
 2017_polish,footbag_golf,Footbag Golf,8,,,,MIRROR,POST1997,2017_polish|footbag_golf|8
+2017_polish,footbag_golf,Footbag Golf,9,,,,MIRROR,POST1997,2017_polish|footbag_golf|9
 2017_polish,open_battle,Open Battle,1,,,,MIRROR,POST1997,2017_polish|open_battle|1
 2017_polish,open_battle,Open Battle,2,,,,MIRROR,POST1997,2017_polish|open_battle|2
+2017_polish,open_battle,Open Battle,3,,,,MIRROR,POST1997,2017_polish|open_battle|3
+2017_polish,open_battle,Open Battle,4,,,,MIRROR,POST1997,2017_polish|open_battle|4
 2017_polish,open_battle,Open Battle,5,,,,MIRROR,POST1997,2017_polish|open_battle|5
 2017_polish,open_battle,Open Battle,6,,,,MIRROR,POST1997,2017_polish|open_battle|6
 2017_polish,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2017_polish|open_doubles_net|1
@@ -21279,29 +21482,40 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2017_polish,open_doubles_net,Open Doubles Net,6,,,,MIRROR,POST1997,2017_polish|open_doubles_net|6
 2017_polish,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,2017_polish|open_singles_net|1
 2017_polish,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,2017_polish|open_singles_net|2
+2017_polish,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,2017_polish|open_singles_net|3
 2017_polish,open_singles_net,Open Singles Net,4,,,,MIRROR,POST1997,2017_polish|open_singles_net|4
 2017_polish,open_singles_net,Open Singles Net,5,,,,MIRROR,POST1997,2017_polish|open_singles_net|5
+2017_polish,open_singles_net,Open Singles Net,6,,,,MIRROR,POST1997,2017_polish|open_singles_net|6
 2017_polish,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2017_polish|open_singles_net|7
+2017_polish,open_singles_net,Open Singles Net,8,,,,MIRROR,POST1997,2017_polish|open_singles_net|8
 2017_polish,open_singles_net,Open Singles Net,9,,,,MIRROR,POST1997,2017_polish|open_singles_net|9
 2017_polish,open_singles_net,Open Singles Net,10,,,,MIRROR,POST1997,2017_polish|open_singles_net|10
+2017_polish,open_singles_net,Open Singles Net,11,,,,MIRROR,POST1997,2017_polish|open_singles_net|11
+2017_polish,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,2017_polish|open_singles_routines|1
 2017_polish,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,2017_polish|open_singles_routines|2
 2017_polish,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,2017_polish|open_singles_routines|3
 2017_polish,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,2017_polish|open_singles_routines|4
 2017_polish,open_singles_routines,Open Singles Routines,5,,,,MIRROR,POST1997,2017_polish|open_singles_routines|5
+2017_polish,open_singles_routines,Open Singles Routines,6,,,,MIRROR,POST1997,2017_polish|open_singles_routines|6
 2017_polish,open_singles_routines,Open Singles Routines,7,,,,MIRROR,POST1997,2017_polish|open_singles_routines|7
 2017_polish,open_singles_routines,Open Singles Routines,8,,,,MIRROR,POST1997,2017_polish|open_singles_routines|8
+2017_polish,open_singles_routines,Open Singles Routines,9,,,,MIRROR,POST1997,2017_polish|open_singles_routines|9
 2017_polish,request_contest,Request Contest,1,,,,MIRROR,POST1997,2017_polish|request_contest|1
 2017_polish,request_contest,Request Contest,2,,,,MIRROR,POST1997,2017_polish|request_contest|2
+2017_polish,request_contest,Request Contest,3,,,,MIRROR,POST1997,2017_polish|request_contest|3
 2017_polish,request_contest,Request Contest,4,,,,MIRROR,POST1997,2017_polish|request_contest|4
+2017_polish,request_contest,Request Contest,5,,,,MIRROR,POST1997,2017_polish|request_contest|5
 2017_polish,request_contest,Request Contest,6,,,,MIRROR,POST1997,2017_polish|request_contest|6
 2017_polish,request_contest,Request Contest,7,,,,MIRROR,POST1997,2017_polish|request_contest|7
 2017_polish,request_contest,Request Contest,8,,,,MIRROR,POST1997,2017_polish|request_contest|8
 2017_polish,request_contest,Request Contest,9,,,,MIRROR,POST1997,2017_polish|request_contest|9
+2017_polish,shred_30,Shred 30,1,,,,MIRROR,POST1997,2017_polish|shred_30|1
 2017_polish,shred_30,Shred 30,2,,,,MIRROR,POST1997,2017_polish|shred_30|2
 2017_polish,shred_30,Shred 30,3,,,,MIRROR,POST1997,2017_polish|shred_30|3
 2017_polish,shred_30,Shred 30,4,,,,MIRROR,POST1997,2017_polish|shred_30|4
 2017_polish,shred_30,Shred 30,5,,,,MIRROR,POST1997,2017_polish|shred_30|5
 2017_polish,shred_30,Shred 30,6,,,,MIRROR,POST1997,2017_polish|shred_30|6
+2017_polish,sick_3,Sick 3,1,,,,MIRROR,POST1997,2017_polish|sick_3|1
 2017_polish,sick_3,Sick 3,2,,,,MIRROR,POST1997,2017_polish|sick_3|2
 2017_polish,sick_3,Sick 3,3,,,,MIRROR,POST1997,2017_polish|sick_3|3
 2017_polish,sick_3,Sick 3,4,,,,MIRROR,POST1997,2017_polish|sick_3|4
@@ -21838,6 +22052,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2018_worlds_sofia,doubles_freestyle_battles,Doubles Freestyle Battles,1,,,,MIRROR,POST1997,2018_worlds_sofia|doubles_freestyle_battles|1
 2018_worlds_sofia,doubles_freestyle_battles,Doubles Freestyle Battles,2,,,,MIRROR,POST1997,2018_worlds_sofia|doubles_freestyle_battles|2
 2018_worlds_sofia,intermediate_singles_net,Intermediate Singles Net,1,,,,MIRROR,POST1997,2018_worlds_sofia|intermediate_singles_net|1
+2018_worlds_sofia,intermediate_singles_net,Intermediate Singles Net,2,,,,MIRROR,POST1997,2018_worlds_sofia|intermediate_singles_net|2
 2018_worlds_sofia,intermediate_singles_net,Intermediate Singles Net,3,,,,MIRROR,POST1997,2018_worlds_sofia|intermediate_singles_net|3
 2018_worlds_sofia,intermediate_singles_net,Intermediate Singles Net,4,,,,MIRROR,POST1997,2018_worlds_sofia|intermediate_singles_net|4
 2018_worlds_sofia,intermediate_singles_net,Intermediate Singles Net,5,,,,MIRROR,POST1997,2018_worlds_sofia|intermediate_singles_net|5
@@ -21885,6 +22100,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2018_worlds_sofia,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|7
 2018_worlds_sofia,open_singles_net,Open Singles Net,8,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|8
 2018_worlds_sofia,open_singles_net,Open Singles Net,9,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|9
+2018_worlds_sofia,open_singles_net,Open Singles Net,10,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|10
 2018_worlds_sofia,open_singles_net,Open Singles Net,11,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|11
 2018_worlds_sofia,open_singles_net,Open Singles Net,12,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|12
 2018_worlds_sofia,open_singles_net,Open Singles Net,13,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|13
@@ -21896,6 +22112,8 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2018_worlds_sofia,open_singles_net,Open Singles Net,19,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|19
 2018_worlds_sofia,open_singles_net,Open Singles Net,20,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|20
 2018_worlds_sofia,open_singles_net,Open Singles Net,22,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|22
+2018_worlds_sofia,open_singles_net,Open Singles Net,25,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|25
+2018_worlds_sofia,open_singles_net,Open Singles Net,26,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|26
 2018_worlds_sofia,open_singles_net,Open Singles Net,27,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|27
 2018_worlds_sofia,open_singles_net,Open Singles Net,28,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|28
 2018_worlds_sofia,open_singles_net,Open Singles Net,29,,,,MIRROR,POST1997,2018_worlds_sofia|open_singles_net|29
@@ -21910,8 +22128,10 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2018_worlds_sofia,request_10,Request 10%,3,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|3
 2018_worlds_sofia,request_10,Request 10%,4,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|4
 2018_worlds_sofia,request_10,Request 10%,5,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|5
+2018_worlds_sofia,request_10,Request 10%,6,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|6
 2018_worlds_sofia,request_10,Request 10%,7,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|7
 2018_worlds_sofia,request_10,Request 10%,8,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|8
+2018_worlds_sofia,request_10,Request 10%,9,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|9
 2018_worlds_sofia,request_10,Request 10%,10,,,,MIRROR,POST1997,2018_worlds_sofia|request_10|10
 2018_worlds_sofia,request_contest,Request Contest,1,,,,MIRROR,POST1997,2018_worlds_sofia|request_contest|1
 2018_worlds_sofia,request_contest,Request Contest,2,,,,MIRROR,POST1997,2018_worlds_sofia|request_contest|2
@@ -22366,7 +22586,26 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2019_rnh_anniversary,open_doubles_net,Open Doubles Net,10,,,,MIRROR,POST1997,2019_rnh_anniversary|open_doubles_net|10
 2019_rnh_anniversary,open_doubles_net,Open Doubles Net,11,,,,MIRROR,POST1997,2019_rnh_anniversary|open_doubles_net|11
 2019_rnh_anniversary,open_doubles_net,Open Doubles Net,12,,,,MIRROR,POST1997,2019_rnh_anniversary|open_doubles_net|12
+2019_rnh_anniversary,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|1
+2019_rnh_anniversary,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|2
+2019_rnh_anniversary,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|3
+2019_rnh_anniversary,open_singles_net,Open Singles Net,4,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|4
+2019_rnh_anniversary,open_singles_net,Open Singles Net,5,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|5
+2019_rnh_anniversary,open_singles_net,Open Singles Net,6,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|6
+2019_rnh_anniversary,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|7
+2019_rnh_anniversary,open_singles_net,Open Singles Net,8,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|8
+2019_rnh_anniversary,open_singles_net,Open Singles Net,9,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|9
+2019_rnh_anniversary,open_singles_net,Open Singles Net,10,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|10
+2019_rnh_anniversary,open_singles_net,Open Singles Net,11,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|11
+2019_rnh_anniversary,open_singles_net,Open Singles Net,12,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|12
+2019_rnh_anniversary,open_singles_net,Open Singles Net,13,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|13
 2019_rnh_anniversary,open_singles_net,Open Singles Net,14,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|14
+2019_rnh_anniversary,open_singles_net,Open Singles Net,15,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|15
+2019_rnh_anniversary,open_singles_net,Open Singles Net,16,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|16
+2019_rnh_anniversary,open_singles_net,Open Singles Net,17,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|17
+2019_rnh_anniversary,open_singles_net,Open Singles Net,18,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|18
+2019_rnh_anniversary,open_singles_net,Open Singles Net,19,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|19
+2019_rnh_anniversary,open_singles_net,Open Singles Net,20,,,,MIRROR,POST1997,2019_rnh_anniversary|open_singles_net|20
 2019_rnh_contest,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,2019_rnh_contest|open_doubles_net|1
 2019_rnh_contest,open_doubles_net,Open Doubles Net,2,,,,MIRROR,POST1997,2019_rnh_contest|open_doubles_net|2
 2019_rnh_contest,open_doubles_net,Open Doubles Net,3,,,,MIRROR,POST1997,2019_rnh_contest|open_doubles_net|3
@@ -22442,6 +22681,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2019_worlds_warsaw,doubles_freestyle_routines,Doubles Freestyle Routines,2,,,,MIRROR,POST1997,2019_worlds_warsaw|doubles_freestyle_routines|2
 2019_worlds_warsaw,doubles_freestyle_routines,Doubles Freestyle Routines,3,,,,MIRROR,POST1997,2019_worlds_warsaw|doubles_freestyle_routines|3
 2019_worlds_warsaw,footbag_golf,Footbag Golf,1,,,,MIRROR,POST1997,2019_worlds_warsaw|footbag_golf|1
+2019_worlds_warsaw,footbag_golf,Footbag Golf,2,,,,MIRROR,POST1997,2019_worlds_warsaw|footbag_golf|2
 2019_worlds_warsaw,footbag_golf,Footbag Golf,3,,,,MIRROR,POST1997,2019_worlds_warsaw|footbag_golf|3
 2019_worlds_warsaw,intermediate_circle,Intermediate Circle,1,,,,MIRROR,POST1997,2019_worlds_warsaw|intermediate_circle|1
 2019_worlds_warsaw,intermediate_circle,Intermediate Circle,2,,,,MIRROR,POST1997,2019_worlds_warsaw|intermediate_circle|2
@@ -22517,6 +22757,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2019_worlds_warsaw,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,2019_worlds_warsaw|open_singles_net|1
 2019_worlds_warsaw,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,2019_worlds_warsaw|open_singles_net|2
 2019_worlds_warsaw,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,2019_worlds_warsaw|open_singles_net|3
+2019_worlds_warsaw,open_singles_net,Open Singles Net,4,,,,MIRROR,POST1997,2019_worlds_warsaw|open_singles_net|4
 2019_worlds_warsaw,open_singles_net,Open Singles Net,5,,,,MIRROR,POST1997,2019_worlds_warsaw|open_singles_net|5
 2019_worlds_warsaw,open_singles_net,Open Singles Net,6,,,,MIRROR,POST1997,2019_worlds_warsaw|open_singles_net|6
 2019_worlds_warsaw,open_singles_net,Open Singles Net,7,,,,MIRROR,POST1997,2019_worlds_warsaw|open_singles_net|7
@@ -23790,6 +24031,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2023_xxiii_polish_warsaw,doubles_net,Doubles Net,3,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|doubles_net|3
 2023_xxiii_polish_warsaw,doubles_net,Doubles Net,4,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|doubles_net|4
 2023_xxiii_polish_warsaw,doubles_net,Doubles Net,5,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|doubles_net|5
+2023_xxiii_polish_warsaw,footbag_golf,Footbag Golf,1,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|footbag_golf|1
 2023_xxiii_polish_warsaw,footbag_golf,Footbag Golf,2,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|footbag_golf|2
 2023_xxiii_polish_warsaw,footbag_golf,Footbag Golf,3,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|footbag_golf|3
 2023_xxiii_polish_warsaw,freestyle_overall,Freestyle Overall,1,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|freestyle_overall|1
@@ -23803,6 +24045,7 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2023_xxiii_polish_warsaw,freestyle_overall,Freestyle Overall,11,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|freestyle_overall|11
 2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,1,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|last_man_standing|1
 2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,2,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|last_man_standing|2
+2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,3,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|last_man_standing|3
 2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,4,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|last_man_standing|4
 2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,5,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|last_man_standing|5
 2023_xxiii_polish_warsaw,last_man_standing,Last Man Standing,6,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|last_man_standing|6
@@ -23829,11 +24072,14 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 2023_xxiii_polish_warsaw,sick3,Sick3,7,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|sick3|7
 2023_xxiii_polish_warsaw,sick3,Sick3,8,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|sick3|8
 2023_xxiii_polish_warsaw,sick3,Sick3,9,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|sick3|9
+2023_xxiii_polish_warsaw,sick3,Sick3,10,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|sick3|10
 2023_xxiii_polish_warsaw,singles_net,Singles Net,1,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|1
 2023_xxiii_polish_warsaw,singles_net,Singles Net,2,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|2
 2023_xxiii_polish_warsaw,singles_net,Singles Net,3,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|3
+2023_xxiii_polish_warsaw,singles_net,Singles Net,4,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|4
 2023_xxiii_polish_warsaw,singles_net,Singles Net,5,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|5
 2023_xxiii_polish_warsaw,singles_net,Singles Net,6,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|6
+2023_xxiii_polish_warsaw,singles_net,Singles Net,7,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|7
 2023_xxiii_polish_warsaw,singles_net,Singles Net,8,,,,MIRROR,POST1997,2023_xxiii_polish_warsaw|singles_net|8
 2024_1era_copa_altos,open_doubles,Open Doubles,1,,,,MIRROR,POST1997,2024_1era_copa_altos|open_doubles|1
 2024_1era_copa_altos,open_doubles,Open Doubles,2,,,,MIRROR,POST1997,2024_1era_copa_altos|open_doubles|2
