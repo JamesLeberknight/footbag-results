@@ -28,10 +28,7 @@ Notes on ties:
   When multiple players/teams share a placement number, they all map to the same
   event_results row. participant_order increments sequentially across ALL participants
   at that placement slot regardless of team_type (e.g., two tied singles players →
-  orders 1,2; two tied doubles teams → orders 1,2,3,4). The composite key
-  (event_key, discipline_key, placement, participant_order) is always unique.
-  The DB loader can reconstruct team membership using team_person_key (partners share
-  the same key) and the team_type field from event_disciplines.csv.
+  orders 1,2; two tied doubles teams → orders 1,2,3,4).
 
 Notes on unresolved persons:
   Participants without a person_id in Persons_Truth appear with person_id="" and
@@ -941,9 +938,9 @@ for row in sorted_rows:
     #     (team_person_key groups partners; consumers group by tpk to reconstruct teams)
     # Dedup: skip rows where the same (disc_key, place, person_name) has already
     #        been emitted — PBP occasionally has resolved+unresolved duplicates.
-    emitted_results:    set[tuple[str, str, str]]       = set()
-    placement_counter:  dict[tuple[str, str, str], int] = defaultdict(int)
-    seen_participants:  set[tuple[str, str, str, str]]   = set()
+    emitted_results:   set[tuple[str, str, str]]       = set()
+    placement_counter: dict[tuple[str, str, str], int] = defaultdict(int)
+    seen_participants: set[tuple[str, str, str, str]]  = set()
 
     _UUID_RE = re.compile(
         r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', re.I
@@ -986,6 +983,8 @@ for row in sorted_rows:
             continue
 
         is_doubles  = div_meta.get(div, {}).get("team_type") == "doubles"
+        # Doubles: one result row per placement slot (teams share it).
+        # Singles: computed per-participant after dedup (each tied player gets own row).
         result_key  = (event_key, disc_key, place)
 
         if event_pbp:
@@ -1022,17 +1021,14 @@ for row in sorted_rows:
             else:
                 continue
 
-        # event_results.csv — one row per placement slot
-        if result_key not in emitted_results:
-            results_out.append({
-                "event_key":      event_key,
-                "discipline_key": disc_key,
-                "placement":      place,
-                "score_text":     "",
-                "notes":          "",
-                "source":         "",
-            })
-            emitted_results.add(result_key)
+        # event_results.csv + event_result_participants.csv
+        #
+        # All disciplines: participants at the same placement share ONE result row.
+        # participant_order counts all individual participants sequentially
+        # (doubles: 1,2 = first team; 3,4 = second tied team; etc.
+        #  singles: normally 1; ties produce 1,2 which is structurally valid for
+        #  legitimate ties but indicates contamination if OSR players bleed into
+        #  a different singles division).
 
         # event_result_participants.csv — one row per resolved individual
         for (m_name, m_pid, m_tpk) in entries:
@@ -1045,6 +1041,17 @@ for row in sorted_rows:
             if dedup_key in seen_participants:
                 continue
             seen_participants.add(dedup_key)
+
+            if result_key not in emitted_results:
+                results_out.append({
+                    "event_key":      event_key,
+                    "discipline_key": disc_key,
+                    "placement":      place,
+                    "score_text":     "",
+                    "notes":          "",
+                    "source":         "",
+                })
+                emitted_results.add(result_key)
 
             placement_counter[result_key] += 1
             participant_order = str(placement_counter[result_key])

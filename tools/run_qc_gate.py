@@ -404,11 +404,19 @@ def check_event_result_participants(
         n = int(row["_participant_count"])
 
         if team_type == "singles" and n != 1:
-            # Multiple participants at the same singles placement is a valid tie
-            # (source ties like 5,5,5,8 are preserved exactly from PBP).
-            # Structural duplicates are already caught by duplicate_participant_slot
-            # and duplicate_participant_same_result above; no separate check needed.
-            pass
+            # Shared-place in singles is a WARNING. Legitimate causes include:
+            #   - Tied scores in freestyle/golf: two players genuinely finish joint-Nth
+            #   - Pool-play / circle contest: heat-round shared places
+            # Contamination (e.g. OSR players leaking into a different singles division)
+            # must be fixed at the PBP data level. Downgraded from hard to warn so that
+            # pool-play and legitimate tie datasets are not incorrectly blocked.
+            collector.warn(
+                "team_row_in_singles_discipline",
+                f"Singles result has {n} participants at one placement slot "
+                f"(shared-place tie or pool-play)",
+                table=table,
+                context=f"event_key={row['event_key']} discipline_key={row['discipline_key']} placement={row['placement']}",
+            )
         elif team_type == "doubles" and n != 2:
             collector.hard(
                 "invalid_doubles_participant_count",
