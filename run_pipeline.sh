@@ -133,10 +133,10 @@ do_release() {
     require_venv
     require_stage2
 
-    step "Stage 02p5: apply identity lock (PT v50 / PBP v94)"
+    step "Stage 02p5: apply identity lock (PT v51 / PBP v95)"
     "$PYTHON" pipeline/02p5_player_token_cleanup.py \
-        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v94.csv \
-        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v50.csv \
+        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v95.csv \
+        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v51.csv \
         --out_dir                      out
 
     step "Stage 02p6: structural cleanup (artifact removal + pool-shadow fixes)"
@@ -220,10 +220,14 @@ do_merged() {
     step "Merged: build community workbook v17"
     "$PYTHON" tools/build_workbook_v17.py
 
+    step "Merged: export platform-compatible canonical CSVs → out/platform_release/"
+    "$PYTHON" tools/export_platform_canonical.py
+
     echo
     echo "Merged build complete."
     echo "  Canonical dataset:   out/canonical_all/"
     echo "  Release publication: out/release_publication/"
+    echo "  Platform release:    out/platform_release/"
     echo "  Community workbook:  Footbag_Results_Community_v17.xlsx"
     echo "  Merged workbook:     Footbag_Results_Merged_FINAL.xlsx"
     echo "  Merged viewer:       out/merged_event_viewer.html"
