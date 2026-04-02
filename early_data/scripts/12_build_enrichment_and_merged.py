@@ -164,8 +164,18 @@ def build_events_all(pre_events, post_events, post_results, exclude_post_event_i
 
     # Pre-1997 events
     for e in pre_events:
-        # Location: pre stores as single field
-        loc = e.get("location", "")
+        # Location: pre stores as single "City, Region" or "City, Region, Country" string.
+        # Split into structured fields; default country to "United States" when omitted.
+        loc = e.get("location", "") or ""
+        parts = [p.strip() for p in loc.split(",") if p.strip()]
+        if len(parts) == 3:
+            city, region, country = parts[0], parts[1], parts[2]
+        elif len(parts) == 2:
+            city, region, country = parts[0], parts[1], "United States"
+        elif len(parts) == 1:
+            city, region, country = "", parts[0], "United States"
+        else:
+            city = region = country = ""
         rows.append({
             "event_id":          e["canonical_event_id"],
             "event_name":        e["event_name"],
@@ -174,9 +184,9 @@ def build_events_all(pre_events, post_events, post_results, exclude_post_event_i
             "location":          loc,
             "start_date":        e.get("year", ""),   # only year-level for pre-1997
             "end_date":          "",
-            "city":              "",
-            "region":            "",
-            "country":           "",
+            "city":              city,
+            "region":            region,
+            "country":           country,
             "host_club":         "",
             "status":            "historical",
             "validation_status": e["validation_status"],

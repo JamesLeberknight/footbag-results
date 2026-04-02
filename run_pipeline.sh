@@ -133,10 +133,10 @@ do_release() {
     require_venv
     require_stage2
 
-    step "Stage 02p5: apply identity lock (PT v49 / PBP v93)"
+    step "Stage 02p5: apply identity lock (PT v50 / PBP v94)"
     "$PYTHON" pipeline/02p5_player_token_cleanup.py \
-        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v93.csv \
-        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v49.csv \
+        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v94.csv \
+        --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v50.csv \
         --out_dir                      out
 
     step "Stage 02p6: structural cleanup (artifact removal + pool-shadow fixes)"
@@ -210,11 +210,23 @@ do_merged() {
     step "Merged: render merged event comparison viewer"
     "$PYTHON" tools/event_comparison_viewerV10.py
 
+    step "Merged: seed release_publication/ from canonical_all/"
+    mkdir -p out/release_publication
+    cp out/canonical_all/*.csv out/release_publication/
+
+    step "Merged: filter release_publication/ + build canonical_pf"
+    "$PYTHON" tools/build_canonical_pf.py
+
+    step "Merged: build community workbook v17"
+    "$PYTHON" tools/build_workbook_v17.py
+
     echo
     echo "Merged build complete."
-    echo "  Canonical dataset: out/canonical_all/"
-    echo "  Merged workbook:   Footbag_Results_Merged_FINAL.xlsx"
-    echo "  Merged viewer:     out/merged_event_viewer.html"
+    echo "  Canonical dataset:   out/canonical_all/"
+    echo "  Release publication: out/release_publication/"
+    echo "  Community workbook:  Footbag_Results_Community_v17.xlsx"
+    echo "  Merged workbook:     Footbag_Results_Merged_FINAL.xlsx"
+    echo "  Merged viewer:       out/merged_event_viewer.html"
 }
 
 do_pre1997() {

@@ -15,11 +15,11 @@ For year >= 1997: all POST1997 events are kept unchanged.
 
 EVENT COUNTS
 ------------
-  Original merged events:           839
+  Original merged events:           840
   App-safe events:                  812
-  POST1997 early events suppressed: 27
-  POST1997 early events kept:       19
-  PRE1997 events:                   28
+  POST1997 early events suppressed: 28
+  POST1997 early events kept:       18
+  PRE1997 events:                   29
   POST1997 modern (>=1997):         765
 
 SUPPRESSED POST1997 EVENTS
@@ -51,6 +51,7 @@ SUPPRESSED POST1997 EVENTS
   1991 | 1991_worlds_vancouver               | World Footbag Championships 1991
   1992 | 1992_worlds_montreal                | World Footbag Championships 1992
   1994 | 1994_worlds_san_francisco           | World Footbag Championships 1994
+  1995 | 1995_worlds_menlo_park              | World Footbag Championships 1995
 
 KEPT POST1997 EARLY EVENTS (no PRE1997 equivalent)
 ---------------------------------------------------
@@ -72,7 +73,6 @@ KEPT POST1997 EARLY EVENTS (no PRE1997 equivalent)
   1990 | 1990_eastregion                     | East Coast Footbag Championships - 8th Annual - 1990
   1991 | 1991_eastregion                     | East Coast Footbag Championships - 1991 - 9th Annual
   1995 | 1995_eurochamp                      | European Open 1995
-  1995 | 1995_worlds_menlo_park              | World Footbag Championships 1995
 
 REFERENTIAL INTEGRITY
 ---------------------
@@ -88,24 +88,26 @@ EARLY CHAMPIONSHIP OVERLAP CHECK (app-safe)
   1980 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1980 National / World Footbag Championships
   1981 | NHSA_NATIONALS                 | PRE1997 | 1981 NHSA (Mike Marshall Memorial)
   1981 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1981 World Footbag Championships
-  1982 | NHSA_NATIONALS                 | PRE1997 | 1982 NHSA
+  1982 | NHSA_NATIONALS                 | PRE1997 | 1982 NHSA Nationals
   1982 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1982 World Footbag Championships
-  1983 | NHSA_NATIONALS                 | PRE1997 | 1983 NHSA
-  1983 | WFA_NATIONALS                  | PRE1997 | 1983 WFA
+  1983 | NHSA_NATIONALS                 | PRE1997 | 1983 NHSA Nationals
+  1983 | WFA_NATIONALS                  | PRE1997 | 1983 WFA Nationals
   1983 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1983 World Footbag Championships
-  1984 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1984
+  1984 | WORLD_CHAMPIONSHIPS            | PRE1997 | 1984 World Championships
   1984 | WFA_NATIONALS                  | PRE1997 | 1984 WFA National Championships
-  1985 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1985
+  1985 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1985 World Championships
   1985 | WFA_NATIONALS                  | PRE1997 | 1985 WFA National Championships
   1986 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1986 WFA World Championships
   1987 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1987 WFA World Championships
+  1988 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1988 WFA World Championships
   1989 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1989 WFA World Championships
   1990 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1990 WFA World Championships
   1991 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1991 WFA World Championships
   1992 | WFA_WORLD_CHAMPIONSHIPS        | PRE1997 | 1992 WFA World Championships
   1993 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1993 IFAB World Championships
   1994 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1994 IFAB World Championships
-  1996 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1996 World Footbag Championships
+  1995 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1995 IFAB World Championships
+  1996 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1996 IFAB World Championships
 
 No true duplicate championship overlaps remain in the app-safe view.
 (Multiple PRE1997 entries per year reflect distinct historical organizations.)

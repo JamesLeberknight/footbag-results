@@ -626,18 +626,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1996_worlds,Open Doubles,Open Doubles,2,,,,verified_new/worlds96.txt,PRE1997,e9abac0a1e
 1996_worlds,Open Doubles,Open Doubles,3,,,,verified_new/worlds96.txt,PRE1997,79698e054d
 1996_worlds,Open Doubles,Open Doubles,4,,,,verified_new/worlds96.txt,PRE1997,a4d928ea18
-montreal_1995_footbag_champs,Open Net Singles,Open Net Singles,1,,,,verified_new/worlds95.txt,PRE1997,f8f19d259d
-montreal_1995_footbag_champs,Open Net Singles,Open Net Singles,2,,,,verified_new/worlds95.txt,PRE1997,093e3431b9
-montreal_1995_footbag_champs,Open Net Singles,Open Net Singles,3,,,,verified_new/worlds95.txt,PRE1997,4f4ba7b000
-montreal_1995_footbag_champs,Open Net Doubles,Open Net Doubles,1,,,,verified_new/worlds95.txt,PRE1997,bc750b8ea0
-montreal_1995_footbag_champs,Open Net Doubles,Open Net Doubles,2,,,,verified_new/worlds95.txt,PRE1997,0915ab26cd
-montreal_1995_footbag_champs,Open Net Doubles,Open Net Doubles,3,,,,verified_new/worlds95.txt,PRE1997,0959696961
-montreal_1995_footbag_champs,Open Freestyle Singles,Open Freestyle Singles,1,,,,verified_new/worlds95.txt,PRE1997,c5b433092b
-montreal_1995_footbag_champs,Open Freestyle Singles,Open Freestyle Singles,2,,,,verified_new/worlds95.txt,PRE1997,1ef3297433
-montreal_1995_footbag_champs,Open Freestyle Singles,Open Freestyle Singles,3,,,,verified_new/worlds95.txt,PRE1997,72c42044af
-montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,1,,,,verified_new/worlds95.txt,PRE1997,ee983f0299
-montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,2,,,,verified_new/worlds95.txt,PRE1997,13ce8af2ef
-montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,verified_new/worlds95.txt,PRE1997,a13523a426
 1980_western_states,freestyle,Freestyle,2,,,,MIRROR,POST1997,1980_western_states|freestyle|2
 1980_western_states,freestyle,Freestyle,3,,,,MIRROR,POST1997,1980_western_states|freestyle|3
 1980_western_states,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,1980_western_states|open_doubles_net|1
@@ -836,7 +824,6 @@ montreal_1995_footbag_champs,Open Freestyle Doubles,Open Freestyle Doubles,3,,,,
 1991_eastregion,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,1991_eastregion|open_singles_net|2
 1991_eastregion,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,1991_eastregion|open_singles_net|3
 1995_eurochamp,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,1995_eurochamp|open_singles_net|1
-1995_worlds_menlo_park,freestyle,Freestyle,1,,,,MIRROR,POST1997,1995_worlds_menlo_park|freestyle|1
 1997_air_a_zona,mixed_doubles,Mixed Doubles,1,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|1
 1997_air_a_zona,mixed_doubles,Mixed Doubles,2,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|2
 1997_air_a_zona,mixed_doubles,Mixed Doubles,3,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|3
