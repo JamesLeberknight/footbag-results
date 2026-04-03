@@ -15,10 +15,10 @@ For year >= 1997: all POST1997 events are kept unchanged.
 
 EVENT COUNTS
 ------------
-  Original merged events:           840
+  Original merged events:           841
   App-safe events:                  812
   POST1997 early events suppressed: 28
-  POST1997 early events kept:       18
+  POST1997 early events kept:       19
   PRE1997 events:                   29
   POST1997 modern (>=1997):         765
 
@@ -73,6 +73,7 @@ KEPT POST1997 EARLY EVENTS (no PRE1997 equivalent)
   1990 | 1990_eastregion                     | East Coast Footbag Championships - 8th Annual - 1990
   1991 | 1991_eastregion                     | East Coast Footbag Championships - 1991 - 9th Annual
   1995 | 1995_eurochamp                      | European Open 1995
+  1996 | 1996_worlds_montreal                | 1996 World Footbag Championships
 
 REFERENTIAL INTEGRITY
 ---------------------
@@ -107,7 +108,6 @@ EARLY CHAMPIONSHIP OVERLAP CHECK (app-safe)
   1993 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1993 IFAB World Championships
   1994 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1994 IFAB World Championships
   1995 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1995 IFAB World Championships
-  1996 | IFAB_WORLD_CHAMPIONSHIPS       | PRE1997 | 1996 IFAB World Championships
 
 No true duplicate championship overlaps remain in the app-safe view.
 (Multiple PRE1997 entries per year reflect distinct historical organizations.)

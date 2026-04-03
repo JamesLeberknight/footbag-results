@@ -30,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 CA             = ROOT / "out" / "canonical_all"
+RP_EVENTS_CSV  = ROOT / "out" / "release_publication" / "events.csv"
 QUARANTINE_CSV = ROOT / "inputs" / "review_quarantine_events.csv"
 OUTPUT_PATH    = ROOT / "Footbag_Results_Community_v17.xlsx"
 
@@ -45,6 +46,7 @@ FILL_NONE    = PatternFill(fill_type=None)
 FILL_HEADER  = _fill("D9D9D9")
 FILL_SECTION = _fill("1F3864")
 FILL_WORLDS  = _fill("17375E")         # darker navy — worlds section dividers
+FILL_WORLDS_ROW = _fill("C9DCF0")     # light blue — worlds event rows in EVENT INDEX
 FILL_TITLE   = _fill("2E75B6")
 FILL_NET     = _fill("E2EFDA")
 FILL_FREE    = _fill("FFF2CC")
@@ -150,6 +152,92 @@ def _cat_fill(cat: str) -> PatternFill:
     if c == "freestyle": return FILL_FREE
     if c in ("golf", "sideline"): return FILL_GOLF
     return FILL_OTHER
+
+
+# ── Canonical ordering for year/event sheet layout ─────────────────────────────
+
+_CAT_ORDER: dict[str, int] = {
+    "OVERALL":     0,
+    "CONSECUTIVE": 1,
+    "NET":         2,
+    "FREESTYLE":   3,
+    "GOLF":        4,
+    "DISTANCE":    5,
+    "ACCURACY":    6,
+    "SIDELINE":    7,
+    "UNKNOWN":     8,
+}
+
+_DIV_ORDER: dict[str, dict[str, int]] = {
+    "OVERALL": {
+        "Men's Overall":              0,
+        "Open Overall":               1,
+        "Women's Overall":            2,
+        "Freestyle Overall":          3,
+        "Intermediate Overall":       4,
+        "Novice Overall":             5,
+    },
+    "CONSECUTIVE": {
+        "Open Singles Consecutive":       0,
+        "Open Doubles Consecutive":       1,
+        "Women's Singles Consecutive":    2,
+        "Women's Doubles Consecutive":    3,
+        "Intermediate Singles Consecutive": 4,
+        "Singles Consecutive":            5,
+        "Doubles Consecutive":            6,
+    },
+    "NET": {
+        "Open Singles Net":           0,
+        "Open Doubles Net":           1,
+        "Open Mixed Doubles Net":     2,
+        "Mixed Doubles Net":          3,
+        "Women's Singles Net":        4,
+        "Women's Doubles Net":        5,
+        "Intermediate Singles Net":   6,
+        "Intermediate Doubles Net":   7,
+    },
+    "FREESTYLE": {
+        "Open Singles Freestyle":         0,
+        "Open Singles Routines":          1,
+        "Women's Singles Freestyle":      2,
+        "Women's Singles Routines":       3,
+        "Intermediate Singles Freestyle": 4,
+        "Open Doubles Freestyle":         5,
+        "Open Team Freestyle":            6,
+        "Mixed Doubles Freestyle":        7,
+    },
+    "GOLF": {
+        "Open Golf":                  0,
+        "Open Singles Golf":          1,
+        "Open Doubles Golf":          2,
+        "Women's Golf":               3,
+        "Intermediate Golf":          4,
+        "Novice Golf":                5,
+    },
+}
+
+
+def _disc_sort_key(disc_name: str, disc_rec: dict) -> tuple:
+    """Sort key: canonical category order → canonical division order → alpha fallback."""
+    cat = disc_rec.get("category_canonical") or ""
+    div = disc_rec.get("division_canonical") or disc_name
+    cat_idx = _CAT_ORDER.get(cat, 99)
+    div_idx = _DIV_ORDER.get(cat, {}).get(div, 999)
+    return (cat_idx, div_idx, div.lower(), disc_name.lower())
+
+
+def _dedup_slot(slot_rows: list) -> list:
+    """Deduplicate participant rows by person_id, preserving order.
+    Rows with no person_id (unknowns) are kept once via object identity."""
+    seen: set = set()
+    result: list = []
+    for row in slot_rows:
+        pid = row.get("person_id", "").strip()
+        key = pid if pid else id(row)
+        if key not in seen:
+            seen.add(key)
+            result.append(row)
+    return result
 
 
 # ── Ranking helper ─────────────────────────────────────────────────────────────
@@ -414,6 +502,122 @@ def build_readme(wb: Workbook, events: dict, persons: dict, n_parts: int) -> Non
 
     ws.sheet_view.showGridLines = False
     print("  README done")
+
+
+# ── DATA NOTES sheet ─────────────────────────────────────────────────────────
+
+def build_data_notes(wb: Workbook) -> None:
+    ws = wb.create_sheet("DATA NOTES")
+    ws.column_dimensions["A"].width = 28
+    ws.column_dimensions["B"].width = 80
+    ws.sheet_view.showGridLines = False
+
+    _H  = Font(bold=True, size=12)
+    _SH = Font(bold=True, size=10)
+    _B  = Font(bold=True, size=10)
+    _N  = Font(size=10)
+    _SM = Font(size=9, italic=True, color="606060")
+
+    NOTES: list[tuple] = [
+        # (type, label, text)
+        ("title",  "DATA NOTES",        ""),
+        ("spacer", "", ""),
+
+        ("heading", "1. Worlds Classification", ""),
+        ("note",
+         "Early tournaments (1980–1983)",
+         "The NHSA and WFA held competitions widely recognized as de-facto World "
+         "Championships starting with the 1980 NHSA event. These are classified as "
+         "RETROACTIVE_WORLD_CHAMPIONSHIPS in the dataset. Beginning in 1984, the "
+         "WFA formalized the World Footbag Championships in Golden, CO; these and "
+         "all subsequent events are classified as OFFICIAL_WORLD_CHAMPIONSHIPS."),
+        ("note",
+         "NHSA / WFA / IFAB distinctions",
+         "Original organizational names (NHSA, WFA, IFAB) are preserved in "
+         "event_name and event_type. The worlds_classification field provides a "
+         "unified classification across all governing bodies."),
+        ("spacer", "", ""),
+
+        ("heading", "2. Net Ruleset Variants (Ultra / Advanced)", ""),
+        ("note",
+         "Ultra and Advanced",
+         "In the 1980s, Footbag Net was contested under two rule variants: "
+         "'Ultra' (highest-level open competition) and 'Advanced' (intermediate-level). "
+         "These are NOT separate divisions — they are rule variants of Net. "
+         "In this dataset, Ultra and Advanced divisions are canonicalized to their "
+         "standard Net equivalents (e.g., Open Singles Net, Open Doubles Net) and "
+         "the variant is recorded in the 'ruleset' field (ULTRA / ADVANCED). "
+         "The original division name is always preserved in 'division_raw'."),
+        ("spacer", "", ""),
+
+        ("heading", "3. Early Event Locations (1983–1984)", ""),
+        ("note",
+         "Year-level location assignment",
+         "For 1983 and 1984, all major tournaments are assigned a single host "
+         "location per year based on consolidated historical sources: "
+         "Portland, Oregon (1983) and Boulder, Colorado (1984). "
+         "This ensures consistency across overlapping NHSA/WFA/World Championship "
+         "classifications for those years where the same host city served all events."),
+        ("spacer", "", ""),
+
+        ("heading", "4. Coverage Policy", ""),
+        ("note",
+         "SPARSE events excluded",
+         "Events with fewer than 10 placements AND fewer than 2 disciplines are "
+         "classified as SPARSE and excluded from the EVENT INDEX and year sheets. "
+         "They remain in the full canonical dataset and are listed in the "
+         "'QC - EXCLUDED EVENTS' sheet for reference."),
+        ("note",
+         "Coverage levels",
+         "FULL = ≥20 placements and ≥3 disciplines (or multi-source confirmed). "
+         "PARTIAL = ≥10 placements or ≥2 disciplines. "
+         "SPARSE = any results but below PARTIAL threshold. "
+         "NO RESULTS = no placement data available."),
+        ("spacer", "", ""),
+
+        ("heading", "5. Known Limitations", ""),
+        ("note",
+         "Pre-1990 data",
+         "Results before 1990 are reconstructed from magazine scans (Footbag World) "
+         "and secondary sources. Coverage is partial; dates and locations may be "
+         "approximate. Original source references are preserved in the notes fields."),
+        ("note",
+         "Unresolved identities",
+         "Some competitor names could not be matched to a canonical person record "
+         "(single names, initials, ambiguous spelling). These appear with blank "
+         "person_id in the dataset and are excluded from player statistics."),
+        ("note",
+         "Limited source availability pre-1990",
+         "The historical record for events before 1990 is incomplete. Some events "
+         "have only top-3 or top-5 results; others have only the winner recorded. "
+         "Ongoing recovery efforts continue to improve early coverage."),
+    ]
+
+    row = 1
+    for kind, label, text in NOTES:
+        if kind == "title":
+            cell = ws.cell(row, 1, label)
+            cell.font = Font(bold=True, size=14)
+            ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=2)
+            row += 1
+        elif kind == "spacer":
+            row += 1
+        elif kind == "heading":
+            ws.cell(row, 1, label).font = _H
+            ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=2)
+            ws.cell(row, 1).fill = PatternFill("solid", fgColor="E8EEF4")
+            row += 1
+        elif kind == "note":
+            lc = ws.cell(row, 1, label)
+            lc.font = _B
+            lc.alignment = Alignment(vertical="top", wrap_text=True)
+            tc = ws.cell(row, 2, text)
+            tc.font = _N
+            tc.alignment = Alignment(vertical="top", wrap_text=True)
+            ws.row_dimensions[row].height = max(15, len(text) // 4)
+            row += 1
+
+    print("  DATA NOTES done")
 
 
 # ── STATISTICS sheet ──────────────────────────────────────────────────────────
@@ -724,7 +928,7 @@ def _coverage_level(ev: dict, n_discs: int, n_plc: int, is_quar: bool) -> str:
 
 def build_event_index(wb: Workbook, events: dict, discs: dict,
                       raw_results, quarantine: set,
-                      event_col_map: dict) -> None:
+                      event_col_map: dict, pub_eids: set) -> None:
     ws = wb.create_sheet("EVENT INDEX")
 
     headers = ["Year", "Event Name", "Location", "Event Type",
@@ -734,7 +938,7 @@ def build_event_index(wb: Workbook, events: dict, discs: dict,
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = "B2"   # freeze row 1 AND column A (Year)
 
-    row = _title_row(ws, 1, "EVENT INDEX — ALL DOCUMENTED EVENTS", ncols=len(headers))
+    row = _title_row(ws, 1, "EVENT INDEX — EVENTS WITH RESULTS", ncols=len(headers))
     row = _hrow(ws, row, *headers)
 
     placements_per_event: dict[str, int] = Counter(
@@ -756,6 +960,7 @@ def build_event_index(wb: Workbook, events: dict, discs: dict,
         "NO RESULTS":  FILL_OTHER,
     }
 
+    shown = 0
     for ev in sorted_events:
         eid     = ev["event_id"]
         status  = ev.get("status", "")
@@ -764,10 +969,19 @@ def build_event_index(wb: Workbook, events: dict, discs: dict,
         n_plc   = placements_per_event.get(eid, 0)
         src     = ev.get("source_types", ev.get("data_source", ""))
         cov     = _coverage_level(ev, n_discs, n_plc, is_quar)
-        notes   = "⛔ under review" if is_quar else (
-                  "no results published" if status == "no_results" else "")
 
-        row_fill = _COV_FILL.get(cov)
+        # Skip events not in publication whitelist (SPARSE / NO RESULTS excluded)
+        if eid not in pub_eids:
+            continue
+
+        notes   = "⛔ under review" if is_quar else ""
+
+        wc = ev.get("worlds_classification", "")
+        is_worlds = bool(wc) or ev.get("event_type", "").lower() == "worlds"
+        if is_worlds:
+            row_fill = FILL_WORLDS_ROW
+        else:
+            row_fill = _COV_FILL.get(cov)
 
         # Build event name cell — with hyperlink to year sheet if available
         name_val = ev.get("event_name", eid)
@@ -803,59 +1017,85 @@ def build_event_index(wb: Workbook, events: dict, discs: dict,
                     cell.font = FONT_LINK
 
         row += 1
+        shown += 1
 
     # Coverage level legend at bottom
     row += 1
     _w(ws, row, 1, "Coverage levels:", font=FONT_HEADER, align=ALIGN_L)
+    _w(ws, row, 2, "Events with SPARSE or NO RESULTS are in QC - EXCLUDED EVENTS sheet.", font=FONT_NOTE, align=ALIGN_L)
     row += 1
-    for level, desc in [
-        ("FULL",        "≥20 placements and ≥3 divisions, or multi-source confirmed"),
-        ("PARTIAL",     "Some results available but not fully complete"),
-        ("SPARSE",      "Very few results — coverage likely incomplete"),
-        ("QUARANTINED", "Data under review — results may be uncertain"),
-        ("NO RESULTS",  "Event documented but no results published"),
+    for level, desc, fill_key in [
+        ("FULL",        "≥20 placements and ≥3 divisions, or multi-source confirmed", "FULL"),
+        ("PARTIAL",     "Some results available but not fully complete",               "PARTIAL"),
+        ("QUARANTINED", "Data under review — results may be uncertain",                "QUARANTINED"),
+        ("🌐 WORLDS",   "World Footbag Championship event",                            "_WORLDS"),
     ]:
-        f = _COV_FILL.get(level) or FILL_NONE
+        f = _COV_FILL.get(fill_key) or (FILL_WORLDS_ROW if fill_key == "_WORLDS" else FILL_NONE)
         _w(ws, row, 1, f"  {level}", font=FONT_DATA, fill=f, align=ALIGN_L)
         _w(ws, row, 2, desc, font=FONT_DATA, align=ALIGN_L)
         row += 1
 
-    print(f"  EVENT INDEX: {len(sorted_events)} events")
+    print(f"  EVENT INDEX: {shown} events (with results)")
 
 
 # ── EXCLUDED EVENTS sheet ──────────────────────────────────────────────────────
 
-def build_excluded_events(wb: Workbook, events: dict, quarantine: set) -> None:
-    ws = wb.create_sheet("EXCLUDED EVENTS")
+def build_excluded_events(wb: Workbook, events: dict, quarantine: set,
+                          discs: dict, raw_results) -> None:
+    ws = wb.create_sheet("QC - EXCLUDED EVENTS")
 
-    headers = ["Year", "Event ID", "Event Name", "Location", "Reason"]
-    widths  = [6, 28, 52, 30, 26]
+    headers = ["Year", "Event ID", "Event Name", "Location", "Coverage", "Discs", "Placements", "Reason"]
+    widths  = [6, 28, 52, 30, 13, 7, 11, 36]
     for i, (h, w) in enumerate(zip(headers, widths), 1):
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = "B2"
 
-    row = _title_row(ws, 1, "EXCLUDED EVENTS — NOT IN MAIN DATASET", ncols=len(headers))
+    row = _title_row(ws, 1, "QC — EVENTS EXCLUDED FROM EVENT INDEX", ncols=len(headers))
     row = _hrow(ws, row, *headers)
+
+    placements_per_event: dict[str, int] = Counter(
+        r["event_id"] for r in raw_results
+        if r.get("person_id", "").strip() not in _SKIP_PID
+    )
+    discs_per_event: dict[str, int] = Counter(k[0] for k in discs)
+
+    _COV_FILL = {
+        "SPARSE":      FILL_OTHER,
+        "QUARANTINED": FILL_QUAR,
+        "NO RESULTS":  FILL_OTHER,
+    }
 
     excluded = []
     for eid, ev in events.items():
-        status = ev.get("status", "")
-        if status == "no_results":
-            reason = "no results published"
-        elif eid in quarantine:
+        status  = ev.get("status", "")
+        is_quar = eid in quarantine
+        n_discs = discs_per_event.get(eid, 0)
+        n_plc   = placements_per_event.get(eid, 0)
+        cov     = _coverage_level(ev, n_discs, n_plc, is_quar)
+
+        if cov == "NO RESULTS":
+            reason = "no results in database"
+        elif cov == "SPARSE":
+            reason = f"sparse coverage ({n_plc} placements, {n_discs} discipline(s))"
+        elif is_quar:
             reason = "under review (complex or uncertain data)"
         else:
             continue
+
         excluded.append((ev.get("year",""), eid, ev.get("event_name",""),
-                         ev.get("location",""), reason))
+                         ev.get("location",""), cov, n_discs or "", n_plc or "", reason))
 
     excluded.sort(key=lambda x: (x[0], x[2].lower()))
     for rec in excluded:
+        cov_val  = rec[4]
+        row_fill = _COV_FILL.get(cov_val)
         for col, v in enumerate(rec, 1):
-            _w(ws, row, col, v, font=FONT_DATA, align=ALIGN_L)
+            cell = _w(ws, row, col, v, font=FONT_DATA, align=ALIGN_L)
+            if row_fill:
+                cell.fill = row_fill
         row += 1
 
-    print(f"  EXCLUDED EVENTS: {len(excluded)} entries")
+    print(f"  QC - EXCLUDED EVENTS: {len(excluded)} entries")
 
 
 # ── Year sheets ────────────────────────────────────────────────────────────────
@@ -892,26 +1132,50 @@ def _team_display(slot_rows: list[dict]) -> tuple[str, bool]:
 
 def build_year_sheets(wb: Workbook, raw_results, events: dict,
                       discs: dict, persons: dict,
-                      quarantine: set) -> dict:
-    """Build one sheet per year. Returns event_col_map = {event_id: (sheet_name, col_letter)}."""
+                      quarantine: set, pub_eids: set) -> dict:
+    """Build one sheet per year. Returns event_col_map = {event_id: (sheet_name, col_letter)}.
 
+    Placements are keyed by division_canonical so all raw disc_names that share the same
+    canonical are merged into one row per event.  Participants are deduplicated by person_id.
+    """
+
+    # plcmt_by_event[eid][div_can][place] = merged list of participant rows
     plcmt_by_event: dict[str, dict] = defaultdict(
         lambda: defaultdict(lambda: defaultdict(list))
     )
+    # div_can_rec[(eid, div_can)] = first disc record seen (for sort key + fill colour)
+    div_can_rec: dict[tuple, dict] = {}
+    # merge accounting
+    _raw_discs_per_can: dict[tuple, set] = defaultdict(set)
+
     for r in raw_results:
-        eid   = r["event_id"]
-        disc  = r["discipline"]
+        eid    = r["event_id"]
+        disc   = r["discipline"]
+        rec    = discs.get((eid, disc), {})
+        div_can = rec.get("division_canonical") or disc
         try:
             place = int(r.get("placement", "0") or 0)
         except ValueError:
             place = 0
-        plcmt_by_event[eid][disc][place].append(r)
+        plcmt_by_event[eid][div_can][place].append(r)
+        _raw_discs_per_can[(eid, div_can)].add(disc)
+        if (eid, div_can) not in div_can_rec:
+            div_can_rec[(eid, div_can)] = rec
+
+    # Report merge stats
+    _dup_groups = sum(1 for v in _raw_discs_per_can.values() if len(v) > 1)
+    _rows_merged = sum(len(v) - 1 for v in _raw_discs_per_can.values() if len(v) > 1)
+    if _dup_groups:
+        print(f"  Canonical merge: {_dup_groups} duplicate groups, "
+              f"{_rows_merged} raw discipline rows consolidated")
 
     year_to_eids: dict[str, list] = defaultdict(list)
     for eid, ev in events.items():
         yr = ev.get("year", "").strip()
         if yr and yr.isdigit():
-            if eid in plcmt_by_event or eid in quarantine:
+            # Use publication whitelist (same filter as release_publication):
+            # includes FULL, PARTIAL, QUARANTINED; excludes SPARSE and NO RESULTS.
+            if eid in pub_eids:
                 year_to_eids[yr].append(eid)
 
     event_col_map: dict[str, tuple] = {}
@@ -933,7 +1197,7 @@ def build_year_sheets(wb: Workbook, raw_results, events: dict,
     _COL_A_W = 14
     _COL_MIN = 22
     _COL_MAX = 52
-    _TOP_PLCS = 3
+    _TOP_PLCS = 10
 
     for yr in sorted(year_to_eids, key=int):
         eids = sorted(
@@ -956,27 +1220,26 @@ def build_year_sheets(wb: Workbook, raw_results, events: dict,
                font=Font(size=9, color="606060"),
                align=Alignment(horizontal="right", vertical="top"))
 
-        # Pre-compute discipline row layout
-        all_discs_this_year: list[str] = []
-        seen_discs: set[str] = set()
+        # Pre-compute discipline row layout.
+        # Keys are division_canonical names — one row per canonical per year sheet.
+        # Sort globally so NET < FREESTYLE < GOLF regardless of event order.
+        div_sort_keys_yr: dict[str, tuple] = {}
         for eid in eids:
-            for disc_name in sorted(plcmt_by_event.get(eid, {}).keys(),
-                                    key=lambda d: (
-                                        discs.get((eid, d), {}).get("discipline_category","zzz"),
-                                        d.lower()
-                                    )):
-                if disc_name not in seen_discs:
-                    all_discs_this_year.append(disc_name)
-                    seen_discs.add(disc_name)
+            for div_can in plcmt_by_event.get(eid, {}):
+                if div_can not in div_sort_keys_yr:
+                    rec = div_can_rec.get((eid, div_can), {})
+                    div_sort_keys_yr[div_can] = _disc_sort_key(div_can, rec)
+
+        all_discs_this_year: list[str] = sorted(div_sort_keys_yr, key=lambda d: div_sort_keys_yr[d])
 
         disc_row_start: dict[str, int] = {}
         cur_row = _R_DATA
-        for disc_name in all_discs_this_year:
-            disc_row_start[disc_name] = cur_row
+        for div_can in all_discs_this_year:
+            disc_row_start[div_can] = cur_row
             cur_row += 1 + _TOP_PLCS
 
-        for disc_name, dr in disc_row_start.items():
-            _w(ws, dr, 1, disc_name[:18],
+        for div_can, dr in disc_row_start.items():
+            _w(ws, dr, 1, div_can[:22],
                font=Font(size=8, italic=True, color="808080"),
                align=Alignment(horizontal="right", vertical="top"))
             for pi in range(1, _TOP_PLCS + 1):
@@ -1020,19 +1283,20 @@ def build_year_sheets(wb: Workbook, raw_results, events: dict,
 
             max_name_len = len(ev_name)
 
-            for disc_name, disc_placements in placements.items():
-                if disc_name not in disc_row_start:
+            for div_can, disc_placements in placements.items():
+                if div_can not in disc_row_start:
                     continue
-                dr   = disc_row_start[disc_name]
-                cat  = discs.get((eid, disc_name), {}).get("discipline_category", "")
+                dr    = disc_row_start[div_can]
+                rec   = div_can_rec.get((eid, div_can), {})
+                cat   = rec.get("category_canonical", "") or rec.get("discipline_category", "")
                 dfill = _cat_fill(cat)
 
-                _w(ws, dr, col_offset, disc_name,
+                _w(ws, dr, col_offset, div_can,
                    font=_YF_DIV, fill=dfill, align=ALIGN_L)
-                max_name_len = max(max_name_len, len(disc_name))
+                max_name_len = max(max_name_len, len(div_can))
 
                 for pi in range(1, _TOP_PLCS + 1):
-                    slot_rows = disc_placements.get(pi, [])
+                    slot_rows = _dedup_slot(disc_placements.get(pi, []))
                     if slot_rows:
                         disp, is_unk = _team_display(slot_rows)
                     else:
@@ -1103,6 +1367,17 @@ def main() -> None:
 
     events, discs, raw_results, persons, quarantine = load_all()
 
+    # Load publication whitelist — same filter applied by build_canonical_enrichment.py
+    # (FULL + PARTIAL + QUARANTINED only; SPARSE and NO RESULTS excluded)
+    pub_eids: set = set()
+    if RP_EVENTS_CSV.exists():
+        with open(RP_EVENTS_CSV, newline="", encoding="utf-8") as _f:
+            pub_eids = {row["event_id"] for row in csv.DictReader(_f)}
+        print(f"  Publication whitelist: {len(pub_eids)} events from release_publication/")
+    else:
+        print("  WARNING: release_publication/events.csv not found — year sheets unfiltered")
+        pub_eids = set(events.keys())
+
     print("Computing statistics…")
     stats = compute_stats(raw_results, events, discs, persons)
     print(f"  Persons with stats: {len(stats)}")
@@ -1113,15 +1388,16 @@ def main() -> None:
     print("\nBuilding sheets…")
 
     build_readme(wb, events, persons, len(raw_results))
+    build_data_notes(wb)
     build_statistics(wb, stats, persons)
     build_era_leaders(wb, raw_results, events, discs, persons)
     build_player_stats(wb, stats, persons)
 
     event_col_map = build_year_sheets(
-        wb, raw_results, events, discs, persons, quarantine)
+        wb, raw_results, events, discs, persons, quarantine, pub_eids)
 
-    build_event_index(wb, events, discs, raw_results, quarantine, event_col_map)
-    build_excluded_events(wb, events, quarantine)
+    build_event_index(wb, events, discs, raw_results, quarantine, event_col_map, pub_eids)
+    build_excluded_events(wb, events, quarantine, discs, raw_results)
 
     # Reorder front-matter sheets before year sheets
     desired_front = ["README", "EVENT INDEX", "STATISTICS", "ERA LEADERS",

@@ -1,11 +1,253 @@
-# World Footbag Championships
+# WFA World Footbag Championships
 # Golden, Colorado
-# Year: 1986
-# Source: FBW-V6N2
-# Scan: CLEAN_Footbag World Vol. 6 No. 2 page 1.jpeg, CLEAN_Footbag World Vol. 6 No. 2 page 2.jpeg
+# July 29–August 3, 1986
+# Source: worlds86.txt (image transcription)
 
-Open Singles Net
-1. Mike Marshall
+Singles Ultra Footbag Net
+1. Kenny Shults
+2. Mag Hughes
+3. David Robinson
+4. John East
+5. Scott Cleere
 
-Open Doubles Net
-1. Mike Marshall & Gary Linder
+Doubles Ultra Footbag Net
+1. Garry Griggs & Mag Hughes
+2. Mike Harding & Kenny Shults
+3. Bill Bethurum & Scott Cleere
+4. Jimmy Caveney & David Robinson
+5. Bruce Guettich & Chris Ott
+
+Women's Singles Footbag Net
+1. Tricia Sullivan
+2. Marie Elsner
+3. Trudy Archdale
+
+Women's Doubles Footbag Net
+1. Marie Elsner & Paula Elsner
+2. Constance Reed & Kim Era
+3. Tricia Sullivan & Trudy Archdale
+
+Mixed Doubles Footbag Net
+1. Tricia Sullivan & David Robinson
+2. Trudy Archdale & Bruce Guettich
+3. Colleen Minton & John East
+4. Lisa McDaniels & Kenny Shults
+5. Constance Reed & Jimmy Caveney
+
+Advanced Singles Footbag Net
+1. Garry Griggs
+2. Al Laverick
+3. Al Petersen
+4. Remi Kristensen
+5. Chris Routh
+
+Advanced Doubles Footbag Net
+1. Ken Hamric & Andrew Williams
+2. Al Laverick & Al Petersen
+3. Tom Akin & Jim Hunsaker
+4. Jon Lind & Dennis Ross
+5. Jim Fitzgerald & Jack Schoolcraft
+
+Open Singles Footbag Freestyle
+1. Jon Lind
+2. Andy Linder
+3. Kenny Shults
+4. Jack Schoolcraft
+5. Dennis Ross
+
+Women's Footbag Freestyle
+1. Tricia Sullivan
+2. Constance Reed
+3. Kim Era
+3. Janice Earl
+
+Open Team Footbag Freestyle
+1. Scott Cleere & Bill Bethurum & Randy Nelson
+2. Jon Lind & Dennis Ross
+3. Jim Fitzgerald & Jack Schoolcraft
+4. David Robinson & Tricia Sullivan
+5. Rick Reese & Paul Garnaat
+
+Open Footbag Golf 3 Rounds
+1. Charlie Hallowell
+2. Jack Schoolcraft
+3. Kenny Shults
+4. Evan Bozett
+5. Jimmy Caveney
+
+Women's Footbag Golf 3 Rounds
+1. Tricia Sullivan
+2. Brenda Carman
+3. Lynn Swearingen
+
+Open Singles Footbag Consecutive
+1. Fred Barnum
+2. Derrick Fogle
+3. Jimmy Caveney
+4. Andy Linder
+5. David Robinson
+
+Women's Singles Footbag Consecutive
+1. Francine Beaudry
+2. Tricia Sullivan
+3. Constance Reed
+
+Open Doubles Footbag Consecutive
+1. Jimmy Caveney & Gary Lautt
+2. Andy Linder & Tricia Sullivan
+3. Evan Bozett & Samantha Conlon
+4. Bill Langbehn & Brent Welch
+5. Jon Lind & Dennis Ross
+
+Women's Doubles Footbag Consecutive
+1. Constance Reed & Marie Elsner
+2. Tricia Sullivan & Francine Beaudry
+3. Samantha Conlon & Tina Lewis
+
+Intermediate Singles Footbag Net
+1. Eric Thompson-Green
+2. Yves Archambault
+3. Martin Cote
+
+Intermediate Doubles Footbag Net
+1. Yves Archambault & Martin Cote
+2. Normand Bellemare & Jeff Wells
+3. Morton Lundsgaard & Paul Dieter
+
+Open Overall Standings
+1. Jimmy Caveney
+2. Jack Schoolcraft
+3. Kenny Shults
+4. David Robinson
+5. Jeff Johnson
+6. Bruce Guettich
+7. Brent Welch
+8. Chris Ott
+9. Dennis Ross
+10. Jon Lind
+11. Peter Shunny
+12. Fred Barnum
+13. Bill Langbehn
+14. Scott Cleere
+15. Derrick Fogle
+16. Mark Wendell
+17. Dutch Holland
+18. Andy Linder
+19. Jim Fitzgerald
+20. Al Petersen
+21. Pat Bieber
+22. Gary Lautt
+23. Timothy Vozar
+24. Evan Bozett
+25. Al Laverick
+26. Randy Nelson
+27. Ken Hamric
+27. Mag Hughes
+29. Bill Bethurum
+30. Mike Harding
+31. Eric Wolff
+32. Jim Elsner
+33. Matt Clark
+33. Bob Gosselin
+35. Rick Reese
+36. Reed Gray
+37. Chris Staton
+38. Mark Pollish
+39. Brent Stewart
+40. Torbin Wigger
+41. Soren Ravnkilde
+42. Mark Cicchetti
+43. Remi Kristensen
+44. Andrew Williams
+45. Jim Hunsaker
+46. Russell Willit
+47. Tricia Sullivan
+48. Garry G. Griggs
+49. John East
+49. Tony Nevara
+51. Rob McCloskey
+52. Normand Bellemare
+52. Edward Orlando
+54. Rich Bates
+55. Paul Garnaat
+56. Rick Benedetti
+57. Peter Chandler
+57. John Elsner
+59. Brian A. McCarty
+60. Ken Brady
+60. Chris Routh
+62. Curt Stranger
+63. Tom Akin
+64. Joe Muscolino
+65. Scott Davidson
+66. Ritz M'Goo
+67. Yves Archambault
+68. Greg Cortopassi
+69. Etienne Constable
+69. Raul O'Donnal
+71. James Stallcup
+72. Jack Lentz
+73. Michael Peterson
+73. Russell Thomas
+75. David Hill
+76. Bill Crosby
+77. Morton Lundsgaard
+78. Charlie Hallowell
+79. Samantha Conlon
+80. Phillip Francis
+81. Joseph Solonoski
+82. Rick Kaufman
+83. Eric Cole
+84. Erik Thompson-Green
+85. Jay Claffey
+86. Kevin McDermott
+87. Greg James
+88. Lee Langlois
+89. Michael Alfred
+90. Brian Beun
+91. Douglas Beskin
+92. Paula Elsner
+93. Tom Sisneros
+94. Paul Dieter
+95. PJ Lareau
+96. JD Thompson
+97. Greg Baca
+
+Women's Overall Standings
+1. Tricia Sullivan
+2. Constance Reed
+3. Jody Badger
+4. Suz Beauchemin
+5. Lynn Swearingen
+6. Tina Lewis
+7. Samantha Conlon
+8. Kim Era
+9. Janice Earl
+10. Lisa McDaniel
+11. Carolyn Gerard
+12. Marie Elsner
+13. Lynnett Hunt
+14. Francine Beaudry
+15. Trudy Archdale
+16. Robin Icard
+17. Paula Elsner
+18. Kathryn McCulloch
+19. Colleen Minton
+20. Brenda Carman
+21. Annamarie Fillmore
+22. Mary Barnett
+23. Roxann Benesch
+
+Footbag Net Score Keeper's Contest
+1. Bud Meltsner
+2. Barb Lareau
+3. Bob Gosselin
+4. Peter Chandler
+5. Jody Badger
+
+Footbag Consecutive Counter's Contest
+1. Walt Seger
+2. Adam Hutchinson
+3. Jeff Cajka
+4. Bill Crosby
+5. Martin Cote

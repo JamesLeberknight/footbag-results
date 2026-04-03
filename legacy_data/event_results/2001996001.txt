@@ -1,0 +1,129 @@
+# 1996 World Footbag Championships
+# Montreal, Quebec, Canada
+# August 5-11, 1996
+# Source: worlds96_canonical_consolidated.csv
+
+Overall
+1. Allan Petersen
+2. Peter Shunny
+3. Scott Milne
+4. Richard Cook
+5. Etienne Constable
+
+Women's Overall
+1. Becca English-Ross
+2. Lisa McDaniel
+3. Tina Lewis
+4. Kendall Kic
+5. Kelly Kelley
+
+Women's Open 5 Minutes Timed Consecutives
+1. Ida Fogle
+2. Sam Conlon
+3. Jody Welch
+4. Tina Lewis
+
+Open 5 Minutes Timed Consecutives
+1. Sean Flynn
+2. Derrick Fogle
+3. Steve Smith
+4. Peter Irish
+
+Open Doubles Distance One Pass
+1. Brent Welch & Alf Marcussen
+2. Peter Shunny & Allen Petersen
+3. Sean Flynn & Jimmy Caveney
+
+Women's Doubles Distance One Pass
+1. Julie Symons & Jody Welch
+2. Lisa McDaniel & Sam Conlon
+3. Tina Lewis & Becca English-Ross
+
+Intermediate Golf
+1. Justin Sexton
+2. Matt Saucerman
+3. Garth Smith
+
+Women's Golf
+1. Becca English-Ross
+2. Evanne Lamarche
+3. Valerie Davidson
+
+Open Golf
+1. Steve Smith
+2. Allan Petersen
+3. Peter Shunny
+4. Sean Flynn
+
+Intermediate Singles Routines
+1. Ryan Mulroney
+2. Éric Lardinois
+3. Sasha Morgan
+
+Women's Open Singles Routines
+1. Sam Conlon
+2. Carol Wedemeyer
+3. Kendall Kic
+4. Becca English-Ross
+
+Women's Open Team Routines
+1. Lisa McDaniel & Sam Conlon
+2. Carol Wedemeyer & Lisa Monti
+3. Becca English-Ross & Kendall Kic
+
+Open Team Routines
+1. Eric Wulff & Peter Irish
+2. Greg Nelson & Tuan Vu
+3. Daryl Genz & Rick Reese
+4. Brent Welch & Etienne Constable
+
+Open Singles Routines
+1. Rick Reese
+2. Scott Davidson
+3. Eric Wulff
+4. Peter Irish
+
+Women's Intermediate Singles
+1. Geneviève Bousquet
+2. Juliet Pendray
+3. Lori Di Monte
+
+Intermediate Singles
+1. Jukka Peltola
+2. Jason Nevis
+3. Jeff Wickman
+
+Intermediate Doubles
+1. Jeff Wickman & Ben Floor
+2. Tuomas Kärki & Jukka Peltola
+3. Kerry Chun & Greg Durrett
+
+Women's Open Singles
+1. Lisa McDaniel
+2. Julie Symons
+3. Tina Lewis
+4. Becca English-Ross
+
+Women's Doubles
+1. Julie Symons & Jody Welch
+2. Lisa McDaniel & Evanne Lamarche
+3. Tina Lewis & Becca English-Ross
+4. Kelly Kelley & Kendall Kic
+
+Mixed Doubles
+1. Jody Welch & Brent Welch
+2. Julie Symons & Randy Mulder
+3. Lisa McDaniel & Sébastien Verdy
+4. Tina Lewis & Yves Archambault
+
+Open Singles
+1. Sébastien Verdy
+2. Kenny Shults
+3. Randy Mulder
+4. Manu Bouchard
+
+Open Doubles
+1. Sébastien Verdy & Manu Bouchard
+2. Kenny Shults & Randy Mulder
+3. Alf Marcussen & Brent Welch
+4. Andrew Ronald & Dany Borsky

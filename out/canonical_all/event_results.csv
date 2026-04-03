@@ -551,81 +551,6 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,1,,,,FBW_V05_N02,PRE1997,a13e185a84
 1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,2,,,,FBW_V05_N02,PRE1997,22b484a6ab
 1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,3,,,,FBW_V05_N02,PRE1997,28c3bb0f22
-1996_worlds,Overall,Overall,1,,,,verified_new/worlds96.txt,PRE1997,0387a7d1be
-1996_worlds,Overall,Overall,2,,,,verified_new/worlds96.txt,PRE1997,8e50838c85
-1996_worlds,Overall,Overall,3,,,,verified_new/worlds96.txt,PRE1997,5e9a8669d0
-1996_worlds,Overall,Overall,4,,,,verified_new/worlds96.txt,PRE1997,18db48088c
-1996_worlds,Overall,Overall,5,,,,verified_new/worlds96.txt,PRE1997,a23cc36d2a
-1996_worlds,Women's Overall,Women's Overall,1,,,,verified_new/worlds96.txt,PRE1997,787c9ecac5
-1996_worlds,Women's Overall,Women's Overall,2,,,,verified_new/worlds96.txt,PRE1997,c7aab64fce
-1996_worlds,Women's Overall,Women's Overall,3,,,,verified_new/worlds96.txt,PRE1997,3497733654
-1996_worlds,Women's Overall,Women's Overall,4,,,,verified_new/worlds96.txt,PRE1997,4eba78ae8c
-1996_worlds,Women's Overall,Women's Overall,5,,,,verified_new/worlds96.txt,PRE1997,6d2dc02a85
-1996_worlds,Open 5 Min Consecutives,Open 5 Min Consecutives,1,,,,verified_new/worlds96.txt,PRE1997,e78925f815
-1996_worlds,Open 5 Min Consecutives,Open 5 Min Consecutives,2,,,,verified_new/worlds96.txt,PRE1997,9113a7a3a0
-1996_worlds,Open 5 Min Consecutives,Open 5 Min Consecutives,3,,,,verified_new/worlds96.txt,PRE1997,3a22f5e8d1
-1996_worlds,Open 5 Min Consecutives,Open 5 Min Consecutives,4,,,,verified_new/worlds96.txt,PRE1997,4114ed65a4
-1996_worlds,Women's Open 5 Min Consecutives,Women's Open 5 Min Consecutives,1,,,,verified_new/worlds96.txt,PRE1997,ebf6326a04
-1996_worlds,Women's Open 5 Min Consecutives,Women's Open 5 Min Consecutives,2,,,,verified_new/worlds96.txt,PRE1997,25c1e155aa
-1996_worlds,Women's Open 5 Min Consecutives,Women's Open 5 Min Consecutives,3,,,,verified_new/worlds96.txt,PRE1997,2ac3523e31
-1996_worlds,Women's Open 5 Min Consecutives,Women's Open 5 Min Consecutives,4,,,,verified_new/worlds96.txt,PRE1997,831790cf40
-1996_worlds,Open Doubles Distance,Open Doubles Distance,1,,,,verified_new/worlds96.txt,PRE1997,9c6e013078
-1996_worlds,Open Doubles Distance,Open Doubles Distance,2,,,,verified_new/worlds96.txt,PRE1997,01c8a64651
-1996_worlds,Open Doubles Distance,Open Doubles Distance,3,,,,verified_new/worlds96.txt,PRE1997,5cdf6559a3
-1996_worlds,Women's Doubles Distance,Women's Doubles Distance,1,,,,verified_new/worlds96.txt,PRE1997,556abe34e6
-1996_worlds,Women's Doubles Distance,Women's Doubles Distance,2,,,,verified_new/worlds96.txt,PRE1997,eb30dc2f31
-1996_worlds,Women's Doubles Distance,Women's Doubles Distance,3,,,,verified_new/worlds96.txt,PRE1997,ebcbbb0106
-1996_worlds,Intermediate Golf,Intermediate Golf,1,,,,verified_new/worlds96.txt,PRE1997,9612a7a8c0
-1996_worlds,Intermediate Golf,Intermediate Golf,2,,,,verified_new/worlds96.txt,PRE1997,2204bed381
-1996_worlds,Intermediate Golf,Intermediate Golf,3,,,,verified_new/worlds96.txt,PRE1997,4942ef4cba
-1996_worlds,Women's Golf,Women's Golf,1,,,,verified_new/worlds96.txt,PRE1997,1a39f81121
-1996_worlds,Women's Golf,Women's Golf,2,,,,verified_new/worlds96.txt,PRE1997,498f47b72a
-1996_worlds,Women's Golf,Women's Golf,3,,,,verified_new/worlds96.txt,PRE1997,ffc7a018a9
-1996_worlds,Open Golf,Open Golf,1,,,,verified_new/worlds96.txt,PRE1997,3c3f01171b
-1996_worlds,Open Golf,Open Golf,2,,,,verified_new/worlds96.txt,PRE1997,faafa1a2ec
-1996_worlds,Open Golf,Open Golf,3,,,,verified_new/worlds96.txt,PRE1997,2aca9bb553
-1996_worlds,Open Golf,Open Golf,4,,,,verified_new/worlds96.txt,PRE1997,3f971db784
-1996_worlds,Women's Singles Routines,Women's Singles Routines,1,,,,verified_new/worlds96.txt,PRE1997,6cf16aea6d
-1996_worlds,Women's Singles Routines,Women's Singles Routines,2,,,,verified_new/worlds96.txt,PRE1997,3ab3a055c6
-1996_worlds,Women's Singles Routines,Women's Singles Routines,3,,,,verified_new/worlds96.txt,PRE1997,68ced1a150
-1996_worlds,Women's Singles Routines,Women's Singles Routines,4,,,,verified_new/worlds96.txt,PRE1997,bf7cef38de
-1996_worlds,Women's Team Routines,Women's Team Routines,1,,,,verified_new/worlds96.txt,PRE1997,eec643a1e5
-1996_worlds,Women's Team Routines,Women's Team Routines,2,,,,verified_new/worlds96.txt,PRE1997,62556737a9
-1996_worlds,Women's Team Routines,Women's Team Routines,3,,,,verified_new/worlds96.txt,PRE1997,5f724353a8
-1996_worlds,Open Team Routines,Open Team Routines,1,,,,verified_new/worlds96.txt,PRE1997,9b6e4a07dd
-1996_worlds,Open Team Routines,Open Team Routines,2,,,,verified_new/worlds96.txt,PRE1997,c44f73c62d
-1996_worlds,Open Team Routines,Open Team Routines,3,,,,verified_new/worlds96.txt,PRE1997,38a47a9eb4
-1996_worlds,Open Team Routines,Open Team Routines,4,,,,verified_new/worlds96.txt,PRE1997,2ac647361d
-1996_worlds,Open Singles Routines,Open Singles Routines,1,,,,verified_new/worlds96.txt,PRE1997,5786c2a841
-1996_worlds,Open Singles Routines,Open Singles Routines,2,,,,verified_new/worlds96.txt,PRE1997,47c9d54350
-1996_worlds,Open Singles Routines,Open Singles Routines,3,,,,verified_new/worlds96.txt,PRE1997,efe77f0d67
-1996_worlds,Open Singles Routines,Open Singles Routines,4,,,,verified_new/worlds96.txt,PRE1997,dff6cf59fb
-1996_worlds,Women's Intermediate Singles,Women's Intermediate Singles,1,,,,verified_new/worlds96.txt,PRE1997,fd689b7faa
-1996_worlds,Women's Intermediate Singles,Women's Intermediate Singles,2,,,,verified_new/worlds96.txt,PRE1997,a853831b0c
-1996_worlds,Women's Intermediate Singles,Women's Intermediate Singles,3,,,,verified_new/worlds96.txt,PRE1997,13310f6639
-1996_worlds,Intermediate Doubles,Intermediate Doubles,1,,,,verified_new/worlds96.txt,PRE1997,6d204010da
-1996_worlds,Intermediate Doubles,Intermediate Doubles,2,,,,verified_new/worlds96.txt,PRE1997,1c25d5fc36
-1996_worlds,Intermediate Doubles,Intermediate Doubles,3,,,,verified_new/worlds96.txt,PRE1997,7adac88649
-1996_worlds,Women's Open Singles,Women's Open Singles,1,,,,verified_new/worlds96.txt,PRE1997,f4dc9ca5b3
-1996_worlds,Women's Open Singles,Women's Open Singles,2,,,,verified_new/worlds96.txt,PRE1997,75e3907baf
-1996_worlds,Women's Open Singles,Women's Open Singles,3,,,,verified_new/worlds96.txt,PRE1997,bfd1e3ea13
-1996_worlds,Women's Open Singles,Women's Open Singles,4,,,,verified_new/worlds96.txt,PRE1997,329f06529d
-1996_worlds,Women's Doubles,Women's Doubles,1,,,,verified_new/worlds96.txt,PRE1997,711262653a
-1996_worlds,Women's Doubles,Women's Doubles,2,,,,verified_new/worlds96.txt,PRE1997,9b9088d721
-1996_worlds,Women's Doubles,Women's Doubles,3,,,,verified_new/worlds96.txt,PRE1997,86b12fc877
-1996_worlds,Women's Doubles,Women's Doubles,4,,,,verified_new/worlds96.txt,PRE1997,0fed85a9f4
-1996_worlds,Mixed Doubles,Mixed Doubles,1,,,,verified_new/worlds96.txt,PRE1997,523330d5fd
-1996_worlds,Mixed Doubles,Mixed Doubles,2,,,,verified_new/worlds96.txt,PRE1997,5796ce95b7
-1996_worlds,Mixed Doubles,Mixed Doubles,3,,,,verified_new/worlds96.txt,PRE1997,b881abbb36
-1996_worlds,Mixed Doubles,Mixed Doubles,4,,,,verified_new/worlds96.txt,PRE1997,66d1214b08
-1996_worlds,Open Singles,Open Singles,1,,,,verified_new/worlds96.txt,PRE1997,b7125665dd
-1996_worlds,Open Singles,Open Singles,2,,,,verified_new/worlds96.txt,PRE1997,2ed2992ee1
-1996_worlds,Open Singles,Open Singles,3,,,,verified_new/worlds96.txt,PRE1997,851ed34e6b
-1996_worlds,Open Singles,Open Singles,4,,,,verified_new/worlds96.txt,PRE1997,3bfccbd42d
-1996_worlds,Open Doubles,Open Doubles,1,,,,verified_new/worlds96.txt,PRE1997,0ebd53f4cb
-1996_worlds,Open Doubles,Open Doubles,2,,,,verified_new/worlds96.txt,PRE1997,e9abac0a1e
-1996_worlds,Open Doubles,Open Doubles,3,,,,verified_new/worlds96.txt,PRE1997,79698e054d
-1996_worlds,Open Doubles,Open Doubles,4,,,,verified_new/worlds96.txt,PRE1997,a4d928ea18
 1980_western_states,freestyle,Freestyle,2,,,,MIRROR,POST1997,1980_western_states|freestyle|2
 1980_western_states,freestyle,Freestyle,3,,,,MIRROR,POST1997,1980_western_states|freestyle|3
 1980_western_states,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,1980_western_states|open_doubles_net|1
@@ -824,6 +749,87 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1991_eastregion,open_singles_net,Open Singles Net,2,,,,MIRROR,POST1997,1991_eastregion|open_singles_net|2
 1991_eastregion,open_singles_net,Open Singles Net,3,,,,MIRROR,POST1997,1991_eastregion|open_singles_net|3
 1995_eurochamp,open_singles_net,Open Singles Net,1,,,,MIRROR,POST1997,1995_eurochamp|open_singles_net|1
+1996_worlds_montreal,intermediate_doubles,Intermediate Doubles,1,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_doubles|1
+1996_worlds_montreal,intermediate_doubles,Intermediate Doubles,2,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_doubles|2
+1996_worlds_montreal,intermediate_doubles,Intermediate Doubles,3,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_doubles|3
+1996_worlds_montreal,intermediate_golf,Intermediate Golf,1,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_golf|1
+1996_worlds_montreal,intermediate_golf,Intermediate Golf,2,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_golf|2
+1996_worlds_montreal,intermediate_golf,Intermediate Golf,3,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_golf|3
+1996_worlds_montreal,intermediate_singles,Intermediate Singles,1,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_singles|1
+1996_worlds_montreal,intermediate_singles,Intermediate Singles,2,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_singles|2
+1996_worlds_montreal,intermediate_singles,Intermediate Singles,3,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_singles|3
+1996_worlds_montreal,intermediate_singles_routines,Intermediate Singles Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_singles_routines|1
+1996_worlds_montreal,intermediate_singles_routines,Intermediate Singles Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_singles_routines|2
+1996_worlds_montreal,intermediate_singles_routines,Intermediate Singles Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|intermediate_singles_routines|3
+1996_worlds_montreal,mixed_doubles,Mixed Doubles,1,,,,MIRROR,POST1997,1996_worlds_montreal|mixed_doubles|1
+1996_worlds_montreal,mixed_doubles,Mixed Doubles,2,,,,MIRROR,POST1997,1996_worlds_montreal|mixed_doubles|2
+1996_worlds_montreal,mixed_doubles,Mixed Doubles,3,,,,MIRROR,POST1997,1996_worlds_montreal|mixed_doubles|3
+1996_worlds_montreal,mixed_doubles,Mixed Doubles,4,,,,MIRROR,POST1997,1996_worlds_montreal|mixed_doubles|4
+1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|1
+1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|2
+1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|3
+1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|4
+1996_worlds_montreal,open_doubles,Open Doubles,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|1
+1996_worlds_montreal,open_doubles,Open Doubles,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|2
+1996_worlds_montreal,open_doubles,Open Doubles,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|3
+1996_worlds_montreal,open_doubles,Open Doubles,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|4
+1996_worlds_montreal,open_doubles_distance,Open Doubles Distance,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance|1
+1996_worlds_montreal,open_doubles_distance,Open Doubles Distance,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance|2
+1996_worlds_montreal,open_doubles_distance,Open Doubles Distance,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance|3
+1996_worlds_montreal,open_golf,Open Golf,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_golf|1
+1996_worlds_montreal,open_golf,Open Golf,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_golf|2
+1996_worlds_montreal,open_golf,Open Golf,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_golf|3
+1996_worlds_montreal,open_golf,Open Golf,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_golf|4
+1996_worlds_montreal,open_singles,Open Singles,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles|1
+1996_worlds_montreal,open_singles,Open Singles,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles|2
+1996_worlds_montreal,open_singles,Open Singles,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles|3
+1996_worlds_montreal,open_singles,Open Singles,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles|4
+1996_worlds_montreal,open_singles_routines,Open Singles Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles_routines|1
+1996_worlds_montreal,open_singles_routines,Open Singles Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles_routines|2
+1996_worlds_montreal,open_singles_routines,Open Singles Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles_routines|3
+1996_worlds_montreal,open_singles_routines,Open Singles Routines,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_singles_routines|4
+1996_worlds_montreal,open_team_routines,Open Team Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_team_routines|1
+1996_worlds_montreal,open_team_routines,Open Team Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_team_routines|2
+1996_worlds_montreal,open_team_routines,Open Team Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_team_routines|3
+1996_worlds_montreal,open_team_routines,Open Team Routines,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_team_routines|4
+1996_worlds_montreal,unknown,Unknown,1,,,,MIRROR,POST1997,1996_worlds_montreal|unknown|1
+1996_worlds_montreal,unknown,Unknown,2,,,,MIRROR,POST1997,1996_worlds_montreal|unknown|2
+1996_worlds_montreal,unknown,Unknown,3,,,,MIRROR,POST1997,1996_worlds_montreal|unknown|3
+1996_worlds_montreal,unknown,Unknown,4,,,,MIRROR,POST1997,1996_worlds_montreal|unknown|4
+1996_worlds_montreal,unknown,Unknown,5,,,,MIRROR,POST1997,1996_worlds_montreal|unknown|5
+1996_worlds_montreal,womens_doubles,Women's Doubles,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles|1
+1996_worlds_montreal,womens_doubles,Women's Doubles,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles|2
+1996_worlds_montreal,womens_doubles,Women's Doubles,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles|3
+1996_worlds_montreal,womens_doubles,Women's Doubles,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles|4
+1996_worlds_montreal,womens_doubles_distance,Women's Doubles Distance,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance|1
+1996_worlds_montreal,womens_doubles_distance,Women's Doubles Distance,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance|2
+1996_worlds_montreal,womens_doubles_distance,Women's Doubles Distance,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance|3
+1996_worlds_montreal,womens_golf,Women's Golf,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_golf|1
+1996_worlds_montreal,womens_golf,Women's Golf,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_golf|2
+1996_worlds_montreal,womens_golf,Women's Golf,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_golf|3
+1996_worlds_montreal,womens_intermediate_singles,Women's Intermediate Singles,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_intermediate_singles|1
+1996_worlds_montreal,womens_intermediate_singles,Women's Intermediate Singles,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_intermediate_singles|2
+1996_worlds_montreal,womens_intermediate_singles,Women's Intermediate Singles,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_intermediate_singles|3
+1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|1
+1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|2
+1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|3
+1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|4
+1996_worlds_montreal,womens_open_singles,Women's Open Singles,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|1
+1996_worlds_montreal,womens_open_singles,Women's Open Singles,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|2
+1996_worlds_montreal,womens_open_singles,Women's Open Singles,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|3
+1996_worlds_montreal,womens_open_singles,Women's Open Singles,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|4
+1996_worlds_montreal,womens_overall,Women's Overall,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|1
+1996_worlds_montreal,womens_overall,Women's Overall,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|2
+1996_worlds_montreal,womens_overall,Women's Overall,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|3
+1996_worlds_montreal,womens_overall,Women's Overall,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|4
+1996_worlds_montreal,womens_overall,Women's Overall,5,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|5
+1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|1
+1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|2
+1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|3
+1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|4
+1996_worlds_montreal,womens_team_routines,Women's Team Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_team_routines|1
+1996_worlds_montreal,womens_team_routines,Women's Team Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_team_routines|2
+1996_worlds_montreal,womens_team_routines,Women's Team Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_team_routines|3
 1997_air_a_zona,mixed_doubles,Mixed Doubles,1,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|1
 1997_air_a_zona,mixed_doubles,Mixed Doubles,2,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|2
 1997_air_a_zona,mixed_doubles,Mixed Doubles,3,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|3
@@ -5744,6 +5750,7 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 2003_worlds_prague,womens_open_singles_net,Women's Open Singles Net,2,,,,MIRROR,POST1997,2003_worlds_prague|womens_open_singles_net|2
 2003_worlds_prague,womens_open_singles_net,Women's Open Singles Net,3,,,,MIRROR,POST1997,2003_worlds_prague|womens_open_singles_net|3
 2003_worlds_prague,womens_open_singles_net,Women's Open Singles Net,4,,,,MIRROR,POST1997,2003_worlds_prague|womens_open_singles_net|4
+2003_worlds_prague,womens_open_singles_net,Women's Open Singles Net,5,,,,MIRROR,POST1997,2003_worlds_prague|womens_open_singles_net|5
 2003_worlds_prague,womens_open_singles_net,Women's Open Singles Net,6,,,,MIRROR,POST1997,2003_worlds_prague|womens_open_singles_net|6
 2003_worlds_prague,womens_shred_30,Women's Shred:30,1,,,,MIRROR,POST1997,2003_worlds_prague|womens_shred_30|1
 2003_worlds_prague,womens_shred_30,Women's Shred:30,3,,,,MIRROR,POST1997,2003_worlds_prague|womens_shred_30|3

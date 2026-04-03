@@ -11,7 +11,7 @@ corrections:
     - event: 1993_worlds
     - event: 1994_worlds
     - event: 1995_worlds
-    - event: 1996_worlds
+    - event: 1996_worlds_montreal
     - event: 1980_western_states
 
   remove_results:

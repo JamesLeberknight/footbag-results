@@ -50,6 +50,7 @@ event_key,legacy_event_id,year,event_name,event_slug,start_date,end_date,city,re
 1994_worlds_san_francisco,2001994001,1994,World Footbag Championships 1994,world_footbag_championships_1994,,,San Francisco,California,United States,,net,completed,FBW-V13N2,mirror
 1995_eurochamp,2001995002,1995,European Open 1995,european_open_1995,,,,,,,net,completed,FBW-V14N1; location unknown,mirror
 1995_worlds_menlo_park,2001995001,1995,World Footbag Championships 1995,world_footbag_championships_1995,,,Menlo Park,California,United States,,freestyle,completed,FBW-V14N2,mirror
+1996_worlds_montreal,2001996001,1996,1996 World Footbag Championships,1996_world_footbag_championships,1996-08-05,1996-08-11,Montreal,Quebec,Canada,Pro Kicker / AQF,worlds,completed,177 competitors; first Worlds outside USA; source: prokicker.com,mirror
 1997_worlds_vancouver,857881519,1997,11th Annual Vancouver Open (and Worlds Warm-Up),11th_annual_vancouver_open_and_worlds_warm_up,1997-08-02,1997-08-03,Vancouver,British Columbia,Canada,,net,completed,,mirror
 1997_midwest,857880964,1997,13th Annual MIDWEST REGIONAL FOOTBAG CHAMPIONSHIPS,13th_annual_midwest_regional_footbag_championships,1997-06-13,1997-06-15,Mt. Prospect,Illinois,United States,,mixed,completed,,mirror
 1997_emeraldcity,860356126,1997,14th Annual Emerald City Open Footbag Championships,14th_annual_emerald_city_open_footbag_championships,1997-06-07,1997-06-08,Seattle,Washington,United States,,net,completed,,mirror

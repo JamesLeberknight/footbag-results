@@ -133,9 +133,9 @@ do_release() {
     require_venv
     require_stage2
 
-    step "Stage 02p5: apply identity lock (PT v51 / PBP v95)"
+    step "Stage 02p5: apply identity lock (PT v51 / PBP v96)"
     "$PYTHON" pipeline/02p5_player_token_cleanup.py \
-        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v95.csv \
+        --identity_lock_placements_csv inputs/identity_lock/Placements_ByPerson_v96.csv \
         --persons_truth_csv            inputs/identity_lock/Persons_Truth_Final_v51.csv \
         --out_dir                      out
 
@@ -201,6 +201,9 @@ do_merged() {
     step "Merged: apply overlap suppression → out/canonical_all/"
     "$PYTHON" tools/build_appsafe_merged.py
 
+    step "Merged: enrich canonical_all + filter release_publication/ (SPARSE excluded)"
+    "$PYTHON" tools/build_canonical_enrichment.py
+
     step "Merged: generate merged feed files"
     "$PYTHON" tools/build_merged_feeds.py
 
@@ -210,11 +213,7 @@ do_merged() {
     step "Merged: render merged event comparison viewer"
     "$PYTHON" tools/event_comparison_viewerV10.py
 
-    step "Merged: seed release_publication/ from canonical_all/"
-    mkdir -p out/release_publication
-    cp out/canonical_all/*.csv out/release_publication/
-
-    step "Merged: filter release_publication/ + build canonical_pf"
+    step "Merged: build canonical_pf from release_publication/"
     "$PYTHON" tools/build_canonical_pf.py
 
     step "Merged: build community workbook v17"

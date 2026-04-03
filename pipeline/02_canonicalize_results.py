@@ -640,6 +640,7 @@ RESULTS_FILE_OVERRIDES: dict[str, dict] = {
     "2001994001": {"file": "legacy_data/event_results/2001994001.txt", "replace": True},
     "2001995001": {"file": "legacy_data/event_results/2001995001.txt", "replace": True},
     "2001995002": {"file": "legacy_data/event_results/2001995002.txt", "replace": True},
+    "2001996001": {"file": "legacy_data/event_results/2001996001.txt", "replace": True},
     # ── End magazine ingestion ────────────────────────────────────────────────
     # Inline format caused all placements to collapse to 1 garbage row;
     # replaced with clean legacy file 2026-03-10.

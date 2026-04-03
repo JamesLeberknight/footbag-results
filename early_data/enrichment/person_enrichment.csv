@@ -65,7 +65,7 @@ b7c2a69b-7547-5ee6-936e-b675c748d131,Jack Schoolcraft,POST1997,,N,,,Y,,persons.c
 bf5ce187-5cac-52fc-be9b-ba22c5c6fc01,Greg Cortopassi,POST1997,76409,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
 c04b0df1-3194-55ab-aa97-16adb45c25d3,Shannon Storment,POST1997,77762,N,,,N,,persons.csv (post-1997 canonical),HIGH,
 c0592850-ae68-5b8b-aaf2-2741b8bdc51d,Walt Mason,POST1997,,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,POST1997,14664,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+ca63a7da-a00a-5a83-ae43-2e17b5758fc8,Mag Hughes,POST1997,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
 cbf84862-04b1-5408-9e43-49b9818ed9aa,Carolyn Ramondie,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
 cfcef53f-670c-5721-b206-1ebe7d63987c,Cheryl Hughes,POST1997,77817,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
 d00d203f-ac71-5ec1-ad7f-497a8f024c50,Dave Frazier,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,

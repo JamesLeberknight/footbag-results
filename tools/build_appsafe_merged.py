@@ -193,6 +193,23 @@ for e in pre_events:
         pre_by_year_type[(y, t)].append(e)
 
 # For each POST1997 early event, attempt to find a PRE1997 match
+# ---------------------------------------------------------------------------
+# Manual overrides: POST1997 events whose data is richer than the PRE1997
+# reconstruction.  These are force-kept even when a PRE1997 match exists.
+# The corresponding PRE1997 event_id(s) listed in PRE1997_SUPPRESS will be
+# excluded from the app-safe output to avoid duplicates.
+# ---------------------------------------------------------------------------
+POST1997_FORCE_KEEP: set[str] = {
+    # prokicker.com source: 22 disciplines, 103 participants — supersedes the
+    # 29-placement FBW magazine reconstruction in PRE1997
+    "1996_worlds_montreal",
+}
+
+PRE1997_SUPPRESS: set[str] = {
+    # Superseded by 1996_worlds_montreal (POST1997, prokicker.com)
+    "1996_worlds",
+}
+
 overlap_candidates = []
 post_event_flags: dict[str, str] = {}  # event_id → "SUPPRESS" | "KEEP"
 
@@ -229,7 +246,10 @@ for post_ev in post_early:
                 ),
                 "resolution_action": "SUPPRESS_POST1997_FROM_APP_VIEW",
             })
-        post_event_flags[post_ev["event_id"]] = "SUPPRESS"
+        if post_ev["event_id"] in POST1997_FORCE_KEEP:
+            post_event_flags[post_ev["event_id"]] = "KEEP"
+        else:
+            post_event_flags[post_ev["event_id"]] = "SUPPRESS"
     else:
         # No PRE1997 equivalent — keep it
         overlap_desc = inferred_type if inferred_type else "NO_CHAMPIONSHIP_TYPE_INFERRED"
@@ -301,6 +321,8 @@ for e in events_all:
     eid = e["event_id"]
     if eid in EXCLUDED_EVENT_IDS and e.get("data_source") == "POST1997":
         continue  # suppress POST1997 overlap only
+    if eid in PRE1997_SUPPRESS:
+        continue  # PRE1997 event superseded by a richer POST1997 reconstruction
     appsafe_event_ids.add(eid)
     appsafe_events.append(e)
 
