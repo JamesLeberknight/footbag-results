@@ -1,4 +1,68 @@
 event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,source_type,data_source,result_row_id
+1982_worlds,Open Singles Net,Open Singles Net,1,Kenny Shults,,,FBW,PRE1997,b83a963033
+1982_worlds,Open Singles Net,Open Singles Net,2,Billy Hayne,,,FBW,PRE1997,877c97aef7
+1982_worlds,Open Singles Net,Open Singles Net,3,Bruce Guettich,,,FBW,PRE1997,37989f1a5c
+1982_worlds,Open Doubles Net,Open Doubles Net,1,,Mag Hughes/Billy Hayne,,FBW,PRE1997,9313635c5c
+1982_worlds,Open Doubles Net,Open Doubles Net,2,,Kenny Shults/Walt Mason,,FBW,PRE1997,334795941e
+1982_worlds,Open Doubles Net,Open Doubles Net,3,,Fred Kipley/Gary Preston,,FBW,PRE1997,b0d6bf4c8f
+1982_worlds,Women's Singles Net,Women's Singles Net,1,Cheryl Hughes,,,FBW,PRE1997,609f3f30fb
+1982_worlds,Women's Singles Net,Women's Singles Net,2,Carolyn Ramondie,,,FBW,PRE1997,a3c659f467
+1982_worlds,Women's Singles Net,Women's Singles Net,3,Karen Gunther,,,FBW,PRE1997,69ca6270c5
+1982_worlds,Women's Doubles Net,Women's Doubles Net,1,,Carolyn Ramondie/Lori Jean Tarr,,FBW,PRE1997,0f4334650b
+1982_worlds,Women's Doubles Net,Women's Doubles Net,2,,Rita Buckley/Alex Frazier,,FBW,PRE1997,315223983f
+1982_worlds,Women's Doubles Net,Women's Doubles Net,3,,Karen Uppinghouse/Cheryl Hughes,,FBW,PRE1997,14aed77b21
+1982_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Mag Hughes/Alex Frazier,,FBW,PRE1997,4c06cfa01a
+1982_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Billy Hayne/Cheryl Hughes,,FBW,PRE1997,6b4eb67eec
+1982_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Greg Cortopassi/Rita Buckley,,FBW,PRE1997,550ca7ceb6
+1982_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Gary Laut,,,FBW,PRE1997,42aa4ad24e
+1982_worlds,Open Team Freestyle,Open Team Freestyle,1,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,01cc7044c6
+1982_worlds,Open Singles Consecutive,Open Singles Consecutive,1,Kenny Shults,,,FBW,PRE1997,590eadc6cb
+1982_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Andy Linder,,,FBW,PRE1997,079c2f8370
+1982_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Gary Laut,,,FBW,PRE1997,5a70962dc8
+1982_worlds,Open Golf,Open Golf,1,Mike Harding,,,FBW,PRE1997,4a28098dc0
+1982_worlds,Open Golf,Open Golf,2,Kenny Shults,,,FBW,PRE1997,a8e4d54e96
+1982_worlds,Open Golf,Open Golf,3,Greg Cortopassi,,,FBW,PRE1997,9e1a4ac3b3
+1983_worlds_nhsa,Open Singles Net,Open Singles Net,1,Mag Hughes,,,FBW,PRE1997,98a0e0aebf
+1983_worlds_nhsa,Open Singles Net,Open Singles Net,2,Kenny Shults,,,FBW,PRE1997,ff052ef614
+1983_worlds_nhsa,Open Singles Net,Open Singles Net,3,Dave Robinson,,,FBW,PRE1997,6f121bebd8
+1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,1,,Mag Hughes/Billy Hayne,,FBW,PRE1997,14b96b52ca
+1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,2,,Greg Cortopassi/Bruce Guettich,,FBW,PRE1997,e66d08c1e2
+1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,3,,Kevin Courtney/Dave Robinson,,FBW,PRE1997,f25ed8fc0d
+1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,1,,Lori Jean Tarr/Bruce Guettich,,FBW,PRE1997,4242fb6a3f
+1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,2,,Shannon Aubin/Dave Robinson,,FBW,PRE1997,bd781aaad0
+1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,3,,Tricia George/Tim Fitzgerald,,FBW,PRE1997,5874e1bf64
+1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,1,Jack Schoolcraft,,,FBW,PRE1997,79878edcf8
+1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,2,Jim Caveney,,,FBW,PRE1997,bb2bdb9655
+1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,3,Bill Bethurum,,,FBW,PRE1997,f3e4c16336
+1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,1,,Kenny Shults/Gary Laut/Jim Caveney,,FBW,PRE1997,7ba709391b
+1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,2,,Kevin Courtney/Dave Robinson/Reed Gray,,FBW,PRE1997,244d6dfb22
+1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,3,,Robert Conover/Jim Fitzgerald,,FBW,PRE1997,da78f9c7c0
+1983_worlds_nhsa,Open Singles Consecutive,Open Singles Consecutive,1,Jack Schoolcraft,,,FBW,PRE1997,c53ba9c763
+1983_worlds_nhsa,Open Golf,Open Golf,1,Mike Harding,,,FBW,PRE1997,09a648931b
+1983_worlds_nhsa,Open Golf,Open Golf,2,Tim Mackey,,,FBW,PRE1997,92050a27bc
+1983_worlds_nhsa,Open Golf,Open Golf,3,Kenny Shults,,,FBW,PRE1997,11aadc2902
+1983_worlds_wfa,Open Singles Net,Open Singles Net,1,Kenny Shults,,,FBW,PRE1997,56f1486137
+1983_worlds_wfa,Open Singles Net,Open Singles Net,2,Dave Robinson,,,FBW,PRE1997,30f480459f
+1983_worlds_wfa,Open Singles Net,Open Singles Net,3,Steve Fennell,,,FBW,PRE1997,c96d2d93b1
+1983_worlds_wfa,Open Doubles Net,Open Doubles Net,1,,Kenny Shults/Mike Harding,,FBW,PRE1997,aef0975903
+1983_worlds_wfa,Open Doubles Net,Open Doubles Net,2,,Dave Hill/Dave Robinson,,FBW,PRE1997,ee27ec484c
+1983_worlds_wfa,Open Doubles Net,Open Doubles Net,3,,Bob Swerdlick/Mike Puderbaugh,,FBW,PRE1997,18784d3a47
+1983_worlds_wfa,Women's Singles Net,Women's Singles Net,1,Lori Jean Tarr,,,FBW,PRE1997,2cfcf50581
+1983_worlds_wfa,Women's Singles Net,Women's Singles Net,2,Nancy Reynolds,,,FBW,PRE1997,72db0e5877
+1983_worlds_wfa,Women's Singles Net,Women's Singles Net,3,Tricia George,,,FBW,PRE1997,5a3a7abe3b
+1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,1,,Lori Jean Tarr/Rita Buckley,,FBW,PRE1997,1f67f0c371
+1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,2,,Shannon Aubin/Tricia George,,FBW,PRE1997,e519f2aaa8
+1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,3,,Karin Atogpian/Constance Constable,,FBW,PRE1997,478f6e64b7
+1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,1,,Nancy Reynolds/Constance Constable,,FBW,PRE1997,30722f65b5
+1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,2,,Tricia George/Jody Grace,,FBW,PRE1997,c7bf90d101
+1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,3,,Nancy Reynolds/Constance Constable,,FBW,PRE1997,c007d6733b
+1983_worlds_wfa,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,FBW,PRE1997,e411db61e7
+1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,1,,Gary Laut/Mag Hughes/Jim Caveney/Greg Cortopassi,,FBW,PRE1997,bc8c601231
+1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,2,,Jack Schoolcraft/Will Squire,,FBW,PRE1997,7b716dc32f
+1983_worlds_wfa,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,70305348fe
+1983_worlds_wfa,Open Golf,Open Golf,1,Kenny Shults,,,FBW,PRE1997,49d69f136c
+1983_worlds_wfa,Open Golf,Open Golf,2,?,,,FBW,PRE1997,3ddbe28d53
+1983_worlds_wfa,Open Golf,Open Golf,3,?,,,FBW,PRE1997,3be65a8b51
 1984_wfa_nationals,Men's Overall,Men's Overall,1,Mag Hughes,,,FBW,PRE1997,6028337f94
 1984_wfa_nationals,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,3bfec0b873
 1984_wfa_nationals,Open Singles Net,Open Singles Net,1,Mag Hughes,,,FBW,PRE1997,844292e07d
@@ -86,193 +150,12 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1986_worlds_golden,Open Team Freestyle,Open Team Freestyle,3,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,d61031d6fe
 1986_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,1,,Tricia George/Jodi Sebastian,,FBW,PRE1997,94f03e5ba5
 1986_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,2,,Constance Constable/Kim Era,,FBW,PRE1997,caae46db4a
+1986_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,1,Andy Linder,,,FBW,PRE1997,9a6d30681d
 1986_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,2,Pat Castle,,,FBW,PRE1997,712301f2d0
 1986_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,3,Fred Barnum,,,FBW,PRE1997,d2686fd87e
 1986_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,0a9c19486a
 1986_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,2,,Jon Lind/Dennis Ross,,FBW,PRE1997,aba64ade31
 1986_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,3,,Chris Ott/Jeff Johnson,,FBW,PRE1997,dad844aacb
-1987_worlds_golden,Men's Overall,Men's Overall,1,Kenny Shults,,,FBW,PRE1997,1f5a0a6030
-1987_worlds_golden,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,f36e5ed86e
-1987_worlds_golden,Open Singles Net,Open Singles Net,1,Mag Hughes,,,FBW,PRE1997,385f4979ca
-1987_worlds_golden,Open Singles Net,Open Singles Net,2,Kenny Shults,,,FBW,PRE1997,1196d3c1d6
-1987_worlds_golden,Open Singles Net,Open Singles Net,3,Dave Robinson,,,FBW,PRE1997,ccfeaacef0
-1987_worlds_golden,Women's Singles Net,Women's Singles Net,1,Tricia George,,,FBW,PRE1997,c7164ab3e2
-1987_worlds_golden,Women's Singles Net,Women's Singles Net,2,Jodi Sebastian,,,FBW,PRE1997,f195cda10c
-1987_worlds_golden,Women's Singles Net,Women's Singles Net,3,Nancy Reynolds,,,FBW,PRE1997,45b3aa75f0
-1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,1,,Nancy Reynolds/Tricia George,,FBW,PRE1997,0acde5f131
-1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable/Jodi Sebastian,,FBW,PRE1997,32fb6ac835
-1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,3,,Suzanne Beauchemin/Linda Burt,,FBW,PRE1997,23fc6dc863
-1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,9cc53184dd
-1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,2,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,e14d194aeb
-1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,3,,Scott Cleere/Bill Bethurum,,FBW,PRE1997,db57deeee9
-1989_worlds_golden,Men's Overall,Men's Overall,1,Kenny Shults,,,FBW,PRE1997,3be61a5185
-1989_worlds_golden,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,31a6881708
-1989_worlds_golden,Open Singles Net,Open Singles Net,1,Dave Robinson,,,FBW,PRE1997,4ee03dc5a9
-1989_worlds_golden,Open Singles Net,Open Singles Net,2,Mag Hughes,,,FBW,PRE1997,cbb22bf476
-1989_worlds_golden,Open Singles Net,Open Singles Net,3,Jim Fitzgerald,,,FBW,PRE1997,85c59890db
-1989_worlds_golden,Open Doubles Net,Open Doubles Net,1,,Kenny Shults/Mike Harding,,FBW,PRE1997,8a09448b8f
-1989_worlds_golden,Open Doubles Net,Open Doubles Net,2,,Dave Robinson/Kevin Courtney,,FBW,PRE1997,53e6c36adc
-1989_worlds_golden,Open Doubles Net,Open Doubles Net,3,,Mag Hughes/Jim Fitzgerald,,FBW,PRE1997,4e928577ed
-1989_worlds_golden,Women's Singles Net,Women's Singles Net,1,Tricia George,,,FBW,PRE1997,f68c23734b
-1989_worlds_golden,Women's Singles Net,Women's Singles Net,2,Nancy Reynolds,,,FBW,PRE1997,0273d4e471
-1989_worlds_golden,Women's Singles Net,Women's Singles Net,3,Jodi Sebastian,,,FBW,PRE1997,5c351124cd
-1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,1,,Nancy Reynolds/Tricia George,,FBW,PRE1997,ccaeb4e7ba
-1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable/Jodi Sebastian,,FBW,PRE1997,0eaf15f889
-1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,3,,Suzanne Beauchemin/Linda Burt,,FBW,PRE1997,41bb2e9a79
-1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,1,,Tricia George/Dave Robinson,,FBW,PRE1997,8452dd083f
-1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,2,,Nancy Reynolds/Mag Hughes,,FBW,PRE1997,07b90ec8b5
-1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,3,,Suzanne Beauchemin/Greg Cortopassi,,FBW,PRE1997,b45dcc9caa
-1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,FBW,PRE1997,96b2e4ebc6
-1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,a4f5089357
-1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,3,Brent Welch,,,FBW,PRE1997,7ab00f0526
-1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,a1cdd3b8e8
-1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,2,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,0902659759
-1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,3,,Scott Cleere/Brent Welch,,FBW,PRE1997,5e60d67cc0
-1989_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,2,John Lind,,,FBW,PRE1997,dd2c751001
-1989_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,3,Greg Cortopassi,,,FBW,PRE1997,4c68812b66
-1989_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,5d6f336445
-1989_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,2,,Jon Lind/Dennis Ross,,FBW,PRE1997,206a30ad80
-1989_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,3,,Chris Ott/Dave Robinson,,FBW,PRE1997,8f2f80ce78
-1990_worlds,Men's Overall,Men's Overall,1,Dave Robinson,,,FBW,PRE1997,c071c5ccf8
-1990_worlds,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,215edcf347
-1990_worlds,Open Singles Net,Open Singles Net,1,Mag Hughes,,,FBW,PRE1997,faa81a8cb1
-1990_worlds,Open Singles Net,Open Singles Net,2,Dave Robinson,,,FBW,PRE1997,dff0dd1f29
-1990_worlds,Open Singles Net,Open Singles Net,3,Steve Fennell,,,FBW,PRE1997,8104ba4073
-1990_worlds,Open Doubles Net,Open Doubles Net,1,,Kenny Shults/Mike Harding,,FBW,PRE1997,1e27753546
-1990_worlds,Open Doubles Net,Open Doubles Net,2,,Dave Robinson/Jim Fitzgerald,,FBW,PRE1997,804aea02dc
-1990_worlds,Open Doubles Net,Open Doubles Net,3,,Mag Hughes/Steve Fennell,,FBW,PRE1997,0c11c2f01e
-1990_worlds,Women's Singles Net,Women's Singles Net,1,Tricia George,,,FBW,PRE1997,d6b8321c75
-1990_worlds,Women's Singles Net,Women's Singles Net,2,Nancy Reynolds,,,FBW,PRE1997,a82d8f1155
-1990_worlds,Women's Singles Net,Women's Singles Net,3,Jodi Sebastian,,,FBW,PRE1997,14ca27e641
-1990_worlds,Women's Doubles Net,Women's Doubles Net,1,,Nancy Reynolds/Tricia George,,FBW,PRE1997,fdeed1090f
-1990_worlds,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable/Jodi Sebastian,,FBW,PRE1997,7377995890
-1990_worlds,Women's Doubles Net,Women's Doubles Net,3,,Suzanne Beauchemin/Linda Burt,,FBW,PRE1997,8368a4b5d1
-1990_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Tricia George/Dave Robinson,,FBW,PRE1997,2f1e302b14
-1990_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Nancy Reynolds/Mag Hughes,,FBW,PRE1997,bc5976d437
-1990_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Linda Burt/Kenny Shults,,FBW,PRE1997,4558c38350
-1990_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,FBW,PRE1997,59df320d4a
-1990_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Brent Welch,,,FBW,PRE1997,2126a597d0
-1990_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Jim Fitzgerald,,,FBW,PRE1997,dab52e3910
-1990_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,37f8febf08
-1990_worlds,Open Team Freestyle,Open Team Freestyle,2,,Bruce Guettich/Greg Cortopassi,,FBW,PRE1997,38a20ae73c
-1990_worlds,Open Team Freestyle,Open Team Freestyle,3,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,866e822855
-1990_worlds,Open Singles Consecutive,Open Singles Consecutive,2,John Lind,,,FBW,PRE1997,79e7509cea
-1990_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Rick Reese,,,FBW,PRE1997,3034700fb7
-1990_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,0676580b88
-1990_worlds,Open Doubles Consecutive,Open Doubles Consecutive,2,,Jon Lind/Dennis Ross,,FBW,PRE1997,4e27b83bb9
-1990_worlds,Open Doubles Consecutive,Open Doubles Consecutive,3,,Chris Ott/Dave Robinson,,FBW,PRE1997,30219b9a81
-1991_worlds,Men's Overall,Men's Overall,1,Brent Welch,,,FBW,PRE1997,60481a8f86
-1991_worlds,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,3fb47044e1
-1991_worlds,Open Singles Net,Open Singles Net,1,Steve Fennell,,,FBW,PRE1997,9019364f74
-1991_worlds,Open Singles Net,Open Singles Net,2,Dave Robinson,,,FBW,PRE1997,d3842dc538
-1991_worlds,Open Singles Net,Open Singles Net,3,Jim Fitzgerald,,,FBW,PRE1997,d55ef28b6e
-1991_worlds,Open Doubles Net,Open Doubles Net,1,,Dave Robinson/Jim Fitzgerald,,FBW,PRE1997,3437f51951
-1991_worlds,Open Doubles Net,Open Doubles Net,2,,Kenny Shults/Mike Harding,,FBW,PRE1997,f46c486974
-1991_worlds,Open Doubles Net,Open Doubles Net,3,,Mag Hughes/Steve Fennell,,FBW,PRE1997,677f6d8004
-1991_worlds,Women's Singles Net,Women's Singles Net,1,Tricia George,,,FBW,PRE1997,a51bbf9d2e
-1991_worlds,Women's Singles Net,Women's Singles Net,2,Nancy Reynolds,,,FBW,PRE1997,33028a5bbd
-1991_worlds,Women's Singles Net,Women's Singles Net,3,Jodi Sebastian,,,FBW,PRE1997,ff7c357886
-1991_worlds,Women's Doubles Net,Women's Doubles Net,1,,Nancy Reynolds/Tricia George,,FBW,PRE1997,f34a1645c0
-1991_worlds,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable/Jodi Sebastian,,FBW,PRE1997,5b3bb0ed25
-1991_worlds,Women's Doubles Net,Women's Doubles Net,3,,Suzanne Beauchemin/Linda Burt,,FBW,PRE1997,80a6788945
-1991_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Tricia George/Dave Robinson,,FBW,PRE1997,2261ec5ae9
-1991_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Nancy Reynolds/Mag Hughes,,FBW,PRE1997,1a2e93a0ae
-1991_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Linda Burt/Kenny Shults,,FBW,PRE1997,1c7e2cc3b7
-1991_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Brent Welch,,,FBW,PRE1997,95e3efa41f
-1991_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Andy Linder,,,FBW,PRE1997,49189e7843
-1991_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Dennis Ross,,,FBW,PRE1997,8b48ba4513
-1991_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,1a29c0e1f0
-1991_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,5a9872f948
-1991_worlds,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,,FBW,PRE1997,7d981ac0ce
-1991_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Rick Reese,,,FBW,PRE1997,2c0d79d873
-1991_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Ted Martens,,,FBW,PRE1997,e11ad34796
-1991_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,d6a0cdf547
-1991_worlds,Open Doubles Consecutive,Open Doubles Consecutive,2,,Jon Lind/Dennis Ross,,FBW,PRE1997,f33fee66fe
-1991_worlds,Open Doubles Consecutive,Open Doubles Consecutive,3,,Chris Ott/Dave Robinson,,FBW,PRE1997,bba0bb9dd9
-1992_worlds,Men's Overall,Men's Overall,1,Steve Fennell,,,FBW,PRE1997,2693722f5b
-1992_worlds,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,df9f80fb3f
-1992_worlds,Open Singles Net,Open Singles Net,1,Steve Fennell,,,FBW,PRE1997,7956fbe385
-1992_worlds,Open Singles Net,Open Singles Net,2,Mag Hughes,,,FBW,PRE1997,563331c366
-1992_worlds,Open Singles Net,Open Singles Net,3,Dave Robinson,,,FBW,PRE1997,cefc30e4e8
-1992_worlds,Open Doubles Net,Open Doubles Net,1,,Kenny Shults/Mike Harding,,FBW,PRE1997,82c26e068a
-1992_worlds,Open Doubles Net,Open Doubles Net,2,,Dave Robinson/Jim Fitzgerald,,FBW,PRE1997,c1988daa46
-1992_worlds,Open Doubles Net,Open Doubles Net,3,,Mag Hughes/Steve Fennell,,FBW,PRE1997,20c9753efe
-1992_worlds,Women's Singles Net,Women's Singles Net,1,Tricia George,,,FBW,PRE1997,7484d84d39
-1992_worlds,Women's Singles Net,Women's Singles Net,2,Jodi Sebastian,,,FBW,PRE1997,c8e03d7451
-1992_worlds,Women's Singles Net,Women's Singles Net,3,Nancy Reynolds,,,FBW,PRE1997,24c54aa585
-1992_worlds,Women's Doubles Net,Women's Doubles Net,1,,Nancy Reynolds/Tricia George,,FBW,PRE1997,83f11c70b2
-1992_worlds,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable/Jodi Sebastian,,FBW,PRE1997,fa380cf1fb
-1992_worlds,Women's Doubles Net,Women's Doubles Net,3,,Suzanne Beauchemin/Linda Burt,,FBW,PRE1997,6955f57ae3
-1992_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Tricia George/Dave Robinson,,FBW,PRE1997,b32d793aaa
-1992_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Nancy Reynolds/Mag Hughes,,FBW,PRE1997,70f2ff4bd4
-1992_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Linda Burt/Kenny Shults,,FBW,PRE1997,8e0bdfb5cd
-1992_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Jim Fitzgerald,,,FBW,PRE1997,97ea1a3af1
-1992_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,8a7064e753
-1992_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Brent Welch,,,FBW,PRE1997,2e96ea689d
-1992_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,830360837e
-1992_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,c41b5a7697
-1992_worlds,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,,FBW,PRE1997,c3f6a2547f
-1992_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Ted Martens,,,FBW,PRE1997,6c9f549a03
-1992_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Rick Reese,,,FBW,PRE1997,b617481fe3
-1992_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,385d46bc42
-1992_worlds,Open Doubles Consecutive,Open Doubles Consecutive,2,,Jon Lind/Dennis Ross,,FBW,PRE1997,e6e3504b7d
-1992_worlds,Open Doubles Consecutive,Open Doubles Consecutive,3,,Chris Ott/Dave Robinson,,FBW,PRE1997,7f607e5a77
-1993_worlds,Men's Overall,Men's Overall,1,Steve Fennell,,,FBW,PRE1997,ac1cb7b5a0
-1993_worlds,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,35daeac35e
-1993_worlds,Open Singles Net,Open Singles Net,1,Steve Fennell,,,FBW,PRE1997,91c1c7001c
-1993_worlds,Open Singles Net,Open Singles Net,2,Mag Hughes,,,FBW,PRE1997,1cb377b7d3
-1993_worlds,Open Singles Net,Open Singles Net,3,Dave Robinson,,,FBW,PRE1997,14f2dbd812
-1993_worlds,Open Doubles Net,Open Doubles Net,1,,Dave Robinson/Steve Fennell,,FBW,PRE1997,376bb62209
-1993_worlds,Open Doubles Net,Open Doubles Net,2,,Kenny Shults/Mike Harding,,FBW,PRE1997,1bbfccc816
-1993_worlds,Open Doubles Net,Open Doubles Net,3,,Mag Hughes/Jim Fitzgerald,,FBW,PRE1997,0357a3b4be
-1993_worlds,Women's Singles Net,Women's Singles Net,1,Tricia George,,,FBW,PRE1997,c19bbf9314
-1993_worlds,Women's Singles Net,Women's Singles Net,2,Jodi Sebastian,,,FBW,PRE1997,bdd3fa245e
-1993_worlds,Women's Singles Net,Women's Singles Net,3,Nancy Reynolds,,,FBW,PRE1997,0d6bb07cfe
-1993_worlds,Women's Doubles Net,Women's Doubles Net,1,,Nancy Reynolds/Tricia George,,FBW,PRE1997,0ec152e543
-1993_worlds,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable/Jodi Sebastian,,FBW,PRE1997,423421ea5f
-1993_worlds,Women's Doubles Net,Women's Doubles Net,3,,Suzanne Beauchemin/Linda Burt,,FBW,PRE1997,c3c7a75c6d
-1993_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Tricia George/Dave Robinson,,FBW,PRE1997,d4e6d2c622
-1993_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Nancy Reynolds/Mag Hughes,,FBW,PRE1997,1dfa4c0f7c
-1993_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Linda Burt/Kenny Shults,,FBW,PRE1997,9f4487abc4
-1993_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Jim Fitzgerald,,,FBW,PRE1997,6534910873
-1993_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,b4c5c7c9c5
-1993_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Torgeir Rygh,,,FBW,PRE1997,0d7c39158a
-1993_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,5b9b7255f1
-1993_worlds,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,393ea10b01
-1993_worlds,Open Team Freestyle,Open Team Freestyle,3,,Torgeir Rygh/Sindre Madsen,,FBW,PRE1997,55af40455b
-1993_worlds,Open Singles Consecutive,Open Singles Consecutive,2,Rick Reese,,,FBW,PRE1997,5a51ce9375
-1993_worlds,Open Singles Consecutive,Open Singles Consecutive,3,Ted Martens,,,FBW,PRE1997,745f954cd8
-1993_worlds,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,9b31bdfbb7
-1993_worlds,Open Doubles Consecutive,Open Doubles Consecutive,2,,Jon Lind/Dennis Ross,,FBW,PRE1997,b12a6281df
-1993_worlds,Open Doubles Consecutive,Open Doubles Consecutive,3,,Chris Ott/Dave Robinson,,FBW,PRE1997,d195c8ae71
-1994_worlds_palo_alto,Men's Overall,Men's Overall,1,Dave Robinson,,,FBW,PRE1997,5c601b3d6b
-1994_worlds_palo_alto,Women's Overall,Women's Overall,1,Tricia George,,,FBW,PRE1997,242ff432aa
-1994_worlds_palo_alto,Open Singles Net,Open Singles Net,1,Mag Hughes,,,FBW,PRE1997,b96e8b8876
-1994_worlds_palo_alto,Open Singles Net,Open Singles Net,2,Steve Fennell,,,FBW,PRE1997,c5193227b1
-1994_worlds_palo_alto,Open Singles Net,Open Singles Net,3,Dave Robinson,,,FBW,PRE1997,7f1d7388ec
-1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,1,,Dave Robinson/Steve Fennell,,FBW,PRE1997,196311f4bd
-1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,2,,Kenny Shults/Mike Harding,,FBW,PRE1997,26ade66473
-1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,3,,Mag Hughes/Jim Fitzgerald,,FBW,PRE1997,a25d3e26d7
-1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,1,Tricia George,,,FBW,PRE1997,086679e82b
-1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,2,Jodi Sebastian,,,FBW,PRE1997,5f6ad90752
-1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,3,Nancy Reynolds,,,FBW,PRE1997,2f5ba391b4
-1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,1,,Nancy Reynolds/Tricia George,,FBW,PRE1997,842d6fd323
-1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable/Jodi Sebastian,,FBW,PRE1997,d66b943ddc
-1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,3,,Suzanne Beauchemin/Linda Burt,,FBW,PRE1997,dd8152a222
-1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,1,,Tricia George/Dave Robinson,,FBW,PRE1997,7f2cc0e4fc
-1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,2,,Nancy Reynolds/Mag Hughes,,FBW,PRE1997,acae426d4d
-1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,3,,Linda Burt/Kenny Shults,,FBW,PRE1997,cd7264586f
-1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,1,Jim Fitzgerald,,,FBW,PRE1997,37f6b36b4d
-1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,FBW,PRE1997,c92061e1ce
-1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,3,Torgeir Rygh,,,FBW,PRE1997,d4e756a0bd
-1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,1,,Jim Fitzgerald/Jack Schoolcraft,,FBW,PRE1997,54c07e79c9
-1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,2,,Scott Cleere/[UNKNOWN PARTNER],,FBW,PRE1997,abad56fa83
-1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch/Bill Langbehn,,FBW,PRE1997,1bd3a0d366
-1994_worlds_palo_alto,Open Singles Consecutive,Open Singles Consecutive,2,Rick Reese,,,FBW,PRE1997,543db049ad
-1994_worlds_palo_alto,Open Singles Consecutive,Open Singles Consecutive,3,Ted Martens,,,FBW,PRE1997,f194e49f4f
-1994_worlds_palo_alto,Open Doubles Consecutive,Open Doubles Consecutive,1,,Jack Schoolcraft/Pat Castle,,FBW,PRE1997,e8f42ef1bc
-1994_worlds_palo_alto,Open Doubles Consecutive,Open Doubles Consecutive,2,,Jon Lind/Dennis Ross,,FBW,PRE1997,10945e4097
-1994_worlds_palo_alto,Open Doubles Consecutive,Open Doubles Consecutive,3,,Chris Ott/Dave Robinson,,FBW,PRE1997,278ae585b7
 1980_worlds_clackamas,Open Singles,Open Singles,1,John Stalberger,,,FBW,PRE1997,a3b91532bf
 1980_worlds_clackamas,Open Singles,Open Singles,2,Ken Eldrick,,,FBW,PRE1997,e5be25c4c2
 1981_worlds_portland,Open Singles,Open Singles,1,John Stalberger,,,FBW,PRE1997,dce50236a8
@@ -291,8 +174,21 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1986_worlds_golden,Open Freestyle,Open Freestyle,1,Doug Little,,,FBW,PRE1997,d25b0c47fc
 1987_euro_champs,Open Singles Net,Open Singles Net,1,Jan-Olof Karlsson,,,FBW,PRE1997,2e12fd4ffe
 1988_us_nationals,Open Singles Net,Open Singles Net,1,Ken Eldrick,,,FBW,PRE1997,07f409af99
-1989_worlds_golden,Open Singles Net,Open Singles Net,1,Ken Eldrick,,,FBW,PRE1997,2f5e54aecf
-1994_worlds_palo_alto,Open Singles Net,Open Singles Net,1,Steve Fennell,,,FBW,PRE1997,6a25514e3d
+1982_worlds,,,1,Greg Cortopassi/Bruce Guettich,,,OLD_RESULTS,PRE1997,db9777f4d0
+1982_worlds,,,2,Gary Lautt,,,OLD_RESULTS,PRE1997,7f9a866e8f
+1982_worlds,,,3,Jack Schoolcraft/Reed Gray,,,OLD_RESULTS,PRE1997,81e6c01524
+1983_worlds_nhsa,Singles,Singles,1,Ken Shults,,,OLD_RESULTS,PRE1997,a32e53a1a7
+1983_worlds_nhsa,Singles,Singles,2,Andy Linder,,,OLD_RESULTS,PRE1997,c3f154cd8f
+1983_worlds_nhsa,Singles,Singles,3,Jeff Johnson,,,OLD_RESULTS,PRE1997,789d80aefe
+1983_worlds_nhsa,Team,Team,1,Greg Cortopassi/Mag Hughes/Gary Lautt/Jim Caveney,,,OLD_RESULTS,PRE1997,c90b7e93b6
+1983_worlds_nhsa,Team,Team,2,David Robinson/Kevin Courtney/Reed Gray/Jim Fitzgerald,,,OLD_RESULTS,PRE1997,959ee3f490
+1983_worlds_nhsa,Team,Team,3,Jack Schoolcraft/Will Squire,,,OLD_RESULTS,PRE1997,85981a677a
+1983_worlds_wfa,Singles,Singles,1,Jack Schoolcraft,,,OLD_RESULTS,PRE1997,1656965262
+1983_worlds_wfa,Singles,Singles,2,Jim Caveney,,,OLD_RESULTS,PRE1997,c7ac99298d
+1983_worlds_wfa,Singles,Singles,3,Bill Bethurum,,,OLD_RESULTS,PRE1997,794b39dcc0
+1983_worlds_wfa,Team,Team,1,Gary Lautt/Jim Caveney/Ken Shults,,,OLD_RESULTS,PRE1997,c6d7082cea
+1983_worlds_wfa,Team,Team,2,David Robinson/Kevin Courtney/Reed Gray,,,OLD_RESULTS,PRE1997,f6a4e0012f
+1983_worlds_wfa,Team,Team,3,Jim Fitzgerald/Robert Conover,,,OLD_RESULTS,PRE1997,a3daabe31e
 1984_wfa_nationals,Singles,Singles,1,Andy Linder,,,OLD_RESULTS,PRE1997,8f812c74e9
 1984_wfa_nationals,Singles,Singles,2,Ken Shults,,,OLD_RESULTS,PRE1997,8e747f9b50
 1984_wfa_nationals,Singles,Singles,3,Jack Schoolcraft,,,OLD_RESULTS,PRE1997,3979c1e38d
@@ -537,20 +433,538 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1985_worlds,Women's Overall,Women's Overall,1,Tricia George,,,OLD_RESULTS,PRE1997,57778cd4a9
 1985_worlds,Women's Overall,Women's Overall,2,Constance Constable,,,OLD_RESULTS,PRE1997,a0f9f44624
 1985_worlds,Women's Overall,Women's Overall,3,Nancy Reynolds,,,OLD_RESULTS,PRE1997,d1bfc8d9dc
-1987_worlds_golden,Open Doubles Net,Open Doubles Net,1,,,,FBW_V05_N02,PRE1997,d4415c65aa
-1987_worlds_golden,Open Doubles Net,Open Doubles Net,2,,,,FBW_V05_N02,PRE1997,0853829c98
-1987_worlds_golden,Open Doubles Net,Open Doubles Net,3,,,,FBW_V05_N02,PRE1997,3086357581
-1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,1,,,,FBW_V05_N02,PRE1997,9742fccd85
-1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,2,,,,FBW_V05_N02,PRE1997,79d2a2dc74
-1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,3,,,,FBW_V05_N02,PRE1997,25572d7bdd
-1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,1,,,,FBW_V05_N02,PRE1997,bbffd8bf78
-1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,2,,,,FBW_V05_N02,PRE1997,51e97b0321
-1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,3,,,,FBW_V05_N02,PRE1997,add9793d9d
-1987_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,2,,,,FBW_V05_N02,PRE1997,eaa8576ec5
-1987_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,3,,,,FBW_V05_N02,PRE1997,f225e65ead
-1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,1,,,,FBW_V05_N02,PRE1997,a13e185a84
-1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,2,,,,FBW_V05_N02,PRE1997,22b484a6ab
-1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,3,,,,FBW_V05_N02,PRE1997,28c3bb0f22
+1985_worlds,Doubles One-Pass Consecutive Kicks,Doubles One-Pass Consecutive Kicks,4,,Eric M. Wulff & Scott Cleere,,FBW_V2,PRE1997,ff30897ff2
+1985_worlds,Golf,Golf,4,Alf Marcussen,,,FBW_V2,PRE1997,1c4842c4fa
+1985_worlds,Intermediate Doubles Net,Intermediate Doubles Net,2,,Doug Gannon & David Butcher,,FBW_V2,PRE1997,abdcd7fee3
+1985_worlds,Intermediate Doubles Net,Intermediate Doubles Net,3,,Michael McCarthy & Randy Dix,,FBW_V2,PRE1997,6cb0ad38d4
+1985_worlds,Intermediate Doubles Net,Intermediate Doubles Net,4,,Dylan Cole & Eric Cole,,FBW_V2,PRE1997,91f78afa96
+1985_worlds,Intermediate Golf,Intermediate Golf,1,Radhy Esposito,,,FBW_V2,PRE1997,59e805ac84
+1985_worlds,Intermediate Golf,Intermediate Golf,2,Greg Potts,,,FBW_V2,PRE1997,3fdb207dcb
+1985_worlds,Intermediate Golf,Intermediate Golf,3,Simon Hearsey,,,FBW_V2,PRE1997,8f9319f01d
+1985_worlds,Intermediate Golf,Intermediate Golf,4,Wally Victory,,,FBW_V2,PRE1997,ac6015a158
+1985_worlds,Intermediate Singles Freestyle,Intermediate Singles Freestyle,1,Dave Wedertz,,,FBW_V2,PRE1997,f1f650c975
+1985_worlds,Intermediate Singles Freestyle,Intermediate Singles Freestyle,2,Tu Vu,,,FBW_V2,PRE1997,c913373e4f
+1985_worlds,Intermediate Singles Freestyle,Intermediate Singles Freestyle,3,Chris Bond,,,FBW_V2,PRE1997,f84ca9cc91
+1985_worlds,Intermediate Singles Freestyle,Intermediate Singles Freestyle,4,Rex Stoler,,,FBW_V2,PRE1997,cef2cc0750
+1985_worlds,Intermediate Singles Net,Intermediate Singles Net,2,Dan Botkin,,,FBW_V2,PRE1997,66f15cbe02
+1985_worlds,Intermediate Singles Net,Intermediate Singles Net,3,Kerry Chun,,,FBW_V2,PRE1997,f76a543055
+1985_worlds,Intermediate Singles Net,Intermediate Singles Net,4,Dylan Cole,,,FBW_V2,PRE1997,54957d0769
+1985_worlds,Intermediate Women's Singles Net,Intermediate Women's Singles Net,1,Ann Lasken,,,FBW_V2,PRE1997,7fd1e6accf
+1985_worlds,Intermediate Women's Singles Net,Intermediate Women's Singles Net,2,Jane Jones,,,FBW_V2,PRE1997,30f95b30c7
+1985_worlds,Intermediate Women's Singles Net,Intermediate Women's Singles Net,3,Dea Evans,,,FBW_V2,PRE1997,5c6c1b30f7
+1985_worlds,Intermediate Women's Singles Net,Intermediate Women's Singles Net,4,Darlene House,,,FBW_V2,PRE1997,40d4c18bb5
+1985_worlds,Mixed Doubles Net,Mixed Doubles Net,4,,Chris Routh & Tricia George,,FBW_V2,PRE1997,0d64843ee4
+1985_worlds,Mixed Team Freestyle Demo,Mixed Team Freestyle Demo,1,,Greg Nelson & Lisa McDaniel,,FBW_V2,PRE1997,3b99e4a861
+1985_worlds,Mixed Team Freestyle Demo,Mixed Team Freestyle Demo,2,,Etienne Constable & Constance Reed,,FBW_V2,PRE1997,5f467bacbb
+1985_worlds,Mixed Team Freestyle Demo,Mixed Team Freestyle Demo,3,,Jeffrey Johnson & Tricia George,,FBW_V2,PRE1997,9571899eb7
+1985_worlds,Mixed Team Freestyle Demo,Mixed Team Freestyle Demo,4,,Scott Davidson & Valeria Davidson,,FBW_V2,PRE1997,20e629049d
+1985_worlds,Open Doubles Net,Open Doubles Net,1,,Randy Mulder & Kenny Shults,,FBW_V2,PRE1997,0844fcc778
+1985_worlds,Open Doubles Net,Open Doubles Net,2,,Alf Marcussen & Brent Welch,,FBW_V2,PRE1997,c2fb217be7
+1985_worlds,Open Doubles Net,Open Doubles Net,3,,Remi Kristensen & Allan Petersen,,FBW_V2,PRE1997,e34baee188
+1985_worlds,Open Doubles Net,Open Doubles Net,4,,Sebastian Verdy & Danny Borsky,,FBW_V2,PRE1997,2470111046
+1985_worlds,Open Overall,Open Overall,1,Allan Petersen,,,FBW_V2,PRE1997,ad89fbeb92
+1985_worlds,Open Overall,Open Overall,2,Eric M. Wulff,,,FBW_V2,PRE1997,341e21d402
+1985_worlds,Open Overall,Open Overall,3,Remi Kristensen,,,FBW_V2,PRE1997,857b715c58
+1985_worlds,Open Overall,Open Overall,4,Scott Milne,,,FBW_V2,PRE1997,1c7e386163
+1985_worlds,Open Overall,Open Overall,5,Peter Shunny,,,FBW_V2,PRE1997,cca832315d
+1985_worlds,Open Overall,Open Overall,6,Bruce Guettich,,,FBW_V2,PRE1997,2d0d3e3215
+1985_worlds,Open Overall,Open Overall,7,Scott Cleere,,,FBW_V2,PRE1997,dab0ea6e09
+1985_worlds,Open Overall,Open Overall,8,Rich Cook,,,FBW_V2,PRE1997,a1295c970f
+1985_worlds,Open Overall,Open Overall,9,Tuan Vu,,,FBW_V2,PRE1997,1f5fb67e54
+1985_worlds,Open Overall,Open Overall,10,R. Vincent Bradley,,,FBW_V2,PRE1997,4498d7731d
+1985_worlds,Open Overall,Open Overall,11,Jay Wininger,,,FBW_V2,PRE1997,632090f2d8
+1985_worlds,Open Overall,Open Overall,12,Steve Baker,,,FBW_V2,PRE1997,1afd959a14
+1985_worlds,Open Overall,Open Overall,13,Jeffrey Johnson,,,FBW_V2,PRE1997,86318783bf
+1985_worlds,Open Overall,Open Overall,14,Brent Welch,,,FBW_V2,PRE1997,4e3036282e
+1985_worlds,Open Overall,Open Overall,15,Derrick Fogle,,,FBW_V2,PRE1997,a2291c7209
+1985_worlds,Open Overall,Open Overall,16,Jimmy Evans,,,FBW_V2,PRE1997,946d49941b
+1985_worlds,Open Overall,Open Overall,17,Rippin' Rick Reese,,,FBW_V2,PRE1997,531baceee9
+1985_worlds,Open Overall,Open Overall,18,Davie Piper,,,FBW_V2,PRE1997,ac2c1ef569
+1985_worlds,Open Overall,Open Overall,19,Roger Stimson,,,FBW_V2,PRE1997,fef6adbda9
+1985_worlds,Open Overall,Open Overall,20,Sean Flynn,,,FBW_V2,PRE1997,105c9705a1
+1985_worlds,Open Overall,Open Overall,21,Steve Smith,,,FBW_V2,PRE1997,b9fe8bc603
+1985_worlds,Open Overall,Open Overall,22,J. Patrick Kelly,,,FBW_V2,PRE1997,079b6316e0
+1985_worlds,Open Overall,Open Overall,23,Bill Langbehn,,,FBW_V2,PRE1997,f2b40d0c1b
+1985_worlds,Open Overall,Open Overall,24,Kenny Shults,,,FBW_V2,PRE1997,a3b2c95a16
+1985_worlds,Open Overall,Open Overall,25,Alf Marcussen,,,FBW_V2,PRE1997,040aac8a15
+1985_worlds,Open Overall,Open Overall,26,Yossarian Kelley,,,FBW_V2,PRE1997,b8c37c1252
+1985_worlds,Open Overall,Open Overall,27,David Bernard,,,FBW_V2,PRE1997,0a6649db70
+1985_worlds,Open Overall,Open Overall,28,Chris Ott,,,FBW_V2,PRE1997,b0ed5a26b6
+1985_worlds,Open Overall,Open Overall,29,Rob Adams,,,FBW_V2,PRE1997,eb29418484
+1985_worlds,Open Overall,Open Overall,30,Yves Archambault,,,FBW_V2,PRE1997,9ce55ae1fa
+1985_worlds,Open Overall,Open Overall,31,Steve Dusablon,,,FBW_V2,PRE1997,eadc25eade
+1985_worlds,Open Overall,Open Overall,32,Greg Nelson,,,FBW_V2,PRE1997,4819526f35
+1985_worlds,Open Overall,Open Overall,33,Emmanuel Bouchard,,,FBW_V2,PRE1997,fde136ae4e
+1985_worlds,Open Overall,Open Overall,34,Jim Caveney,,,FBW_V2,PRE1997,4d2682756a
+1985_worlds,Open Overall,Open Overall,35,,Etienne Constable & Andrew Morgan,,FBW_V2,PRE1997,2a8277ef14
+1985_worlds,Open Overall,Open Overall,37,Noah Dubreuil,,,FBW_V2,PRE1997,4b190b58f7
+1985_worlds,Open Overall,Open Overall,38,Jake Leong,,,FBW_V2,PRE1997,2cac1495e2
+1985_worlds,Open Overall,Open Overall,39,Steven Campbell,,,FBW_V2,PRE1997,9a0fd219a5
+1985_worlds,Open Overall,Open Overall,40,Andrew Ronald,,,FBW_V2,PRE1997,3cd6b7167b
+1985_worlds,Open Overall,Open Overall,41,James Harley,,,FBW_V2,PRE1997,46604cc80c
+1985_worlds,Open Overall,Open Overall,42,Randy Mulder,,,FBW_V2,PRE1997,f23d3e7a44
+1985_worlds,Open Overall,Open Overall,43,Peter Irish,,,FBW_V2,PRE1997,2a07019e6e
+1985_worlds,Open Overall,Open Overall,44,Danny Borsky,,,FBW_V2,PRE1997,10fa142627
+1985_worlds,Open Overall,Open Overall,45,Josh Casey,,,FBW_V2,PRE1997,7b71cdab3a
+1985_worlds,Open Overall,Open Overall,46,Martin Cote,,,FBW_V2,PRE1997,74655a2830
+1985_worlds,Open Overall,Open Overall,47,Sebastien Verdy,,,FBW_V2,PRE1997,35fa05c472
+1985_worlds,Open Overall,Open Overall,48,Chris Routh,,,FBW_V2,PRE1997,e730c9a31f
+1985_worlds,Open Overall,Open Overall,49,Daryl Genz,,,FBW_V2,PRE1997,d29d1d5023
+1985_worlds,Open Overall,Open Overall,50,"Eric ""Bart"" Bartholoman",,,FBW_V2,PRE1997,b5e6252992
+1985_worlds,Open Overall,Open Overall,51,Steve Kremer,,,FBW_V2,PRE1997,16a62e78ea
+1985_worlds,Open Overall,Open Overall,52,Bob Nicholson,,,FBW_V2,PRE1997,dd8e1f7af4
+1985_worlds,Open Overall,Open Overall,53,Paul Lovern,,,FBW_V2,PRE1997,3369dfce17
+1985_worlds,Open Overall,Open Overall,54,,Mark Voightmann & Jesse Whitworth,,FBW_V2,PRE1997,ecec410741
+1985_worlds,Open Overall,Open Overall,55,,Larry Doyle & Byron Proshold & Crass Eddicott & Simon Hearsey,,FBW_V2,PRE1997,d1f2805e09
+1985_worlds,Open Overall,Open Overall,60,Ollie Clampet,,,FBW_V2,PRE1997,a2651668b3
+1985_worlds,Open Overall,Open Overall,61,Matt Churney,,,FBW_V2,PRE1997,f50ac130fa
+1985_worlds,Open Overall,Open Overall,62,Lance Levy,,,FBW_V2,PRE1997,d3f946ab89
+1985_worlds,Open Overall,Open Overall,63,,Steven L. Goldberg & Edmund Larnacchia,,FBW_V2,PRE1997,038bf8fbbd
+1985_worlds,Open Overall,Open Overall,65,,Brent Stewart & Patrick Keehan & Dennis Ross & Ahren Gehrman & Tu Vu,,FBW_V2,PRE1997,d2b2701719
+1985_worlds,Open Overall,Open Overall,70,Michael Grueter,,,FBW_V2,PRE1997,fe08005320
+1985_worlds,Open Overall,Open Overall,71,Scott Durfee,,,FBW_V2,PRE1997,102e47ddb7
+1985_worlds,Open Overall,Open Overall,72,Jim Curtis,,,FBW_V2,PRE1997,1c5da70e1c
+1985_worlds,Open Overall,Open Overall,73,John Mulyk,,,FBW_V2,PRE1997,f97bb54ea3
+1985_worlds,Open Overall,Open Overall,74,Scott Davidson,,,FBW_V2,PRE1997,5cd0cecb18
+1985_worlds,Open Overall,Open Overall,75,Tim Kelly,,,FBW_V2,PRE1997,79bd81ca81
+1985_worlds,Open Overall,Open Overall,76,Reed Gray,,,FBW_V2,PRE1997,e5d8bf2c89
+1985_worlds,Open Overall,Open Overall,77,Edwin Veltman,,,FBW_V2,PRE1997,b8f8bb5d2b
+1985_worlds,Open Overall,Open Overall,78,Chris Bond,,,FBW_V2,PRE1997,722e07f48b
+1985_worlds,Open Singles Net,Open Singles Net,2,Danny Borsky,,,FBW_V2,PRE1997,2a9b58628b
+1985_worlds,Open Singles Net,Open Singles Net,3,Alf Marcussen,,,FBW_V2,PRE1997,b191a508b9
+1985_worlds,Open Singles Net,Open Singles Net,4,Kenny Shults,,,FBW_V2,PRE1997,68b6b17ea7
+1985_worlds,Open Singles Speed Consecutives,Open Singles Speed Consecutives,1,Sean Flynn,,,FBW_V2,PRE1997,b351aa78b2
+1985_worlds,Open Singles Speed Consecutives,Open Singles Speed Consecutives,2,Derrick Fogle,,,FBW_V2,PRE1997,4b44dcccac
+1985_worlds,Open Singles Speed Consecutives,Open Singles Speed Consecutives,3,Eric M. Wulff,,,FBW_V2,PRE1997,6608c8ca1e
+1985_worlds,Open Singles Speed Consecutives,Open Singles Speed Consecutives,4,Jay Wininger,,,FBW_V2,PRE1997,337ceb0d12
+1985_worlds,Singles Freestyle,Singles Freestyle,4,Rippin' Rick Reese,,,FBW_V2,PRE1997,3faf81dd4f
+1985_worlds,Team Freestyle,Team Freestyle,4,,Rich Cook & Scott Milne,,FBW_V2,PRE1997,f830a15e5e
+1985_worlds,Women's Doubles Net,Women's Doubles Net,4,,Becca English-Ross & Lisa Monti,,FBW_V2,PRE1997,d0604eb232
+1985_worlds,Women's Doubles One-Pass Consecutive Kicks,Women's Doubles One-Pass Consecutive Kicks,4,,Kelly Kelley & Tina Lewis,,FBW_V2,PRE1997,290a80132c
+1985_worlds,Women's Golf,Women's Golf,4,Becca English-Ross,,,FBW_V2,PRE1997,e7989a5587
+1985_worlds,Women's Overall,Women's Overall,4,Becca English-Ross,,,FBW_V2,PRE1997,b1bb8fd9d0
+1985_worlds,Women's Overall,Women's Overall,5,,Lisa Monti & Valeria Davidson,,FBW_V2,PRE1997,bd6eb66c94
+1985_worlds,Women's Overall,Women's Overall,7,Tina Lewis,,,FBW_V2,PRE1997,4497045be9
+1985_worlds,Women's Overall,Women's Overall,8,Kelly Kelley,,,FBW_V2,PRE1997,35e7db5b6b
+1985_worlds,Women's Overall,Women's Overall,9,Jody Welch,,,FBW_V2,PRE1997,8b670b9323
+1985_worlds,Women's Overall,Women's Overall,10,Sam Conlon,,,FBW_V2,PRE1997,aa4f450e6b
+1985_worlds,Women's Overall,Women's Overall,11,Carol Wedemeyer,,,FBW_V2,PRE1997,681f9a73f9
+1985_worlds,Women's Overall,Women's Overall,12,Heather Muggleton,,,FBW_V2,PRE1997,1fb25831af
+1985_worlds,Women's Overall,Women's Overall,13,Constance Constable,,,FBW_V2,PRE1997,38b13daf3d
+1985_worlds,Women's Overall,Women's Overall,14,Anne Miller,,,FBW_V2,PRE1997,7a3deb27ab
+1985_worlds,Women's Overall,Women's Overall,15,,Dea Evans & Lisa Waccolz,,FBW_V2,PRE1997,90f3591737
+1985_worlds,Women's Overall,Women's Overall,17,Emily Verdy,,,FBW_V2,PRE1997,495ca0e1a0
+1985_worlds,Women's Overall,Women's Overall,18,Wendy Curran,,,FBW_V2,PRE1997,96b66e777d
+1985_worlds,Women's Singles Freestyle,Women's Singles Freestyle,1,Sam Conlon,,,FBW_V2,PRE1997,fab81834b7
+1985_worlds,Women's Singles Freestyle,Women's Singles Freestyle,2,Carol Wedemeyer,,,FBW_V2,PRE1997,03f21b9397
+1985_worlds,Women's Singles Freestyle,Women's Singles Freestyle,3,Tricia George,,,FBW_V2,PRE1997,dad739da2f
+1985_worlds,Women's Singles Freestyle,Women's Singles Freestyle,4,Lisa McDaniel,,,FBW_V2,PRE1997,35d145651d
+1985_worlds,Women's Singles Net,Women's Singles Net,4,Tricia George,,,FBW_V2,PRE1997,f559118b51
+1985_worlds,Women's Singles Speed Consecutives,Women's Singles Speed Consecutives,1,Tricia George,,,FBW_V2,PRE1997,8651a653f3
+1985_worlds,Women's Singles Speed Consecutives,Women's Singles Speed Consecutives,2,Sam Conlon,,,FBW_V2,PRE1997,ca9c28004d
+1985_worlds,Women's Singles Speed Consecutives,Women's Singles Speed Consecutives,3,Jody Welch,,,FBW_V2,PRE1997,84a79644bb
+1985_worlds,Women's Singles Speed Consecutives,Women's Singles Speed Consecutives,4,Julie Symons,,,FBW_V2,PRE1997,59e9e455c7
+1985_worlds,Women's Team Freestyle,Women's Team Freestyle,1,,Lisa Monti & Carol Wedemeyer,,FBW_V2,PRE1997,fb2ad6557a
+1985_worlds,Women's Team Freestyle,Women's Team Freestyle,2,,Julie Symons & Lisa McDaniel,,FBW_V2,PRE1997,668ab281fc
+1985_worlds,Women's Team Freestyle,Women's Team Freestyle,3,,Becca English-Ross & Tricia George,,FBW_V2,PRE1997,bae5b96454
+1987_worlds_golden,Men's Overall,Men's Overall,1,Kenny Shults,,,WFA_TXT,PRE1997,af6b4da4d3
+1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,1,,Tina Lewis & Scott Cleere,,WFA_TXT,PRE1997,3ef6d7d88f
+1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,2,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,f855fbb845
+1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,3,,Constance Constable & Jim Caveney,,WFA_TXT,PRE1997,d8ff0a18ef
+1987_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Bill Langbehn & Brent Welch,,WFA_TXT,PRE1997,c236a4cac1
+1987_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Chris Donofrio & Bill Wall,,WFA_TXT,PRE1997,e55436c04c
+1987_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Dutch Holland & Rich Rausschmeier,,WFA_TXT,PRE1997,deb33f4321
+1987_worlds_golden,Open Doubles Net,Open Doubles Net,1,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,45d42c99fd
+1987_worlds_golden,Open Doubles Net,Open Doubles Net,2,,Jim Caveney & Bruce Guettich,,WFA_TXT,PRE1997,b4aa0cfe0f
+1987_worlds_golden,Open Doubles Net,Open Doubles Net,3,,Ken Hamric & Chris Routh,,WFA_TXT,PRE1997,42621dce31
+1987_worlds_golden,Open Golf,Open Golf,1,Kim Brady,,,WFA_TXT,PRE1997,138cd8761f
+1987_worlds_golden,Open Golf,Open Golf,2,Jim Caveney,,,WFA_TXT,PRE1997,08ef3aaafb
+1987_worlds_golden,Open Golf,Open Golf,3,Bruce Guettich,,,WFA_TXT,PRE1997,976e430527
+1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,WFA_TXT,PRE1997,c839f0f91c
+1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,2,Jon Lind,,,WFA_TXT,PRE1997,db07aa2521
+1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,3,Rick Reese,,,WFA_TXT,PRE1997,c9bdb1646f
+1987_worlds_golden,Open Singles Net,Open Singles Net,1,Garry Griggs,,,WFA_TXT,PRE1997,ace799b872
+1987_worlds_golden,Open Singles Net,Open Singles Net,2,Scott Cleere,,,WFA_TXT,PRE1997,11466b1e81
+1987_worlds_golden,Open Singles Net,Open Singles Net,3,Dave Robinson,,,WFA_TXT,PRE1997,0f513f6784
+1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,1,,Kenny Shults & Rick Reese,,WFA_TXT,PRE1997,943a4ff1fd
+1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,2,,Bill Langbehn & Brent Welch,,WFA_TXT,PRE1997,4e6a05dac9
+1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,3,,Ed Orlando & Russ Williford & Eric Wulff,,WFA_TXT,PRE1997,7a23bd7e7c
+1987_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Constance Constable & Tricia George,,WFA_TXT,PRE1997,50792ebe64
+1987_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Lisa McDaniel & Sam Conlon,,WFA_TXT,PRE1997,28606199ce
+1987_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Jody Welch & Jodi Sebastien,,WFA_TXT,PRE1997,762e314407
+1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,1,,Constance Constable & Lisa McDaniel,,WFA_TXT,PRE1997,2dea41c3dd
+1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,2,,Jody Welch & Julie Symons,,WFA_TXT,PRE1997,f490cdb571
+1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,3,,Tina Lewis & Janice Earl,,WFA_TXT,PRE1997,617afc95d8
+1987_worlds_golden,Women's Golf,Women's Golf,1,Tricia George,,,WFA_TXT,PRE1997,e0b5499923
+1987_worlds_golden,Women's Golf,Women's Golf,2,Jody Welch,,,WFA_TXT,PRE1997,482dfa49aa
+1987_worlds_golden,Women's Golf,Women's Golf,3,Heather Muggleton,,,WFA_TXT,PRE1997,87b699c41f
+1987_worlds_golden,Women's Overall,Women's Overall,1,Jody Welch,,,WFA_TXT,PRE1997,6ad82f0f91
+1987_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,1,Sam Conlon,,,WFA_TXT,PRE1997,114621621a
+1987_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,2,Heather Muggleton,,,WFA_TXT,PRE1997,9b1fe58869
+1987_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,3,Constance Constable,,,WFA_TXT,PRE1997,970d04596a
+1987_worlds_golden,Women's Singles Net,Women's Singles Net,1,Tricia George,,,WFA_TXT,PRE1997,0ba814d8f5
+1987_worlds_golden,Women's Singles Net,Women's Singles Net,2,Jody Welch,,,WFA_TXT,PRE1997,2b5daf0470
+1987_worlds_golden,Women's Singles Net,Women's Singles Net,3,Tina Lewis,,,WFA_TXT,PRE1997,1c31a4f666
+1988_worlds_golden,Men's Overall,Men's Overall,1,Kenny Shults,,,WFA_TXT,PRE1997,50f7da52b9
+1988_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,0314c03bbe
+1988_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Dave Yevin & Raul O'Donnal,,WFA_TXT,PRE1997,ec8a6e188e
+1988_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Allan Petersen & Remi Kristensen,,WFA_TXT,PRE1997,ba74db9ea2
+1988_worlds_golden,Open Doubles Net,Open Doubles Net,1,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,a515dc7f9c
+1988_worlds_golden,Open Doubles Net,Open Doubles Net,2,,Ken Hamric & Chris Routh,,WFA_TXT,PRE1997,b902859c89
+1988_worlds_golden,Open Doubles Net,Open Doubles Net,3,,Scott Cleere & Bill Bethurum,,WFA_TXT,PRE1997,f571ba39ff
+1988_worlds_golden,Open Golf,Open Golf,1,Rob McCloskey,,,WFA_TXT,PRE1997,50c7cb447e
+1988_worlds_golden,Open Golf,Open Golf,2,Bruce Guettich,,,WFA_TXT,PRE1997,bbddf09c87
+1988_worlds_golden,Open Golf,Open Golf,3,Jim Caveney,,,WFA_TXT,PRE1997,89a0474a4d
+1988_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Derrick Fogle,,,WFA_TXT,PRE1997,4d2d2e9746
+1988_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Ed Larnacchia,,,WFA_TXT,PRE1997,7da9e7041c
+1988_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Kenny Shults,,,WFA_TXT,PRE1997,b29c70d311
+1988_worlds_golden,Open Singles Net,Open Singles Net,1,Kenny Shults,,,WFA_TXT,PRE1997,96b2563d6a
+1988_worlds_golden,Open Singles Net,Open Singles Net,2,Allan Petersen,,,WFA_TXT,PRE1997,9a2160da16
+1988_worlds_golden,Open Singles Net,Open Singles Net,3,Scott Cleere,,,WFA_TXT,PRE1997,ebb0f2be88
+1988_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Julie Symons & Jody Welch,,WFA_TXT,PRE1997,9b7ed8b011
+1988_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Trudy Archdale & Kendall KIC,,WFA_TXT,PRE1997,8a531d3f99
+1988_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Karla Reinke & Colleen Minton,,WFA_TXT,PRE1997,845b155536
+1988_worlds_golden,Women's Doubles Net,Women's Doubles Net,1,,Constance Constable & Lisa McDaniel,,WFA_TXT,PRE1997,232550ab3b
+1988_worlds_golden,Women's Doubles Net,Women's Doubles Net,2,,Jody Welch & Julie Symons,,WFA_TXT,PRE1997,16f1b081bd
+1988_worlds_golden,Women's Doubles Net,Women's Doubles Net,3,,Pauline Beichert & Deb Partridge,,WFA_TXT,PRE1997,bcfe6608dd
+1988_worlds_golden,Women's Golf,Women's Golf,1,Karla Reinke,,,WFA_TXT,PRE1997,86ce168037
+1988_worlds_golden,Women's Golf,Women's Golf,2,Heather Muggleton,,,WFA_TXT,PRE1997,c32e7f367b
+1988_worlds_golden,Women's Golf,Women's Golf,3,Kathy Kristensen,,,WFA_TXT,PRE1997,08e62cf061
+1988_worlds_golden,Women's Overall,Women's Overall,1,Jody Welch,,,WFA_TXT,PRE1997,8e83296706
+1988_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Heather Muggleton,,,WFA_TXT,PRE1997,ac467287cd
+1988_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Jody Welch,,,WFA_TXT,PRE1997,58c004a3bd
+1988_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Tina Lewis,,,WFA_TXT,PRE1997,4de075f747
+1988_worlds_golden,Women's Singles Net,Women's Singles Net,1,Jody Welch,,,WFA_TXT,PRE1997,e38a2baf3a
+1988_worlds_golden,Women's Singles Net,Women's Singles Net,2,Lisa McDaniel,,,WFA_TXT,PRE1997,c05e574024
+1988_worlds_golden,Women's Singles Net,Women's Singles Net,3,Constance Constable,,,WFA_TXT,PRE1997,6bd0f2d477
+1989_worlds_golden,Men's Overall,Men's Overall,1,Kenny Shults,,,WFA_TXT,PRE1997,aa53484b16
+1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,1,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,892c098a47
+1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,2,,Ken Hamric & Janice Earl,,WFA_TXT,PRE1997,6316e15c96
+1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,3,,Kenny Shults & Kendall KIC,,WFA_TXT,PRE1997,a3e5170f44
+1989_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Dave Robinson & Scott Cleere,,WFA_TXT,PRE1997,1c2336be36
+1989_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,1fca1d5af0
+1989_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Allan Petersen & Tim Gertsen,,WFA_TXT,PRE1997,0c78afc5cd
+1989_worlds_golden,Open Doubles Net,Open Doubles Net,1,,Ken Hamric & Chris Routh,,WFA_TXT,PRE1997,52ca8f8136
+1989_worlds_golden,Open Doubles Net,Open Doubles Net,2,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,baeb27db62
+1989_worlds_golden,Open Doubles Net,Open Doubles Net,3,,Chris Ott & Jim Caveney,,WFA_TXT,PRE1997,969dfdb159
+1989_worlds_golden,Open Golf,Open Golf,1,Reed Gray,,,WFA_TXT,PRE1997,9e44423a8e
+1989_worlds_golden,Open Golf,Open Golf,2,Bruce Guettich,,,WFA_TXT,PRE1997,579da10995
+1989_worlds_golden,Open Golf,Open Golf,3,Dave Robinson,,,WFA_TXT,PRE1997,36e1d1e0e8
+1989_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Kenny Shults,,,WFA_TXT,PRE1997,3abd7da693
+1989_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Gary Lautt,,,WFA_TXT,PRE1997,5bf981a33e
+1989_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Jack Schoolcraft,,,WFA_TXT,PRE1997,3de39ad5e5
+1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,WFA_TXT,PRE1997,7ab74710e8
+1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,2,Dennis Ross,,,WFA_TXT,PRE1997,4266cb0438
+1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,3,Jack Schoolcraft,,,WFA_TXT,PRE1997,bf74c98cfc
+1989_worlds_golden,Open Singles Net,Open Singles Net,1,Kenny Shults,,,WFA_TXT,PRE1997,5de32133e1
+1989_worlds_golden,Open Singles Net,Open Singles Net,2,Dave Robinson,,,WFA_TXT,PRE1997,9281dab1a4
+1989_worlds_golden,Open Singles Net,Open Singles Net,3,Remi Kristensen,,,WFA_TXT,PRE1997,7089a9f0e2
+1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,1,,Kenny Shults & Rick Reese & Dave Yevin,,WFA_TXT,PRE1997,b82d49e6ce
+1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,2,,Jon Lind & Dennis Ross,,WFA_TXT,PRE1997,5f6a489888
+1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,3,,Jack Schoolcraft & Mag Hughes,,WFA_TXT,PRE1997,5a1b01ea90
+1989_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Lisa McDaniel & Jody Welch,,WFA_TXT,PRE1997,ebf1b04a07
+1989_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Heather Thomas & Kendall KIC,,WFA_TXT,PRE1997,5ba1d7f23f
+1989_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Heather Muggleton & Tina Lewis,,WFA_TXT,PRE1997,3808d59831
+1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,1,,Tricia George & Jody Welch,,WFA_TXT,PRE1997,dc72fc82e9
+1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,2,,Lisa McDaniel & Constance Constable,,WFA_TXT,PRE1997,fd148d6bd2
+1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,3,,Tina Lewis & Heather Muggleton,,WFA_TXT,PRE1997,eb90cff162
+1989_worlds_golden,Women's Golf,Women's Golf,1,Tricia George,,,WFA_TXT,PRE1997,5f24e646df
+1989_worlds_golden,Women's Golf,Women's Golf,2,Heather Muggleton,,,WFA_TXT,PRE1997,67772bbfa7
+1989_worlds_golden,Women's Golf,Women's Golf,3,Lisa McDaniel,,,WFA_TXT,PRE1997,fb91cb8330
+1989_worlds_golden,Women's Overall,Women's Overall,1,Jody Welch,,,WFA_TXT,PRE1997,d8f09d9de2
+1989_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Tricia George,,,WFA_TXT,PRE1997,d2e013573e
+1989_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Jody Welch,,,WFA_TXT,PRE1997,38a5e3137c
+1989_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Sam Conlon,,,WFA_TXT,PRE1997,f8c813f512
+1989_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,1,Heather Muggleton,,,WFA_TXT,PRE1997,19cc683221
+1989_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,2,Jody Welch,,,WFA_TXT,PRE1997,7e1b6f6f68
+1989_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,3,Sam Conlon,,,WFA_TXT,PRE1997,5b2da465e3
+1989_worlds_golden,Women's Singles Net,Women's Singles Net,1,Tricia George,,,WFA_TXT,PRE1997,17b446a568
+1989_worlds_golden,Women's Singles Net,Women's Singles Net,2,Jody Welch,,,WFA_TXT,PRE1997,fc2d79dd1b
+1989_worlds_golden,Women's Singles Net,Women's Singles Net,3,Constance Constable,,,WFA_TXT,PRE1997,24d5ad3719
+1989_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,1,,Tricia George & Jody Welch,,WFA_TXT,PRE1997,9db8462963
+1989_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,2,,Heather Muggleton & Constance Constable,,WFA_TXT,PRE1997,4103dbf033
+1989_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,3,,Sam Conlon & Lisa McDaniel,,WFA_TXT,PRE1997,4a57994abb
+1990_worlds,Men's Overall,Men's Overall,1,Kenny Shults,,,WFA_TXT,PRE1997,b54db000dd
+1990_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Tricia George & Chris Routh,,WFA_TXT,PRE1997,45c2fc008c
+1990_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,22b3821e75
+1990_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Kendall KIC & Kenny Shults,,WFA_TXT,PRE1997,a02bb8be3e
+1990_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Peter Shunny & Bruce Guettich,,WFA_TXT,PRE1997,ce7f3658ea
+1990_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,1daf856c45
+1990_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Chris Donofrio & Eric Bartholoman,,WFA_TXT,PRE1997,a1da6bea1a
+1990_worlds,Open Doubles Net,Open Doubles Net,1,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,f8008830ff
+1990_worlds,Open Doubles Net,Open Doubles Net,2,,Ken Hamric & Chris Routh,,WFA_TXT,PRE1997,4ccc1a3816
+1990_worlds,Open Doubles Net,Open Doubles Net,3,,Peter Shunny & Bruce Guettich,,WFA_TXT,PRE1997,079729748d
+1990_worlds,Open Golf,Open Golf,1,Bruce Guettich,,,WFA_TXT,PRE1997,e2ef5468bc
+1990_worlds,Open Golf,Open Golf,2,Jeff Johnson,,,WFA_TXT,PRE1997,4bfa1ebee7
+1990_worlds,Open Golf,Open Golf,3,Reed Gray,,,WFA_TXT,PRE1997,64f02a16d3
+1990_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Kenny Shults,,,WFA_TXT,PRE1997,4e5b133b6f
+1990_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Derrick Fogle,,,WFA_TXT,PRE1997,079a5021ef
+1990_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Gary Lautt,,,WFA_TXT,PRE1997,e179603874
+1990_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,WFA_TXT,PRE1997,eac6f47e44
+1990_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Jack Schoolcraft,,,WFA_TXT,PRE1997,5b553b13b8
+1990_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Brent Welch,,,WFA_TXT,PRE1997,a82ace5010
+1990_worlds,Open Singles Net,Open Singles Net,1,Kenny Shults,,,WFA_TXT,PRE1997,c5ac67f63b
+1990_worlds,Open Singles Net,Open Singles Net,2,Dave Robinson,,,WFA_TXT,PRE1997,a6ba6cd448
+1990_worlds,Open Singles Net,Open Singles Net,3,Chris Routh,,,WFA_TXT,PRE1997,f92a0dfaa9
+1990_worlds,Open Team Freestyle,Open Team Freestyle,1,,Greg Nelson & Tay Moldenhauser,,WFA_TXT,PRE1997,9a92e22251
+1990_worlds,Open Team Freestyle,Open Team Freestyle,2,,Rick Reese & Dave Yevin,,WFA_TXT,PRE1997,9c23c32b83
+1990_worlds,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch & Etienne Constable,,WFA_TXT,PRE1997,a38b2fbec6
+1990_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,1369c4459d
+1990_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Constance Constable & Julie Symons,,WFA_TXT,PRE1997,1413c3c3d8
+1990_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Lisa McDaniel & Sam Conlon,,WFA_TXT,PRE1997,6b8a030c7f
+1990_worlds,Women's Doubles Net,Women's Doubles Net,1,,Tricia George & Jody Welch,,WFA_TXT,PRE1997,938622d021
+1990_worlds,Women's Doubles Net,Women's Doubles Net,2,,Julie Symons & Constance Constable,,WFA_TXT,PRE1997,aa2de9f70e
+1990_worlds,Women's Doubles Net,Women's Doubles Net,3,,Tina Lewis & Heather Muggleton,,WFA_TXT,PRE1997,27d43b8f6d
+1990_worlds,Women's Golf,Women's Golf,1,Jody Welch,,,WFA_TXT,PRE1997,eb70d4908f
+1990_worlds,Women's Golf,Women's Golf,2,Tricia George,,,WFA_TXT,PRE1997,9cb767dd4f
+1990_worlds,Women's Golf,Women's Golf,3,Lisa McDaniel,,,WFA_TXT,PRE1997,f2f08242e7
+1990_worlds,Women's Overall,Women's Overall,1,Jody Welch,,,WFA_TXT,PRE1997,b423c9ac61
+1990_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Jody Welch,,,WFA_TXT,PRE1997,2d62fb6af8
+1990_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Tricia George,,,WFA_TXT,PRE1997,2828c1ccef
+1990_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Sam Conlon,,,WFA_TXT,PRE1997,c960aa67b9
+1990_worlds,Women's Singles Freestyle,Women's Singles Freestyle,1,Constance Constable,,,WFA_TXT,PRE1997,8336ddee66
+1990_worlds,Women's Singles Freestyle,Women's Singles Freestyle,2,Jody Welch,,,WFA_TXT,PRE1997,a34de7bc04
+1990_worlds,Women's Singles Freestyle,Women's Singles Freestyle,3,Tricia George,,,WFA_TXT,PRE1997,07f514965c
+1990_worlds,Women's Singles Net,Women's Singles Net,1,Jody Welch,,,WFA_TXT,PRE1997,ccce651fbb
+1990_worlds,Women's Singles Net,Women's Singles Net,2,Lisa McDaniel,,,WFA_TXT,PRE1997,6c668d32a0
+1990_worlds,Women's Singles Net,Women's Singles Net,3,Tricia George,,,WFA_TXT,PRE1997,ed0580d592
+1990_worlds,Women's Team Freestyle,Women's Team Freestyle,1,,Lisa McDaniel & Sam Conlon,,WFA_TXT,PRE1997,9c7ec48d43
+1990_worlds,Women's Team Freestyle,Women's Team Freestyle,2,,Constance Constable & Julie Symons,,WFA_TXT,PRE1997,5b46f50133
+1990_worlds,Women's Team Freestyle,Women's Team Freestyle,3,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,541786e178
+1991_worlds,Men's Overall,Men's Overall,1,Kenny Shults,,,WFA_TXT,PRE1997,a9097b19eb
+1991_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,a9767d6592
+1991_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Tricia George & Chris Routh,,WFA_TXT,PRE1997,7b0c596302
+1991_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Lisa McDaniel & Randy Mulder,,WFA_TXT,PRE1997,6126190fc5
+1991_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Allan Petersen & Remi Kristensen,,WFA_TXT,PRE1997,20334b83a6
+1991_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,b85868e52e
+1991_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Bill Langbehn & Brent Welch,,WFA_TXT,PRE1997,492ef45d84
+1991_worlds,Open Doubles Net,Open Doubles Net,1,,Chris Routh & Jim Caveney,,WFA_TXT,PRE1997,d0aa6038b9
+1991_worlds,Open Doubles Net,Open Doubles Net,2,,Mag Hughes & Kenny Shults,,WFA_TXT,PRE1997,1949abeaf1
+1991_worlds,Open Doubles Net,Open Doubles Net,3,,Peter Shunny & Randy Mulder,,WFA_TXT,PRE1997,2818e3dc80
+1991_worlds,Open Golf,Open Golf,1,James Roberts,,,WFA_TXT,PRE1997,458ddb19e5
+1991_worlds,Open Golf,Open Golf,2,Jim Caveney,,,WFA_TXT,PRE1997,80d8dbdd56
+1991_worlds,Open Golf,Open Golf,3,Dave Robinson,,,WFA_TXT,PRE1997,41d3d11d7b
+1991_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Kenny Shults,,,WFA_TXT,PRE1997,4dc6b34bfb
+1991_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Sean Flynn,,,WFA_TXT,PRE1997,d2333cd1a5
+1991_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Andy Linder,,,WFA_TXT,PRE1997,e6f80e252c
+1991_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,WFA_TXT,PRE1997,e1bff6dd23
+1991_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Andy Linder,,,WFA_TXT,PRE1997,b9d8dc2e1f
+1991_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Rick Reese,,,WFA_TXT,PRE1997,cb4c7acb47
+1991_worlds,Open Singles Net,Open Singles Net,1,Randy Mulder,,,WFA_TXT,PRE1997,f0cfe6c349
+1991_worlds,Open Singles Net,Open Singles Net,2,Dave Robinson,,,WFA_TXT,PRE1997,f44a45cea4
+1991_worlds,Open Singles Net,Open Singles Net,3,Remi Kristensen,,,WFA_TXT,PRE1997,1e03aa4248
+1991_worlds,Open Team Freestyle,Open Team Freestyle,1,,Dennis Ross & Jon Lind,,WFA_TXT,PRE1997,fee5959eec
+1991_worlds,Open Team Freestyle,Open Team Freestyle,2,,Brent Welch & Etienne Constable,,WFA_TXT,PRE1997,aaf43b3f10
+1991_worlds,Open Team Freestyle,Open Team Freestyle,3,,Kenny Shults & Rick Reese,,WFA_TXT,PRE1997,14ffc1e558
+1991_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,9471ea5836
+1991_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Constance Constable & Julie Symons,,WFA_TXT,PRE1997,8e37f88530
+1991_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Lisa Monti & Kendall KIC,,WFA_TXT,PRE1997,f7b5c05389
+1991_worlds,Women's Doubles Net,Women's Doubles Net,1,,Tricia George & Jody Welch,,WFA_TXT,PRE1997,31db5adb24
+1991_worlds,Women's Doubles Net,Women's Doubles Net,2,,Lisa McDaniel & Heather Muggleton,,WFA_TXT,PRE1997,ef4160e968
+1991_worlds,Women's Doubles Net,Women's Doubles Net,3,,Constance Constable & Julie Symons,,WFA_TXT,PRE1997,e870ad7a2d
+1991_worlds,Women's Golf,Women's Golf,1,Tricia George,,,WFA_TXT,PRE1997,b70471ac16
+1991_worlds,Women's Golf,Women's Golf,2,Julie Symons,,,WFA_TXT,PRE1997,ba8a8c66d3
+1991_worlds,Women's Golf,Women's Golf,3,Lisa McDaniel,,,WFA_TXT,PRE1997,2e3206fb89
+1991_worlds,Women's Overall,Women's Overall,1,Jody Welch,,,WFA_TXT,PRE1997,1fc15556f3
+1991_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Jody Welch,,,WFA_TXT,PRE1997,cd6e48be2a
+1991_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Tricia George,,,WFA_TXT,PRE1997,3dbdef4fdf
+1991_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Kendall KIC,,,WFA_TXT,PRE1997,3cd83ff2c6
+1991_worlds,Women's Singles Freestyle,Women's Singles Freestyle,1,Sam Conlon,,,WFA_TXT,PRE1997,0f549d6860
+1991_worlds,Women's Singles Freestyle,Women's Singles Freestyle,2,Jody Welch,,,WFA_TXT,PRE1997,653ad38e5e
+1991_worlds,Women's Singles Freestyle,Women's Singles Freestyle,3,Kendall KIC,,,WFA_TXT,PRE1997,0e6bfc6f1d
+1991_worlds,Women's Singles Net,Women's Singles Net,1,Jody Welch,,,WFA_TXT,PRE1997,6744df333e
+1991_worlds,Women's Singles Net,Women's Singles Net,2,Lisa McDaniel,,,WFA_TXT,PRE1997,599a096ba5
+1991_worlds,Women's Singles Net,Women's Singles Net,3,Constance Constable,,,WFA_TXT,PRE1997,35e4e3a9f3
+1991_worlds,Women's Team Freestyle,Women's Team Freestyle,1,,Lisa McDaniel & Sam Conlon,,WFA_TXT,PRE1997,3a5cc2989c
+1991_worlds,Women's Team Freestyle,Women's Team Freestyle,2,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,7bf0002e4a
+1991_worlds,Women's Team Freestyle,Women's Team Freestyle,3,,Constance Constable & Julie Symons,,WFA_TXT,PRE1997,f8000e2fd9
+1992_worlds,Men's Overall,Men's Overall,1,Kenny Shults,,,WFA_TXT,PRE1997,09ee837378
+1992_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,6b0f742eb0
+1992_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Lisa McDaniel & Dan Borsky,,WFA_TXT,PRE1997,d0fe4e62a1
+1992_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Tricia George & Chris Routh,,WFA_TXT,PRE1997,a6ae054485
+1992_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Bruce Guettich & Peter Shunny,,WFA_TXT,PRE1997,857fd82eb8
+1992_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Eric Bartholoman & Chris Donofrio,,WFA_TXT,PRE1997,8a7aff2a3e
+1992_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Jim Caveney & Brent Welch,,WFA_TXT,PRE1997,b18dbae9f3
+1992_worlds,Open Doubles Net,Open Doubles Net,1,,Kenny Shults & Randy Mulder,,WFA_TXT,PRE1997,cd11202005
+1992_worlds,Open Doubles Net,Open Doubles Net,2,,Brent Welch & Jim Caveney,,WFA_TXT,PRE1997,3b057c490f
+1992_worlds,Open Doubles Net,Open Doubles Net,3,,Chris Routh & Dan Borsky,,WFA_TXT,PRE1997,641a16da2b
+1992_worlds,Open Golf,Open Golf,1,Reed Gray,,,WFA_TXT,PRE1997,a1ee8ca30f
+1992_worlds,Open Golf,Open Golf,2,Jim Caveney,,,WFA_TXT,PRE1997,90f27988c4
+1992_worlds,Open Golf,Open Golf,3,Peter Shunny,,,WFA_TXT,PRE1997,b381d82bb6
+1992_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Kenny Shults,,,WFA_TXT,PRE1997,322bdca7a9
+1992_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Sean Flynn,,,WFA_TXT,PRE1997,579cb4de2c
+1992_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Derrick Fogle,,,WFA_TXT,PRE1997,50abf135aa
+1992_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Peter Irish,,,WFA_TXT,PRE1997,cd0bbb74bc
+1992_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Rick Reese,,,WFA_TXT,PRE1997,c00f45fbd4
+1992_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Kenny Shults,,,WFA_TXT,PRE1997,e54f0f9f1b
+1992_worlds,Open Singles Net,Open Singles Net,1,Kenny Shults,,,WFA_TXT,PRE1997,e46b4f77d9
+1992_worlds,Open Singles Net,Open Singles Net,2,Randy Mulder,,,WFA_TXT,PRE1997,b022ec1c51
+1992_worlds,Open Singles Net,Open Singles Net,3,Eric Bartholoman,,,WFA_TXT,PRE1997,77f1b2c4ee
+1992_worlds,Open Team Freestyle,Open Team Freestyle,1,,Jay Moldenhauser & Greg Nelson,,WFA_TXT,PRE1997,d013d0b5f2
+1992_worlds,Open Team Freestyle,Open Team Freestyle,2,,Dennis Ross & Jon Lind,,WFA_TXT,PRE1997,35ff22f044
+1992_worlds,Open Team Freestyle,Open Team Freestyle,3,,Brent Welch & Etienne Constable,,WFA_TXT,PRE1997,b049a1f3f1
+1992_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,515e1e9632
+1992_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Sam Conlon & Lisa McDaniel,,WFA_TXT,PRE1997,b46c0f207b
+1992_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Becca English-Ross & Heather Thomas,,WFA_TXT,PRE1997,1fe0232f2b
+1992_worlds,Women's Doubles Net,Women's Doubles Net,1,,Tricia George & Jody Welch,,WFA_TXT,PRE1997,d2890eb655
+1992_worlds,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable & Julie Symons,,WFA_TXT,PRE1997,f76640dc0f
+1992_worlds,Women's Doubles Net,Women's Doubles Net,3,,Lisa Monti & Heather Muggleton,,WFA_TXT,PRE1997,80ff7b87bd
+1992_worlds,Women's Golf,Women's Golf,1,Tricia George,,,WFA_TXT,PRE1997,95f1af0fc3
+1992_worlds,Women's Golf,Women's Golf,2,Julie Symons,,,WFA_TXT,PRE1997,440e710f28
+1992_worlds,Women's Golf,Women's Golf,3,Lisa McDaniel,,,WFA_TXT,PRE1997,971badd272
+1992_worlds,Women's Overall,Women's Overall,1,Tricia George,,,WFA_TXT,PRE1997,90548e0638
+1992_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Sam Conlon,,,WFA_TXT,PRE1997,a4d6219a39
+1992_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Tricia George,,,WFA_TXT,PRE1997,6dea5b780e
+1992_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Jody Welch,,,WFA_TXT,PRE1997,edc68c354f
+1992_worlds,Women's Singles Freestyle,Women's Singles Freestyle,1,Tricia George,,,WFA_TXT,PRE1997,100f56ce3a
+1992_worlds,Women's Singles Freestyle,Women's Singles Freestyle,2,Sam Conlon,,,WFA_TXT,PRE1997,29a48946b2
+1992_worlds,Women's Singles Freestyle,Women's Singles Freestyle,3,Jody Welch,,,WFA_TXT,PRE1997,cad052a9b2
+1992_worlds,Women's Singles Net,Women's Singles Net,1,Jody Welch,,,WFA_TXT,PRE1997,99d2452b68
+1992_worlds,Women's Singles Net,Women's Singles Net,2,Tricia George,,,WFA_TXT,PRE1997,db1f67ca43
+1992_worlds,Women's Singles Net,Women's Singles Net,3,Lisa McDaniel,,,WFA_TXT,PRE1997,b6eb848ca9
+1992_worlds,Women's Team Freestyle,Women's Team Freestyle,1,,Lisa McDaniel & Sam Conlon,,WFA_TXT,PRE1997,497da8ef06
+1992_worlds,Women's Team Freestyle,Women's Team Freestyle,2,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,47f460389d
+1992_worlds,Women's Team Freestyle,Women's Team Freestyle,3,,Constance Constable & Julie Symons,,WFA_TXT,PRE1997,53237322a5
+1993_worlds,Men's Overall,Men's Overall,1,Allan Petersen,,,WFA_TXT,PRE1997,64e1987039
+1993_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,948abfb393
+1993_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Lisa McDaniel & Dan Borsky,,WFA_TXT,PRE1997,81c6729c07
+1993_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Kendall KIC & Kenny Shults,,WFA_TXT,PRE1997,21c3773c64
+1993_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Yves Archambault & Davie Piper,,WFA_TXT,PRE1997,75b5743b80
+1993_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Allan Petersen & Remi Kristensen,,WFA_TXT,PRE1997,142c054f30
+1993_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Jake Leong & Scott Cleere,,WFA_TXT,PRE1997,589faecf19
+1993_worlds,Open Doubles Net,Open Doubles Net,1,,Kenny Shults & Randy Mulder,,WFA_TXT,PRE1997,0331685e6e
+1993_worlds,Open Doubles Net,Open Doubles Net,2,,Chris Routh & Dan Borsky,,WFA_TXT,PRE1997,fa815cf5af
+1993_worlds,Open Doubles Net,Open Doubles Net,3,,Allan Petersen & Remi Kristensen,,WFA_TXT,PRE1997,60b667c397
+1993_worlds,Open Golf,Open Golf,1,Jeff Johnson,,,WFA_TXT,PRE1997,93f10f9abd
+1993_worlds,Open Golf,Open Golf,2,Reed Gray,,,WFA_TXT,PRE1997,c1e1c43b6a
+1993_worlds,Open Golf,Open Golf,3,Alf Marcussen,,,WFA_TXT,PRE1997,e00b8b4fdf
+1993_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Sean Flynn,,,WFA_TXT,PRE1997,a5b73e1de0
+1993_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Derrick Fogle,,,WFA_TXT,PRE1997,c2c63c0220
+1993_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Steve Smith,,,WFA_TXT,PRE1997,2dab1e8279
+1993_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Peter Irish,,,WFA_TXT,PRE1997,2e8abe1d71
+1993_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Greg Nelson,,,WFA_TXT,PRE1997,accb7c7795
+1993_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Kenny Shults,,,WFA_TXT,PRE1997,745c09d912
+1993_worlds,Open Singles Net,Open Singles Net,1,Danny Borsky,,,WFA_TXT,PRE1997,7587510927
+1993_worlds,Open Singles Net,Open Singles Net,2,Randy Mulder,,,WFA_TXT,PRE1997,98bc3e8633
+1993_worlds,Open Singles Net,Open Singles Net,3,Eric Bartholoman,,,WFA_TXT,PRE1997,540f901c5c
+1993_worlds,Open Team Freestyle,Open Team Freestyle,1,,Dennis Ross & Jon Lind,,WFA_TXT,PRE1997,a66ac6383b
+1993_worlds,Open Team Freestyle,Open Team Freestyle,2,,Jay Moldenhauser & Greg Nelson,,WFA_TXT,PRE1997,a2d6ed6cc2
+1993_worlds,Open Team Freestyle,Open Team Freestyle,3,,Sam Conlon & Eric Bartholoman,,WFA_TXT,PRE1997,e8312e0f6d
+1993_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,33e1ae5700
+1993_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Julie Symons & Lisa McDaniel,,WFA_TXT,PRE1997,1856d31d5e
+1993_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Constance Constable & Lisa Monti,,WFA_TXT,PRE1997,b534614012
+1993_worlds,Women's Doubles Net,Women's Doubles Net,1,,Tricia George & Jody Welch,,WFA_TXT,PRE1997,6d8685d04f
+1993_worlds,Women's Doubles Net,Women's Doubles Net,2,,Julie Symons & Lisa McDaniel,,WFA_TXT,PRE1997,1ea7456996
+1993_worlds,Women's Doubles Net,Women's Doubles Net,3,,Constance Constable & Lisa Monti,,WFA_TXT,PRE1997,817281c61e
+1993_worlds,Women's Golf,Women's Golf,1,Tricia George,,,WFA_TXT,PRE1997,a6eeef5891
+1993_worlds,Women's Golf,Women's Golf,2,Julie Symons,,,WFA_TXT,PRE1997,a0d2022f31
+1993_worlds,Women's Golf,Women's Golf,3,Becca English-Ross,,,WFA_TXT,PRE1997,88c4a63c08
+1993_worlds,Women's Overall,Women's Overall,1,Tricia George,,,WFA_TXT,PRE1997,d8d536020e
+1993_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Tricia George,,,WFA_TXT,PRE1997,014da92788
+1993_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Sam Conlon,,,WFA_TXT,PRE1997,f842608bb2
+1993_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Ida Fogle,,,WFA_TXT,PRE1997,8648b7dd29
+1993_worlds,Women's Singles Freestyle,Women's Singles Freestyle,1,Sam Conlon,,,WFA_TXT,PRE1997,ec711abb19
+1993_worlds,Women's Singles Freestyle,Women's Singles Freestyle,2,Tricia George,,,WFA_TXT,PRE1997,f1ee9609d5
+1993_worlds,Women's Singles Freestyle,Women's Singles Freestyle,3,Julie Symons,,,WFA_TXT,PRE1997,676dd4139a
+1993_worlds,Women's Singles Net,Women's Singles Net,1,Jody Welch,,,WFA_TXT,PRE1997,c558e85328
+1993_worlds,Women's Singles Net,Women's Singles Net,2,Lisa McDaniel,,,WFA_TXT,PRE1997,453a65de81
+1993_worlds,Women's Singles Net,Women's Singles Net,3,Julie Symons,,,WFA_TXT,PRE1997,1a7bf18823
+1993_worlds,Women's Team Freestyle,Women's Team Freestyle,1,,Lisa McDaniel & Sam Conlon,,WFA_TXT,PRE1997,1e696e607b
+1993_worlds,Women's Team Freestyle,Women's Team Freestyle,2,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,589999926d
+1993_worlds,Women's Team Freestyle,Women's Team Freestyle,3,,Constance Constable & Lisa Monti,,WFA_TXT,PRE1997,372cc9d5c9
+1994_worlds_palo_alto,Men's Overall,Men's Overall,1,Allan Petersen,,,WFA_TXT,PRE1997,10ee8f6802
+1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,1,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,98d6685a08
+1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,2,,Lisa McDaniel & Scott Milne,,WFA_TXT,PRE1997,3d8967175e
+1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,3,,Julie Symons & Jim Caveney,,WFA_TXT,PRE1997,5df51bcaba
+1994_worlds_palo_alto,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Allan Petersen & Remi Kristensen,,WFA_TXT,PRE1997,27e3146818
+1994_worlds_palo_alto,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Davie Piper & Yves Archambault,,WFA_TXT,PRE1997,c286f4690b
+1994_worlds_palo_alto,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Jake Leong & Scott Milne,,WFA_TXT,PRE1997,3877fa175c
+1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,1,,Kenny Shults & Randy Mulder,,WFA_TXT,PRE1997,fd80f560ef
+1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,2,,Allan Petersen & Remi Kristensen,,WFA_TXT,PRE1997,8909f9e9a4
+1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,3,,Alf Marcussen & Brent Welch,,WFA_TXT,PRE1997,6233918117
+1994_worlds_palo_alto,Open Golf,Open Golf,1,Davie Piper,,,WFA_TXT,PRE1997,7c26d1b4fb
+1994_worlds_palo_alto,Open Golf,Open Golf,2,Steve Smith,,,WFA_TXT,PRE1997,2bba4a3bee
+1994_worlds_palo_alto,Open Golf,Open Golf,3,Jack Schoolcraft,,,WFA_TXT,PRE1997,c81545d1af
+1994_worlds_palo_alto,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Sean Flynn,,,WFA_TXT,PRE1997,f0168b16dc
+1994_worlds_palo_alto,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Derrick Fogle,,,WFA_TXT,PRE1997,7ead43440d
+1994_worlds_palo_alto,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Eric Wulff,,,WFA_TXT,PRE1997,7419ca5157
+1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,1,Kenny Shults,,,WFA_TXT,PRE1997,5719a7649d
+1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,2,Greg Nelson,,,WFA_TXT,PRE1997,77550bef5b
+1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,3,Peter Irish,,,WFA_TXT,PRE1997,80c00e28e2
+1994_worlds_palo_alto,Open Singles Net,Open Singles Net,1,Randy Mulder,,,WFA_TXT,PRE1997,e08495b803
+1994_worlds_palo_alto,Open Singles Net,Open Singles Net,2,Jake Leong,,,WFA_TXT,PRE1997,c6ff936426
+1994_worlds_palo_alto,Open Singles Net,Open Singles Net,3,Alf Marcussen,,,WFA_TXT,PRE1997,30f251c876
+1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,1,,Jay Moldenhauser & Greg Nelson,,WFA_TXT,PRE1997,540506eeb3
+1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,2,,Kenny Shults & Rick Reese,,WFA_TXT,PRE1997,4239a4dda1
+1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,3,,Eric Wulff & Peter Irish,,WFA_TXT,PRE1997,7594c9489b
+1994_worlds_palo_alto,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,f6a494e831
+1994_worlds_palo_alto,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Julie Symons & Lisa McDaniel,,WFA_TXT,PRE1997,c3477385f7
+1994_worlds_palo_alto,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Anne Miller & Carol Wedemeyer,,WFA_TXT,PRE1997,b6bf18e63f
+1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,1,,Julie Symons & Lisa McDaniel,,WFA_TXT,PRE1997,fc1fdb7a41
+1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,2,,Constance Constable & Jody Welch,,WFA_TXT,PRE1997,5702a4291d
+1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,3,,Heather Thomas & Laura Cragh,,WFA_TXT,PRE1997,3d12dc3bfb
+1994_worlds_palo_alto,Women's Golf,Women's Golf,1,Julie Symons,,,WFA_TXT,PRE1997,c210d95c35
+1994_worlds_palo_alto,Women's Golf,Women's Golf,2,Becca English-Ross,,,WFA_TXT,PRE1997,fa1110b0f5
+1994_worlds_palo_alto,Women's Golf,Women's Golf,3,Lisa McDaniel,,,WFA_TXT,PRE1997,9e0a1f56b5
+1994_worlds_palo_alto,Women's Overall,Women's Overall,1,Julie Symons,,,WFA_TXT,PRE1997,3e5a390108
+1994_worlds_palo_alto,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Ida Fogle,,,WFA_TXT,PRE1997,f18e06f041
+1994_worlds_palo_alto,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Sam Conlon,,,WFA_TXT,PRE1997,294887d746
+1994_worlds_palo_alto,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Becca English-Ross,,,WFA_TXT,PRE1997,9f287c970e
+1994_worlds_palo_alto,Women's Singles Freestyle,Women's Singles Freestyle,1,Sam Conlon,,,WFA_TXT,PRE1997,3529294b7e
+1994_worlds_palo_alto,Women's Singles Freestyle,Women's Singles Freestyle,2,Julie Symons,,,WFA_TXT,PRE1997,ae3a9b75a4
+1994_worlds_palo_alto,Women's Singles Freestyle,Women's Singles Freestyle,3,Kendall KIC,,,WFA_TXT,PRE1997,3768f91e08
+1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,1,Lisa McDaniel,,,WFA_TXT,PRE1997,3b874117b1
+1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,2,Julie Symons,,,WFA_TXT,PRE1997,ae0bea1c3c
+1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,3,Laura Cragh,,,WFA_TXT,PRE1997,c12b228189
+1994_worlds_palo_alto,Women's Team Freestyle,Women's Team Freestyle,1,,Julie Symons & Heather Thomas,,WFA_TXT,PRE1997,9dd6f1fad1
+1994_worlds_palo_alto,Women's Team Freestyle,Women's Team Freestyle,2,,Lisa Monti & Lynette Haat,,WFA_TXT,PRE1997,7c203c5d08
+1994_worlds_palo_alto,Women's Team Freestyle,Women's Team Freestyle,3,,Kendall KIC & Heather Muggleton,,WFA_TXT,PRE1997,a20e535d93
+1995_worlds,Men's Overall,Men's Overall,1,Allan Petersen,,,WFA_TXT,PRE1997,1a56e062ba
+1995_worlds,Mixed Doubles Net,Mixed Doubles Net,1,,Julie Symons & Randy Mulder,,WFA_TXT,PRE1997,92fefa0e49
+1995_worlds,Mixed Doubles Net,Mixed Doubles Net,2,,Jody Welch & Brent Welch,,WFA_TXT,PRE1997,f4b5f385b2
+1995_worlds,Mixed Doubles Net,Mixed Doubles Net,3,,Lisa McDaniel & Emmanuel Bouchard,,WFA_TXT,PRE1997,6d1a1a6592
+1995_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,1,,Allan Petersen & Remi Kristensen,,WFA_TXT,PRE1997,60457e53ab
+1995_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,2,,Davie Piper & Yves Archambault,,WFA_TXT,PRE1997,8c51c13955
+1995_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,3,,Bruce Guettich & Peter Shunny,,WFA_TXT,PRE1997,a3c35392f5
+1995_worlds,Open Doubles Net,Open Doubles Net,1,,Kenny Shults & Randy Mulder,,WFA_TXT,PRE1997,5c97aaf251
+1995_worlds,Open Doubles Net,Open Doubles Net,2,,Alf Marcussen & Brent Welch,,WFA_TXT,PRE1997,65ae0af5b0
+1995_worlds,Open Doubles Net,Open Doubles Net,3,,Remi Kristensen & Allan Petersen,,WFA_TXT,PRE1997,b71d9be032
+1995_worlds,Open Golf,Open Golf,1,Davie Piper,,,WFA_TXT,PRE1997,8ce208c0c3
+1995_worlds,Open Golf,Open Golf,2,Steve Smith,,,WFA_TXT,PRE1997,661420fd33
+1995_worlds,Open Golf,Open Golf,3,Allan Petersen,,,WFA_TXT,PRE1997,5c5881fba7
+1995_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,1,Kenny Shults,,,WFA_TXT,PRE1997,7453007b18
+1995_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,2,Sean Flynn,,,WFA_TXT,PRE1997,316d2b1a49
+1995_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,3,Andy Linder,,,WFA_TXT,PRE1997,24e2784c87
+1995_worlds,Open Singles Freestyle,Open Singles Freestyle,1,Peter Irish,,,WFA_TXT,PRE1997,e80bc74505
+1995_worlds,Open Singles Freestyle,Open Singles Freestyle,2,Eric Wulff,,,WFA_TXT,PRE1997,533d016507
+1995_worlds,Open Singles Freestyle,Open Singles Freestyle,3,Greg Nelson,,,WFA_TXT,PRE1997,6ff2fd77b8
+1995_worlds,Open Singles Net,Open Singles Net,1,Randy Mulder,,,WFA_TXT,PRE1997,45f3e99877
+1995_worlds,Open Singles Net,Open Singles Net,2,Danny Borsky,,,WFA_TXT,PRE1997,a96015d3be
+1995_worlds,Open Singles Net,Open Singles Net,3,Alf Marcussen,,,WFA_TXT,PRE1997,70b3d08d8c
+1995_worlds,Open Team Freestyle,Open Team Freestyle,1,,Greg Nelson & Tuan Vu,,WFA_TXT,PRE1997,fc50376b1b
+1995_worlds,Open Team Freestyle,Open Team Freestyle,2,,Peter Irish & Eric Wulff,,WFA_TXT,PRE1997,e87d5454af
+1995_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,1,,Jody Welch & Tricia George,,WFA_TXT,PRE1997,b7c5ac8386
+1995_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,2,,Julie Symons & Lisa McDaniel,,WFA_TXT,PRE1997,c63869b86f
+1995_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,3,,Sam Conlon & Lisa Monti,,WFA_TXT,PRE1997,a3825145a1
+1995_worlds,Women's Doubles Net,Women's Doubles Net,1,,Tricia George & Jody Welch,,WFA_TXT,PRE1997,f52bbbd5e6
+1995_worlds,Women's Doubles Net,Women's Doubles Net,2,,Julie Symons & Lisa McDaniel,,WFA_TXT,PRE1997,486504e09c
+1995_worlds,Women's Doubles Net,Women's Doubles Net,3,,Constance Constable & Tina Lewis,,WFA_TXT,PRE1997,a9d80deb39
+1995_worlds,Women's Golf,Women's Golf,1,Julie Symons,,,WFA_TXT,PRE1997,90f72adf4c
+1995_worlds,Women's Golf,Women's Golf,2,Tricia George,,,WFA_TXT,PRE1997,3bac7bcb17
+1995_worlds,Women's Golf,Women's Golf,3,Heather Muggleton,,,WFA_TXT,PRE1997,64eae03993
+1995_worlds,Women's Overall,Women's Overall,1,Tricia George,,,WFA_TXT,PRE1997,7ab79ac2ce
+1995_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,1,Tricia George,,,WFA_TXT,PRE1997,d0b6c1883e
+1995_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,2,Sam Conlon,,,WFA_TXT,PRE1997,a11ae27402
+1995_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,3,Jody Welch,,,WFA_TXT,PRE1997,beee27c61a
+1995_worlds,Women's Singles Freestyle,Women's Singles Freestyle,1,Sam Conlon,,,WFA_TXT,PRE1997,bddd93f07d
+1995_worlds,Women's Singles Freestyle,Women's Singles Freestyle,2,Carol Wedemeyer,,,WFA_TXT,PRE1997,390f958e5a
+1995_worlds,Women's Singles Freestyle,Women's Singles Freestyle,3,Tricia George,,,WFA_TXT,PRE1997,82e9df188c
+1995_worlds,Women's Singles Net,Women's Singles Net,1,Jody Welch,,,WFA_TXT,PRE1997,0180b5fb9c
+1995_worlds,Women's Singles Net,Women's Singles Net,2,Lisa McDaniel,,,WFA_TXT,PRE1997,15107130f2
+1995_worlds,Women's Singles Net,Women's Singles Net,3,Julie Symons,,,WFA_TXT,PRE1997,f89972c7b0
+1995_worlds,Women's Team Freestyle,Women's Team Freestyle,1,,Lisa Monti & Carol Wedemeyer,,WFA_TXT,PRE1997,13e803fcb1
+1995_worlds,Women's Team Freestyle,Women's Team Freestyle,2,,Julie Symons & Lisa McDaniel,,WFA_TXT,PRE1997,23951295eb
+1995_worlds,Women's Team Freestyle,Women's Team Freestyle,3,,Becca English-Ross & Tricia George,,WFA_TXT,PRE1997,4620ca7c51
 1980_western_states,freestyle,Freestyle,2,,,,MIRROR,POST1997,1980_western_states|freestyle|2
 1980_western_states,freestyle,Freestyle,3,,,,MIRROR,POST1997,1980_western_states|freestyle|3
 1980_western_states,open_doubles_net,Open Doubles Net,1,,,,MIRROR,POST1997,1980_western_states|open_doubles_net|1
@@ -765,17 +1179,17 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1996_worlds_montreal,mixed_doubles,Mixed Doubles,2,,,,MIRROR,POST1997,1996_worlds_montreal|mixed_doubles|2
 1996_worlds_montreal,mixed_doubles,Mixed Doubles,3,,,,MIRROR,POST1997,1996_worlds_montreal|mixed_doubles|3
 1996_worlds_montreal,mixed_doubles,Mixed Doubles,4,,,,MIRROR,POST1997,1996_worlds_montreal|mixed_doubles|4
-1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|1
-1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|2
-1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|3
-1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_min_consecutives|4
+1996_worlds_montreal,open_5_minutes_timed_consecutives,Open 5 Minutes Timed Consecutives,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_minutes_timed_consecutives|1
+1996_worlds_montreal,open_5_minutes_timed_consecutives,Open 5 Minutes Timed Consecutives,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_minutes_timed_consecutives|2
+1996_worlds_montreal,open_5_minutes_timed_consecutives,Open 5 Minutes Timed Consecutives,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_minutes_timed_consecutives|3
+1996_worlds_montreal,open_5_minutes_timed_consecutives,Open 5 Minutes Timed Consecutives,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_5_minutes_timed_consecutives|4
 1996_worlds_montreal,open_doubles,Open Doubles,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|1
 1996_worlds_montreal,open_doubles,Open Doubles,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|2
 1996_worlds_montreal,open_doubles,Open Doubles,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|3
 1996_worlds_montreal,open_doubles,Open Doubles,4,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles|4
-1996_worlds_montreal,open_doubles_distance,Open Doubles Distance,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance|1
-1996_worlds_montreal,open_doubles_distance,Open Doubles Distance,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance|2
-1996_worlds_montreal,open_doubles_distance,Open Doubles Distance,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance|3
+1996_worlds_montreal,open_doubles_distance_one_pass,Open Doubles Distance One Pass,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance_one_pass|1
+1996_worlds_montreal,open_doubles_distance_one_pass,Open Doubles Distance One Pass,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance_one_pass|2
+1996_worlds_montreal,open_doubles_distance_one_pass,Open Doubles Distance One Pass,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_doubles_distance_one_pass|3
 1996_worlds_montreal,open_golf,Open Golf,1,,,,MIRROR,POST1997,1996_worlds_montreal|open_golf|1
 1996_worlds_montreal,open_golf,Open Golf,2,,,,MIRROR,POST1997,1996_worlds_montreal|open_golf|2
 1996_worlds_montreal,open_golf,Open Golf,3,,,,MIRROR,POST1997,1996_worlds_montreal|open_golf|3
@@ -801,35 +1215,35 @@ event_id,discipline,discipline_name,placement,player_raw,team_raw,score_text,sou
 1996_worlds_montreal,womens_doubles,Women's Doubles,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles|2
 1996_worlds_montreal,womens_doubles,Women's Doubles,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles|3
 1996_worlds_montreal,womens_doubles,Women's Doubles,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles|4
-1996_worlds_montreal,womens_doubles_distance,Women's Doubles Distance,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance|1
-1996_worlds_montreal,womens_doubles_distance,Women's Doubles Distance,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance|2
-1996_worlds_montreal,womens_doubles_distance,Women's Doubles Distance,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance|3
+1996_worlds_montreal,womens_doubles_distance_one_pass,Women's Doubles Distance One Pass,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance_one_pass|1
+1996_worlds_montreal,womens_doubles_distance_one_pass,Women's Doubles Distance One Pass,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance_one_pass|2
+1996_worlds_montreal,womens_doubles_distance_one_pass,Women's Doubles Distance One Pass,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_doubles_distance_one_pass|3
 1996_worlds_montreal,womens_golf,Women's Golf,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_golf|1
 1996_worlds_montreal,womens_golf,Women's Golf,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_golf|2
 1996_worlds_montreal,womens_golf,Women's Golf,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_golf|3
 1996_worlds_montreal,womens_intermediate_singles,Women's Intermediate Singles,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_intermediate_singles|1
 1996_worlds_montreal,womens_intermediate_singles,Women's Intermediate Singles,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_intermediate_singles|2
 1996_worlds_montreal,womens_intermediate_singles,Women's Intermediate Singles,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_intermediate_singles|3
-1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|1
-1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|2
-1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|3
-1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_min_consecutives|4
+1996_worlds_montreal,womens_open_5_minutes_timed_consecutives,Women's Open 5 Minutes Timed Consecutives,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_minutes_timed_consecutives|1
+1996_worlds_montreal,womens_open_5_minutes_timed_consecutives,Women's Open 5 Minutes Timed Consecutives,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_minutes_timed_consecutives|2
+1996_worlds_montreal,womens_open_5_minutes_timed_consecutives,Women's Open 5 Minutes Timed Consecutives,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_minutes_timed_consecutives|3
+1996_worlds_montreal,womens_open_5_minutes_timed_consecutives,Women's Open 5 Minutes Timed Consecutives,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_5_minutes_timed_consecutives|4
 1996_worlds_montreal,womens_open_singles,Women's Open Singles,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|1
 1996_worlds_montreal,womens_open_singles,Women's Open Singles,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|2
 1996_worlds_montreal,womens_open_singles,Women's Open Singles,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|3
 1996_worlds_montreal,womens_open_singles,Women's Open Singles,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles|4
+1996_worlds_montreal,womens_open_singles_routines,Women's Open Singles Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles_routines|1
+1996_worlds_montreal,womens_open_singles_routines,Women's Open Singles Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles_routines|2
+1996_worlds_montreal,womens_open_singles_routines,Women's Open Singles Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles_routines|3
+1996_worlds_montreal,womens_open_singles_routines,Women's Open Singles Routines,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_singles_routines|4
+1996_worlds_montreal,womens_open_team_routines,Women's Open Team Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_team_routines|1
+1996_worlds_montreal,womens_open_team_routines,Women's Open Team Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_team_routines|2
+1996_worlds_montreal,womens_open_team_routines,Women's Open Team Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_open_team_routines|3
 1996_worlds_montreal,womens_overall,Women's Overall,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|1
 1996_worlds_montreal,womens_overall,Women's Overall,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|2
 1996_worlds_montreal,womens_overall,Women's Overall,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|3
 1996_worlds_montreal,womens_overall,Women's Overall,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|4
 1996_worlds_montreal,womens_overall,Women's Overall,5,,,,MIRROR,POST1997,1996_worlds_montreal|womens_overall|5
-1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|1
-1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|2
-1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|3
-1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,4,,,,MIRROR,POST1997,1996_worlds_montreal|womens_singles_routines|4
-1996_worlds_montreal,womens_team_routines,Women's Team Routines,1,,,,MIRROR,POST1997,1996_worlds_montreal|womens_team_routines|1
-1996_worlds_montreal,womens_team_routines,Women's Team Routines,2,,,,MIRROR,POST1997,1996_worlds_montreal|womens_team_routines|2
-1996_worlds_montreal,womens_team_routines,Women's Team Routines,3,,,,MIRROR,POST1997,1996_worlds_montreal|womens_team_routines|3
 1997_air_a_zona,mixed_doubles,Mixed Doubles,1,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|1
 1997_air_a_zona,mixed_doubles,Mixed Doubles,2,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|2
 1997_air_a_zona,mixed_doubles,Mixed Doubles,3,,,,MIRROR,POST1997,1997_air_a_zona|mixed_doubles|3

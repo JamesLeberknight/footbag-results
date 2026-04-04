@@ -160,6 +160,21 @@ DIVISION_CANONICAL_MAP: dict[str, str] = {
     "intermediate singles consecutive kicks": "Intermediate Singles Consecutive",
     "doubles one-pass consecutive kicks":   "Open Doubles Distance",
     "women's doubles one-pass consecutive kicks": "Women's Doubles Distance",
+    # ── Pre-1997 WFA Worlds consecutive / distance (WFA_TXT source) ───────────
+    "open sgls 5-min consecutive":          "Open Singles Consecutive",
+    "open dbls distance consecutive":       "Open Doubles Distance",
+    "women's sgls 5-min consecutive":       "Women's Singles Consecutive",
+    "women's dbls distance consecutive":    "Women's Doubles Distance",
+    # ── Pre-1997 abbreviated net / freestyle ──────────────────────────────────
+    "open sgls net":                        "Open Singles Net",
+    "open dbls net":                        "Open Doubles Net",
+    "women's sgls net":                     "Women's Singles Net",
+    "women's dbls net":                     "Women's Doubles Net",
+    "mixed dbls net":                       "Mixed Doubles Net",
+    "open sgls freestyle":                  "Open Singles Freestyle",
+    "open team freestyle":                  "Open Team Freestyle",
+    "women's sgls freestyle":               "Women's Singles Freestyle",
+    "women's team freestyle":               "Women's Team Freestyle",
     # ── Freestyle abbreviations ────────────────────────────────────────────────
     "singles freestyle":                    "Open Singles Freestyle",
     "women's freestyle":                    "Women's Singles Freestyle",
@@ -235,7 +250,7 @@ def compute_coverage(events, results, discs, quarantine_ids: set) -> dict[str, s
             cov[eid] = "QUARANTINED"
         elif status == "no_results":
             cov[eid] = "NO RESULTS"
-        elif vs in ("CONFIRMED_MULTI_SOURCE", "VERIFIED"):
+        elif vs in ("CONFIRMED_MULTI_SOURCE", "VERIFIED") and np >= 3:
             cov[eid] = "FULL"
         elif np >= 20 and nd >= 3:
             cov[eid] = "FULL"
@@ -350,6 +365,11 @@ for ev in events:
     ev["worlds_classification"] = wc
     if wc:
         wc_counts[wc] += 1
+
+    # Normalize event_type: any worlds variant → "worlds"
+    _etype = ev.get("event_type", "")
+    if _etype in ("WORLD_CHAMPIONSHIPS", "WFA_WORLD_CHAMPIONSHIPS", "IFAB_WORLD_CHAMPIONSHIPS"):
+        ev["event_type"] = "worlds"
 
     events_out.append(ev)
 

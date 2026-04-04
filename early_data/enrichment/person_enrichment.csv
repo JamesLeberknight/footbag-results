@@ -100,50 +100,128 @@ df329352-6f3b-5e98-b23b-1af6737d100b,Jimmy Caveney,POST1997,,N,,,Y,2000,persons.
 2a6a7c9e-1d8a-4f9a-a8f5-6f3a3c1e9b0f,Kenneth Shults,POST1997,20439,N,,,Y,1999,persons.csv (post-1997 canonical),HIGH,
 f38e2f8e-cba6-5fff-8b20-90791fd0d794,Torben Wigger,POST1997,,N,,,Y,1999,persons.csv (post-1997 canonical),HIGH,
 3d1b24de-41bd-56eb-86b8-8afb919a63b5,Ted Martin,POST1997,82401,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-f3ec9520-9a64-5342-81a3-a82f6e84775a,Etienne Constable,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
 85f8ff5b-2965-5dfc-9b0b-3a8080a54e0c,Alf Marcussen,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
-0c818de6-0a8f-5395-8b29-bba237ce94e7,Matt Saucerman,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
-2efe37c4-862c-51a5-a64f-558dfa452e72,Valerie Davidson,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
-a699ad74-53a3-54c5-b5ec-fb35dbd78b3e,Lori Di Monte,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
-5ebc4a1e-272c-5478-bdb3-9dfedbe18e9d,Jeff Wickman,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
-34499cf8-8f76-5ba1-a4b6-deb908fdab54,Ben Floor,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
-586bf126-1bac-52a5-a354-c1253bc57544,Tuomas Kärki,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
-53335424-f4eb-5933-8b9b-939b6f177ea2,Scott Milne,POST1997,12078,N,,,Y,2007,persons.csv (post-1997 canonical),HIGH,
-619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-e3000de1-60fa-51e1-bc35-98a860fadd6b,Kelly Kelley,POST1997,13168,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-a1cf399e-b52c-5ffe-9b80-10df4e20232f,Ida Fogle,POST1997,44058,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-ff744d13-860e-5ab6-8920-dac66414b828,Sam Conlon,POST1997,,N,,,Y,2004,persons.csv (post-1997 canonical),HIGH,
-e333a5e6-3d76-513c-a9a4-f34c09c31b96,Jody Welch,POST1997,13394,N,,,Y,2004,persons.csv (post-1997 canonical),HIGH,
-fe2c05c8-4093-5304-9433-9793630542f5,Derrick Fogle,POST1997,,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-6bddaecf-3335-5caf-ab0c-51a97fce26e2,Steve Smith,POST1997,12631,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-96dfe510-dfff-53b3-a7ce-7bcc852778c8,Juliet Pendray,POST1997,12079,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-ed0fa218-2a4b-5697-a596-9ee141732268,Kerry Chun,POST1997,15027,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-64337714-3133-53d6-b29a-511ae9f14920,Greg Durrett,POST1997,12432,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-c2da6bcd-ccc4-5ecf-8e49-d1c4ef4260b9,Randy Mulder,POST1997,19508,N,,,Y,2008,persons.csv (post-1997 canonical),HIGH,
+f31456b1-d062-54db-b95d-4568b8c01dfd,Byron Proshold,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+12820fe2-1d2e-5922-a45a-fbac785da3ea,Chris Bond,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+fc27928b-e7c5-5bd5-b1d8-3263cb56cef9,Dan Botkin,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+62dd5ef9-4a2a-5402-ad47-4e22df52bfe6,David Bernard,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+9e1c9d22-a1ee-514b-b344-6bc46ae8853f,Dylan Cole,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+7e158f2e-3b8e-5781-9223-9eb20aa9f24d,Edmund Larnacchia,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+be82c1f8-4c49-50ec-a76b-e470415102a4,Emily Verdy,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+9ee409d2-a35c-52de-a00d-c5dbcaf31fcb,Eric Bartholomay,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+8d4cb4cc-ee9c-5606-9802-567816653cd1,Eric Cole,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+f3ec9520-9a64-5342-81a3-a82f6e84775a,Etienne Constable,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+9b62f19b-a86b-57bb-bf45-ae831cbae861,J. Patrick Kelly,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+df9ce35e-488c-5833-83cb-72d849cce961,Jesse Whitworth,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+b9b90aca-c800-54f1-84f8-61bf8654bb29,John Mulyk,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+dab45c45-2b11-5b2a-b4f0-cf34d0d03478,Lance Levy,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+9e70d9f3-565d-5956-9e94-2ef7f40ec69a,Lisa Waccolz,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+a3d5e5bb-00eb-5bfb-b99d-1b865e4857aa,Matt Churney,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+64524de9-4867-5b7c-b871-923a0ff0da7e,Michael Grueter,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+b03c6c61-6e59-5f72-a2c5-07e88a0aee17,Ollie Clampet,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+4da9d566-02fe-58d7-ab73-30b3b4a2fdd4,Steve Baker,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+ecba71cc-2a5d-5e35-8060-42cc8619f1be,Steven Campbell,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+648ddc28-56c7-5bbe-af2b-542b391c3ea1,Steven L. Goldberg,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+e2a8202f-9730-5f59-b597-31d4b3e9bbb7,Tim Kelly,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+57233592-2dd0-5d22-abd7-85f761b0d71f,Bill Wall,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+e49019c8-d74d-58ba-b320-2160953a0a85,Colleen Minton,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+119317f9-6b4a-515e-b277-c1646f8d37e3,Dave Yevin,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+422d9917-259f-5c19-9c54-e93aadb0251d,Deb Partridge,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+04cbc7cc-5bbc-5a56-b6fe-ed66bfe885bc,Dutch Holland,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+6579a1ed-c404-5516-8ca9-5c77ebfaa221,Ed Larnacchia,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+493ad434-f756-543e-9cab-846269d4f613,Janice Earl,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+d0b57b33-2ec0-59c4-aad4-67cf37d18a0d,Karla Reinke,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+453c5f1a-6be8-594f-8390-c3c1f19dccb3,Kathy Kristensen,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+ac1cb2a5-5717-541d-9e33-7183d9acdd0c,Kim Brady,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+1a1d402c-d6d3-5e97-a47b-b0daf81a4fb7,Laura Cragh,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+165f51c4-4244-5476-be12-cec5a271bec6,Lynette Haat,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+01ca4b24-5785-541d-bd0b-5fcea8a6a3e4,Pauline Beichert,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+c8b5817f-c8b3-5a5d-aa15-54428b9f1d14,Raul O'Donnal,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+296a3e06-80ca-558a-898d-66259f381922,Rich Rausschmeier,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+50950cde-8a96-58d1-b58b-c03437ec4c86,Russ Williford,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+c95a3541-0a20-5602-ae4b-a7011158c768,Tim Gertsen,PRE1997_ONLY,,,,,,,PRE1997_ONLY (no post-1997 record),N/A,Pre-1997 only player; not in post-1997 Persons_Truth
+e333a5e6-3d76-513c-a9a4-f34c09c31b96,Jody Badger Welch,POST1997,13394,N,,,Y,2004,persons.csv (post-1997 canonical),HIGH,
+3b6e1a06-b0c9-57ad-a4fb-36a6bd7aa47d,Crass Eddicott,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+faf2bc88-f262-5538-99a2-f51bee51913c,Josh Casey,POST1997,43882,Y,1995,Chiseler,N,,persons.csv (post-1997 canonical),HIGH,
+e1c0ada9-2ca8-5b43-956d-0070e61dc03c,Wendy Curran,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+bbd1e614-ad30-5a7e-bd75-501dceb9664b,Dea Evans,POST1997,13508,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+919f3417-97e3-574a-9f85-f0aafc57539e,Ahren Gehrman,POST1997,12471,Y,1996,Torch,N,,persons.csv (post-1997 canonical),HIGH,
+12144bd1-1a64-5e79-ba8c-2e64c2de69f9,James Roberts,POST1997,12098,N,,,Y,2008,persons.csv (post-1997 canonical),HIGH,
+144c052c-ff9e-5ccc-8e3f-4c5817f7613c,Brent Stewart,POST1997,12773,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+1be2728e-4467-59b4-9164-d01cf0bd022a,Dan Borsky,POST1997,13755,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+1de22070-477b-5209-8f40-561ce8784b7a,Garry Griggs,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+1f95821a-2b0d-5849-982f-29d333a8ee44,Remi Kristensen,POST1997,78276,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+20d639b1-087f-5227-9eaa-6dd342d57439,Rob Adams,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+20e4a023-1bb9-5d19-a6dc-73da6eb30a8d,Anne Miller,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+227572fb-db70-57fd-92da-e930ab47ab81,Mark Voightman,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
 274d2f51-e2d5-5458-be40-6b9211ff813e,Scott Davidson,POST1997,12074,Y,1995,Enlightener,Y,2006,persons.csv (post-1997 canonical),HIGH,
-455dc678-0d04-58c3-a92f-7f2bdbfecf08,Dany Borsky,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-f995558d-69d9-557a-892a-0e695d85250b,Lisa McDaniel,POST1997,12956,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-08ecb6e2-5ae2-539e-a4be-41cb2d98524b,Garth Smith,POST1997,12043,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-299071d7-2781-514f-93b1-6b7a7059ab8a,Evanne Lamarche,POST1997,,N,,,Y,2016,persons.csv (post-1997 canonical),HIGH,
-5439339f-3ef7-59be-9759-8b426d77d4d5,Lisa Monti,POST1997,13237,N,,,Y,2014,persons.csv (post-1997 canonical),HIGH,
-da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,POST1997,12353,Y,1995,GF Smoothie,Y,,persons.csv (post-1997 canonical),HIGH,
-bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,POST1997,12199,Y,1996,Genzu Blades,Y,,persons.csv (post-1997 canonical),HIGH,
-79adde13-a415-5c0c-acc0-6c30e2caa012,Andrew Morgan,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-6d50650f-7f41-5484-894f-74986085f48b,Martin Cote,POST1997,12260,N,,,Y,2008,persons.csv (post-1997 canonical),HIGH,
-d0fd4b0a-a59e-525d-a918-eefb16c70e80,Martin Graton,POST1997,19446,N,,,N,,persons.csv (post-1997 canonical),HIGH,
 28565dd0-2196-5404-bf23-6cf0617ce79b,Tuan Vu,POST1997,13215,Y,1995,Disco Ninja,Y,2007,persons.csv (post-1997 canonical),HIGH,
-092d4205-dbd7-59e7-8ec4-53b306eb83b3,Justin Sexton,POST1997,12028,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-f413723f-232b-584c-a416-47ed2066d79e,Eric Lardinois,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
-93d75393-13d7-55c0-b23e-cf0c9a077583,Becca English-Ross,POST1997,12024,N,,,Y,2013,persons.csv (post-1997 canonical),HIGH,
-54e16a85-0204-5ef1-aa92-a09c9af8ae1c,Tina Lewis,POST1997,12046,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-82cfc9df-6d3b-5021-8cb6-fe84981e940d,Sean Flynn,POST1997,27000,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+299071d7-2781-514f-93b1-6b7a7059ab8a,Evanne LaMarche,POST1997,,N,,,Y,2016,persons.csv (post-1997 canonical),HIGH,
+3991f932-86d6-54ae-8e43-9f7e651142cf,Ken Hamric,POST1997,,N,,,Y,2007,persons.csv (post-1997 canonical),HIGH,
+3b9aa46e-f575-53b1-8cb1-0d75bec9ed86,Randy Dix,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+3c825079-6a02-59d8-ad17-b1c8a5c99538,Darlene House,POST1997,13158,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+3ef63282-9e9c-5f57-94c5-e1b5c4fe8c3c,Emmanuel Bouchard,POST1997,14240,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+455dc678-0d04-58c3-a92f-7f2bdbfecf08,Danny Borsky,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+4a7d3003-ac70-5c97-bf62-69e05c2eca07,Heather Muggleton,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+4b64e224-7a2f-576c-a81a-ecc0db13e2a3,Jay Moldenhauer,POST1997,,N,,,Y,2003,persons.csv (post-1997 canonical),HIGH,
+4c135bb4-c05b-5b8c-8ca4-d60512ccbf24,Ann Lasken,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+4c4505cd-7a52-5203-8e56-902558ac2935,Michael McCarthy,POST1997,73968,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+53335424-f4eb-5933-8b9b-939b6f177ea2,Scott Milne,POST1997,12078,N,,,Y,2007,persons.csv (post-1997 canonical),HIGH,
 542be6a9-3b5a-5374-961b-9de19c0def7a,Peter Irish,POST1997,37017,Y,1992,The Executioner,Y,2004,persons.csv (post-1997 canonical),HIGH,
-adc70b9b-7496-5ded-8feb-fdc8e9c5d21c,Julie Symons,POST1997,12618,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-b63b58da-fe12-59da-92d6-15726472e38b,Carol Wedemeyer,POST1997,13386,Y,1998,She blade,Y,,persons.csv (post-1997 canonical),HIGH,
-e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,POST1997,12776,Y,1995,Iron Man,Y,,persons.csv (post-1997 canonical),HIGH,
-fea99a91-ae13-5cb1-b87f-3c352783dc2e,Geneviève Bousquet,POST1997,40480,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
-75ffbeae-598c-5593-8e64-b3163c809b9c,Jukka Peltola,POST1997,12152,N,,,Y,2012,persons.csv (post-1997 canonical),HIGH,
-c0ba05a1-16a9-51e0-bcf5-7f6b879710a9,Sebastien Verdy,POST1997,20057,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+5439339f-3ef7-59be-9759-8b426d77d4d5,Lisa Monti,POST1997,13237,N,,,Y,2014,persons.csv (post-1997 canonical),HIGH,
+54e16a85-0204-5ef1-aa92-a09c9af8ae1c,Tina Lewis,POST1997,12046,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+58cb9eef-615d-513d-9851-834e6c26b416,Davie Piper,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+6008126d-4385-5973-bf29-56f0563088f6,Wally Victory,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+617e6e58-c73b-5a96-a173-b84a4c28d6d8,Rex Stoler,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+6190f6f2-cb6d-55d2-8e57-d3933f2de09a,Yossarian Kelley,POST1997,14347,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+619a16fc-fe87-552c-b882-b92d96d15588,Richard Cook,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+62bdd1f4-4414-5259-9996-91770a34d09f,Edwin Veltman,POST1997,12498,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+6842b20a-a927-5b6b-9501-4fae0e547a1f,Rob McCloskey,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+690c1f75-80d2-5cb6-ac67-a793f59e90fb,Vincent Bradley,POST1997,12029,N,,,Y,2008,persons.csv (post-1997 canonical),HIGH,
 691f48a0-1dbd-5ef5-99ea-13615a7437d2,Yves Archambault,POST1997,12117,N,,,Y,2001,persons.csv (post-1997 canonical),HIGH,
-f1e2640c-48ae-588d-99bc-7b55713191f0,Manu Bouchard,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+6bddaecf-3335-5caf-ab0c-51a97fce26e2,Steve Smith,POST1997,12631,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+6d50650f-7f41-5484-894f-74986085f48b,Martin Cote,POST1997,12260,N,,,Y,2008,persons.csv (post-1997 canonical),HIGH,
+71a7d160-629d-50d4-b5ea-8f24bfd85a7a,Radhy Esposito,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
 760941c4-9426-56f1-ac79-e8ad3ce9cf98,Andrew Ronald,POST1997,12508,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+77d78830-84f5-520d-99d7-105a2b455eb3,Valeria Davidson,POST1997,15026,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+79adde13-a415-5c0c-acc0-6c30e2caa012,Andrew Morgan,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+7c5778f0-6847-58e6-9e37-09967ef3db13,P.T. Lovern,POST1997,12042,N,,,Y,2012,persons.csv (post-1997 canonical),HIGH,
+82cfc9df-6d3b-5021-8cb6-fe84981e940d,Sean Flynn,POST1997,27000,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+84c14f8c-06df-54c2-a58b-545f5a970ce1,James Harley,POST1997,65965,N,,,Y,2012,persons.csv (post-1997 canonical),HIGH,
+9305d995-729f-5664-855b-bd39d60b3403,Jay Wininger,POST1997,66884,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+930c2d56-749c-5f85-a221-106ebb83e0b8,Chris Donofrio,POST1997,,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+93d75393-13d7-55c0-b23e-cf0c9a077583,Becca English-Ross,POST1997,12024,N,,,Y,2013,persons.csv (post-1997 canonical),HIGH,
+97771593-c865-5ac9-b7bf-c76ba6159476,Greg Potts,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+9780a575-f413-502c-8bcf-2e50758bd4ad,Doug Gannon,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+9d69ef20-b1c0-5b65-91f2-4da140883053,Jane Jones,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+a1cf399e-b52c-5ffe-9b80-10df4e20232f,Ida Fogle,POST1997,44058,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+a885c64b-88c5-5b90-a17e-598a5076fcd5,Patrick Keehan,POST1997,14829,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+adc70b9b-7496-5ded-8feb-fdc8e9c5d21c,Julie Symons,POST1997,12618,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+b08606fb-8072-5d14-ae24-b1881c22be54,Chris Routh,POST1997,76428,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+b27f71e0-36e9-5d80-8639-d080e366f204,Simon Hearsey,POST1997,36874,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+b63b58da-fe12-59da-92d6-15726472e38b,Carol Wedemeyer,POST1997,13386,Y,1998,She blade,Y,,persons.csv (post-1997 canonical),HIGH,
+b946c187-fb73-54fb-bc77-5b2bf8209df8,Steve Dusablon,POST1997,37419,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+bd97ebe2-5ecd-5854-9d2e-b877a27ac527,Daryl Genz,POST1997,12199,Y,1996,Genzu Blades,Y,,persons.csv (post-1997 canonical),HIGH,
+c0ba05a1-16a9-51e0-bcf5-7f6b879710a9,Sebastien Verdy,POST1997,20057,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+c1f6d696-5444-5cd0-919f-9dd06ca54bea,David Butcher,POST1997,12364,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+c2da6bcd-ccc4-5ecf-8e49-d1c4ef4260b9,Randy Mulder,POST1997,19508,N,,,Y,2008,persons.csv (post-1997 canonical),HIGH,
+c4adef73-b6ff-5958-898f-741b59e30d93,Roger Stimson,POST1997,12145,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+c50fb80d-aa35-5154-be01-19817c3b84d2,Tu Vu,POST1997,12436,Y,1997,Huge,N,,persons.csv (post-1997 canonical),HIGH,
+c75bb11f-35d9-5069-8f91-af4e87431e0f,Jim Curtis,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+c9342c2f-a5b9-58cc-bbb5-9a884d179a13,Noah Dubreuil,POST1997,,Y,1997,Merlin,N,,persons.csv (post-1997 canonical),HIGH,
+cd035f70-1e6d-5620-b8eb-bf5809c756ab,Scott Durfee,POST1997,33788,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+da2cbc95-e09b-5a22-9baf-00e25552c9b6,Greg Nelson,POST1997,12353,Y,1995,GF Smoothie,Y,,persons.csv (post-1997 canonical),HIGH,
+e1366d5a-ad96-5f07-88e4-d0c4550d2696,Jake Leong,POST1997,12013,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+e3000de1-60fa-51e1-bc35-98a860fadd6b,Kelly Kelley,POST1997,13168,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+e41184d4-ed7c-53d0-a3be-6b1e92fa5279,Heather Thomas,POST1997,20454,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+e8b82661-4428-5e51-a786-29bf7a23728f,Eric Wulff,POST1997,12776,Y,1995,Iron Man,Y,,persons.csv (post-1997 canonical),HIGH,
+e8e76f56-0e5f-5873-902d-2c5eb571ecc0,Dave Wedertz,POST1997,14515,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+ed0fa218-2a4b-5697-a596-9ee141732268,Kerry Chun,POST1997,15027,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+f012ee54-0fa2-5b6e-9c10-c8aa3b1bcf02,Ed Orlando,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+f02efc5b-3ae1-5979-a64f-a6f211b846d7,Eric Bartholomay,POST1997,11984,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+f1335c87-476a-577d-8929-e8059bcb0bca,Steve Kremer,POST1997,83906,Y,1995,Kosmo,N,,persons.csv (post-1997 canonical),HIGH,
+f4a17b34-10e0-50e1-a72d-e985d3c7b501,Larry Doyle,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+f68e33be-361c-5f4d-a3d8-ed83d4044638,Bob Nicholson,POST1997,,N,,,N,,persons.csv (post-1997 canonical),HIGH,
+f995558d-69d9-557a-892a-0e695d85250b,Lisa McDaniel Jones,POST1997,12956,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+fe2c05c8-4093-5304-9433-9793630542f5,Derrick Fogle,POST1997,,N,,,Y,,persons.csv (post-1997 canonical),HIGH,
+ff744d13-860e-5ab6-8920-dac66414b828,Samantha Conlon,POST1997,,N,,,Y,2004,persons.csv (post-1997 canonical),HIGH,

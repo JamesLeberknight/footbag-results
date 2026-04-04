@@ -19,17 +19,6 @@ canonical_event_id,division_raw,total_placements
 1983_worlds_wfa,Women's Doubles Net,3
 1983_worlds_wfa,Women's Sgls Net,3
 1983_worlds_wfa,Women's Singles Net,3
-1992_worlds,Men's Overall,1
-1992_worlds,Mixed Dbls Net,3
-1992_worlds,Open Dbls Consecutive,3
-1992_worlds,Open Dbls Net,3
-1992_worlds,Open Sgls Consecutive,3
-1992_worlds,Open Sgls Freestyle,3
-1992_worlds,Open Sgls Net,3
-1992_worlds,Open Team Freestyle,3
-1992_worlds,Women's Dbls Net,3
-1992_worlds,Women's Overall,1
-1992_worlds,Women's Sgls Net,3
 1983_oregon_state,Open Singles,1
 1984_wfa_nationals,Men's Overall,1
 1984_wfa_nationals,Mixed Dbls Net,3
@@ -45,19 +34,6 @@ canonical_event_id,division_raw,total_placements
 1984_wfa_nationals,Women's Overall,1
 1984_wfa_nationals,Women's Sgls Net,3
 1984_wfa_nationals,Women's Team Freestyle,3
-1988_worlds_golden,Open Freestyle,1
-1988_worlds_golden,Open Singles Net,1
-1990_worlds,Men's Overall,1
-1990_worlds,Mixed Dbls Net,3
-1990_worlds,Open Dbls Consecutive,3
-1990_worlds,Open Dbls Net,3
-1990_worlds,Open Sgls Consecutive,3
-1990_worlds,Open Sgls Freestyle,3
-1990_worlds,Open Sgls Net,3
-1990_worlds,Open Team Freestyle,3
-1990_worlds,Women's Dbls Net,3
-1990_worlds,Women's Overall,1
-1990_worlds,Women's Sgls Net,3
 1985_wfa_nationals,Men's Overall,1
 1985_wfa_nationals,Mixed Dbls Net,3
 1985_wfa_nationals,Open Dbls Consecutive,3
@@ -94,28 +70,6 @@ canonical_event_id,division_raw,total_placements
 1982_worlds,Women's Doubles Net,3
 1982_worlds,Women's Sgls Net,3
 1982_worlds,Women's Singles Net,3
-1995_worlds,Men's Overall,1
-1995_worlds,Mixed Dbls Net,3
-1995_worlds,Open Dbls Consecutive,3
-1995_worlds,Open Dbls Net,3
-1995_worlds,Open Sgls Consecutive,3
-1995_worlds,Open Sgls Freestyle,3
-1995_worlds,Open Sgls Net,3
-1995_worlds,Open Team Freestyle,3
-1995_worlds,Women's Dbls Net,3
-1995_worlds,Women's Overall,1
-1995_worlds,Women's Sgls Net,3
-1989_worlds_golden,Men's Overall,1
-1989_worlds_golden,Mixed Dbls Net,3
-1989_worlds_golden,Open Dbls Consecutive,3
-1989_worlds_golden,Open Dbls Net,3
-1989_worlds_golden,Open Sgls Consecutive,3
-1989_worlds_golden,Open Sgls Freestyle,3
-1989_worlds_golden,Open Sgls Net,3
-1989_worlds_golden,Open Team Freestyle,3
-1989_worlds_golden,Women's Dbls Net,3
-1989_worlds_golden,Women's Overall,1
-1989_worlds_golden,Women's Sgls Net,3
 1984_worlds,Advanced Doubles Net,3
 1984_worlds,Advanced Singles Net,3
 1984_worlds,Doubles Consecutive Kicks,3
@@ -141,29 +95,6 @@ canonical_event_id,division_raw,total_placements
 1984_worlds,Women's Singles Consecutive Kicks,3
 1984_worlds,Women's Singles Net,3
 1984_worlds,Women's Ultra Singles Net,3
-1989_worlds_golden,Open Singles Net,1
-1996_worlds,Men's Overall,1
-1996_worlds,Mixed Dbls Net,3
-1996_worlds,Open Dbls Consecutive,3
-1996_worlds,Open Dbls Net,3
-1996_worlds,Open Sgls Consecutive,3
-1996_worlds,Open Sgls Freestyle,3
-1996_worlds,Open Sgls Net,3
-1996_worlds,Open Team Freestyle,3
-1996_worlds,Women's Dbls Net,3
-1996_worlds,Women's Overall,1
-1996_worlds,Women's Sgls Net,3
-1991_worlds,Men's Overall,1
-1991_worlds,Mixed Dbls Net,3
-1991_worlds,Open Dbls Consecutive,3
-1991_worlds,Open Dbls Net,3
-1991_worlds,Open Sgls Consecutive,3
-1991_worlds,Open Sgls Freestyle,3
-1991_worlds,Open Sgls Net,3
-1991_worlds,Open Team Freestyle,3
-1991_worlds,Women's Dbls Net,3
-1991_worlds,Women's Overall,1
-1991_worlds,Women's Sgls Net,3
 1983_worlds_nhsa,Doubles Net,3
 1983_worlds_nhsa,Intermediate Doubles Net,1
 1983_worlds_nhsa,Intermediate Singles Net,1
@@ -189,17 +120,6 @@ canonical_event_id,division_raw,total_placements
 1984_euro_champs,Open Singles Net,1
 1988_us_nationals,Open Singles Net,1
 1980_worlds_clackamas,Open Singles,2
-1987_worlds_golden,Men's Overall,1
-1987_worlds_golden,Mixed Dbls Net,3
-1987_worlds_golden,Open Dbls Consecutive,3
-1987_worlds_golden,Open Dbls Net,3
-1987_worlds_golden,Open Sgls Consecutive,3
-1987_worlds_golden,Open Sgls Freestyle,3
-1987_worlds_golden,Open Sgls Net,3
-1987_worlds_golden,Open Team Freestyle,3
-1987_worlds_golden,Women's Dbls Net,3
-1987_worlds_golden,Women's Overall,1
-1987_worlds_golden,Women's Sgls Net,3
 1985_worlds,Advanced Doubles Net,3
 1985_worlds,Advanced Singles Net,3
 1985_worlds,Doubles Consecutive Kicks,3
@@ -224,9 +144,6 @@ canonical_event_id,division_raw,total_placements
 1985_worlds,Women's Overall,3
 1985_worlds,Women's Singles Consecutive Kicks,3
 1985_worlds,Women's Singles Net,3
-1987_worlds_golden,Open Freestyle,1
-1987_worlds_golden,Open Singles Net,2
-1994_worlds_palo_alto,Open Singles Net,1
 1981_worlds_portland,Open Singles,2
 1986_worlds_golden,Men's Overall,1
 1986_worlds_golden,Mixed Dbls Net,3
@@ -251,45 +168,184 @@ canonical_event_id,division_raw,total_placements
 1981_worlds,Team Consecutive Kicks,1
 1981_worlds,Women's Doubles Net,3
 1981_worlds,Women's Singles Consecutive Kicks,1
-1994_worlds_palo_alto,Men's Overall,1
-1994_worlds_palo_alto,Mixed Dbls Net,3
-1994_worlds_palo_alto,Open Dbls Consecutive,3
-1994_worlds_palo_alto,Open Dbls Net,3
-1994_worlds_palo_alto,Open Sgls Consecutive,3
-1994_worlds_palo_alto,Open Sgls Freestyle,3
-1994_worlds_palo_alto,Open Sgls Net,3
-1994_worlds_palo_alto,Open Team Freestyle,3
-1994_worlds_palo_alto,Women's Dbls Net,3
-1994_worlds_palo_alto,Women's Overall,1
-1994_worlds_palo_alto,Women's Sgls Net,3
 1980_worlds,Doubles Consecutive Kicks,1
 1980_worlds,Doubles Net,3
 1980_worlds,Singles Consecutive Kicks,1
 1980_worlds,Singles Net,3
-1988_worlds_golden,Men's Overall,1
-1988_worlds_golden,Mixed Dbls Net,3
-1988_worlds_golden,Open Dbls Consecutive,3
-1988_worlds_golden,Open Dbls Net,3
-1988_worlds_golden,Open Sgls Consecutive,3
-1988_worlds_golden,Open Sgls Freestyle,3
-1988_worlds_golden,Open Sgls Net,3
-1988_worlds_golden,Open Team Freestyle,3
-1988_worlds_golden,Women's Dbls Net,3
-1988_worlds_golden,Women's Overall,1
-1988_worlds_golden,Women's Sgls Net,3
 1986_worlds_golden,Open Freestyle,1
 1986_worlds_golden,Open Singles Net,1
-1993_worlds,Men's Overall,1
-1993_worlds,Mixed Dbls Net,3
-1993_worlds,Open Dbls Consecutive,3
-1993_worlds,Open Dbls Net,3
-1993_worlds,Open Sgls Consecutive,3
-1993_worlds,Open Sgls Freestyle,3
-1993_worlds,Open Sgls Net,3
-1993_worlds,Open Team Freestyle,3
-1993_worlds,Women's Dbls Net,3
-1993_worlds,Women's Overall,1
-1993_worlds,Women's Sgls Net,3
 1982_western_regionals,Open Doubles,1
 1987_euro_champs,Open Singles Net,1
 1982_worlds_portland,Open Singles,1
+1985_worlds,Intermediate Golf,
+1985_worlds,Intermediate Singles Freestyle,
+1985_worlds,Intermediate Women's Singles Net,
+1985_worlds,Mixed Team Freestyle Demo,
+1985_worlds,Open Doubles Net,
+1985_worlds,Open Overall,
+1985_worlds,Open Singles Speed Consecutives,
+1985_worlds,Women's Singles Freestyle,
+1985_worlds,Women's Singles Speed Consecutives,
+1985_worlds,Women's Team Freestyle,
+1987_worlds_golden,Men's Overall,
+1987_worlds_golden,Mixed Dbls Net,
+1987_worlds_golden,Open Dbls Distance Consecutive,
+1987_worlds_golden,Open Dbls Net,
+1987_worlds_golden,Open Golf,
+1987_worlds_golden,Open Sgls Freestyle,
+1987_worlds_golden,Open Sgls Net,
+1987_worlds_golden,Open Team Freestyle,
+1987_worlds_golden,Women's Dbls Distance Consecutive,
+1987_worlds_golden,Women's Dbls Net,
+1987_worlds_golden,Women's Golf,
+1987_worlds_golden,Women's Overall,
+1987_worlds_golden,Women's Sgls Freestyle,
+1987_worlds_golden,Women's Sgls Net,
+1988_worlds_golden,Men's Overall,
+1988_worlds_golden,Open Dbls Distance Consecutive,
+1988_worlds_golden,Open Dbls Net,
+1988_worlds_golden,Open Golf,
+1988_worlds_golden,Open Sgls 5-min Consecutive,
+1988_worlds_golden,Open Sgls Net,
+1988_worlds_golden,Women's Dbls Distance Consecutive,
+1988_worlds_golden,Women's Dbls Net,
+1988_worlds_golden,Women's Golf,
+1988_worlds_golden,Women's Overall,
+1988_worlds_golden,Women's Sgls 5-min Consecutive,
+1988_worlds_golden,Women's Sgls Net,
+1989_worlds_golden,Men's Overall,
+1989_worlds_golden,Mixed Dbls Net,
+1989_worlds_golden,Open Dbls Distance Consecutive,
+1989_worlds_golden,Open Dbls Net,
+1989_worlds_golden,Open Golf,
+1989_worlds_golden,Open Sgls 5-min Consecutive,
+1989_worlds_golden,Open Sgls Freestyle,
+1989_worlds_golden,Open Sgls Net,
+1989_worlds_golden,Open Team Freestyle,
+1989_worlds_golden,Women's Dbls Distance Consecutive,
+1989_worlds_golden,Women's Dbls Net,
+1989_worlds_golden,Women's Golf,
+1989_worlds_golden,Women's Overall,
+1989_worlds_golden,Women's Sgls 5-min Consecutive,
+1989_worlds_golden,Women's Sgls Freestyle,
+1989_worlds_golden,Women's Sgls Net,
+1989_worlds_golden,Women's Team Freestyle,
+1990_worlds,Men's Overall,
+1990_worlds,Mixed Dbls Net,
+1990_worlds,Open Dbls Distance Consecutive,
+1990_worlds,Open Dbls Net,
+1990_worlds,Open Golf,
+1990_worlds,Open Sgls 5-min Consecutive,
+1990_worlds,Open Sgls Freestyle,
+1990_worlds,Open Sgls Net,
+1990_worlds,Open Team Freestyle,
+1990_worlds,Women's Dbls Distance Consecutive,
+1990_worlds,Women's Dbls Net,
+1990_worlds,Women's Golf,
+1990_worlds,Women's Overall,
+1990_worlds,Women's Sgls 5-min Consecutive,
+1990_worlds,Women's Sgls Freestyle,
+1990_worlds,Women's Sgls Net,
+1990_worlds,Women's Team Freestyle,
+1991_worlds,Men's Overall,
+1991_worlds,Mixed Dbls Net,
+1991_worlds,Open Dbls Distance Consecutive,
+1991_worlds,Open Dbls Net,
+1991_worlds,Open Golf,
+1991_worlds,Open Sgls 5-min Consecutive,
+1991_worlds,Open Sgls Freestyle,
+1991_worlds,Open Sgls Net,
+1991_worlds,Open Team Freestyle,
+1991_worlds,Women's Dbls Distance Consecutive,
+1991_worlds,Women's Dbls Net,
+1991_worlds,Women's Golf,
+1991_worlds,Women's Overall,
+1991_worlds,Women's Sgls 5-min Consecutive,
+1991_worlds,Women's Sgls Freestyle,
+1991_worlds,Women's Sgls Net,
+1991_worlds,Women's Team Freestyle,
+1992_worlds,Men's Overall,
+1992_worlds,Mixed Dbls Net,
+1992_worlds,Open Dbls Distance Consecutive,
+1992_worlds,Open Dbls Net,
+1992_worlds,Open Golf,
+1992_worlds,Open Sgls 5-min Consecutive,
+1992_worlds,Open Sgls Freestyle,
+1992_worlds,Open Sgls Net,
+1992_worlds,Open Team Freestyle,
+1992_worlds,Women's Dbls Distance Consecutive,
+1992_worlds,Women's Dbls Net,
+1992_worlds,Women's Golf,
+1992_worlds,Women's Overall,
+1992_worlds,Women's Sgls 5-min Consecutive,
+1992_worlds,Women's Sgls Freestyle,
+1992_worlds,Women's Sgls Net,
+1992_worlds,Women's Team Freestyle,
+1993_worlds,Men's Overall,
+1993_worlds,Mixed Dbls Net,
+1993_worlds,Open Dbls Distance Consecutive,
+1993_worlds,Open Dbls Net,
+1993_worlds,Open Golf,
+1993_worlds,Open Sgls 5-min Consecutive,
+1993_worlds,Open Sgls Freestyle,
+1993_worlds,Open Sgls Net,
+1993_worlds,Open Team Freestyle,
+1993_worlds,Women's Dbls Distance Consecutive,
+1993_worlds,Women's Dbls Net,
+1993_worlds,Women's Golf,
+1993_worlds,Women's Overall,
+1993_worlds,Women's Sgls 5-min Consecutive,
+1993_worlds,Women's Sgls Freestyle,
+1993_worlds,Women's Sgls Net,
+1993_worlds,Women's Team Freestyle,
+1994_worlds_palo_alto,Men's Overall,
+1994_worlds_palo_alto,Mixed Dbls Net,
+1994_worlds_palo_alto,Open Dbls Distance Consecutive,
+1994_worlds_palo_alto,Open Dbls Net,
+1994_worlds_palo_alto,Open Golf,
+1994_worlds_palo_alto,Open Sgls 5-min Consecutive,
+1994_worlds_palo_alto,Open Sgls Freestyle,
+1994_worlds_palo_alto,Open Sgls Net,
+1994_worlds_palo_alto,Open Team Freestyle,
+1994_worlds_palo_alto,Women's Dbls Distance Consecutive,
+1994_worlds_palo_alto,Women's Dbls Net,
+1994_worlds_palo_alto,Women's Golf,
+1994_worlds_palo_alto,Women's Overall,
+1994_worlds_palo_alto,Women's Sgls 5-min Consecutive,
+1994_worlds_palo_alto,Women's Sgls Freestyle,
+1994_worlds_palo_alto,Women's Sgls Net,
+1994_worlds_palo_alto,Women's Team Freestyle,
+1995_worlds,Men's Overall,
+1995_worlds,Mixed Dbls Net,
+1995_worlds,Open Dbls Distance Consecutive,
+1995_worlds,Open Dbls Net,
+1995_worlds,Open Golf,
+1995_worlds,Open Sgls 5-min Consecutive,
+1995_worlds,Open Sgls Freestyle,
+1995_worlds,Open Sgls Net,
+1995_worlds,Open Team Freestyle,
+1995_worlds,Women's Dbls Distance Consecutive,
+1995_worlds,Women's Dbls Net,
+1995_worlds,Women's Golf,
+1995_worlds,Women's Overall,
+1995_worlds,Women's Sgls 5-min Consecutive,
+1995_worlds,Women's Sgls Freestyle,
+1995_worlds,Women's Sgls Net,
+1995_worlds,Women's Team Freestyle,
+1996_worlds,Men's Overall,
+1996_worlds,Mixed Dbls Net,
+1996_worlds,Open Dbls Distance Consecutive,
+1996_worlds,Open Dbls Net,
+1996_worlds,Open Golf,
+1996_worlds,Open Sgls 5-min Consecutive,
+1996_worlds,Open Sgls Freestyle,
+1996_worlds,Open Sgls Net,
+1996_worlds,Open Team Freestyle,
+1996_worlds,Women's Dbls Distance Consecutive,
+1996_worlds,Women's Dbls Net,
+1996_worlds,Women's Golf,
+1996_worlds,Women's Overall,
+1996_worlds,Women's Sgls 5-min Consecutive,
+1996_worlds,Women's Sgls Freestyle,
+1996_worlds,Women's Sgls Net,
+1996_worlds,Women's Team Freestyle,

@@ -2,23 +2,20 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1983_worlds_wfa,Doubles Net,Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
 1983_worlds_wfa,Golf,Golf,,,,,3,,PRE1997,Open Golf,,GOLF
 1983_worlds_wfa,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
+1983_worlds_wfa,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
+1983_worlds_wfa,Open Golf,Open Golf,,,,,3,,PRE1997,Open Golf,,GOLF
+1983_worlds_wfa,Open Singles Consecutive,Open Singles Consecutive,,,,,1,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
+1983_worlds_wfa,Open Singles Freestyle,Open Singles Freestyle,,,,,1,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1983_worlds_wfa,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
+1983_worlds_wfa,Open Team Freestyle,Open Team Freestyle,,,,,2,,PRE1997,Open Team Freestyle,,FREESTYLE
+1983_worlds_wfa,Singles,Singles,,,,,3,,PRE1997,Open Singles Net,,NET
 1983_worlds_wfa,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
 1983_worlds_wfa,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
 1983_worlds_wfa,Singles Net,Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
+1983_worlds_wfa,Team,Team,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
 1983_worlds_wfa,Team Freestyle,Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
 1983_worlds_wfa,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
 1983_worlds_wfa,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
-1992_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
-1992_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
-1992_worlds,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
-1992_worlds,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
-1992_worlds,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
-1992_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1992_worlds,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
-1992_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
-1992_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
-1992_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
-1992_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1983_oregon_state,Open Singles,Open Singles,,,,,1,,PRE1997,Open Singles Net,,NET
 1984_wfa_nationals,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
 1984_wfa_nationals,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
@@ -34,17 +31,6 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1984_wfa_nationals,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
 1984_wfa_nationals,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1984_wfa_nationals,Women's Team Freestyle,Women's Team Freestyle,,,,,3,,PRE1997,Women's Team Freestyle,,FREESTYLE
-1990_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
-1990_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
-1990_worlds,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
-1990_worlds,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
-1990_worlds,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
-1990_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1990_worlds,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
-1990_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
-1990_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
-1990_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
-1990_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1985_wfa_nationals,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
 1985_wfa_nationals,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
 1985_wfa_nationals,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
@@ -60,6 +46,7 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1985_wfa_nationals,Women's Singles Freestyle,Women's Singles Freestyle,,,,,1,,PRE1997,Women's Singles Freestyle,,FREESTYLE
 1985_wfa_nationals,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1985_wfa_nationals,Women's Team Freestyle,Women's Team Freestyle,,,,,2,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1982_worlds,,,,,,,3,,PRE1997,,,
 1982_worlds,Doubles Net,Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
 1982_worlds,Freestyle,Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
 1982_worlds,Golf,Golf,,,,,3,,PRE1997,Open Golf,,GOLF
@@ -67,21 +54,16 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1982_worlds,Intermediate Freestyle,Intermediate Freestyle,,,,,1,,PRE1997,Intermediate Singles Freestyle,,FREESTYLE
 1982_worlds,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997,Intermediate Singles Net,,NET
 1982_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
+1982_worlds,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
+1982_worlds,Open Golf,Open Golf,,,,,3,,PRE1997,Open Golf,,GOLF
+1982_worlds,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
+1982_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,1,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1982_worlds,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
+1982_worlds,Open Team Freestyle,Open Team Freestyle,,,,,1,,PRE1997,Open Team Freestyle,,FREESTYLE
 1982_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
 1982_worlds,Singles Net,Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
 1982_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
 1982_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
-1989_worlds_golden,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
-1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
-1989_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
-1989_worlds_golden,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
-1989_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
-1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1989_worlds_golden,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
-1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
-1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
-1989_worlds_golden,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
-1989_worlds_golden,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1984_worlds,Advanced Doubles Net,Advanced Doubles Net,,,,,3,,PRE1997,Open Doubles Net,ADVANCED,NET
 1984_worlds,Advanced Singles Net,Advanced Singles Net,,,,,3,,PRE1997,Open Singles Net,ADVANCED,NET
 1984_worlds,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
@@ -107,24 +89,21 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1984_worlds,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,3,,PRE1997,Women's Singles Consecutive,,CONSECUTIVE
 1984_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1984_worlds,Women's Ultra Singles Net,Women's Ultra Singles Net,,,,,3,,PRE1997,Women's Singles Net,ULTRA,NET
-1991_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
-1991_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
-1991_worlds,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
-1991_worlds,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
-1991_worlds,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
-1991_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1991_worlds,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
-1991_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
-1991_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
-1991_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
-1991_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1983_worlds_nhsa,Doubles Net,Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
 1983_worlds_nhsa,Intermediate Doubles Net,Intermediate Doubles Net,,,,,1,,PRE1997,Intermediate Doubles Net,,NET
 1983_worlds_nhsa,Intermediate Singles Net,Intermediate Singles Net,,,,,1,,PRE1997,Intermediate Singles Net,,NET
 1983_worlds_nhsa,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
+1983_worlds_nhsa,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
+1983_worlds_nhsa,Open Golf,Open Golf,,,,,3,,PRE1997,Open Golf,,GOLF
+1983_worlds_nhsa,Open Singles Consecutive,Open Singles Consecutive,,,,,1,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
+1983_worlds_nhsa,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1983_worlds_nhsa,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
+1983_worlds_nhsa,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
+1983_worlds_nhsa,Singles,Singles,,,,,3,,PRE1997,Open Singles Net,,NET
 1983_worlds_nhsa,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
 1983_worlds_nhsa,Singles Freestyle,Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
 1983_worlds_nhsa,Singles Net,Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
+1983_worlds_nhsa,Team,Team,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
 1983_worlds_nhsa,Team Freestyle,Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
 1983_worlds_nhsa,Women's Consecutive Kicks,Women's Consecutive Kicks,,,,,3,,PRE1997,Women's Singles Consecutive,,CONSECUTIVE
 1983_worlds_nhsa,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
@@ -134,12 +113,6 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1984_euro_champs,Open Singles Net,Open Singles Net,,,,,1,,PRE1997,Open Singles Net,,NET
 1988_us_nationals,Open Singles Net,Open Singles Net,,,,,1,,PRE1997,Open Singles Net,,NET
 1980_worlds_clackamas,Open Singles,Open Singles,,,,,2,,PRE1997,Open Singles Net,,NET
-1987_worlds_golden,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
-1987_worlds_golden,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
-1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
-1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
-1987_worlds_golden,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
-1987_worlds_golden,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1985_worlds,Advanced Doubles Net,Advanced Doubles Net,,,,,3,,PRE1997,Open Doubles Net,ADVANCED,NET
 1985_worlds,Advanced Singles Net,Advanced Singles Net,,,,,3,,PRE1997,Open Singles Net,ADVANCED,NET
 1985_worlds,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
@@ -164,7 +137,6 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1985_worlds,Women's Overall,Women's Overall,,,,,3,,PRE1997,Women's Overall,,OVERALL
 1985_worlds,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,3,,PRE1997,Women's Singles Consecutive,,CONSECUTIVE
 1985_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
-1994_worlds_palo_alto,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
 1981_worlds_portland,Open Singles,Open Singles,,,,,2,,PRE1997,Open Singles Net,,NET
 1986_worlds_golden,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
 1986_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
@@ -189,40 +161,169 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1981_worlds,Team Consecutive Kicks,Team Consecutive Kicks,,,,,1,,PRE1997,Open Team Consecutive,,CONSECUTIVE
 1981_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
 1981_worlds,Women's Singles Consecutive Kicks,Women's Singles Consecutive Kicks,,,,,1,,PRE1997,Women's Singles Consecutive,,CONSECUTIVE
-1994_worlds_palo_alto,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
-1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
-1994_worlds_palo_alto,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
-1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
-1994_worlds_palo_alto,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
-1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
-1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
-1994_worlds_palo_alto,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
-1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1980_worlds,Doubles Consecutive Kicks,Doubles Consecutive Kicks,,,,,1,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
 1980_worlds,Doubles Net,Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
 1980_worlds,Singles Consecutive Kicks,Singles Consecutive Kicks,,,,,1,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
 1980_worlds,Singles Net,Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
 1986_worlds_golden,Open Freestyle,Open Freestyle,,,,,1,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1993_worlds,Men's Overall,Men's Overall,,,,,1,,PRE1997,Men's Overall,,OVERALL
-1993_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
-1993_worlds,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
-1993_worlds,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
-1993_worlds,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
-1993_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1993_worlds,Open Singles Net,Open Singles Net,,,,,3,,PRE1997,Open Singles Net,,NET
-1993_worlds,Open Team Freestyle,Open Team Freestyle,,,,,3,,PRE1997,Open Team Freestyle,,FREESTYLE
-1993_worlds,Women's Doubles Net,Women's Doubles Net,,,,,3,,PRE1997,Women's Doubles Net,,NET
-1993_worlds,Women's Overall,Women's Overall,,,,,1,,PRE1997,Women's Overall,,OVERALL
-1993_worlds,Women's Singles Net,Women's Singles Net,,,,,3,,PRE1997,Women's Singles Net,,NET
 1982_western_regionals,Open Doubles,Open Doubles,,,,,1,,PRE1997,Open Doubles Net,,NET
 1987_euro_champs,Open Singles Net,Open Singles Net,,,,,1,,PRE1997,Open Singles Net,,NET
 1982_worlds_portland,Open Singles,Open Singles,,,,,1,,PRE1997,Open Singles Net,,NET
-1987_worlds_golden,Open Doubles Net,Open Doubles Net,,,,,3,,PRE1997,Open Doubles Net,,NET
-1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,,,,,3,,PRE1997,Mixed Doubles Net,,NET
-1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,,,,,3,,PRE1997,Open Singles Freestyle,,FREESTYLE
-1987_worlds_golden,Open Singles Consecutive,Open Singles Consecutive,,,,,3,,PRE1997,Open Singles Consecutive,,CONSECUTIVE
-1987_worlds_golden,Open Doubles Consecutive,Open Doubles Consecutive,,,,,3,,PRE1997,Open Doubles Consecutive,,CONSECUTIVE
+1985_worlds,Intermediate Golf,Intermediate Golf,,,,,,,PRE1997,Intermediate Golf,,GOLF
+1985_worlds,Intermediate Singles Freestyle,Intermediate Singles Freestyle,,,,,,,PRE1997,Intermediate Singles Freestyle,,FREESTYLE
+1985_worlds,Intermediate Women's Singles Net,Intermediate Women's Singles Net,,,,,,,PRE1997,Intermediate Women's Singles Net,,NET
+1985_worlds,Mixed Team Freestyle Demo,Mixed Team Freestyle Demo,,,,,,,PRE1997,Mixed Team Freestyle Demo,,FREESTYLE
+1985_worlds,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1985_worlds,Open Overall,Open Overall,,,,,,,PRE1997,Open Overall,,OVERALL
+1985_worlds,Open Singles Speed Consecutives,Open Singles Speed Consecutives,,,,,,,PRE1997,Open Singles Speed Consecutives,,NET
+1985_worlds,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1985_worlds,Women's Singles Speed Consecutives,Women's Singles Speed Consecutives,,,,,,,PRE1997,Women's Singles Speed Consecutives,,NET
+1985_worlds,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1987_worlds_golden,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1987_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1987_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1987_worlds_golden,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1987_worlds_golden,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1987_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1987_worlds_golden,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1987_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1987_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1987_worlds_golden,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1987_worlds_golden,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1987_worlds_golden,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1987_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1987_worlds_golden,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1988_worlds_golden,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1988_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1988_worlds_golden,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1988_worlds_golden,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1988_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1988_worlds_golden,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1988_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1988_worlds_golden,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1988_worlds_golden,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1988_worlds_golden,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1988_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1988_worlds_golden,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1989_worlds_golden,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1989_worlds_golden,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1989_worlds_golden,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1989_worlds_golden,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1989_worlds_golden,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1989_worlds_golden,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1989_worlds_golden,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1989_worlds_golden,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1989_worlds_golden,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1989_worlds_golden,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1989_worlds_golden,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1989_worlds_golden,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1989_worlds_golden,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1989_worlds_golden,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1989_worlds_golden,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1989_worlds_golden,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1989_worlds_golden,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1990_worlds,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1990_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1990_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1990_worlds,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1990_worlds,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1990_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1990_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1990_worlds,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1990_worlds,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1990_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1990_worlds,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1990_worlds,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1990_worlds,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1990_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1990_worlds,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1990_worlds,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1990_worlds,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1991_worlds,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1991_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1991_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1991_worlds,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1991_worlds,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1991_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1991_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1991_worlds,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1991_worlds,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1991_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1991_worlds,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1991_worlds,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1991_worlds,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1991_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1991_worlds,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1991_worlds,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1991_worlds,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1992_worlds,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1992_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1992_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1992_worlds,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1992_worlds,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1992_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1992_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1992_worlds,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1992_worlds,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1992_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1992_worlds,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1992_worlds,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1992_worlds,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1992_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1992_worlds,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1992_worlds,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1992_worlds,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1993_worlds,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1993_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1993_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1993_worlds,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1993_worlds,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1993_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1993_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1993_worlds,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1993_worlds,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1993_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1993_worlds,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1993_worlds,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1993_worlds,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1993_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1993_worlds,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1993_worlds,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1993_worlds,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1994_worlds_palo_alto,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1994_worlds_palo_alto,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1994_worlds_palo_alto,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1994_worlds_palo_alto,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1994_worlds_palo_alto,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1994_worlds_palo_alto,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1994_worlds_palo_alto,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1994_worlds_palo_alto,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1994_worlds_palo_alto,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1994_worlds_palo_alto,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1994_worlds_palo_alto,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1994_worlds_palo_alto,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1994_worlds_palo_alto,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1994_worlds_palo_alto,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1994_worlds_palo_alto,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1994_worlds_palo_alto,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1994_worlds_palo_alto,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
+1995_worlds,Men's Overall,Men's Overall,,,,,,,PRE1997,Men's Overall,,OVERALL
+1995_worlds,Mixed Doubles Net,Mixed Doubles Net,,,,,,,PRE1997,Mixed Doubles Net,,NET
+1995_worlds,Open Doubles Distance Consecutive,Open Doubles Distance Consecutive,,,,,,,PRE1997,Open Doubles Distance Consecutive,,DISTANCE
+1995_worlds,Open Doubles Net,Open Doubles Net,,,,,,,PRE1997,Open Doubles Net,,NET
+1995_worlds,Open Golf,Open Golf,,,,,,,PRE1997,Open Golf,,GOLF
+1995_worlds,Open Singles 5-min Consecutive,Open Singles 5-min Consecutive,,,,,,,PRE1997,Open Singles 5-min Consecutive,,CONSECUTIVE
+1995_worlds,Open Singles Freestyle,Open Singles Freestyle,,,,,,,PRE1997,Open Singles Freestyle,,FREESTYLE
+1995_worlds,Open Singles Net,Open Singles Net,,,,,,,PRE1997,Open Singles Net,,NET
+1995_worlds,Open Team Freestyle,Open Team Freestyle,,,,,,,PRE1997,Open Team Freestyle,,FREESTYLE
+1995_worlds,Women's Doubles Distance Consecutive,Women's Doubles Distance Consecutive,,,,,,,PRE1997,Women's Doubles Distance Consecutive,,DISTANCE
+1995_worlds,Women's Doubles Net,Women's Doubles Net,,,,,,,PRE1997,Women's Doubles Net,,NET
+1995_worlds,Women's Golf,Women's Golf,,,,,,,PRE1997,Women's Golf,,GOLF
+1995_worlds,Women's Overall,Women's Overall,,,,,,,PRE1997,Women's Overall,,OVERALL
+1995_worlds,Women's Singles 5-min Consecutive,Women's Singles 5-min Consecutive,,,,,,,PRE1997,Women's Singles 5-min Consecutive,,CONSECUTIVE
+1995_worlds,Women's Singles Freestyle,Women's Singles Freestyle,,,,,,,PRE1997,Women's Singles Freestyle,,FREESTYLE
+1995_worlds,Women's Singles Net,Women's Singles Net,,,,,,,PRE1997,Women's Singles Net,,NET
+1995_worlds,Women's Team Freestyle,Women's Team Freestyle,,,,,,,PRE1997,Women's Team Freestyle,,FREESTYLE
 1980_western_states,freestyle,Freestyle,freestyle,singles,1,complete,2,,POST1997,Open Singles Freestyle,,FREESTYLE
 1980_western_states,open_doubles_net,Open Doubles Net,net,doubles,2,complete,3,,POST1997,Open Doubles Net,,NET
 1980_western_states,open_singles_net,Open Singles Net,net,singles,3,complete,3,,POST1997,Open Singles Net,,NET
@@ -310,16 +411,16 @@ event_id,discipline,discipline_name,discipline_category,team_type,sort_order,cov
 1995_eurochamp,open_singles_net,Open Singles Net,net,singles,1,complete,1,,POST1997,Open Singles Net,,NET
 1996_worlds_montreal,unknown,Unknown,unknown,singles,1,sparse,5,,POST1997,Unknown,,UNKNOWN
 1996_worlds_montreal,womens_overall,Women's Overall,unknown,singles,2,sparse,5,,POST1997,Women's Overall,,OVERALL
-1996_worlds_montreal,open_5_min_consecutives,Open 5 Min Consecutives,sideline,singles,3,sparse,4,,POST1997,Open 5 Min Consecutives,,SIDELINE
-1996_worlds_montreal,womens_open_5_min_consecutives,Women's Open 5 Min Consecutives,sideline,singles,4,sparse,4,,POST1997,Women's Open 5 Min Consecutives,,SIDELINE
-1996_worlds_montreal,open_doubles_distance,Open Doubles Distance,sideline,doubles,5,sparse,3,,POST1997,Open Doubles Distance,,DISTANCE
-1996_worlds_montreal,womens_doubles_distance,Women's Doubles Distance,sideline,doubles,6,sparse,3,,POST1997,Women's Doubles Distance,,DISTANCE
+1996_worlds_montreal,womens_open_5_minutes_timed_consecutives,Women's Open 5 Minutes Timed Consecutives,sideline,singles,3,sparse,4,,POST1997,Women's Open 5 Minutes Timed Consecutives,,SIDELINE
+1996_worlds_montreal,open_5_minutes_timed_consecutives,Open 5 Minutes Timed Consecutives,sideline,singles,4,sparse,4,,POST1997,Open 5 Minutes Timed Consecutives,,SIDELINE
+1996_worlds_montreal,open_doubles_distance_one_pass,Open Doubles Distance One Pass,sideline,doubles,5,sparse,3,,POST1997,Open Doubles Distance One Pass,,DISTANCE
+1996_worlds_montreal,womens_doubles_distance_one_pass,Women's Doubles Distance One Pass,sideline,doubles,6,sparse,3,,POST1997,Women's Doubles Distance One Pass,,DISTANCE
 1996_worlds_montreal,intermediate_golf,Intermediate Golf,golf,singles,7,sparse,3,,POST1997,Intermediate Golf,,GOLF
 1996_worlds_montreal,womens_golf,Women's Golf,golf,singles,8,sparse,3,,POST1997,Women's Golf,,GOLF
 1996_worlds_montreal,open_golf,Open Golf,golf,singles,9,sparse,4,,POST1997,Open Golf,,GOLF
 1996_worlds_montreal,intermediate_singles_routines,Intermediate Singles Routines,freestyle,singles,10,sparse,3,,POST1997,Intermediate Singles Routines,,FREESTYLE
-1996_worlds_montreal,womens_singles_routines,Women's Singles Routines,freestyle,singles,11,sparse,4,,POST1997,Women's Singles Routines,,FREESTYLE
-1996_worlds_montreal,womens_team_routines,Women's Team Routines,freestyle,doubles,12,sparse,3,,POST1997,Women's Team Routines,,FREESTYLE
+1996_worlds_montreal,womens_open_singles_routines,Women's Open Singles Routines,freestyle,singles,11,sparse,4,,POST1997,Women's Open Singles Routines,,FREESTYLE
+1996_worlds_montreal,womens_open_team_routines,Women's Open Team Routines,freestyle,doubles,12,sparse,3,,POST1997,Women's Open Team Routines,,FREESTYLE
 1996_worlds_montreal,open_team_routines,Open Team Routines,freestyle,doubles,13,sparse,4,,POST1997,Open Team Routines,,FREESTYLE
 1996_worlds_montreal,open_singles_routines,Open Singles Routines,freestyle,singles,14,sparse,4,,POST1997,Open Singles Routines,,FREESTYLE
 1996_worlds_montreal,womens_intermediate_singles,Women's Intermediate Singles,net,singles,15,sparse,3,,POST1997,Women's Intermediate Singles,,NET
