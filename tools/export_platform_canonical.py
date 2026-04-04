@@ -207,7 +207,9 @@ def export_persons(df: pd.DataFrame) -> pd.DataFrame:
         "signature_trick_3":      "",
     })
     out = out[out["person_name"].str.strip() != ""].copy()
-    return out.sort_values(["person_name", "person_id"], kind="stable")
+    out["_sort_key"] = out["person_name"].str.lower()
+    out = out.sort_values(["_sort_key", "person_id"], kind="stable")
+    return out.drop(columns=["_sort_key"])
 
 
 def main() -> None:
