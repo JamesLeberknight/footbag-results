@@ -2,12 +2,16 @@
 """
 tools/export_platform_canonical.py
 
-Export release_publication/*.csv → out/platform_release/*.csv in the schema
-expected by footbag-platform script 07_build_mvfp_seed_full.py.
+Export out/canonical_all/*.csv → out/platform_release/*.csv in the schema
+expected by footbag-platform script 08_load_mvfp_seed_full_to_sqlite.py.
 
 This is the final step of the merged pipeline (run_pipeline.sh merged).
 
-Input:  out/release_publication/
+Coverage filter (applied inline):
+  INCLUDE: FULL, PARTIAL, QUARANTINED
+  EXCLUDE: SPARSE, NO RESULTS
+
+Input:  out/canonical_all/
 Output: out/platform_release/
 
 Run:
@@ -18,14 +22,45 @@ Run:
 from __future__ import annotations
 
 import argparse
-import re
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = ROOT / "out" / "release_publication"
+DEFAULT_INPUT = ROOT / "out" / "canonical_all"
 DEFAULT_OUTPUT = ROOT / "out" / "platform_release"
+
+INCLUDE_COVERAGE = {"FULL", "PARTIAL", "QUARANTINED"}
+
+
+def compute_pub_eids(events: pd.DataFrame, results: pd.DataFrame,
+                     discs: pd.DataFrame) -> set:
+    """Return event_ids that meet publication coverage threshold."""
+    plc_count  = Counter(results["event_id"])
+    disc_count = Counter(discs["event_id"])
+    pub = set()
+    for _, ev in events.iterrows():
+        eid    = ev["event_id"]
+        np     = plc_count.get(eid, 0)
+        nd     = disc_count.get(eid, 0)
+        vs     = ev.get("validation_status", "")
+        status = ev.get("status", "")
+        if status == "no_results":
+            cov = "NO RESULTS"
+        elif vs in ("CONFIRMED_MULTI_SOURCE", "VERIFIED") and np >= 3:
+            cov = "FULL"
+        elif np >= 20 and nd >= 3:
+            cov = "FULL"
+        elif np >= 10 or nd >= 2:
+            cov = "PARTIAL"
+        elif np > 0:
+            cov = "SPARSE"
+        else:
+            cov = "NO RESULTS"
+        if cov in INCLUDE_COVERAGE:
+            pub.add(eid)
+    return pub
 
 
 def load(path: Path) -> pd.DataFrame:
@@ -185,16 +220,33 @@ def main() -> None:
     out_dir = Path(args.output_dir).expanduser().resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    # Load source tables
+    events_raw  = load(in_dir / "events.csv")
+    discs_raw   = load(in_dir / "event_disciplines.csv")
+    results_raw = load(in_dir / "event_results.csv")
+    parts_raw   = load(in_dir / "event_result_participants.csv")
+    persons_raw = load(in_dir / "persons.csv")
+
+    # Coverage filter — exclude SPARSE / NO RESULTS events
+    pub_eids = compute_pub_eids(events_raw, results_raw, discs_raw)
+    n_total  = len(events_raw)
+    n_excl   = n_total - len(pub_eids)
+    print(f"  Coverage filter: {len(pub_eids)} / {n_total} events included ({n_excl} SPARSE/NO RESULTS excluded)")
+
+    events_f  = events_raw[events_raw["event_id"].isin(pub_eids)].copy()
+    discs_f   = discs_raw[discs_raw["event_id"].isin(pub_eids)].copy()
+    results_f = results_raw[results_raw["event_id"].isin(pub_eids)].copy()
+    parts_f   = parts_raw[parts_raw["event_id"].isin(pub_eids)].copy()
+
     steps = [
-        ("events.csv",                   export_events),
-        ("event_disciplines.csv",        export_event_disciplines),
-        ("event_results.csv",            export_event_results),
-        ("event_result_participants.csv", export_event_result_participants),
-        ("persons.csv",                  export_persons),
+        ("events.csv",                    events_f,   export_events),
+        ("event_disciplines.csv",         discs_f,    export_event_disciplines),
+        ("event_results.csv",             results_f,  export_event_results),
+        ("event_result_participants.csv", parts_f,    export_event_result_participants),
+        ("persons.csv",                   persons_raw, export_persons),
     ]
 
-    for filename, fn in steps:
-        df = load(in_dir / filename)
+    for filename, df, fn in steps:
         out = fn(df)
         for col in out.columns:
             out[col] = out[col].fillna("").astype(str).replace({"nan": ""})
@@ -202,7 +254,7 @@ def main() -> None:
         out.to_csv(dest, index=False)
         print(f"  {filename}: {len(out):,} rows → {dest}")
 
-    print(f"\nplatform_release/ ready for footbag-platform script 07.")
+    print(f"\nplatform_release/ ready for footbag-platform script 08.")
 
 
 if __name__ == "__main__":

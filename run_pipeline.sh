@@ -201,9 +201,6 @@ do_merged() {
     step "Merged: apply overlap suppression → out/canonical_all/"
     "$PYTHON" tools/build_appsafe_merged.py
 
-    step "Merged: enrich canonical_all + filter release_publication/ (SPARSE excluded)"
-    "$PYTHON" tools/build_canonical_enrichment.py
-
     step "Merged: generate merged feed files"
     "$PYTHON" tools/build_merged_feeds.py
 
@@ -212,9 +209,6 @@ do_merged() {
 
     step "Merged: render merged event comparison viewer"
     "$PYTHON" tools/event_comparison_viewerV10.py
-
-    step "Merged: build canonical_pf from release_publication/"
-    "$PYTHON" tools/build_canonical_pf.py
 
     step "Merged: build community workbook v17"
     "$PYTHON" tools/build_workbook_v17.py
@@ -225,7 +219,6 @@ do_merged() {
     echo
     echo "Merged build complete."
     echo "  Canonical dataset:   out/canonical_all/"
-    echo "  Release publication: out/release_publication/"
     echo "  Platform release:    out/platform_release/"
     echo "  Community workbook:  Footbag_Results_Community_v17.xlsx"
     echo "  Merged workbook:     Footbag_Results_Merged_FINAL.xlsx"
