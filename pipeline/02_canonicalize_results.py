@@ -59,6 +59,74 @@ def load_event_overrides_jsonl(path: Path) -> dict[str, dict]:
     return overrides
 
 
+def _load_known_broken_events() -> set[str]:
+    """Load known broken source event IDs from CSV. Fails loudly if file is missing."""
+    path = REPO_ROOT / "overrides" / "known_broken_events.csv"
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    with open(path, newline="", encoding="utf-8") as f:
+        return {row["event_id"].strip() for row in csv.DictReader(f) if row["event_id"].strip()}
+
+
+def _load_set_from_csv(path: Path, id_col: str = "event_id") -> set[str]:
+    """Load a set of IDs from a CSV column. Fails loudly if file is missing."""
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    with open(path, newline="", encoding="utf-8") as f:
+        return {row[id_col].strip() for row in csv.DictReader(f) if row[id_col].strip()}
+
+
+def _load_dict_from_csv(path: Path, key_col: str = "event_id", value_col: str = "event_name") -> dict[str, str]:
+    """Load a key→value dict from two CSV columns. Fails loudly if file is missing."""
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    with open(path, newline="", encoding="utf-8") as f:
+        return {
+            row[key_col].strip(): row[value_col].strip()
+            for row in csv.DictReader(f)
+            if row[key_col].strip()
+        }
+
+
+def _load_results_file_overrides(path: Path) -> dict[str, dict]:
+    """Load RESULTS_FILE_OVERRIDES from CSV. Fails loudly if file is missing."""
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    result: dict[str, dict] = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            eid = row["event_id"].strip()
+            if not eid:
+                continue
+            result[eid] = {
+                "file": row["file"].strip(),
+                "replace": row["replace"].strip().lower() == "true",
+            }
+    return result
+
+
+def _load_event_parsing_rules(path: Path) -> dict[str, dict]:
+    """Load EVENT_PARSING_RULES from CSV (one row per rule key). Fails loudly if file missing."""
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    result: dict[str, dict] = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            eid = row["event_id"].strip()
+            rule = row["rule_name"].strip()
+            val: str | bool = row["rule_value"].strip()
+            if not eid or not rule:
+                continue
+            if val.lower() == "true":
+                val = True
+            elif val.lower() == "false":
+                val = False
+            if eid not in result:
+                result[eid] = {}
+            result[eid][rule] = val
+    return result
+
+
 def apply_event_overrides(records: list[dict], overrides: dict[str, dict]) -> tuple[list[dict], int, int]:
     """
     Apply per-event overrides to canonical event records.
@@ -158,123 +226,47 @@ EXPECTED_DIVISIONS = {
 # The original footbag.org site had unescaped apostrophes that broke queries.
 # We keep the event name (from <title>) and use location/year overrides.
 # Note: 11 other broken events were removed - they don't exist in the mirror.
-KNOWN_BROKEN_SOURCE_EVENTS = {
-    "1023993464",  # Funtastik Summer Classic Footbag Tournament
-    "1030642331",  # Seattle Juggling and Footbag Festival
-    "1099545007",  # Seapa NZ Footbag Nationals 2005
-    "1151949245",  # ShrEdmonton 2006
-    "1278991986",  # 23rd Annual Vancouver Open Footbag Championships
-    "1299244521",  # Warsaw Footbag Open 2011
-    "860082052",   # Texas State Footbag Championships
-    "941066992",   # WESTERN REGIONAL FOOTBAG CHAMPIONSHIPS
-    "959094047",   # Battle of the Year Switzerland
-}
+# Managed in: overrides/known_broken_events.csv
+KNOWN_BROKEN_SOURCE_EVENTS: set[str] = _load_known_broken_events()
 BROKEN_SOURCE_MESSAGE = "[SOURCE ERROR: Database error in original HTML]"
 
 # Junk events to exclude from final output
 # Decision: 2026-02 - These events have no useful data (no year, no location, no results)
 # Only the event name exists, which isn't useful without context
 # Note: 1146524016 and 879559482 were removed - they don't exist in the mirror
-JUNK_EVENTS_TO_EXCLUDE = {
-    "1118129163",  # "Event Listing" placeholder - June TBA 2005, Site TBA, no results
-    "1031232420",  # FootJam03 - stats not results: "91 players registered...1000+spectators"
-    "1043428338",  # Spring Footbag Jam - description not results: "31 players said SFJ was their first"
-    "984874006",   # PST Obligatory Footbag Forum 2001 - informal gathering; all pre blocks are
-                   # event announcement and post-event narrative recap, no formal placements
-    # Standalone "NHSA/WFA FREESTYLE" sub-events from OLD_RESULTS.txt.
-    # Their freestyle divisions are already captured in the main NHSA/WFA event
-    # for the same year; keeping them causes duplicate or orphan entries.
-    # 01b_import_old_results.py no longer generates these; exclusion here guards
-    # against any stale stage-1 CSV that predates that fix.
-    "2001982002",  # 1982 NHSA FREESTYLE — Open Doubles Freestyle (subset of 2001982001)
-    # NOTE: 2001983002 was formerly "1983 NHSA FREESTYLE" but after 01b dropped FREESTYLE
-    # sub-events, this ID now maps to the 1983 WFA championship. It is NOT excluded here;
-    # it has a RESULTS_FILE_OVERRIDE below.
-    "2001983004",  # 1983 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001983003)
-    "2001984002",  # 1984 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001984001)
-    "2001985002",  # 1985 WFA FREESTYLE  — Singles/Team Freestyle (dup of 2001985001)
-    # Mirror events with no real results — division structure / schedule text / future events
-    # parsed as placements; confirmed by manual mirror inspection 2026-03-10
-    "860944937",   # 1997 Mountain Dew Kansas Footbag Open — only division listing, no placements
-    "1106561176",  # 2005 Aachen Indoor Open 05 — all first names/nicknames only (Nils, Sean, Flo,
-                   # Andy, Phipsn, etc.) — unresolvable, no useful identity data
-    "1189657133",  # 2007 New Years Footbag Jam '07 — schedule text ("10 AM to 4PM…") parsed as results
-    "1737312020",  # 2025 Canadian Closed — future event, no results posted
-}
+# Note: 2001983002 is NOT excluded here — it maps to 1983 WFA championship (has RESULTS_FILE_OVERRIDE)
+# Managed in: overrides/junk_events.csv
+JUNK_EVENTS_TO_EXCLUDE: set[str] = _load_set_from_csv(
+    REPO_ROOT / "overrides" / "junk_events.csv"
+)
 
 # Event name overrides for placeholder/template names
 # Decision: 2026-02 - Some events have template names that need human correction
-EVENT_NAME_OVERRIDES = {
-    "1068164371": "Portland Footbag Jam 2003 (Oct 23)",  # Was: "Footbag WorldWide Event Listing: Event Listing"
-    "1068164424": "Portland Footbag Jam 2003 (Oct 31)",  # Was: "Footbag WorldWide Event Listing: Event Listing"
-}
+# Managed in: overrides/event_name_overrides.csv
+EVENT_NAME_OVERRIDES: dict[str, str] = _load_dict_from_csv(
+    REPO_ROOT / "overrides" / "event_name_overrides.csv",
+    key_col="event_id",
+    value_col="event_name",
+)
 
 # Location overrides for broken source events (inferred from event names)
 # Decision: 2026-02 - These locations were inferred from event names for events
 # where the original HTML had SQL errors and no location data was available.
-LOCATION_OVERRIDES = {
-    # === Broken source events (SQL errors, 9 total) ===
-    "1023993464": "Hershey, Pennsylvania, USA",         # Funtastik Summer Classic (always Hershey)
-    "1030642331": "Seattle, Washington, USA",           # Seattle Juggling and Footbag Festival
-    "1099545007": "Auckland, Auckland, New Zealand",    # Seapa NZ Footbag Nationals 2005
-    "1151949245": "Edmonton, Alberta, Canada",          # ShrEdmonton 2006
-    "1278991986": "Vancouver, British Columbia, Canada",# 23rd Annual Vancouver Open
-    "1299244521": "Warsaw, Masovian, Poland",           # Warsaw Footbag Open 2011
-    "860082052": "Austin, Texas, United States",        # Texas State Footbag Championships
-    "941066992": "San Francisco, California, United States", # Western Regional
-    "959094047": "Zurich, Zurich, Switzerland",         # Battle of the Year Switzerland
-    # Decision: 2026-02 - Verbose/multi-sentence locations simplified
-    "1076748214": "St. Louis, Missouri, United States", # Was: St. Matthias Church St. Louis...
-    "937366766": "Mt. Prospect, Illinois, United States", # Was: Meadows Park, Mt. Prospect...
-    "1008128589": "Boulder, Colorado, United States",   # Was: Day 1... Day 2... (multi-venue)
-    "1326725476": "Mérida, Mérida, Venezuela",          # Was: Cancha Techada de la FCU... (verbose Spanish)
-    "1458170459": "Paris, Île-de-France, France",       # Was: Gymnase Caillaux. Paris 75013...
-    # Decision: 2026-02 - Long locations (>100 chars) simplified
-    "1035042753": "Hochwald, Solothurn, Switzerland",   # SwissJam No. 6 1/2 — venue TBA, Hochwald
-    "1059060870": "Salem, Oregon, United States",       # Hall of Fame East/West (primary West venue)
-    "1064245646": "Fribourg, Fribourg, Switzerland",    # Swissjam — Regina Mundi venue in Fribourg
-    "1072202155": "Oakland, California, United States", # The Green Cup - multi-venue
-    "1102227996": "Oakland, California, United States", # The Green Cup - multi-venue (primary: Oakland)
-    "1131659634": "Oakland, California, United States", # 2006 Green Cup - multi-venue Oakland/SF
-    "1109356644": "Harrisburg, Pennsylvania, United States", # Funtastik - Morrison Park alias
-    "1113844078": "Baška Voda, Split-Dalmatia, Croatia", # Footbag Camp Croatia 2005 (not CZ)
-    "1143172220": "Somerville, New Jersey, United States", # Jersey Spike & Shred
-    "1149881200": "Harrisburg, Pennsylvania, United States", # Funtastik - multi-day venues
-    "1180708622": "Silver Spring, Maryland, United States", # East Coast Championships
-    "1252451527": "Harrisburg, Pennsylvania, United States", # Funtastik - Morrison Park alias
-    "1295120951": "Oakland, California, United States", # Green Cup - multi-venue
-    "1297909685": "Caracas, Capital District, Venezuela", # 2da Copa Ciencias
-    "1301675662": "Caracas, Capital District, Venezuela", # 2da Copa Venezuela - UCV
-    "1330833781": "Caracas, Capital District, Venezuela", # 3ra Copa Ciencias-UCV
-    "1361239920": "San Cristóbal, Táchira, Venezuela",  # FOOTCAMP 2013
-    "1362598500": "Montréal, Quebec, Canada",           # Akisphere - multi-park
-    "1378928859": "San Cristóbal, Táchira, Venezuela",  # 5º Copa Táchira
-}
+# Managed in: overrides/location_overrides.csv
+LOCATION_OVERRIDES: dict[str, str] = _load_dict_from_csv(
+    REPO_ROOT / "overrides" / "location_overrides.csv",
+    key_col="event_id",
+    value_col="location",
+)
 
 # Event type overrides for events that can't be auto-classified
 # Decision: 2026-02 - Manual classification for edge cases
-EVENT_TYPE_OVERRIDES = {
-    # Real doubles net results but no division header detected
-    "1733755410": "net",      # Segunda 'Copa Perpetual Flame' - 8 doubles teams
-    # Footbag Golf events (sideline activity)
-    "1718928783": "golf",     # 6th Annual Birken Open Footbag Golf Tournament
-    "1745203963": "golf",     # 7th Annual FROpen Footbag Golf Tournament
-    "967123362": "golf",      # Danish Open Footbag Golf
-    # Social events with noise parsed as placements
-    "1079664495": "social",   # May Day '04 - "4 Square money games" noise
-    "1093115479": "social",   # 2nd Annual SoCal Labor Day Jam - address parsed as place
-    "1200725314": "social",   # SoCali Jam 08 - activity description
-    "955642039": "social",    # Zion Footbag Tour - "5 WEEKS OF FUN" noise
-    "961029998": "social",    # Club Hackedout T.V Appearance - media event
-    # Decision: 2026-02 - Events with unusual formats that can't be auto-classified
-    "1044952105": "net",      # L'Hivernal, The Windchill - doubles with "-" separator
-    "1269111845": "net",      # King of the Hill 2010 - singles knockout format
-    "1347475695": "net",      # Carnabal Footbag Contest - doubles with "/" pairs
-    # Misplaced golf: event name/label said golf but divisions include net (Mixed Doubles, etc.)
-    "857874500": "mixed",
-    "860944937": "mixed",
-    "876590022": "mixed",
-}
+# Managed in: overrides/event_type_overrides.csv
+EVENT_TYPE_OVERRIDES: dict[str, str] = _load_dict_from_csv(
+    REPO_ROOT / "overrides" / "event_type_overrides.csv",
+    key_col="event_id",
+    value_col="event_type",
+)
 
 # ------------------------------------------------------------
 # Event-Specific Parsing Rules
@@ -292,665 +284,15 @@ EVENT_TYPE_OVERRIDES = {
 # "replace": True  → discard results_raw entirely, use file only.
 # "replace": False → prepend file content to existing results_raw (supplement).
 # Paths are relative to the repository root.
-RESULTS_FILE_OVERRIDES: dict[str, dict] = {
-    # 1999 Western Regional Footbag Championships — mirror data correct but
-    # stage2 merged multi-day Novice Doubles Net into one division and preserved
-    # name typos (Tuan→Tu Vu, Seibert→Siebert, Jimmy→Jim Caveney, Brian→Bryan Fournier).
-    # Legacy file corrects names and splits Novice Doubles Net into Saturday/Sunday/Monday.
-    "910551956": {
-        "file":    "legacy_data/event_results/910551956.txt",
-        "replace": True,
-    },
-    # 2001 Frankfurt Footbag Open — results in HTML <ol><li> format; parser captured
-    # only the first <li> (p1) for each division. Legacy file provides full standings:
-    # Ladies Open Freestyle (3 players) and Gents Open Freestyle (8 players).
-    "1000071985": {
-        "file":    "legacy_data/event_results/1000071985.txt",
-        "replace": True,
-    },
-    # First Annual Arica Open (2000) — stage2 produced mixed old/new format team rows
-    # and spurious player rows in Doubles Net (ties at p1/p2/p3 where none exist).
-    # Legacy file provides clean 3-team Doubles Net (no ties) + correct Singles Net.
-    "948943299": {
-        "file":    "legacy_data/event_results/948943299.txt",
-        "replace": True,
-    },
-    # 1999 World Footbag Championships — full results live at
-    # http://www.footbag.org/worlds99/results/results.html but were not in the mirror.
-    # Recovered 2026-03-07 via direct HTTP fetch; all 19 divisions, 197 placements.
-    "915561090": {
-        "file":    "legacy_data/event_results/915561090.txt",
-        "replace": True,
-    },
-    # 2003 World Footbag Championships — full results at
-    # http://www.footbag.org/worlds2003/results.html (not in mirror).
-    # Recovered 2026-03-07 via direct HTTP fetch; 15 divisions, 192 placements.
-    # Mirror partial data (10 divs, 186 placements) replaced entirely.
-    "1035277529": {
-        "file":    "legacy_data/event_results/1035277529.txt",
-        "replace": True,
-    },
-    # 2001 World Footbag Championships — mirror has pool+finals merged (7 divs, 147 rows).
-    # "Manually Entered Results" section contains complete final standings; used here.
-    "980969461": {
-        "file":    "legacy_data/event_results/980969461.txt",
-        "replace": True,
-    },
-    # German Footbag Open 2004 — division headers lacked colons; stage2 misattributed
-    # placements and dropped 9 entries. All 10 divisions, 39 placements.
-    "1079444598": {
-        "file":    "legacy_data/event_results/1079444598.txt",
-        "replace": True,
-    },
-    # Colorado Shred Symposium 4 (2003) — ordinal+paren format ("1st) Name: City")
-    # not matched by stage2; headers after Women's Shred :30 not detected.
-    # Uses BIG 3 Round 2 (finals) only. 6 divisions, 48 placements.
-    "1036298726": {
-        "file":    "legacy_data/event_results/1036298726.txt",
-        "replace": True,
-    },
-    # 5th Annual Colorado Shred Symposium (2004) — sub-division headers without colons
-    # (Big 3, Sick Trick, Most Rippin' Run) not detected; pending_division captured
-    # "Big 3" as a player name. 8 divisions, 56 placements.
-    "1070954568": {
-        "file":    "legacy_data/event_results/1070954568.txt",
-        "replace": True,
-    },
-    # 5th Annual Wilanow Footbag Open 2007 — multiple failures: "i" doubles separator,
-    # backtick in "Most Rippin` Run:", missing colons on Request Contest and 2/4 Square.
-    # 9 divisions, 57 placements.
-    "1189345008": {
-        "file":    "legacy_data/event_results/1189345008.txt",
-        "replace": True,
-    },
-    # Footbag Fiesta 2005 (Poland) — Open Sick3 header lacked colon (entirely missed);
-    # Open Big One truncated at place 5 by blank line. 7 divisions, 41 placements.
-    "1102443443": {
-        "file":    "legacy_data/event_results/1102443443.txt",
-        "replace": True,
-    },
-    # Victorian Footbag Championships 2002 — "Sic 3" wrong keyword; Shred 30 had no
-    # place numbers. Stage2 captured 6/9. All 9 recovered.
-    "1032602594": {
-        "file":    "legacy_data/event_results/1032602594.txt",
-        "replace": True,
-    },
-    # ShrEdmonton Freestyle Assembly 2008 — "Glow Square Tournament" and
-    # "planetfootbag animation challenge" had no DIVISION_KEYWORDS; division headers
-    # lacked colons. Stage2 captured 16/23. All 23 recovered.
-    "1208408135": {
-        "file":    "legacy_data/event_results/1208408135.txt",
-        "replace": True,
-    },
-    # The Hackrifice Open 2006 — bare "Intermediate" sub-sections within division blocks
-    # caused dedup collapse (3 Jess Archer entries merged to 1). Stage2 captured 12/17.
-    # All 17 recovered with proper Intermediate Shred 30/Sick 3/Sick Trick names.
-    "1156283186": {
-        "file":    "legacy_data/event_results/1156283186.txt",
-        "replace": True,
-    },
-    # Greater Rochester Area Shred Symposium and RIT Juggle-IN 2005 — bare "Intermediate"
-    # and "Open" section headers (no colons) with sub-division names caused stage2 to
-    # merge same-named divisions across levels. Stage2 captured 12/18. All 18 recovered.
-    "1111735438": {
-        "file":    "legacy_data/event_results/1111735438.txt",
-        "replace": True,
-    },
-    # Australian East Coast Regionals 2003 — tied "=" marker in Open Routines, Intermediate
-    # Routines absorbed. Stage2 captured 20/25. All 25 recovered.
-    "1061453080": {
-        "file":    "legacy_data/event_results/1061453080.txt",
-        "replace": True,
-    },
-    # Frankfurt Footbag Open 2004 — "Open FIVES" (net 5-up) had no keyword; encoding
-    # corruption truncated Open Freestyle at place 5. Stage2 captured 13/19 (+1 tied Golf).
-    # Renamed to "Open Net Fives"; all entries recovered.
-    "1094201584": {
-        "file":    "legacy_data/event_results/1094201584.txt",
-        "replace": True,
-    },
-    # 32nd Annual East Coast Footbag Championships 2014 — "tie N." placement format not
-    # captured by stage2 placement regex. Circle contests lost 14 tied-5th placements.
-    # Stage2 captured 41/55. All 55 recovered.
-    "1405875596": {
-        "file":    "legacy_data/event_results/1405875596.txt",
-        "replace": True,
-    },
-    # Valentines Day Massacre 2006 — "4 - SQUARE" parsed as placement, not division header;
-    # "CONSECUTIVES 3 MIN." not detected. Stage2 captured 11/14. All 14 recovered.
-    "1133888413": {
-        "file":    "legacy_data/event_results/1133888413.txt",
-        "replace": True,
-    },
-    # 2nd Annual UMaine Hacky Sack Club Tournament 2004 — "LEVEL 1/2 RANKING" sub-section
-    # headers not detected as division boundaries. Stage2 got 33 in wrong divisions.
-    # All 41 recovered with correct Open/Intermediate division names.
-    "1096695238": {
-        "file":    "legacy_data/event_results/1096695238.txt",
-        "replace": True,
-    },
-    # Czech Footbag Championships 2004 — "Big 1" (15 entries) not detected; "Open Freestyle"
-    # appeared twice (seeding+final). Stage2 captured 45/53. All 53 recovered.
-    "1092073845": {
-        "file":    "legacy_data/event_results/1092073845.txt",
-        "replace": True,
-    },
-    # RNH Contest 2006 (France) — "Big 1" (6 entries) not detected as division.
-    # Stage2 captured 49/58. All 58 recovered.
-    "1134914723": {
-        "file":    "legacy_data/event_results/1134914723.txt",
-        "replace": True,
-    },
-    # 1999 Southern Regional — "***" sport headers with bare sub-divisions (Open,
-    # Women's, Intermediate, Novice) caused cross-sport deduplication. Stage2 captured
-    # 37/45. All 45 recovered with fully qualified division names.
-    "909186885": {
-        "file":    "legacy_data/event_results/909186885.txt",
-        "replace": True,
-    },
-    # U.S. Open Footbag Championships 2014 — freestyle in h2-scoped sections (Sick Trick
-    # partially captured); net results in separate pre block entirely missed by stage2.
-    # Stage2 captured 24/61. All 61 recovered.
-    "1386623061": {
-        "file":    "legacy_data/event_results/1386623061.txt",
-        "replace": True,
-    },
-    # Austrian Footbag Championships 2016 — "Overall Austria (Battle + Circle)" not detected
-    # by stage2 (parenthetical keyword interference). Stage2 captured 18/22. All 22 recovered.
-    "1473932659": {
-        "file":    "legacy_data/event_results/1473932659.txt",
-        "replace": True,
-    },
-    # 21st IFPA European Footbag Net Championships 2021 — flag emoji and country/city
-    # annotations in names caused 5 of 37 placements to fail. Stage2 captured 32/37.
-    # All 37 recovered with cleaned names.
-    "1624971880": {
-        "file":    "legacy_data/event_results/1624971880.txt",
-        "replace": True,
-    },
-    # 2006 Southeast Regionals — sick 3 entries 3-5 dropped (trick combos with ">"
-    # caused clean_player_name to strip names). Stage2 captured 12/15. All 15 recovered.
-    "1155788760": {
-        "file":    "legacy_data/event_results/1155788760.txt",
-        "replace": True,
-    },
-    # 2003 Southeastern Regional Championships — "Intermediate Big3" captured 2/3
-    # (Nick Miller missing). Stage2 captured 22/25. All 25 recovered.
-    "1044624680": {
-        "file":    "legacy_data/event_results/1044624680.txt",
-        "replace": True,
-    },
-    # Space City Freestyle Jam 2004 — Open Sick3/Sick Trick each missing 3rd place entry.
-    # Stage2 captured 14/16. All 16 recovered.
-    "1080757998": {
-        "file":    "legacy_data/event_results/1080757998.txt",
-        "replace": True,
-    },
-    # New South Wales Footbag Championships 2002 — "Sic 3" wrong keyword; merged into
-    # Freestyle singles with dedup. Stage2 captured 6/8. All 8 recovered.
-    "1035817350": {
-        "file":    "legacy_data/event_results/1035817350.txt",
-        "replace": True,
-    },
-    # '07 Southeastern Net Championships — no division header, inferred from event name;
-    # entries 8-9 missing. Stage2 captured 7/9. All 9 recovered.
-    "1167422711": {
-        "file":    "legacy_data/event_results/1167422711.txt",
-        "replace": True,
-    },
-    # 2003 Steel City Footbag Open — "Intermediate Big3" captured 2/3.
-    # Stage2 captured 8/9. All 9 recovered.
-    "1046985067": {
-        "file":    "legacy_data/event_results/1046985067.txt",
-        "replace": True,
-    },
-    # 41st Annual East Coast Footbag Championships 2023 — "5 (tie)-" format not matched.
-    # Stage2 captured 17/19. All 19 recovered.
-    "1688144863": {
-        "file":    "legacy_data/event_results/1688144863.txt",
-        "replace": True,
-    },
-    # Lake Erie Footbag Tournament 2016 — "2ndPlace:" (no space) + split-line doubles.
-    # Stage2 captured 8/9. All 9 recovered.
-    "1447494731": {
-        "file":    "legacy_data/event_results/1447494731.txt",
-        "replace": True,
-    },
-    # Footbag Finnish Open 2024 — "1st round, Round Robin..." garbage row in stage2.
-    # Stage2 captured 7 (6 real + 1 garbage). 6 real placements.
-    "1745686591": {
-        "file":    "legacy_data/event_results/1745686591.txt",
-        "replace": True,
-    },
-    # Shred Zero Summer Open 2002 — "Big 3" division lacks keyword; 1 missing.
-    # Stage2 captured 6/7. All 7 recovered.
-    "1022992222": {
-        "file":    "legacy_data/event_results/1022992222.txt",
-        "replace": True,
-    },
-    # IV.Basque Tournament Net Individual 2022 — seeding+partial+final sections parsed,
-    # 10 rows with duplicates and missing Frank Haase. 6 correct placements.
-    "1645621833": {
-        "file":    "legacy_data/event_results/1645621833.txt",
-        "replace": True,
-    },
-    # VII.Basque Tournament Net Individual 2025 — date/location lines parsed as placements.
-    # Stage2 had 9 (7 real + 2 garbage). 7 real placements.
-    "1742511366": {
-        "file":    "legacy_data/event_results/1742511366.txt",
-        "replace": True,
-    },
-    # I. Basque Tournament Net Individual 2019 — date/registration line parsed as p23.
-    # Stage2 had 6 (5 real + 1 garbage). 5 real placements.
-    "1566500647": {
-        "file":    "legacy_data/event_results/1566500647.txt",
-        "replace": True,
-    },
-    # 3rd Annual Sunshred Footbag Open 2005 — trick combo ">" annotations dropped
-    # Rewind Combo p1 and p2. Stage2 captured 12/14. All 14 recovered.
-    "1102788509": {
-        "file":    "legacy_data/event_results/1102788509.txt",
-        "replace": True,
-    },
-    # V.Basque Tournament Footbag Net Individual 2023 — "1. round" section header
-    # parsed as placement. Stage2 captured 7 (6 real + 1 garbage). 6 real placements.
-    "1677285621": {
-        "file":    "legacy_data/event_results/1677285621.txt",
-        "replace": True,
-    },
-    # 2e Championnat de France de Footbag 2005 — two competitions on one page;
-    # "Big 1" unrecognized, "G*" nickname fails check, bracket junk rows.
-    # Stage2 captured 51 (45 real + 6 junk). 53 real placements here.
-    "1103297805": {
-        "file":    "legacy_data/event_results/1103297805.txt",
-        "replace": True,
-    },
-    # Pre-mirror World Championships (1980-1985) — clean replacements for all pre-mirror
-    # events whose stage1 inline multi-placement parsing produced ordering errors and
-    # duplicate p1 entries. Legacy files provide correct p1/p2/p3 for all divisions.
-    "2001980001": {
-        "file":    "legacy_data/event_results/2001980001.txt",
-        "replace": True,
-    },
-    "2001981001": {
-        "file":    "legacy_data/event_results/2001981001.txt",
-        "replace": True,
-    },
-    "2001982001": {
-        "file":    "legacy_data/event_results/2001982001.txt",
-        "replace": True,
-    },
-    "2001983001": {
-        "file":    "legacy_data/event_results/2001983001.txt",
-        "replace": True,
-    },
-    # 1983 WFA — formerly excluded via JUNK_EVENTS_TO_EXCLUDE (stale comment; ID shifted
-    # after 01b stopped generating FREESTYLE sub-events). Now active with correct results.
-    "2001983002": {
-        "file":    "legacy_data/event_results/2001983002.txt",
-        "replace": True,
-    },
-    "2001984001": {
-        "file":    "legacy_data/event_results/2001984001.txt",
-        "replace": True,
-    },
-    "2001985001": {
-        "file":    "legacy_data/event_results/2001985001.txt",
-        "replace": True,
-    },
-    # ── Magazine ingestion (01d_ingest_magazine_data.py) ─────────────────────
-    # 1985 events — existing stage2 stubs, now have complete legacy results
-    "9980521": {"file": "legacy_data/event_results/9980521.txt", "replace": True},
-    "9984533": {"file": "legacy_data/event_results/9984533.txt", "replace": True},
-    "9918278": {"file": "legacy_data/event_results/9918278.txt", "replace": True},
-    "9958186": {"file": "legacy_data/event_results/9958186.txt", "replace": True},
-    "9972848": {"file": "legacy_data/event_results/9972848.txt", "replace": True},
-    "9940469": {"file": "legacy_data/event_results/9940469.txt", "replace": True},
-    # Existing mirror Worlds 1980-1984 — augmented with FBW-ARCHIVE divisions
-    "9928572": {"file": "legacy_data/event_results/9928572.txt", "replace": True},
-    "9992129": {"file": "legacy_data/event_results/9992129.txt", "replace": True},
-    "9998504": {"file": "legacy_data/event_results/9998504.txt", "replace": True},
-    "9904297": {"file": "legacy_data/event_results/9904297.txt", "replace": True},
-    "9924417": {"file": "legacy_data/event_results/9924417.txt", "replace": True},
-    # Secret Underground Jam 1983
-    "9934528": {"file": "legacy_data/event_results/9934528.txt", "replace": True},
-    # New pre-mirror synthetic events
-    "2001980002": {"file": "legacy_data/event_results/2001980002.txt", "replace": True},
-    "2001980003": {"file": "legacy_data/event_results/2001980003.txt", "replace": True},
-    "2001981003": {"file": "legacy_data/event_results/2001981003.txt", "replace": True},
-    "2001981004": {"file": "legacy_data/event_results/2001981004.txt", "replace": True},
-    "2001982003": {"file": "legacy_data/event_results/2001982003.txt", "replace": True},
-    "2001982004": {"file": "legacy_data/event_results/2001982004.txt", "replace": True},
-    "2001982005": {"file": "legacy_data/event_results/2001982005.txt", "replace": True},
-    "2001983005": {"file": "legacy_data/event_results/2001983005.txt", "replace": True},
-    "2001984003": {"file": "legacy_data/event_results/2001984003.txt", "replace": True},
-    "2001984004": {"file": "legacy_data/event_results/2001984004.txt", "replace": True},
-    "2001985004": {"file": "legacy_data/event_results/2001985004.txt", "replace": True},
-    "2001985005": {"file": "legacy_data/event_results/2001985005.txt", "replace": True},
-    "2001986003": {"file": "legacy_data/event_results/2001986003.txt", "replace": True},
-    "2001986004": {"file": "legacy_data/event_results/2001986004.txt", "replace": True},
-    "2001987001": {"file": "legacy_data/event_results/2001987001.txt", "replace": True},
-    "2001987002": {"file": "legacy_data/event_results/2001987002.txt", "replace": True},
-    "2001987003": {"file": "legacy_data/event_results/2001987003.txt", "replace": True},
-    "2001988001": {"file": "legacy_data/event_results/2001988001.txt", "replace": True},
-    "2001989001": {"file": "legacy_data/event_results/2001989001.txt", "replace": True},
-    "2001990001": {"file": "legacy_data/event_results/2001990001.txt", "replace": True},
-    "2001991001": {"file": "legacy_data/event_results/2001991001.txt", "replace": True},
-    "2001992001": {"file": "legacy_data/event_results/2001992001.txt", "replace": True},
-    "2001994001": {"file": "legacy_data/event_results/2001994001.txt", "replace": True},
-    "2001995001": {"file": "legacy_data/event_results/2001995001.txt", "replace": True},
-    "2001995002": {"file": "legacy_data/event_results/2001995002.txt", "replace": True},
-    "2001996001": {"file": "legacy_data/event_results/2001996001.txt", "replace": True},
-    # ── End magazine ingestion ────────────────────────────────────────────────
-    # Inline format caused all placements to collapse to 1 garbage row;
-    # replaced with clean legacy file 2026-03-10.
-    "1408070192": {
-        "file":    "legacy_data/event_results/1408070192.txt",
-        "replace": True,
-    },
-    # 2v2 consecutive-line format caused doubles partners to be dropped; p5 (Antoine
-    # The Rocks-Godin) also missing from stage2 parse. Fixed 2026-03-10.
-    "1664206719": {
-        "file":    "legacy_data/event_results/1664206719.txt",
-        "replace": True,
-    },
-    # ---- pool+finals merged events: final standings from mirror "Manually Entered Results" ----
-    # 2004 25th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (6 divs, 17 dup pairs)
-    "1069929277": {
-        "file":    "legacy_data/event_results/1069929277.txt",
-        "replace": True,
-    },
-    # 2004 3rd Annual Seattle Juggling and Footbag Festival — pool+finals merged (2 divs, 11 dup pairs)
-    "1096318324": {
-        "file":    "legacy_data/event_results/1096318324.txt",
-        "replace": True,
-    },
-    # 2005 26th Annual IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (3 divs, 16 dup pairs)
-    "1102576153": {
-        "file":    "legacy_data/event_results/1102576153.txt",
-        "replace": True,
-    },
-    # 2007 IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (9 divs, 26 dup pairs)
-    "1163784775": {
-        "file":    "legacy_data/event_results/1163784775.txt",
-        "replace": True,
-    },
-    # 9e Open de France de Footbag 2007 — pool+finals merged (3 divs, 14 dup pairs)
-    "1183729267": {
-        "file":    "legacy_data/event_results/1183729267.txt",
-        "replace": True,
-    },
-    # 2008 IFPA WORLD FOOTBAG CHAMPIONSHIPS — pool+finals merged (4 divs, 16 dup pairs)
-    "1194517448": {
-        "file":    "legacy_data/event_results/1194517448.txt",
-        "replace": True,
-    },
-    # 8th Annual Polish Footbag Championships 2008 — pool+finals merged (4 divs, 17 dup pairs)
-    "1219405634": {
-        "file":    "legacy_data/event_results/1219405634.txt",
-        "replace": True,
-    },
-    # East Coast Footbag Championships 2008 — manual section also contains pool data; reverted.
-    # "1220466807": override removed 2026-03-10 (manual section also pool+finals merged)
-    # 31st IFPA WORLD FOOTBAG CHAMPIONSHIPS 2010 — pool+finals merged (4 divs, 15 dup pairs)
-    "1265745512": {
-        "file":    "legacy_data/event_results/1265745512.txt",
-        "replace": True,
-    },
-    # Slovak-Czech Footbag Championships 2009 — pool+finals merged (3 divs, 12 dup pairs)
-    "1269266785": {
-        "file":    "legacy_data/event_results/1269266785.txt",
-        "replace": True,
-    },
-    # 32nd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2011 — pool+finals merged (10 divs, 34 dup pairs)
-    "1293877677": {
-        "file":    "legacy_data/event_results/1293877677.txt",
-        "replace": True,
-    },
-    # 33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2012 — pool+finals merged (4 divs, 21 dup pairs)
-    "1297811412": {
-        "file":    "legacy_data/event_results/1297811412.txt",
-        "replace": True,
-    },
-    # 34th IFPA WORLD FOOTBAG CHAMPIONSHIPS 2013 — pool+finals merged (8 divs, 28 dup pairs)
-    "1323272493": {
-        "file":    "legacy_data/event_results/1323272493.txt",
-        "replace": True,
-    },
-    # 12th Annual Polish Footbag Championships 2012 — pool+finals merged (2 divs, 13 dup pairs)
-    "1336988107": {
-        "file":    "legacy_data/event_results/1336988107.txt",
-        "replace": True,
-    },
-    # 15th Annual Polish Footbag Championships 2015 — pool+finals merged (5 divs, 16 dup pairs)
-    "1376036018": {
-        "file":    "legacy_data/event_results/1376036018.txt",
-        "replace": True,
-    },
-    # 2012 33rd IFPA WORLD FOOTBAG CHAMPIONSHIPS — encoding artifacts (U+FFFD in div/player names)
-    # + severely truncated Singles Net (HTML parser got 4/68 Open Singles Net rows).
-    # Override reconstructed from Placements_ByPerson_v85 with European-format names reversed.
-    "1323272493": {
-        "file":    "legacy_data/event_results/1323272493.txt",
-        "replace": True,
-    },
-    # 2015/2016/2018 Worlds — manual section only has unofficial Request Contest; reverted.
-    # "1391189882", "1417735560", "1449259560": overrides removed 2026-03-10
-    # 40th IFPA WORLD FOOTBAG CHAMPIONSHIPS 2019 — pool+finals merged (6 divs, 16 dup pairs)
-    "1485863923": {
-        "file":    "legacy_data/event_results/1485863923.txt",
-        "replace": True,
-    },
-    # 41st Annual Polish Footbag Championships 2021 — pool+finals merged (2 divs, 12 dup pairs)
-    "1518200935": {
-        "file":    "legacy_data/event_results/1518200935.txt",
-        "replace": True,
-    },
-    # 42nd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2021 — pool+finals merged (5 divs, 19 dup pairs)
-    "1519215398": {
-        "file":    "legacy_data/event_results/1519215398.txt",
-        "replace": True,
-    },
-    # 44th IFPA WORLD FOOTBAG CHAMPIONSHIPS 2023 — pool+finals merged (4 divs, 19 dup pairs)
-    "1547415984": {
-        "file":    "legacy_data/event_results/1547415984.txt",
-        "replace": True,
-    },
-    # Wroclaw Footbag Open 2019 — pool+finals merged (4 divs, 17 dup pairs)
-    "1694170899": {
-        "file":    "legacy_data/event_results/1694170899.txt",
-        "replace": True,
-    },
-    # 43rd IFPA WORLD FOOTBAG CHAMPIONSHIPS 2022 — pool+finals merged (6 divs, 15 dup pairs)
-    "1706036811": {
-        "file":    "legacy_data/event_results/1706036811.txt",
-        "replace": True,
-    },
-    # 14th Bembel Cup 2024 — source uses tab-separated two-column format; parser concatenated
-    # each pair of names as a single player in "Open Singles Freestyle". Actual division is
-    # "Open Doubles Net" (confirmed by mirror <pre> block listing "Open Double Net").
-    "1706536250": {
-        "file":    "legacy_data/event_results/1706536250.txt",
-        "replace": True,
-    },
-    # 42nd IFPA Worlds 2023 — source has two "Women's Singles Net" blocks; the second
-    # is Women's Doubles Net (team results), mislabeled by organizer. Parser merged both
-    # into one division causing 9 duplicate pairs. Fix: rename second block correctly.
-    "1678957450": {
-        "file":    "legacy_data/event_results/1678957450.txt",
-        "replace": True,
-    },
-    # Turku Tournee 1999 — Intermediate and Pro divisions conflated into bare "Singles/Doubles Net"
-    # because the parser saw two "Singles Net" headers without sport-level context.
-    # "Manually Entered Results" section has correct separation; used here.
-    "937854594": {
-        "file":    "legacy_data/event_results/937854594.txt",
-        "replace": True,
-    },
-    # University of Oregon Footbag Tournament 1997 — pool+finals merged (5 divs, 17 dup pairs)
-    "857874500": {
-        "file":    "legacy_data/event_results/857874500.txt",
-        "replace": True,
-    },
-    # 1998 WhoWhere Western Regionals — pool+finals merged (6 divs, 15 dup pairs)
-    "876356874": {
-        "file":    "legacy_data/event_results/876356874.txt",
-        "replace": True,
-    },
-    # 2007 Windchill / L'Hivernal 2007 — Intermediate Doubles entry 1 uses bare dash
-    # as team separator ("Luka-Jean François Bélanger") but "Luka" is a mononym so the
-    # bare-dash rule (requiring both sides to be multi-word) fails to split it.
-    # Legacy file uses spaced dashes and "&" separators throughout.
-    "1170456736": {
-        "file":    "legacy_data/event_results/1170456736.txt",
-        "replace": True,
-    },
-    # Urban Komba Footbag Open 2010 — Bulgarian organizer format:
-    #   Singles: "Name - Nickname (Club)" parsed as doubles team (wrong).
-    #   Doubles: two-line continuation format; parser captures only first player.
-    # Legacy file corrects singles entries and re-pairs doubles with & separator.
-    "1262631137": {
-        "file":    "legacy_data/event_results/1262631137.txt",
-        "replace": True,
-    },
-    # Footbag again in the Zara 2010 — identical format to 1262631137 (same organizer).
-    "1267996189": {
-        "file":    "legacy_data/event_results/1267996189.txt",
-        "replace": True,
-    },
-    # 3rd Annual Windy City Cup 2010 — two fixes:
-    # (1) Doubles p1 "Emmanuel Bouchard and PT Lovern (2 years in a row!)" dropped by
-    #     narrative filter; (2) Intermediates division grouped under Doubles due to
-    #     interstitial paragraph breaking division detection.
-    "1267718326": {
-        "file":    "legacy_data/event_results/1267718326.txt",
-        "replace": True,
-    },
-    # King of the Hill 2011 — seeding+finals merged in OSN (2 dup pairs).
-    # Final standings are p1-p9; seeding block appended p2/p3 in reverse order.
-    "1301837216": {
-        "file":    "legacy_data/event_results/1301837216.txt",
-        "replace": True,
-    },
-    # Paris Net Battle 2 2012 — singles+doubles bracket entries merged in OSN (8 dup pairs).
-    # Final OSN standings (22 players) and ODN (13 teams) recovered from mirror.
-    "1331667371": {
-        "file":    "legacy_data/event_results/1331667371.txt",
-        "replace": True,
-    },
-    # SoCali Jam 2008 — social event with 3 informal contest formats (Big 3, Big 1, Rippin Run).
-    # Trick annotations were being parsed as player names (e.g. "Ben Skaggs whirlygig").
-    "1200725314": {
-        "file":    "legacy_data/event_results/1200725314.txt",
-        "replace": True,
-    },
-    # Zocha Jam 2005 — second "Open double Freestyle" block (after Open Single Net) is
-    # actually Open Doubles Net. Source HTML reused the same division header name.
-    "1127155729": {
-        "file":    "legacy_data/event_results/1127155729.txt",
-        "replace": True,
-    },
-    # Zocha Jam 2006 — "Interdmediate" (typo) not recognized as division header,
-    # causing Intermediate Freestyle results to merge into Women Freestyle.
-    # Also "Most Rippin Run" lacked keyword coverage. Fixed division names in legacy file.
-    "1158263300": {
-        "file":    "legacy_data/event_results/1158263300.txt",
-        "replace": True,
-    },
-    # California State Footbag Championships 1997 — tabular RESULTS/SEED/PARTNERS format
-    # was not recognized by parser. Doubles divisions all mangled (last-name split on comma,
-    # "SUPREME EXHAULTED RULER" meta-ranking parsed as division). All divisions manually
-    # normalized to standard format; "Supreme Exhaulted Ruler" overall ranking omitted.
-    "859923755": {
-        "file":    "legacy_data/event_results/859923755.txt",
-        "replace": True,
-    },
-    # 5th Annual Finnish Footbag Championships 2001 — "Name - City" format caused city
-    # to be parsed as doubles partner in all singles/freestyle divisions (parser sees " - "
-    # as a team separator). 54 artifact team rows removed. Pro Doubles Net p4 display
-    # name fixed (Juha-Matti Rytilahti/Janne Uusitalo — "Juha" was being truncated).
-    "1001076315": {
-        "file":    "legacy_data/event_results/1001076315.txt",
-        "replace": True,
-    },
-    # 1st Montreal Summer Freestyle Challenge 2001 — "Name, City, Province" format caused
-    # city/province to be parsed as teammates in Intermediate and Open Freestyle divisions.
-    # Open Sick 10 also missed entirely. Stage2 captured 8/23. All 23 recovered.
-    "984694623": {
-        "file":    "legacy_data/event_results/984694623.txt",
-        "replace": True,
-    },
-    # L'Hivernal Windchill Tournament 2001 — "(City, Province)" format caused city to be
-    # parsed as doubles partner in singles/freestyle divisions. "T2." tied-place prefix
-    # dropped p2 (Desgens/Kolodenchuk) in Routines Intermediate Freestyle. Phat Combo
-    # Contest Winner (Yacine Merzouk) was missing. All 62 rows recovered.
-    "972427576": {
-        "file":    "legacy_data/event_results/972427576.txt",
-        "replace": True,
-    },
-    # Montreal International Footbag Net Championships 2001 — unlabeled section after
-    # Open Singles p19 (Benoit Guillemette p1, Ted Fritch p2) relabeled as Intermediate
-    # Singles. Old-format team rows + spurious player rows cleaned up for Open Doubles.
-    "991285803": {
-        "file":    "legacy_data/event_results/991285803.txt",
-        "replace": True,
-    },
-}
+# Managed in: overrides/results_file_overrides.csv
+RESULTS_FILE_OVERRIDES: dict[str, dict] = _load_results_file_overrides(
+    REPO_ROOT / "overrides" / "results_file_overrides.csv"
+)
 
-EVENT_PARSING_RULES = {
-    # 2011 World Championships - doubles results have merged team format
-    # Format: "Emmanuel Bouchard [1] CAN Florian Goetze GER"
-    "1293877677": {
-        "split_merged_teams": True,
-    },
-    # 1998 Fighting Illini Footbag Festival - division header includes 1st place inline
-    # Format: "Open Singles -  1st  Steve Smith\n  2nd  Ted Martin\n  3rd  Mike Voightmann"
-    # All 6 divisions use this layout; 18 placements expected
-    "884112176": {
-        "pre_parse_fixup": "ordinal_inline_divisions",
-    },
-    # 2023 US Open - ordinals appear alone on separate lines before player names
-    # Format: "1v1, First place:\nLuka Weyler-Lavallée\n2nd\nChris Siebert\n3rd\n..."
-    # Fixup normalizes division headers and joins ordinals with following player lines
-    "1664206719": {
-        "pre_parse_fixup": "us_open_2023",
-    },
-    # 2024 IFPA World Championships - Open Doubles uses "(CC)- Name" format (no space before dash)
-    # e.g. "1. Emmanuel Bouchard (CAN)- François Pelletier (CAN)"
-    # Fixup normalizes to "(CC) - Name" so the standard dash separator detection works.
-    "1706036811": {
-        "pre_parse_fixup": "worlds_2024_doubles",
-    },
-    # 1997 University of Oregon - results use two-column tabular layout
-    # e.g. "Singles Golf                  Doubles Golf"
-    #      "1. Jim Fitzgerald (23)        1. Andy Ronald/ Jeff Johnson"
-    # Fixup splits wide lines at long space gaps into two sequential lines.
-    "857874500": {
-        "pre_parse_fixup": "two_column_oregon_1997",
-    },
-    # 1997 Heart of Footbag - results use ALL-CAPS ordinals without separator:
-    #   "1ST James Deans"  "2ND Forest Schrodt"  etc.
-    #   Division headers are plain ALL-CAPS lines with no colon/dash.
-    "859787898": {
-        "pre_parse_fixup": "heart_of_footbag_1997",
-    },
-    # 2000 NZ Footbag Championships - results use up to 3-column tabular layout
-    # e.g. "Under 13 Singles            Open Mens Singles           Open Womens Singles"
-    #      "1. Jonathan Bartlett (24)   1. Steve Ramsey (407)       1. Hannah Whiteman (28)"
-    # Fixup reconstructs each column as an independent division stream.
-    "947196813": {
-        "pre_parse_fixup": "nz_champs_2000",
-    },
-    # 2024 VI. Basque Tournament of Footbag Net — narrative match section contains
-    # round-date headers "9th january" and "11th of january" that the parser
-    # misread as placements 9 and 11.  The definitive final Classification section
-    # (p1–p6) follows immediately after the narrative and is correct.
-    # Fix: replace entirely with the clean Classification section only.
-    "1721817655": {
-        "file":    "legacy_data/event_results/1721817655.txt",
-        "replace": True,
-    },
-}
+# Managed in: overrides/event_parsing_rules.csv
+EVENT_PARSING_RULES: dict[str, dict] = _load_event_parsing_rules(
+    REPO_ROOT / "overrides" / "event_parsing_rules.csv"
+)
 
 def fixup_heart_of_footbag_1997(text: str) -> str:
     """
