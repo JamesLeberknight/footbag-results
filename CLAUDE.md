@@ -179,7 +179,7 @@ Warnings must be documented.
 Must run:
 
 ```
-python tools/run_qc_gate.py
+python pipeline/qc/run_qc.py
 ```
 
 QC must evaluate canonical CSVs only.

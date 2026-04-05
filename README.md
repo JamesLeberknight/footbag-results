@@ -224,7 +224,7 @@ Runner: `./run_early_pipeline.sh [finalize|merge]`
 tools/build_canonical_pf.py              filter + export → out/release_publication/
 tools/build_workbook_v14.py              community Excel workbook
 tools/inject_pre1997_persons.py          add PRE1997_ONLY persons to canonical/persons.csv
-tools/run_qc_gate.py                     validate out/canonical/ — must PASS
+pipeline/qc/run_qc.py                     validate out/canonical/ — must PASS
 ```
 
 ---
