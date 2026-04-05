@@ -34,6 +34,44 @@ RP_DIR.mkdir(parents=True, exist_ok=True)
 # Helpers
 # ─────────────────────────────────────────────────────────────────────────────
 
+def _load_set_from_csv(path: Path, id_col: str = "event_type") -> set[str]:
+    """Load a set of string values from a single CSV column. Fails loudly if file is missing."""
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    result: set[str] = set()
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            val = row[id_col].strip()
+            if val:
+                result.add(val)
+    return result
+
+def _load_division_canonical_map(path: Path) -> dict[str, str]:
+    """Load DIVISION_CANONICAL_MAP from CSV. Fails loudly if file is missing."""
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    result: dict[str, str] = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            key = row["raw_name"].strip()
+            if not key:
+                continue
+            result[key] = row["canonical_name"].strip()
+    return result
+
+def _load_year_location_fixes(path: Path) -> dict[str, tuple[str, str, str]]:
+    """Load YEAR_LOCATION_FIXES from CSV. Fails loudly if file is missing."""
+    if not path.exists():
+        raise FileNotFoundError(f"Required override file missing: {path}")
+    result: dict[str, tuple[str, str, str]] = {}
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            year = row["year"].strip()
+            if not year:
+                continue
+            result[year] = (row["city"].strip(), row["region"].strip(), row["country"].strip())
+    return result
+
 def load_csv(path: Path) -> list[dict]:
     with open(path, newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
@@ -52,12 +90,8 @@ def write_csv(path: Path, rows: list[dict], fieldnames: list[str] | None = None)
 # PART 1 — worlds_classification
 # ─────────────────────────────────────────────────────────────────────────────
 # Event types that represent world championship competitions
-WORLDS_FAMILY = {
-    "WORLD_CHAMPIONSHIPS",
-    "NHSA_NATIONALS",       # 1980-1983 NHSA ran the de-facto world championships
-    "WFA_WORLD_CHAMPIONSHIPS",
-    "IFAB_WORLD_CHAMPIONSHIPS",
-}
+# Managed in: overrides/worlds_family.csv
+WORLDS_FAMILY = _load_set_from_csv(ROOT / "overrides" / "worlds_family.csv")
 # Non-worlds types (national championships, regionals, etc.) — explicitly excluded
 NON_WORLDS_TYPES = {
     "WFA_NATIONALS",
@@ -91,10 +125,10 @@ def worlds_classification(ev: dict) -> str:
 # Year-level rules apply to ALL events in that year.
 # Format: year (str) → (city, region, country)
 # Based on consolidated historical sources (confirmed by subject-matter expert).
-YEAR_LOCATION_FIXES: dict[str, tuple[str, str, str]] = {
-    "1983": ("Portland", "Oregon",   "United States"),
-    "1984": ("Boulder",  "Colorado", "United States"),
-}
+# Managed in: overrides/year_location_fixes.csv
+YEAR_LOCATION_FIXES: dict[str, tuple[str, str, str]] = _load_year_location_fixes(
+    ROOT / "overrides" / "year_location_fixes.csv"
+)
 
 def apply_location_fix(ev: dict) -> dict:
     fix = YEAR_LOCATION_FIXES.get(ev.get("year", ""))
@@ -112,75 +146,10 @@ def apply_location_fix(ev: dict) -> dict:
 # ─────────────────────────────────────────────────────────────────────────────
 # Maps discipline_name → canonical division name.
 # Keys are lowercased for matching.
-DIVISION_CANONICAL_MAP: dict[str, str] = {
-    # ── Bare / abbreviated names → canonical Open form ────────────────────────
-    "singles":                              "Open Singles Net",
-    "doubles":                              "Open Doubles Net",
-    "singles net":                          "Open Singles Net",
-    "doubles net":                          "Open Doubles Net",
-    "open singles":                         "Open Singles Net",
-    "open doubles":                         "Open Doubles Net",
-    "freestyle":                            "Open Singles Freestyle",
-    "open freestyle":                       "Open Singles Freestyle",
-    "team":                                 "Open Team Freestyle",
-    "golf":                                 "Open Golf",
-    # ── Ultra ruleset → standard Open division ────────────────────────────────
-    "ultra singles net":                    "Open Singles Net",
-    "ultra doubles net":                    "Open Doubles Net",
-    "women's ultra singles net":            "Women's Singles Net",
-    "ultra singles":                        "Open Singles Net",
-    "ultra doubles":                        "Open Doubles Net",
-    "net singles advanced":                 "Open Singles Net",
-    "net doubles advanced":                 "Open Doubles Net",
-    # ── Advanced ruleset → canonical Open division (ruleset=ADVANCED) ────────
-    # Advanced is a ruleset variant, not a division — strip the label
-    "advanced singles net":                 "Open Singles Net",
-    "advanced doubles net":                 "Open Doubles Net",
-    "advanced singles footbag net":         "Open Singles Net",
-    "advanced doubles footbag net":         "Open Doubles Net",
-    "advanced singles":                     "Open Singles Net",
-    "advanced doubles":                     "Open Doubles Net",
-    "advanced freestyle":                   "Open Singles Freestyle",
-    "advanced singles freestyle":           "Open Singles Freestyle",
-    "golf singles advanced":                "Open Golf",
-    "advanced footbag golf":                "Open Golf",
-    "advanced golf":                        "Open Golf",
-    "net singles advanced":                 "Open Singles Net",
-    "net doubles advanced":                 "Open Doubles Net",
-    "advanced consecutives:":              "Open Singles Consecutive",
-    "advanced singles consecutive":         "Open Singles Consecutive",
-    "advanced 5 minute timed footbag consecutive": "Open Singles Consecutive",
-    # ── Consecutive / distance ─────────────────────────────────────────────────
-    "singles consecutive kicks":            "Open Singles Consecutive",
-    "doubles consecutive kicks":            "Open Doubles Consecutive",
-    "team consecutive kicks":               "Open Team Consecutive",
-    "women's consecutive kicks":            "Women's Singles Consecutive",
-    "women's singles consecutive kicks":    "Women's Singles Consecutive",
-    "women's doubles consecutive kicks":    "Women's Doubles Consecutive",
-    "intermediate singles consecutive kicks": "Intermediate Singles Consecutive",
-    "doubles one-pass consecutive kicks":   "Open Doubles Distance",
-    "women's doubles one-pass consecutive kicks": "Women's Doubles Distance",
-    # ── Pre-1997 WFA Worlds consecutive / distance (WFA_TXT source) ───────────
-    "open sgls 5-min consecutive":          "Open Singles Consecutive",
-    "open dbls distance consecutive":       "Open Doubles Distance",
-    "women's sgls 5-min consecutive":       "Women's Singles Consecutive",
-    "women's dbls distance consecutive":    "Women's Doubles Distance",
-    # ── Pre-1997 abbreviated net / freestyle ──────────────────────────────────
-    "open sgls net":                        "Open Singles Net",
-    "open dbls net":                        "Open Doubles Net",
-    "women's sgls net":                     "Women's Singles Net",
-    "women's dbls net":                     "Women's Doubles Net",
-    "mixed dbls net":                       "Mixed Doubles Net",
-    "open sgls freestyle":                  "Open Singles Freestyle",
-    "open team freestyle":                  "Open Team Freestyle",
-    "women's sgls freestyle":               "Women's Singles Freestyle",
-    "women's team freestyle":               "Women's Team Freestyle",
-    # ── Freestyle abbreviations ────────────────────────────────────────────────
-    "singles freestyle":                    "Open Singles Freestyle",
-    "women's freestyle":                    "Women's Singles Freestyle",
-    "team freestyle":                       "Open Team Freestyle",
-    "intermediate freestyle":               "Intermediate Singles Freestyle",
-}
+# Managed in: overrides/division_canonical_map.csv
+DIVISION_CANONICAL_MAP: dict[str, str] = _load_division_canonical_map(
+    ROOT / "overrides" / "division_canonical_map.csv"
+)
 
 def get_division_canonical(disc: dict) -> str:
     name  = disc.get("discipline_name", "").strip()
