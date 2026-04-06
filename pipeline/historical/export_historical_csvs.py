@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-pipeline/05_export_canonical_csv.py
+pipeline/historical/export_historical_csvs.py
 
 Export canonical relational CSVs from pipeline outputs.
 
@@ -40,11 +40,78 @@ import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT  = ROOT / "out"
+ROOT      = Path(__file__).resolve().parents[2]
+OUT       = ROOT / "out"
 CANONICAL = OUT / "canonical"
+OVERRIDES = ROOT / "overrides"
 
 csv.field_size_limit(10_000_000)
+
+
+# ── Event identity overrides (loaded from overrides/) ─────────────────────────
+
+def _load_event_equivalence() -> tuple[set[str], dict[str, str]]:
+    """
+    Read overrides/event_equivalence.csv.
+
+    The event_id and canonical_event_id columns use canonical event_key notation
+    (e.g. "1980_worlds_oregon_city"), NOT stage2 legacy numeric IDs.
+    Both operations are therefore applied post-slug (after event_key_map is built).
+
+    Returns:
+      drop_keys    — canonical event_keys to drop from the output (supersede losers)
+      key_renames  — old canonical event_key → new canonical event_key (supersede winners)
+
+    action=merge and action=hold are no-ops here (handled in 05p5 / not yet).
+    """
+    path = OVERRIDES / "event_equivalence.csv"
+    drop_keys:   set[str]       = set()
+    key_renames: dict[str, str] = {}
+    if not path.exists():
+        return drop_keys, key_renames
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            action        = (row.get("action") or "").strip().lower()
+            event_key     = (row.get("event_id") or "").strip()
+            canonical_key = (row.get("canonical_event_id") or "").strip()
+            if not event_key or action in ("", "hold", "merge"):
+                continue
+            if action == "supersede":
+                # This row is the loser — drop it from canonical output
+                drop_keys.add(event_key)
+            elif action == "canonical" and canonical_key:
+                # This row is the winner — rename it to the canonical key
+                key_renames[event_key] = canonical_key
+    return drop_keys, key_renames
+
+
+def _load_event_renames() -> dict[str, str]:
+    """
+    Read overrides/event_rename.csv.
+    Returns old_event_key → new_event_key mapping applied after slug generation.
+    """
+    path = OVERRIDES / "event_rename.csv"
+    renames: dict[str, str] = {}
+    if not path.exists():
+        return renames
+    with open(path, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            old = (row.get("event_id")     or "").strip()
+            new = (row.get("new_event_id") or "").strip()
+            if old and new and old != new:
+                renames[old] = new
+    return renames
+
+
+_EQUIV_DROP_KEYS, _EQUIV_KEY_RENAMES = _load_event_equivalence()
+_POST_SLUG_RENAMES                    = _load_event_renames()
+
+if _EQUIV_DROP_KEYS:
+    print(f"  Event equivalence: {len(_EQUIV_DROP_KEYS)} supersede-loser(s) will be dropped")
+if _EQUIV_KEY_RENAMES:
+    print(f"  Event equivalence: {len(_EQUIV_KEY_RENAMES)} supersede-winner key rename(s) loaded")
+if _POST_SLUG_RENAMES:
+    print(f"  Event renames:     {len(_POST_SLUG_RENAMES)} post-slug rename(s) loaded")
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -267,7 +334,7 @@ _pt_person_ids: set[str] = {r["effective_person_id"] for r in pt_rows}
 # Stale IDs (pre-merge) are recovered by matching _norm_name(person_canon) against PT.
 _pt_by_norm_canon: dict[str, str] = {_norm_name(r["person_canon"]): r["effective_person_id"]
                                       for r in pt_rows}
-_aliases_csv = Path(__file__).parent.parent / "overrides" / "person_aliases.csv"
+_aliases_csv = Path(__file__).parent.parent.parent / "overrides" / "person_aliases.csv"
 _aliases_loaded = _aliases_stale_recovered = _aliases_stale_lost = 0
 if _aliases_csv.exists():
     with open(_aliases_csv, newline="", encoding="utf-8") as _f:
@@ -661,6 +728,56 @@ ordinal_fallbacks = sum(
 if collisions:
     print(f"  NOTE: {collisions} event-key collision group(s) resolved with city and/or ordinal suffix (_2, _3, …)")
     print(f"  NOTE: {ordinal_fallbacks} event(s) received an ordinal suffix")
+
+# ── Apply post-slug overrides (supersede + rename) ────────────────────────────
+# Both operate on canonical event_keys generated above.
+# Runs after collision resolution so ordinal suffixes are already assigned.
+#
+# Order:
+#   1. Supersede drops:   remove loser event_ids from event_key_map entirely.
+#   2. Supersede renames: rename winner keys (e.g. _2 → base key).
+#   3. Explicit renames:  apply event_rename.csv corrections.
+#
+# A final collision check ensures no two event_ids share the same event_key.
+
+# Step 1 — drop supersede losers
+_dropped_eids = [eid for eid, k in event_key_map.items() if k in _EQUIV_DROP_KEYS]
+for _eid in _dropped_eids:
+    del event_key_map[_eid]
+if _dropped_eids:
+    print(f"  NOTE: {len(_dropped_eids)} supersede-loser event(s) dropped from output")
+    stage2_rows = [r for r in stage2_rows if str(r["event_id"]) not in
+                   {str(_eid) for _eid in _dropped_eids}]
+
+# Step 2 — rename supersede winners
+_winner_renames = 0
+for _eid in list(event_key_map):
+    _old = event_key_map[_eid]
+    if _old in _EQUIV_KEY_RENAMES:
+        event_key_map[_eid] = _EQUIV_KEY_RENAMES[_old]
+        _winner_renames += 1
+if _winner_renames:
+    print(f"  NOTE: {_winner_renames} supersede-winner key(s) renamed via event_equivalence.csv")
+
+# Step 3 — apply event_rename.csv
+_renamed_count = 0
+for _eid in list(event_key_map):
+    _old = event_key_map[_eid]
+    if _old in _POST_SLUG_RENAMES:
+        event_key_map[_eid] = _POST_SLUG_RENAMES[_old]
+        _renamed_count += 1
+if _renamed_count:
+    print(f"  NOTE: {_renamed_count} event key(s) renamed via event_rename.csv")
+
+# Final collision check — all three steps combined must not create duplicates
+_final_keys   = list(event_key_map.values())
+_final_dupes  = [k for k, n in Counter(_final_keys).items() if n > 1]
+if _final_dupes:
+    print("FATAL: post-slug overrides produced duplicate event_key values:")
+    for _dk in _final_dupes:
+        _culprits = [_e for _e, _k in event_key_map.items() if _k == _dk]
+        print(f"  {_dk!r} → stage2 ids: {_culprits}")
+    raise SystemExit(1)
 
 # ── Sanity audit for generated event_key values ───────────────────────────────
 

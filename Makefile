@@ -13,7 +13,7 @@ setup:
 ## belong to the pre-1997 pipeline (./run_early_pipeline.sh).
 ## Requires: mirror/ directory extracted from mirror.tar.gz (see README)
 rebuild:
-	$(PYTHON) pipeline/01_parse_mirror.py
+	$(PYTHON) pipeline/adapters/mirror_results_adapter.py
 	$(PYTHON) pipeline/01c_merge_stage1.py
 	$(PYTHON) pipeline/02_canonicalize_results.py
 
@@ -30,7 +30,7 @@ release:
 	$(PYTHON) pipeline/04_build_analytics.py
 	$(PYTHON) pipeline/01b1_merge_consecutives.py
 	$(PYTHON) tools/build_final_workbook_v13.py
-	$(PYTHON) pipeline/05_export_canonical_csv.py
+	$(PYTHON) pipeline/historical/export_historical_csvs.py
 	$(PYTHON) pipeline/05p5_remediate_canonical.py
 
 ## QC: master checks + post-release integrity + schema/logic audit

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-tools/export_platform_canonical.py
+pipeline/platform/build_platform_exports.py
 
 Export out/canonical_all/*.csv → out/platform_release/*.csv in the schema
 expected by footbag-platform script 08_load_mvfp_seed_full_to_sqlite.py.
@@ -15,8 +15,8 @@ Input:  out/canonical_all/
 Output: out/platform_release/
 
 Run:
-    python tools/export_platform_canonical.py
-    python tools/export_platform_canonical.py --output-dir /path/to/canonical_input
+    python pipeline/platform/build_platform_exports.py
+    python pipeline/platform/build_platform_exports.py --output-dir /path/to/canonical_input
 """
 
 from __future__ import annotations

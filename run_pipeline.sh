@@ -117,9 +117,12 @@ do_rebuild() {
     # non-mirror source files, so this produces a mirror-only merged stage 1.
 
     step "Stage 01: parse HTML mirror → stage1_raw_events_mirror.csv"
-    "$PYTHON" pipeline/01_parse_mirror.py
+    "$PYTHON" pipeline/adapters/mirror_results_adapter.py
 
-    step "Stage 01c: merge stage-1 sources (mirror-only in production)"
+    step "Stage 01 (curated): convert curated structured files → stage1_raw_events_curated.csv"
+    "$PYTHON" pipeline/adapters/curated_events_adapter.py
+
+    step "Stage 01c: merge stage-1 sources (mirror + curated in production)"
     "$PYTHON" pipeline/01c_merge_stage1.py
 
     step "Stage 02: canonicalize results → stage2_canonical_events.csv"
@@ -160,7 +163,7 @@ do_release() {
     "$PYTHON" tools/build_final_workbook_v13.py
 
     step "Stage 05: export relational CSV files → out/canonical/"
-    "$PYTHON" pipeline/05_export_canonical_csv.py
+    "$PYTHON" pipeline/historical/export_historical_csvs.py
 
     step "Stage 05p5: remediate canonical CSVs (final integrity pass)"
     "$PYTHON" pipeline/05p5_remediate_canonical.py
@@ -214,7 +217,7 @@ do_merged() {
     "$PYTHON" tools/build_workbook_v17.py
 
     step "Merged: export platform-compatible canonical CSVs → out/platform_release/"
-    "$PYTHON" tools/export_platform_canonical.py
+    "$PYTHON" pipeline/platform/build_platform_exports.py
 
     echo
     echo "Merged build complete."

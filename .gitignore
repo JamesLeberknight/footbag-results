@@ -105,6 +105,11 @@ inputs/identity_lock/Persons_Truth_Final_v4[0-7].csv
 inputs/identity_lock/Persons_Truth_Final_v4[8-9].csv
 
 # =========================================================
+# Curated research scratch — not pipeline inputs
+# =========================================================
+inputs/curated/records/
+
+# =========================================================
 # Scratch / legacy — not pipeline
 # =========================================================
 legacy/

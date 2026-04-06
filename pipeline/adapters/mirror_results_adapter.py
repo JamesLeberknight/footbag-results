@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-01_parse_mirror.py — Stage 1: Extract raw facts from HTML mirror
+pipeline/adapters/mirror_results_adapter.py — Stage 1: Extract raw facts from HTML mirror
 
 This script:
 - Reads local offline mirror under ./mirror
@@ -901,7 +901,7 @@ def main():
     """
     Parse HTML mirror and output stage1_raw_events_mirror.csv
     """
-    REPO_ROOT = Path(__file__).resolve().parents[1]
+    REPO_ROOT = Path(__file__).resolve().parents[2]
     repo_dir = REPO_ROOT
 
     ap = argparse.ArgumentParser()
