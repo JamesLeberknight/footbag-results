@@ -973,6 +973,295 @@ for _ev in events:
 print(f"  S-18: 1985_mountainregion renamed: {_s18_count}")
 print(f"  S-19: 1985_western_national_indoor renamed: {_s19_count}")
 
+# ── Pre-1997 parse failure repairs + authoritative enrichment ─────────────────
+#
+# Source: authoritative-results-1980-1985.txt (ground truth)
+#
+# Part A — Fix corrupted participant display_names.
+#   Three rows contain "Nth - Name" artifacts where the parser absorbed a
+#   continuation line into the preceding participant field instead of creating
+#   a new placement row.
+#
+# Part B — Add missing placement rows.
+#   Placements present in the authoritative text but absent from canonical
+#   because the OLD_RESULTS parser only captured p1 for these divisions, or
+#   because the downstream parse failure (Part A) swallowed p2/p3 data.
+#   - "Mag Hughes" resolves to Scott Hughes (4cbf790d) per verified alias.
+#   - Karen Uppinghouse (1982_worlds womens_doubles_net p3) is PRE1997_ONLY
+#     and not in the canonical persons table; person_id is left empty
+#     (unresolved participant — not treated as orphan by QC gate).
+
+print("\n[Pre-1997 enrichment] Parse failure repairs + authoritative additions...")
+
+# Part A: correct specific corrupted participant rows
+_PART_A = {
+    # (event_key, discipline_key, placement, participant_order):
+    #     (correct_display_name, correct_person_id)
+    ("1982_worlds",  "womens_doubles_net", "1", "2"):
+        ("Carolyn Ramondie",   "cbf84862-04b1-5408-9e43-49b9818ed9aa"),
+    ("1983_worlds_2", "doubles_net",        "2", "2"):
+        ("Dave Hill",          "5cb79fb4-ab20-558f-b4a2-e7206c9f22df"),
+    ("1984_worlds",  "womens_freestyle",   "2", "2"):
+        ("Suzanne Beauchemin", "3c09d4cc-2da9-5e1f-8a4c-e44ca0542f82"),
+}
+
+_pA_fixed = 0
+for _row in participants:
+    _key = (_row["event_key"], _row["discipline_key"],
+            _row["placement"], _row["participant_order"])
+    if _key in _PART_A:
+        _row["display_name"], _row["person_id"] = _PART_A[_key]
+        _pA_fixed += 1
+
+print(f"  Part A: corrupted participant rows fixed: {_pA_fixed}/3")
+
+# Part B: add missing placements
+# Each entry: (event_key, discipline_key, placement, [(display_name, person_id), ...])
+_NEW_PLACEMENTS = [
+    # 1982 NHSA — Women's Doubles Net p2, p3
+    ("1982_worlds", "womens_doubles_net", "2", [
+        ("Rita Buckley",       "2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e"),
+        ("Alex Frazier",       "1f2d14aa-31e7-5d1f-a338-9ae43af68af5"),
+    ]),
+    ("1982_worlds", "womens_doubles_net", "3", [
+        ("Cheryl Hughes",      "cfcef53f-670c-5721-b206-1ebe7d63987c"),
+        ("Karen Uppinghouse",  ""),   # PRE1997_ONLY — not in canonical persons
+    ]),
+    # 1982 NHSA — Mixed Doubles Net p2, p3
+    ("1982_worlds", "mixed_doubles_net", "2", [
+        ("Cheryl Hughes",      "cfcef53f-670c-5721-b206-1ebe7d63987c"),
+        ("Bill Hayne",         "92b0ee3b-efaa-545a-b07e-30ab6d8ebeb0"),
+    ]),
+    ("1982_worlds", "mixed_doubles_net", "3", [
+        ("Rita Buckley",       "2b77bf53-5fb8-57a3-a5c0-aa9b0b08434e"),
+        ("Greg Cortopassi",    "bf5ce187-5cac-52fc-be9b-ba22c5c6fc01"),
+    ]),
+    # 1982 NHSA — Women's Singles Net p3
+    ("1982_worlds", "womens_singles_net", "3", [
+        ("Karen Gunther",      "63327293-7bb9-5a45-a50a-e2a2167ba80e"),
+    ]),
+    # 1982 NHSA — Singles Consecutive Kicks p2, p3
+    ("1982_worlds", "singles_consecutive_kicks", "2", [
+        ("Andy Linder",        "64a7a989-aa2c-5a58-b141-e8378be4a962"),
+    ]),
+    ("1982_worlds", "singles_consecutive_kicks", "3", [
+        ("Gary Lautt",         "66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14"),
+    ]),
+    # 1983 NHSA — Women's Doubles Net p2, p3
+    ("1983_worlds", "womens_doubles_net", "2", [
+        ("Tricia George",      "26349aa8-a1ff-5e6a-bff5-f93a89d20c68"),
+        ("Judy Grace",         "73728c19-e412-5006-aa48-1d2685a77f7e"),
+    ]),
+    ("1983_worlds", "womens_doubles_net", "3", [
+        ("Nancy Reynolds",     "eccb075a-3997-5288-a805-774d358f5656"),
+        ("Constance Constable","826201f8-2540-5663-9bbf-239e94ccee43"),
+    ]),
+    # 1983 NHSA — Mixed Doubles Net p2, p3 (Mag Hughes → Scott Hughes alias)
+    ("1983_worlds", "mixed_doubles_net", "2", [
+        ("Cheryl Hughes",      "cfcef53f-670c-5721-b206-1ebe7d63987c"),
+        ("Scott Hughes",       "4cbf790d-c542-5318-9337-ee3dfd539ff1"),
+    ]),
+    ("1983_worlds", "mixed_doubles_net", "3", [
+        ("Tricia George",      "26349aa8-a1ff-5e6a-bff5-f93a89d20c68"),
+        ("David Robinson",     "895b0608-34df-509a-853d-684ffa24e824"),
+    ]),
+    # 1983 NHSA — Team Freestyle p2 (4-person), p3 (2-person)
+    ("1983_worlds", "team_freestyle", "2", [
+        ("David Robinson",     "895b0608-34df-509a-853d-684ffa24e824"),
+        ("Kevin Courtney",     "eb40c6a6-7e80-5190-b77d-47a47735bc0b"),
+        ("Reed Gray",          "b5d49246-d1b4-5540-a92d-72d26e6b1d0b"),
+        ("Jim Fitzgerald",     "b54020bc-1a1a-5d23-89e1-34617b3514fa"),
+    ]),
+    ("1983_worlds", "team_freestyle", "3", [
+        ("Jack Schoolcraft",   "b7c2a69b-7547-5ee6-936e-b675c748d131"),
+        ("Will Squire",        "a6ba539d-a3b1-5685-ba8f-f537731bc96d"),
+    ]),
+    # 1983 NHSA — Singles Consecutive Kicks p2, p3
+    ("1983_worlds", "singles_consecutive_kicks", "2", [
+        ("Jim Caveney",        "df329352-6f3b-5e98-b23b-1af6737d100b"),
+    ]),
+    ("1983_worlds", "singles_consecutive_kicks", "3", [
+        ("Gary Lautt",         "66a5ee0b-abd2-5b24-9d53-5c4f6e3fee14"),
+    ]),
+    # 1983 WFA — Doubles Net p3 (parse failure recovery; p2 partner fixed in Part A)
+    ("1983_worlds_2", "doubles_net", "3", [
+        ("Bob Swerdlick",      "4a680cee-eee2-5f29-9637-86075d66581c"),
+        ("Mike Puderbaugh",    "38df5c50-08d9-5706-90e5-464508ea0962"),
+    ]),
+    # 1984 Worlds — Women's Freestyle p3 (parse failure recovery; p2 partner fixed above)
+    ("1984_worlds", "womens_freestyle", "3", [
+        ("Ruth Osterman",      "a10fa54f-eadb-5842-8df1-fdca1920e7e7"),
+        ("Vanessa Sabala",     "03ed9422-5152-5132-a181-7249637c824a"),
+        ("Jenny Davison",      "3f48caf5-14c9-59f1-8255-1db7ef2fd049"),
+    ]),
+]
+
+# Build index of existing (event_key, discipline_key, placement) result slots
+_existing_result_slots: set[tuple[str, str, str]] = {
+    (r["event_key"], r["discipline_key"], r["placement"]) for r in results
+}
+
+_pB_results_added = 0
+_pB_parts_added   = 0
+_pB_skipped       = 0
+
+for _ek, _dk, _plc, _players in _NEW_PLACEMENTS:
+    _slot = (_ek, _dk, _plc)
+    if _slot in _existing_result_slots:
+        _pB_skipped += 1
+        continue
+    # Add result row
+    results.append({
+        "event_key":      _ek,
+        "discipline_key": _dk,
+        "placement":      _plc,
+        "score_text":     "",
+        "notes":          "authoritative-results-1980-1985.txt",
+        "source":         "",
+    })
+    _existing_result_slots.add(_slot)
+    _pB_results_added += 1
+    # Add participant rows
+    for _order, (_name, _pid) in enumerate(_players, start=1):
+        participants.append({
+            "event_key":        _ek,
+            "discipline_key":   _dk,
+            "placement":        _plc,
+            "participant_order": str(_order),
+            "display_name":     _name,
+            "person_id":        _pid,
+            "team_person_key":  "",
+            "notes":            "",
+        })
+        _pB_parts_added += 1
+
+print(f"  Part B: result rows added:      {_pB_results_added}")
+print(f"  Part B: participant rows added: {_pB_parts_added}")
+print(f"  Part B: slots already present:  {_pB_skipped}")
+
+# Part C: reclassify disciplines that have variable-size teams (>2) from
+# "doubles" → "team" in event_disciplines so the QC 2-participant constraint
+# does not fire on legitimate multi-person team slots.
+_TEAM_RECLASSIFY = {
+    ("1983_worlds",  "team_freestyle"),   # p2 has 4-person team (auth: Cortopassi/Mag/Lautt/Caveney)
+    ("1984_worlds",  "womens_freestyle"),  # p3 has 3-person team (auth: Osterman/Sabala/Davison)
+}
+_pC_reclassified = 0
+for _d in disciplines:
+    if (_d["event_key"], _d["discipline_key"]) in _TEAM_RECLASSIFY:
+        _d["team_type"] = "team"
+        _pC_reclassified += 1
+print(f"  Part C: disciplines reclassified doubles→team: {_pC_reclassified}")
+
+# ── Event merge pass (from overrides/event_equivalence.csv, action=merge) ────
+#
+# For each merge group: loser rows are combined into the winner event_key.
+# Conflicts (same discipline_key + placement already exists in winner) are
+# NOT overwritten — the conflict is noted in the results.csv notes field.
+# The loser is removed from all five canonical tables after merge.
+
+print("\n[Event merge] Applying event_equivalence.csv merges...")
+
+_EQUIV_PATH = ROOT / "overrides" / "event_equivalence.csv"
+
+# Build merge groups: winner_key → [loser_key, ...]
+# Both the winner row and loser row(s) use the canonical event_key (post-Stage-05).
+_merge_groups: dict[str, list[str]] = {}
+if _EQUIV_PATH.exists():
+    with open(_EQUIV_PATH, newline="", encoding="utf-8") as _f:
+        for _row in csv.DictReader(_f):
+            _action        = (_row.get("action") or "").strip().lower()
+            _event_id      = (_row.get("event_id") or "").strip()
+            _canonical_key = (_row.get("canonical_event_id") or "").strip()
+            if _action != "merge" or not _event_id or not _canonical_key:
+                continue
+            # event_id here is the canonical event_key written by Stage 05
+            if _event_id != _canonical_key:
+                _merge_groups.setdefault(_canonical_key, []).append(_event_id)
+
+if not _merge_groups:
+    print("  No merge groups defined — skipping.")
+else:
+    print(f"  {len(_merge_groups)} merge group(s): {list(_merge_groups.keys())}")
+
+    # Index current canonical data by event_key for fast lookup
+    _winner_disc_keys:   dict[str, set[str]]                   = defaultdict(set)
+    _winner_result_keys: dict[str, set[tuple[str, str]]]       = defaultdict(set)
+
+    for _d in disciplines:
+        _winner_disc_keys[_d["event_key"]].add(_d["discipline_key"])
+    for _r in results:
+        _winner_result_keys[_r["event_key"]].add((_r["discipline_key"], _r["placement"]))
+
+    _m_discs_added      = 0
+    _m_results_added    = 0
+    _m_results_conflict = 0
+    _m_parts_added      = 0
+
+    for _winner_key, _loser_keys in _merge_groups.items():
+        for _loser_key in _loser_keys:
+            # ── event_disciplines: add loser disciplines not present in winner ──
+            for _d in disciplines:
+                if _d["event_key"] != _loser_key:
+                    continue
+                if _d["discipline_key"] not in _winner_disc_keys[_winner_key]:
+                    disciplines.append({**_d, "event_key": _winner_key})
+                    _winner_disc_keys[_winner_key].add(_d["discipline_key"])
+                    _m_discs_added += 1
+
+            # ── event_results: add loser results; flag conflicts ──────────────
+            for _r in results:
+                if _r["event_key"] != _loser_key:
+                    continue
+                _slot = (_r["discipline_key"], _r["placement"])
+                if _slot in _winner_result_keys[_winner_key]:
+                    # Conflict: note it on the existing winner row (do not overwrite)
+                    for _wr in results:
+                        if (_wr["event_key"] == _winner_key
+                                and _wr["discipline_key"] == _slot[0]
+                                and _wr["placement"] == _slot[1]):
+                            _existing_note = (_wr.get("notes") or "").strip()
+                            _conflict_note = (
+                                f"MERGE_CONFLICT: loser {_loser_key!r} "
+                                f"had different data at {_slot[0]!r} p{_slot[1]}"
+                            )
+                            _wr["notes"] = (
+                                f"{_existing_note}; {_conflict_note}"
+                                if _existing_note else _conflict_note
+                            )
+                            _m_results_conflict += 1
+                            break
+                else:
+                    results.append({**_r, "event_key": _winner_key})
+                    _winner_result_keys[_winner_key].add(_slot)
+                    _m_results_added += 1
+
+            # ── event_result_participants: add loser participants ─────────────
+            # Only add participants for non-conflicting slots.
+            # _winner_result_keys[_winner_key] holds the pre-merge snapshot,
+            # so any slot already present there was a conflict.
+            _pre_merge_winner_slots = _winner_result_keys[_winner_key]
+            for _p in participants:
+                if _p["event_key"] != _loser_key:
+                    continue
+                _pslot = (_p["discipline_key"], _p["placement"])
+                if _pslot in _pre_merge_winner_slots:
+                    continue   # conflict slot — keep winner's participants
+                participants.append({**_p, "event_key": _winner_key})
+                _m_parts_added += 1
+
+        # ── Remove all loser rows from all tables ─────────────────────────────
+        _all_loser_keys = set(_loser_keys)
+        events       = [e for e in events       if e["event_key"] not in _all_loser_keys]
+        disciplines  = [d for d in disciplines  if d["event_key"] not in _all_loser_keys]
+        results      = [r for r in results      if r["event_key"] not in _all_loser_keys]
+        participants = [p for p in participants if p["event_key"] not in _all_loser_keys]
+
+    print(f"  Disciplines added:        {_m_discs_added}")
+    print(f"  Result rows added:        {_m_results_added}")
+    print(f"  Result conflicts flagged: {_m_results_conflict}")
+    print(f"  Participant rows added:   {_m_parts_added}")
+
 # ── Save ──────────────────────────────────────────────────────────────────────
 
 print("\nSaving...")
@@ -1020,6 +1309,8 @@ print(f"""
 ║ Fix 6  Participants renumbered (seq)     {seq_normalized:>6,} ║
 ║ Fix 7  Resolved by exact name match      {_f7_name_match:>6,} ║
 ║        Left unresolved (empty pid)       {_f7_left_empty:>6,} ║
+║ Pre97  Parse failures repaired           {_pA_fixed:>6,} ║
+║        Missing placements added          {_pB_results_added:>6,} ║
 ╠══════════════════════════════════════════╣
 ║ Disciplines: singles {singles_count:<5} doubles {doubles_count:<5}       ║
 ║ Participants: resolved {resolved:<6} unresolved {unresolved:<5} ║
