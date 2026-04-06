@@ -282,14 +282,19 @@ _OT_RE_DIV_DASH  = re.compile(r"^\s*([A-Za-z0-9].{0,160}?)\s*-\s*$")
 # Ordinal placement on its own line: "1st - Name"
 _OT_RE_ORD_LINE  = re.compile(r"^\s*(\d+)(?:st|nd|rd|th)\s*-\s*(.+?)\s*$", re.IGNORECASE)
 # Inline placements: "Division - 1st - P1, 2nd - P2, 3rd - P3"
+# p1/p2 terminators: comma, 2+ spaces, or a single space immediately before
+# the next ordinal indicator ("2nd -", "3rd -", etc.).  The lookahead stops
+# the lazy match WITHOUT consuming the space, so the ordinal group can still
+# match.  This handles "P1 2nd - P2" (single-space separation) correctly.
+_OT_RE_ORD_AHEAD = r"\s+(?=\d+(?:st|nd|rd|th)\s*-)"
 _OT_RE_INLINE    = re.compile(
-    r"(?P<div>.+?)\s*[-:]\s*1st\s*-\s*(?P<p1>.+?)(?:,|\s{2,}|$)\s*"
-    r"(?:2nd\s*-\s*(?P<p2>.+?)(?:,|\s{2,}|$)\s*)?"
+    r"(?P<div>.+?)\s*[-:]\s*1st\s*-\s*(?P<p1>.+?)(?:,|\s{2,}|" + _OT_RE_ORD_AHEAD + r"|$)\s*"
+    r"(?:2nd\s*-\s*(?P<p2>.+?)(?:,|\s{2,}|" + _OT_RE_ORD_AHEAD + r"|$)\s*)?"
     r"(?:3rd\s*-\s*(?P<p3>.+?)\s*)?$",
     re.IGNORECASE,
 )
-# "Div Champion - Name"
-_OT_RE_CHAMPION  = re.compile(r"^\s*(.+?)\s+Champion\s*-\s*(.+?)\s*$", re.IGNORECASE)
+# "Div Champion(s) - Name"
+_OT_RE_CHAMPION  = re.compile(r"^\s*(.+?)\s+Champions?\s*-\s*(.+?)\s*$", re.IGNORECASE)
 # "Div - 1st - Name" (single)
 _OT_RE_SINGLE    = re.compile(r"^\s*(.+?)\s*-\s*1st\s*-\s*(.+?)\s*$", re.IGNORECASE)
 # Continuation: indented wrap line
@@ -330,13 +335,18 @@ def _ot_norm_entry(s: str) -> str:
     return s
 
 
-def _ot_extract_inline(line: str) -> Optional[Tuple[str, List[str]]]:
+def _ot_extract_inline(line: str) -> Optional[Tuple[str, List[Tuple[int, str]]]]:
+    """Return (div, [(ordinal, entry), ...]) preserving p1/p2/p3 positions.
+    Ordinals are 1/2/3 so downstream can write '3. X' when p2 is absent."""
     m = _OT_RE_INLINE.match(line)
     if not m:
         return None
     div = _ot_norm_div(m.group("div"))
-    entries = [_ot_norm_entry(m.group(k) or "") for k in ("p1", "p2", "p3")]
-    places = [e for e in entries if e]
+    places: List[Tuple[int, str]] = []
+    for i, k in enumerate(("p1", "p2", "p3"), start=1):
+        ent = _ot_norm_entry(m.group(k) or "")
+        if ent:
+            places.append((i, ent))
     if not div or not places:
         return None
     return div, places
@@ -398,12 +408,37 @@ def _ot_build_block(event_lines: List[str]) -> Tuple[str, List[str]]:
         buffered = []
         _inline_wrote = 0
 
-    # Pre-pass: stitch continuation lines (indented wraps) while indentation
-    # is still present. Stitch raw lines, then clean the stitched result.
+    # Pre-pass: stitch continuation lines while indentation is still present.
+    # Rule 1 (original): 3+ leading spaces → indented wrap.
+    # Rule 2 (new): previous line ends with incomplete ordinal "Nth -?" →
+    #   the name fragment is on the next line regardless of indent.
+    #   e.g. "...3rd -\nGary Lautt" or "...3rd\n- Karen Gunther"
+    # Rule 3 (new): current line starts with "- Word" (ordinal-less dash
+    #   continuation) → e.g. "\n- Karen Gunther" after "... 3rd"
+    # Rule 4 (new): current line is a bare name/doubles-pair continuation
+    #   (starts with TitleCase followed immediately by "/") →
+    #   e.g. "Hughes/Karen Uppinghouse" after "...2nd - Cheryl"
+    _RE_PREV_INCOMPLETE_ORD = re.compile(
+        r"\b\d+(?:st|nd|rd|th)\s*-?\s*$", re.IGNORECASE
+    )
+    _RE_CUR_DASH_CONT  = re.compile(r"^\s*-\s+[A-Za-z]")
+    _RE_CUR_SLASH_NAME = re.compile(r"^[A-Z][a-z]+/")
+
     stitched_raw: List[str] = []
     for raw_line in event_lines:
-        if _OT_RE_CONT.match(raw_line) and stitched_raw:
-            stitched_raw[-1] = stitched_raw[-1].rstrip() + " " + raw_line.strip()
+        stripped_cur = raw_line.strip()
+        prev = stitched_raw[-1] if stitched_raw else ""
+        if not stripped_cur:
+            stitched_raw.append(raw_line)
+            continue
+        should_stitch = (
+            (_OT_RE_CONT.match(raw_line) and stitched_raw)                      # Rule 1
+            or (stitched_raw and _RE_PREV_INCOMPLETE_ORD.search(prev))           # Rule 2
+            or (stitched_raw and _RE_CUR_DASH_CONT.match(stripped_cur))          # Rule 3
+            or (stitched_raw and _RE_CUR_SLASH_NAME.match(stripped_cur))         # Rule 4
+        )
+        if should_stitch:
+            stitched_raw[-1] = stitched_raw[-1].rstrip() + " " + stripped_cur
         else:
             stitched_raw.append(raw_line)
 
@@ -419,21 +454,20 @@ def _ot_build_block(event_lines: List[str]) -> Tuple[str, List[str]]:
         inline = _ot_extract_inline(line_for_parse)
         if inline:
             flush()
-            div, places = inline
-            filtered = []
-            for ent in places:
+            div, place_pairs = inline
+            out_lines.append(div)
+            last_ord = 0
+            for ord_n, ent in place_pairs:
                 if _OT_RE_ADMIN.match(ent):
                     warnings.append(f"dropped_admin:{ent[:80]}")
                 else:
-                    filtered.append(ent)
-            out_lines.append(div)
-            for i, ent in enumerate(filtered, start=1):
-                out_lines.append(f"{i}. {ent}")
+                    out_lines.append(f"{ord_n}. {ent}")
+                    last_ord = ord_n
             out_lines.append("")
-            # Track context so continuation ordinal lines (2nd/3rd on next
-            # line after inline 1st) can be appended with the right ordinal.
+            # Track context so continuation ordinal lines (2nd/3rd/4th on a
+            # following line) can be spliced in at the correct position.
             last_div = div
-            _inline_wrote = len(filtered)
+            _inline_wrote = last_ord
             continue
 
         m1 = _OT_RE_SINGLE.match(line_for_parse)

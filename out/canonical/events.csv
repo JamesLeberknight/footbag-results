@@ -10,6 +10,7 @@ event_key,legacy_event_id,year,event_name,event_slug,start_date,end_date,city,re
 1981_texas_state,1981_texas_state_footbag_texas,1981,Texas State Footbag Championships 1981,texas_state_footbag_championships_1981,,,Texas,,United States,,net,completed,,mirror
 1981_worlds,1981_worlds_nhsa,1981,World Championships 1981 (NHSA),world_championships_1981_nhsa,,,,,NHSA,,net,completed,,mirror
 1981_worlds_san_dimas,1981_worlds_san_dimas,1981,World Footbag Championships 1981 (IFAB/FBW),world_footbag_championships_1981_ifab_fbw,,,San Dimas,California,United States,,net,completed,,mirror
+1982_nhsa_national,1982_1982_nhsa_national,1982,1982 NHSA National Championships,1982_nhsa_national_championships,,,,,,,mixed,completed,,mirror
 1982_worlds_golden,1982_worlds_golden,1982,1982 World Footbag Championships,1982_world_footbag_championships,,,Golden,,Colorado,,freestyle,completed,,mirror
 1982_worlds_san_diego,9901155,1982,1982 World Footbag Championships,1982_world_footbag_championships,,,San Diego,,California,,worlds,completed,,mirror
 1982_rocky_mountain,1982_rocky_mountain_open_colorado,1982,Rocky Mountain Open 1982,rocky_mountain_open_1982,,,Colorado,,United States,,mixed,completed,,mirror
@@ -17,18 +18,22 @@ event_key,legacy_event_id,year,event_name,event_slug,start_date,end_date,city,re
 1982_worlds,1982_worlds_nhsa,1982,World Championships 1982 (NHSA),world_championships_1982_nhsa,,,,,NHSA,,mixed,completed,,mirror
 1982_worlds_portland,1982_worlds_portland,1982,World Footbag Championships,world_footbag_championships,,,Portland,Oregon,United States,,net,completed,,mirror
 1982_worlds_san_francisco,1982_worlds_san_francisco,1982,World Footbag Championships 1982 (IFAB),world_footbag_championships_1982_ifab,,,San Francisco,California,United States,,net,completed,,mirror
+1983_nhsa_national,1983_1983_nhsa_national,1983,1983 NHSA National Championships,1983_nhsa_national_championships,,,,,,,mixed,completed,,mirror
+1983_national,1983_1983_wfa_national,1983,1983 WFA National Championships,1983_wfa_national_championships,,,,,,,net,completed,,mirror
 1983_worlds_golden,1983_worlds_golden,1983,1983 World Footbag Championships,1983_world_footbag_championships,,,Golden,,Colorado,,freestyle,completed,,mirror
 1983_oregon_state,1983_oregon_state_footbag_oregon,1983,Oregon State Footbag Championships,oregon_state_footbag_championships,,,Oregon,,United States,,net,completed,,mirror
 1983_secret_underground,1983_secret_underground_jam,1983,Secret Underground Jam,secret_underground_jam,,,,,,,freestyle,completed,,mirror
 1983_worlds,1983_worlds_nhsa,1983,World Championships 1983 (NHSA),world_championships_1983_nhsa,,,,,NHSA,,mixed,completed,,mirror
 1983_worlds_2,1983_worlds_wfa,1983,World Championships 1983 (WFA),world_championships_1983_wfa,,,,,WFA,,mixed,completed,,mirror
 1983_worlds_oregon_city,1983_worlds_oregon_city,1983,World Footbag Championships 1983 (IFAB),world_footbag_championships_1983_ifab,,,Oregon City,Oregon,United States,,net,completed,,mirror
+1984_national,1984_1984_wfa_national,1984,1984 WFA National Championships,1984_wfa_national_championships,,,,,,,mixed,completed,,mirror
 1984_worlds_golden,1984_worlds_golden,1984,1984 World Footbag Championships,1984_world_footbag_championships,,,Golden,,Colorado,,freestyle,completed,,mirror
 1984_eurochamp,1984_european_footbag_championships_europe,1984,European Footbag Championships,european_footbag_championships,,,,,Europe,,net,completed,,mirror
 1984_eurochamp_2,1984_european_footbag_championships,1984,European Footbag Championships 1984,european_footbag_championships_1984,,,,,,,net,completed,,mirror
 1984_worlds,1984_worlds,1984,World Championships 1984,world_championships_1984,,,,,,,mixed,completed,,mirror
 1984_worlds_oregon_city,1984_worlds_oregon_city,1984,World Footbag Championships 1984 (IFAB),world_footbag_championships_1984_ifab,,,Oregon City,Oregon,United States,,net,completed,,mirror
 1985_holiday,1985_1985_holiday_classic,1985,1985 Holiday Classic,1985_holiday_classic,,,,,,,freestyle,completed,,mirror
+1985_national,1985_1985_wfa_national,1985,1985 WFA National Championships,1985_wfa_national_championships,,,,,,,mixed,completed,,mirror
 1985_worlds,1985_worlds_golden,1985,1985 World Footbag Championships,1985_world_footbag_championships,,,,,Golden CO,,mixed,completed,,mirror
 1985_eastregion,1043096425,1985,East Coast Championships - 3rd Annual - 1985,east_coast_championships_3rd_annual_1985,1985-09-14,1985-09-15,Long Branch,New Jersey,United States,,mixed,completed,,mirror
 1985_floodbag_finals,1985_floodbag_finals,1985,Floodbag Finals,floodbag_finals,,,,,,,net,completed,,mirror
