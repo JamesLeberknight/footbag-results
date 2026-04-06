@@ -9,10 +9,10 @@ PIPELINE LANE: POST-1997 PRODUCTION (mirror-only in production)
   not part of the production rebuild.
 
 Deterministic, validated merge of Stage 1 raw events from multiple sources:
-- out/stage1_raw_events_mirror.csv   (from 01_parse_mirror.py)        ← production
-- out/stage1_raw_events_old.csv      (from 01b_import_old_results.py) ← pre-1997 only
-- out/stage1_raw_events_fbw.csv      (from 01b2_merge_FBW_Data.py)    ← pre-1997 only
-- out/stage1_raw_events_magazine.csv (from 01d_ingest_magazine_data.py) ← pre-1997 only
+- out/stage1_raw_events_mirror.csv   (from pipeline/adapters/mirror_results_adapter.py) ← production
+- out/stage1_raw_events_fbw.csv      (from 01b2_merge_FBW_Data.py)                      ← pre-1997 only
+- out/stage1_raw_events_magazine.csv (from 01d_ingest_magazine_data.py)                 ← pre-1997 only
+- out/stage1_raw_events_curated.csv  (from pipeline/adapters/curated_events_adapter.py) ← curated 1985-1997
 
 Policy:
 - Schema Uniformity: All input headers must match exactly.
@@ -59,9 +59,9 @@ def main():
     # Adding a new source is now as simple as adding to this list
     input_paths = [
         Path("out/stage1_raw_events_mirror.csv"),
-        Path("out/stage1_raw_events_old.csv"),
         Path("out/stage1_raw_events_fbw.csv"),
         Path("out/stage1_raw_events_magazine.csv"),
+        Path("out/stage1_raw_events_curated.csv"),
     ]
 
     all_rows: List[dict] = []

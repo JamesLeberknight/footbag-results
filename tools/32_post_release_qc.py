@@ -197,7 +197,8 @@ def check_placements_count(
     pf_counts  = pf.groupby("event_id").size()
 
     for _, row in sce.iterrows():
-        eid = int(row["event_id"])
+        raw_eid = str(row["event_id"])
+        eid = int(raw_eid) if raw_eid.isdigit() else raw_eid
         try:
             pj = json.loads(row.get("placements_json") or "[]")
         except (json.JSONDecodeError, TypeError):

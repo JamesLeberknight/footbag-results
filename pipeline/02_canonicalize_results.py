@@ -4236,13 +4236,19 @@ def deduplicate_events(records: list[dict]) -> tuple[list[dict], list[dict]]:
                 date = rec.get("date", "").lower()
                 placements = json.loads(rec.get("placements_json", "[]"))
 
-                # Higher score = better record
-                date_score = 0 if "tba" in date or date == "" else 1
+                # Higher score = better record.
+                # Priority order: has_placements > placement_count > date_exists > id
+                # Placement count takes priority over date (a stub with a real date but
+                # fewer placements must NOT beat a record with more placements and no date).
+                has_placements = 1 if placements else 0
                 placement_score = len(placements)
-                # Lower event_id = tiebreaker (negative so lower is better)
-                id_score = -int(rec.get("event_id", "0") or "0")
+                date_score = 0 if "tba" in date or date == "" else 1
+                # Lower numeric event_id = tiebreaker (negative so lower is better)
+                # Slug-style IDs (non-numeric) score 0 as tiebreaker.
+                eid = rec.get("event_id", "") or ""
+                id_score = -int(eid) if eid.isdigit() else 0
 
-                return (date_score, placement_score, id_score)
+                return (has_placements, placement_score, date_score, id_score)
 
             group.sort(key=score, reverse=True)
             deduplicated.append(group[0])  # Keep best
@@ -4389,12 +4395,14 @@ def check_location(rec: dict) -> list[QCIssue]:
     )
 
     if is_broken_or_unknown:
-        # Pre-mirror era (year < 1990): no location is expected — downgrade to WARN
+        # Pre-mirror era (year < 1990) or curated source: no location is expected — downgrade to WARN
+        # Curated events have slug-style event_ids (non-numeric, e.g. "1985_worlds_golden").
         _year_val = rec.get("year", "")
         _is_pre_mirror = str(_year_val).isdigit() and int(_year_val) < 1990
+        _is_curated = not str(event_id).isdigit()
         issues.append(QCIssue(
             check_id="location_broken_source" if is_known_broken else "location_missing",
-            severity=("WARN" if str(event_id).startswith("200") or _is_pre_mirror else "ERROR"),
+            severity=("WARN" if str(event_id).startswith("200") or _is_pre_mirror or _is_curated else "ERROR"),
             event_id=str(event_id),
             field="location",
             message="known broken source (SQL error in HTML)" if is_known_broken else "location is missing or empty",
