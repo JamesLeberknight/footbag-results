@@ -48,43 +48,21 @@ event_id,file,replace,notes
 2001983002,legacy_data/event_results/2001983002.txt,true,1983 WFA — formerly in JUNK; now active with correct results
 2001984001,legacy_data/event_results/2001984001.txt,true,1984 Worlds pre-mirror — inline multi-placement parsing errors
 2001985001,legacy_data/event_results/2001985001.txt,true,1985 Worlds pre-mirror — inline multi-placement parsing errors
-9980521,legacy_data/event_results/9980521.txt,true,Magazine ingestion — 1985 event with complete legacy results
-9984533,legacy_data/event_results/9984533.txt,true,Magazine ingestion — 1985 event with complete legacy results
-9918278,legacy_data/event_results/9918278.txt,true,Magazine ingestion — 1985 event with complete legacy results
-9958186,legacy_data/event_results/9958186.txt,true,Magazine ingestion — 1985 event with complete legacy results
-9972848,legacy_data/event_results/9972848.txt,true,Magazine ingestion — 1985 event with complete legacy results
-9940469,legacy_data/event_results/9940469.txt,true,Magazine ingestion — 1985 event with complete legacy results
 9928572,legacy_data/event_results/9928572.txt,true,Magazine ingestion — mirror Worlds 1980 augmented with FBW-ARCHIVE
 9992129,legacy_data/event_results/9992129.txt,true,Magazine ingestion — mirror Worlds 1981 augmented with FBW-ARCHIVE
 9998504,legacy_data/event_results/9998504.txt,true,Magazine ingestion — mirror Worlds 1982 augmented with FBW-ARCHIVE
 9904297,legacy_data/event_results/9904297.txt,true,Magazine ingestion — mirror Worlds 1983 augmented with FBW-ARCHIVE
 9924417,legacy_data/event_results/9924417.txt,true,Magazine ingestion — mirror Worlds 1984 augmented with FBW-ARCHIVE
-9934528,legacy_data/event_results/9934528.txt,true,Magazine ingestion — Secret Underground Jam 1983
 2001980002,legacy_data/event_results/2001980002.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001980003,legacy_data/event_results/2001980003.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001981003,legacy_data/event_results/2001981003.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001981004,legacy_data/event_results/2001981004.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001982003,legacy_data/event_results/2001982003.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001982004,legacy_data/event_results/2001982004.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001982005,legacy_data/event_results/2001982005.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001983005,legacy_data/event_results/2001983005.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001984003,legacy_data/event_results/2001984003.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001984004,legacy_data/event_results/2001984004.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001985004,legacy_data/event_results/2001985004.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001985005,legacy_data/event_results/2001985005.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001986003,legacy_data/event_results/2001986003.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001986004,legacy_data/event_results/2001986004.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001987001,legacy_data/event_results/2001987001.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001987002,legacy_data/event_results/2001987002.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001987003,legacy_data/event_results/2001987003.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001988001,legacy_data/event_results/2001988001.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001989001,legacy_data/event_results/2001989001.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001990001,legacy_data/event_results/2001990001.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001991001,legacy_data/event_results/2001991001.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001992001,legacy_data/event_results/2001992001.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001994001,legacy_data/event_results/2001994001.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001995001,legacy_data/event_results/2001995001.txt,true,Magazine ingestion — new pre-mirror synthetic event
-2001995002,legacy_data/event_results/2001995002.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001996001,legacy_data/event_results/2001996001.txt,true,Magazine ingestion — new pre-mirror synthetic event
 1408070192,legacy_data/event_results/1408070192.txt,true,Inline format collapsed all placements to 1 garbage row
 1664206719,legacy_data/event_results/1664206719.txt,true,2v2 consecutive-line format dropped doubles partners; p5 missing
