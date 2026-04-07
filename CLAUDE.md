@@ -271,4 +271,24 @@ The dataset is COMPLETE when:
 
 ---
 
+# 9. PRE-1997 MIGRATION STATE (as of 2026-04-06)
+
+Curated intake layer is live. All digitized pre-1997 source material has been absorbed into canonical.
+
+| Source | Files | Status |
+|--------|-------|--------|
+| FBW structured CSVs | 19 | Canonical via curated adapter |
+| Magazine structured CSVs | 15 | Canonical via curated adapter |
+| Worlds TXT files (1985–1997) | 13 | Canonical via Variant A/C adapter |
+| `authoritative-results-1980-1985.txt` | 1 | Canonical via Variant C adapter |
+| `stage1_raw_events_magazine.csv` (legacy) | 25 remaining stubs | Still included; retirement pending full audit |
+
+`magazine.csv` dependency retired: event `2001980002` (1980 IFAB Worlds, Memphis) promoted to `magazine_1980_worlds_memphis.csv`. All events that had blocking magazine.csv dependencies are now in structured CSVs.
+
+Canonical totals: **830 events / 4,295 disciplines / 25,807 results / 36,261 participants / 3,396 persons** (1980–2026). QC: PASS.
+
+Remaining gaps vs. V22 are true source gaps (data absent from all known authoritative sources), not parser failures. No further FBW batch work is possible without fresh magazine transcription.
+
+---
+
 END OF CONTRACT

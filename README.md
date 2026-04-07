@@ -146,15 +146,15 @@ Human-readable Excel workbook covering 1980–2026:
 
 - **Coverage:** 1997–present
 - **Source:** Footbag.org mirror archive
-- **Status:** Complete, identity-locked (PT v47 / PBP v85)
-- **Published events:** 781
+- **Status:** Complete, identity-locked (PT v51 / PBP v96)
+- **Canonical events:** ~776
 
 ### Pre-1997 Historical Recovery
 
 - **Coverage:** 1980–1996
-- **Sources:** Footbag World magazine, `OLD_RESULTS.txt`, Footbag.org archive, expert review
-- **Status:** v1.0 finalized (expert-reviewed by Bruce Guettich)
-- **Published events:** 31
+- **Sources:** Footbag World magazine (structured CSVs), `authoritative-results-1980-1985.txt`, Worlds TXT files (1985–1997), curated adapter
+- **Status:** Migration complete (2026-04-06) — all digitized sources absorbed into canonical
+- **Canonical events:** ~54
 
 ---
 
@@ -198,22 +198,25 @@ Note: the 1988 WFA Worlds entry was removed — cross-referencing confirmed the 
 ### Lane 1 — Post-1997 Production
 
 ```
-Stage 01   01_parse_mirror.py              parse HTML mirror → stage1_raw_events_mirror.csv
-Stage 02   02_canonicalize_results.py      structured placements → stage2_canonical_events.csv
-Stage 02p5 02p5_player_token_cleanup.py    apply identity lock (PT v47 / PBP v85)
-Stage 02p6 02p6_structural_cleanup.py      artifact removal + structural fixes
-Stage 05   05_export_canonical_csv.py      export out/canonical/*.csv  ← AUTHORITATIVE
-Stage 05p5 05p5_remediate_canonical.py     final integrity pass
+Stage 01   pipeline/adapters/mirror_results_adapter.py    parse HTML mirror → stage1_raw_events_mirror.csv
+Stage 01c  pipeline/adapters/curated_events_adapter.py   curated structured CSVs → stage1_raw_events_curated.csv
+Stage 02   pipeline/02_canonicalize_results.py           structured placements → stage2_canonical_events.csv
+Stage 02p5 pipeline/02p5_player_token_cleanup.py         apply identity lock (PT v51 / PBP v96)
+Stage 02p6 pipeline/02p6_structural_cleanup.py           artifact removal + structural fixes
+Stage 05   pipeline/historical/export_historical_csvs.py export out/canonical/*.csv  ← AUTHORITATIVE
+Stage 05p5 pipeline/05p5_remediate_canonical.py          final integrity + event merge pass
 ```
 
 Runner: `./run_pipeline.sh [rebuild|release|qc|all]`
 
 ### Lane 2 — Pre-1997 Historical Recovery
 
+Pre-1997 sources are now ingested through the curated adapter (Lane 1) and merged into `out/canonical/` alongside mirror data. The early pipeline (`run_early_pipeline.sh`) produces the merged `out/canonical_all/` dataset combining all eras.
+
 ```
-Stage 11  11_finalize_pre1997.py          v1.0 release artifacts → early_data/final_pre1997/
-Stage 11b 11b_apply_verified_corrections.py  apply verified corrections
-Stage 12  12_build_enrichment_and_merged.py  person enrichment + merged union
+inputs/curated/events/structured/   structured CSVs (FBW + magazine + worlds)
+pipeline/adapters/curated_events_adapter.py  → stage1_raw_events_curated.csv
+early_data/scripts/12_build_enrichment_and_merged.py  → out/canonical_all/
 ```
 
 Runner: `./run_early_pipeline.sh [finalize|merge]`
@@ -221,10 +224,9 @@ Runner: `./run_early_pipeline.sh [finalize|merge]`
 ### Lane 3 — Publication Build
 
 ```
-tools/build_canonical_pf.py              filter + export → out/release_publication/
-tools/build_workbook_v14.py              community Excel workbook
-tools/inject_pre1997_persons.py          add PRE1997_ONLY persons to canonical/persons.csv
-pipeline/qc/run_qc.py                     validate out/canonical/ — must PASS
+tools/build_canonical_enrichment.py      enrich + filter → out/canonical_all/
+tools/export_platform_canonical.py       platform export → out/platform_release/
+pipeline/qc/run_qc.py                    validate out/canonical/ — must PASS
 ```
 
 ---
@@ -232,20 +234,20 @@ pipeline/qc/run_qc.py                     validate out/canonical/ — must PASS
 ## Repository Layout
 
 ```
-pipeline/               post-1997 production pipeline scripts
-early_data/
-  scripts/              pre-1997 reconstruction pipeline (stages 04–13)
-  final_pre1997/        pre-1997 canonical tables (v1.0 finalized)
-  out/records/          trick-specific world records CSVs
-tools/                  publication build + QC tools
-out/
-  canonical/            post-1997 authoritative CSVs (816 events)
-  release_publication/  filtered publication CSVs (761 events)  ← PRIMARY OUTPUT
-  canonical_all/        merged union (839 events, pre-filter)
+pipeline/               production pipeline (adapters, historical, qc, platform)
+  adapters/             mirror + curated event ingestion
+  historical/           canonicalization + export
+  qc/                   QC gate
+early_data/             pre-1997 reconstruction artifacts (gemini, review)
 inputs/
-  review_quarantine_events.csv   9 quarantined events
-overrides/              person aliases, event metadata, known issues
+  curated/events/structured/   35 structured CSVs (FBW + magazine + worlds)
+  identity_lock/        Persons_Truth + Placements_ByPerson lock files
+tools/                  enrichment, platform export, QC analysis
+overrides/              person aliases, event metadata, source row exclusions
 legacy_data/            RESULTS_FILE_OVERRIDE source files
+out/
+  canonical/            authoritative CSVs (830 events, 1980–2026)  ← PRIMARY OUTPUT
+  canonical_all/        merged union including pre-1997 enrichment
 ```
 
 ---
@@ -254,23 +256,22 @@ legacy_data/            RESULTS_FILE_OVERRIDE source files
 
 | File | Version | Rows |
 |------|---------|------|
-| `Persons_Truth_Final_v47.csv` | v47 | 3,468 |
+| `Persons_Truth_Final_v51.csv` | v51 | 3,396 |
 | `Persons_Unresolved_Organized_v28.csv` | v28 | 82 |
-| `Placements_ByPerson_v85.csv` | v85 | 27,980 |
-
-Current Persons Truth: **3,493 rows** (includes 25 PRE1997_ONLY persons added post-lock).
+| `Placements_ByPerson_v96.csv` | v96 | — |
 
 ---
 
 ## Status
 
-- ✅ Publication dataset: `out/release_publication/` — 761 events, 1980–2026, QC PASS
-- ✅ Community workbook: `Footbag_Results_Community_v14_Canonical.xlsx`
-- ✅ Records dataset integrated (166 tricks, Passback source)
-- ✅ Platform export compatible: `tools/export_platform_*.py` → `fb-bw/canonical_input/`
-- ✅ Pre-1997 v1.0 finalized (expert-reviewed, verified corrections applied)
-- ✅ Post-1997 dataset locked (PT v47 / PBP v85)
-- ✅ Persons: 4,861 canonical persons (sentinels excluded from publication)
+- ✅ Canonical dataset: `out/canonical/` — 830 events, 1980–2026, QC PASS
+- ✅ Identity locked: PT v51 / PBP v96
+- ✅ Platform export: `tools/export_platform_canonical.py` → `out/platform_release/`
+- ✅ Pre-1997 migration complete (2026-04-06): all digitized sources in canonical via curated adapter
+  - 19 FBW structured CSVs + 15 magazine structured CSVs + worlds TXT files (1985–1997)
+  - `magazine.csv` dependency retired (`2001980002` promoted to `magazine_1980_worlds_memphis.csv`)
+  - No further FBW batch work possible without fresh transcription
+- ✅ Persons: 3,396 canonical (PT v51)
 
 ---
 

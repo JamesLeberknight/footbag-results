@@ -53,7 +53,6 @@ event_id,file,replace,notes
 9998504,legacy_data/event_results/9998504.txt,true,Magazine ingestion — mirror Worlds 1982 augmented with FBW-ARCHIVE
 9904297,legacy_data/event_results/9904297.txt,true,Magazine ingestion — mirror Worlds 1983 augmented with FBW-ARCHIVE
 9924417,legacy_data/event_results/9924417.txt,true,Magazine ingestion — mirror Worlds 1984 augmented with FBW-ARCHIVE
-2001980002,legacy_data/event_results/2001980002.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001985005,legacy_data/event_results/2001985005.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001986004,legacy_data/event_results/2001986004.txt,true,Magazine ingestion — new pre-mirror synthetic event
 2001987001,legacy_data/event_results/2001987001.txt,true,Magazine ingestion — new pre-mirror synthetic event

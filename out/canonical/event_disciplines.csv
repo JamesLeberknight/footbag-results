@@ -4292,5 +4292,5 @@ event_key,discipline_key,discipline_name,discipline_category,team_type,sort_orde
 2002_montreal_international,open_mixed_doubles_net,Open Mixed Doubles Net,net,doubles,3,complete,
 2002_montreal_international,open_womens_doubles_net,Open Women's Doubles Net,net,doubles,4,complete,
 2002_montreal_international,open_doubles_net,Open Doubles Net,net,doubles,5,complete,
-1980_worlds_memphis,open_doubles_net,Open Doubles Net,net,doubles,3,complete,
-1980_worlds_memphis,open_singles_net,Open Singles Net,net,singles,4,complete,
+1980_worlds_memphis,open_singles_net,Open Singles Net,net,singles,1,sparse,
+1980_worlds_memphis,open_doubles_net,Open Doubles Net,net,doubles,2,sparse,
