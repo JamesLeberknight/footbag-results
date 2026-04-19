@@ -180,6 +180,7 @@ tools/gemini_event_matcher.py
 tools/patch_image_page_correctness.py
 tools/patch_pt_v47_to_v48.py
 tools/patch_pt_v48_to_v49.py
+tools/patch_pt_v51_to_v52_pbp_v96_to_v97.py
 tools/recover_image_links.py
 tools/stratify_source_map.py
 
