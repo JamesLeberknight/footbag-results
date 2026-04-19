@@ -293,15 +293,35 @@ def _norm_name(s: str) -> str:
     return re.sub(r"\s+", " ", s.lower().strip())
 
 # ── Load Persons_Truth — build resolution indexes ─────────────────────────────
+#
+# Source: inputs/identity_lock/Persons_Truth_Final_v*.csv (latest version).
+# The previous out/Persons_Truth.csv producer (04_build_analytics.py) is deprecated
+# and no longer runs in the rebuild stage; the identity-lock file is the same data
+# (04 historically just cp'd it on first run) and is the authoritative source in
+# the new pipeline. A single pass builds both pt_rows and the closure-check set
+# (_pt51_person_ids), which used to be loaded separately further below.
 
-print("Loading Persons_Truth.csv...")
+_pt51_lock_files = sorted(
+    (ROOT / "inputs" / "identity_lock").glob("Persons_Truth_Final_v*.csv")
+)
+if not _pt51_lock_files:
+    raise FileNotFoundError(
+        "No Persons_Truth_Final_v*.csv found in inputs/identity_lock/ — "
+        "cannot build person resolution indexes."
+    )
+_pt_source = _pt51_lock_files[-1]
+
+print(f"Loading Persons_Truth from {_pt_source.name}...")
 token_to_person: dict[str, str] = {}   # player_token_uuid → effective_person_id
 names_to_person: dict[str, str] = {}   # _norm_name(player_name_seen) → effective_person_id
 pt_rows: list[dict] = []
-with open(OUT / "Persons_Truth.csv", newline="", encoding="utf-8") as f:
+_pt51_person_ids: set[str] = set()
+with open(_pt_source, newline="", encoding="utf-8") as f:
     for row in csv.DictReader(f):
         pt_rows.append(row)
         pid = row["effective_person_id"]
+        if pid.strip():
+            _pt51_person_ids.add(pid.strip())
         for tok in row["player_ids_seen"].split(" | "):
             tok = tok.strip()
             if tok:
@@ -310,17 +330,18 @@ with open(OUT / "Persons_Truth.csv", newline="", encoding="utf-8") as f:
         _canon = row.get("person_canon", "").strip()
         if _canon:
             names_to_person[_norm_name(_canon)] = pid
-        for name in row["player_names_seen"].split(" | "):
+        for name in re.split(r"\s*\|\s*", row["player_names_seen"]):
             name = name.strip()
             if name:
                 names_to_person[_norm_name(name)] = pid
         # Also index aliases_presentable so alias forms resolve without a PT rebuild.
-        for alias in row.get("aliases_presentable", "").split(" | "):
+        for alias in re.split(r"\s*\|\s*", row.get("aliases_presentable", "")):
             alias = alias.strip()
             if alias and len(alias) > 3:
                 names_to_person.setdefault(_norm_name(alias), pid)
 
 print(f"  {len(pt_rows):,} persons, {len(token_to_person):,} tokens, {len(names_to_person):,} names indexed (pre-aliases)")
+print(f"  PT lock loaded: {len(_pt51_person_ids):,} person_ids ({_pt_source.name})")
 
 # player_ids_seen lookup (for persons.csv export)
 pt_player_ids: dict[str, str] = {}    # effective_person_id → pipe-sep player_ids_seen
@@ -397,16 +418,35 @@ def resolve_person_id(player_id: str | None, player_name: str) -> str:
             n2 = _norm_name(stripped)
             if n2 in names_to_person:
                 return names_to_person[n2]
+        # Strip everything from first '(' onwards
+        # (catches "Name (Country) TITLE" patterns from source annotations)
+        paren_pos = player_name.find("(")
+        if paren_pos > 0:
+            before_paren = player_name[:paren_pos].strip()
+            if before_paren:
+                n3 = _norm_name(before_paren)
+                if n3 in names_to_person:
+                    return names_to_person[n3]
     return ""
 
 
 # ── Load Coverage ─────────────────────────────────────────────────────────────
+#
+# Source: out/Placements_ByPerson.csv (produced by 02p5_player_token_cleanup.py,
+# which propagates the coverage_flag column unchanged from the identity-lock file
+# inputs/identity_lock/Placements_ByPerson_v*.csv). The previous standalone
+# Coverage_ByEventDivision.csv producer (04_build_analytics.py) is deprecated and
+# no longer runs in the rebuild stage.
 
-print("Loading Coverage_ByEventDivision.csv...")
+print("Loading coverage flags from Placements_ByPerson.csv...")
 coverage: dict[tuple[str, str], str] = {}  # (event_id, division_canon) → coverage_flag
-with open(OUT / "Coverage_ByEventDivision.csv", newline="", encoding="utf-8") as f:
+with open(OUT / "Placements_ByPerson.csv", newline="", encoding="utf-8") as f:
     for row in csv.DictReader(f):
-        coverage[(row["event_id"], row["division_canon"])] = row["coverage_flag"]
+        flag = (row.get("coverage_flag") or "").strip()
+        if not flag:
+            continue
+        key = (row.get("event_id", ""), row.get("division_canon", ""))
+        coverage[key] = flag
 print(f"  {len(coverage):,} (event, division) coverage flags")
 
 
@@ -823,9 +863,9 @@ for bucket in [
         print(f"      {eid} -> {ek}")
 
 # lightweight warnings
-bad_prefix = [ek for ek in event_key_map.values() if not re.fullmatch(r"event_\d{4}_[a-z0-9_]+", ek)]
+bad_prefix = [ek for ek in event_key_map.values() if not re.fullmatch(r"\d{4}_[a-z0-9_]+", ek)]
 if bad_prefix:
-    print(f"  WARN: {len(bad_prefix)} event_key values do not match expected pattern event_<year>_<slug>[_<place>]")
+    print(f"  WARN: {len(bad_prefix)} event_key values do not match expected pattern <year>_<slug>[_<place>]")
     for ek in bad_prefix[:10]:
         print(f"    bad pattern: {ek}")
 
@@ -895,11 +935,17 @@ print(f"  {_pbp_total:,} placement rows, {len(pbp_by_event):,} events covered")
 # person-level country overrides (nationality corrections where event-location heuristic is wrong)
 _COUNTRY_OVERRIDES_PATH = ROOT / "inputs" / "person_country_overrides.csv"
 _person_country_overrides: dict[str, str] = {}
+_country_overrides_skipped = 0
 if _COUNTRY_OVERRIDES_PATH.exists():
     with open(_COUNTRY_OVERRIDES_PATH, newline="", encoding="utf-8") as _f:
         for _r in csv.DictReader(_f):
+            # Skip entries marked for review (not yet human-approved)
+            if _r.get("status", "").strip() == "review":
+                _country_overrides_skipped += 1
+                continue
             _person_country_overrides[_r["person_id"].strip()] = _r["country"].strip()
-    print(f"  Loaded {len(_person_country_overrides)} person country override(s)")
+    print(f"  Loaded {len(_person_country_overrides)} person country override(s)"
+          f"{f', {_country_overrides_skipped} pending review' if _country_overrides_skipped else ''}")
 
 
 # ── Build output rows ─────────────────────────────────────────────────────────
@@ -990,7 +1036,7 @@ for row in sorted_rows:
                 div_meta[div] = {
                     "div_cat":  s2p.get("division_category", "") or "",
                     "team_type": "singles",
-                    "cov_flag":  "sparse",   # pre-mirror: coverage unknown
+                    "cov_flag":  "partial",  # pre-mirror curated: real data, completeness not guaranteed
                 }
             ct = s2p.get("competitor_type", "") or "player"
             _div_type_counts[div][ct] += 1
@@ -1071,11 +1117,15 @@ for row in sorted_rows:
         PT resolution so alias variants (e.g. "Kenny Shults" → PT "Kenneth Shults")
         are still captured here.
         """
-        if not pid or pid == "__NON_PERSON__":
+        if pid == "__NON_PERSON__":
             return ""
+        if not pid:
+            # PBP row with empty person_id — try to resolve via current
+            # PT + person_aliases index before giving up.
+            return resolve_person_id(None, name) or ""
         if _UUID_RE.match(pid):
-            if pid in _pt_person_ids:
-                return pid          # directly in PT — use as-is
+            if pid in _pt_person_ids or pid in _pt51_person_ids:
+                return pid          # directly in PT or PT v51 lock — use as-is
             # Valid UUID but not a PT person_id (unresolved player token from 02p5).
             # Try to recover via name lookup before giving up.
             return resolve_person_id(None, name) or ""
@@ -1203,40 +1253,55 @@ print(f"  {len(_part_place_count):,} persons with placements (from participants_
 
 # BAP / FBHOF matching helpers (mirrors build_final_workbook_v12 logic)
 def _honor_norm(s: str) -> str:
-    return re.sub(r"[^a-z0-9]", "", s.lower())
+    """Normalize for honor matching: strip diacritics, lowercase, remove non-alnum."""
+    import unicodedata
+    nfkd = unicodedata.normalize("NFKD", s)
+    stripped = "".join(c for c in nfkd if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]", "", stripped.lower())
 
 _HONOR_OVERRIDES: dict[str, str] = {
-    "ken shults":               "Kenneth Shults",
-    "kenny shults":             "Kenneth Shults",
-    "vasek klouda":             "Václav Klouda",
-    "vaclav (vasek) klouda":    "Václav Klouda",
+    # Name in BAP/HoF source → canonical name in PT/persons
+    "ken shults":               "Kenny Shults",
+    "kenny shults":             "Kenny Shults",
+    "vasek klouda":             "Vaclav Klouda",
+    "vaclav (vasek) klouda":    "Vaclav Klouda",
     "tina aberli":              "Tina Aeberli",
-    "eli piltz":                "Eliott Piltz Galán",
-    "eliott piltz galan":       "Eliott Piltz Galán",
+    "eli piltz":                "Eliott Piltz Galan",
+    "eliott piltz galan":       "Eliott Piltz Galan",
     "evanne lamarch":           "Evanne Lemarche",
     "evanne lamarche":          "Evanne Lemarche",
     "arek dzudzinski":          "Arkadiusz Dudzinski",
-    "martin cote":              "Martin Côté",
-    "sebastien duchesne":       "Sébastien Duchesne",
-    "sebastien duschesne":      "Sébastien Duchesne",
-    "lon smith":                "Lon Skyler Smith",
-    "lon skyler smith":         "Lon Skyler Smith",
-    "ales zelinka":             "Aleš Zelinka",
-    "jere vainikka":            "Jere Väinikkä",
-    "tuomas karki":             "Tuomas Kärki",
-    "rafal kaleta":             "Rafał Kaleta",
-    "pawel nowak":              "Paweł Nowak",
-    "jakub mosciszewski":       "Jakub Mościszewski",
-    "dominik simku":            "Dominik Šimků",
+    "martin cote":              "Martin Cote",
+    "sebastien duchesne":       "Sebastien Duchesne",
+    "sebastien duschesne":      "Sebastien Duchesne",
+    "lon smith":                "Skyler Lon Smith",
+    "lon skyler smith":         "Skyler Lon Smith",
+    "ales zelinka":             "Ales Zelinka",
+    "jere vainikka":            "Jere Vainikka",
+    "tuomas karki":             "Tuomas Karki",
+    "rafal kaleta":             "Rafal Kaleta",
+    "pawel nowak":              "Pawel Nowak",
+    "jakub mosciszewski":       "Jakub Mosciszewski",
+    "dominik simku":            "Dominik Simku",
     "honza weber":              "Jan Weber",
-    "genevieve bousquet":       "Geneviève Bousquet",
-    "becca english-ross":       "Becca English",
+    "genevieve bousquet":       "Genevieve Bousquet",
+    "becca english-ross":       "Becca English-Ross",
     "pt lovern":                "P.T. Lovern",
     "p.t. lovern":              "P.T. Lovern",
     "kendall kic":              "Kendall KIC",
-    "wiktor debski":            "Wiktor Dębski",
-    "florian gotze":            "Florian Götze",
+    "wiktor debski":            "Wiktor Debski",
+    "florian gotze":            "Florian Gotze",
     "chantelle laurent":        "Chantelle Laurent",
+    # BAP members with name variants
+    "red husted":               "Red Fred Husted",
+    "dave holton":              "David Holton",
+    "gordon scott bevier":      "Gordon Bevier",
+    "bryan fournier":           "Brian Fournier",
+    "johnny murphy":            "Jonathan Murphy",
+    "phillip morrison":         "Phil Morrison",
+    "olav piwowar":             "Olaf Piwowar",
+    "jindra smola":             "Jindrich Smola",
+    "rene ruhr":                "Ren Ruhr",
 }
 
 # Build norm → person_id lookup from PT
@@ -1421,6 +1486,83 @@ write_csv(
     ],
     persons_out,
 )
+
+# ── Referential closure: backfill persons missing from persons.csv ─────────────
+# Persons can be absent from persons.csv when their player_ids are not present in
+# Placements_Flat (stage 04 drops them from out/Persons_Truth.csv), yet their
+# effective_person_id was still written into event_result_participants.csv via the
+# PBP/stage2 resolution path.  Find any such gap and fill from PT v51.
+
+_persons_written = {r["person_id"] for r in persons_out}
+_participant_pids = {
+    r["person_id"].strip()
+    for r in participants_out
+    if r.get("person_id", "").strip() and r["person_id"].strip() != "__NON_PERSON__"
+}
+_missing_pids = _participant_pids - _persons_written
+
+if _missing_pids:
+    # Locate the latest Persons_Truth_Final_v*.csv in inputs/identity_lock/
+    _lock_dir = ROOT / "inputs" / "identity_lock"
+    _pt_files = sorted(_lock_dir.glob("Persons_Truth_Final_v*.csv"))
+    if not _pt_files:
+        raise FileNotFoundError(
+            f"Referential closure backfill failed: no Persons_Truth_Final_v*.csv "
+            f"found in {_lock_dir}"
+        )
+    _pt51_path = _pt_files[-1]  # highest version by sort order
+    print(f"  Referential closure: {len(_missing_pids)} person_ids in participants "
+          f"not in persons.csv — backfilling from {_pt51_path.name} ...")
+
+    _pt51_by_id: dict[str, dict] = {}
+    with open(_pt51_path, newline="", encoding="utf-8") as _f:
+        for _row in csv.DictReader(_f):
+            _eid = _row.get("effective_person_id", "").strip()
+            if _eid:
+                _pt51_by_id[_eid] = _row
+
+    _persons_csv_fields = [
+        "person_id", "person_name", "member_id", "player_ids",
+        "country", "first_year", "last_year", "event_count", "placement_count",
+        "bap_member", "bap_nickname", "bap_induction_year",
+        "fbhof_member", "fbhof_induction_year",
+        "freestyle_sequences", "freestyle_max_add",
+        "freestyle_unique_tricks", "freestyle_diversity_ratio",
+        "signature_trick_1", "signature_trick_2", "signature_trick_3",
+    ]
+    _backfill_rows: list[dict] = []
+    _unresolved: list[str] = []
+    for _pid in sorted(_missing_pids):
+        if _pid not in _pt51_by_id:
+            _unresolved.append(_pid)
+            continue
+        _pt_row = _pt51_by_id[_pid]
+        _hof = _fbhof_by_pid.get(_pid, {})
+        _backfill_rows.append({
+            "person_id":            _pid,
+            "person_name":          _pt_row.get("person_canon", "").strip(),
+            "fbhof_member":         _hof.get("fbhof_member", 0),
+            "fbhof_induction_year": _hof.get("fbhof_induction_year", ""),
+            **{k: "" for k in _persons_csv_fields
+               if k not in ("person_id", "person_name", "fbhof_member", "fbhof_induction_year")},
+        })
+
+    if _unresolved:
+        raise RuntimeError(
+            f"Referential closure backfill failed: {len(_unresolved)} person_id(s) "
+            f"in event_result_participants.csv cannot be found in {_pt51_path.name}:\n"
+            + "\n".join(f"  {p}" for p in _unresolved)
+        )
+
+    # Append backfill rows to persons.csv
+    _persons_csv_path = CANONICAL / "persons.csv"
+    with open(_persons_csv_path, "a", newline="", encoding="utf-8") as _f:
+        _w = csv.DictWriter(_f, fieldnames=_persons_csv_fields, extrasaction="ignore")
+        _w.writerows(_backfill_rows)
+
+    print(f"  Backfilled {len(_backfill_rows)} missing persons from {_pt51_path.name}")
+else:
+    print("  Referential closure: persons.csv covers all participant person_ids")
 
 # ── Summary ───────────────────────────────────────────────────────────────────
 

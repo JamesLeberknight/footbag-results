@@ -1,19 +1,14 @@
-# Tools
+# tools/ — Legacy Analysis & Migration Scripts
 
-This directory contains utility scripts supporting the pipeline. Scripts fall into three categories:
+**Status:** These scripts are non-authoritative and not part of the current
+canonical pipeline. The authoritative pipeline is in `pipeline/` and is
+synchronized from `footbag-platform/legacy_data`.
 
-## Active Pipeline Tools
+These scripts may reference paths, schemas, or intermediate files that no
+longer exist. They are preserved for historical reference and audit
+traceability.
 
-These are called by `run_pipeline.sh` or invoked as part of the standard release workflow:
-
-| Script | Role |
-|---|---|
-| `build_final_workbook_v13.py` | Build community Excel workbook (Stage 04B) |
-| `run_qc_gate.py` | Canonical CSV QC gate (hard-fail check) |
-| `32_post_release_qc.py` | Post-release data integrity (6 checks) |
-| `33_schema_logic_qc.py` | Schema and logic consistency (7 checks) |
-| `36_worlds_coverage_qc.py` | Worlds event coverage audit |
-| `event_comparison_viewerV10.py` | HTML event comparison viewer (latest version) |
+## Historical Pipeline Tools (superseded)
 
 ## Identity & Curation Tools
 

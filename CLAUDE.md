@@ -2,6 +2,22 @@
 
 ---
 
+# REPO BOUNDARY
+
+**This repo (FOOTBAG_DATA) is a CSV-only derivative of the authoritative pipeline
+in `footbag-platform/legacy_data`.**
+
+- `footbag-platform` is the source of truth and is **read-only** — never modify it from here.
+- Pipeline code is synchronized from `footbag-platform/legacy_data`.
+- This repo stops at CSV/export generation — no database interaction.
+- Pipeline modes: `canonical_only`, `release`, `full_csv` (see `run_pipeline.sh`).
+- `out/known_unknowns.csv` is a live backlog of documented data gaps.
+
+**In scope:** source ingestion → canonical CSVs → QC → release/export artifacts.
+**Out of scope:** SQLite, DB loading, schema, server/app runtime, net/club enrichment.
+
+---
+
 # 0. PURPOSE
 
 The pipeline produces a **canonical historical dataset** of footbag competition results.

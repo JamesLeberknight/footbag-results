@@ -6,6 +6,18 @@ Runs immediately after stage 05 (05_export_canonical_csv.py) and applies
 five logic fixes to the canonical CSV set before downstream consumption.
 
 Fixes (in order):
+  0. Discipline Fix Registry — apply declarative corrections from
+                            inputs/canonical_discipline_fixes.csv.  Inactive rows
+                            (active ≠ '1') are logged and skipped.  Runs BEFORE
+                            Fix 3 and Fix 5 so downstream fixes see corrected data.
+                            Supports four fix_types:
+                              rename_discipline         — update discipline_name
+                              retag_team_type           — update team_type
+                              rename_and_retag          — both
+                              reshape_doubles_to_singles— structural repair: pick
+                                one winner per placement using person_id preference;
+                                requires 100% resolution + no duplicate person_ids;
+                                emits audit CSV to out/audit/
   1. Identity Sync        — overwrite display_name from persons.csv when person_id present
   2. Regex Deep-Clean     — strip ordinals, scores, parentheticals for unresolved rows
   3. Singles Density Check— remap doubles→singles when participant density = 1.0
@@ -20,28 +32,59 @@ Fixes (in order):
                             participants into sequential paired slots and ghost-partner
                             any remainder.  Singles ties (multiple participants at the
                             same placement number) are source-accurate and preserved as-is.
+  7. Duplicate person_id dedup — removes a second occurrence of the same person_id
+                            within a (event_key, discipline_key, placement) slot.
+                            Runs after all person_id resolution (Fix 7, Fix 8) so that
+                            stub rows resolved by name-lookup are also caught.  Caused
+                            by PBP emitting both a __NON_PERSON__ team-expansion row
+                            and a direct stub row for the same person.
 
 Keep-doubles override:
   Create inputs/keep_doubles_overrides.csv with columns event_key, discipline_key
   to prevent specific disciplines from being remapped to singles even at density 1.0.
   These will instead receive a ghost __UNKNOWN_PARTNER__ partner row.
 
+Coverage-flag override:
+  Create overrides/coverage_flag_overrides.csv with columns event_key, discipline_key,
+  coverage_flag_override to correct a misclassified coverage_flag on a specific discipline
+  before the canonical CSVs are consumed downstream.  Applied immediately after load,
+  before any other fix.
+
+Worlds normalization (year >= 1985):
+  All events identified as the official World Footbag Championships have their
+  event_name set to "{Nth} Annual World Footbag Championships" (N = year - 1979)
+  and event_type set to "worlds".  Detection: event_type already == "worlds", OR
+  "_worlds" in event_key AND event_name contains a championship-signal substring.
+
+Pre-1985 Worlds corrections (explicit event_key table):
+  1980–1984 had three competing organisations (NHSA, WFA, IFAB, FBW) each running
+  parallel "World Championships" — a formula cannot apply.  Instead an explicit
+  _PRE_1985_WORLDS_NAMES dict sets canonical names and event_type="worlds" for all
+  19 worlds-family event_keys.  Companion tables handle:
+    - Clearing org tags stored in the country field (NHSA/WFA events)
+    - Fixing location fields (city/region/country) for NHSA/WFA and early FBW events
+      (1980–1982 NHSA → Oregon City OR; 1983 NHSA/WFA → Boulder CO;
+       1984 WFA → Golden CO; FBW Golden track: country→region)
+
 Input/output: out/canonical/ (repo-relative)
 """
 
 import csv
+import datetime
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
+
+# Shared heuristic for reshape_doubles_to_singles (see discipline_repair.py)
+sys.path.insert(0, str(Path(__file__).parent))
+from discipline_repair import reshape_discipline, REPAIR_THRESHOLD
 
 ROOT      = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "out" / "canonical"
 OVERRIDES = ROOT / "inputs" / "keep_doubles_overrides.csv"
-
-# Platform canonical input — script 07 reads from here directly.
-# Set to None to skip the mirror write.
-_FB_BW = Path.home() / "projects" / "fb-bw" / "legacy_data" / "event_results" / "canonical_input"
-PLATFORM_OUT = _FB_BW if _FB_BW.parent.exists() else None
+COVERAGE_FLAG_OVERRIDES = ROOT / "overrides" / "coverage_flag_overrides.csv"
+DISCIPLINE_FIXES = ROOT / "inputs" / "canonical_discipline_fixes.csv"
 
 csv.field_size_limit(10 * 1024 * 1024)
 
@@ -67,15 +110,65 @@ def load(name: str) -> tuple[list[dict], list[str]]:
 
 
 def save(name: str, rows: list[dict], fieldnames: list[str]) -> None:
-    for dest in [CANONICAL, PLATFORM_OUT]:
-        if dest is None:
-            continue
-        dest.mkdir(parents=True, exist_ok=True)
-        with open(dest / name, "w", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-            w.writeheader()
-            w.writerows(rows)
+    CANONICAL.mkdir(parents=True, exist_ok=True)
+    with open(CANONICAL / name, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(rows)
     print(f"  Saved {name} ({len(rows):,} rows)")
+
+
+# ── Worlds naming/type helpers ────────────────────────────────────────────────
+
+def _ordinal(n: int) -> str:
+    if 11 <= (n % 100) <= 13:
+        return f"{n}th"
+    suffix = ["th", "st", "nd", "rd"] + ["th"] * 6
+    return f"{n}{suffix[n % 10]}"
+
+
+def _worlds_canonical_name(year: int, existing_name: str = "") -> str:
+    """Build canonical Worlds display name.
+
+    Prefer the ordinal from the mirror source (e.g. '44th Annual IFPA WORLD ...')
+    over the year-based formula, since the mirror's numbering is authoritative
+    and accounts for skipped years (e.g. 2020 COVID cancellation).
+    """
+    # Try to extract the ordinal from the existing mirror name
+    m = re.match(r"(\d+)\s*(st|nd|rd|th)\b", existing_name.strip(), re.IGNORECASE)
+    if m:
+        n = int(m.group(1))
+    else:
+        # Fallback: formula-based (1980 = 1st)
+        n = year - 1979
+    return f"{_ordinal(n)} Annual World Footbag Championships"
+
+
+# Signals that confirm the event is the official championships (not a warm-up,
+# record attempt, or other event that happens to carry "worlds" in the key).
+_WORLDS_NAME_SIGNALS = frozenset([
+    "world footbag", "world championship", "wfa world",
+    "ifab world", "nhsa world", "ifpa world",
+])
+
+
+def _is_worlds_event(ev: dict) -> bool:
+    """Return True for official World Footbag Championships events (year >= 1985)."""
+    try:
+        year = int(ev.get("year", "") or 0)
+    except ValueError:
+        return False
+    if year < 1985:
+        return False
+    # Already typed as worlds by a human-reviewed source — accept unconditionally.
+    if ev.get("event_type", "") == "worlds":
+        return True
+    # Must carry "_worlds" in the key and a championship signal in the name.
+    ek = ev.get("event_key", "").lower()
+    if "_worlds" not in ek:
+        return False
+    name_lower = ev.get("event_name", "").lower()
+    return any(sig in name_lower for sig in _WORLDS_NAME_SIGNALS)
 
 
 # ── Load ──────────────────────────────────────────────────────────────────────
@@ -102,6 +195,695 @@ if OVERRIDES.exists():
     print(f"  Keep-doubles overrides: {len(keep_doubles)} discipline(s)")
 else:
     print(f"  Keep-doubles overrides: none (create {OVERRIDES.name} to add)")
+
+# Load coverage_flag overrides (optional)
+# Matches on (event_key, discipline_key) and overwrites coverage_flag in event_disciplines.
+coverage_flag_overrides: dict[tuple[str, str], str] = {}
+if COVERAGE_FLAG_OVERRIDES.exists():
+    with open(COVERAGE_FLAG_OVERRIDES, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            k = (row["event_key"].strip(), row["discipline_key"].strip())
+            coverage_flag_overrides[k] = row["coverage_flag_override"].strip()
+    print(f"  Coverage-flag overrides: {len(coverage_flag_overrides)} discipline(s)")
+else:
+    print(f"  Coverage-flag overrides: none (create {COVERAGE_FLAG_OVERRIDES.name} to add)")
+
+# Load canonical discipline fixes (optional).
+# fix_type options and behavior:
+#   rename_discipline         — update discipline_name only
+#   retag_team_type           — update team_type only; doubles→singles removes ghost rows
+#   rename_and_retag          — both of the above
+#   reshape_doubles_to_singles— structural repair: doubles-shaped participant rows
+#                               are analyzed per-placement and reduced to one winner
+#                               each; requires 100% resolution confidence and no
+#                               duplicate person_ids before it will apply
+# Only rows with active='1' are applied.  Inactive rows are logged but skipped.
+_VALID_FIX_TYPES  = {
+    "rename_discipline",
+    "retag_team_type",
+    "rename_and_retag",
+    "reshape_doubles_to_singles",   # structural repair: doubles-shaped → true singles
+}
+_VALID_TEAM_TYPES = {"singles", "doubles"}
+discipline_fixes: list[dict] = []
+if DISCIPLINE_FIXES.exists():
+    _seen_disc_fix_keys: set[tuple[str, str]] = set()
+    with open(DISCIPLINE_FIXES, newline="", encoding="utf-8") as f:
+        for lineno, row in enumerate(csv.DictReader(f), start=2):
+            ek  = row["event_key"].strip()
+            dk  = row["discipline_key"].strip()
+            ft  = row["fix_type"].strip()
+            act = row["active"].strip()
+            if not ek or not dk:
+                raise SystemExit(f"canonical_discipline_fixes.csv line {lineno}: "
+                                 f"event_key and discipline_key are required")
+            if ft not in _VALID_FIX_TYPES:
+                raise SystemExit(f"canonical_discipline_fixes.csv line {lineno}: "
+                                 f"invalid fix_type '{ft}' — must be one of {_VALID_FIX_TYPES}")
+            if (ek, dk) in _seen_disc_fix_keys:
+                raise SystemExit(f"canonical_discipline_fixes.csv line {lineno}: "
+                                 f"duplicate entry for ({ek}, {dk})")
+            _seen_disc_fix_keys.add((ek, dk))
+            new_name = row.get("new_name", "").strip()
+            new_tt   = row.get("new_team_type", "").strip()
+            if ft in {"rename_discipline", "rename_and_retag"} and not new_name:
+                raise SystemExit(f"canonical_discipline_fixes.csv line {lineno}: "
+                                 f"fix_type '{ft}' requires new_name")
+            if ft in {"retag_team_type", "rename_and_retag"} and not new_tt:
+                raise SystemExit(f"canonical_discipline_fixes.csv line {lineno}: "
+                                 f"fix_type '{ft}' requires new_team_type")
+            if new_tt and new_tt not in _VALID_TEAM_TYPES:
+                raise SystemExit(f"canonical_discipline_fixes.csv line {lineno}: "
+                                 f"invalid new_team_type '{new_tt}' — must be 'singles' or 'doubles'")
+            # reshape_doubles_to_singles: new_team_type defaults to 'singles' if not set;
+            # original_team_type=doubles is required (validated at application time).
+            if ft == "reshape_doubles_to_singles" and new_tt and new_tt != "singles":
+                raise SystemExit(f"canonical_discipline_fixes.csv line {lineno}: "
+                                 f"reshape_doubles_to_singles requires new_team_type='singles' "
+                                 f"(got '{new_tt}')")
+            if ft == "reshape_doubles_to_singles" and not new_tt:
+                new_tt = "singles"  # default
+            discipline_fixes.append({**row,
+                                      "event_key": ek, "discipline_key": dk,
+                                      "fix_type": ft, "active": act,
+                                      "new_name": new_name, "new_team_type": new_tt})
+    active_count   = sum(1 for r in discipline_fixes if r["active"] == "1")
+    inactive_count = len(discipline_fixes) - active_count
+    print(f"  Discipline fixes: {len(discipline_fixes)} total  "
+          f"({active_count} active, {inactive_count} inactive)")
+else:
+    print(f"  Discipline fixes: none (create {DISCIPLINE_FIXES.name} to add)")
+
+_coverage_patched = 0
+for row in disciplines:
+    k = (row["event_key"], row["discipline_key"])
+    if k in coverage_flag_overrides:
+        old_flag = row.get("coverage_flag", "")
+        new_flag = coverage_flag_overrides[k]
+        row["coverage_flag"] = new_flag
+        print(f"  Coverage-flag override: {k[0]} / {k[1]}  {old_flag!r} → {new_flag!r}")
+        _coverage_patched += 1
+
+if _coverage_patched:
+    print(f"  Coverage-flag rows patched: {_coverage_patched}")
+
+# ── Worlds event name / type normalization ────────────────────────────────────
+# For all events year >= 1985 that are identified as the official World Footbag
+# Championships, enforce:
+#   event_name  → "{Nth} Annual World Footbag Championships"  (N = year - 1979)
+#   event_type  → "worlds"
+# 1980–1984 events are left untouched (fragmented / duplicate entries require
+# separate human-reviewed merge work).
+
+print("\n[Worlds normalization] Applying canonical name/type to Worlds events...")
+
+_worlds_changes: list[dict] = []
+for ev in events:
+    if not _is_worlds_event(ev):
+        continue
+    year = int(ev["year"])
+    old_name = ev["event_name"]
+    new_name = _worlds_canonical_name(year, old_name)
+    old_type = ev["event_type"]
+    name_changed = old_name != new_name
+    type_changed = old_type != "worlds"
+    if name_changed or type_changed:
+        _worlds_changes.append({
+            "year":      year,
+            "event_key": ev["event_key"],
+            "old_name":  old_name,
+            "new_name":  new_name,
+            "old_type":  old_type,
+            "new_type":  "worlds",
+        })
+        ev["event_name"] = new_name
+        ev["event_type"] = "worlds"
+
+if _worlds_changes:
+    _worlds_changes.sort(key=lambda r: (r["year"], r["event_key"]))
+    print(f"\n  {'year':>4}  {'event_key':<45}  {'old_type':<10}  {'new_type':<8}  old_name  →  new_name")
+    print(f"  {'-'*4}  {'-'*45}  {'-'*10}  {'-'*8}  {'-'*30}")
+    for ch in _worlds_changes:
+        print(f"  {ch['year']:>4}  {ch['event_key']:<45}  {ch['old_type']:<10}  {ch['new_type']:<8}  "
+              f"{ch['old_name']!r}  →  {ch['new_name']!r}")
+    print(f"\n  Total worlds events changed: {len(_worlds_changes)}")
+else:
+    print("  No changes — all worlds events already normalized.")
+
+# ── Pre-1985 Worlds: type / name / location corrections ──────────────────────
+# Explicit event_key–keyed corrections for the 1980–1984 Worlds-family era.
+# Post-1984 normalization uses a formula ("Nth Annual …").  Pre-1985 cannot —
+# three competing organisations (NHSA, WFA, IFAB, FBW) each ran parallel
+# "World Championships" in the same years.  All entries below are human-
+# reviewed; no heuristics.
+#
+# Naming convention applied:  {YYYY} World Footbag Championships ({ORG})
+# National-championship variants keep their existing style but receive
+# event_type = "worlds" so they are filterable as worlds-family events.
+#
+# Duplicate-merge candidates (e.g. 1982_worlds vs 1982_nhsa_national) are
+# intentionally left as separate keys — merging requires result-row
+# deduplication and is flagged for future review.
+
+_PRE_1985_WORLDS_NAMES: dict[str, str] = {
+    # ── NHSA track (de-facto world championships 1980–1983) ───────────────────
+    "1980_worlds":               "1980 World Footbag Championships (NHSA)",
+    "1981_worlds":               "1981 World Footbag Championships (NHSA)",
+    "1982_worlds":               "1982 World Footbag Championships (NHSA)",
+    "1983_worlds":               "1983 World Footbag Championships (NHSA)",
+    # NHSA national championships (worlds-family; possible dup of above pair)
+    "1982_nhsa_national":        "1982 NHSA National Championships",
+    "1983_nhsa_national":        "1983 NHSA National Championships",
+    # ── WFA track (NHSA successor, 1983–1984) ─────────────────────────────────
+    "1983_worlds_2":             "1983 World Footbag Championships (WFA)",
+    "1984_worlds":               "1984 World Footbag Championships (WFA)",
+    # WFA national championships (worlds-family; possible dup of above pair)
+    "1983_national":             "1983 WFA National Championships",
+    "1984_national":             "1984 WFA National Championships",
+    # ── IFAB track (parallel eastern championships) ────────────────────────────
+    "1980_worlds_memphis":       "1980 World Footbag Championships (IFAB)",
+    "1981_worlds_san_dimas":     "1981 World Footbag Championships (IFAB/FBW)",
+    "1982_worlds_portland":      "1982 World Footbag Championships (IFAB/FBW)",
+    "1982_worlds_san_francisco": "1982 World Footbag Championships (IFAB)",
+    "1983_worlds_oregon_city":   "1983 World Footbag Championships (IFAB)",
+    "1984_worlds_oregon_city":   "1984 World Footbag Championships (IFAB)",
+    # ── FBW/Golden freestyle track ────────────────────────────────────────────
+    "1982_worlds_golden":        "1982 World Footbag Championships (FBW)",
+    "1983_worlds_golden":        "1983 World Footbag Championships (FBW)",
+    "1984_worlds_golden":        "1984 World Footbag Championships (FBW)",
+}
+
+# country field holds an org tag instead of a real location for these events.
+# Clear it — the org is already visible in the event_name.
+_PRE_1985_CLEAR_ORG_FROM_COUNTRY: set[str] = {
+    "1980_worlds",
+    "1981_worlds",
+    "1982_worlds",
+    "1983_worlds",
+    "1983_worlds_2",
+}
+
+# Explicit location corrections keyed by event_key.
+# FBW Golden track: Colorado was stored in the country field instead of region.
+# 1983 NHSA/WFA events: source-backed Boulder, CO (2026-04 reconciliation).
+# 1984 WFA events: source-backed Golden, CO (same reconciliation; previously wrong Boulder).
+_PRE_1985_LOCATION_FIXES: dict[str, dict[str, str]] = {
+    # ── FBW Golden track ──────────────────────────────────────────────────────
+    "1982_worlds_golden": {"city": "Golden",  "region": "Colorado", "country": "United States"},
+    "1983_worlds_golden": {"city": "Golden",  "region": "Colorado", "country": "United States"},
+    "1984_worlds_golden": {"city": "Golden",  "region": "Colorado", "country": "United States"},
+    # ── 1980–1982 NHSA events → Oregon City, OR (NHSA home base) ─────────────
+    "1980_worlds":        {"city": "Oregon City", "region": "Oregon",    "country": "United States"},
+    "1981_worlds":        {"city": "Oregon City", "region": "Oregon",    "country": "United States"},
+    "1982_worlds":        {"city": "Oregon City", "region": "Oregon",    "country": "United States"},
+    "1982_nhsa_national": {"city": "Oregon City", "region": "Oregon",    "country": "United States"},
+    # ── 1983 NHSA/WFA events → Boulder, CO ────────────────────────────────────
+    "1983_worlds":        {"city": "Boulder", "region": "Colorado", "country": "United States"},
+    "1983_nhsa_national": {"city": "Boulder", "region": "Colorado", "country": "United States"},
+    "1983_worlds_2":      {"city": "Boulder", "region": "Colorado", "country": "United States"},
+    "1983_national":      {"city": "Boulder", "region": "Colorado", "country": "United States"},
+    # ── 1984 WFA events → Golden, CO (not Boulder) ────────────────────────────
+    "1984_worlds":        {"city": "Golden",  "region": "Colorado", "country": "United States"},
+    "1984_national":      {"city": "Golden",  "region": "Colorado", "country": "United States"},
+}
+
+print("\n[Pre-1985 Worlds] Applying event_type / name / location corrections...")
+
+_pre85_changes: list[dict] = []
+
+for ev in events:
+    ek = ev.get("event_key", "")
+    if ek not in _PRE_1985_WORLDS_NAMES:
+        continue
+
+    old_type = ev.get("event_type", "")
+    old_name = ev.get("event_name", "")
+    new_name = _PRE_1985_WORLDS_NAMES[ek]
+    detail: list[str] = []
+
+    # 1. Enforce event_type = "worlds"
+    if old_type != "worlds":
+        ev["event_type"] = "worlds"
+        detail.append(f"type  {old_type!r} → 'worlds'")
+
+    # 2. Apply canonical name
+    if old_name != new_name:
+        ev["event_name"] = new_name
+        detail.append(f"name  {old_name!r} → {new_name!r}")
+
+    # 3. Clear org-tag stored in country field
+    if ek in _PRE_1985_CLEAR_ORG_FROM_COUNTRY:
+        cur_country = ev.get("country", "")
+        if cur_country in ("NHSA", "WFA"):
+            ev["country"] = ""
+            detail.append(f"country cleared ({cur_country!r})")
+
+    # 4. Apply location fix
+    if ek in _PRE_1985_LOCATION_FIXES:
+        for field, new_val in _PRE_1985_LOCATION_FIXES[ek].items():
+            old_val = ev.get(field, "")
+            if old_val != new_val:
+                ev[field] = new_val
+                detail.append(f"{field}  {old_val!r} → {new_val!r}")
+
+    if detail:
+        _pre85_changes.append({"event_key": ek, "detail": detail})
+
+if _pre85_changes:
+    _pre85_changes.sort(key=lambda r: r["event_key"])
+    print(f"\n  {'event_key':<40}  detail")
+    print(f"  {'-'*40}  {'-'*55}")
+    for ch in _pre85_changes:
+        for i, line in enumerate(ch["detail"]):
+            label = ch["event_key"] if i == 0 else ""
+            print(f"  {label:<40}  {line}")
+    print(f"\n  Pre-1985 worlds events updated: {len(_pre85_changes)} of {len(_PRE_1985_WORLDS_NAMES)}")
+else:
+    print("  No changes — pre-1985 worlds events already normalized.")
+
+# ── Post-1984 standalone event fixes ──────────────────────────────────────────
+# Location and display-name corrections for events not in _PRE_1985_WORLDS_NAMES.
+# 1985–1990 Worlds were held in Golden, CO (FBW/WFA).
+# 1991 onwards the Worlds rotated to international host cities.
+# Source: events_normalized.csv (mirror-era records); "Golden CO" country-field
+# format is the same parsing artifact as 1985_worlds.
+# 1988 confirmed Golden by series pattern (1986–1990 all Golden, no contrary source).
+# 1993 confirmed Golden by user (source TXT blank; events_normalized has no entry).
+
+_1985_EVENT_FIXES: dict[str, dict[str, str]] = {
+    # ── 1985 ──────────────────────────────────────────────────────────────────
+    "1985_worlds": {
+        "city":    "Golden",
+        "region":  "Colorado",
+        "country": "United States",
+    },
+    "1985_western_national_indoor": {
+        "event_name": "Oak Park \u2014 Chicago Open",
+        "city":       "Chicago",
+        "region":     "Illinois",
+        "country":    "United States",
+    },
+    # ── 1986–1990 Worlds → Golden, CO ("Golden CO" stored in country field) ───
+    "1986_worlds": {"city": "Golden",        "region": "Colorado",          "country": "United States"},
+    "1987_worlds": {"city": "Golden",        "region": "Colorado",          "country": "United States"},
+    "1988_worlds": {"city": "Golden",        "region": "Colorado",          "country": "United States"},
+    "1989_worlds": {"city": "Golden",        "region": "Colorado",          "country": "United States"},
+    "1990_worlds": {"city": "Golden",        "region": "Colorado",          "country": "United States"},
+    # ── 1991–1995 Worlds → rotating host cities ───────────────────────────────
+    "1991_worlds": {"city": "Vancouver",     "region": "British Columbia",  "country": "Canada"},
+    "1992_worlds": {"city": "Montreal",      "region": "Quebec",            "country": "Canada"},
+    "1993_worlds": {"city": "Golden",        "region": "Colorado",          "country": "United States"},
+    "1994_worlds": {"city": "San Francisco", "region": "California",        "country": "United States"},
+    "1995_worlds": {"city": "Menlo Park",    "region": "California",        "country": "United States"},
+}
+
+print("\n[1985 Standalone] Applying event name / location fixes...")
+
+_1985_changes: list[dict] = []
+
+for ev in events:
+    ek = ev.get("event_key", "")
+    if ek not in _1985_EVENT_FIXES:
+        continue
+    fix = _1985_EVENT_FIXES[ek]
+    detail: list[str] = []
+    for field, new_val in fix.items():
+        old_val = ev.get(field, "")
+        if old_val != new_val:
+            ev[field] = new_val
+            detail.append(f"{field}  {old_val!r} → {new_val!r}")
+    if detail:
+        _1985_changes.append({"event_key": ek, "detail": detail})
+
+if _1985_changes:
+    _1985_changes.sort(key=lambda r: r["event_key"])
+    print(f"\n  {'event_key':<40}  detail")
+    print(f"  {'-'*40}  {'-'*55}")
+    for ch in _1985_changes:
+        for i, line in enumerate(ch["detail"]):
+            label = ch["event_key"] if i == 0 else ""
+            print(f"  {label:<40}  {line}")
+    print(f"\n  1985 standalone events updated: {len(_1985_changes)}")
+else:
+    print("  No changes — 1985 standalone events already normalized.")
+
+# ── Fix 0: Canonical Discipline Fix Registry ──────────────────────────────────
+# Applies declarative name / team_type corrections for known discipline integrity
+# errors.  Runs BEFORE Fix 3 (singles density check) and Fix 5 (ghost partnering)
+# so downstream fixes see corrected team_type.
+#
+# fix_type semantics:
+#   rename_discipline  — update discipline_name only
+#   retag_team_type    — update team_type only; if doubles→singles, remove ghost
+#                        partner rows (notes='auto:ghost_partner') from participants
+#   rename_and_retag   — both of the above
+#
+# Safety rules:
+#   • Inactive rows (active ≠ '1') are logged and skipped.
+#   • Discipline not found → skip with warning (event may have been renamed upstream).
+#   • original_name mismatch  → skip with warning (upstream source may have changed).
+#   • original_team_type mismatch → skip with warning.
+
+print("\n[Fix 0] Applying canonical discipline fixes...")
+
+# Build fast lookup: (event_key, discipline_key) → discipline row
+_disc_index: dict[tuple[str, str], dict] = {
+    (d["event_key"], d["discipline_key"]): d for d in disciplines
+}
+
+_f0_applied           = 0
+_f0_skipped           = 0
+_f0_ghost_removed     = 0
+_f0_reshape_removed   = 0   # participant rows replaced by reshape repair
+
+
+def _emit_reshape_audit(fix_ek: str, fix_dk: str, reshape_result: dict) -> None:
+    """Write a CSV audit record for a reshape_doubles_to_singles application."""
+    audit_dir = ROOT / "out" / "audit"
+    audit_dir.mkdir(parents=True, exist_ok=True)
+    ts = datetime.datetime.utcnow().strftime("%Y%m%dT%H%M%S")
+    audit_path = audit_dir / f"disc_repair_{fix_ek}_{fix_dk}_{ts}.csv"
+    fieldnames = [
+        "event_key", "discipline_key", "placement",
+        "outcome",           # resolved | ambiguous | unresolvable
+        "winner_name", "winner_person_id", "winner_order",
+        "discarded_name", "discarded_person_id", "discarded_order",
+        "reason",
+    ]
+    with open(audit_path, "w", newline="", encoding="utf-8") as af:
+        w = csv.DictWriter(af, fieldnames=fieldnames, extrasaction="ignore")
+        w.writeheader()
+        for pl, winner, discarded, reason in reshape_result["resolved"]:
+            w.writerow({
+                "event_key": fix_ek, "discipline_key": fix_dk,
+                "placement": pl, "outcome": "resolved",
+                "winner_name":       (winner.get("display_name", "") if winner else ""),
+                "winner_person_id":  (winner.get("person_id", "") if winner else ""),
+                "winner_order":      (winner.get("participant_order", "") if winner else ""),
+                "discarded_name":    (discarded.get("display_name", "") if discarded else ""),
+                "discarded_person_id": (discarded.get("person_id", "") if discarded else ""),
+                "discarded_order":   (discarded.get("participant_order", "") if discarded else ""),
+                "reason": reason,
+            })
+        for pl, reason in reshape_result["ambiguous"]:
+            w.writerow({"event_key": fix_ek, "discipline_key": fix_dk,
+                        "placement": pl, "outcome": "ambiguous", "reason": reason})
+        for pl, reason in reshape_result["unresolvable"]:
+            w.writerow({"event_key": fix_ek, "discipline_key": fix_dk,
+                        "placement": pl, "outcome": "unresolvable", "reason": reason})
+    print(f"    audit written: {audit_path.relative_to(ROOT)}")
+
+
+for fix in discipline_fixes:
+    ek, dk    = fix["event_key"], fix["discipline_key"]
+    ft        = fix["fix_type"]
+    active    = fix["active"] == "1"
+    orig_name = fix.get("original_name", "").strip()
+    orig_tt   = fix.get("original_team_type", "").strip()
+    new_name  = fix["new_name"]
+    new_tt    = fix["new_team_type"]
+
+    if not active:
+        print(f"  SKIP (inactive)  ({ek}, {dk})  fix_type={ft}")
+        _f0_skipped += 1
+        continue
+
+    disc = _disc_index.get((ek, dk))
+    if disc is None:
+        print(f"  WARN  ({ek}, {dk}) not found in event_disciplines — skipping")
+        _f0_skipped += 1
+        continue
+
+    if orig_name and disc["discipline_name"] != orig_name:
+        print(f"  WARN  ({ek}, {dk}) original_name mismatch: "
+              f"expected '{orig_name}', found '{disc['discipline_name']}' — skipping")
+        _f0_skipped += 1
+        continue
+
+    if orig_tt and disc["team_type"] != orig_tt:
+        print(f"  WARN  ({ek}, {dk}) original_team_type mismatch: "
+              f"expected '{orig_tt}', found '{disc['team_type']}' — skipping")
+        _f0_skipped += 1
+        continue
+
+    old_name = disc["discipline_name"]
+    old_tt   = disc["team_type"]
+
+    # ── simple fixes: rename / retag ──────────────────────────────────────────
+    if ft in {"rename_discipline", "retag_team_type", "rename_and_retag"}:
+        doubles_to_singles = (ft in {"retag_team_type", "rename_and_retag"}
+                              and old_tt == "doubles" and new_tt == "singles")
+        if ft in {"rename_discipline", "rename_and_retag"}:
+            disc["discipline_name"] = new_name
+        if ft in {"retag_team_type", "rename_and_retag"}:
+            disc["team_type"] = new_tt
+
+        print(f"  APPLIED  ({ek}, {dk})  fix_type={ft}")
+        if ft in {"rename_discipline", "rename_and_retag"}:
+            print(f"    name:      '{old_name}' → '{new_name}'")
+        if ft in {"retag_team_type", "rename_and_retag"}:
+            print(f"    team_type: '{old_tt}' → '{new_tt}'")
+
+        # Remove ghost partner rows for doubles→singles retag.
+        if doubles_to_singles:
+            before = len(participants)
+            participants[:] = [
+                p for p in participants
+                if not (p["event_key"] == ek
+                        and p["discipline_key"] == dk
+                        and p.get("display_name") == "__UNKNOWN_PARTNER__"
+                        and p.get("notes") == "auto:ghost_partner")
+            ]
+            removed = before - len(participants)
+            _f0_ghost_removed += removed
+            if removed:
+                print(f"    ghost partners removed: {removed}")
+
+        _f0_applied += 1
+        continue
+
+    # ── structural repair: reshape_doubles_to_singles ─────────────────────────
+    if ft == "reshape_doubles_to_singles":
+        # Optional exclude_placements column: comma-separated placement numbers
+        # to filter out before reshape analysis (e.g. "15" for JFK outlier).
+        _excl_str = fix.get("exclude_placements", "").strip()
+        _excl_pls = {s.strip() for s in _excl_str.split(",") if s.strip()} if _excl_str else set()
+
+        disc_parts = [
+            p for p in participants
+            if p["event_key"] == ek and p["discipline_key"] == dk
+            and p["placement"] not in _excl_pls
+        ]
+        if not disc_parts:
+            print(f"  WARN  ({ek}, {dk}) no participant rows found — skipping reshape")
+            _f0_skipped += 1
+            continue
+
+        rr = reshape_discipline(disc_parts, threshold=REPAIR_THRESHOLD)
+
+        if not rr["can_apply"]:
+            reasons = []
+            if not rr["passes_threshold"]:
+                reasons.append(
+                    f"resolution rate {rr['resolution_rate']:.0%} < "
+                    f"{REPAIR_THRESHOLD:.0%} threshold"
+                )
+            if not rr["passes_duplicate_check"]:
+                n_dup = len(rr["duplicate_person_placements"])
+                reasons.append(f"{n_dup} duplicate person_id(s) in resolved winners")
+            print(f"  SKIP  ({ek}, {dk}) reshape validation failed: "
+                  f"{'; '.join(reasons)}")
+            n = rr["total_placements"]
+            print(f"    resolved {len(rr['resolved'])}/{n}  "
+                  f"ambiguous {len(rr['ambiguous'])}  "
+                  f"unresolvable {len(rr['unresolvable'])}")
+            for pl, reason in rr["ambiguous"]:
+                print(f"    ambiguous    P{pl}: {reason}")
+            for pl, reason in rr["unresolvable"]:
+                print(f"    unresolvable P{pl}: {reason}")
+            for pid, pls in rr["duplicate_person_placements"]:
+                print(f"    duplicate    pid={pid[:8]} at placements {pls}")
+            _f0_skipped += 1
+            continue
+
+        # Validation passed — apply the repair
+        disc["team_type"] = "singles"
+        if new_name:
+            disc["discipline_name"] = new_name
+
+        # Build replacement participant rows: one winner per placement,
+        # participant_order reset to "1" (canonical singles convention).
+        replacement_rows = []
+        for pl, winner, _, _ in sorted(rr["resolved"], key=lambda x: x[0]):
+            new_row = dict(winner)
+            new_row["participant_order"] = "1"
+            replacement_rows.append(new_row)
+
+        # Remove ALL rows for this discipline (including excluded placements)
+        all_disc_rows = [
+            p for p in participants
+            if p["event_key"] == ek and p["discipline_key"] == dk
+        ]
+        before = len(all_disc_rows)
+        participants[:] = [
+            p for p in participants
+            if not (p["event_key"] == ek and p["discipline_key"] == dk)
+        ] + replacement_rows
+        _f0_reshape_removed += before - len(replacement_rows)
+
+        print(f"  APPLIED  ({ek}, {dk})  fix_type={ft}")
+        print(f"    team_type: '{old_tt}' → 'singles'")
+        if new_name:
+            print(f"    name:      '{old_name}' → '{new_name}'")
+        if _excl_pls:
+            print(f"    excluded placements: {sorted(_excl_pls)}")
+        print(f"    participants: {before} rows → {len(replacement_rows)} rows "
+              f"({before - len(replacement_rows)} discarded)")
+
+        _emit_reshape_audit(ek, dk, rr)
+        _f0_applied += 1
+        continue
+
+    # Should never reach here — _VALID_FIX_TYPES check in load block guards this.
+    raise SystemExit(f"[Fix 0] Unhandled fix_type: {ft!r}")
+
+print(f"  Fixes applied: {_f0_applied}  skipped: {_f0_skipped}  "
+      f"ghost rows removed: {_f0_ghost_removed}  "
+      f"reshape rows removed: {_f0_reshape_removed}")
+
+# ── Quarantine: remove non-result disciplines ─────────────────────────────────
+# Loads canonical_quarantine_rules.csv and removes quarantined disciplines
+# (scope=discipline_all) from all canonical tables.
+QUARANTINE_RULES = ROOT / "inputs" / "canonical_quarantine_rules.csv"
+_q_applied = 0
+_q_disc_removed = 0
+_q_result_removed = 0
+_q_part_removed = 0
+if QUARANTINE_RULES.exists():
+    print("\n[Quarantine] Loading quarantine rules...")
+    quarantine_rules: list[dict] = []
+    with open(QUARANTINE_RULES, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if row.get("active", "").strip() != "1":
+                continue
+            quarantine_rules.append(row)
+    print(f"  Active quarantine rules: {len(quarantine_rules)}")
+
+    for rule in quarantine_rules:
+        ek = rule["event_key"].strip()
+        dk = rule["discipline_key"].strip()
+        scope = rule.get("quarantine_scope", "").strip()
+
+        if scope != "discipline_all":
+            print(f"  SKIP  ({ek}, {dk}) scope='{scope}' — only 'discipline_all' is implemented")
+            continue
+
+        # Remove from disciplines
+        before_disc = len(disciplines)
+        disciplines[:] = [d for d in disciplines
+                          if not (d["event_key"] == ek and d["discipline_key"] == dk)]
+        removed_disc = before_disc - len(disciplines)
+
+        # Remove from results
+        before_res = len(results)
+        results[:] = [r for r in results
+                      if not (r["event_key"] == ek and r["discipline_key"] == dk)]
+        removed_res = before_res - len(results)
+
+        # Remove from participants
+        before_part = len(participants)
+        participants[:] = [p for p in participants
+                           if not (p["event_key"] == ek and p["discipline_key"] == dk)]
+        removed_part = before_part - len(participants)
+
+        if removed_disc or removed_res or removed_part:
+            print(f"  QUARANTINED  ({ek}, {dk})  scope={scope}")
+            print(f"    removed: {removed_disc} disc, {removed_res} results, {removed_part} participants")
+            _q_applied += 1
+            _q_disc_removed += removed_disc
+            _q_result_removed += removed_res
+            _q_part_removed += removed_part
+        else:
+            print(f"  WARN  ({ek}, {dk}) not found in canonical data — skipping")
+
+    print(f"  Quarantine applied: {_q_applied}  "
+          f"disciplines: {_q_disc_removed}  results: {_q_result_removed}  "
+          f"participants: {_q_part_removed}")
+else:
+    print(f"\n[Quarantine] No quarantine rules file (create {QUARANTINE_RULES.name} to add)")
+
+# ── Team corrections: fix missing/corrupted partner data ──────────────────────
+# Applies manual corrections from team_corrections.csv.
+# Each row replaces participant data for a specific (event_key, discipline_key, placement).
+TEAM_CORRECTIONS = ROOT / "inputs" / "team_corrections.csv"
+_tc_applied = 0
+if TEAM_CORRECTIONS.exists():
+    print("\n[Team corrections] Loading team_corrections.csv...")
+    tc_rules: list[dict] = []
+    with open(TEAM_CORRECTIONS, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if row.get("active", "").strip() != "1":
+                continue
+            tc_rules.append(row)
+    print(f"  Active correction rules: {len(tc_rules)}")
+
+    for rule in tc_rules:
+        ek = rule["event_key"].strip()
+        dk = rule["discipline_key"].strip()
+        pl = rule["placement"].strip()
+        pa = rule["corrected_player_a"].strip()
+        pb = rule["corrected_player_b"].strip()
+        ctype = rule.get("correction_type", "").strip()
+
+        # Find matching participant rows
+        matching = [
+            p for p in participants
+            if p["event_key"] == ek and p["discipline_key"] == dk and p["placement"] == pl
+        ]
+        if not matching:
+            print(f"  WARN  ({ek}, {dk}, P{pl}) not found in participants — skipping")
+            continue
+
+        # Replace participant rows for this placement
+        # Remove existing rows for this (event, discipline, placement)
+        participants[:] = [
+            p for p in participants
+            if not (p["event_key"] == ek and p["discipline_key"] == dk and p["placement"] == pl)
+        ]
+
+        # Also remove from results if this is a PHANTOM_ROW deletion
+        if pa == "__REMOVE__":
+            before_res = len(results)
+            results[:] = [
+                r for r in results
+                if not (r["event_key"] == ek and r["discipline_key"] == dk and r["placement"] == pl)
+            ]
+            removed_res = before_res - len(results)
+            _tc_applied += 1
+            print(f"  REMOVED  ({ek}, {dk}, P{pl})  phantom row ({len(matching)} participants, {removed_res} results)")
+            continue
+
+        # Add corrected rows
+        base = dict(matching[0])  # copy metadata from first existing row
+        row_a = dict(base)
+        row_a["participant_order"] = "1"
+        row_a["display_name"] = pa
+        row_a["person_id"] = ""  # will be resolved by Fix 1 identity sync or next rebuild
+        row_a["notes"] = ""
+
+        row_b = dict(base)
+        row_b["participant_order"] = "2"
+        row_b["display_name"] = pb
+        row_b["person_id"] = ""
+        row_b["notes"] = ""
+
+        participants.extend([row_a, row_b])
+        _tc_applied += 1
+        print(f"  APPLIED  ({ek}, {dk}, P{pl})  {pa} / {pb}  [{ctype}]")
+
+    print(f"  Team corrections applied: {_tc_applied}")
+else:
+    print(f"\n[Team corrections] No file (create {TEAM_CORRECTIONS.name} to add)")
 
 # ── Fix 1 & 2: Identity Sync + Regex Deep-Clean ───────────────────────────────
 
@@ -1262,6 +2044,214 @@ else:
     print(f"  Result conflicts flagged: {_m_results_conflict}")
     print(f"  Participant rows added:   {_m_parts_added}")
 
+# ── Referential closure: backfill persons injected by 05p5 fixes ─────────────
+# _PART_A / _NEW_PLACEMENTS / inject blocks may set person_ids that were not
+# emitted by stage 05 (e.g. parse-failure corrections).  Ensure every non-empty
+# participant person_id has a matching row in persons.  Load from PT v51 if needed.
+
+print("\n[Closure] Checking referential closure for persons...")
+
+_05p5_written_pids = {p["person_id"] for p in persons if p.get("person_id", "").strip()}
+_05p5_part_pids = {
+    r["person_id"].strip()
+    for r in participants
+    if r.get("person_id", "").strip() and r["person_id"].strip() not in ("__NON_PERSON__",)
+}
+_05p5_missing = _05p5_part_pids - _05p5_written_pids
+
+if _05p5_missing:
+    _lock_files = sorted(
+        (ROOT / "inputs" / "identity_lock").glob("Persons_Truth_Final_v*.csv")
+    )
+    if not _lock_files:
+        raise FileNotFoundError(
+            f"Referential closure backfill failed: no Persons_Truth_Final_v*.csv "
+            f"found in {ROOT / 'inputs' / 'identity_lock'}"
+        )
+    _pt51_by_id: dict[str, dict] = {}
+    with open(_lock_files[-1], newline="", encoding="utf-8") as _fpt:
+        for _r in csv.DictReader(_fpt):
+            _eid = _r.get("effective_person_id", "").strip()
+            if _eid:
+                _pt51_by_id[_eid] = _r
+    _unresolved_closure: list[str] = []
+    _backfilled = 0
+    for _mpid in sorted(_05p5_missing):
+        if _mpid not in _pt51_by_id:
+            _unresolved_closure.append(_mpid)
+            continue
+        _pr = _pt51_by_id[_mpid]
+        _new_row = {f: "" for f in fields_persons}
+        _new_row["person_id"]   = _mpid
+        _new_row["person_name"] = _pr.get("person_canon", "").strip()
+        persons.append(_new_row)
+        _backfilled += 1
+    if _unresolved_closure:
+        raise RuntimeError(
+            f"Referential closure failed: {len(_unresolved_closure)} person_id(s) "
+            f"in participants cannot be found in {_lock_files[-1].name}:\n"
+            + "\n".join(f"  {p}" for p in _unresolved_closure)
+        )
+    print(f"  Backfilled {_backfilled} missing person(s) from {_lock_files[-1].name}")
+else:
+    print("  OK — all participant person_ids present in persons.")
+
+# ── Dedup: same person_id in same result slot ─────────────────────────────────
+# Must run after all person_id resolution steps (Fix 7, Fix 8, alias remap) so
+# that stub rows resolved late (empty pid → resolved by name in Fix 7) are also
+# caught.  PBP occasionally emits a direct resolved row AND an __NON_PERSON__
+# team-expansion row for the same person at the same placement; both may resolve
+# to the same person_id through different paths.
+
+_dedup_seen: set[tuple[str, str, str, str]] = set()
+_dedup_removed = 0
+_deduped_participants = []
+for row in participants:
+    pid = row.get("person_id", "")
+    if pid:
+        slot_pid = (row["event_key"], row["discipline_key"], row["placement"], pid)
+        if slot_pid in _dedup_seen:
+            _dedup_removed += 1
+            continue
+        _dedup_seen.add(slot_pid)
+    _deduped_participants.append(row)
+
+if _dedup_removed:
+    participants = _deduped_participants
+    print(f"\n[Dedup] Removed {_dedup_removed} duplicate person_id row(s) within same result slot")
+
+# ── Fix 9: Disambiguate bare division labels in multi-category events ─────────
+# When an event contains disciplines with explicit non-net tokens (Routines,
+# Golf, Consecutives, Distance, etc.) alongside bare labels (Open Singles,
+# Mixed Doubles, etc.), the bare labels are unambiguously Net.  Upgrade them to
+# "... Net", correct discipline_category to "net", and rename discipline_key to
+# match.  Cascade the key rename to results and participants.
+#
+# Trigger: event has ≥1 discipline whose name contains an explicit non-net token.
+# Guard:   discipline whose name already contains ANY explicit token is left alone.
+# Safety:  skip rename if new_key would collide with an existing discipline_key
+#          in the same event.
+
+print("\n[Fix 9] Disambiguating bare division labels in multi-category events...")
+
+_EXPLICIT_NONNET_TOKENS = frozenset([
+    # Freestyle
+    "routine", "routines", "freestyle", "shred", "circle", "sick",
+    "request", "battle", "ironman", "combo", "trick",
+    # Golf
+    "golf",
+    # Sideline
+    "consecutive", "consec", "distance", "one pass", "one-pass",
+    "2-square", "2 square", "two square", "four square", "4-square", "4 square",
+    # Overall (aggregate discipline — explicit, not ambiguous)
+    "overall",
+])
+_EXPLICIT_NET_TOKENS = frozenset(["net", "volley", "side-out", "side out", "rallye"])
+_ALL_EXPLICIT_TOKENS = _EXPLICIT_NONNET_TOKENS | _EXPLICIT_NET_TOKENS
+
+# Sentinel/placeholder names that must never be upgraded
+_FIX9_SKIP_SENTINELS = frozenset(["unknown", ""])
+
+
+def _has_nonnet_explicit(name: str) -> bool:
+    low = name.lower()
+    return any(tok in low for tok in _EXPLICIT_NONNET_TOKENS)
+
+
+def _has_any_explicit(name: str) -> bool:
+    low = name.lower()
+    return any(tok in low for tok in _ALL_EXPLICIT_TOKENS)
+
+
+# Events that contain ≥1 explicit non-net discipline → bare labels are Net
+_multi_cat_events: set[str] = {
+    d["event_key"] for d in disciplines
+    if _has_nonnet_explicit(d["discipline_name"])
+}
+
+# Build (event_key, discipline_key) → discipline_key index for collision check
+_existing_disc_keys: dict[str, set[str]] = {}
+for d in disciplines:
+    _existing_disc_keys.setdefault(d["event_key"], set()).add(d["discipline_key"])
+
+# Collect renames: (event_key, old_key) → new_key
+_f9_renames: dict[tuple[str, str], str] = {}
+_f9_upgraded = 0
+
+for d in disciplines:
+    ek = d["event_key"]
+    if ek not in _multi_cat_events:
+        continue
+    name = d["discipline_name"]
+    if name.strip().lower() in _FIX9_SKIP_SENTINELS:
+        continue  # sentinel/placeholder — never upgrade
+    if _has_any_explicit(name):
+        continue  # already has explicit token — leave as-is
+    # Bare label in a multi-category event → upgrade to Net
+    old_dk = d["discipline_key"]
+    new_dk = old_dk + "_net"
+    if new_dk in _existing_disc_keys.get(ek, set()):
+        print(f"    SKIP collision: {ek}: {old_dk!r} → {new_dk!r} already exists")
+        continue
+    _f9_renames[(ek, old_dk)] = new_dk
+    d["discipline_key"]      = new_dk
+    d["discipline_name"]     = name + " Net"
+    d["discipline_category"] = "net"
+    _f9_upgraded += 1
+    print(f"    {ek}: {name!r} → {name + ' Net'!r}")
+
+# Cascade key renames to results and participants
+_f9_results_updated = 0
+for r in results:
+    new_dk = _f9_renames.get((r["event_key"], r["discipline_key"]))
+    if new_dk:
+        r["discipline_key"] = new_dk
+        _f9_results_updated += 1
+
+_f9_parts_updated = 0
+for p in participants:
+    new_dk = _f9_renames.get((p["event_key"], p["discipline_key"]))
+    if new_dk:
+        p["discipline_key"] = new_dk
+        _f9_parts_updated += 1
+
+print(f"  Bare labels upgraded to Net: {_f9_upgraded}")
+print(f"  Results rows updated:        {_f9_results_updated}")
+print(f"  Participant rows updated:    {_f9_parts_updated}")
+
+# ── Fix 10: Pre-1993 governing-body host_club assignment ──────────────────────
+# Events through 1982 were organised under the NHSA (National Hacky Sack
+# Association).  The WFA (World Footbag Association) succeeded NHSA in 1983.
+# Rule:
+#   • "NHSA" in event_name                   → host_club = "NHSA"  (explicit tag)
+#   • year < 1983 (and no explicit tag)       → host_club = "NHSA"  (year-based)
+#   • 1983 ≤ year ≤ 1993 (no explicit tag)   → host_club = "WFA"
+# Events with host_club already set are left unchanged.
+# Events in 1983 that carry "(NHSA)" in their name receive "NHSA"; all others
+# in 1983 receive "WFA" — matching the confirmed transition year.
+
+print("\n[Fix 10] Assigning host_club for pre-1993 governing body events...")
+_f10_assigned = 0
+for ev in events:
+    if ev.get("host_club"):          # already set — do not override
+        continue
+    yr_str = ev.get("year", "")
+    if not yr_str or not yr_str.isdigit():
+        continue
+    yr = int(yr_str)
+    if yr > 1993:
+        continue
+    name = ev.get("event_name", "")
+    if "NHSA" in name or yr < 1983:
+        ev["host_club"] = "NHSA"
+    else:                             # 1983–1993, not explicitly NHSA-named
+        ev["host_club"] = "WFA"
+    _f10_assigned += 1
+
+print(f"  host_club assigned: {_f10_assigned} events  "
+      f"(NHSA: {sum(1 for e in events if e.get('host_club') == 'NHSA' and int(e.get('year','0') or 0) <= 1993)}, "
+      f"WFA: {sum(1 for e in events if e.get('host_club') == 'WFA')})")
+
 # ── Save ──────────────────────────────────────────────────────────────────────
 
 print("\nSaving...")
@@ -1300,6 +2290,9 @@ print(f"""
 ╔══════════════════════════════════════════╗
 ║   Relational Health Report — Stage 05p5 ║
 ╠══════════════════════════════════════════╣
+║ Fix 0  Discipline fixes applied          {_f0_applied:>6,} ║
+║        Ghost rows removed (retag)       {_f0_ghost_removed:>6,} ║
+║        Participant rows reshaped (out)  {_f0_reshape_removed:>6,} ║
 ║ Fix 1  Names synced from person master   {names_from_master:>6,} ║
 ║ Fix 2  Names regex-cleaned (unresolved)  {names_regex_cleaned:>6,} ║
 ║ Fix 3  Disciplines remapped→singles      {remapped:>6,} ║
@@ -1309,6 +2302,8 @@ print(f"""
 ║ Fix 6  Participants renumbered (seq)     {seq_normalized:>6,} ║
 ║ Fix 7  Resolved by exact name match      {_f7_name_match:>6,} ║
 ║        Left unresolved (empty pid)       {_f7_left_empty:>6,} ║
+║ Fix 9  Bare labels → Net                 {_f9_upgraded:>6,} ║
+║ Fix 10 host_club assigned (NHSA/WFA)     {_f10_assigned:>6,} ║
 ║ Pre97  Parse failures repaired           {_pA_fixed:>6,} ║
 ║        Missing placements added          {_pB_results_added:>6,} ║
 ╠══════════════════════════════════════════╣
@@ -1322,8 +2317,3 @@ print(f"""
 ╚══════════════════════════════════════════╝
 """)
 
-# Copy persons.csv (not modified by 05p5) to platform output
-if PLATFORM_OUT is not None:
-    import shutil
-    shutil.copy2(CANONICAL / "persons.csv", PLATFORM_OUT / "persons.csv")
-    print(f"  Copied persons.csv → {PLATFORM_OUT}")
